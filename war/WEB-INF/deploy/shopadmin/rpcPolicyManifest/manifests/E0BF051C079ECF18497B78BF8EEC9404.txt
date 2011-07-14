@@ -1,2 +1,0 @@
-serviceClass: com.spshop.admin.client.QueryService
-path: A09CB373BCA681AEE22CFB885D867108.gwt.rpc
