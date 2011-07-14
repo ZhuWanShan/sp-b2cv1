@@ -7,7 +7,7 @@
 		<property name="target" ref="com.spshop.service.intf.UserService.target" />
 	</bean>
 	-->
-	<bean id="com.spshop.service.intf.FeedBackService.target" class="com.spshop.service.impl.FeedBackService">
+	<bean id="com.spshop.service.intf.FeedBackService.target" class="com.spshop.service.impl.FeedBackServiceImpl">
 	</bean>
 	<bean id="com.spshop.service.intf.FeedBackService" parent="transactionBase">
 		<property name="target" ref="com.spshop.service.intf.FeedBackService.target" />

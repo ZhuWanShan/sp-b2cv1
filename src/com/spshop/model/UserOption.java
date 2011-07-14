@@ -6,20 +6,27 @@ public class UserOption extends Component{
 	 * 
 	 */
 	private static final long serialVersionUID = -1976590524674580292L;
-	private ProductOption option;
-	private ProductionOptionItem selectedItem;
 	
-	public ProductOption getOption() {
+	private String option;
+	private String value;
+	private OrderItem orderItem;
+	public String getOption() {
 		return option;
 	}
-	public void setOption(ProductOption option) {
+	public void setOption(String option) {
 		this.option = option;
 	}
-	public ProductionOptionItem getSelectedItem() {
-		return selectedItem;
+	public String getValue() {
+		return value;
 	}
-	public void setSelectedItem(ProductionOptionItem selectedItem) {
-		this.selectedItem = selectedItem;
+	public void setValue(String value) {
+		this.value = value;
+	}
+	public OrderItem getOrderItem() {
+		return orderItem;
+	}
+	public void setOrderItem(OrderItem orderItem) {
+		this.orderItem = orderItem;
 	}
 	
 }

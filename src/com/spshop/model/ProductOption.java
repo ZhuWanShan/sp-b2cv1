@@ -11,11 +11,11 @@ public class ProductOption extends Component{
 	
 	private String description;
 	
-	private List<ProductionOptionItem> items;
+	private List<ProductOptionItem> items;
 	
-	private SelectType selectType;
+	private String strSelectType;
 	
-	private ProductionOptionItem defaultOption;
+	private String defaultValue;
 	
 	private Product product;
 
@@ -27,20 +27,23 @@ public class ProductOption extends Component{
 		this.description = description;
 	}
 
-	public List<ProductionOptionItem> getItems() {
+	public List<ProductOptionItem> getItems() {
 		return items;
 	}
 
-	public void setItems(List<ProductionOptionItem> items) {
+	public void setItems(List<ProductOptionItem> items) {
 		this.items = items;
 	}
 
 	public void setSelectType(SelectType selectType) {
-		this.selectType = selectType;
+		this.strSelectType= selectType.getValue();
 	}
 
 	public SelectType getSelectType() {
-		return selectType;
+		if(strSelectType==null){
+			return null;
+		}
+		return SelectType.valueOf(strSelectType.toUpperCase());
 	}
 
 	public void setProduct(Product product) {
@@ -51,12 +54,20 @@ public class ProductOption extends Component{
 		return product;
 	}
 
-	public void setDefaultOption(ProductionOptionItem defaultOption) {
-		this.defaultOption = defaultOption;
+	public void setStrSelectType(String strSelectType) {
+		this.strSelectType = strSelectType;
 	}
 
-	public ProductionOptionItem getDefaultOption() {
-		return defaultOption;
+	public String getStrSelectType() {
+		return strSelectType;
+	}
+
+	public void setDefaultValue(String defaultValue) {
+		this.defaultValue = defaultValue;
+	}
+
+	public String getDefaultValue() {
+		return defaultValue;
 	}
 	
 }

@@ -13,7 +13,7 @@ public class Order extends Component{
 	private String customerCompany;
 	private String customerAddress;
 	private String customerTelephone;
-	private String customerContry;
+	private String customerCountry;
 	private String customerEmail;
 	private String customerZipcode;
 	private User user;
@@ -22,7 +22,7 @@ public class Order extends Component{
 	private String deliverPhone;
 	private List<OrderItem> items;
 	private List<Coupon> coupons;
-	private float tatalPrice;
+	private float totalPrice;
 	private OrderStatus status;
 	public Order() {
 		// TODO Auto-generated constructor stub
@@ -60,13 +60,6 @@ public class Order extends Component{
 		this.customerTelephone = customerTelephone;
 	}
 
-	public String getCustomerContry() {
-		return customerContry;
-	}
-
-	public void setCustomerContry(String customerContry) {
-		this.customerContry = customerContry;
-	}
 
 	public String getCustomerEmail() {
 		return customerEmail;
@@ -132,20 +125,28 @@ public class Order extends Component{
 		return coupons;
 	}
 
-	public void setTatalPrice(float tatalPrice) {
-		this.tatalPrice = tatalPrice;
-	}
-
-	public float getTatalPrice() {
-		return tatalPrice;
-	}
-
 	public void setStatus(OrderStatus status) {
 		this.status = status;
 	}
 
 	public OrderStatus getStatus() {
 		return status;
+	}
+
+	public void setCustomerCountry(String customerCountry) {
+		this.customerCountry = customerCountry;
+	}
+
+	public String getCustomerCountry() {
+		return customerCountry;
+	}
+
+	public void setTotalPrice(float totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public float getTotalPrice() {
+		return totalPrice;
 	}
 	
 }
