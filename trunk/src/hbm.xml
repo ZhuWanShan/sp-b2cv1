@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping package="com.spshop.model">
-	<class name="Address" table="SHOP_Address">
+	<!-- <class name="Address" table="SHOP_Address">
 		<id name="id" column="ID">
 			<generator class="identity"></generator>
 		</id>
@@ -11,7 +11,7 @@
 		<many-to-one name="site" class="Site" insert="false" update="false" column="site_id"></many-to-one>
 		
 		<property name="address" length="255"></property>
-	</class>
+	</class> -->
 
 	<class name="Category" table="SHOP_Category">
 		<id name="id" column="ID">
@@ -42,7 +42,7 @@
 		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
 		
 		<property name="content" length="8000"></property>
-		<property name="rate" length="int"></property>
+		<property name="rate"></property>
 		<many-to-one name="product" class="Product" column="product_id"></many-to-one>
 		<bag name="replyList">
 			<key>
@@ -120,7 +120,7 @@
 		<property name="updateDate"></property>
 		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
 		
-		<property name="altTtitle" length="200"></property>
+		<property name="altTitle" length="200"></property>
 		<property name="largerUrl" length="200"></property>
 		<property name="logoUrl" length="200"></property>
 		<property name="noChangeUrl" length="200"></property>
@@ -201,7 +201,7 @@
 		<property name="updateDate"></property>
 		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
 		
-		<property name="satus"></property>
+		<property name="status"></property>
 	</class>
 	
 	<class name="Product" table="SHOP_Product">
@@ -270,10 +270,10 @@
 		<property name="displayName" length="200"></property>
 		<property name="value" length="400"></property>
 		<many-to-one name="icon" class="Image" column="icon_id"></many-to-one>
-		<many-to-one name="option" class="ProductOption" column="option_id"></many-to-one>
+		<many-to-one name="option" class="ProductOption" column="product_option_id"></many-to-one>
 	</class>
 	
-	<class name="ProductOption" table="SHOP_ProductOptionItem">
+	<class name="ProductProperty" table="SHOP_ProductProperty">
 		<id name="id" column="ID">
 			<generator class="identity"></generator>
 		</id>
@@ -281,11 +281,8 @@
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
 		
-		<property name="altTitle" length="200"></property>
-		<property name="displayName" length="200"></property>
-		<property name="value" length="400"></property>
-		<many-to-one name="icon" class="Image" column="icon_id"></many-to-one>
-		<many-to-one name="option" class="ProductOption" column="option_id"></many-to-one>
+		<property name="detail" length="1000"></property>
+		<many-to-one name="product" class="Product" column="product_id"></many-to-one>
 	</class>
 	
 	<class name="Promotion" table="SHOP_Promotion" discriminator-value="Promotion">
@@ -324,6 +321,52 @@
 			</join>
 		</subclass>
 	</class>
+	
+	<class name="Site" table="SHOP_Site">
+		<id name="id" column="ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="domain" length="100"></property>
+		<property name="imageMagicCommand" length="200"></property>
+		<property name="imagePath"></property>
+		<property name="suffix" length="100"></property>
+		<property name="prefix" length="100"></property>
+		<many-to-one name="logo" class="Image" column="log_id"></many-to-one>
+	</class>
+	
+	<class name="User" table="SHOP_User">
+		<id name="id" column="ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" length="100"></property>
+		<property name="createDate"></property>
+		<property name="updateDate"></property>
+		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		
+		<property name="address" length="200"></property>
+		<property name="country" length="50"></property>
+		<property name="email" length="200"></property>
+		<property name="firstName" length="200"></property>
+		<property name="lastName" length="200"></property>
+		<property name="password" length="200"></property>
+		<property name="telephone" length="200"></property>
+		<property name="zipcode" length="200"></property>
+	</class>
+	
+	<class name="UserOption" table="SHOP_UserOption">
+		<id name="id" column="ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" length="100"></property>
+		<property name="createDate"></property>
+		<property name="updateDate"></property>
+		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		
+		<property name="option" length="200"></property>
+		<property name="value" length="200"></property>
+		<many-to-one name="orderItem" class="OrderItem" column="order_item_id"></many-to-one>
+	</class>
+	
 	
 <!-- 
 	

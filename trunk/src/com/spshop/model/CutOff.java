@@ -7,14 +7,14 @@ public class CutOff extends Promotion{
 	 */
 	private static final long serialVersionUID = -562444859345858925L;
 	
-	private int pecent;
+	private int percent;
 
-	public int getPecent() {
-		return pecent;
+	public void setPercent(int percent) {
+		this.percent = percent;
 	}
 
-	public void setPecent(int pecent) {
-		this.pecent = pecent;
+	public int getPercent() {
+		return percent;
 	}
-	
+
 }
