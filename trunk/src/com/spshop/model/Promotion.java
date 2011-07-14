@@ -12,7 +12,7 @@ public class Promotion extends Component{
 	private Date startDate;
 	private Date endDate;
 	
-	private PromotionStatusType status;
+	private String strStatus;
 
 	public Date getStartDate() {
 		return startDate;
@@ -31,11 +31,22 @@ public class Promotion extends Component{
 	}
 
 	public PromotionStatusType getStatus() {
-		return status;
+		if(null==strStatus){
+			return null;
+		}
+		return PromotionStatusType.valueOf(strStatus.toUpperCase());
 	}
 
 	public void setStatus(PromotionStatusType status) {
-		this.status = status;
+		this.strStatus = status.getValue();
+	}
+
+	public void setStrStatus(String strStatus) {
+		this.strStatus = strStatus;
+	}
+
+	public String getStrStatus() {
+		return strStatus;
 	}
 
 }

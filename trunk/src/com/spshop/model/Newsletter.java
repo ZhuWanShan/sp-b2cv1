@@ -6,12 +6,12 @@ public class Newsletter extends Component{
 	 * 
 	 */
 	private static final long serialVersionUID = -2080852687949263927L;
-	private String eamil;
-	public void setEamil(String eamil) {
-		this.eamil = eamil;
+	private String email;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getEamil() {
-		return eamil;
+	public String getEmail() {
+		return email;
 	}
 
 }

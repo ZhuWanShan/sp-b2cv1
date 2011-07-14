@@ -12,14 +12,16 @@ public class Product extends Component{
 	private int hit;
 	private int priority;
 	private int rate;
-	private int rateTotal;
 	private int commentsTotal;
 	private String abstractText;
 	private String detail;
 	private int weight;
+	private String title;
+	private String rateCount;
 	private CutOff cutOff;
 	private List<ProductOption> options;
-	private List<ProductionProperty> properties;
+	private List<ProductProperty> properties;
+	private List<Image> images;
 	
 	public String getKeywords() {
 		return keywords;
@@ -44,12 +46,6 @@ public class Product extends Component{
 	}
 	public void setRate(int rate) {
 		this.rate = rate;
-	}
-	public int getRateTotal() {
-		return rateTotal;
-	}
-	public void setRateTotal(int rateTotal) {
-		this.rateTotal = rateTotal;
 	}
 	public int getCommentsTotal() {
 		return commentsTotal;
@@ -87,11 +83,29 @@ public class Product extends Component{
 	public void setOptions(List<ProductOption> options) {
 		this.options = options;
 	}
-	public List<ProductionProperty> getProperties() {
+	public List<ProductProperty> getProperties() {
 		return properties;
 	}
-	public void setProperties(List<ProductionProperty> properties) {
+	public void setProperties(List<ProductProperty> properties) {
 		this.properties = properties;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setRateCount(String rateCount) {
+		this.rateCount = rateCount;
+	}
+	public String getRateCount() {
+		return rateCount;
+	}
+	public void setImages(List<Image> images) {
+		this.images = images;
+	}
+	public List<Image> getImages() {
+		return images;
 	}
 	
 }
