@@ -10,8 +10,9 @@ public class Site extends Component{
 	private Image logo;
 	private String prefix;
 	private String suffix;
-	private String doamin;
+	private String domain;
 	private String imagePath;
+	private String imageMagicCommand;
 	
 	public Site() {
 	}
@@ -40,20 +41,28 @@ public class Site extends Component{
 		this.suffix = suffix;
 	}
 
-	public String getDoamin() {
-		return doamin;
-	}
-
-	public void setDoamin(String doamin) {
-		this.doamin = doamin;
-	}
-
 	public String getImagePath() {
 		return imagePath;
 	}
 
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
+	}
+
+	public void setImageMagicCommand(String imageMagicCommand) {
+		this.imageMagicCommand = imageMagicCommand;
+	}
+
+	public String getImageMagicCommand() {
+		return imageMagicCommand;
+	}
+
+	public void setDomain(String domain) {
+		this.domain = domain;
+	}
+
+	public String getDomain() {
+		return domain;
 	}
 
 }

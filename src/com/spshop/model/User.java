@@ -13,7 +13,7 @@ public class User extends Component{
 	private String password;
 	private String country;
 	private String address;
-	private String zipCode;
+	private String zipcode;
 	
 	public User() {
 		// TODO Auto-generated constructor stub
@@ -75,12 +75,12 @@ public class User extends Component{
 		this.address = address;
 	}
 
-	public String getZipCode() {
-		return zipCode;
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
 	}
 
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
+	public String getZipcode() {
+		return zipcode;
 	}
-	
+
 }

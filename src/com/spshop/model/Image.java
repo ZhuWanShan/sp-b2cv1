@@ -7,7 +7,7 @@ public class Image extends Component{
 	 */
 	private static final long serialVersionUID = -1698610860522003320L;
 	
-	private String altTtile;
+	private String altTitle;
 	private String noChangeUrl;
 
 	private String logoUrl;
@@ -89,12 +89,12 @@ public class Image extends Component{
 		return iconUrl;
 	}
 
-	public void setAltTtile(String altTtile) {
-		this.altTtile = altTtile;
+	public void setAltTitle(String altTitle) {
+		this.altTitle = altTitle;
 	}
 
-	public String getAltTtile() {
-		return altTtile;
+	public String getAltTitle() {
+		return altTitle;
 	}
 
 }
