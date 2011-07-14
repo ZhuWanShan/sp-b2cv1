@@ -44,6 +44,5 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/struts.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/mysql-connector-java-5.1.6-bin.jar"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER/gwt-2.3.0"/>
-	<classpathentry kind="lib" path="gwtext.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
