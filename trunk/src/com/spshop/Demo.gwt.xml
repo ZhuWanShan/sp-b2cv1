@@ -7,5 +7,6 @@
 	<source path="demo/client" />
 	<source path="demo" />
 	<source path="admin/client" />
+	<source path="admin/client/businessui" />
 	<source path="model" />
 </module>

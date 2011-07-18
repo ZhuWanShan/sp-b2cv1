@@ -1,14 +1,16 @@
 package com.spshop.admin.client;
 
 
-import com.google.gwt.user.client.Window;
+import com.spshop.admin.client.businessui.ImageCreation;
+import com.spshop.admin.client.businessui.ProductCreation;
 
 public class CommandFactory {
 	public static Command createProduct(){
 		return new CommandAdapter() {
 			@Override
 			public void execute() {
-				Window.alert("Create Product");
+				AdminWorkspace.contentPanel.body.clear();
+				AdminWorkspace.contentPanel.body.add(new ProductCreation());
 			}
 		};
 	}
@@ -17,7 +19,9 @@ public class CommandFactory {
 		return new CommandAdapter() {
 			@Override
 			public void execute() {
-				Window.alert("Create Image");
+				//Window.alert("Create Image");
+				AdminWorkspace.contentPanel.body.clear();
+				AdminWorkspace.contentPanel.body.add(new ImageCreation());
 			}
 		};
 	}

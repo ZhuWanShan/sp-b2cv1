@@ -17,6 +17,7 @@ import com.google.gwt.user.client.ui.StackLayoutPanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.TreeViewModel;
+import com.spshop.admin.client.businessui.ImageCreation;
 
 public class Demo implements EntryPoint {
 
@@ -98,13 +99,16 @@ public class Demo implements EntryPoint {
 	    list.add("A");
 	    list.add("B");
 	    list.add("C");
-	    helloWorldUI.setName(list);
-	    RootPanel.get().add(helloWorldUI);
+	    //helloWorldUI.setName(list);
+	    //RootPanel.get().add(helloWorldUI);
 	    //Document.get().getBody().appendChild(helloWorldUI.getElement());
 	    
-	    RootPanel.get().add(new Accordion());
+	   // RootPanel.get().add(new Accordion());
 	    
-		RootPanel.get().add(tree);
+		//RootPanel.get().add(tree);
+		
+		RootPanel.get().add(new ImageCreation());
+		RootPanel.get().add(tabLayoutPanel);
 		
 	}
 	
