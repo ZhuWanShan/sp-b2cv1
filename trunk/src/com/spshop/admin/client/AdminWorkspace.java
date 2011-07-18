@@ -58,7 +58,7 @@ public class AdminWorkspace implements EntryPoint {
     // Inject global styles.
     GWT.<GlobalResources>create(GlobalResources.class).css().ensureInjected();
 
-    // Create the UI defined in Mail.ui.xml.
+    // Create the UI defined in AdminWorkspace.ui.xml.
     DockLayoutPanel outer = binder.createAndBindUi(this);
 
     // Get rid of scrollbars, and clear out the window's built-in margin,
