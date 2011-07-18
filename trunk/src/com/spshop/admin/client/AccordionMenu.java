@@ -42,11 +42,14 @@ public class AccordionMenu extends Composite {
 			@Override
 			public void onSelection(SelectionEvent<TreeItem> item) {
 				AccordianItem  accordianItem = (AccordianItem)item.getSelectedItem();
-				PopWindow popWindow = new PopWindow(accordianItem.getTitle() , new HTML("Loading...") ,true,true);
-				popWindow.center();
-				accordianItem.getComand().execute();
-				popWindow.hide();
-				RootPanel.get().remove(popWindow);
+				if(null!=accordianItem.getComand() && !accordianItem.getComand().isEmpty()){
+					AdminWorkspace.contentPanel.setTitle(accordianItem.getTitle());
+					PopWindow popWindow = new PopWindow(accordianItem.getTitle() , new HTML("Loading...") ,true,true);
+					popWindow.center();
+					accordianItem.getComand().execute();
+					popWindow.hide();
+					RootPanel.get().remove(popWindow);
+				}
 			}
 		};
 		return selectionHandler;

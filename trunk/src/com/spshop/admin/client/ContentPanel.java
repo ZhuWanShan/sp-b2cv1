@@ -19,6 +19,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.ResizeComposite;
 import com.google.gwt.user.client.ui.Widget;
@@ -26,28 +27,31 @@ import com.google.gwt.user.client.ui.Widget;
 /**
  * A composite for displaying the details of an email message.
  */
-public class MailDetail extends ResizeComposite {
+public class ContentPanel extends ResizeComposite {
 
-  interface Binder extends UiBinder<Widget, MailDetail> { }
+  interface Binder extends UiBinder<Widget, ContentPanel> { }
   private static final Binder binder = GWT.create(Binder.class);
 
   @UiField Element subject;
-  @UiField Element sender;
-  @UiField Element recipient;
-  @UiField HTML body;
+  @UiField FlowPanel body;
 
-  public MailDetail() {
+  public ContentPanel() {
     initWidget(binder.createAndBindUi(this));
+    subject.setInnerText("Broadcast");
+    body.add(new HTML("This application is belong to Spark and his team, Thanks for all team memebers' hard work!!!"));
   }
 
+  
+  public void setTitle(String title){
+	  subject.setInnerText(title);
+  }
+  
   public void setItem(MailItem item) {
-    subject.setInnerText(item.subject);
-    sender.setInnerText(item.sender);
-    recipient.setInnerHTML("foo@example.com");
+    subject.setInnerText("create Product");
 
     // WARNING: For the purposes of this demo, we're using HTML directly, on
     // the assumption that the "server" would have appropriately scrubbed the
     // HTML. Failure to do so would open your application to XSS attacks.
-    body.setHTML(item.body);
+    //body.setHTML(item.body);
   }
 }

@@ -28,10 +28,7 @@
     <div class='{style.logo}'/>
 
     <div class='{style.aboutText}'>
-    This sample application demonstrates the
-    construction of a complex user interface using GWT's built-in
-    widgets. Have a look at the code to see how easy it is to build
-    your own apps!
+  This application is belong to Spark and his team, Thanks for all team memebers' hard work!!!
     </div>
 
     <div class='{style.buttons}'>

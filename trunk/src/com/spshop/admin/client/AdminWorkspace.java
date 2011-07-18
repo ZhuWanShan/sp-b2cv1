@@ -28,11 +28,6 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 
-/**
- * This application demonstrates how to construct a relatively complex user
- * interface, similar to many common email readers. It has no back-end,
- * populating its components with hard-coded data.
- */
 public class AdminWorkspace implements EntryPoint {
 
   interface Binder extends UiBinder<DockLayoutPanel, AdminWorkspace> { }
@@ -45,15 +40,10 @@ public class AdminWorkspace implements EntryPoint {
 
   private static final Binder binder = GWT.create(Binder.class);
 
-  @UiField TopPanel topPanel;
-  @UiField MailList mailList;
-  @UiField MailDetail mailDetail;
-  @UiField Shortcuts shortcuts;
+  @UiField public static TopPanel topPanel;
+  @UiField public static ContentPanel contentPanel;
+  @UiField public static Shortcuts shortcuts;
 
-  /**
-   * This method constructs the application user interface by instantiating
-   * controls and hooking up event handler.
-   */
   public void onModuleLoad() {
     // Inject global styles.
     GWT.<GlobalResources>create(GlobalResources.class).css().ensureInjected();
@@ -73,11 +63,11 @@ public class AdminWorkspace implements EntryPoint {
 
     // Listen for item selection, displaying the currently-selected item in
     // the detail area.
-    mailList.setListener(new MailList.Listener() {
+    /*mailList.setListener(new MailList.Listener() {
       public void onItemSelected(MailItem item) {
         mailDetail.setItem(item);
       }
-    });
+    });*/
 
     // Add the outer panel to the RootLayoutPanel, so that it will be
     // displayed.

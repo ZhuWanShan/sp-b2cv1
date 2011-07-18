@@ -5,7 +5,7 @@ import com.google.gwt.user.client.Window;
 
 public class CommandFactory {
 	public static Command createProduct(){
-		return new Command() {
+		return new CommandAdapter() {
 			@Override
 			public void execute() {
 				Window.alert("Create Product");
@@ -14,7 +14,7 @@ public class CommandFactory {
 	}
 	
 	public static Command createImage(){
-		return new Command() {
+		return new CommandAdapter() {
 			@Override
 			public void execute() {
 				Window.alert("Create Image");
@@ -23,9 +23,10 @@ public class CommandFactory {
 	}
 	
 	public static Command emptyCommand(){
-		return new Command() {
+		return new CommandAdapter() {
 			@Override
-			public void execute() {
+			public boolean isEmpty() {
+				return true;
 			}
 		};
 	}
