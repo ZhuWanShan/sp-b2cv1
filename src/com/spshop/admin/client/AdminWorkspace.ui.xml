@@ -14,12 +14,12 @@
           <mail:Shortcuts ui:field='shortcuts' />
         </g:west>
 
-        <g:north size='200'>
+        <!-- <g:north size='200'>
           <mail:MailList ui:field='mailList' />
         </g:north>
-
+ -->
         <g:center>
-          <mail:MailDetail ui:field='mailDetail' />
+          <mail:ContentPanel ui:field="contentPanel"></mail:ContentPanel>
         </g:center>
       </g:SplitLayoutPanel>
     </g:center>

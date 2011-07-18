@@ -11,7 +11,7 @@
   .header {
     background: #eee;
     border-bottom: 1px solid #666;
-    padding: 0.5em;
+    padding: 0.25em;
   }
 
   .headerItem {
@@ -26,17 +26,15 @@
   </ui:style>
 
   <g:DockLayoutPanel unit='EM' styleName='{style.detail}'>
-    <g:north size='6'>
+    <g:north size='2'>
       <g:HTMLPanel styleName='{style.header}'>
         <div class='{style.headerItem}' ui:field='subject'/>
-        <div class='{style.headerItem}'><b>From:</b> <span ui:field='sender'/></div>
-        <div class='{style.headerItem}'><b>To:</b> <span ui:field='recipient'/></div>
       </g:HTMLPanel>
     </g:north>
 
     <g:center>
       <g:ScrollPanel>
-        <g:HTML styleName='{style.body}' ui:field='body' wordWrap='true'/>
+        <g:FlowPanel styleName='{style.body}' ui:field='body'/>
       </g:ScrollPanel>
     </g:center>
   </g:DockLayoutPanel>
