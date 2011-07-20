@@ -1,4 +1,4 @@
-/*µ×²¿ËÑË÷À¸*/
+/*åº•éƒ¨æœç´¢æ */
 jq(function(){
 	jq('#textfield0').w_nullInputState(head_SearchKeywordsNo.htmlToStr());
 	jq('#textfield0').next().bind('click',checksearch2);	
@@ -8,7 +8,7 @@ function checksearch2(){
 			return false;
 		}
 }
-/*DFPÏµÍ³¹ã¸æ¼ÓÔØ*/
+/*DFPç³»ç»Ÿå¹¿å‘ŠåŠ è½½*/
 var clock;
 jq(function(){
 	var $brandtmp=jq('#brand_bigAD_tmp'),$brand=jq('#brand_bigAD');
@@ -50,9 +50,9 @@ jq(function(){
 	}
 	
 /*
- * Éú³É¶¥²¿DFP¹ã¸æÎ»µÄµ¹¼ÆÊ±
- * @param string adContainerId ¹ã¸æÈİÆ÷ID
- * @param int  sec µ¹¼ÆÊ±Ê£ÓàÃëÊı
+ * ç”Ÿæˆé¡¶éƒ¨DFPå¹¿å‘Šä½çš„å€’è®¡æ—¶
+ * @param string adContainerId å¹¿å‘Šå®¹å™¨ID
+ * @param int  sec å€’è®¡æ—¶å‰©ä½™ç§’æ•°
  */
 function genTopAddCountDown(adContainerId,sec)
 {			

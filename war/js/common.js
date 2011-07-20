@@ -97,9 +97,9 @@ function menuShow(tabid) {
 	}
 }
 
-//½áÊø
+//ç»“æŸ
 
-function isUndefined(variable) {//ÅĞ¶Ï±äÁ¿ÊÇ·ñ´æÔÚ
+function isUndefined(variable) {//åˆ¤æ–­å˜é‡æ˜¯å¦å­˜åœ¨
 	return typeof variable == 'undefined' ? true : false;
 }
 
@@ -107,7 +107,7 @@ function redirect(url) {
 	window.location.replace(url);
 }
 
-function setMenuPosition(showid, offset ,w,y,menuobj) {//²ã¶¨Î»
+function setMenuPosition(showid, offset ,w,y,menuobj) {//å±‚å®šä½
 	var showobj = $(showid);
 	if(isUndefined(menuobj)) {
 		menuobj = $(showid + '_menu');
@@ -144,7 +144,7 @@ function fetchOffset(obj) {
 	};
 }
 
-function setMenuPosition2(showid, offset ,w,y,menuobj) {//²ã¶¨Î»
+function setMenuPosition2(showid, offset ,w,y,menuobj) {//å±‚å®šä½
 	var showobj = $(showid);
 	if(isUndefined(menuobj)) {
 		menuobj = $(showid + '_menu');
@@ -186,11 +186,11 @@ function fetchOffset2(obj) {
 	};
 }
 
-/*ajax¿ªÊ¼*/
+/*ajaxå¼€å§‹*/
 var iswarning='';
 var Charges='';
 var check_img='';
-function ajaxresponse(objname, data ,http,jsname,Charges,css,succ) {//ajaxÈ¡Öµ²¢ÅĞ¶Ï
+function ajaxresponse(objname, data ,http,jsname,Charges,css,succ) {//ajaxå–å€¼å¹¶åˆ¤æ–­
 	var x = new Ajax('XML', objname);
 	if(isUndefined(http))
 		http = '';
@@ -219,7 +219,7 @@ function ajaxresponse(objname, data ,http,jsname,Charges,css,succ) {//ajaxÈ¡Öµ²¢
 	});
 }
 
-function warning(obj, msg ,css) {//·µ»ØÖµ´íÎóÌáÊ¾
+function warning(obj, msg ,css) {//è¿”å›å€¼é”™è¯¯æç¤º
 	if( msg.substr(0, 1) == '0') {
 		check_img='check_error.gif';
 		if(css) {
@@ -241,7 +241,7 @@ function warning(obj, msg ,css) {//·µ»ØÖµ´íÎóÌáÊ¾
 	obj.style.display = '';
 }
 
-function ajax_js(iswarning, jsname,Charges) {//Êı×é°üÀ¨ÅĞ¶Ï
+function ajax_js(iswarning, jsname,Charges) {//æ•°ç»„åŒ…æ‹¬åˆ¤æ–­
 	switch ( jsname ) {
 		case 'gm':
 			if(iswarning==0)
@@ -259,13 +259,13 @@ function ajax_js(iswarning, jsname,Charges) {//Êı×é°üÀ¨ÅĞ¶Ï
 	}
 }
 
-/*ajax½áÊø*/
-function arraypush(a, value) {//ÉèÖÃÒ»¸öĞÂÖµµ½Ö¸¶¨Êı×éµÄ×îºóÒ»Î»¡£Êı×é³¤¶È×Ô¶¯¼ÓÒ»¡£
+/*ajaxç»“æŸ*/
+function arraypush(a, value) {//è®¾ç½®ä¸€ä¸ªæ–°å€¼åˆ°æŒ‡å®šæ•°ç»„çš„æœ€åä¸€ä½ã€‚æ•°ç»„é•¿åº¦è‡ªåŠ¨åŠ ä¸€ã€‚
 	a[a.length] = value;
 	return a.length;
 }
 
-function in_array(needle, haystack) {//Êı×é°üÀ¨ÅĞ¶Ï
+function in_array(needle, haystack) {//æ•°ç»„åŒ…æ‹¬åˆ¤æ–­
 	if(typeof needle == 'string') {
 		for(var i in haystack) {
 			if(haystack[i] == needle) {
@@ -276,13 +276,13 @@ function in_array(needle, haystack) {//Êı×é°üÀ¨ÅĞ¶Ï
 	return false;
 }
 
-function getcook(name) {//cookie¶ÁÈ¡
+function getcook(name) {//cookieè¯»å–
 	var cookie_start = document.cookie.indexOf(name);
 	var cookie_end = document.cookie.indexOf(";", cookie_start);
 	return cookie_start == -1 ? '' : unescape(document.cookie.substring(cookie_start + name.length + 1, (cookie_end > cookie_start ? cookie_end : document.cookie.length)));
 }
 
-function setcook(cookieName, cookieValue, seconds, path, domain, secure) {//cookieĞ´Èë
+function setcook(cookieName, cookieValue, seconds, path, domain, secure) {//cookieå†™å…¥
 	var expires = new Date();
 	expires.setTime(expires.getTime() + seconds);
 	document.cookie = escape(cookieName) + '=' + escape(cookieValue)
@@ -395,7 +395,7 @@ function HeadMenu(id) {
 	};
 }
 
-//DIV¶¨Î»º¯Êı
+//DIVå®šä½å‡½æ•°
 function getAbsolutePosition(obj) {
 	position = new Object();
 	position.x = 0;
@@ -416,13 +416,13 @@ function getAbsolutePosition(obj) {
 }
 
 function get_request(reqURL,process,oid,obj) {
-	var xmlHttp = false;//¿ªÊ¼³õÊ¼»¯XMLHttpRequest¶ÔÏó
-	if(window.XMLHttpRequest) { //Mozilla ä¯ÀÀÆ÷
+	var xmlHttp = false;//å¼€å§‹åˆå§‹åŒ–XMLHttpRequestå¯¹è±¡
+	if(window.XMLHttpRequest) { //Mozilla æµè§ˆå™¨
 		xmlHttp = new XMLHttpRequest();
-		if(xmlHttp.overrideMimeType) {//ÉèÖÃMiMEÀà±ğ
+		if(xmlHttp.overrideMimeType) {//è®¾ç½®MiMEç±»åˆ«
 			xmlHttp.overrideMimeType('text/xml');
 		}
-	} else if (window.ActiveXObject) { // IEä¯ÀÀÆ÷
+	} else if (window.ActiveXObject) { // IEæµè§ˆå™¨
 		try {
 			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
 		} catch (e) {
@@ -432,8 +432,8 @@ function get_request(reqURL,process,oid,obj) {
 			}
 		}
 	}
-	if(!xmlHttp) { // Òì³££¬´´½¨¶ÔÏóÊµÀıÊ§°Ü
-		alert("²»ÄÜ´´½¨XMLHttpRequest¶ÔÏóÊµÀı.");
+	if(!xmlHttp) { // å¼‚å¸¸ï¼Œåˆ›å»ºå¯¹è±¡å®ä¾‹å¤±è´¥
+		alert("ä¸èƒ½åˆ›å»ºXMLHttpRequestå¯¹è±¡å®ä¾‹.");
 		return false;
 	}
 	xmlHttp.open('GET',reqURL+"&rand="+Math.random(),true);
@@ -543,7 +543,7 @@ function startmarquee(lh,speed,delay,index) {
 	setTimeout(start,delay);
 }
 
-//½«´øhtmlÌØÊâ·ûºÅ±ê¼ÇµÄ×ª»»ÎªÕı³£ÎÄ±¾
+//å°†å¸¦htmlç‰¹æ®Šç¬¦å·æ ‡è®°çš„è½¬æ¢ä¸ºæ­£å¸¸æ–‡æœ¬
 String.prototype.htmlToStr= function() {
 	var str=this.replace('&#039;',"'");
 	return str;
@@ -1175,11 +1175,11 @@ if(typeof(jQuery)!='undefined') {
 			})
 		};
 		$.fn.footer_c= function() {
-			var footer_inner="<ul><li><dl><dt>WHY SHOP WITH US</dt><dd><a title=\"7-day Policy for Return\" href=\"http://www.milanoo.com/help/7-day-Policy-for-Return-and-15-day-Policy-for-Exchange-All-Milanoo-Products-Do-You-Have-A-Guarantee-or-Warranty-module-index-id-6.html\" rel=\"nofollow\" target=\"_blank\">7-day Policy for Return</a></dd><dd><a title=\"15-day Policy for Exchange\" href=\"http://www.milanoo.com/help/7-day-Policy-for-Return-and-15-day-Policy-for-Exchange-All-Milanoo-Products-Do-You-Have-A-Guarantee-or-Warranty-module-index-id-6.html\" rel=\"nofollow\" target=\"_blank\">15-day Policy for Exchange</a></dd><dd><a title=\"Pay with Credit Card\" href=\"http://www.milanoo.com/help/Payment-Methods-module-index-id-19.html\" rel=\"nofollow\" target=\"_blank\">Pay with Credit Card</a></dd><dd><a title=\"Pay with PayPal\" href=\"http://www.milanoo.com/help/Payment-Methods-module-index-id-19.html\" rel=\"nofollow\" target=\"_blank\">Pay with PayPal</a></dd><dd><a title=\"Fast shipping & delivery\" href=\"http://www.milanoo.com/help/Could-you-introduce-briefly-EMSUPSDHLTNTand-Sagawa-Express--module-index-id-75.html\" rel=\"nofollow\" target=\"_blank\">Fast shipping & delivery</a></dd></dl></li><li><dl><dt>WHAT'S IN STORE</dt><dd><a title=\"Wedding Apparel\" href=\"http://www.milanoo.com/wholesale-Wedding-Apparel-c391\" rel=\"nofollow\" target=\"_blank\">Wedding Apparel</a></dd><dd><a title=\"Special Occasion Dresses\" href=\"http://www.milanoo.com/wholesale-Special-Occasion-Dresses-c564\" rel=\"nofollow\" target=\"_blank\">Special Occasion Dresses</a></dd><dd><a title=\"Catsuits & Zentai\" href=\"http://www.milanoo.com/wholesale-Catsuits-Zentai-c314\" rel=\"nofollow\" target=\"_blank\">Catsuits & Zentai</a></dd><dd><a title=\"Cosplay Costumes\" href=\"http://www.milanoo.com/wholesale-Cosplay-Costumes-c300\" rel=\"nofollow\" target=\"_blank\">Cosplay Costumes</a></dd><dd><a title=\"Lolita Clothing\" href=\"http://www.milanoo.com/wholesale-Lolita-Clothing-c634\" rel=\"nofollow\" target=\"_blank\">Lolita Clothing</a></dd><dd><a title=\"Sexy Lingerie\" href=\"http://www.milanoo.com/wholesale-Sexy-Lingerie-c322\" rel=\"nofollow\" target=\"_blank\">Sexy Lingerie</a></dd><dd><a title=\"Poduct A-z\" href=\"http://www.milanoo.com/producttags/A/\" rel=\"nofollow\" target=\"_blank\">Poduct A-z</a></dd></dl></li><li><dl><dt>HOW CAN WE HELP</dt><dd><a title=\"Track Order\" href=\"http://www.milanoo.com/help/How-to-Make-an-Order-from-Milanoo-module-index-id-1.html\" rel=\"nofollow\" target=\"_blank\">Track Order</a></dd><dd><a title=\"Help Center\" href=\"http://www.milanoo.com/help/index-act-center.html\" rel=\"nofollow\" target=\"_blank\">Help Center</a></dd><dd><a title=\"Online Chat\" id=\"_lpChatBtn\" href='https://server.iad.liveperson.net/hc/47928991/?cmd=file&file=visitorWantsToChat&site=47928991&byhref=1&SESSIONVAR!opid=2&imageUrl=https://server.iad.liveperson.net/hcp/Gallery/ChatButton-Gallery/English/Retail/3c' target='chat47928991'  onClick=\"lpButtonCTTUrl = 'https://server.iad.liveperson.net/hc/47928991/?cmd=file&file=visitorWantsToChat&site=47928991&SESSIONVAR!opid=2&imageUrl=https://server.iad.liveperson.net/hcp/Gallery/ChatButton-Gallery/English/Retail/3c&referrer='+escape(document.location); lpButtonCTTUrl = (typeof(lpAppendVisitorCookies) != 'undefined' ? lpAppendVisitorCookies(lpButtonCTTUrl) : lpButtonCTTUrl); lpButtonCTTUrl = ((typeof(lpMTag)!='undefined' && typeof(lpMTag.addFirstPartyCookies)!='undefined')?lpMTag.addFirstPartyCookies(lpButtonCTTUrl):lpButtonCTTUrl);window.open(lpButtonCTTUrl,'chat47928991','width=475,height=400,resizable=yes');return false;\">Online Chat</a></dd><dd><a title=\"My account\" href=\"https://www.milanoo.com/member/\" rel=\"nofollow\" target=\"_blank\">My account</a></dd><dd><a title=\"Contact Milanoo\" href=\"http://www.milanoo.com/help/Submit-a-question-module-index.html\" rel=\"nofollow\" target=\"_blank\">Contact Milanoo</a></dd></dl></li><li><dl><dt>FURTHER INFORMATION</dt><dd><a title=\"About us\" href=\"http://www.milanoo.com/help/About-Milanoo-module-index-id-41.html\" rel=\"nofollow\" target=\"_blank\">About us</a></dd><dd><a title=\"Delivery costs\" href=\"http://www.milanoo.com/help/Can-You-Show-Me-How-You-Calculate-Shipping-module-index-id-38.html\" rel=\"nofollow\" target=\"_blank\">Delivery costs</a></dd><dd><a title=\"Security\" href=\"http://www.milanoo.com/help/Privacy-Policy-module-index-id-72.html\" rel=\"nofollow\" target=\"_blank\">Security</a></dd><dd><a title=\"Affiliate Program\" href=\"http://www.milanoo.com/help/About-Milanoo-Affiliates-Programme-module-index-id-67.html\" rel=\"nofollow\" target=\"_blank\">Affiliate Program</a></dd></dl></li></ul><div class=\"hei10\"></div>";
+			var footer_inner="<ul><li><dl><dt>WHY SHOP WITH US</dt><dd><a title=\"7-day Policy for Return\" href=\"http://www.milanoo.com/help/7-day-Policy-for-Return-and-15-day-Policy-for-Exchange-All-Milanoo-Products-Do-You-Have-A-Guarantee-or-Warranty-module-index-id-6.html\" rel=\"nofollow\" target=\"_blank\">7-day Policy for Return</a></dd><dd><a title=\"15-day Policy for Exchange\" href=\"http://www.milanoo.com/help/7-day-Policy-for-Return-and-15-day-Policy-for-Exchange-All-Milanoo-Products-Do-You-Have-A-Guarantee-or-Warranty-module-index-id-6.html\" rel=\"nofollow\" target=\"_blank\">15-day Policy for Exchange</a></dd><dd><a title=\"Pay with Credit Card\" href=\"http://www.milanoo.com/help/Payment-Methods-module-index-id-19.html\" rel=\"nofollow\" target=\"_blank\">Pay with Credit Card</a></dd><dd><a title=\"Pay with PayPal\" href=\"http://www.milanoo.com/help/Payment-Methods-module-index-id-19.html\" rel=\"nofollow\" target=\"_blank\">Pay with PayPal</a></dd><dd><a title=\"Fast shipping & delivery\" href=\"http://www.milanoo.com/help/Could-you-introduce-briefly-EMSUPSDHLTNTand-Sagawa-Express--module-index-id-75.html\" rel=\"nofollow\" target=\"_blank\">Fast shipping & delivery</a></dd></dl></li><li><dl><dt>WHAT'S IN STORE</dt><dd><a title=\"Wedding Apparel\" href=\"http://www.milanoo.com/wholesale-Wedding-Apparel-c391\" rel=\"nofollow\" target=\"_blank\">Wedding Apparel</a></dd><dd><a title=\"Special Occasion Dresses\" href=\"http://www.milanoo.com/wholesale-Special-Occasion-Dresses-c564\" rel=\"nofollow\" target=\"_blank\">Special Occasion Dresses</a></dd><dd><a title=\"Catsuits & Zentai\" href=\"http://www.milanoo.com/wholesale-Catsuits-Zentai-c314\" rel=\"nofollow\" target=\"_blank\">Catsuits & Zentai</a></dd><dd><a title=\"Cosplay Costumes\" href=\"http://www.milanoo.com/wholesale-Cosplay-Costumes-c300\" rel=\"nofollow\" target=\"_blank\">Cosplay Costumes</a></dd><dd><a title=\"Lolita Clothing\" href=\"http://www.milanoo.com/wholesale-Lolita-Clothing-c634\" rel=\"nofollow\" target=\"_blank\">Lolita Clothing</a></dd><dd><a title=\"Sexy Lingerie\" href=\"http://www.milanoo.com/wholesale-Sexy-Lingerie-c322\" rel=\"nofollow\" target=\"_blank\">Sexy Lingerie</a></dd><dd><a title=\"Poduct A-Z\" href=\"http://www.milanoo.com/producttags/A/\" rel=\"nofollow\" target=\"_blank\">Poduct A-Z</a></dd></dl></li><li><dl><dt>HOW CAN WE HELP</dt><dd><a title=\"Track Order\" href=\"http://www.milanoo.com/help/How-to-Make-an-Order-from-Milanoo-module-index-id-1.html\" rel=\"nofollow\" target=\"_blank\">Track Order</a></dd><dd><a title=\"Help Center\" href=\"http://www.milanoo.com/help/index-act-center.html\" rel=\"nofollow\" target=\"_blank\">Help Center</a></dd><dd><a title=\"Online Chat\" id=\"_lpChatBtn\" href='https://server.iad.liveperson.net/hc/47928991/?cmd=file&file=visitorWantsToChat&site=47928991&byhref=1&SESSIONVAR!opid=2&imageUrl=https://server.iad.liveperson.net/hcp/Gallery/ChatButton-Gallery/English/Retail/3c' target='chat47928991'  onClick=\"lpButtonCTTUrl = 'https://server.iad.liveperson.net/hc/47928991/?cmd=file&file=visitorWantsToChat&site=47928991&SESSIONVAR!opid=2&imageUrl=https://server.iad.liveperson.net/hcp/Gallery/ChatButton-Gallery/English/Retail/3c&referrer='+escape(document.location); lpButtonCTTUrl = (typeof(lpAppendVisitorCookies) != 'undefined' ? lpAppendVisitorCookies(lpButtonCTTUrl) : lpButtonCTTUrl); lpButtonCTTUrl = ((typeof(lpMTag)!='undefined' && typeof(lpMTag.addFirstPartyCookies)!='undefined')?lpMTag.addFirstPartyCookies(lpButtonCTTUrl):lpButtonCTTUrl);window.open(lpButtonCTTUrl,'chat47928991','width=475,height=400,resizable=yes');return false;\">Online Chat</a></dd><dd><a title=\"My account\" href=\"https://www.milanoo.com/member/\" rel=\"nofollow\" target=\"_blank\">My account</a></dd><dd><a title=\"Contact Milanoo\" href=\"http://www.milanoo.com/help/Submit-a-question-module-index.html\" rel=\"nofollow\" target=\"_blank\">Contact Milanoo</a></dd></dl></li><li><dl><dt>FURTHER INFORMATION</dt><dd><a title=\"About us\" href=\"http://www.milanoo.com/help/About-Milanoo-module-index-id-41.html\" rel=\"nofollow\" target=\"_blank\">About us</a></dd><dd><a title=\"Delivery costs\" href=\"http://www.milanoo.com/help/Can-You-Show-Me-How-You-Calculate-Shipping-module-index-id-38.html\" rel=\"nofollow\" target=\"_blank\">Delivery costs</a></dd><dd><a title=\"Security\" href=\"http://www.milanoo.com/help/Privacy-Policy-module-index-id-72.html\" rel=\"nofollow\" target=\"_blank\">Security</a></dd><dd><a title=\"Affiliate Program\" href=\"http://www.milanoo.com/help/About-Milanoo-Affiliates-Programme-module-index-id-67.html\" rel=\"nofollow\" target=\"_blank\">Affiliate Program</a></dd></dl></li></ul><div class=\"hei10\"></div>";
 			this.html(footer_inner);
 		};
 		$.fn.footer_c_jp= function() {
-			var footer_inner="<ul><li><dl><dt>µ±¥µ¥¤¥È¤ÎÌØÕ</dt><dd><a title=\"²»¾ßºÏÆ·¤Ï¤¹¤Ù¤ÆŸoÁÏ¤Ç¤ªÈ¡Ìæ¤¨¤¤¤¿¤·¤Ş¤¹\" href=\"http://www.milanoo.com/jp/help/index-id-71.html\" rel=\"nofollow\" target=\"_blank\">²»¾ßºÏÆ·¤Ï¤¹¤Ù¤ÆŸoÁÏ¤Ç¤ªÈ¡Ìæ¤¨¤¤¤¿¤·¤Ş¤¹</a></dd><dd><a title=\"¥¯¥ì¥¸¥Ã¥È¥«©`¥É¤Ç¤Î¤ªÖ§’B¤¤¤â¿ÉÄÜ¤Ç¤¹\" href=\"http://www.milanoo.com/jp/help/index-id-69.html\" rel=\"nofollow\" target=\"_blank\">¥¯¥ì¥¸¥Ã¥È¥«©`¥É¤Ç¤Î¤ªÖ§’B¤¤¤â¿ÉÄÜ¤Ç¤¹</a></dd><dd><a title=\"Pay¡¡Pal¤Ë¤è¤ë¤ªÖ§’B¤¤¤Ë¤âŒê\" href=\"http://www.milanoo.com/jp/help/index-id-69.html\" rel=\"nofollow\" target=\"_blank\">Pay¡¡Pal¤Ë¤è¤ë¤ªÖ§’B¤¤¤Ë¤âŒê</a></dd></dl></li><li><dl><dt>ÉÌÆ·¥é¥¤¥ó¥Ê¥Ã¥×</dt><dd><a title=\"¥¦¥§¥Ç¥£¥ó¥°¥É¥ì¥¹\" href=\"http://www.milanoo.com/c391\" rel=\"nofollow\" target=\"_blank\">¥¦¥§¥Ç¥£¥ó¥°¥É¥ì¥¹</a></dd><dd><a title=\"¥³¥¹¥Á¥å©`¥à\" href=\"http://www.milanoo.com/c934\" rel=\"nofollow\" target=\"_blank\">¥³¥¹¥Á¥å©`¥à</a></dd><dd><a title=\"¥»¥¯¥·©`¥é¥ó¥¸¥§¥ê©`\" href=\"http://www.milanoo.com/jp/c322\" rel=\"nofollow\" target=\"_blank\">¥»¥¯¥·©`¥é¥ó¥¸¥§¥ê©`</a></dd><dd><a title=\"¥ì¥Ç¥£©`¥¹¡¢‹DÈË·ş\" href=\"http://www.milanoo.com/c535\" rel=\"nofollow\" target=\"_blank\">¥ì¥Ç¥£©`¥¹¡¢‹DÈË·ş</a></dd><dd><a title=\"¥­©`¥ï©`¥É\" href=\"http://www.milanoo.com/jp/producttags\" rel=\"nofollow\" target=\"_blank\">¥­©`¥ï©`¥É</a></dd></dl></li><li><dl><dt>µ±¥µ¥¤¥È¤Î¥µ©`¥Ó¥¹</dt><dd><a title=\"³õ¤á¤Æ¤Î¤´×¢ÎÄ\" href=\"http://www.milanoo.com/jp/help/index-id-104.html\" rel=\"nofollow\" target=\"_blank\">³õ¤á¤Æ¤Î¤´×¢ÎÄ</a></dd><dd><a title=\"¥Ø¥ë¥×¥»¥ó¥¿\" href=\"http://www.milanoo.com/jp/help/index-id-85.html\" rel=\"nofollow\" target=\"_blank\">¥Ø¥ë¥×¥»¥ó¥¿</a></dd><dd><a title=\"¤ª†–ºÏ¤»\" href=\"http://www.milanoo.com/jp/help/index-id-1.html\" rel=\"nofollow\" target=\"_blank\">¤ª†–ºÏ¤»</a></dd><dd><a title=\"¥Ş¥¤¥¢¥«¥¦¥ó¥È\" href=\"https://www.milanoo.com/jp/member/\" rel=\"nofollow\" target=\"_blank\">¥Ş¥¤¥¢¥«¥¦¥ó¥È</a></dd></dl></li><li><dl><dt>µ±¥µ¥¤¥ÈÔ”¼š</dt><dd><a title=\"¥×¥é¥¤¥Ğ¥·©`¥İ¥ê¥·©`\" href=\"http://www.milanoo.com/jp/help/index-id-52.html\" rel=\"nofollow\" target=\"_blank\">¥×¥é¥¤¥Ğ¥·©`¥İ¥ê¥·©`</a></dd><dd><a title=\"ÌØ¶¨ÉÌÈ¡Òı·¨±íÊ¾\" href=\"http://www.milanoo.com/jp/help/index-id-93.html\" rel=\"nofollow\" target=\"_blank\">ÌØ¶¨ÉÌÈ¡Òı·¨±íÊ¾</a></dd></dl></li></ul><div class=\"hei10\"></div>";
+			var footer_inner="<ul><li><dl><dt>å½“ã‚µã‚¤ãƒˆã®ç‰¹å¾´</dt><dd><a title=\"ä¸å…·åˆå“ã¯ã™ã¹ã¦ç„¡æ–™ã§ãŠå–æ›¿ãˆã„ãŸã—ã¾ã™\" href=\"http://www.milanoo.com/jp/help/index-id-71.html\" rel=\"nofollow\" target=\"_blank\">ä¸å…·åˆå“ã¯ã™ã¹ã¦ç„¡æ–™ã§ãŠå–æ›¿ãˆã„ãŸã—ã¾ã™</a></dd><dd><a title=\"ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆã‚«ãƒ¼ãƒ‰ã§ã®ãŠæ”¯æ‰•ã„ã‚‚å¯èƒ½ã§ã™\" href=\"http://www.milanoo.com/jp/help/index-id-69.html\" rel=\"nofollow\" target=\"_blank\">ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆã‚«ãƒ¼ãƒ‰ã§ã®ãŠæ”¯æ‰•ã„ã‚‚å¯èƒ½ã§ã™</a></dd><dd><a title=\"Payã€€Palã«ã‚ˆã‚‹ãŠæ”¯æ‰•ã„ã«ã‚‚å¯¾å¿œ\" href=\"http://www.milanoo.com/jp/help/index-id-69.html\" rel=\"nofollow\" target=\"_blank\">Payã€€Palã«ã‚ˆã‚‹ãŠæ”¯æ‰•ã„ã«ã‚‚å¯¾å¿œ</a></dd></dl></li><li><dl><dt>å•†å“ãƒ©ã‚¤ãƒ³ãƒŠãƒƒãƒ—</dt><dd><a title=\"ã‚¦ã‚§ãƒ‡ã‚£ãƒ³ã‚°ãƒ‰ãƒ¬ã‚¹\" href=\"http://www.milanoo.com/c391\" rel=\"nofollow\" target=\"_blank\">ã‚¦ã‚§ãƒ‡ã‚£ãƒ³ã‚°ãƒ‰ãƒ¬ã‚¹</a></dd><dd><a title=\"ã‚³ã‚¹ãƒãƒ¥ãƒ¼ãƒ \" href=\"http://www.milanoo.com/c934\" rel=\"nofollow\" target=\"_blank\">ã‚³ã‚¹ãƒãƒ¥ãƒ¼ãƒ </a></dd><dd><a title=\"ã‚»ã‚¯ã‚·ãƒ¼ãƒ©ãƒ³ã‚¸ã‚§ãƒªãƒ¼\" href=\"http://www.milanoo.com/jp/c322\" rel=\"nofollow\" target=\"_blank\">ã‚»ã‚¯ã‚·ãƒ¼ãƒ©ãƒ³ã‚¸ã‚§ãƒªãƒ¼</a></dd><dd><a title=\"ãƒ¬ãƒ‡ã‚£ãƒ¼ã‚¹ã€å©¦äººæœ\" href=\"http://www.milanoo.com/c535\" rel=\"nofollow\" target=\"_blank\">ãƒ¬ãƒ‡ã‚£ãƒ¼ã‚¹ã€å©¦äººæœ</a></dd><dd><a title=\"ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰\" href=\"http://www.milanoo.com/jp/producttags\" rel=\"nofollow\" target=\"_blank\">ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰</a></dd></dl></li><li><dl><dt>å½“ã‚µã‚¤ãƒˆã®ã‚µãƒ¼ãƒ“ã‚¹</dt><dd><a title=\"åˆã‚ã¦ã®ã”æ³¨æ–‡\" href=\"http://www.milanoo.com/jp/help/index-id-104.html\" rel=\"nofollow\" target=\"_blank\">åˆã‚ã¦ã®ã”æ³¨æ–‡</a></dd><dd><a title=\"ãƒ˜ãƒ«ãƒ—ã‚»ãƒ³ã‚¿\" href=\"http://www.milanoo.com/jp/help/index-id-85.html\" rel=\"nofollow\" target=\"_blank\">ãƒ˜ãƒ«ãƒ—ã‚»ãƒ³ã‚¿</a></dd><dd><a title=\"ãŠå•åˆã›\" href=\"http://www.milanoo.com/jp/help/index-id-1.html\" rel=\"nofollow\" target=\"_blank\">ãŠå•åˆã›</a></dd><dd><a title=\"ãƒã‚¤ã‚¢ã‚«ã‚¦ãƒ³ãƒˆ\" href=\"https://www.milanoo.com/jp/member/\" rel=\"nofollow\" target=\"_blank\">ãƒã‚¤ã‚¢ã‚«ã‚¦ãƒ³ãƒˆ</a></dd></dl></li><li><dl><dt>å½“ã‚µã‚¤ãƒˆè©³ç´°</dt><dd><a title=\"ãƒ—ãƒ©ã‚¤ãƒã‚·ãƒ¼ãƒãƒªã‚·ãƒ¼\" href=\"http://www.milanoo.com/jp/help/index-id-52.html\" rel=\"nofollow\" target=\"_blank\">ãƒ—ãƒ©ã‚¤ãƒã‚·ãƒ¼ãƒãƒªã‚·ãƒ¼</a></dd><dd><a title=\"ç‰¹å®šå•†å–å¼•æ³•è¡¨ç¤º\" href=\"http://www.milanoo.com/jp/help/index-id-93.html\" rel=\"nofollow\" target=\"_blank\">ç‰¹å®šå•†å–å¼•æ³•è¡¨ç¤º</a></dd></dl></li></ul><div class=\"hei10\"></div>";
 			this.html(footer_inner);
 		};
 		$.fn.timedown= function(a) {
@@ -1208,17 +1208,17 @@ if(typeof(jQuery)!='undefined') {
 				}
 				clockS.val(('00'+tS).Right(2))
 			};
-
+			
 			ctime=setInterval(reftime,1000);
 		};
 		$.fn.timedown.defaults= {
 			sec:0
 		};
 		/**
-		 * @param µ±ÎªStringÊ±±íÊ¾Ä³¸ö¶¯×÷ÃüÁî,Ä¿Ç°Ö§³Öopen,close; µ±ÎªObjectÊ±±íÊ¾³õÊ¼»¯²ÎÊı({container:document.body,mode:modal}),Ö§³ÖµÄ²ÎÊıÈçÏÂ:\n
-		 *        container: ×÷ÎªÎ»ÖÃ²ÎÕÕµÄÈİÒ×,Ä¬ÈÏÎªdocument.body \n
-		 *        mode: ¶Ô»°¿òÀàĞÍ,Ä¬ÈÏÎªÄ£Ê½¶Ô»°(modal)
-		 *        autoOpen: ÊÇ·ñ×Ô¶¯ÏÔÊ¾µ¯³ö²ã. Ä¬ÈÏÎªtrue.		        
+		 * @param å½“ä¸ºStringæ—¶è¡¨ç¤ºæŸä¸ªåŠ¨ä½œå‘½ä»¤,ç›®å‰æ”¯æŒopen,close; å½“ä¸ºObjectæ—¶è¡¨ç¤ºåˆå§‹åŒ–å‚æ•°({container:document.body,mode:modal}),æ”¯æŒçš„å‚æ•°å¦‚ä¸‹:\n
+		 *        container: ä½œä¸ºä½ç½®å‚ç…§çš„å®¹æ˜“,é»˜è®¤ä¸ºdocument.body \n
+		 *        mode: å¯¹è¯æ¡†ç±»å‹,é»˜è®¤ä¸ºæ¨¡å¼å¯¹è¯(modal)
+		 *        autoOpen: æ˜¯å¦è‡ªåŠ¨æ˜¾ç¤ºå¼¹å‡ºå±‚. é»˜è®¤ä¸ºtrue.		        
 		 */
 		$.fn.simpleModal=function(param){
 		    var overlayName='ml-simpleModal-overlay';	
@@ -1226,7 +1226,7 @@ if(typeof(jQuery)!='undefined') {
             
 		    if(param.constructor === Object)
 		    {
-                //²ÎÊı²»´æÔÚÔòÊ¹ÓÃÄ¬ÈÏ²ÎÊı
+                //å‚æ•°ä¸å­˜åœ¨åˆ™ä½¿ç”¨é»˜è®¤å‚æ•°
                 for(var i in defaultParam)
                 {
                     if(param[i] === undefined)
@@ -1240,7 +1240,7 @@ if(typeof(jQuery)!='undefined') {
                 }              		        
 		        if($('#'+overlayName).length < 1)
 		        {
-		            //Éú³ÉÕÚÕÖ²ã           	            		          
+		            //ç”Ÿæˆé®ç½©å±‚           	            		          
 		            $('<div id="'+overlayName+'" style="background-color:#000000;opacity:0.4;filter:alpha(opacity=40);position:absolute;top:'+$(param.container).offset().top+'px;left:'+$(param.container).offset().left+'px;z-index:20000;display:none;"></div>').appendTo(document.body);                    		            	                     		        		           	                   		            	                             
 		        }  
                                    
@@ -1250,9 +1250,9 @@ if(typeof(jQuery)!='undefined') {
 		    {		    
 		        var storedParam = this.data('param');
 		        if(storedParam === undefined)
-		        {//ÔªËØµÄÎ´±»simpleModal ³õÊ¼»¯¹ıÔòÊ¹ÓÃÄ¬ÈÏ²ÎÊı½øĞĞ³õÊ¼»¯
+		        {//å…ƒç´ çš„æœªè¢«simpleModal åˆå§‹åŒ–è¿‡åˆ™ä½¿ç”¨é»˜è®¤å‚æ•°è¿›è¡Œåˆå§‹åŒ–
 		            this.simpleModal({});
-		            //ÖØĞÂÖ´ĞĞÃüÁî
+		            //é‡æ–°æ‰§è¡Œå‘½ä»¤
 		            this.simpleModal(param);
 		            return;
 		        }
@@ -1284,22 +1284,32 @@ if(typeof(jQuery)!='undefined') {
 		   
 		};
 		/**
-		 * ×óÓÒ¹ö¶¯ÈİÆ÷ÖĞµÄliÔªËØ.html½á¹¹Îª<div>
+		 * å·¦å³æ»šåŠ¨å®¹å™¨ä¸­çš„liå…ƒç´ .htmlç»“æ„å¦‚:<div>
 		 *                         <ul>
 		 *                            <li></li>
 		 *                            <li></li>
 		 *                         </ul>
 		 *                       </div>
-		 * @param config ObjectÅäÖÃ¶ÔÏó{btnPrev:'Ïò×óµÄ°´Å¥ID',btnNext:'ÏòÓÒµÄ°´Å¥ID',speed:'ÒÆ¶¯¼ä¸ôÊ±¼ä(ºÁÃë)','step':'Ã¿´ÎÒÆ¶¯µÄ¾àÀë(px)','auto':'ÊÇ·ñ×Ô¶¯¹ö¶¯(boolean),'autoSlipTime':'×Ô¶¯¹ö¶¯µÄÊ±¼ä¼ä¸ô(ºÁÃë),'autoSlipDir':'×Ô¶¯¹ö¶¯Ê±µÄ·½Ïò,Ä¬ÈÏÏòÓÒ',Ä¬ÈÏ5000','count':'Ã¿ĞĞÏÔÊ¾¸öÊı,Ä¬ÈÏ4¸ö'}
+		 * @param config Objecté…ç½®å¯¹è±¡{btnPrev:'å‘å·¦çš„æŒ‰é’®ID',btnNext:'å‘å³çš„æŒ‰é’®ID',speed:'ç§»åŠ¨é—´éš”æ—¶é—´(æ¯«ç§’)','step':'æ¯æ¬¡ç§»åŠ¨çš„è·ç¦»(px)','auto':'æ˜¯å¦è‡ªåŠ¨æ»šåŠ¨(boolean),'autoSlipTime':'è‡ªåŠ¨æ»šåŠ¨çš„æ—¶é—´é—´éš”(æ¯«ç§’),'autoSlipDir':'è‡ªåŠ¨æ»šåŠ¨æ—¶çš„æ–¹å‘,é»˜è®¤å‘å³',é»˜è®¤5000','count':'æ¯è¡Œæ˜¾ç¤ºä¸ªæ•°,é»˜è®¤4ä¸ª','domArch':'åˆ—è¡¨æ–‡æ¡£ç»“æ„,é»˜è®¤ä¸º"ul>li"'}
 		 */
 		$.fn.liSlip=function(config){    
 		    var container=this;
-		    this.css({'overflow':'hidden','position':'relative'});		    
-            var items = this.find('>ul>li');
+		    this.css({'overflow':'hidden','position':'relative'});		
+		    var domArch = config.domArch ? config.domArch : 'ul>li';
+		    var domArchList = domArch.split('>');
+		     /**
+             * å®¹å™¨èŠ‚ç‚¹å…ƒç´ 
+             */
+		    var domArchWrapper = domArchList.shift();
+            /**
+             * å®¹å™¨åˆ—è¡¨èŠ‚ç‚¹å…ƒç´ 
+             */		    
+		    var domArchListElement = domArchList.pop();  
+            var items = this.find('>'+domArch);
             if(items.length<1){
                 return false;
-            } 
-            var itemList = this.find('>ul');            
+            };
+            var itemList = this.find('>'+domArchWrapper);            
             var itemListWidth = this.innerWidth();
             var itemsPerRow=4;
             if(config != undefined && !isNaN(config.count))
@@ -1324,7 +1334,7 @@ if(typeof(jQuery)!='undefined') {
                 }                
                 itemList.append(items.get(rightIndex));                
             }
-            var itemList2=$('<ul></ul>');
+            var itemList2=$('<'+domArchWrapper+'></'+domArchWrapper+'>');
             this.append(itemList2);
 
             itemList.css({'left':0,'width':itemListWidth,'position':'absolute','height': this.innerHeight()});
@@ -1353,8 +1363,8 @@ if(typeof(jQuery)!='undefined') {
             {
                if(looping)return false;
                looping=true;
-               var itemList=container.find('ul:first');
-               var itemList2=container.find('ul:last');                             
+               var itemList=container.find(domArchWrapper+':first');
+               var itemList2=container.find(domArchWrapper+':last');                             
                var curLeft = 0;
                var curLeft2 = itemListWidth;
 
@@ -1380,6 +1390,7 @@ if(typeof(jQuery)!='undefined') {
                     {
                         curLeft = -itemListWidth;
                         clearInterval(loop);
+                        if(!config.auto)clearInterval(autoScrollInteval);
                         itemList.css('left',curLeft);
                         itemList2.css('left',0);                    
                         looping=false;
@@ -1400,8 +1411,8 @@ if(typeof(jQuery)!='undefined') {
             {
                if(looping)return false;
                looping=true;    
-               var itemList=container.find('ul:first');
-               var itemList2=container.find('ul:last');          
+               var itemList=container.find(domArchWrapper+':first');
+               var itemList2=container.find(domArchWrapper+':last');          
                var curLeft = 0;               
                var curLeft2=-itemListWidth;               
                itemList2.empty();
@@ -1422,9 +1433,10 @@ if(typeof(jQuery)!='undefined') {
                     curLeft+= step;   
                     curLeft2+=step;
                     if(curLeft>itemListWidth)
-                    {
+                    {   
                         curLeft = itemListWidth;
                         clearInterval(loop);
+                        if(!config.auto)clearInterval(autoScrollInteval);
                         itemList.css('left',curLeft);
                         itemList2.css('left',0);                    
                         looping=false;                                            
@@ -1435,7 +1447,7 @@ if(typeof(jQuery)!='undefined') {
                         itemList2.css('left',curLeft2);      
                     }
                     
-                },speed);  
+                },speed);
                 if((typeof config.afterFun)=='function')
                 {
                     config.afterFun({rightIndex:rightIndex,leftIndex:leftIndex,itemsPerRow:itemsPerRow,config:config});
@@ -1463,10 +1475,10 @@ if(typeof(jQuery)!='undefined') {
             return this;
         };
         /**
-         * ½«Ò»¸öÊôĞÔÌí¼ÓÖÁ¶ÔÏóÊôĞÔĞòÁĞµÄÍ·²¿²¢¸²¸ÇÔ­ÊôĞÔ.
-         * ÒÀÀµ: jq.jsonToStr
-         * @param name String ÊôĞÔÃû³Æ
-         * @param value Mixed ÊôĞÔµÄÖµ
+         * å°†ä¸€ä¸ªå±æ€§æ·»åŠ è‡³å¯¹è±¡å±æ€§åºåˆ—çš„å¤´éƒ¨å¹¶è¦†ç›–åŸå±æ€§.
+         * ä¾èµ–: jq.jsonToStr
+         * @param name String å±æ€§åç§°
+         * @param value Mixed å±æ€§çš„å€¼
          * @return Object
          */		
 		$.extend({unshift:function(o,name,value){		   
@@ -1578,7 +1590,7 @@ if(typeof(jQuery)!='undefined') {
 					display:'none'
 				});
 				if(this.options.clickhide)
-					this.uishade.attr('title','µ¥»÷¹Ø±Õ').click( function() {
+					this.uishade.attr('title','å•å‡»å…³é—­').click( function() {
 						self.close()
 					})
 			},
@@ -1972,6 +1984,13 @@ jQuery.fn.defaultValue = function() {
 			objTips.mousedown(function() {
 				$( this ).fadeOut( 200, function(){
 					objTips.data( 'obj' ).focus();
+				});
+			});
+			
+			obj.focus(function() {
+				var self = this;
+				objTips.fadeOut( 200, function(){
+					self.focus();
 				});
 			});
 			
