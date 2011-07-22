@@ -13,7 +13,7 @@
   
   <servlet-mapping>
     <servlet-name>queryService</servlet-name>
-    <url-pattern>/shopadmin/query</url-pattern>
+    <url-pattern>/workspace/query</url-pattern>
   </servlet-mapping>
   
   <!-- Default page to serve -->
