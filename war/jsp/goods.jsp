@@ -40,7 +40,7 @@ var jq=jQuery.noConflict();
 	
 	<!-- Top box start -->
 	<jsp:include page="top/top_box.jsp"></jsp:include>
-	<script type="text/javascript" src="js/header.js"></script>
+	<script type="text/javascript" src="../js/header.js"></script>
 	<!-- Top box end -->
 
 	<script>
