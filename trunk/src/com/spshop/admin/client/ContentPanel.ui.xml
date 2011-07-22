@@ -33,8 +33,7 @@
     </g:north>
 
     <g:center>
-      <g:ScrollPanel>
-        <g:FlowPanel styleName='{style.body}' ui:field='body'/>
+      <g:ScrollPanel styleName='{style.body}' ui:field='body'>
       </g:ScrollPanel>
     </g:center>
   </g:DockLayoutPanel>

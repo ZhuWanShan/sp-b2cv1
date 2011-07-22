@@ -9,7 +9,39 @@
 			<g:header>
 				Create Image
 			</g:header>
-			<g:HTML>asdasdasdasdasdsad</g:HTML>
+			<g:HTMLPanel>
+				<div>
+					<table>
+						<tr>
+							<td>Name:</td>
+							<td>
+								<g:TextBox ui:field="imageName"></g:TextBox>
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Type:</td>
+							<td>
+								<g:ListBox ui:field="imageType"></g:ListBox>
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Name:</td>
+							<td>
+								<g:FileUpload ui:field="imageFile"></g:FileUpload>
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+								<g:Button ui:field="createImage">Create Image</g:Button>
+							</td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+			</g:HTMLPanel>
 		</g:tab>
 	</g:TabLayoutPanel>
 </ui:UiBinder> 

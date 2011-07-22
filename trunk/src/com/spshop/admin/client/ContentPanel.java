@@ -22,6 +22,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.ResizeComposite;
+import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
@@ -33,25 +34,17 @@ public class ContentPanel extends ResizeComposite {
   private static final Binder binder = GWT.create(Binder.class);
 
   @UiField Element subject;
-  @UiField FlowPanel body;
+  @UiField ScrollPanel body;
 
   public ContentPanel() {
     initWidget(binder.createAndBindUi(this));
     subject.setInnerText("Broadcast");
+    
     body.add(new HTML("This application is belong to Spark and his team, Thanks for all team memebers' hard work!!!"));
   }
 
   
   public void setTitle(String title){
 	  subject.setInnerText(title);
-  }
-  
-  public void setItem(MailItem item) {
-    subject.setInnerText("create Product");
-
-    // WARNING: For the purposes of this demo, we're using HTML directly, on
-    // the assumption that the "server" would have appropriately scrubbed the
-    // HTML. Failure to do so would open your application to XSS attacks.
-    //body.setHTML(item.body);
   }
 }
