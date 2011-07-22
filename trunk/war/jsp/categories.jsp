@@ -50,7 +50,7 @@ var jq=jQuery.noConflict();
 	
 	<!-- Top box start -->
 	<jsp:include page="top/top_box.jsp"></jsp:include>
-	<script type="text/javascript" src="js/header.js"></script>
+	<script type="text/javascript" src="../js/header.js"></script>
 	<!-- Top box end -->
 	
 	<!-- Main box start -->
@@ -86,6 +86,6 @@ var jq=jQuery.noConflict();
 	<jsp:include page="bottom/bottom_box.jsp"></jsp:include>
 	<!-- Bottom end -->
 	
-	<script type="text/javascript" src="js/footer.js"></script>
+	<script type="text/javascript" src="../js/footer.js"></script>
 </body>
 </html>
