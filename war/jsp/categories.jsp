@@ -55,7 +55,31 @@ var jq=jQuery.noConflict();
 	
 	<!-- Main box start -->
 	<div class="main_box"></div>
-	<div class="main_box"></div>
+	<div class="main_box">
+		<jsp:include page="wrapper/path_title.jsp"></jsp:include>
+		<div class="hei10"></div>
+		
+		<!-- Left box start -->
+		<div class="left_box">
+			<jsp:include page="wrapper/category_name.jsp"></jsp:include>
+			<div class="hei10"></div>
+			<jsp:include page="wrapper/top5_selling.jsp"></jsp:include>
+			<div class="hei10"></div>
+			<jsp:include page="wrapper/mail_box.jsp"></jsp:include>
+		</div>
+		<!-- Left box end -->
+		
+		<!-- Right box start -->
+		<div class="right_box">
+			<jsp:include page="wrapper/ad_list_box.jsp"></jsp:include>
+			<div class="hei5"></div>
+			<p class="Light_gray2 font_size11">Wholesale quality wedding dresses, bridesmaid gowns, flower girl dresses and more wedding apparel from China. All are cheap with trendy styles. Shop affordable amazing wedding apparel now; enjoy quick shopping, dress perfectly for the big wedding with the help of Milanoo.</p>
+			<div class="hei20"></div>
+			<jsp:include page="wrapper/A_categories.jsp"></jsp:include>
+			<div class="hei10"></div>
+		</div>
+		<!-- Right box end -->
+	</div>
 	<!-- Main box end -->
 	
 	<!-- Bottom start -->
