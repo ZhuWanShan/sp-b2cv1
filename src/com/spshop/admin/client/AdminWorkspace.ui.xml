@@ -1,17 +1,17 @@
 <ui:UiBinder
   xmlns:ui='urn:ui:com.google.gwt.uibinder'
   xmlns:g='urn:import:com.google.gwt.user.client.ui'
-  xmlns:mail='urn:import:com.spshop.admin.client'>
+  xmlns:workSpace='urn:import:com.spshop.admin.client'>
 
   <g:DockLayoutPanel unit='EM'>
     <g:north size='5'>
-      <mail:TopPanel ui:field='topPanel' />
+      <workSpace:TopPanel ui:field='topPanel' />
     </g:north>
 
     <g:center>
       <g:SplitLayoutPanel>
         <g:west size='192'>
-          <mail:Shortcuts ui:field='shortcuts' />
+          <workSpace:Shortcuts ui:field='shortcuts' />
         </g:west>
 
         <!-- <g:north size='200'>
@@ -19,7 +19,7 @@
         </g:north>
  -->
         <g:center>
-          <mail:ContentPanel ui:field="contentPanel"></mail:ContentPanel>
+          <workSpace:ContentPanel ui:field="contentPanel"></workSpace:ContentPanel>
         </g:center>
       </g:SplitLayoutPanel>
     </g:center>

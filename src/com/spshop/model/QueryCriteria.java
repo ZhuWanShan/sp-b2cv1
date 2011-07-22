@@ -12,10 +12,17 @@ public class QueryCriteria  implements Serializable{
 	private String key;
 	private Date start;
 	private Date end;
-	private String category;
-	private int maxResuilt;
+	private String type;
+	private int maxResuilt = 30;
 	private int startIndex;
 	
+	@Override
+	public String toString() {
+		return "QueryCriteria [key=" + key + ", start=" + start + ", end="
+				+ end + ", type=" + type + ", maxResuilt=" + maxResuilt
+				+ ", startIndex=" + startIndex + "]";
+	}
+
 	public QueryCriteria() {
 	}
 
@@ -48,13 +55,6 @@ public class QueryCriteria  implements Serializable{
 		this.end = end;
 	}
 
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
 
 	public int getMaxResuilt() {
 		return maxResuilt;
@@ -64,12 +64,6 @@ public class QueryCriteria  implements Serializable{
 		this.maxResuilt = maxResuilt;
 	}
 
-	@Override
-	public String toString() {
-		return "QueryCriteria [category=" + category + ", end=" + end
-				+ ", key=" + key + ", maxResuilt=" + maxResuilt + ", start="
-				+ start + "]";
-	}
 
 	public int getStartIndex() {
 		return startIndex;
@@ -77,6 +71,14 @@ public class QueryCriteria  implements Serializable{
 
 	public void setStartIndex(int startIndex) {
 		this.startIndex = startIndex;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 }

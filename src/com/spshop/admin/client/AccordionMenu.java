@@ -44,7 +44,7 @@ public class AccordionMenu extends Composite {
 				AccordianItem  accordianItem = (AccordianItem)item.getSelectedItem();
 				if(null!=accordianItem.getComand() && !accordianItem.getComand().isEmpty()){
 					AdminWorkspace.contentPanel.setTitle(accordianItem.getTitle());
-					PopWindow popWindow = new PopWindow(accordianItem.getTitle() , new HTML("Loading...") ,true,true);
+					PopWindow popWindow = new PopWindow(accordianItem.getTitle(),new HTML("Loading...") ,true,false);
 					popWindow.center();
 					accordianItem.getComand().execute();
 					popWindow.hide();
@@ -61,6 +61,7 @@ public class AccordionMenu extends Composite {
 		case IMAGE_MANAGEMENT:
 			AccordianItem root = new AccordianItem("Image Management", CommandFactory.emptyCommand());
 			root.addItem(new AccordianItem("Create Iamge", CommandFactory.createImage()));
+			root.addItem(new AccordianItem("Query", CommandFactory.queryImage()));
 			items.add(root);
 			root.setState(true);
 			break;
