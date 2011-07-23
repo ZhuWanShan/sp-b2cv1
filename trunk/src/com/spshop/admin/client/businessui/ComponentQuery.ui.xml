@@ -35,7 +35,7 @@
 		
 		.table td {
 			padding: 2px 0 2px 10px;
-			border: 0px;
+			border-bottom: 1px solid #FFF;
 		}
 		
 		.inner {
@@ -55,7 +55,6 @@
 			}
 			
 			.selectedRow td {
-				border-top: 1px solid #88a4d6;
 				border-bottom: 1px solid #7b97d0;
 			}
 		</ui:style>
