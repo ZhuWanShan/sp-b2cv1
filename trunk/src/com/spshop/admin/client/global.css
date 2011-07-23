@@ -21,7 +21,7 @@ a:link, a:visited, a:hover, a:active {
   z-index: 2;
 }
 .gwt-DialogBox .Caption {
-  background: #d3d6dd url(gradient_bg_th.png) repeat-x bottom left;
+  background: #d3d6dd repeat-x bottom left;
   font-weight: bold;
   text-shadow: #fff 0 2px 2px;
   cursor: default;
