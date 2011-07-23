@@ -39,7 +39,7 @@ public class ComponentQuery extends ResizeComposite {
 	}
 
 	private static final Binder binder = GWT.create(Binder.class);
-	static final int VISIBLE_EMAIL_COUNT = 20;
+	static final int VISIBLE_RECORD_COUNT = 20;
 
 	private QueryServiceAsync queryServiceAsync = GWT
 			.create(QueryService.class);
@@ -78,7 +78,7 @@ public class ComponentQuery extends ResizeComposite {
 
 			@Override
 			public void onItemSelected(Component item) {
-//				Window.alert("select:" + item);
+				// Window.alert("select:" + item);
 			}
 		});
 	}
@@ -90,38 +90,26 @@ public class ComponentQuery extends ResizeComposite {
 		this.listener = listener;
 	}
 
-	//
-	// void newer() {
-	// // Move back a page.
-	// startIndex -= VISIBLE_EMAIL_COUNT;
-	// if (startIndex < 0) {
-	// startIndex = 0;
-	// } else {
-	// styleRow(selectedRow, false);
-	// selectedRow = -1;
-	// update();
-	// }
-	// }
-	//
-	// void older() {
-	// // Move forward a page.
-	// // startIndex += VISIBLE_EMAIL_COUNT;
-	// // if (startIndex >= MailItems.getMailItemCount()) {
-	// // startIndex -= VISIBLE_EMAIL_COUNT;
-	// // } else {
-	// // styleRow(selectedRow, false);
-	// // selectedRow = -1;
-	// // update();
-	// // }
-	// }
-	//
+	void newer() {
+		// Move back a page.
+		startIndex -= 1;
+		search();
+		update();
+	}
+
+	void older() {
+		startIndex += 1;
+		search();
+		update();
+	}
+
 	@UiHandler("table")
 	void onTableClicked(ClickEvent event) {
 		// Select the row that was clicked (-1 to account for header row).
 		Cell cell = table.getCellForEvent(event);
 		if (cell != null) {
 			int col = cell.getCellIndex();
-			if(col < 2){
+			if (col < 2) {
 				int row = cell.getRowIndex();
 				selectRow(row);
 			}
@@ -139,11 +127,11 @@ public class ComponentQuery extends ResizeComposite {
 	}
 
 	private void initImageHeader() {
-		header.getColumnFormatter().setWidth(0, "100px");
+		header.getColumnFormatter().setWidth(0, "80px");
 		header.getColumnFormatter().setWidth(1, "150px");
-		header.getColumnFormatter().setWidth(2, "150px");
-		header.getColumnFormatter().setWidth(3, "150px");
-		header.getColumnFormatter().setWidth(4, "200px");
+		header.getColumnFormatter().setWidth(2, "120px");
+		header.getColumnFormatter().setWidth(3, "100px");
+		header.getColumnFormatter().setWidth(4, "250px");
 		// header.getColumnFormatter().setWidth(5, "200px");
 
 		header.setText(0, 0, "Thumbnail");
@@ -154,11 +142,11 @@ public class ComponentQuery extends ResizeComposite {
 		header.setWidget(0, 4, navBar);
 		header.getCellFormatter().setHorizontalAlignment(0, 4,
 				HasHorizontalAlignment.ALIGN_RIGHT);
-		table.getColumnFormatter().setWidth(0, "100px");
+		table.getColumnFormatter().setWidth(0, "80px");
 		table.getColumnFormatter().setWidth(1, "150px");
-		table.getColumnFormatter().setWidth(2, "150px");
-		table.getColumnFormatter().setWidth(3, "150px");
-		table.getColumnFormatter().setWidth(4, "200px");
+		table.getColumnFormatter().setWidth(2, "120px");
+		table.getColumnFormatter().setWidth(3, "100px");
+		table.getColumnFormatter().setWidth(4, "250px");
 		table.getCellFormatter().setHorizontalAlignment(0, 1,
 				HasHorizontalAlignment.ALIGN_LEFT);
 		table.getCellFormatter().setHorizontalAlignment(0, 2,
@@ -176,16 +164,16 @@ public class ComponentQuery extends ResizeComposite {
 	 *            the row to be selected
 	 */
 	private void selectRow(int row) {
-		
-		if(row > result.currentPageData().size()-1){
+
+		if (row > result.currentPageData().size() - 1) {
 			return;
 		}
-		
+
 		Component component = result.currentPageData().get(row);
 		if (component == null) {
 			return;
 		}
-		
+
 		if (selectedRows.contains(row)) {
 			styleRow(row, false);
 			selectedRows.remove(new Integer(row));
@@ -214,15 +202,12 @@ public class ComponentQuery extends ResizeComposite {
 	private void update() {
 		List<Integer> unselected = new ArrayList<Integer>();
 		unselected.addAll(selectedRows);
-		for(Integer i : unselected){
+		for (Integer i : unselected) {
 			selectRow(i);
 		}
 		table.clear();
 		int count = result.getRecordCount();
-		int max = startIndex + VISIBLE_EMAIL_COUNT;
-		if (max > count) {
-			max = count;
-		}
+		int max = result.currentPageData().size();
 
 		// Update the nav bar.
 		navBar.update(startIndex, count, max);
@@ -260,6 +245,8 @@ public class ComponentQuery extends ResizeComposite {
 		final PopWindow popWindow = new PopWindow("Search", new HTML(
 				"Loading..."), true, false);
 		popWindow.center();
+		queryCriteria.setStartIndex(startIndex*VISIBLE_RECORD_COUNT);
+		queryCriteria.setMaxResuilt(VISIBLE_RECORD_COUNT);
 		queryServiceAsync.greetServer(queryCriteria,
 				new AsyncCallback<QueryResult<Component>>() {
 

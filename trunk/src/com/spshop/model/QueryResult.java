@@ -32,7 +32,7 @@ public class QueryResult <T extends Component> implements Serializable{
 	@SuppressWarnings({ "deprecation", "unchecked" })
 	private List<T> randomImageResult(){
 		 List<T>  rs = new ArrayList<T>();
-		 for (int i = 0; i < 24; i++) {
+		 for (int i = 0; i < 20; i++) {
 			Image component = new Image();
 			component.setId(new Random().nextInt(99999));
 			component.setName("Name"+new Random().nextInt(99999));
