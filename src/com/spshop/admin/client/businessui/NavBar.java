@@ -28,23 +28,39 @@ class NavBar extends Composite {
 
   public NavBar(ComponentQuery componentQuery) {
     initWidget(binder.createAndBindUi(this));
-    this.componentQuery = componentQuery;
+    this.setComponentQuery(componentQuery);
+    if(null==componentQuery.getResult()||componentQuery.getResult().currentPageData().isEmpty()){
+    	setVisibility(newerButton, false);
+    	setVisibility(olderButton, false);
+    }
   }
 
   public void update(int startIndex, int count, int max) {
     setVisibility(newerButton, startIndex != 0);
+    setVisibility(olderButton, count > (max*(startIndex+1)));
+    countLabel.setInnerHTML(""+(startIndex*max+1)+" to "+(startIndex*max+max)+" of "+ count);
   }
 
   @UiHandler("newerButton")
   void onNewerClicked(ClickEvent event) {
+	   componentQuery.newer();
   }
 
   @UiHandler("olderButton")
   void onOlderClicked(ClickEvent event) {
+	  componentQuery.older();
   }
 
   private void setVisibility(Widget widget, boolean visible) {
     widget.getElement().getStyle().setVisibility(
         visible ? Visibility.VISIBLE : Visibility.HIDDEN);
   }
+
+public void setComponentQuery(ComponentQuery componentQuery) {
+	this.componentQuery = componentQuery;
+}
+
+public ComponentQuery getComponentQuery() {
+	return componentQuery;
+}
 }
