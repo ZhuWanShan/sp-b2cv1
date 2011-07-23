@@ -1,15 +1,20 @@
 package com.spshop.admin.client.businessui;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HTMLTable.Cell;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.ResizeComposite;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -50,36 +55,41 @@ public class ComponentQuery extends ResizeComposite {
 	QueryCondition queryCondition;
 
 	private QueryCriteria queryCriteria;
-	
+
 	private QueryResult<Component> result;
 
 	private Listener listener;
-	private int startIndex, selectedRow = -1;
+	private int startIndex;
+	private List<Integer> selectedRows = new ArrayList<Integer>();
 	private NavBar navBar;
 
 	public ComponentQuery(String title, Class type) {
 		initWidget(binder.createAndBindUi(this));
+		table.setCellPadding(0);
+		table.setCellSpacing(0);
+		header.setCellPadding(0);
+		header.setCellSpacing(0);
 		navBar = new NavBar(this);
 		queryCondition.setCaption(title);
 		queryCondition.setComponentQuery(this);
 		queryCondition.setType(type);
 		initTable();
+		setListener(new Listener() {
+
+			@Override
+			public void onItemSelected(Component item) {
+//				Window.alert("select:" + item);
+			}
+		});
 	}
 
 	/**
 	 * Sets the listener that will be notified when an item is selected.
 	 */
-	// public void setListener(Listener listener) {
-	// this.listener = listener;
-	// }
-	//
-	// @Override
-	// protected void onLoad() {
-	// // Select the first row if none is selected.
-	// if (selectedRow == -1) {
-	// selectRow(0);
-	// }
-	// }
+	public void setListener(Listener listener) {
+		this.listener = listener;
+	}
+
 	//
 	// void newer() {
 	// // Move back a page.
@@ -105,16 +115,19 @@ public class ComponentQuery extends ResizeComposite {
 	// // }
 	// }
 	//
-	// @UiHandler("table")
-	// void onTableClicked(ClickEvent event) {
-	// // Select the row that was clicked (-1 to account for header row).
-	// Cell cell = table.getCellForEvent(event);
-	// if (cell != null) {
-	// int row = cell.getRowIndex();
-	// selectRow(row);
-	// }
-	// }
-	//
+	@UiHandler("table")
+	void onTableClicked(ClickEvent event) {
+		// Select the row that was clicked (-1 to account for header row).
+		Cell cell = table.getCellForEvent(event);
+		if (cell != null) {
+			int col = cell.getCellIndex();
+			if(col < 2){
+				int row = cell.getRowIndex();
+				selectRow(row);
+			}
+		}
+	}
+
 	private void initTable() {
 		// Initialize the header.
 		if (queryCondition.getType() == Image.class) {
@@ -122,7 +135,7 @@ public class ComponentQuery extends ResizeComposite {
 		}
 
 		// Initialize the table.
-		
+
 	}
 
 	private void initImageHeader() {
@@ -131,13 +144,13 @@ public class ComponentQuery extends ResizeComposite {
 		header.getColumnFormatter().setWidth(2, "150px");
 		header.getColumnFormatter().setWidth(3, "150px");
 		header.getColumnFormatter().setWidth(4, "200px");
-		//header.getColumnFormatter().setWidth(5, "200px");
+		// header.getColumnFormatter().setWidth(5, "200px");
 
 		header.setText(0, 0, "Thumbnail");
 		header.setText(0, 1, "Name");
 		header.setText(0, 2, "Size Type");
 		header.setText(0, 3, "Create Date");
-//		header.setWidget(0, 4, new InlineLabel("Operation"));
+		// header.setWidget(0, 4, new InlineLabel("Operation"));
 		header.setWidget(0, 4, navBar);
 		header.getCellFormatter().setHorizontalAlignment(0, 4,
 				HasHorizontalAlignment.ALIGN_RIGHT);
@@ -156,76 +169,78 @@ public class ComponentQuery extends ResizeComposite {
 				HasHorizontalAlignment.ALIGN_LEFT);
 	}
 
-	//
-	// /**
-	// * Selects the given row (relative to the current page).
-	// *
-	// * @param row the row to be selected
-	// */
-	// private void selectRow(int row) {
-	// // When a row (other than the first one, which is used as a header) is
-	// // selected, display its associated MailItem.
-	// // MailItem item = MailItems.getMailItem(startIndex + row);
-	// // if (item == null) {
-	// // return;
-	// // }
-	// //
-	// // styleRow(selectedRow, false);
-	// // styleRow(row, true);
-	// //
-	// // item.read = true;
-	// // selectedRow = row;
-	// //
-	// // if (listener != null) {
-	// // listener.onItemSelected(item);
-	// // }
-	// }
-	//
-	// private void styleRow(int row, boolean selected) {
-	// if (row != -1) {
-	// String style = selectionStyle.selectedRow();
-	//
-	// if (selected) {
-	// table.getRowFormatter().addStyleName(row, style);
-	// } else {
-	// table.getRowFormatter().removeStyleName(row, style);
-	// }
-	// }
-	// }
-	//
+	/**
+	 * Selects the given row (relative to the current page).
+	 * 
+	 * @param row
+	 *            the row to be selected
+	 */
+	private void selectRow(int row) {
+		
+		if(row > result.currentPageData().size()-1){
+			return;
+		}
+		
+		Component component = result.currentPageData().get(row);
+		if (component == null) {
+			return;
+		}
+		
+		if (selectedRows.contains(row)) {
+			styleRow(row, false);
+			selectedRows.remove(new Integer(row));
+		} else {
+			styleRow(row, true);
+			selectedRows.add(row);
+		}
+
+		if (listener != null) {
+			listener.onItemSelected(component);
+		}
+	}
+
+	private void styleRow(int row, boolean selected) {
+		if (row != -1) {
+			String style = selectionStyle.selectedRow();
+
+			if (selected) {
+				table.getRowFormatter().addStyleName(row, style);
+			} else {
+				table.getRowFormatter().removeStyleName(row, style);
+			}
+		}
+	}
+
 	private void update() {
+		List<Integer> unselected = new ArrayList<Integer>();
+		unselected.addAll(selectedRows);
+		for(Integer i : unselected){
+			selectRow(i);
+		}
+		table.clear();
 		int count = result.getRecordCount();
 		int max = startIndex + VISIBLE_EMAIL_COUNT;
 		if (max > count) {
 			max = count;
 		}
-		
+
 		// Update the nav bar.
 		navBar.update(startIndex, count, max);
 
-		// Show the selected emails.
-		int i = 0;
-		for (; i < VISIBLE_EMAIL_COUNT; ++i) {
-			// Don't read past the end.
-			if (startIndex + i >= result.getRecordCount()) {
-				break;
+		if (count > 0) {
+			if (result.getComponentType().equals(Image.class.getName())) {
+				updateImage();
 			}
-
-			 if(result.getComponentType().equals(Image.class.getName()) ){
-				 updateImage();
-			 }
 		}
 
-		for (; i < VISIBLE_EMAIL_COUNT; ++i) {
-			table.removeRow(table.getRowCount() - 1);
-		}
 	}
 
 	private void updateImage() {
-		DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yyyy/MM/dd");
-		for(int i = 0; i< result.currentPageData().size();i++){
+		DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
+		for (int i = 0; i < result.currentPageData().size(); i++) {
 			Image image = (Image) result.currentPageData().get(i);
-			table.setText(i, 0, "Test");
+			table.setWidget(i, 0, new com.google.gwt.user.client.ui.Image(
+					"http://127.0.0.1:8888/image/testImg.jpg"));
 			table.setText(i, 1, image.getName());
 			table.setText(i, 2, image.getStrSizeType());
 			table.setText(i, 3, dateTimeFormat.format(image.getCreateDate()));
@@ -242,7 +257,8 @@ public class ComponentQuery extends ResizeComposite {
 	}
 
 	public void search() {
-		final PopWindow popWindow = new PopWindow("Search",new HTML("Loading...") ,true,false);
+		final PopWindow popWindow = new PopWindow("Search", new HTML(
+				"Loading..."), true, false);
 		popWindow.center();
 		queryServiceAsync.greetServer(queryCriteria,
 				new AsyncCallback<QueryResult<Component>>() {
@@ -269,6 +285,5 @@ public class ComponentQuery extends ResizeComposite {
 	public void setResult(QueryResult<Component> result) {
 		this.result = result;
 	}
-	
 
 }
