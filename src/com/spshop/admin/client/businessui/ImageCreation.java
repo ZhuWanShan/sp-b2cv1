@@ -1,11 +1,14 @@
 package com.spshop.admin.client.businessui;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FileUpload;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
@@ -29,10 +32,11 @@ public class ImageCreation extends Composite{
 	@UiField
 	FileUpload imageFile;
 	@UiField FormPanel formPanel;
+	@UiField TabLayoutPanel tab;
 
 	interface ImageCreationUiBinder extends UiBinder<TabLayoutPanel, ImageCreation> {
 	}
-
+	
 	public ImageCreation() {
 		
 		initWidget(uiBinder.createAndBindUi(this));
@@ -45,4 +49,5 @@ public class ImageCreation extends Composite{
 	void onFormPanelSubmitComplete(SubmitCompleteEvent event) {
 		
 	}
+	
 }
