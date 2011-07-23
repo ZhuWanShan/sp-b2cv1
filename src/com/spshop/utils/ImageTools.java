@@ -1,4 +1,5 @@
 package com.spshop.utils;
+
 import magick.ImageInfo;
 import magick.MagickException;
 import magick.MagickImage;
@@ -12,8 +13,9 @@ public class ImageTools {
 
 	public void cutImage(String sourcePath, String targetPath, int height,
 			int width) throws MagickException {
-		System.setProperty("jmagick.systemclassloader", "no");
-		
+		System.setProperty(AllConstants.JMAGICK_SYSTEM_PROPERTY,
+				AllConstants.NO);
+
 		// reading image
 		ImageInfo info = new ImageInfo(sourcePath);
 		MagickImage image = new MagickImage(info);
@@ -25,6 +27,5 @@ public class ImageTools {
 		scaleImg.setFileName(targetPath);
 		scaleImg.writeImage(info);
 	}
-	
-	
+
 }
