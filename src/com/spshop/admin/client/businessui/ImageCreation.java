@@ -12,6 +12,8 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.spshop.model.ImageSizeType;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.user.client.ui.FormPanel;
+import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteEvent;
 
 public class ImageCreation extends Composite{
 
@@ -26,6 +28,7 @@ public class ImageCreation extends Composite{
 	
 	@UiField
 	FileUpload imageFile;
+	@UiField FormPanel formPanel;
 
 	interface ImageCreationUiBinder extends UiBinder<TabLayoutPanel, ImageCreation> {
 	}
@@ -38,8 +41,8 @@ public class ImageCreation extends Composite{
 			imageType.addItem(imageSizeType.getTitle(), imageSizeType.getValue());
 		}
 	}
-	@UiHandler("createImage")
-	void onCreateImageClick(ClickEvent event) {
-		Window.alert("OK");
+	@UiHandler("formPanel")
+	void onFormPanelSubmitComplete(SubmitCompleteEvent event) {
+		
 	}
 }
