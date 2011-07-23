@@ -147,14 +147,6 @@ public class ComponentQuery extends ResizeComposite {
 		table.getColumnFormatter().setWidth(2, "120px");
 		table.getColumnFormatter().setWidth(3, "100px");
 		table.getColumnFormatter().setWidth(4, "250px");
-		table.getCellFormatter().setHorizontalAlignment(0, 1,
-				HasHorizontalAlignment.ALIGN_LEFT);
-		table.getCellFormatter().setHorizontalAlignment(0, 2,
-				HasHorizontalAlignment.ALIGN_LEFT);
-		table.getCellFormatter().setHorizontalAlignment(0, 3,
-				HasHorizontalAlignment.ALIGN_LEFT);
-		table.getCellFormatter().setHorizontalAlignment(0, 4,
-				HasHorizontalAlignment.ALIGN_LEFT);
 	}
 
 	/**
@@ -229,7 +221,9 @@ public class ComponentQuery extends ResizeComposite {
 			table.setText(i, 1, image.getName());
 			table.setText(i, 2, image.getStrSizeType());
 			table.setText(i, 3, dateTimeFormat.format(image.getCreateDate()));
-			table.setText(i, 4, "Test");
+			table.setWidget(i, 4, new Operation());
+			table.getCellFormatter().setHorizontalAlignment(i, 4,
+					HasHorizontalAlignment.ALIGN_RIGHT);
 		}
 	}
 

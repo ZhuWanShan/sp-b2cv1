@@ -2,14 +2,28 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
-		
+		.innerPanel{
+			padding: 5px;
+		}
 	</ui:style>
-	<g:TabLayoutPanel barUnit="EM" barHeight="2" width="100em" height="50em">
+	<g:TabLayoutPanel barUnit="EM" barHeight="2" width="100em"
+		height="50em">
 		<g:tab>
 			<g:header>
 				Category Manager
 			</g:header>
-			<g:HTML>Category Manager</g:HTML>
+			<g:SplitLayoutPanel>
+				<g:west size="300">
+					<g:HTML styleName="{style.innerPanel}">
+						WSET
+					</g:HTML>
+				</g:west>
+				<g:center>
+					<g:HTML styleName="{style.innerPanel}">
+						Center
+						</g:HTML>
+				</g:center>
+			</g:SplitLayoutPanel> 
 		</g:tab>
 	</g:TabLayoutPanel>
 </ui:UiBinder> 
