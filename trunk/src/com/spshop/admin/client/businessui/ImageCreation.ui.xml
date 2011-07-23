@@ -4,11 +4,11 @@
 	<ui:style>
 		
 	</ui:style>
-	<g:TabLayoutPanel barUnit="EM" barHeight="2" width="100em"
-		height="50em">
+	<g:TabLayoutPanel barUnit="EM" barHeight="2.2" width="100em"
+		height="50em" ui:field="tab">
 		<g:tab>
 			<g:header>
-				Create Image
+					Create/Edit Image
 			</g:header>
 			<g:FormPanel action="upload" method="post" ui:field="formPanel">
 				<g:HTMLPanel>
