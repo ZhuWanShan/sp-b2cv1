@@ -4,6 +4,7 @@ package com.spshop.admin.client;
 import com.spshop.admin.client.businessui.ComponentQuery;
 import com.spshop.admin.client.businessui.ImageCreation;
 import com.spshop.admin.client.businessui.ProductCreation;
+import com.spshop.model.Component;
 import com.spshop.model.Image;
 
 public class CommandFactory {
@@ -42,7 +43,8 @@ public class CommandFactory {
 			@Override
 			public void execute() {
 				AdminWorkspace.contentPanel.body.clear();
-				AdminWorkspace.contentPanel.body.add(new ComponentQuery("Image Query",Image.class));
+				ComponentQuery componentQuery = new ComponentQuery("Image Query",Image.class);
+				AdminWorkspace.contentPanel.body.add(componentQuery);
 			}
 		};
 	}
