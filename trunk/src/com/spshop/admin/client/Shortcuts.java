@@ -16,6 +16,9 @@ public class Shortcuts extends ResizeComposite {
   @UiField
   AccordionMenu productManagement;
   
+  @UiField
+  AccordionMenu siteManagement;
+  
   public Shortcuts() {
     initWidget(binder.createAndBindUi(this));
   }

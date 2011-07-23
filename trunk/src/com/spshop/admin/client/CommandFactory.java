@@ -1,6 +1,7 @@
 package com.spshop.admin.client;
 
 
+import com.spshop.admin.client.businessui.CategoryManager;
 import com.spshop.admin.client.businessui.ComponentQuery;
 import com.spshop.admin.client.businessui.ImageCreation;
 import com.spshop.admin.client.businessui.ProductCreation;
@@ -25,6 +26,17 @@ public class CommandFactory {
 				//Window.alert("Create Image");
 				AdminWorkspace.contentPanel.body.clear();
 				AdminWorkspace.contentPanel.body.add(new ImageCreation());
+			}
+		};
+	}
+	
+	public static Command categoryManager(){
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				//Window.alert("Create Image");
+				AdminWorkspace.contentPanel.body.clear();
+				AdminWorkspace.contentPanel.body.add(new CategoryManager());
 			}
 		};
 	}
