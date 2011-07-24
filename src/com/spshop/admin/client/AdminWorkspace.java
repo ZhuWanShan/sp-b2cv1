@@ -1,18 +1,3 @@
-/*
- * Copyright 2007 Google Inc.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
 package com.spshop.admin.client;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -25,8 +10,13 @@ import com.google.gwt.resources.client.CssResource.NotStrict;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
+import com.spshop.admin.client.businessui.AdminService;
+import com.spshop.admin.client.businessui.AdminServiceAsync;
+import com.spshop.admin.shared.LoginInfo;
 
 public class AdminWorkspace implements EntryPoint {
 
@@ -37,14 +27,43 @@ public class AdminWorkspace implements EntryPoint {
     @Source("global.css")
     CssResource css();
   }
+  
+  public static LoginInfo loginInfo;
+  
+  public static final String LOGIN_URL = "Admin.jsp";
 
   private static final Binder binder = GWT.create(Binder.class);
 
   @UiField public static TopPanel topPanel;
   @UiField public static ContentPanel contentPanel;
   @UiField public static Shortcuts shortcuts;
+  
+  public static final AdminServiceAsync ADMIN_SERVICE_ASYNC = GWT.create(AdminService.class);
 
   public void onModuleLoad() {
+	  
+	  final PopWindow loading  =
+		  new PopWindow("Initialize", new HTML("Waiting..."),true, false);
+	  ADMIN_SERVICE_ASYNC.getLoginInfo(new AsyncCallback<LoginInfo>() {
+		
+		@Override
+		public void onSuccess(LoginInfo loginInfo) {
+			 loading.center();
+			 if(null!=loginInfo){
+				 AdminWorkspace.loginInfo = loginInfo;
+				 topPanel.setUserID(loginInfo.getUserID());
+				 loading.hide();
+				 RootLayoutPanel.get().remove(loading);
+			 }else{
+				 Window.Location.assign(LOGIN_URL);
+			 }
+		}
+		
+		@Override
+		public void onFailure(Throwable throwable) {
+			Window.Location.assign(LOGIN_URL);
+		}
+	});
     // Inject global styles.
     GWT.<GlobalResources>create(GlobalResources.class).css().ensureInjected();
 
@@ -60,14 +79,6 @@ public class AdminWorkspace implements EntryPoint {
     Element topElem = outer.getWidgetContainerElement(topPanel);
     topElem.getStyle().setZIndex(2);
     topElem.getStyle().setOverflow(Overflow.VISIBLE);
-
-    // Listen for item selection, displaying the currently-selected item in
-    // the detail area.
-    /*mailList.setListener(new MailList.Listener() {
-      public void onItemSelected(MailItem item) {
-        mailDetail.setItem(item);
-      }
-    });*/
 
     // Add the outer panel to the RootLayoutPanel, so that it will be
     // displayed.

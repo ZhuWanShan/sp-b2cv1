@@ -19,6 +19,7 @@ import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.ResizeComposite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.spshop.admin.client.AdminWorkspace;
 import com.spshop.admin.client.PopWindow;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
@@ -40,9 +41,6 @@ public class ComponentQuery extends ResizeComposite {
 
 	private static final Binder binder = GWT.create(Binder.class);
 	static final int VISIBLE_RECORD_COUNT = 20;
-
-	private QueryServiceAsync queryServiceAsync = GWT
-			.create(QueryService.class);
 
 	@UiField
 	FlexTable header;
@@ -241,7 +239,7 @@ public class ComponentQuery extends ResizeComposite {
 		popWindow.center();
 		queryCriteria.setStartIndex(startIndex*VISIBLE_RECORD_COUNT);
 		queryCriteria.setMaxResuilt(VISIBLE_RECORD_COUNT);
-		queryServiceAsync.greetServer(queryCriteria,
+		AdminWorkspace.ADMIN_SERVICE_ASYNC.query(queryCriteria,
 				new AsyncCallback<QueryResult<Component>>() {
 
 					@Override

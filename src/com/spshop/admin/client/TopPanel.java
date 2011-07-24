@@ -1,6 +1,7 @@
 package com.spshop.admin.client;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -17,6 +18,7 @@ public class TopPanel extends Composite {
 
   @UiField Anchor signOutLink;
   @UiField Anchor aboutLink;
+  @UiField SpanElement userID;
 
   public TopPanel() {
     initWidget(binder.createAndBindUi(this));
@@ -30,6 +32,10 @@ public class TopPanel extends Composite {
     AboutDialog dlg = new AboutDialog();
     dlg.show();
     dlg.center();
+  }
+  
+  public void setUserID(String id){
+	    userID.setInnerHTML(id);
   }
 
   @UiHandler("signOutLink")
