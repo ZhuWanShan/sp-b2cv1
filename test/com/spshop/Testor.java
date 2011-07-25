@@ -1,5 +1,7 @@
 package com.spshop;
 
+import java.util.Date;
+
 import com.spshop.model.CutOff;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CutOffService;
@@ -31,9 +33,9 @@ public class Testor{
 //		couponService.save(coupon);
 		CutOffService cutOffService = ServiceFactory.getService(CutOffService.class);
 		CutOff cutOff = new CutOff();
-//		cutOff.setCreateDate(new Date());
-//		cutOff.setName("tomtest");
-//		cutOff.setUpdateDate(new Date());
+		cutOff.setCreateDate(new Date());
+		cutOff.setName("tomtest");
+		cutOff.setUpdateDate(new Date());
 		cutOffService.save(cutOff);
 		/*DeliverService deliverService = ServiceFactory.getService(DeliverService.class);
 		Deliver deliver = new Deliver();

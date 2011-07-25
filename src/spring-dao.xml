@@ -115,16 +115,6 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 
-	<bean id="com.spshop.dao.intf.ShopBasketDAO"
-	    class="com.spshop.dao.impl.ShopBasketDAOImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-
-	<bean id="com.spshop.dao.intf.ShopBasketItemDAO"
-	    class="com.spshop.dao.impl.ShopBasketItemDAOImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-
 	<bean id="com.spshop.dao.intf.SiteDAO"
 	    class="com.spshop.dao.impl.SiteDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>

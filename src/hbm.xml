@@ -292,37 +292,6 @@
 		<many-to-one name="option" class="ProductOption" column="product_option_id"></many-to-one>
 	</class>
 	
-	<class name="ShopBasket" table="SHOP_ShopBasket">
-		<id name="id" column="ID">
-			<generator class="identity"></generator>
-		</id>
-		<property name="name" length="100"></property>
-		<property name="createDate"></property>
-		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
-		
-		<property name="user" length="100"></property>
-		<bag name="items">
-			<key column="shopbasket_item_id"></key>
-			<one-to-many class="ShopBasketItem"/>
-		</bag>
-	</class>
-	
-	<class name="ShopBasketItem" table="SHOP_ShopBasketItem">
-		<id name="id" column="ID">
-			<generator class="identity"></generator>
-		</id>
-		<property name="name" length="100"></property>
-		<property name="createDate"></property>
-		<property name="updateDate"></property>
-		
-		<property name="altTitle" length="200"></property>
-		<property name="displayName" length="200"></property>
-		<property name="value" length="400"></property>
-		<many-to-one name="icon" class="Image" column="icon_id"></many-to-one>
-		<many-to-one name="option" class="ProductOption" column="product_option_id"></many-to-one>
-	</class>
-	
 	<class name="ProductProperty" table="SHOP_ProductProperty">
 		<id name="id" column="ID">
 			<generator class="identity"></generator>
