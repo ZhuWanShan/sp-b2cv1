@@ -144,12 +144,6 @@
 		<property name="target" ref="com.spshop.service.intf.ShopBasketService.target" />
 	</bean>
 
-	<bean id="com.spshop.service.intf.ShopBasketItemService.target" class="com.spshop.service.impl.ShopBasketItemServiceImpl">
-	</bean>
-	<bean id="com.spshop.service.intf.ShopBasketItemService" parent="transactionBase">
-		<property name="target" ref="com.spshop.service.intf.ShopBasketItemService.target" />
-	</bean>
-
 	<bean id="com.spshop.service.intf.SiteService.target" class="com.spshop.service.impl.SiteServiceImpl">
 	</bean>
 	<bean id="com.spshop.service.intf.SiteService" parent="transactionBase">

@@ -46,7 +46,6 @@ public class AdminWorkspace implements EntryPoint {
 		  new PopWindow("Initialize", new HTML("Waiting..."),true, false);
 	  ADMIN_SERVICE_ASYNC.getLoginInfo(new AsyncCallback<LoginInfo>() {
 		
-		@Override
 		public void onSuccess(LoginInfo loginInfo) {
 			 loading.center();
 			 if(null!=loginInfo){
@@ -59,7 +58,6 @@ public class AdminWorkspace implements EntryPoint {
 			 }
 		}
 		
-		@Override
 		public void onFailure(Throwable throwable) {
 			Window.Location.assign(LOGIN_URL);
 		}

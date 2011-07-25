@@ -74,7 +74,6 @@ public class ComponentQuery extends ResizeComposite {
 		initTable();
 		setListener(new Listener() {
 
-			@Override
 			public void onItemSelected(Component item) {
 				// Window.alert("select:" + item);
 			}
@@ -242,7 +241,6 @@ public class ComponentQuery extends ResizeComposite {
 		AdminWorkspace.ADMIN_SERVICE_ASYNC.query(queryCriteria,
 				new AsyncCallback<QueryResult<Component>>() {
 
-					@Override
 					public void onSuccess(QueryResult<Component> result) {
 						setResult(result);
 						update();
@@ -250,7 +248,6 @@ public class ComponentQuery extends ResizeComposite {
 						RootPanel.get().remove(popWindow);
 					}
 
-					@Override
 					public void onFailure(Throwable e) {
 						Window.alert(e.getMessage());
 					}
