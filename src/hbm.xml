@@ -12,6 +12,17 @@
 		
 		<property name="address" length="255"></property>
 	</class> -->
+	
+	<class name="AddressBook" table="SHOP_Address">
+		<id name="id" column="ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" length="100"></property>
+		<property name="createDate"></property>
+		<property name="updateDate"></property>
+		<property name="address" length="255"></property>
+		<many-to-one name="site" class="Site" insert="false" update="false" column="site_id"></many-to-one>
+	</class>
 
 	<class name="Category" table="SHOP_Category">
 		<id name="id" column="ID">
@@ -140,6 +151,14 @@
 		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
 		
 		<property name="email" length="100"></property>
+	</class>
+	
+	<class name="SearchHistory" table="SHOP_SearchHistory">
+		<id name="id" column="ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="keywords" length="100"></property>
+		<property name="hit"></property>
 	</class>
 	
 	<class name="Order" table="SHOP_Order">
@@ -273,6 +292,37 @@
 		<many-to-one name="option" class="ProductOption" column="product_option_id"></many-to-one>
 	</class>
 	
+	<class name="ShopBasket" table="SHOP_ShopBasket">
+		<id name="id" column="ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" length="100"></property>
+		<property name="createDate"></property>
+		<property name="updateDate"></property>
+		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		
+		<property name="user" length="100"></property>
+		<bag name="items">
+			<key column="shopbasket_item_id"></key>
+			<one-to-many class="ShopBasketItem"/>
+		</bag>
+	</class>
+	
+	<class name="ShopBasketItem" table="SHOP_ShopBasketItem">
+		<id name="id" column="ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" length="100"></property>
+		<property name="createDate"></property>
+		<property name="updateDate"></property>
+		
+		<property name="altTitle" length="200"></property>
+		<property name="displayName" length="200"></property>
+		<property name="value" length="400"></property>
+		<many-to-one name="icon" class="Image" column="icon_id"></many-to-one>
+		<many-to-one name="option" class="ProductOption" column="product_option_id"></many-to-one>
+	</class>
+	
 	<class name="ProductProperty" table="SHOP_ProductProperty">
 		<id name="id" column="ID">
 			<generator class="identity"></generator>
@@ -362,7 +412,7 @@
 		<property name="updateDate"></property>
 		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
 		
-		<property name="option" length="200"></property>
+		<property name="optional" length="200"></property>
 		<property name="value" length="200"></property>
 		<many-to-one name="orderItem" class="OrderItem" column="order_item_id"></many-to-one>
 	</class>
