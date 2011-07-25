@@ -39,7 +39,6 @@ public class AccordionMenu extends Composite {
 			AccordionMenuType accordionMenuType) {
 		SelectionHandler<TreeItem> selectionHandler = new SelectionHandler<TreeItem>() {
 			
-			@Override
 			public void onSelection(SelectionEvent<TreeItem> item) {
 				AccordianItem  accordianItem = (AccordianItem)item.getSelectedItem();
 				if(null!=accordianItem.getComand() && !accordianItem.getComand().isEmpty()){
