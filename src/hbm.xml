@@ -385,40 +385,4 @@
 		<property name="value" length="200"></property>
 		<many-to-one name="orderItem" class="OrderItem" column="order_item_id"></many-to-one>
 	</class>
-	
-	
-<!-- 
-	
-	<class name="FeedBack" table="SHOP_FeedBack">
-		<id name="id" column="ID">
-			<generator class="identity"></generator>
-		</id>
-		<property name="name" length="100"></property>
-		<property name="createDate"></property>
-		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
-		<many-to-one name="user" class="User" column="user_id"></many-to-one>
-		<property name="content"></property>
-		<property name="strType"></property>
-	</class>
-	
-	<class name="User" table="SHOP_USER">
-		<id name="id" column="ID">
-			<generator class="identity"></generator>
-		</id>
-		<property name="name" length="100"></property>
-		<property name="createDate"></property>
-		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="false"></many-to-one>
-		
-		<property name="address" length="255"></property>
-		<property name="country" length="100"></property>
-		<property name="email" length="200"></property>
-		<property name="firstName" length="200"></property>
-		<property name="password" column="pwd" length="200"></property>
-		<property name="telephone" length="200"></property>
-		<property name="zipeCode" length="200"></property>
-	</class>
-	
-	 -->
 </hibernate-mapping>
