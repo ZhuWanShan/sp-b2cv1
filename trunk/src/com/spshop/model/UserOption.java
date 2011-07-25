@@ -7,14 +7,14 @@ public class UserOption extends Component{
 	 */
 	private static final long serialVersionUID = -1976590524674580292L;
 	
-	private String option;
+	private String optional;
 	private String value;
 	private OrderItem orderItem;
-	public String getOption() {
-		return option;
+	public String getOptional() {
+		return optional;
 	}
-	public void setOption(String option) {
-		this.option = option;
+	public void setOptional(String optional) {
+		this.optional = optional;
 	}
 	public String getValue() {
 		return value;
