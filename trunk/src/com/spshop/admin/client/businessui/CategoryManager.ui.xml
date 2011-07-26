@@ -1,29 +1,31 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:t="urn:import:com.spshop.admin.client.businessui">
 	<ui:style>
-		.innerPanel{
+		.innerPanel {
 			padding: 5px;
 		}
 	</ui:style>
-	<g:TabLayoutPanel barUnit="EM" barHeight="2.2" width="100em"
-		height="50em">
-		<g:tab>
-			<g:header>
-				Category Manager
-			</g:header>
-			<g:SplitLayoutPanel>
-				<g:west size="300">
-					<g:HTML styleName="{style.innerPanel}">
-						WSET
-					</g:HTML>
-				</g:west>
-				<g:center>
-					<g:HTML styleName="{style.innerPanel}">
-						Center
-						</g:HTML>
-				</g:center>
-			</g:SplitLayoutPanel> 
-		</g:tab>
-	</g:TabLayoutPanel>
+		<g:TabLayoutPanel barUnit="EM" barHeight="2.2"
+			height="100%">
+			<g:tab>
+				<g:header>
+					Category Manager
+				</g:header>
+				<g:SplitLayoutPanel>
+					<g:west size="300">
+						<g:HTMLPanel styleName="{style.innerPanel}">
+							<g:Button ui:field="newCategory">Add Root</g:Button>
+							<g:Button ui:field="delete">Delete</g:Button>
+							<g:Button ui:field="newChild">Add Child</g:Button>
+							<t:CategoryTree ui:field="tree"></t:CategoryTree>
+						</g:HTMLPanel>
+					</g:west>
+					<g:center>
+						<g:HTMLPanel styleName="{style.innerPanel}" ui:field="editor">
+						</g:HTMLPanel>
+					</g:center>
+				</g:SplitLayoutPanel>
+			</g:tab>
+		</g:TabLayoutPanel>
 </ui:UiBinder> 
