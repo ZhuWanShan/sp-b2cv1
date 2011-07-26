@@ -20,6 +20,7 @@ import com.google.gwt.user.client.ui.ResizeComposite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.AdminWorkspace;
+import com.spshop.admin.client.AsyncCallbackAdapter;
 import com.spshop.admin.client.PopWindow;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
@@ -74,6 +75,7 @@ public class ComponentQuery extends ResizeComposite {
 		initTable();
 		setListener(new Listener() {
 
+			@Override
 			public void onItemSelected(Component item) {
 				// Window.alert("select:" + item);
 			}
@@ -236,20 +238,15 @@ public class ComponentQuery extends ResizeComposite {
 		final PopWindow popWindow = new PopWindow("Search", new HTML(
 				"Loading..."), true, false);
 		popWindow.center();
-		queryCriteria.setStartIndex(startIndex*VISIBLE_RECORD_COUNT);
+		queryCriteria.setStartIndex(startIndex * VISIBLE_RECORD_COUNT);
 		queryCriteria.setMaxResuilt(VISIBLE_RECORD_COUNT);
 		AdminWorkspace.ADMIN_SERVICE_ASYNC.query(queryCriteria,
-				new AsyncCallback<QueryResult<Component>>() {
-
+				new AsyncCallbackAdapter<QueryResult<Component>>() {
 					public void onSuccess(QueryResult<Component> result) {
 						setResult(result);
 						update();
 						popWindow.hide();
 						RootPanel.get().remove(popWindow);
-					}
-
-					public void onFailure(Throwable e) {
-						Window.alert(e.getMessage());
 					}
 				});
 	}

@@ -4,7 +4,7 @@
 	<ui:style>
 		
 	</ui:style>
-	<g:TabLayoutPanel barUnit="EM" barHeight="2.2" width="100em" height="50em">
+	<g:TabLayoutPanel barUnit="EM" barHeight="2.2" height="100%">
 		<g:tab>
 			<g:header>
 				Basic Info

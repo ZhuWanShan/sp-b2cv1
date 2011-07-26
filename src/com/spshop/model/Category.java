@@ -14,6 +14,7 @@ public class Category  extends Component{
 	private Image icon;
 	
 	private List<Category> subCategories = new ArrayList<Category>();
+	private Category parent;
 	
 
 	public List<Category> getSubCategories() {
@@ -38,6 +39,14 @@ public class Category  extends Component{
 
 	public void setIcon(Image icon) {
 		this.icon = icon;
+	}
+
+	public void setParent(Category parent) {
+		this.parent = parent;
+	}
+
+	public Category getParent() {
+		return parent;
 	}
 
 }

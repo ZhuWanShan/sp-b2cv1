@@ -4,8 +4,8 @@
 	<ui:style>
 		
 	</ui:style>
-	<g:TabLayoutPanel barUnit="EM" barHeight="2.2" width="100em"
-		height="50em" ui:field="tab">
+	<g:TabLayoutPanel barUnit="EM" barHeight="2.2"
+		height="100%" ui:field="tab">
 		<g:tab>
 			<g:header>
 					Create/Edit Image
