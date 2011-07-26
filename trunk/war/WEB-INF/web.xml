@@ -8,12 +8,12 @@
   <!-- Servlets -->
     <servlet>
     <servlet-name>queryService</servlet-name>
-    <servlet-class>com.spshop.admin.server.QueryServiceImpl</servlet-class>
+    <servlet-class>com.spshop.admin.server.AdminServiceImpl</servlet-class>
   </servlet>
   
   <servlet-mapping>
     <servlet-name>queryService</servlet-name>
-    <url-pattern>/workspace/query</url-pattern>
+    <url-pattern>/workspace/admin</url-pattern>
   </servlet-mapping>
   
   <!-- Default page to serve -->
