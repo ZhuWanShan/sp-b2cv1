@@ -28,6 +28,4 @@ public class Country extends Component{
 	public void setIcon(Image icon) {
 		this.icon = icon;
 	}
-	
-	
 }

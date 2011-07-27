@@ -10,8 +10,6 @@ import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLTable.Cell;
@@ -216,11 +214,27 @@ public class ComponentQuery extends ResizeComposite {
 		for (int i = 0; i < result.currentPageData().size(); i++) {
 			Image image = (Image) result.currentPageData().get(i);
 			table.setWidget(i, 0, new com.google.gwt.user.client.ui.Image(
-					"http://127.0.0.1:8888/image/testImg.jpg"));
+					"image/testImg.jpg"));
 			table.setText(i, 1, image.getName());
-			table.setText(i, 2, image.getStrSizeType());
+			table.setText(i, 2, image.getSizeType().getTitle());
 			table.setText(i, 3, dateTimeFormat.format(image.getCreateDate()));
-			table.setWidget(i, 4, new Operation());
+			Operation<Image> operation = new Operation<Image>(image);
+			operation.setListener(new OperationListenerAdapter<Image>(){
+				@Override
+				public void onDelete(Image content) {
+					super.onDelete(content);
+				}
+				@Override
+				public void onEdit(Image content) {
+					ImageCreation imageCreation = new ImageCreation(content);
+					imageCreation.setSize("800px", "400px");
+					imageCreation.setTitle("Edit Image");
+					PopWindow pop = new PopWindow("Edit Image",imageCreation, true, true);
+					//pop.setSize("400px", "400px");
+					pop.center();
+				}
+			});
+			table.setWidget(i, 4, operation);
 			table.getCellFormatter().setHorizontalAlignment(i, 4,
 					HasHorizontalAlignment.ALIGN_RIGHT);
 		}

@@ -10,4 +10,9 @@ import com.spshop.service.intf.SiteService;
 
 public class SiteServiceImpl extends AbstractService<Site,SiteDAO, Long> implements SiteService{
 
+	@Override
+	public Site getSiteById(long defaultSiteId) {
+		Site site = fetchById(defaultSiteId);
+		return site.clone();
+	}
 }

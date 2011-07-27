@@ -44,8 +44,8 @@
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.jdbc.batch_size">1000</prop>
 				<prop key="hibernate.generate_statistics">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
-				<!--
+				<!--<prop key="hibernate.hbm2ddl.auto">update</prop>
+				
 					<prop key="hibernate.connection.autocommit">false</prop> <prop
 					key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop>
 				-->

@@ -8,8 +8,11 @@ import java.util.Random;
 import com.spshop.admin.client.businessui.AdminService;
 import com.spshop.model.Category;
 import com.spshop.model.Component;
+import com.spshop.model.Image;
 import com.spshop.model.QueryCriteria;
 import com.spshop.model.QueryResult;
+import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.ImageService;
 
 public class AdminServiceImpl extends RemoteService implements AdminService{
 	/**
@@ -61,5 +64,11 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 	public Category saveCategory(Category category) {
 		category.setId(new Random().nextLong());
 		return category;
+	}
+
+	@Override
+	public Image getImageById(long id) {
+		Image image = ServiceFactory.getService(ImageService.class).getImageById(id);
+		return image;
 	}
 }

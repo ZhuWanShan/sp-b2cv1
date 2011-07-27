@@ -49,4 +49,5 @@ public class Promotion extends Component{
 		return strStatus;
 	}
 
+
 }

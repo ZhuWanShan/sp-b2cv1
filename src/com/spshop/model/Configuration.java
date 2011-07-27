@@ -28,5 +28,4 @@ public class Configuration extends Component{
 	public String getStrType() {
 		return strType;
 	}
-	
 }

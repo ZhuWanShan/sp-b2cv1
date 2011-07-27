@@ -3,7 +3,7 @@ package com.spshop.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public  abstract class Component implements Serializable{
+public  class Component implements Serializable,Cloneable{
 	/**
 	 * 
 	 */
@@ -15,6 +15,16 @@ public  abstract class Component implements Serializable{
 	private Date updateDate;
 	
 	public Component() {
+	}
+	
+	public Component(Component component) {
+		setId(component.getId());
+		if(null!=component.getSite()){
+			setSite(component.getSite().clone());
+		}
+		setName(component.getName());
+		setCreateDate(component.getCreateDate());
+		setUpdateDate(component.getUpdateDate());
 	}
 
 	public long getId() {
@@ -56,5 +66,6 @@ public  abstract class Component implements Serializable{
 	public Site getSite() {
 		return site;
 	}
+	
 	
 }

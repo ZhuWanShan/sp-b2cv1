@@ -6,4 +6,5 @@ import com.spshop.model.Site;
 
 public interface SiteService extends BaseService<Site,SiteDAO, Long>{
 
+	Site getSiteById(long defaultSiteId);
 }

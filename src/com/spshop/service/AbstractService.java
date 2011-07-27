@@ -57,7 +57,8 @@ public abstract class AbstractService <T extends Component, D extends BaseDAO<T,
 	}
 
 	public T findById(ID id) {
-		return getDao().findById(id, false);
+		T entity = getDao().findById(id, false);
+		return entity;
 	}
 
 	public T fetchById(ID id) {
