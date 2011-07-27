@@ -15,11 +15,13 @@ import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteEvent;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Hidden;
 import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.spshop.admin.client.AdminWorkspace;
 import com.spshop.admin.client.AsyncCallbackAdapter;
 import com.spshop.admin.client.PopWindow;
+import com.spshop.admin.shared.ImageConstonts;
 import com.spshop.model.Image;
 import com.spshop.model.ImageSizeType;
 public class ImageCreation extends Composite{
@@ -96,10 +98,10 @@ public class ImageCreation extends Composite{
 			Button thumbnail = new Button("Thumbnail");
 			Button icon = new Button("Icon");
 			Button original = new Button("Original");
-			large.addClickHandler(new LinksClick(image.getLargerUrl()));
-			logo.addClickHandler(new LinksClick(image.getLogoUrl()));
-			thumbnail.addClickHandler(new LinksClick(image.getLargerUrl()));
-			icon.addClickHandler(new LinksClick(image.getIconUrl()));
+			large.addClickHandler(new LinksClick(image.getLargerUrl(),ImageConstonts.LARGE_SIZE));
+			logo.addClickHandler(new LinksClick(image.getLogoUrl(),ImageConstonts.LOGO_SIZE));
+			thumbnail.addClickHandler(new LinksClick(image.getLargerUrl(),ImageConstonts.THUM_SIZE));
+			icon.addClickHandler(new LinksClick(image.getIconUrl(),ImageConstonts.ICON_SIZE));
 			original.addClickHandler(new LinksClick(image.getNoChangeUrl()));
 			links.add(large);
 			links.add(logo);
@@ -117,14 +119,26 @@ public class ImageCreation extends Composite{
 	
 	class LinksClick implements ClickHandler{
 		private String imageURL;
+		private int[] size;
+		private boolean useCustomSize = true;
+		public LinksClick(String imageURL,int[] size) {
+			this.imageURL = imageURL;
+			this.size = size;
+		}
 		public LinksClick(String imageURL) {
 			this.imageURL = imageURL;
+			useCustomSize = false;
 		}
 		@Override
 		public void onClick(ClickEvent e) {
 			PopWindow popWindow = new PopWindow();
 			popWindow.setText("Image");
-			popWindow.setContent(new com.google.gwt.user.client.ui.Image(imageURL));
+			SimplePanel cnt = new SimplePanel(new com.google.gwt.user.client.ui.Image(imageURL));
+			new com.google.gwt.user.client.ui.Image(image.getNoChangeUrl());
+			if(useCustomSize){
+				cnt.setSize(size[0]+"px", size[1]+"px");
+			}
+			popWindow.setContent(cnt);
 			popWindow.setAnimationEnabled(true);
 			popWindow.center();
 		}

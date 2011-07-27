@@ -8,8 +8,6 @@ import magick.ImageInfo;
 import magick.MagickException;
 import magick.MagickImage;
 
-import com.spshop.model.ImageSizeType;
-
 /**
  * ImageMagick和JMagick处理图片
  * 
@@ -80,18 +78,6 @@ public class ImageTools {
 	public static String getImagePath(String imagePath) {
 		File file = new File(imagePath).getParentFile();
 		return file.getAbsolutePath();
-	}
-
-	public static int[][] getImageSize(ImageSizeType sizeType) {
-		int[][] sizes = null;
-		sizes = new int[5][2];
-		
-		sizes[0] = new int[] { 35, 50 };//ICON
-		sizes[1] = new int[] { 371, 588 };//Large
-		sizes[2] = new int[] { 161, 229 };//Thumbnail
-		sizes[3] = new int[] { 68, 90 };//SMALL
-		sizes[4] = new int[] { 227, 392 };//LOGO
-		return sizes;
 	}
 
 }
