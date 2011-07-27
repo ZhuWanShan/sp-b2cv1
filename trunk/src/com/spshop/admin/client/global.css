@@ -57,6 +57,7 @@ a:link, a:visited, a:hover, a:active {
 /* Splitters */
 .gwt-SplitLayoutPanel-HDragger, .gwt-SplitLayoutPanel-VDragger {
   background-color: #DDD;
+  cursor: move;
 }
 
 .gwt-SplitLayoutPanel-HDragger {

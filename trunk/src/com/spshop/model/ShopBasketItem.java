@@ -37,5 +37,4 @@ public class ShopBasketItem extends Component{
 	public void setBasket(ShopBasket basket) {
 		this.basket = basket;
 	}
-	
 }

@@ -3,7 +3,7 @@ package com.spshop.model;
 public enum ImageSizeType {
 	OPTION("OPTION","Option"),
 	SITE_LOGO("SITE_LOGO","Site Logo"),
-	PRODUCT_NORMAL("P_NORMAL","Product Normal");
+	PRODUCT_NORMAL("PRODUCT_NORMAL","Product Normal");
 	private String value;
 	private String title;
 	private ImageSizeType(String value,String title){

@@ -21,7 +21,5 @@ public class SearchHistory extends Component{
 	public void setHit(String hit) {
 		this.hit = hit;
 	}
-	
-	
 
 }

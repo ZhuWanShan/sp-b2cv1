@@ -7,6 +7,8 @@ import com.spshop.admin.client.businessui.ImageCreation;
 import com.spshop.admin.client.businessui.ProductCreation;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
+import com.spshop.model.ImageSizeType;
+import com.spshop.model.ImageType;
 
 public class CommandFactory {
 	public static Command createProduct(){
@@ -25,7 +27,10 @@ public class CommandFactory {
 			public void execute() {
 				//Window.alert("Create Image");
 				AdminWorkspace.contentPanel.body.clear();
-				AdminWorkspace.contentPanel.body.add(new ImageCreation());
+				Image image =new Image();
+				image.setSizeType(ImageSizeType.PRODUCT_NORMAL);
+				image.setType(ImageType.INTERNAL);
+				AdminWorkspace.contentPanel.body.add(new ImageCreation(image));
 			}
 		};
 	}

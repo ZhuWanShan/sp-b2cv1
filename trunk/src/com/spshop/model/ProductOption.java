@@ -69,5 +69,6 @@ public class ProductOption extends Component{
 	public String getDefaultValue() {
 		return defaultValue;
 	}
+
 	
 }

@@ -136,6 +136,7 @@
 		<property name="logoUrl" length="200"></property>
 		<property name="noChangeUrl" length="200"></property>
 		<property name="smallUrl" length="200"></property>
+		<property name="iconUrl" length="200"></property>
 		<property name="thumbnailUrl" length="200"></property>
 		<property name="strSizeType" length="200"></property>
 		<property name="strType" length="200"></property>

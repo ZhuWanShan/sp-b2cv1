@@ -107,7 +107,6 @@ public class Demo implements EntryPoint {
 	    
 		//RootPanel.get().add(tree);
 		
-		RootPanel.get().add(new ImageCreation());
 		RootPanel.get().add(tabLayoutPanel);
 		
 	}

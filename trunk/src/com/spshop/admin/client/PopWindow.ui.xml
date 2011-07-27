@@ -8,6 +8,9 @@
  		 	margin: 2px;
  		 	text-align: center;
  		 }
+ 		 .dialogTopCenterInner{
+ 		 	cursor: move;
+ 		 }
 	</ui:style>
 	<g:HTMLPanel>
 		<g:FlowPanel ui:field="contentPanel" styleName="{style.contentPanel}"></g:FlowPanel>

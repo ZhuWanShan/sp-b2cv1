@@ -9,31 +9,50 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.spshop.admin.client.PopWindow;
+import com.spshop.model.Component;
 
-public class Operation extends Composite {
+public class Operation<T extends Component> extends Composite {
 
 	private static OperationUiBinder uiBinder = GWT
 			.create(OperationUiBinder.class);
 	@UiField Button edit;
-	@UiField Button delate;
+	@UiField Button delete;
+	
+	private T item;
+	
+	private OperationListener<T> listener;
 
 	interface OperationUiBinder extends UiBinder<Widget, Operation> {
 	}
 
-	public Operation() {
+	public Operation(T item) {
 		initWidget(uiBinder.createAndBindUi(this));
+		this.setItem(item);
 	}
 
 	@UiHandler("edit")
 	void onEditClick(ClickEvent event) {
-		ImageCreation imageCreation = new ImageCreation();
-		imageCreation.setSize("800px", "400px");
-		imageCreation.setTitle("Edit Image");
-		PopWindow pop = new PopWindow("Edit Image",imageCreation, true, true);
-		//pop.setSize("400px", "400px");
-		pop.center();
+		if(null!=getListener()){
+			getListener().onEdit(item);
+		}
 	}
-	@UiHandler("delate")
+	@UiHandler("delete")
 	void onDelateClick(ClickEvent event) {
+	}
+
+	public void setListener(OperationListener<T> listener) {
+		this.listener = listener;
+	}
+
+	public OperationListener<T> getListener() {
+		return listener;
+	}
+
+	public void setItem(T item) {
+		this.item = item;
+	}
+
+	public T getItem() {
+		return item;
 	}
 }
