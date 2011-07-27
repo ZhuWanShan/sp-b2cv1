@@ -6,13 +6,15 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 
 import com.spshop.model.Component;
-
+import com.spshop.model.QueryCriteria;
 public interface BaseDAO<T extends Component, ID extends Serializable> {
 	T findById(ID id);
 
 	T findById(ID id, boolean lock);
-
+	
 	T fetchById(ID id);
+	
+	com.spshop.model.QueryResult<Component> queryByHQL(QueryCriteria criteria);
 
 	T fetchById(ID id, boolean lock);
 

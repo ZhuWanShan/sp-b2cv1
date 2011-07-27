@@ -13,7 +13,8 @@ import com.spshop.model.QueryCriteria;
 import com.spshop.model.QueryResult;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.ImageService;
-
+import com.spshop.service.intf.SiteService;
+@SuppressWarnings("rawtypes")
 public class AdminServiceImpl extends RemoteService implements AdminService{
 	/**
 	 * 
@@ -22,7 +23,7 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 
 	public QueryResult<Component> query(QueryCriteria criteria)
 			throws IllegalArgumentException {
-		return new QueryResult<Component>().mockImageData();
+		return ServiceFactory.getService(SiteService.class).query(criteria);
 	}
 
 	@Override

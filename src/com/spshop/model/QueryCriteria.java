@@ -2,6 +2,9 @@ package com.spshop.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class QueryCriteria  implements Serializable{
 	
@@ -15,6 +18,10 @@ public class QueryCriteria  implements Serializable{
 	private String type;
 	private int maxResuilt = 30;
 	private int startIndex;
+	private String orderBy;
+	private boolean asc=false;
+	private Site site;
+	private Map<String,String> properties = new HashMap<String,String>();
 	
 	@Override
 	public String toString() {
@@ -25,6 +32,8 @@ public class QueryCriteria  implements Serializable{
 
 	public QueryCriteria() {
 	}
+	
+	
 
 	public QueryCriteria(int maxResuilt) {
 		super();
@@ -79,6 +88,38 @@ public class QueryCriteria  implements Serializable{
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public void setSite(Site site) {
+		this.site = site;
+	}
+
+	public Site getSite() {
+		return site;
+	}
+
+	public void addPropertie(String name,String value) {
+		properties.put(name, value);
+	}
+
+	public Map<String,String> getProperties() {
+		return properties;
+	}
+
+	public void setOrderBy(String orderBy) {
+		this.orderBy = orderBy;
+	}
+
+	public String getOrderBy() {
+		return orderBy;
+	}
+
+	public void setAsc(boolean asc) {
+		this.asc = asc;
+	}
+
+	public boolean isAsc() {
+		return asc;
 	}
 	
 }

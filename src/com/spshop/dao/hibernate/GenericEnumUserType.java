@@ -12,12 +12,12 @@ import org.hibernate.HibernateException;
 import org.hibernate.type.NullableType;
 import org.hibernate.type.TypeFactory;
 import org.hibernate.usertype.UserType;
-
+@SuppressWarnings({"rawtypes" })
 public class GenericEnumUserType implements UserType {
     private static final String DEFAULT_IDENTIFIER_METHOD_NAME = "name";
     private static final String DEFAULT_VALUE_OF_METHOD_NAME = "valueOf";
  
-    @SuppressWarnings("unchecked")
+  
 	private Class<? extends Enum> enumClass;
     private Class<?> identifierType;
     private Method identifierMethod;
@@ -58,7 +58,6 @@ public class GenericEnumUserType implements UserType {
         }
     }
  
-    @SuppressWarnings("unchecked")
 	public Class returnedClass() {
         return enumClass;
     }

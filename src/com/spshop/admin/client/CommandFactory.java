@@ -5,7 +5,6 @@ import com.spshop.admin.client.businessui.CategoryManager;
 import com.spshop.admin.client.businessui.ComponentQuery;
 import com.spshop.admin.client.businessui.ImageCreation;
 import com.spshop.admin.client.businessui.ProductCreation;
-import com.spshop.model.Component;
 import com.spshop.model.Image;
 import com.spshop.model.ImageSizeType;
 import com.spshop.model.ImageType;
@@ -61,6 +60,8 @@ public class CommandFactory {
 			public void execute() {
 				AdminWorkspace.contentPanel.body.clear();
 				ComponentQuery componentQuery = new ComponentQuery("Image Query",Image.class);
+				componentQuery.getQueryCondition().setAsc(false);
+				componentQuery.getQueryCondition().setOrderBy("createDate");
 				AdminWorkspace.contentPanel.body.add(componentQuery);
 			}
 		};

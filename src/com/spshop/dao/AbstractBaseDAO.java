@@ -10,6 +10,7 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.Criteria;
 import org.hibernate.FlushMode;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
@@ -17,7 +18,8 @@ import org.hibernate.criterion.Example;
 import org.springframework.dao.DataAccessResourceFailureException;
 
 import com.spshop.model.Component;
-
+import com.spshop.model.QueryCriteria;
+import com.spshop.model.QueryResult;
 public abstract class AbstractBaseDAO<T extends Component, ID extends Serializable> {
 
 	protected final Log log = LogFactory.getLog(getClass());
@@ -56,6 +58,10 @@ public abstract class AbstractBaseDAO<T extends Component, ID extends Serializab
 	public Class<T> getPersistentClass() {
 		return persistentClass;
 	}
+	
+	/*public List<E> findById(ID id) {
+		return findById(id, false);
+	}*/
 
 	public T findById(ID id) {
 		return findById(id, false);
@@ -186,4 +192,70 @@ public abstract class AbstractBaseDAO<T extends Component, ID extends Serializab
 	public void evict(T entity) {
 		sessionFactory.getCurrentSession().evict(entity);
 	}
+	
+	@SuppressWarnings("unchecked")
+	public QueryResult<Component> queryByHQL(QueryCriteria criteria){
+		StringBuffer hql = new StringBuffer();
+		hql.append("FROM");
+		hql.append(" ");
+		hql.append(criteria.getType());
+		hql.append(" ");
+		hql.append("WHERE");
+		hql.append(" ");
+		hql.append("name");
+		hql.append(" ");
+		hql.append("LIKE");
+		hql.append(" ");
+		hql.append(":name");
+		
+		hql.append(" ");
+		if(null!=criteria.getStart()){
+			hql.append("AND");
+			hql.append(" ");
+			hql.append("createDate > :start");
+		}
+		hql.append(" ");
+		if(null!=criteria.getEnd()){
+			hql.append("AND");
+			hql.append(" ");
+			hql.append("createDate < :end");
+		}
+		
+		hql.append(" ");
+		String orderBy = criteria.getOrderBy();
+		if(null==criteria.getOrderBy()){
+			orderBy = "id";
+		}
+		hql.append("ORDER BY");
+		hql.append(" ");
+		hql.append(orderBy);
+		hql.append(" ");
+		hql.append(criteria.isAsc()?"ASC":"DESC");
+		
+		String countHql = "select count(name) "+hql;
+		
+		Query query =  getSession().createQuery(hql.toString()).setMaxResults(criteria.getMaxResuilt()).setFirstResult(criteria.getStartIndex());
+		Query countQuery = getSession().createQuery(countHql);
+		if(null!=criteria.getStart()){
+			query.setDate("start", criteria.getStart());
+			countQuery.setDate("start", criteria.getStart());
+		}
+		if(null!=criteria.getEnd()){
+			query.setDate("end", criteria.getEnd());
+			countQuery.setDate("end", criteria.getStart());
+		}
+		
+		query.setString("name", null==criteria.getKey()?"%%":"%"+criteria.getKey()+"%");
+		countQuery.setString("name", null==criteria.getKey()?"%%":"%"+criteria.getKey()+"%");
+		
+		List<Component> rs =query.list();
+		int count = Integer.valueOf(countQuery.list().get(0).toString());
+		QueryResult<Component> qs = new QueryResult<Component>();
+		qs.setRecordCount(count);
+		qs.setResult(rs);
+		qs.setComponentType(criteria.getType());
+		
+		return qs;
+	}
+	
 }
