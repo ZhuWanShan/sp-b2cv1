@@ -13,7 +13,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.datepicker.client.DateBox;
 import com.spshop.model.QueryCriteria;
-
+@SuppressWarnings("rawtypes")
 public class QueryCondition extends Composite {
 	
 	private ComponentQuery  componentQuery;
@@ -29,6 +29,8 @@ public class QueryCondition extends Composite {
 	@UiField DateBox start;
 	@UiField DateBox end;
 	@UiField Button search;
+	private String orderBy;
+	private boolean asc = false;
 
 	interface QueryConditionUiBinder extends UiBinder<Widget, QueryCondition> {
 	}
@@ -55,7 +57,10 @@ public class QueryCondition extends Composite {
 	@UiHandler("search")
 	void onSearchClick(ClickEvent event) {
 		QueryCriteria criteria = new QueryCriteria();
+		criteria.setKey(nameBox.getValue());
 		criteria.setType(type.getName());
+		criteria.setOrderBy(orderBy);
+		criteria.setAsc(asc);
 		criteria.setStart(start.getValue());
 		criteria.setEnd(end.getValue());
 		criteria.setStartIndex(1);
@@ -70,5 +75,20 @@ public class QueryCondition extends Composite {
 	public Class getType() {
 		return type;
 	}
-	
+
+	public String getOrderBy() {
+		return orderBy;
+	}
+
+	public void setOrderBy(String orderBy) {
+		this.orderBy = orderBy;
+	}
+
+	public boolean isAsc() {
+		return asc;
+	}
+
+	public void setAsc(boolean asc) {
+		this.asc = asc;
+	}
 }

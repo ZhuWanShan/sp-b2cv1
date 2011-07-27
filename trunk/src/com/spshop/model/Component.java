@@ -3,7 +3,7 @@ package com.spshop.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public  class Component implements Serializable,Cloneable{
+public  abstract class Component implements Serializable,Cloneable{
 	/**
 	 * 
 	 */
@@ -66,6 +66,8 @@ public  class Component implements Serializable,Cloneable{
 	public Site getSite() {
 		return site;
 	}
+	
+	public abstract Component clone();
 	
 	
 }

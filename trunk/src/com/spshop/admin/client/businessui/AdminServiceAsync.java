@@ -12,8 +12,7 @@ import com.spshop.model.QueryCriteria;
 
 public interface AdminServiceAsync {
 
-	void query(QueryCriteria criteria,
-			AsyncCallback<QueryResult<Component>> callback);
+	void query(QueryCriteria criteria, AsyncCallback<QueryResult<Component>> callback);
 
 	void getLoginInfo(AsyncCallback<LoginInfo> callback);
 

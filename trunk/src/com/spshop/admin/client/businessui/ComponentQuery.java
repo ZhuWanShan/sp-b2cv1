@@ -24,10 +24,11 @@ import com.spshop.model.Component;
 import com.spshop.model.Image;
 import com.spshop.model.QueryCriteria;
 import com.spshop.model.QueryResult;
-
+@SuppressWarnings("rawtypes")
 public class ComponentQuery extends ResizeComposite {
 
 	public interface Listener {
+		
 		void onItemSelected(Component item);
 	}
 
@@ -154,11 +155,11 @@ public class ComponentQuery extends ResizeComposite {
 	 */
 	private void selectRow(int row) {
 
-		if (row > result.currentPageData().size() - 1) {
+		if (row > result.getResult().size() - 1) {
 			return;
 		}
 
-		Component component = result.currentPageData().get(row);
+		Component component = result.getResult().get(row);
 		if (component == null) {
 			return;
 		}
@@ -189,19 +190,18 @@ public class ComponentQuery extends ResizeComposite {
 	}
 
 	private void update() {
-		List<Integer> unselected = new ArrayList<Integer>();
-		unselected.addAll(selectedRows);
-		for (Integer i : unselected) {
-			selectRow(i);
+		int rowCount = table.getRowCount();
+		for(int i=0 ; i<rowCount; i++ ){
+			table.removeRow(0);
 		}
-		table.clear();
+		selectedRows = new ArrayList<Integer>();
 		int count = result.getRecordCount();
-		int max = result.currentPageData().size();
+		int max = result.getResult().size();
 
 		// Update the nav bar.
 		navBar.update(startIndex, count, max);
 
-		if (count > 0) {
+		if (max > 0) {
 			if (result.getComponentType().equals(Image.class.getName())) {
 				updateImage();
 			}
@@ -211,10 +211,10 @@ public class ComponentQuery extends ResizeComposite {
 
 	private void updateImage() {
 		DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
-		for (int i = 0; i < result.currentPageData().size(); i++) {
-			Image image = (Image) result.currentPageData().get(i);
+		for (int i = 0; i < result.getResult().size(); i++) {
+			Image image = (Image) result.getResult().get(i);
 			table.setWidget(i, 0, new com.google.gwt.user.client.ui.Image(
-					"image/testImg.jpg"));
+					image.getIconUrl()));
 			table.setText(i, 1, image.getName());
 			table.setText(i, 2, image.getSizeType().getTitle());
 			table.setText(i, 3, dateTimeFormat.format(image.getCreateDate()));
@@ -271,6 +271,10 @@ public class ComponentQuery extends ResizeComposite {
 
 	public void setResult(QueryResult<Component> result) {
 		this.result = result;
+	}
+
+	public QueryCondition getQueryCondition() {
+		return queryCondition;
 	}
 
 }

@@ -2,7 +2,6 @@ package com.spshop.admin.client.businessui;
 
 import com.google.gwt.user.client.Window;
 import com.spshop.model.Component;
-
 public class OperationListenerAdapter<T extends Component> implements OperationListener<T>{
 
 	@Override

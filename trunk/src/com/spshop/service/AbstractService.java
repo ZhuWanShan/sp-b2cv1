@@ -20,6 +20,7 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 import com.spshop.dao.intf.BaseDAO;
 import com.spshop.model.Component;
 
+@SuppressWarnings("rawtypes")
 public abstract class AbstractService <T extends Component, D extends BaseDAO<T, ID>, ID extends Serializable> implements ApplicationContextAware{
 
 	protected static final String DEF_TX_NAME = "default";

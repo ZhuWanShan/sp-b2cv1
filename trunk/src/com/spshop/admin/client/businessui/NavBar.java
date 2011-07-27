@@ -29,7 +29,7 @@ class NavBar extends Composite {
   public NavBar(ComponentQuery componentQuery) {
     initWidget(binder.createAndBindUi(this));
     this.setComponentQuery(componentQuery);
-    if(null==componentQuery.getResult()||componentQuery.getResult().currentPageData().isEmpty()){
+    if(null==componentQuery.getResult()||componentQuery.getResult().getResult().isEmpty()){
     	setVisibility(newerButton, false);
     	setVisibility(olderButton, false);
     }
