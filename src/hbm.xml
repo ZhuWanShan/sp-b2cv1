@@ -21,7 +21,7 @@
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
 		<property name="address" length="255"></property>
-		<many-to-one name="site" class="Site" insert="false" update="false" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 	</class>
 
 	<class name="Category" table="SHOP_Category">
@@ -31,7 +31,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="false" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		<many-to-one name="parent" class="Category" column="parent_id"></many-to-one>
 		<property name="displayName" length="200"></property>
 		<many-to-one name="icon" class="Image" cascade="save-update"></many-to-one>
@@ -50,7 +50,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
 		<property name="content" length="8000"></property>
 		<property name="rate"></property>
@@ -61,7 +61,7 @@
 			</key>
 			<one-to-many class="Category" not-found="ignore"/>
 		</bag>
-		<many-to-one name="user" class="Product" insert="false" update="true" column="user_id"></many-to-one>
+		<many-to-one name="user" class="Product" column="user_id"></many-to-one>
 	</class>
 	
 	<class name="Configuration" table="SHOP_Configuration">
@@ -71,7 +71,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
 		<property name="strType" length="20"></property>
 		<property name="value" length="100"></property>
@@ -84,7 +84,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
 		<property name="code" length="100"></property>
 		<property name="abbrCode" length="50"></property>
@@ -99,7 +99,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
 		<property name="company" length="100"></property>
 		<property name="price"></property>
@@ -115,7 +115,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
 		<many-to-one name="user" class="User" column="user_id"></many-to-one>
 		<property name="content" length="8000"></property>
@@ -129,7 +129,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id" cascade="none"></many-to-one>
 		
 		<property name="altTitle" length="200"></property>
 		<property name="largerUrl" length="200"></property>
@@ -149,7 +149,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
 		<property name="email" length="100"></property>
 	</class>
@@ -169,7 +169,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
 		<bag name="coupons" table="SHOP_order_coupon">
 			<key column="order_id"></key>
@@ -219,7 +219,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
 		<property name="status"></property>
 	</class>
@@ -231,7 +231,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
 		<property name="abstractText" length="400"></property>
 		<property name="keywords" length="400"></property>
@@ -313,7 +313,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
 		<property name="startDate"></property>
 		<property name="endDate"></property>
@@ -361,7 +361,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
 		<property name="address" length="200"></property>
 		<property name="country" length="50"></property>
@@ -380,7 +380,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" insert="false" update="true" column="site_id"></many-to-one>
+		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
 		<property name="optional" length="200"></property>
 		<property name="value" length="200"></property>
