@@ -100,7 +100,7 @@ public class ImageCreation extends Composite{
 			Button original = new Button("Original");
 			large.addClickHandler(new LinksClick(image.getLargerUrl(),ImageConstonts.LARGE_SIZE));
 			logo.addClickHandler(new LinksClick(image.getLogoUrl(),ImageConstonts.LOGO_SIZE));
-			thumbnail.addClickHandler(new LinksClick(image.getLargerUrl(),ImageConstonts.THUM_SIZE));
+			thumbnail.addClickHandler(new LinksClick(image.getThumbnailUrl(),ImageConstonts.THUM_SIZE));
 			icon.addClickHandler(new LinksClick(image.getIconUrl(),ImageConstonts.ICON_SIZE));
 			original.addClickHandler(new LinksClick(image.getNoChangeUrl()));
 			links.add(large);
