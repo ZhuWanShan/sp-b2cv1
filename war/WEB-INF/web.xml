@@ -28,6 +28,16 @@
 		<url-pattern>/workspace/admin</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>ImageCreate</servlet-name>
+		<servlet-class>com.spshop.admin.server.ImageProcessor</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ImageCreate</servlet-name>
+		<url-pattern>/workspace/imageUpload</url-pattern>
+	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
 		<url-pattern>/</url-pattern>
