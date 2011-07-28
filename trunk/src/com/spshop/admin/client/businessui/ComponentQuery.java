@@ -197,9 +197,10 @@ public class ComponentQuery extends ResizeComposite {
 		selectedRows = new ArrayList<Integer>();
 		int count = result.getRecordCount();
 		int max = result.getResult().size();
+		int perPage = VISIBLE_RECORD_COUNT;
 
 		// Update the nav bar.
-		navBar.update(startIndex, count, max);
+		navBar.update(startIndex, count, max,perPage);
 
 		if (max > 0) {
 			if (result.getComponentType().equals(Image.class.getName())) {
