@@ -57,6 +57,7 @@ public class ImageCreation extends Composite{
 		}
 		setImage(image);
 	}
+	
 	@UiHandler("formPanel")
 	void onFormPanelSubmitComplete(SubmitCompleteEvent event) {
 		final ImageCreation self = this;

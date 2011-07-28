@@ -14,8 +14,8 @@
 	</ui:style>
 	<g:HTMLPanel>
 		<g:FlowPanel ui:field="contentPanel" styleName="{style.contentPanel}"></g:FlowPanel>
-		<g:FlowPanel>
-			<g:Button width="5em" height="2em" ui:field="closeButton" text="Close"/>
+		<g:FlowPanel ui:field="controlPanel">
+			<g:Button ui:field="closeButton" text="Close"/>
 		</g:FlowPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

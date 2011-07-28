@@ -5,6 +5,7 @@
 		.innerPanel {
 			padding: 5px;
 		}
+		
 	</ui:style>
 		<g:TabLayoutPanel barUnit="EM" barHeight="2.2"
 			height="100%">
@@ -13,7 +14,7 @@
 					Category Manager
 				</g:header>
 				<g:SplitLayoutPanel>
-					<g:west size="300">
+					<g:west size="260">
 						<g:HTMLPanel styleName="{style.innerPanel}">
 							<g:Button ui:field="newCategory">Add Root</g:Button>
 							<g:Button ui:field="delete">Delete</g:Button>
@@ -22,8 +23,10 @@
 						</g:HTMLPanel>
 					</g:west>
 					<g:center>
-						<g:HTMLPanel styleName="{style.innerPanel}" ui:field="editor">
-						</g:HTMLPanel>
+						<g:ScrollPanel>
+							<g:HTMLPanel styleName="{style.innerPanel}" ui:field="editor" width="800px" height="800px">
+							</g:HTMLPanel>
+						</g:ScrollPanel>
 					</g:center>
 				</g:SplitLayoutPanel>
 			</g:tab>

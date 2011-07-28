@@ -13,11 +13,6 @@
         <g:west size='192'>
           <workSpace:Shortcuts ui:field='shortcuts' />
         </g:west>
-
-        <!-- <g:north size='200'>
-          <mail:MailList ui:field='mailList' />
-        </g:north>
- -->
         <g:center>
           <workSpace:ContentPanel ui:field="contentPanel"></workSpace:ContentPanel>
         </g:center>
