@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gwt.user.client.ui.Tree;
+import com.google.gwt.user.client.ui.TreeItem;
 import com.spshop.admin.client.AdminWorkspace;
 import com.spshop.admin.client.AsyncCallbackAdapter;
 import com.spshop.model.Category;
@@ -33,7 +34,17 @@ public class CategoryTree extends Tree {
 	}
 	
 	
-	public void update(Category category){
+	public void addRoot(CategoryTreeItem item){
+		categories.add(item.getCategory());
+		addItem(item);
+	}
+	
+	public void addCategory(CategoryTreeItem parent,CategoryTreeItem child){
+		parent.getCategory().getSubCategories().add(child.getCategory());
+		parent.addItem(child);
+	}
+	
+	/*public void update(Category category){
 		final CategoryTreeItem selecetedItem =((CategoryTreeItem)getSelectedItem());
 		final CategoryTree self = this;
 		final boolean isAdd = category.getId()==0;
@@ -52,7 +63,7 @@ public class CategoryTree extends Tree {
 				}
 			}
 		});
-	}
+	}*/
 	
 	
 }

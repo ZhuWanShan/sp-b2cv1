@@ -220,6 +220,19 @@ public abstract class AbstractBaseDAO<T extends Component, ID extends Serializab
 			hql.append(" ");
 			hql.append("createDate < :end");
 		}
+		if(null!=criteria.getProperties()&&!criteria.getProperties().isEmpty()){
+			for(String key : criteria.getProperties().keySet()){
+				hql.append(" ");
+				hql.append("AND");
+				hql.append(" ");
+				Object value = criteria.getProperties().get(key);
+				if(null!=value){
+					hql.append(key +"=:"+key  );
+				}else{
+					hql.append(key +" IS NULL" );
+				}
+			}
+		}
 		
 		hql.append(" ");
 		String orderBy = criteria.getOrderBy();
@@ -243,6 +256,15 @@ public abstract class AbstractBaseDAO<T extends Component, ID extends Serializab
 		if(null!=criteria.getEnd()){
 			query.setDate("end", criteria.getEnd());
 			countQuery.setDate("end", criteria.getStart());
+		}
+		if(null!=criteria.getProperties()&&!criteria.getProperties().isEmpty()){
+			for(String key : criteria.getProperties().keySet()){
+				Object value = criteria.getProperties().get(key);
+				if(null!=value){
+					query.setParameter(key,value);
+					countQuery.setParameter(key,value);
+				}
+			}
 		}
 		
 		query.setString("name", null==criteria.getKey()?"%%":"%"+criteria.getKey()+"%");

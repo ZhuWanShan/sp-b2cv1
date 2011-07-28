@@ -64,7 +64,7 @@ public class CategoryManager extends Composite{
 		Category category = new Category();
 		category.setParent(getCategory());
 		editor.clear();
-		editor.add(new CategoryCreation(category,this));		
+		editor.add(new CategoryCreation(category,this,true));		
 	}
 	public void setCategory(Category category) {
 		this.category = category;
@@ -75,5 +75,8 @@ public class CategoryManager extends Composite{
 	}
 	public Category getCategory() {
 		return category;
+	}
+	public CategoryTree getTree() {
+		return tree;
 	}
 }
