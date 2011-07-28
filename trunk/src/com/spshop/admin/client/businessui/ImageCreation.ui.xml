@@ -5,7 +5,7 @@
 		
 	</ui:style>
 	<g:TabLayoutPanel barUnit="EM" barHeight="2.2"
-		height="100%" ui:field="tab">
+		height="700px" ui:field="tab">
 		<g:tab>
 			<g:header>
 					Create/Edit Image

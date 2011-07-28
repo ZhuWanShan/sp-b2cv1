@@ -27,9 +27,10 @@ import com.spshop.model.QueryResult;
 @SuppressWarnings("rawtypes")
 public class ComponentQuery extends ResizeComposite {
 
-	public interface Listener {
+	public static interface Listener {
 		
 		void onItemSelected(Component item);
+		void onItemUnSelected(Component item);
 	}
 
 	interface Binder extends UiBinder<Widget, ComponentQuery> {
@@ -60,6 +61,7 @@ public class ComponentQuery extends ResizeComposite {
 	private int startIndex;
 	private List<Integer> selectedRows = new ArrayList<Integer>();
 	private NavBar navBar;
+	private boolean enableMultiSelect = false;
 
 	public ComponentQuery(String title, Class type) {
 		initWidget(binder.createAndBindUi(this));
@@ -72,13 +74,6 @@ public class ComponentQuery extends ResizeComposite {
 		queryCondition.setComponentQuery(this);
 		queryCondition.setType(type);
 		initTable();
-		setListener(new Listener() {
-
-			@Override
-			public void onItemSelected(Component item) {
-				// Window.alert("select:" + item);
-			}
-		});
 	}
 
 	/**
@@ -163,6 +158,16 @@ public class ComponentQuery extends ResizeComposite {
 		if (component == null) {
 			return;
 		}
+		
+		if(!enableMultiSelect){
+			for(Integer i : selectedRows){
+				styleRow(i.intValue(), false);
+				if(listener != null){
+					listener.onItemUnSelected(result.getResult().get(i.intValue()));
+				}
+			}
+			selectedRows = new ArrayList<Integer>();
+		}
 
 		if (selectedRows.contains(row)) {
 			styleRow(row, false);
@@ -171,7 +176,7 @@ public class ComponentQuery extends ResizeComposite {
 			styleRow(row, true);
 			selectedRows.add(row);
 		}
-
+		
 		if (listener != null) {
 			listener.onItemSelected(component);
 		}
@@ -276,6 +281,29 @@ public class ComponentQuery extends ResizeComposite {
 
 	public QueryCondition getQueryCondition() {
 		return queryCondition;
+	}
+
+	public void setEnableMultiSelect(boolean enableMultiSelect) {
+		this.enableMultiSelect = enableMultiSelect;
+	}
+
+	public boolean isEnableMultiSelect() {
+		return enableMultiSelect;
+	}
+	
+	public List<Component> getSelected(){
+		List<Component> rs = new ArrayList<Component>();
+		for(int i : selectedRows){
+			rs.add(result.getResult().get(i));
+		}
+		return rs;
+	}
+	
+	public Component getSingle(){
+		if(!selectedRows.isEmpty()){
+			return result.getResult().get(selectedRows.get(0).intValue());
+		}
+		return null;
 	}
 
 }

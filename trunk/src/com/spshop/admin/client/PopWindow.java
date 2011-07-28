@@ -24,6 +24,7 @@ public class PopWindow extends DialogBox {
 	FlowPanel contentPanel;
 	@UiField
 	Button closeButton;
+	@UiField FlowPanel controlPanel;
 	
 	interface PopWindowUiBinder extends UiBinder<Widget, PopWindow> {
 	}
@@ -53,6 +54,10 @@ public class PopWindow extends DialogBox {
 	public void hide() {
 		super.hide();
 		RootPanel.get().remove(this);
+	}
+	
+	public void addButton(Button button){
+		controlPanel.add(button);
 	}
 	
 	@UiHandler("closeButton")
