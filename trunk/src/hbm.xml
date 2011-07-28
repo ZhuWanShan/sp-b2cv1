@@ -32,10 +32,10 @@
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
 		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
-		<many-to-one name="parent" class="Category" column="parent_id"></many-to-one>
+		<many-to-one name="parent" class="Category" column="parent_id" cascade="none"></many-to-one>
 		<property name="displayName" length="200"></property>
-		<many-to-one name="icon" class="Image" cascade="save-update"></many-to-one>
-		<bag name="subCategories">
+		<many-to-one name="icon" class="Image" cascade="none"></many-to-one>
+		<bag name="subCategories" order-by="id desc" cascade="all">
 			<key>
 				<column name="parent_id"></column>
 			</key>

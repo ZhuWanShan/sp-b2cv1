@@ -8,6 +8,7 @@ import com.google.gwt.user.client.Event.NativePreviewEvent;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -29,6 +30,11 @@ public class PopWindow extends DialogBox {
 	public PopWindow() {
 		setWidget(uiBinder.createAndBindUi(this));
 	}
+	
+	public static PopWindow createLoading(String title){
+		PopWindow loading = new PopWindow(title, new HTML("Loading"), true, false);
+		return loading;
+	}
 
 	public PopWindow(String title,Widget content,boolean glassEnable, boolean animationEnable) {
 		this();
@@ -41,6 +47,12 @@ public class PopWindow extends DialogBox {
 	public void setContent(Widget w) {
 		contentPanel.clear();
 		contentPanel.add(w);
+	}
+	
+	@Override
+	public void hide() {
+		super.hide();
+		RootPanel.get().remove(this);
 	}
 	
 	@UiHandler("closeButton")
