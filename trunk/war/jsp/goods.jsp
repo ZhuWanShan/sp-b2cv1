@@ -12,22 +12,28 @@
   <meta name="description" content=" Spark's Shop ">
   <meta name="keywords" content="spark leon tom denton">
   
-<link rel="stylesheet" type="text/css" href="http://www.mlo.me/image/endefault/header.css">
-<link rel="stylesheet" type="text/css" href="http://www.mlo.me/image/endefault/general.css">
-<link rel="stylesheet" type="text/css" href="http://www.mlo.me/image/endefault/index.css">
-<link rel="stylesheet" type="text/css" href="http://www.mlo.me/image/endefault/footer.css">
-<link rel="stylesheet" type="text/css" href="http://www.mlo.me/image/default/global.css">
-<link rel="stylesheet" type="text/css" href="http://www.mlo.me/image/default/header.css">
+	<link rel="stylesheet" type="text/css"
+		href="../css/header.css">
+	<link rel="stylesheet" type="text/css"
+		href="../css/general.css">
+	<link rel="stylesheet" type="text/css"
+		href="../css/index.css">
+	<link rel="stylesheet" type="text/css"
+		href="../css/footer.css">
+	<link rel="stylesheet" type="text/css"
+		href="../css/global.css">
+	<link rel="stylesheet" type="text/css"
+		href="../css/head.css">
 
-<script src="http://www.mlo.me/javascript/jquery1.5.1.js" type="text/javascript"></script>
-<script>
-var Image_url = 'http://www.mlo.me/image/endefault/',root_url = 'http://www.milanoo.com/',seller_lang='en-uk';
-var head_SearchKeywordsNo='Enter search keywords or item code here';
-var SearchKeyword='Enter search keywords or item code here';
-var jq=jQuery.noConflict();
-</script>
-<script src="http://www.mlo.me/javascript/mlcommon.js" type="text/javascript"></script>
-<script src="http://www.mlo.me/javascript/ajax.js" type="text/javascript"></script>
+<script src="../js/jquery-1.5.1.js" type="text/javascript"></script>
+	<script>
+	var Image_url = 'http://127.0.0.1:8888/css',root_url = 'http://127.0.0.1:8888/',seller_lang='en-uk';
+	var head_SearchKeywordsNo='Enter search keywords or item code here';
+	var SearchKeyword='Enter search keywords or item code here';
+	var jq=jQuery.noConflict();
+	</script>
+<script src="../js/common.js" type="text/javascript"></script>
+<script src="../js/ajax.js" type="text/javascript"></script>
 
 </head>
 <body>

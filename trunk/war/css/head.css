@@ -25,7 +25,7 @@ html{_text-overflow:ellipsis;}
 .shopping_cart:hover{background:#FFDE8C;background:-moz-linear-gradient(top, #FAA003, #FFE293);background: -webkit-gradient(linear, 0 0, 0 100%, from(#FAA003), to(#FFE293));color:white;}
 .shopping_cart a{color:white; text-shadow:none;}
 .shopping_cart a:hover{color:black;text-decoration:none;}
-.cart_icon{background:url("./header/icon_shoppingcart.png") 4px 4px no-repeat; padding-left:30px;}
+.cart_icon{background:url("icon_shoppingcart.png") 4px 4px no-repeat; padding-left:30px;}
 .skype_icon{background:url("./header/skype.png")  no-repeat scroll  4px transparent; padding-left:25px; }
 .box_font{width:200px;}
 .top_box{background:#fff;}
@@ -157,4 +157,3 @@ label.error {
 .main_menu .topNavAdSpecialOffer span.Specialtextshadow{ text-shadow:1px 1px 1px #adadad; color:#d80000; line-height:10px; float:left; background:white;}
 .topNavpicturelist{width:176px; display:inline;}
 .topNavpicturelist li{ border:1px solid #cdcdcd;  display:block; float:left;   padding:4px; margin:0 0 5px 3px; height:45px;}
-
