@@ -2,14 +2,14 @@
 
 <div class="main_menu" id="main_menu">
 	<ul>
-	<logic:iterate id="category" name="pageForm" property="categories">
+	<logic:iterate id="category" name="pageForm" property="categories" indexId="idx">
 		<li class="first">
 			<span>
 				<a title='<bean:write name="category" property="displayName"/>' href='http://127.0.0.1:8888/<bean:write name="category" property="displayName"/>'>
 					<bean:write name="category" property="displayName"/>
 				</a> 
 			</span>
-			<div class="sub_menu sub_menu_2_1" style="display: none;">
+			<div class="sub_menu navigationKind<bean:write name="idx"/> sub_menu_2_1" style="display: none;">
 				<div class="inner_box2">
 					<dl class="inner_list">
 						<dt>

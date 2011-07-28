@@ -154,15 +154,17 @@ input,select{font-family:Arial, Helvetica, sans-serif;}
 .bGREEN{ background: url(GREEN.png) no-repeat; position:absolute; right:0px; bottom:0px; z-index:5; height:70px; width:80px;}
 .bJEW{ background: url(JEW.png) no-repeat; position:absolute; right:0px; bottom:0px; z-index:5; height:70px; width:70px;}
 .bMilanoo_shoot{ background: url(Milanoo_shoot.png) no-repeat; position:absolute; right:0px; bottom:0px; z-index:5; height:66px; width:76px;}
-.bDailyMadness {  background: url(daily_madnesslogo.jpg) no-repeat center top; background-repeat: no-repeat; position: absolute; left:0px; bottom:10px; height:19px; width:100%; z-index:2;}
+.bDailyMadness {background: url(daily_madnesslogo.jpg) no-repeat center top; background-repeat: no-repeat; position: absolute; left:0px; bottom:10px; height:19px; width:100%; z-index:2;}
 .bNEWARRIVAL{ background: url(NEWARRIVAL.png) no-repeat; position:absolute; right:0px; bottom:0px; z-index:5; height:80px; width:80px;}
 .bVIPWEEKEND{ background: url(VIPWEEKEND.png) no-repeat; position:absolute; right:0px; bottom:0px; z-index:5; height:80px; width:80px;}
 .bCLEARANCE{ background: url(CLEARANCE.png) no-repeat; position:absolute; right:0px; bottom:0px; z-index:5; height:70px; width:70px;}
 .bFOUTH{ background: url(FOUTH.png) no-repeat; position:absolute; right:0px; bottom:0px; z-index:5; height:70px; width:70px;}
+.bBMD{ background: url(BMD.png) no-repeat; position:absolute; right:0px; bottom:0px; z-index:5; height:68px; width:88px;}
 .nodata_font b{line-height:30px;}
 .bWIG{ background: url(WIG.png) no-repeat; position:absolute; left:0px; bottom:10px; z-index:5; height:37px; width:94px;}
-.bZENCA{ background: url(ZENCA.png) no-repeat; position:absolute; left:0px; bottom:10px; z-index:5; height:37px; width:94px;}
-.sarea99 {  background-image: url(sarea99.png); background-repeat: no-repeat; background-position: left top; height: 30px; width: 31px; position: absolute; z-index: 2; bottom: 0px; right: 0px; }
+.bCHRIST{ background: url(CHRIST.png) no-repeat; position:absolute; right:0px; bottom:0px; z-index:5; height:66px; width:66px;}
+.bZENCA,.bBAGS,.bWIGS{ background: url(ZENCA.png) no-repeat; position:absolute; left:0px; bottom:10px; z-index:5; height:37px; width:94px;}
+.sarea99 {background-image: url(sarea99.png); background-repeat: no-repeat; background-position: left top; height: 30px; width: 31px; position: absolute; z-index: 2; bottom: 0px; right: 0px; }
 .ContinueShopping{padding:5px 8px;font-weight: bold;}
 /**********邮件订阅*****************/
 .Mail_subscription{height:244px;background:url(email_bg.gif) no-repeat;position:relative;}
@@ -195,11 +197,11 @@ input,select{font-family:Arial, Helvetica, sans-serif;}
 .goods_picture div{/*position:absolute;bottom:0; right:0;*/}
 .goods_list .goods_picture{height:230px;width:100%;overflow:hidden;text-align:center;position:relative;margin-bottom:7px;}
 .goods_list .goods_name{display:block;font-size:11px;font-weight:normal;height:28px;overflow:hidden;line-height:14px;padding:0 0 2px; }
-.goods_list .goods_name a{color:#000;filter:;}
-.goods_list .goods_name a:hover{color:#ff5a00;filter:;}
+.goods_list .goods_name a{color:#000;}
+.goods_list .goods_name a:hover{color:#ff5a00;}
 .goods_list .Reference_Price{display:block;padding:0 0 2px;text-align:right;}
-.goods_list .save_per{padding:0 0 2px;filter:;}
-.goods_list .list_stars .starsSmall_box{float:right;filter:;}
+.goods_list .save_per{padding:0 0 2px;}
+.goods_list .list_stars .starsSmall_box{float:right;}
 .goods_list .list_stars span{float:right;width:auto;display:block;}
 .hover_cancel{height:9px;width:9px;background:url('./Cancel_but.gif') no-repeat 0 4px;}
 .hover_cancel:hover{background:url('./Cancel_but2.gif') no-repeat 0 4px;text-decoration:none;}

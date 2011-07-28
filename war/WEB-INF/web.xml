@@ -19,6 +19,10 @@
 			<param-name>config</param-name>
 			<param-value>/WEB-INF/fe-struts-config.xml</param-value>
 		</init-param>
+		<init-param>
+			<param-name>application</param-name>
+			<param-value>ApplicationResources</param-value>
+		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
@@ -86,7 +90,6 @@
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.JPG</url-pattern>
 	</servlet-mapping>
-
 
 	<!-- Default page to serve -->
 	<welcome-file-list>

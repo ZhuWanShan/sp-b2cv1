@@ -37,4 +37,5 @@
 			<forward name="Success" path="/jsp/goods.jsp"></forward>
 		</action>
 	</action-mappings>
+	<message-resources parameter="FE_ApplicationResources" null="true"/>
 </struts-config>

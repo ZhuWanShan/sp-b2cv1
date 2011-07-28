@@ -61,28 +61,21 @@
 .search_box .search_text{position:absolute;top:0;left:8px;background:transparent;width:255px;height:32px;line-height:32px;border:none;}
 .search_button{position:absolute;top:0;right:0;width:40px;height:32px;background:transparent;border:none;cursor:pointer;}
 
-.subCatCollapse,.subCatCollapse_2{
-	margin-left:-10px;
-	cursor:pointer;
-}
-.subCatList li:hover,#Caracoter_lb li:hover{
-	background-color:#cccccc;
-}
-.subCatList li{
-	margin:0;padding-left:10px!important;
-}
-.subCatList{
-	display:none;
-}
+.subCatCollapse,.subCatCollapse_2{margin-left:-10px;cursor:pointer;}
+.subCatList li:hover,#Caracoter_lb li:hover{background-color:#cccccc;}
+.subCatList li{margin:0;padding-left:10px!important;}
+.subCatList{display:none;}
 .table_picstyles{ border-bottom:1px solid #9a9a98; padding-bottom:10px; margin-bottom:10px; width:410px;}
+.addthis_box {display: none;width: 160px;margin: 0 auto;clear: both;}
 
-
-.addthis_box {
-	display: none;
-	width: 160px;
-	margin: 0 auto;
-	clear: both;
-}
-/*屏幕右下角广告*/
-#float_right_ads{height:145px;position:fixed;left:auto;right:0;bottom:0;_position:absolute;_top:expression(document.documentElement.clientHeight + document.documentElement.scrollTop - this.offsetHeight);}
-#closebutton{ position:absolute; left:292px; top:2px;  width:20px; height:20px; cursor:pointer;}
+/* Float right bottom ads */
+#float_right_ads_def,#float_right_ads_detail{height:145px;position:fixed;left:auto;right:0;bottom:0;_position:absolute;_top:expression(document.documentElement.clientHeight + document.documentElement.scrollTop - this.offsetHeight);text-align:center;}
+#adsdefault_closebutton{ position:absolute; left:48px; top:2px;  width:14px; height:13px; background:#ffffff; filter:alpha(opacity=0);opacity:0}
+#adsshow_closeadver{ position:absolute; left:166px; top:108px;  width:108px; height:20px; background:#ffffff; filter:alpha(opacity=0);opacity:0}
+#adsshow_returndefault{ position:absolute; left:5px; top:120px;  width:25px; height:18px; background:#ffffff; filter:alpha(opacity=0); opacity:0;}
+#float_right_ads_def {display: none; cursor: pointer; z-index: 999; }
+#float_right_ads_detail{ display: none; cursor: pointer; z-index: 998; }
+/*cospaly goods list cospaly sort buttons*/
+.cos_sort{ height:25px;}
+.cos_sort li{ float:left; line-height:20px; padding:0 10px; font-size:11px; margin-right:5px; border:#d7d7d7 solid 1px; box-shadow:-1px -1px 1px #fafafa; -webkit-box-shadow:-1px -1px 1px #fafafa; background:#f0f0f0;background:-moz-linear-gradient(top, #fafafa, #e9e9e9); background: -webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#e9e9e9));}
+.cos_sort li.current_tab{box-shadow:-3px -1px 1px #fdeeb7; -webkit-box-shadow:-3px -1px 1px #fdeeb7; cursor:pointer; background:#ffe18b;background:-moz-linear-gradient(top, #ffe47d, #ffdd96); background: -webkit-gradient(linear, 0 0, 0 100%, from(#ffe47d), to(#ffdd96));}

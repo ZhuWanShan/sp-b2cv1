@@ -13,23 +13,23 @@
 		content=" spark leon tom denton ">
 		
 	<link rel="stylesheet" type="text/css"
-		href="http://www.mlo.me/image/endefault/header.css">
+		href="css/header.css">
 	<link rel="stylesheet" type="text/css"
-		href="http://www.mlo.me/image/endefault/general.css">
+		href="css/general.css">
 	<link rel="stylesheet" type="text/css"
-		href="http://www.mlo.me/image/endefault/index.css">
+		href="css/index.css">
 	<link rel="stylesheet" type="text/css"
-		href="http://www.mlo.me/image/endefault/footer.css">
+		href="css/footer.css">
 	<link rel="stylesheet" type="text/css"
-		href="http://www.mlo.me/image/default/global.css">
+		href="css/global.css">
 	<link rel="stylesheet" type="text/css"
-		href="http://www.mlo.me/image/default/header.css">
-	
+		href="css/head.css">
 
-	<script src="http://www.mlo.me/javascript/jquery1.5.1.js"
+
+	<script src="js/jquery-1.5.1.js"
 		type="text/javascript"></script>
 	<script>
-	var Image_url = 'http://127.0.0.1:8888/css/image/',root_url = 'http://127.0.0.1:8888/',seller_lang='en-uk';
+	var Image_url = 'http://127.0.0.1:8888/css',root_url = 'http://127.0.0.1:8888/',seller_lang='en-uk';
 	var head_SearchKeywordsNo='Enter search keywords or item code here';
 	var SearchKeyword='Enter search keywords or item code here';
 	var jq=jQuery.noConflict();
@@ -55,7 +55,7 @@
 	<!-- Top box end -->
 	
 	<!-- Main box start -->
-	<link  href="http://www.mlo.me/image/default/index.css" type="text/css" rel="stylesheet" />
+	<link  href="css/mainbox.css" type="text/css" rel="stylesheet" />
 	<jsp:include page="jsp/wrapper/main_box.jsp"></jsp:include>
 	<!-- Main box end -->
 	
