@@ -34,7 +34,12 @@
 		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		<many-to-one name="parent" class="Category" column="parent_id" cascade="none"></many-to-one>
 		<property name="displayName" length="200"></property>
-		<many-to-one name="icon" class="Image" cascade="none"></many-to-one>
+		<many-to-one name="specialOfferImage" class="Image" cascade="none" column="specialOffer_image"></many-to-one>
+		<property name="url"></property>
+		<property name="relatedKeyword"></property>
+		<property name="pageTitle"></property>
+		<property name="specialOffer"></property>
+		<property name="marketContent"></property>
 		<bag name="subCategories" order-by="id desc" cascade="all">
 			<key>
 				<column name="parent_id"></column>
@@ -59,7 +64,7 @@
 			<key>
 				<column name="reply_for"></column>
 			</key>
-			<one-to-many class="Category" not-found="ignore"/>
+			<one-to-many class="Comment" not-found="ignore"/>
 		</bag>
 		<many-to-one name="user" class="Product" column="user_id"></many-to-one>
 	</class>
