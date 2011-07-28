@@ -44,15 +44,23 @@
 			</g:row>
 			<g:row>
 				<g:customCell>
-					<g:Label text="Related Keywords:" />
+					<g:Label text="Page Title:" />
 				</g:customCell>
 				<g:customCell>
-					<g:TextArea ui:field="relatedKeywords" />
+					<g:TextBox ui:field="pageTitle"/>
 				</g:customCell>
 			</g:row>
 			<g:row>
 				<g:customCell>
-					<g:Label text="SpecialOffer" />
+					<g:Label text="Related Keywords:" />
+				</g:customCell>
+				<g:customCell>
+					<g:TextArea ui:field="relatedKeywords" width="261px" height="68px" />
+				</g:customCell>
+			</g:row>
+			<g:row>
+				<g:customCell>
+					<g:Label text="SpecialOffer:" />
 				</g:customCell>
 				<g:customCell>
 					<g:CheckBox text="SpecialOffer" ui:field="isSpecialOffer" />

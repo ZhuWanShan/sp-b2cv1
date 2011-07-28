@@ -46,6 +46,7 @@ public class CategoryCreation extends Composite {
 	private boolean addChild=false;
 	@UiField
 	RichAreaStyle richArea;
+	@UiField TextBox pageTitle;
 	
 	public interface RichAreaStyle extends CssResource{
 		String richStyle();
