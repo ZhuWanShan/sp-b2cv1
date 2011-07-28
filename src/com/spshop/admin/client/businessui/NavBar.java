@@ -35,10 +35,10 @@ class NavBar extends Composite {
     }
   }
 
-  public void update(int startIndex, int count, int max) {
+  public void update(int startIndex, int count, int max,int perPage) {
     setVisibility(newerButton, startIndex != 0);
     setVisibility(olderButton, count > (max*(startIndex+1)));
-    countLabel.setInnerHTML(""+(startIndex*max+1)+" to "+(startIndex*max+max)+" of "+ count);
+    countLabel.setInnerHTML(""+(startIndex*perPage+1)+" to "+(startIndex*perPage+max)+" of "+ count);
   }
 
   @UiHandler("newerButton")
