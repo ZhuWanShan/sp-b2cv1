@@ -39,7 +39,7 @@
 		<property name="relatedKeyword"></property>
 		<property name="pageTitle"></property>
 		<property name="specialOffer"></property>
-		<property name="marketContent"></property>
+		<property name="marketContent" type="text"></property>
 		<bag name="subCategories" order-by="id desc" cascade="all">
 			<key>
 				<column name="parent_id"></column>
