@@ -47,11 +47,14 @@ public class CategoryManager extends Composite{
 			delete.setEnabled(false);
 			newChild.setEnabled(false);
 		}
+		tree.init();
 	}
 	@UiHandler("newCategory")
 	void onNewCategoryClick(ClickEvent event) {
 		editor.clear();
-		editor.add(new CategoryCreation(new Category(),this));
+		CategoryCreation categoryCreation = new CategoryCreation(new Category(),this);
+		categoryCreation.setAddRootCategory(true);
+		editor.add(categoryCreation);
 	}
 
 	@UiHandler("delete")
@@ -64,7 +67,9 @@ public class CategoryManager extends Composite{
 		Category category = new Category();
 		category.setParent(getCategory());
 		editor.clear();
-		editor.add(new CategoryCreation(category,this,true));		
+		CategoryCreation categoryCreation = new CategoryCreation(category,this);
+		categoryCreation.setAddChildCategory(true);
+		editor.add(categoryCreation);		
 	}
 	public void setCategory(Category category) {
 		this.category = category;
