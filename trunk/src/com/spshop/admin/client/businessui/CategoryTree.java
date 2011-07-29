@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gwt.user.client.ui.Tree;
-import com.google.gwt.user.client.ui.TreeItem;
 import com.spshop.admin.client.AdminWorkspace;
 import com.spshop.admin.client.AsyncCallbackAdapter;
 import com.spshop.model.Category;
@@ -14,9 +13,8 @@ public class CategoryTree extends Tree {
 	
 	final List<Category> categories = new ArrayList<Category>();
 	public CategoryTree() {
-		init();
 	}
-	private void init() {
+	public void init() {
 		final CategoryTree self= this;
 		AdminWorkspace.ADMIN_SERVICE_ASYNC
 				.getAllCategory(new AsyncCallbackAdapter<List<Category>>() {
