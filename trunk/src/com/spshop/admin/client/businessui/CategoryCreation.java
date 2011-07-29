@@ -102,7 +102,6 @@ public class CategoryCreation extends Composite {
 		category.setRelatedKeyword(relatedKeywords.getValue());
 		category.setSpecialOffer(isSpecialOffer.getValue());
 		category.setSpecialOfferImage(specialOfferImage);
-		setSpecialOfferImageUI(specialOfferImage);
 		category.setUrl(url.getValue());
 		// categoryManager.tree.update(category);
 		if (category.getId() < 1) {
