@@ -1,5 +1,6 @@
 package com.spshop.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductOption extends Component{
@@ -18,9 +19,19 @@ public class ProductOption extends Component{
 	private String defaultValue;
 	
 	private Product product;
-	
 	public ProductOption() {
-		// TODO Auto-generated constructor stub
+		
+	}
+	public static ProductOption createWithItem(){
+		ProductOption option = new ProductOption();
+		option.setName("New Option");
+		option.setSelectType(SelectType.SINGLE_LIST);
+		ArrayList<ProductOptionItem> items = new ArrayList<ProductOptionItem>();
+		ProductOptionItem item = new ProductOptionItem();
+		item.setName("Item 1");
+		items.add(item);
+		option.setItems(items);
+		return option;
 	}
 
 	public String getDescription() {

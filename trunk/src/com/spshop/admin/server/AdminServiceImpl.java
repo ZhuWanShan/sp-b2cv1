@@ -2,7 +2,6 @@ package com.spshop.admin.server;
 
 
 import java.util.List;
-import java.util.Random;
 
 import com.spshop.admin.client.businessui.AdminService;
 import com.spshop.model.Category;

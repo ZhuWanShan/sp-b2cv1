@@ -1,6 +1,6 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:p1="urn:import:com.spshop.admin.client.rich" xmlns:p2="urn:import:com.spshop.admin.client.businessui">
 	<ui:style>
 		
 	</ui:style>
@@ -9,13 +9,69 @@
 			<g:header>
 				Basic Info
 			</g:header>
-			<g:HTML>Basic Info</g:HTML>
+				<g:HTMLPanel height="700px">
+				<g:Grid>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Name:"/>
+						</g:customCell>
+						<g:customCell>
+							<g:TextBox/>
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Title:"/>
+						</g:customCell>
+						<g:customCell>
+							<g:TextBox width="236px"/>
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Keywords"/>
+						</g:customCell>
+						<g:customCell>
+							<g:TextArea width="236px" height="50px"/>
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Abstract:"/>
+						</g:customCell>
+						<g:customCell>
+							<p1:RichText/>
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Detail:"/>
+						</g:customCell>
+						<g:customCell>
+							<p1:RichText/>
+						</g:customCell>
+					</g:row>
+						<g:row>
+						<g:customCell>
+							<g:Button text="Save"></g:Button>
+						</g:customCell>
+						<g:customCell>
+								<g:Label text=""/>
+						</g:customCell>
+					</g:row>
+				</g:Grid>
+				</g:HTMLPanel>
+				
 		</g:tab>
 		<g:tab>
 			<g:header>
 				Options
 			</g:header>
-			<g:HTML>Options</g:HTML>
+			<g:HTMLPanel>
+				<g:Button text="Add Option" ui:field="addOption"></g:Button>
+				<g:Button text="Remove" ui:field="removeOption"/>
+				<p2:ProdOptionManager ui:field="optionManager" />
+			</g:HTMLPanel>
 		</g:tab>
 		
 		<g:tab>
@@ -30,6 +86,12 @@
 				Images
 			</g:header>
 			<g:HTML>Imagess</g:HTML>
+		</g:tab>
+			<g:tab>
+			<g:header>
+				Others
+			</g:header>
+			<g:HTML>Others</g:HTML>
 		</g:tab>
 	</g:TabLayoutPanel>
 </ui:UiBinder> 
