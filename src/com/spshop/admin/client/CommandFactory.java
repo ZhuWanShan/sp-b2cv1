@@ -13,6 +13,7 @@ import com.spshop.admin.client.businessui.SelectedCallBack;
 import com.spshop.model.Image;
 import com.spshop.model.ImageSizeType;
 import com.spshop.model.ImageType;
+import com.spshop.model.Product;
 
 public class CommandFactory {
 	public static Command createProduct(){
@@ -20,7 +21,8 @@ public class CommandFactory {
 			@Override
 			public void execute() {
 				AdminWorkspace.contentPanel.body.clear();
-				AdminWorkspace.contentPanel.body.add(new ProductCreation());
+				ProductCreation creation = new ProductCreation(new Product());
+				AdminWorkspace.contentPanel.body.add(creation);
 			}
 		};
 	}

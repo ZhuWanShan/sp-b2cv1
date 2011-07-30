@@ -1,6 +1,7 @@
 package com.spshop.admin.client.businessui;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.google.gwt.core.client.GWT;
@@ -30,19 +31,42 @@ public class ProdOptionManager extends ResizeComposite{
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 	
-	public void addOptions(List<ProductOption> options){
-		for (ProductOption productOption : options) {
-			add(productOption);
+	public void setOptions(List<ProductOption> options){
+		
+		this.options = options;
+		
+		Iterator<Widget> ite = host.iterator();
+		
+		while(ite.hasNext()) {
+			host.remove(ite.next());
+		}
+		
+		if(null!=options){
+			for (ProductOption productOption : options) {
+				add(productOption);
+			}
 		}
 	}
 	
-	public boolean add(ProductOption option) {
+	
+	public void removeCurrentOption(){
+		int index = host.getSelectedIndex();
+		options.remove(index);
+		host.remove(index);
+		if(index>0){
+			host.selectTab(index-1);
+		}
+	}
+	
+	public void add(ProductOption option) {
 		if(!containsOption(option)){
 			ProductOptionCreation creation =  new ProductOptionCreation(option);
 			creation.addChangeListener(new ProductOptionCreation.OptionChangeListener() {
 				@Override
 				public void onChange(ProductOption option, ProductOptionCreation create) {
-					if(containsOption(option)){
+					if(haveSameOption(option)){
+						String opValue = create.getOptionName().getValue();
+						create.getOptionName().setValue(opValue.substring(0,opValue.length()-1));
 						Window.alert("Option Exit!");
 					}else{
 						host.setTabHTML(options.indexOf(option), option.getName());
@@ -51,14 +75,24 @@ public class ProdOptionManager extends ResizeComposite{
 			});
 			host.add(creation,option.getName());
 			options.add(option);
+			selectOption(option);
+		}
+	}
+	
+	private void selectOption(ProductOption option){
+		this.host.selectTab(options.indexOf(option));
+	}
+	
+	public boolean containsOption(ProductOption option){
+		if(null!=getOption(option.getName())){
 			return true;
 		}
 		return false;
 	}
 	
-	public boolean containsOption(ProductOption option){
+	public boolean haveSameOption(ProductOption option){
 		for(ProductOption op : options){
-			if(op.getName().equals(option.getName())){
+			if(op!=option&&op.getName().equals(option.getName())){
 				return true;
 			}
 		}
