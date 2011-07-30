@@ -23,8 +23,8 @@ import com.spshop.admin.client.PopWindow;
 import com.spshop.admin.client.businessui.callback.OperationListenerAdapter;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
-import com.spshop.model.QueryCriteria;
-import com.spshop.model.QueryResult;
+import com.spshop.model.query.QueryCriteria;
+import com.spshop.model.query.QueryResult;
 @SuppressWarnings("rawtypes")
 public class ComponentQuery extends ResizeComposite {
 

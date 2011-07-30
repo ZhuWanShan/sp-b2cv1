@@ -1,5 +1,7 @@
 package com.spshop.model;
 
+import com.spshop.model.enums.ValueType;
+
 public class Configuration extends Component{
 	/**
 	 * 

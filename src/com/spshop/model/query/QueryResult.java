@@ -1,8 +1,10 @@
-package com.spshop.model;
+package com.spshop.model.query;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.spshop.model.Component;
 
 
 public class QueryResult <T extends Component> implements Cloneable, Serializable{

@@ -6,9 +6,10 @@ import java.util.List;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import com.spshop.admin.client.ProductionOptionItemCreation;
+import com.spshop.admin.client.businessui.callback.EditorChangeAdapter;
 import com.spshop.model.ProductOptionItem;
 
 public class ProdOptionItemManager extends Composite{
@@ -26,7 +27,7 @@ public class ProdOptionItemManager extends Composite{
 	}
 	
 	public void setOptionItems(List<ProductOptionItem> items){
-		if(null!=optionItems){
+		if(null==optionItems){
 			optionItems = new ArrayList<ProductOptionItem>();
 		}else{
 			optionItems = items;
@@ -38,14 +39,36 @@ public class ProdOptionItemManager extends Composite{
 		}
 		
 		for(ProductOptionItem item:optionItems){
-			host.add(new ProductionOptionItemCreation(item));
+			addOptionItem(item);
 		}
 	}
 	
 	public void addOptionItem(ProductOptionItem item){
+		if(null==item.getName()){
+			item.setName("New Item");
+		}
+		final ProdOptionItemManager manager = this;
 		if(!haveSameOption(item)){
+			ProdOptionItemCreation itemCreation = new ProdOptionItemCreation(item);
+			itemCreation.addChangeListener(new EditorChangeAdapter<ProductOptionItem, ProdOptionItemCreation>(){
+				@Override
+				public void onChange(ProductOptionItem component,
+						ProdOptionItemCreation widget) {
+					if(haveSameOption(component)){
+						String value = widget.getName().getValue();
+						widget.getName().setValue(value.substring(0,value.length()-1));
+						Window.alert("Already have this item!");
+					}
+				}
+				@Override
+				public void onDelete(ProductOptionItem component,
+						ProdOptionItemCreation widget) {
+					manager.getOptionItems().remove(component);
+					manager.getHost().remove(widget);
+				}
+			});
+			host.add(itemCreation);
 			optionItems.add(item);
-			host.add(new ProductionOptionItemCreation(item));
 		}
 	}
 
@@ -61,5 +84,10 @@ public class ProdOptionItemManager extends Composite{
 		}
 		return false;
 	}
+
+	public VerticalPanel getHost() {
+		return host;
+	}
+	
 	
 }

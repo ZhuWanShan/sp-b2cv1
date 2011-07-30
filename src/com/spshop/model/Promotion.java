@@ -2,6 +2,8 @@ package com.spshop.model;
 
 import java.util.Date;
 
+import com.spshop.model.enums.PromotionStatusType;
+
 public class Promotion extends Component{
 
 	/**

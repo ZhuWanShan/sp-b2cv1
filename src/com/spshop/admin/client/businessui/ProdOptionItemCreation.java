@@ -15,6 +15,8 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.dom.client.ClickEvent;
 
 public class ProdOptionItemCreation extends Composite implements ChangeObservable<ProductOptionItem, ProdOptionItemCreation>{
 
@@ -22,7 +24,20 @@ public class ProdOptionItemCreation extends Composite implements ChangeObservabl
 			.create(ProdOptionItemCreationUiBinder.class);
 	@UiField TextBox name;
 	@UiField TextBox value;
+	public TextBox getName() {
+		return name;
+	}
+
+	public TextBox getValue() {
+		return value;
+	}
+
+	public Button getColor() {
+		return Color;
+	}
+
 	@UiField Button delete;
+	@UiField Button Color;
 
 	private ProductOptionItem optionItem;
 	
@@ -32,12 +47,15 @@ public class ProdOptionItemCreation extends Composite implements ChangeObservabl
 			UiBinder<Widget, ProdOptionItemCreation> {
 	}
 
-	public ProdOptionItemCreation() {
+	public ProdOptionItemCreation(ProductOptionItem item) {
 		initWidget(uiBinder.createAndBindUi(this));
+		setOptionItem(item);
 	}
 
 	public void setOptionItem(ProductOptionItem optionItem) {
 		this.optionItem = optionItem;
+		this.optionItem.setValue(optionItem.getValue()); 
+		this.optionItem.setName(optionItem.getName());
 	}
 
 	public ProductOptionItem getOptionItem() {
@@ -47,10 +65,12 @@ public class ProdOptionItemCreation extends Composite implements ChangeObservabl
 	@UiHandler("name")
 	void onNameKeyUp(KeyUpEvent event) {
 		this.optionItem.setName(name.getValue());
+		notifyChange();
 	}
 	@UiHandler("value")
-	void onValueKeyUp(KeyUpEvent event) {
-		this.optionItem.setValue(name.getValue());
+	void onValueValueChange(ValueChangeEvent<String> event) {
+		this.optionItem.setValue(value.getValue());
+		notifyChange();
 	}
 
 	@Override
@@ -73,4 +93,8 @@ public class ProdOptionItemCreation extends Composite implements ChangeObservabl
 		}
 	}
 	
+	@UiHandler("delete")
+	void onDeleteClick(ClickEvent event) {
+		notifyDelete();
+	}
 }

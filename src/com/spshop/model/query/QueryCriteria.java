@@ -1,9 +1,11 @@
-package com.spshop.model;
+package com.spshop.model.query;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.spshop.model.Site;
 
 
 public class QueryCriteria  implements Serializable{
