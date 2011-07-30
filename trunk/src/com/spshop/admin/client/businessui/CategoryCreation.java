@@ -19,6 +19,7 @@ import com.spshop.admin.client.AdminWorkspace;
 import com.spshop.admin.client.AsyncCallbackAdapter;
 import com.spshop.admin.client.CommandFactory;
 import com.spshop.admin.client.PopWindow;
+import com.spshop.admin.client.businessui.callback.SelectedCallBack;
 import com.spshop.admin.client.rich.RichText;
 import com.spshop.model.Category;
 import com.spshop.model.Component;

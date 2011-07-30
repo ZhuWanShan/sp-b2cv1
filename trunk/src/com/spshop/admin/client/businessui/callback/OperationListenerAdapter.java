@@ -1,4 +1,4 @@
-package com.spshop.admin.client.businessui;
+package com.spshop.admin.client.businessui.callback;
 
 import com.google.gwt.user.client.Window;
 import com.spshop.model.Component;

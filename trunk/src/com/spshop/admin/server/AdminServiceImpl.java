@@ -3,7 +3,7 @@ package com.spshop.admin.server;
 
 import java.util.List;
 
-import com.spshop.admin.client.businessui.AdminService;
+import com.spshop.admin.client.businessui.service.AdminService;
 import com.spshop.model.Category;
 import com.spshop.model.Component;
 import com.spshop.model.Image;

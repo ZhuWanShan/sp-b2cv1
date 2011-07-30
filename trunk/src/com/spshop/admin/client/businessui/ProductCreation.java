@@ -11,7 +11,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.TabLayoutPanel;
+import com.google.gwt.user.client.ui.Widget;
 import com.spshop.model.Product;
 import com.spshop.model.ProductOption;
 
@@ -22,10 +22,11 @@ public class ProductCreation extends Composite{
 	@UiField Button addOption;
 	@UiField ProdOptionManager optionManager;
 	@UiField Button removeOption;
+	@UiField Button Save;
 	
 	private Product product;
 
-	interface ImageCreationUiBinder extends UiBinder<TabLayoutPanel, ProductCreation> {
+	interface ImageCreationUiBinder extends UiBinder<Widget, ProductCreation> {
 	}
 
 	public ProductCreation(Product product) {
@@ -56,5 +57,8 @@ public class ProductCreation extends Composite{
 	}
 	public Product getProduct() {
 		return product;
+	}
+	@UiHandler("Save")
+	void onSaveClick(ClickEvent event) {
 	}
 }

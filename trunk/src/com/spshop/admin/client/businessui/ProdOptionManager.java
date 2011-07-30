@@ -11,6 +11,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.ResizeComposite;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.spshop.admin.client.businessui.callback.EditorChangeAdapter;
 import com.spshop.model.ProductOption;
 
 public class ProdOptionManager extends ResizeComposite{
@@ -61,15 +62,15 @@ public class ProdOptionManager extends ResizeComposite{
 	public void add(ProductOption option) {
 		if(!containsOption(option)){
 			ProductOptionCreation creation =  new ProductOptionCreation(option);
-			creation.addChangeListener(new ProductOptionCreation.OptionChangeListener() {
+			creation.addChangeListener(new EditorChangeAdapter<ProductOption, ProductOptionCreation>() {
 				@Override
-				public void onChange(ProductOption option, ProductOptionCreation create) {
-					if(haveSameOption(option)){
-						String opValue = create.getOptionName().getValue();
-						create.getOptionName().setValue(opValue.substring(0,opValue.length()-1));
+				public void onChange(ProductOption component, ProductOptionCreation widget) {
+					if(haveSameOption(component)){
+						String opValue = widget.getOptionName().getValue();
+						widget.getOptionName().setValue(opValue.substring(0,opValue.length()-1));
 						Window.alert("Option Exit!");
 					}else{
-						host.setTabHTML(options.indexOf(option), option.getName());
+						host.setTabHTML(options.indexOf(component), component.getName());
 					}
 				}
 			});

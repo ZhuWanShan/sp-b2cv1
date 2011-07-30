@@ -8,6 +8,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
+import com.spshop.admin.client.businessui.callback.OperationListener;
 import com.spshop.model.Component;
 @SuppressWarnings("rawtypes")
 public class Operation<T extends Component> extends Composite {

@@ -8,29 +8,13 @@
 		<g:Grid>
 			<g:row>
 				<g:customCell>
-					<g:Label text="Name:"/>
+					<g:TextBox  ui:field="name"/>
 				</g:customCell>
 				<g:customCell>
-					<g:TextBox/>
-				</g:customCell>
-			</g:row>
-			<g:row>
-				<g:customCell>
-					<g:Label text="Value:"/>
+					<g:TextBox ui:field="value"/>
 				</g:customCell>
 				<g:customCell>
-					<g:TextBox/>
-				</g:customCell>
-			</g:row>
-			<g:row>
-				<g:customCell>
-					<g:Label/>
-				</g:customCell>
-				<g:customCell>
-					<g:FlowPanel>
-						<g:Anchor text="Select a Icon Iamge"/>
-						<g:Anchor text="Show Image"/>
-					</g:FlowPanel>
+					<g:Button ui:field="delete">Delete</g:Button>
 				</g:customCell>
 			</g:row>
 		</g:Grid>

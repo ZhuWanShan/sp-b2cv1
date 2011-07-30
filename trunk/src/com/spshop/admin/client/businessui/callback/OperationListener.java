@@ -1,4 +1,4 @@
-package com.spshop.admin.client.businessui;
+package com.spshop.admin.client.businessui.callback;
 
 import com.spshop.model.Component;
 public interface OperationListener<T extends Component> {

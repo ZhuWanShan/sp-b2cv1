@@ -9,11 +9,11 @@ import com.spshop.admin.client.businessui.CategoryManager;
 import com.spshop.admin.client.businessui.ComponentQuery;
 import com.spshop.admin.client.businessui.ImageCreation;
 import com.spshop.admin.client.businessui.ProductCreation;
-import com.spshop.admin.client.businessui.SelectedCallBack;
+import com.spshop.admin.client.businessui.callback.SelectedCallBack;
 import com.spshop.model.Image;
-import com.spshop.model.ImageSizeType;
-import com.spshop.model.ImageType;
 import com.spshop.model.Product;
+import com.spshop.model.enums.ImageSizeType;
+import com.spshop.model.enums.ImageType;
 
 public class CommandFactory {
 	public static Command createProduct(){

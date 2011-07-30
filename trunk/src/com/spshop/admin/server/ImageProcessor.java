@@ -17,9 +17,9 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.spshop.model.Image;
-import com.spshop.model.ImageSizeType;
-import com.spshop.model.ImageType;
 import com.spshop.model.Site;
+import com.spshop.model.enums.ImageSizeType;
+import com.spshop.model.enums.ImageType;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.ImageService;
 

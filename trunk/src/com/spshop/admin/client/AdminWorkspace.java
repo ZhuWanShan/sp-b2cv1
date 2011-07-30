@@ -14,8 +14,8 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
-import com.spshop.admin.client.businessui.AdminService;
-import com.spshop.admin.client.businessui.AdminServiceAsync;
+import com.spshop.admin.client.businessui.service.AdminService;
+import com.spshop.admin.client.businessui.service.AdminServiceAsync;
 import com.spshop.admin.shared.LoginInfo;
 
 public class AdminWorkspace implements EntryPoint {
