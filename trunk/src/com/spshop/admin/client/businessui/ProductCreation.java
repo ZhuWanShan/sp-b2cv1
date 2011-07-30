@@ -1,10 +1,14 @@
 package com.spshop.admin.client.businessui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
@@ -24,27 +28,31 @@ public class ProductCreation extends Composite{
 	interface ImageCreationUiBinder extends UiBinder<TabLayoutPanel, ProductCreation> {
 	}
 
-	public ProductCreation() {
+	public ProductCreation(Product product) {
 		initWidget(uiBinder.createAndBindUi(this));
+		setProduct(product);
 	}
 	
 	@UiHandler("addOption")
 	void onAddOptionClick(ClickEvent event) {
-		addOption(new ProductOption());
-	}
-	public void addOption(ProductOption option){
-		if(optionManager.add(option)){
-			option.setProduct(product);
-			product.getOptions().add(option);
-		}
-		
+		ProductOption productOption = ProductOption.createWithItem();
+		productOption.setProduct(product);
+		optionManager.add(productOption);
 	}
 	@UiHandler("removeOption")
 	void onRemoveOptionClick(ClickEvent event) {
+		if(Window.confirm("Are your sure!")){
+			optionManager.removeCurrentOption();
+		}
 	}
 	
 	public void setProduct(Product product) {
 		this.product = product;
+		List<ProductOption> options = product.getOptions();
+		if(null==options){
+			options = new ArrayList<ProductOption>();
+		}
+		optionManager.setOptions(options);
 	}
 	public Product getProduct() {
 		return product;
