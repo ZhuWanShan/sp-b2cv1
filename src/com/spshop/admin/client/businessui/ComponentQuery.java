@@ -20,6 +20,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.AdminWorkspace;
 import com.spshop.admin.client.AsyncCallbackAdapter;
 import com.spshop.admin.client.PopWindow;
+import com.spshop.admin.client.businessui.callback.OperationListenerAdapter;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
 import com.spshop.model.QueryCriteria;

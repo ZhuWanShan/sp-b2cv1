@@ -1,5 +1,7 @@
 package com.spshop.admin.client.businessui;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -17,10 +19,13 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
+import com.spshop.admin.client.businessui.callback.ChangeObservable;
+import com.spshop.admin.client.businessui.callback.EditorChangeListener;
 import com.spshop.model.ProductOption;
+import com.spshop.model.ProductOptionItem;
 import com.spshop.model.SelectType;
 
-public class ProductOptionCreation extends Composite {
+public class ProductOptionCreation extends Composite implements ChangeObservable<ProductOption, ProductOptionCreation>{
 
 	private static ProductOptionCreateUiBinder uiBinder = GWT
 			.create(ProductOptionCreateUiBinder.class);
@@ -28,7 +33,7 @@ public class ProductOptionCreation extends Composite {
 	private ProductOption option;
 	
 	@UiField HTMLPanel itemManagerPanel;
-	//@UiField ProdOptionItemManager itemManager;
+	@UiField ProdOptionItemManager itemManager;
 	@UiField Button button;
 	@UiField TextBox optionName;
 	public HTMLPanel getItemManagerPanel() {
@@ -50,7 +55,7 @@ public class ProductOptionCreation extends Composite {
 	@UiField TextBox OpDefaultValue;
 	@UiField ListBox OpTypes;
 	
-	private Set<OptionChangeListener> changeListeners = new TreeSet<ProductOptionCreation.OptionChangeListener>(); 
+	private Set<EditorChangeListener<ProductOption, ProductOptionCreation>> changeListeners = new TreeSet<EditorChangeListener<ProductOption, ProductOptionCreation>>(); 
 
 	interface ProductOptionCreateUiBinder extends
 			UiBinder<Widget, ProductOptionCreation> {
@@ -66,56 +71,67 @@ public class ProductOptionCreation extends Composite {
 			OpTypes.addItem(selectType.getTitle(), selectType.getValue());
 			OpTypes.setSelectedIndex(0);
 		}
+		List<ProductOptionItem> items = option.getItems();
+		if(null==items){
+			items = new ArrayList<ProductOptionItem>();
+			option.setItems(items);
+		}
+		itemManager.setOptionItems(items);
 	}
 	
 	@UiHandler("button")
 	void onButtonClick(ClickEvent event) {
-		//itemManager.add(new ProdOptionItemCreation());
+		ProductOptionItem item = new ProductOptionItem();
+		item.setOption(option);
+		itemManager.addOptionItem(item);
 	}
 
 
 	public void setOption(ProductOption option) {
 		this.option = option;
-		executeListener(option, this);
+		notifyChange();
 	}
 
 	public ProductOption getOption() {
 		return option;
 	}
 	
-	public void addChangeListener(OptionChangeListener changeListener) {
+	@Override
+	public void addChangeListener(EditorChangeListener<ProductOption, ProductOptionCreation> changeListener) {
 		this.changeListeners.add(changeListener);
 	}
 	public void clearChangeListener() {
 		changeListeners.clear();
 	}
-	private void executeListener(ProductOption option, ProductOptionCreation creation){
-		for (OptionChangeListener listener : changeListeners) {
-			listener.onChange(option, creation);
+	@Override
+	public void notifyChange(){
+		for (EditorChangeListener<ProductOption, ProductOptionCreation> listener : changeListeners) {
+			listener.onChange(option, this);
 		}
 	}
 
-	public static interface OptionChangeListener{
-		void onChange(ProductOption option,ProductOptionCreation create);
-	}
 	@UiHandler("optionName")
 	void onOptionNameChange(KeyUpEvent event) {
 		this.option.setName(optionName.getValue());
-		executeListener(this.option, this);
+		notifyChange();
 	}
 	@UiHandler("opDesc")
 	void onOpDescChange(ChangeEvent event) {
 		this.option.setDescription(opDesc.getValue());
-		executeListener(option, this);
+		notifyChange();
 	}
 	@UiHandler("OpDefaultValue")
 	void onOpDefaultValueChange(ChangeEvent event) {
 		this.option.setDefaultValue(OpDefaultValue.getValue());
-		executeListener(option, this);
+		notifyChange();
 	}
 	@UiHandler("OpTypes")
 	void onOpTypesChange(ChangeEvent event) {
 		this.option.setSelectType(SelectType.valueOf(OpTypes.getValue(OpTypes.getSelectedIndex())));
-		executeListener(option, this);
+		notifyChange();
+	}
+	@Override
+	public void notifyDelete() {
+		//Do nothing
 	}
 }

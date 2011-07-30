@@ -23,7 +23,7 @@ import com.spshop.admin.client.AsyncCallbackAdapter;
 import com.spshop.admin.client.PopWindow;
 import com.spshop.admin.shared.ImageConstonts;
 import com.spshop.model.Image;
-import com.spshop.model.ImageSizeType;
+import com.spshop.model.enums.ImageSizeType;
 public class ImageCreation extends Composite{
 
 	private static ImageCreationUiBinder uiBinder = GWT

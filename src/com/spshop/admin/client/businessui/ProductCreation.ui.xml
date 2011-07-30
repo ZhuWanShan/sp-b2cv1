@@ -4,6 +4,8 @@
 	<ui:style>
 		
 	</ui:style>
+	<g:HTMLPanel height="100%">
+	<g:Button ui:field="Save">Save</g:Button>
 	<g:TabLayoutPanel barUnit="EM" barHeight="2.2" height="100%">
 		<g:tab>
 			<g:header>
@@ -94,4 +96,5 @@
 			<g:HTML>Others</g:HTML>
 		</g:tab>
 	</g:TabLayoutPanel>
+	</g:HTMLPanel>
 </ui:UiBinder> 

@@ -1,4 +1,4 @@
-package com.spshop.model;
+package com.spshop.model.enums;
 
 public enum FeedBackType {
 	COMPLAIN("COMPLAIN");

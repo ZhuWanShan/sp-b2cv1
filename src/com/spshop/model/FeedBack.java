@@ -1,5 +1,7 @@
 package com.spshop.model;
 
+import com.spshop.model.enums.FeedBackType;
+
 public class FeedBack extends Component{
 
 	/**

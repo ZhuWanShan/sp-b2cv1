@@ -1,51 +1,65 @@
 package com.spshop.admin.client.businessui;
 
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.gwt.user.client.ui.ResizeComposite;
-import com.google.gwt.user.client.ui.TabLayoutPanel;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.VerticalPanel;
+import com.spshop.admin.client.ProductionOptionItemCreation;
+import com.spshop.model.ProductOptionItem;
 
-public class ProdOptionItemManager extends ResizeComposite implements HasWidgets {
+public class ProdOptionItemManager extends Composite{
 
 	private static ProdOptionItemManagerUiBinder uiBinder = GWT
 			.create(ProdOptionItemManagerUiBinder.class);
-
+	@UiField VerticalPanel host;
+	private List<ProductOptionItem> optionItems;
 	interface ProdOptionItemManagerUiBinder extends
-			UiBinder<TabLayoutPanel, ProdOptionItemManager> {
+			UiBinder<VerticalPanel, ProdOptionItemManager> {
 	}
-	
-	private TabLayoutPanel host;
-
 	public ProdOptionItemManager() {
 		host = uiBinder.createAndBindUi(this);
 		initWidget(host);
 	}
-
-	@Override
-	public void add(Widget w) {
-		this.host.add(w,"New Option Item");
-	}
-
-	@Override
-	public void clear() {
-		// TODO Auto-generated method stub
+	
+	public void setOptionItems(List<ProductOptionItem> items){
+		if(null!=optionItems){
+			optionItems = new ArrayList<ProductOptionItem>();
+		}else{
+			optionItems = items;
+		}
+		int wgtCount = host.getWidgetCount();
 		
+		while(wgtCount>1){
+			host.remove(1);
+		}
+		
+		for(ProductOptionItem item:optionItems){
+			host.add(new ProductionOptionItemCreation(item));
+		}
+	}
+	
+	public void addOptionItem(ProductOptionItem item){
+		if(!haveSameOption(item)){
+			optionItems.add(item);
+			host.add(new ProductionOptionItemCreation(item));
+		}
 	}
 
-	@Override
-	public Iterator<Widget> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ProductOptionItem> getOptionItems() {
+		return optionItems;
 	}
-
-	@Override
-	public boolean remove(Widget w) {
-		// TODO Auto-generated method stub
+	
+	private boolean haveSameOption(ProductOptionItem item){
+		for(ProductOptionItem it:optionItems){
+			if(it!=item&&it.getName().equals(item.getName())){
+				return true;
+			}
+		}
 		return false;
 	}
-
+	
 }

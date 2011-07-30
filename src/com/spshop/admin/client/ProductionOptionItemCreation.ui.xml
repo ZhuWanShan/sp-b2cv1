@@ -4,33 +4,17 @@
 	<ui:style>
 		
 	</ui:style>
-	<g:HTMLPanel>
+	<g:HTMLPanel width="100%">
 		<g:Grid>
 			<g:row>
 				<g:customCell>
-					<g:Label text="Name:"/>
+					<g:TextBox ui:field="name"/>
 				</g:customCell>
 				<g:customCell>
-					<g:TextBox/>
-				</g:customCell>
-			</g:row>
-			<g:row>
-				<g:customCell>
-					<g:Label text="Value:"/>
+					<g:HorizontalPanel><g:TextBox ui:field="value"/></g:HorizontalPanel>
 				</g:customCell>
 				<g:customCell>
-					<g:TextBox/>
-				</g:customCell>
-			</g:row>
-			<g:row>
-				<g:customCell>
-					<g:Anchor/>
-				</g:customCell>
-				<g:customCell>
-					<g:FlowPanel>
-						<g:Anchor text="Select a icon Image"/>
-						<g:Anchor text="Show icon"/>
-					</g:FlowPanel>
+					<g:Button>Delete</g:Button>
 				</g:customCell>
 			</g:row>
 		</g:Grid>

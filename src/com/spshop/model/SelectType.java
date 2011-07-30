@@ -1,6 +1,7 @@
 package com.spshop.model;
 
 public enum SelectType {
+	INPUT_TEXT("INPUT_TEXT","Input Text"),
 	SINGLE_LIST("SINGLE_LIST","Single List"),
 	SINGLE_PIC("SINGLE_PIC","Single Picture"),
 	MULTI_PIC("MULTI_PIC","Multi Picture"),

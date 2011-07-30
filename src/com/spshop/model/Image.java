@@ -1,5 +1,8 @@
 package com.spshop.model;
 
+import com.spshop.model.enums.ImageSizeType;
+import com.spshop.model.enums.ImageType;
+
 public class Image extends Component{
 
 	/**
