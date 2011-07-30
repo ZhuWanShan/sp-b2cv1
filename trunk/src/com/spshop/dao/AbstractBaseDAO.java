@@ -18,8 +18,8 @@ import org.hibernate.criterion.Example;
 import org.springframework.dao.DataAccessResourceFailureException;
 
 import com.spshop.model.Component;
-import com.spshop.model.QueryCriteria;
-import com.spshop.model.QueryResult;
+import com.spshop.model.query.QueryCriteria;
+import com.spshop.model.query.QueryResult;
 public abstract class AbstractBaseDAO<T extends Component, ID extends Serializable> {
 
 	protected final Log log = LogFactory.getLog(getClass());

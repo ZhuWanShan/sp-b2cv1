@@ -7,8 +7,8 @@ import com.spshop.admin.shared.LoginInfo;
 import com.spshop.model.Category;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
-import com.spshop.model.QueryResult;
-import com.spshop.model.QueryCriteria;
+import com.spshop.model.query.QueryCriteria;
+import com.spshop.model.query.QueryResult;
 
 public interface AdminServiceAsync {
 

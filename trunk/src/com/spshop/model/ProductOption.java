@@ -3,6 +3,8 @@ package com.spshop.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.spshop.model.enums.SelectType;
+
 public class ProductOption extends Component{
 
 	/**

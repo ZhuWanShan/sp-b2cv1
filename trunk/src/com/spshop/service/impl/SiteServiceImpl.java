@@ -2,9 +2,9 @@ package com.spshop.service.impl;
 
 import com.spshop.dao.intf.SiteDAO;
 import com.spshop.model.Component;
-import com.spshop.model.QueryCriteria;
-import com.spshop.model.QueryResult;
 import com.spshop.model.Site;
+import com.spshop.model.query.QueryCriteria;
+import com.spshop.model.query.QueryResult;
 import com.spshop.service.AbstractService;
 import com.spshop.service.intf.SiteService;
 

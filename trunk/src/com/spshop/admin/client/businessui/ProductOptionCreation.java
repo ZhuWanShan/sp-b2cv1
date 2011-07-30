@@ -23,7 +23,7 @@ import com.spshop.admin.client.businessui.callback.ChangeObservable;
 import com.spshop.admin.client.businessui.callback.EditorChangeListener;
 import com.spshop.model.ProductOption;
 import com.spshop.model.ProductOptionItem;
-import com.spshop.model.SelectType;
+import com.spshop.model.enums.SelectType;
 
 public class ProductOptionCreation extends Composite implements ChangeObservable<ProductOption, ProductOptionCreation>{
 

@@ -12,7 +12,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.datepicker.client.DateBox;
-import com.spshop.model.QueryCriteria;
+import com.spshop.model.query.QueryCriteria;
 @SuppressWarnings("rawtypes")
 public class QueryCondition extends Composite {
 	
