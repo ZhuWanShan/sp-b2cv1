@@ -1,5 +1,6 @@
 package com.spshop.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Product extends Component{
@@ -19,7 +20,7 @@ public class Product extends Component{
 	private String title;
 	private String rateCount;
 	private CutOff cutOff;
-	private List<ProductOption> options;
+	private List<ProductOption> options = new ArrayList<ProductOption>();
 	private List<ProductProperty> properties;
 	private List<Image> images;
 	
