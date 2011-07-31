@@ -17,20 +17,14 @@ public class QueryCriteria  implements Serializable{
 	private String key;
 	private Date start;
 	private Date end;
-	private String type;
-	private int maxResuilt = 30;
-	private int startIndex;
+	private String type;//Image,Product,
+	private int maxResuilt = 30;//
+	private int startIndex;//5
 	private String orderBy;
 	private boolean asc=false;
 	private Site site;
 	private Map<String,Object> properties = new HashMap<String,Object>();
 	
-	@Override
-	public String toString() {
-		return "QueryCriteria [key=" + key + ", start=" + start + ", end="
-				+ end + ", type=" + type + ", maxResuilt=" + maxResuilt
-				+ ", startIndex=" + startIndex + "]";
-	}
 
 	public QueryCriteria() {
 	}

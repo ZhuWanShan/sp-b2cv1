@@ -1,8 +1,7 @@
 package com.spshop.model.enums;
 
 public enum ImageSizeType {
-	OPTION("OPTION","Option"),
-	SITE_LOGO("SITE_LOGO","Site Logo"),
+	SPECIAL_OFFER("SPECIAL_OFFER","Special Offer"),
 	PRODUCT_NORMAL("PRODUCT_NORMAL","Product Normal");
 	private String value;
 	private String title;

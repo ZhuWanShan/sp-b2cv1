@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
@@ -17,6 +18,8 @@ public class ProdOptionItemManager extends Composite{
 	private static ProdOptionItemManagerUiBinder uiBinder = GWT
 			.create(ProdOptionItemManagerUiBinder.class);
 	@UiField VerticalPanel host;
+	@UiField
+	ItemManagerStyle style;
 	private List<ProductOptionItem> optionItems;
 	interface ProdOptionItemManagerUiBinder extends
 			UiBinder<VerticalPanel, ProdOptionItemManager> {
@@ -24,6 +27,10 @@ public class ProdOptionItemManager extends Composite{
 	public ProdOptionItemManager() {
 		host = uiBinder.createAndBindUi(this);
 		initWidget(host);
+	}
+	
+	interface ItemManagerStyle extends CssResource{
+		
 	}
 	
 	public void setOptionItems(List<ProductOptionItem> items){

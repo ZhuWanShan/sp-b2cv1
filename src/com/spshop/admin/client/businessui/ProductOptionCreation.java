@@ -128,6 +128,12 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 	@UiHandler("OpTypes")
 	void onOpTypesChange(ChangeEvent event) {
 		this.option.setSelectType(SelectType.valueOf(OpTypes.getValue(OpTypes.getSelectedIndex())));
+		if(this.option.getSelectType()==SelectType.INPUT_TEXT){
+			List<ProductOptionItem> emptyItem = new ArrayList<ProductOptionItem>();
+			this.option.setItems(emptyItem);
+			this.itemManager.setOptionItems(this.option.getItems());
+			this.button.setEnabled(false);
+		}
 		notifyChange();
 	}
 	@Override
