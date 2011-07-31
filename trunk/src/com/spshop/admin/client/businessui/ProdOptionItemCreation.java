@@ -54,8 +54,8 @@ public class ProdOptionItemCreation extends Composite implements ChangeObservabl
 
 	public void setOptionItem(ProductOptionItem optionItem) {
 		this.optionItem = optionItem;
-		this.optionItem.setValue(optionItem.getValue()); 
-		this.optionItem.setName(optionItem.getName());
+		this.value.setValue(optionItem.getValue()); 
+		this.name.setValue(optionItem.getName());
 	}
 
 	public ProductOptionItem getOptionItem() {
