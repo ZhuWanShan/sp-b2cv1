@@ -11,4 +11,6 @@ public class AllConstants {
 	public static String ADMIN_LOGIN_INFO = "ADMIN_LOGIN_INFO";
 	public static String SUCCESS_VALUE = "Success";
 	public static String fAILURE_VALUE = "Failure";
+	
+	public static String CATEGORY_CACHE = "catetoryCache";
 }
