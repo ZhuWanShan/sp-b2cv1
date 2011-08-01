@@ -59,7 +59,7 @@ public class AccordionMenu extends Composite {
 		switch (accordionMenuType) {
 		case IMAGE_MANAGEMENT:
 			AccordianItem root = new AccordianItem("Image Management", CommandFactory.emptyCommand());
-			root.addItem(new AccordianItem("Create Iamge", CommandFactory.createImage()));
+			root.addItem(new AccordianItem("Create Image", CommandFactory.createImage()));
 			root.addItem(new AccordianItem("Query", CommandFactory.queryImage()));
 			items.add(root);
 			root.setState(true);
