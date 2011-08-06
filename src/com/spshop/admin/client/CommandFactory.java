@@ -7,6 +7,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.spshop.admin.client.businessui.CategoryManager;
 import com.spshop.admin.client.businessui.ComponentQuery;
+import com.spshop.admin.client.businessui.ImageBatchCreation;
 import com.spshop.admin.client.businessui.ImageCreation;
 import com.spshop.admin.client.businessui.ProductCreation;
 import com.spshop.admin.client.businessui.callback.SelectedCallBack;
@@ -37,6 +38,16 @@ public class CommandFactory {
 				image.setSizeType(ImageSizeType.PRODUCT_NORMAL);
 				image.setType(ImageType.INTERNAL);
 				AdminWorkspace.contentPanel.body.add(new ImageCreation(image));
+			}
+		};
+	}
+	
+	public static Command createBatchImage(){
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				AdminWorkspace.contentPanel.body.clear();
+				AdminWorkspace.contentPanel.body.add(new ImageBatchCreation());
 			}
 		};
 	}

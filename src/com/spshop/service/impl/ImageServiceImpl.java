@@ -11,10 +11,12 @@ import com.spshop.service.intf.ImageService;
 import com.spshop.utils.ImageTools;
 
 public class ImageServiceImpl extends AbstractService<Image,ImageDAO, Long> implements ImageService{
-
+	
+	Image img = new Image();
+	
 	@Override
 	public Image saveImage(Image image,String imagePath,LoginInfo info) {
-		Image img = image;
+		img = image;
 		
 		try {
 			img.setIconUrl(info.getSite().getImagePath()+"/"+ImageTools.changeSize(imagePath, ImageTools.getImagePath(imagePath), ImageConstonts.ICON_SIZE[0],  ImageConstonts.ICON_SIZE[1]));
