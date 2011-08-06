@@ -61,6 +61,7 @@ public class AccordionMenu extends Composite {
 			AccordianItem root = new AccordianItem("Image Management", CommandFactory.emptyCommand());
 			root.addItem(new AccordianItem("Create Image", CommandFactory.createImage()));
 			root.addItem(new AccordianItem("Query", CommandFactory.queryImage()));
+			root.addItem(new AccordianItem("Create Batch Image", CommandFactory.createBatchImage()));
 			items.add(root);
 			root.setState(true);
 			break;
