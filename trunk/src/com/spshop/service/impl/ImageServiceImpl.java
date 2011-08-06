@@ -12,19 +12,14 @@ import com.spshop.utils.ImageTools;
 
 public class ImageServiceImpl extends AbstractService<Image,ImageDAO, Long> implements ImageService{
 	
-	Image img = new Image();
+	
 	
 	@Override
 	public Image saveImage(Image image,String imagePath,LoginInfo info) {
-		img = image;
+		Image img = image;
 		
 		try {
-			img.setIconUrl(info.getSite().getImagePath()+"/"+ImageTools.changeSize(imagePath, ImageTools.getImagePath(imagePath), ImageConstonts.ICON_SIZE[0],  ImageConstonts.ICON_SIZE[1]));
-			img.setLargerUrl(info.getSite().getImagePath()+"/"+ImageTools.changeSize(imagePath, ImageTools.getImagePath(imagePath), ImageConstonts.LARGE_SIZE[0],  ImageConstonts.LARGE_SIZE[1]));
-			img.setThumbnailUrl((info.getSite().getImagePath()+"/"+ImageTools.changeSize(imagePath, ImageTools.getImagePath(imagePath), ImageConstonts.THUM_SIZE[0],  ImageConstonts.THUM_SIZE[1])));
-			img.setSmallUrl((info.getSite().getImagePath()+"/"+ImageTools.changeSize(imagePath, ImageTools.getImagePath(imagePath),ImageConstonts.SMALL_SIZE[0],  ImageConstonts.SMALL_SIZE[1])));
-			img.setLogoUrl((info.getSite().getImagePath()+"/"+ImageTools.changeSize(imagePath, ImageTools.getImagePath(imagePath), ImageConstonts.LOGO_SIZE[0],  ImageConstonts.LOGO_SIZE[1])));
-			
+			img = ImageTools.changeSize(image,info,imagePath);
 		} catch (MagickException e) {
 			e.printStackTrace();
 		}
