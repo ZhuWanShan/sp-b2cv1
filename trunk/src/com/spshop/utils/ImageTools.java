@@ -17,13 +17,14 @@ public class ImageTools {
 	static {
 		System.setProperty("jmagick.systemclassloader", "no");
 	}
+	
+	static ImageInfo info = null;
+	static MagickImage image = null;
+	static Dimension imageDim = null;
+	static MagickImage scaled = null;
 
 	public static String changeSize(String filePath, String toPath,
 			int height,int width) throws MagickException {
-		ImageInfo info = null;
-		MagickImage image = null;
-		Dimension imageDim = null;
-		MagickImage scaled = null;
 		try {
 			info = new ImageInfo(filePath);
 			image = new MagickImage(info);
@@ -56,6 +57,7 @@ public class ImageTools {
 			if (scaled != null) {
 				scaled.destroyImages();
 			}
+			System.gc();
 		}
 	}
 
