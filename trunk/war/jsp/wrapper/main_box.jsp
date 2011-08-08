@@ -1,3 +1,4 @@
+<%@ include file="../include.jsp" %>
 <div class="main_box">
 <style>
 .index_bigad {
@@ -16,19 +17,7 @@
 
 <div class="hei10"></div>
 
-<div class="index_content02 borderstyle_01" style="background:#FBF9F7;">
-	<div class="banner_ad"></div>
-	<div class="hei10"></div>
-	
-	<jsp:include page="recomm_text.jsp"></jsp:include>
-	<div class="right_box">
-		<jsp:include page="recomm_goods.jsp"></jsp:include>	
-	</div>
-</div>
-
-<div class="hei10"></div>
-
-<div class="index_content03">
+<div class="index_content02">
 	<div class="left_box">
 		<jsp:include page="mail_box.jsp"></jsp:include>
 	</div>
