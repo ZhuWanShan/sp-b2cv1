@@ -34,8 +34,18 @@ public class PageFormBean extends ActionForm {
 	/**
 	 * 	Products to be displayed
 	 */
-	private List<Product> products;
+	private List<Product> catProducts;
 	
+	private Category category;
+	
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
 	public List<Category> getCategories() {
 		return menubar;
 	}
@@ -69,12 +79,12 @@ public class PageFormBean extends ActionForm {
 		this.path = path;
 	}
 
-	public List<Product> getProducts() {
-		return products;
+	public List<Product> getCatProducts() {
+		return catProducts;
 	}
 
-	public void setProducts(List<Product> products) {
-		this.products = products;
+	public void setCatProducts(List<Product> products) {
+		this.catProducts = products;
 	}
 	
 	

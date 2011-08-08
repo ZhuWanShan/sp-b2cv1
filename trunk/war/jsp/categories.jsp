@@ -1,43 +1,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
-
-
-<title>Spark's shop</title>
-<meta name="description"
-	content=" spark leon tom denton ">
-<meta name="keywords"
-	content=" spark leon tom denton ">
 	
-	<link rel="stylesheet" type="text/css"
-		href="../css/header.css">
-	<link rel="stylesheet" type="text/css"
-		href="../css/general.css">
-	<link rel="stylesheet" type="text/css"
-		href="../css/index.css">
-	<link rel="stylesheet" type="text/css"
-		href="../css/footer.css">
-	<link rel="stylesheet" type="text/css"
-		href="../css/global.css">
-	<link rel="stylesheet" type="text/css"
-		href="../css/head.css">
-
-<script src="../js/jquery-1.5.1.js"
-	type="text/javascript"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+	
+	
+	<title>Spark's shop</title>
+	<meta name="description" content=" spark leon tom denton ">
+	<meta name="keywords" content=" spark leon tom denton ">
+	
+	<link rel="stylesheet" type="text/css" href="../css/header.css">
+	<link rel="stylesheet" type="text/css" href="../css/general.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<link rel="stylesheet" type="text/css" href="../css/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/head.css">
+	
+	<script src="../js/jquery-1.5.1.js" type="text/javascript"></script>
 	
 	<script>
-	var Image_url = 'http://127.0.0.1:8888/css',root_url = 'http://127.0.0.1:8888/',seller_lang='en-uk';
-	var head_SearchKeywordsNo='Enter search keywords or item code here';
-	var SearchKeyword='Enter search keywords or item code here';
-	var jq=jQuery.noConflict();
+		var Image_url = 'http://127.0.0.1:8888/css', root_url = 'http://127.0.0.1:8888/', seller_lang = 'en-uk';
+		var head_SearchKeywordsNo = 'Enter search keywords or item code here';
+		var SearchKeyword = 'Enter search keywords or item code here';
+		var jq = jQuery.noConflict();
 	</script>
-<script src="../js/common.js"
-	type="text/javascript"></script>
-<script src="../js/ajax.js"
-	type="text/javascript"></script>
+	<script src="../js/common.js" type="text/javascript"></script>
+	<script src="../js/ajax.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -75,7 +64,7 @@
 			<div class="hei5"></div>
 			<p class="Light_gray2 font_size11">Wholesale quality wedding dresses, bridesmaid gowns, flower girl dresses and more wedding apparel from China. All are cheap with trendy styles. Shop affordable amazing wedding apparel now; enjoy quick shopping, dress perfectly for the big wedding with the help of Milanoo.</p>
 			<div class="hei20"></div>
-			<jsp:include page="wrapper/A_categories.jsp"></jsp:include>
+			<jsp:include page="wrapper/contain_change.jsp"></jsp:include>
 			<div class="hei10"></div>
 		</div>
 		<!-- Right box end -->
