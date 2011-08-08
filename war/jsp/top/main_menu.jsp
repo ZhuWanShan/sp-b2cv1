@@ -1,3 +1,4 @@
+<%@page import="com.spshop.utils.AllConstants"%>
 <%@ include file="../include.jsp" %>
 
 <div class="main_menu" id="main_menu">
@@ -5,7 +6,7 @@
 	<c:forEach items="${pageForm.categories}" var="category" varStatus="idx" step="1">
 		<li class="first">
 			<span>
-				<a title="${category.displayName}" href="${site.domain}${category.url}">
+				<a title="${category.displayName}" href="${site.domain}${category.url}?<%= AllConstants.CATEGORY_ID %>=${category.id}">
 					${category.displayName}
 				</a>
 			</span>
@@ -14,13 +15,13 @@
 				<c:forEach items="${category.subCategories}" var="subCategory">
 					<dl class="inner_list">
 						<dt>
-							<a title="${subCategory.displayName}" href="${site.domain}${subCategory.url}">
+							<a title="${subCategory.displayName}" href="${site.domain}${subCategory.url}?<%= AllConstants.CATEGORY_ID %>=${subCategory.id}">
 								${subCategory.displayName}
 							</a>
 						</dt>
 						<c:forEach items="${subCategory.subCategories}" var="childCategory">
 						<dd>
-							<a title="${childCategory.displayName}" href="${site.domain}${childCategory.url}"> 
+							<a title="${childCategory.displayName}" href="${site.domain}${childCategory.url}?<%= AllConstants.CATEGORY_ID %>=${childCategory.id}"> 
 								${childCategory.displayName}
 							</a>
 						</dd>
