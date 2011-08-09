@@ -23,6 +23,7 @@ public class Product extends Component{
 	private List<ProductOption> options = new ArrayList<ProductOption>();
 	private List<ProductProperty> properties;
 	private List<Image> images;
+	private List<Category> categories;
 	
 	public Product() {
 		// TODO Auto-generated constructor stub

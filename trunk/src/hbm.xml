@@ -305,8 +305,7 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		
-		<property name="detail" length="1000"></property>
+		<property name="value" length="1000"></property>
 		<many-to-one name="product" class="Product" column="product_id"></many-to-one>
 	</class>
 	

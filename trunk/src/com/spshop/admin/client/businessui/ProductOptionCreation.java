@@ -2,6 +2,7 @@ package com.spshop.admin.client.businessui;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -20,7 +21,9 @@ import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.businessui.callback.ChangeObservable;
+import com.spshop.admin.client.businessui.callback.EditorChangeAdapter;
 import com.spshop.admin.client.businessui.callback.EditorChangeListener;
+import com.spshop.admin.client.rich.ColorButton;
 import com.spshop.model.ProductOption;
 import com.spshop.model.ProductOptionItem;
 import com.spshop.model.enums.SelectType;
@@ -36,6 +39,13 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 	@UiField ProdOptionItemManager itemManager;
 	@UiField Button button;
 	@UiField TextBox optionName;
+	@UiField TextArea opDesc;
+	@UiField TextBox OpDefaultValue;
+	@UiField ListBox OpTypes;
+	@UiField Button colorPick;
+	ColorSelector selector = new ColorSelector();
+	
+	
 	public HTMLPanel getItemManagerPanel() {
 		return itemManagerPanel;
 	}
@@ -51,9 +61,7 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 	public ListBox getOpTypes() {
 		return OpTypes;
 	}
-	@UiField TextArea opDesc;
-	@UiField TextBox OpDefaultValue;
-	@UiField ListBox OpTypes;
+	
 	
 	private Set<EditorChangeListener<ProductOption, ProductOptionCreation>> changeListeners = new TreeSet<EditorChangeListener<ProductOption, ProductOptionCreation>>(); 
 
@@ -63,9 +71,8 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 	public ProductOptionCreation() {
 		this(ProductOption.createWithItem());
 	}
-	public ProductOptionCreation(ProductOption option) {
+	public ProductOptionCreation(final ProductOption option) {
 		initWidget(uiBinder.createAndBindUi(this));
-		this.setOption(option);
 		SelectType outputTypes[] = SelectType.values();
 		for (SelectType selectType : outputTypes) {
 			OpTypes.addItem(selectType.getTitle(), selectType.getValue());
@@ -77,6 +84,30 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 			option.setItems(items);
 		}
 		itemManager.setOptionItems(items);
+		this.setOption(option);
+		final ProductOptionCreation self = this;
+		selector.addChangeListener(new EditorChangeAdapter<Map<String,ColorButton>, ColorSelector>(){
+			@Override
+			public void onChange(Map<String, ColorButton> colors,
+					ColorSelector widget) {
+				option.setItems(new ArrayList<ProductOptionItem>());
+				self.itemManager.setOptionItems(option.getItems());
+				for (ColorButton btn : colors.values()) {
+					if(btn.getValue()){
+						ProductOptionItem optionItem = new ProductOptionItem();
+						optionItem.setName(btn.getColorName());
+						optionItem.setValue(btn.getColorValue());
+						optionItem.setOption(option);
+						self.itemManager.addOptionItem(optionItem);
+					}
+				}
+			}
+			
+			@Override
+			public void onDelete(Map<String, ColorButton> component,
+					ColorSelector widget) {
+			}
+		});
 	}
 	
 	@UiHandler("button")
@@ -89,6 +120,31 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 
 	public void setOption(ProductOption option) {
 		this.option = option;
+		if(this.option.getSelectType()==SelectType.INPUT_TEXT){
+			List<ProductOptionItem> emptyItem = new ArrayList<ProductOptionItem>();
+			this.option.setItems(emptyItem);
+			this.itemManager.setOptionItems(this.option.getItems());
+			this.button.setVisible(false);
+			itemManager.setVisible(false);
+			colorPick.setVisible(false);
+			selector.hide();
+		}else if(this.option.getSelectType()==SelectType.COLOR_SINGLE){
+			List<ProductOptionItem> emptyItem = new ArrayList<ProductOptionItem>();
+			this.option.setItems(emptyItem);
+			this.itemManager.setOptionItems(this.option.getItems());
+			this.button.setVisible(false);
+			itemManager.setVisible(true);
+			colorPick.setVisible(true);
+		}else{
+			List<ProductOptionItem> emptyItem = new ArrayList<ProductOptionItem>();
+			this.option.setItems(emptyItem);
+			this.itemManager.setOptionItems(this.option.getItems());
+			this.button.setVisible(true);
+			this.button.setEnabled(true);
+			itemManager.setVisible(true);
+			colorPick.setVisible(false);
+			selector.hide();
+		}
 		notifyChange();
 	}
 
@@ -128,16 +184,17 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 	@UiHandler("OpTypes")
 	void onOpTypesChange(ChangeEvent event) {
 		this.option.setSelectType(SelectType.valueOf(OpTypes.getValue(OpTypes.getSelectedIndex())));
-		if(this.option.getSelectType()==SelectType.INPUT_TEXT){
-			List<ProductOptionItem> emptyItem = new ArrayList<ProductOptionItem>();
-			this.option.setItems(emptyItem);
-			this.itemManager.setOptionItems(this.option.getItems());
-			this.button.setEnabled(false);
-		}
+		setOption(option);
 		notifyChange();
 	}
 	@Override
 	public void notifyDelete() {
 		//Do nothing
+	}
+	@UiHandler("colorPick")
+	void onColorPickClick(ClickEvent event) {
+		selector.setPopupPosition(event.getClientX(), event.getClientY());
+		selector.setItems(option.getItems());
+		selector.show();
 	}
 }

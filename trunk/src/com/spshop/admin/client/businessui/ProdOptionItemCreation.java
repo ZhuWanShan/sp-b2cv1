@@ -32,12 +32,7 @@ public class ProdOptionItemCreation extends Composite implements ChangeObservabl
 		return value;
 	}
 
-	public Button getColor() {
-		return Color;
-	}
-
 	@UiField Button delete;
-	@UiField Button Color;
 
 	private ProductOptionItem optionItem;
 	
