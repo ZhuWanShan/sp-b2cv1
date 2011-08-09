@@ -11,6 +11,8 @@ public class AllConstants {
 	
 	public static String ADMIN_LOGIN_INFO = "ADMIN_LOGIN_INFO";
 	
+	public static String HTTP_PROTOCOL = "http://";
+	
 	public static String SUCCESS_VALUE = "Success";
 	public static String fAILURE_VALUE = "Failure";
 	
