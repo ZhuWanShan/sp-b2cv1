@@ -41,7 +41,10 @@
 				</g:row>
 				<g:row>
 					<g:customCell>
-						<g:Button ui:field="button">Add Item</g:Button>
+						<g:HorizontalPanel>
+							<g:Button ui:field="button">Add Item</g:Button>
+							<g:Button text="Pick Colors" ui:field="colorPick"/>
+						</g:HorizontalPanel>
 					</g:customCell>
 				</g:row>
 			</g:Grid>

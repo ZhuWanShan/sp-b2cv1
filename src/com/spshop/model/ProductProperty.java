@@ -6,31 +6,49 @@ public class ProductProperty extends Component{
 	 * 
 	 */
 	private static final long serialVersionUID = -2299775829083584745L;
-	private String detail;
-	private Image image;
+	private String name;
+	private String value;
 	private Product product;
 	
-	public ProductProperty() {
-		// TODO Auto-generated constructor stub
-	}
 	
-	public String getDetail() {
-		return detail;
+	
+	public ProductProperty() {
 	}
-	public void setDetail(String detail) {
-		this.detail = detail;
+
+
+
+	public String getName() {
+		return name;
 	}
-	public Image getImage() {
-		return image;
+
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public void setImage(Image image) {
-		this.image = image;
+
+
+
+	public String getValue() {
+		return value;
 	}
-	public void setProduct(Product product) {
-		this.product = product;
+
+
+
+	public void setValue(String value) {
+		this.value = value;
 	}
+
+
+
 	public Product getProduct() {
 		return product;
+	}
+
+
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	/**
@@ -41,12 +59,13 @@ public class ProductProperty extends Component{
 	public ProductProperty clone() {
 		ProductProperty obj = null;
 		obj = new ProductProperty();
-		if (this.detail != null) {
+		if (this.name != null) {
 			/* Does not have a clone() method */
-			obj.detail = this.detail;
+			obj.name = this.name;
 		}
-		if (this.image != null) {
-			obj.image = (Image) this.image.clone();
+		if (this.value != null) {
+			/* Does not have a clone() method */
+			obj.value = this.value;
 		}
 		if (this.product != null) {
 			obj.product = (Product) this.product.clone();

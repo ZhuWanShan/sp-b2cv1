@@ -39,9 +39,7 @@ public class ProdOptionItemManager extends Composite{
 		}else{
 			optionItems = items;
 		}
-		int wgtCount = host.getWidgetCount();
-		
-		while(wgtCount>1){
+		while(host.getWidgetCount()>1){
 			host.remove(1);
 		}
 		

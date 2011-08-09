@@ -14,6 +14,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.model.Product;
 import com.spshop.model.ProductOption;
+import com.spshop.model.enums.SelectType;
 
 public class ProductCreation extends Composite{
 
@@ -37,6 +38,7 @@ public class ProductCreation extends Composite{
 	@UiHandler("addOption")
 	void onAddOptionClick(ClickEvent event) {
 		ProductOption productOption = ProductOption.createWithItem();
+		productOption.setSelectType(SelectType.INPUT_TEXT);
 		productOption.setProduct(product);
 		optionManager.add(productOption);
 	}
