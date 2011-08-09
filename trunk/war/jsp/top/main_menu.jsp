@@ -1,35 +1,66 @@
 <%@page import="com.spshop.utils.AllConstants"%>
-<%@ include file="../include.jsp" %>
+<%@include file="../include.jsp" %>
 
 <div class="main_menu" id="main_menu">
 	<ul>
 	<c:forEach items="${pageForm.categories}" var="category" varStatus="idx" step="1">
 		<li class="first">
 			<span>
-				<a title="${category.displayName}" href="${site.domain}${category.url}?<%= AllConstants.CATEGORY_ID %>=${category.id}">
+			<c:if test="${empty category.url}">
+				<a title="${category.displayName}" href="category/${category.name}">
 					${category.displayName}
 				</a>
+			</c:if>
+			<c:if test="${!empty category.url}">
+				<a title="${category.displayName}" href="<%=AllConstants.HTTP_PROTOCOL%>${category.url}">
+					${category.displayName}
+				</a>
+			</c:if>
+				
 			</span>
 			<div class="sub_menu navigationKind${idx.index} sub_menu_2_1" style="display: none;">
 				<div class="inner_box2">
 				<c:forEach items="${category.subCategories}" var="subCategory">
 					<dl class="inner_list">
 						<dt>
-							<a title="${subCategory.displayName}" href="${site.domain}${subCategory.url}?<%= AllConstants.CATEGORY_ID %>=${subCategory.id}">
+						<c:if test="${empty subCategory.url}">
+							<a title="${subCategory.displayName}" href="category/${subCategory.name}">
 								${subCategory.displayName}
 							</a>
+						</c:if>
+						<c:if test="${!empty subCategory.url}">
+							<a title="${subCategory.displayName}" href="<%=AllConstants.HTTP_PROTOCOL%>${subCategory.url}">
+								${subCategory.displayName}
+							</a>
+						</c:if>
 						</dt>
 						<c:forEach items="${subCategory.subCategories}" var="childCategory">
 						<dd>
-							<a title="${childCategory.displayName}" href="${site.domain}${childCategory.url}?<%= AllConstants.CATEGORY_ID %>=${childCategory.id}"> 
+						<c:if test="${empty childCategory.url}">
+							<a title="${childCategory.displayName}" href="category/${childCategory.name}"> 
 								${childCategory.displayName}
 							</a>
+						</c:if>
+						<c:if test="${!empty childCategory.url}">
+							<a title="${childCategory.displayName}" href="<%=AllConstants.HTTP_PROTOCOL%>${childCategory.url}"> 
+								${childCategory.displayName}
+							</a>
+						</c:if>
 						</dd>
 						</c:forEach>
 						<dd class="end_more">
-							<a title="${subCategory.displayName}"
-								href="${site.domain}${subCategory.url}">View All 
-							</a>
+							<c:if test="${empty subCategory.url}">
+								<a title="${subCategory.displayName}"
+									href="category/${subCategory.name}">
+									View All
+								</a>
+							</c:if>
+							<c:if test="${!empty subCategory.url}">
+								<a title="${subCategory.displayName}"
+									href="<%=AllConstants.HTTP_PROTOCOL%>${subCategory.url}">
+									View All
+								</a>
+							</c:if>
 						</dd>
 					</dl>
 				</c:forEach>

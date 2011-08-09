@@ -15,10 +15,6 @@
     	<servlet-class> com.spshop.admin.server.InitCacheService</servlet-class>
     	<load-on-startup>0</load-on-startup>
     </servlet>
-    <servlet-mapping>
-		<servlet-name>initServlet</servlet-name>
-		<url-pattern>/initServlet</url-pattern>
-	</servlet-mapping>
 	<servlet>
 		<servlet-name>action</servlet-name>
 		<servlet-class>
@@ -34,18 +30,19 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-
-
-	<servlet-mapping>
-		<servlet-name>queryService</servlet-name>
-		<url-pattern>/workspace/admin</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
+    <servlet>
 		<servlet-name>ImageCreate</servlet-name>
 		<servlet-class>com.spshop.admin.server.ImageProcessor</servlet-class>
 	</servlet>
 	
+    <servlet-mapping>
+		<servlet-name>initServlet</servlet-name>
+		<url-pattern>/initServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>queryService</servlet-name>
+		<url-pattern>/workspace/admin</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>ImageCreate</servlet-name>
 		<url-pattern>/workspace/imageUpload</url-pattern>
