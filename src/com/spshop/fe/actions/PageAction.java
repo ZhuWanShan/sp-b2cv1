@@ -26,8 +26,10 @@ public class PageAction extends BaseAction {
 			} else if (AllConstants.KEYWORDS_URL.equals(uris[0])) {
 				// TODO Not implemented so far, for keywords page
 			} else {
-				// TODO Other forward
+				// TODO For other forward
 			}
+		} else {
+			populateCategoryForCategoryPage("home", page);
 		}
 
 		return mapping.findForward(AllConstants.SUCCESS_VALUE);
