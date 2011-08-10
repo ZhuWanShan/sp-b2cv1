@@ -7,7 +7,7 @@
 		<li class="first">
 			<span>
 			<c:if test="${empty category.url}">
-				<a title="${category.displayName}" href="category/${category.name}">
+				<a title="${category.displayName}" href="<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/category/${category.name}">
 					${category.displayName}
 				</a>
 			</c:if>
@@ -24,7 +24,7 @@
 					<dl class="inner_list">
 						<dt>
 						<c:if test="${empty subCategory.url}">
-							<a title="${subCategory.displayName}" href="category/${subCategory.name}">
+							<a title="${subCategory.displayName}" href="<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/category/${subCategory.name}">
 								${subCategory.displayName}
 							</a>
 						</c:if>
@@ -37,7 +37,7 @@
 						<c:forEach items="${subCategory.subCategories}" var="childCategory">
 						<dd>
 						<c:if test="${empty childCategory.url}">
-							<a title="${childCategory.displayName}" href="category/${childCategory.name}"> 
+							<a title="${childCategory.displayName}" href="<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/category/${childCategory.name}"> 
 								${childCategory.displayName}
 							</a>
 						</c:if>
@@ -51,7 +51,7 @@
 						<dd class="end_more">
 							<c:if test="${empty subCategory.url}">
 								<a title="${subCategory.displayName}"
-									href="category/${subCategory.name}">
+									href="<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/category/${subCategory.name}">
 									View All
 								</a>
 							</c:if>
