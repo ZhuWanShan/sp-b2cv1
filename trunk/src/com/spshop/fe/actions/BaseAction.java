@@ -20,10 +20,6 @@ import com.spshop.utils.AllConstants;
 
 public abstract class BaseAction extends Action {
 	
-	private PageFormBean page;
-	private String[] uris;
-	
-	
 	/**
 	 * Populate MenuBar data for page
 	 * 
@@ -73,12 +69,11 @@ public abstract class BaseAction extends Action {
 	
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		setPage((PageFormBean) form);
-		uris = request.getRequestURI().split(AllConstants.URL_SEPERATOR);
-		populateMenuBar(getPage());
-		populateSiteInfo(request, getPage());
+		PageFormBean page = (PageFormBean) form;
+		populateMenuBar(page);
+		populateSiteInfo(request, page);
 		
-		return processer(mapping, form, request, response);
+		return processer(mapping, page, request, response);
 	}
 	
 	/**
@@ -89,22 +84,7 @@ public abstract class BaseAction extends Action {
 	 * @return
 	 * @throws Exception
 	 */
-	public abstract ActionForward processer(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public abstract ActionForward processer(ActionMapping mapping, PageFormBean page, HttpServletRequest request, HttpServletResponse response) throws Exception;
 
-	public void setPage(PageFormBean page) {
-		this.page = page;
-	}
-
-	public PageFormBean getPage() {
-		return page;
-	}
-	
-	public String[] getUris() {
-		return uris;
-	}
-
-	public void setUris(String[] uris) {
-		this.uris = uris;
-	}
 
 }
