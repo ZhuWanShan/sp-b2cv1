@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@include file="jsp/include.jsp" %>
 <html>
 <head>
 	
@@ -6,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
 	
 	
-	<title>Spark's shop</title>
+	<title>${pageForm.category.pageTitle}</title>
 	<meta name="description"
 		content=" Spark's shop ">
 	<meta name="keywords"
