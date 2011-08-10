@@ -16,13 +16,15 @@ import com.spshop.utils.AllConstants;
 
 public class PageAction extends BaseAction {
 	@Override
-	public ActionForward processer(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		if (getUris().length != 0) {
-			if (AllConstants.CATEGORY_URL.equals(getUris()[1])) {
+	public ActionForward processer(ActionMapping mapping, PageFormBean page, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String[] uris = request.getRequestURI().split(AllConstants.URL_SEPERATOR);
+		
+		if (uris.length != 0) {
+			if (AllConstants.CATEGORY_URL.equals(uris[1])) {
 				// TODO Not implemented so far, for category page
-				populateProductsByCategory(getPage());
-				populateCategoryForCategoryPage(getUris()[2], getPage());
-			} else if (AllConstants.KEYWORDS_URL.equals(getUris()[0])) {
+				populateProductsByCategory(page);
+				populateCategoryForCategoryPage(uris[2], page);
+			} else if (AllConstants.KEYWORDS_URL.equals(uris[0])) {
 				// TODO Not implemented so far, for keywords page
 			} else {
 				// TODO Other forward
@@ -32,7 +34,7 @@ public class PageAction extends BaseAction {
 		return mapping.findForward(AllConstants.SUCCESS_VALUE);
 	}
 	
-	public void populateProductsByCategory(PageFormBean page) {
+	private void populateProductsByCategory(PageFormBean page) {
 		List<Product> products = new ArrayList<Product>();
 		//products = ServiceFactory.getService(ProductService.class).findPageByPage(0, 24);
 		
