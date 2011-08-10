@@ -2,9 +2,11 @@ package com.spshop.fe.formbeans;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.struts.action.ActionForm;
 
+import com.google.gwt.dev.util.collect.HashMap;
 import com.spshop.model.Category;
 import com.spshop.model.Product;
 import com.spshop.model.Site;
@@ -27,16 +29,13 @@ public class PageFormBean extends ActionForm {
 	private Site site;
 	
 	/**
-	 *  Site Path
-	 */
-	private String path;
-
-	/**
 	 * 	Products to be displayed
 	 */
 	private List<Product> catProducts;
 	
 	private Category category;
+	
+	private Map<String, Object> pageProperties = new HashMap<String, Object>();
 	
 	public Category getCategory() {
 		return category;
@@ -71,20 +70,16 @@ public class PageFormBean extends ActionForm {
 		return site;
 	}
 
-	public String getPath() {
-		return path;
+	public void setPageProperties(Map<String, Object> pageProperties) {
+		this.pageProperties = pageProperties;
 	}
 
-	public void setPath(String path) {
-		this.path = path;
+	public Map<String, Object> getPageProperties() {
+		return pageProperties;
 	}
-
-	public List<Product> getCatProducts() {
-		return catProducts;
-	}
-
-	public void setCatProducts(List<Product> products) {
-		this.catProducts = products;
+	
+	public synchronized void addPageProperty (String key, Object object) {
+		this.pageProperties.put(key, object);
 	}
 	
 	

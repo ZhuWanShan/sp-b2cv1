@@ -41,7 +41,7 @@ public abstract class BaseAction extends Action {
 	private void populateSiteInfo(HttpServletRequest request, PageFormBean page) {
 		//Mockup data
 		Site site = new Site();
-		site.setDomain(request.getServerName() + ":8080");
+		site.setDomain(request.getServerName() + ":" + "8888");
 		page.setSite(site);
 	}
 	
@@ -60,6 +60,7 @@ public abstract class BaseAction extends Action {
 				break;
 			} else if (category.getSubCategories().size() != 0){
 				result = searchCategory(category.getSubCategories(), catName);
+				if (result != null)
 				break;
 			}
 		}

@@ -6,7 +6,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
@@ -47,7 +46,7 @@ public class PageAction extends BaseAction {
 			//product.setImages(images);
 		}
 		
-		page.setCatProducts(products);
+		page.addPageProperty("categoryPros", products);
 	}
 
 }

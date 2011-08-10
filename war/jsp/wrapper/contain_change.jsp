@@ -20,7 +20,7 @@
 	<div class="hei10"></div>
 	<div class="B_Categories">
 		<ul>
-		<c:forEach items="${pageForm.catProducts}" var="product">
+		<c:forEach items="${pageForm.pageProperties.categoryPros}" var="product">
 			<li class="goods_list box_shadow">
 				<div class="goods_picture">
 						<div></div>
