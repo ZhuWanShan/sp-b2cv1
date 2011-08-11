@@ -6,24 +6,18 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-import javax.imageio.ImageIO;
+import magick.ImageInfo;
+import magick.MagickException;
+import magick.MagickImage;
 
 import com.spshop.admin.shared.ImageConstonts;
 import com.spshop.admin.shared.LoginInfo;
 import com.spshop.model.Image;
 
-import magick.ImageInfo;
-import magick.MagickException;
-import magick.MagickImage;
-
-/**
- * ImageMagick和JMagick处理图片
- * 
- */
 public class ImageTools {
 	
 	
-	private final static String  COVERTPAHT="C:\\Program Files (x86)\\ImageMagick-5.5.7-Q8";
+	private final static String  COVERTPAHT="C:\\Program Files\\ImageMagick-5.5.7-Q8";
 	
 	/*
 	 * static { System.setProperty("jmagick.systemclassloader", "no"); }
