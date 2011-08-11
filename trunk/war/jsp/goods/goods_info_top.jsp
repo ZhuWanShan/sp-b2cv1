@@ -1,45 +1,44 @@
+<%@ include file="../include.jsp" %>
+
 <div class="item_goods_info_box_top">
 	<div class="item_box_left_normal">
 		<!-- class="item_box_left" to high -->
 		<div class="no_float">
-
+	
 			<!-- normal picture -->
 			<div class="item_normal_pic" id="item_normal_pic">
 				<div class="item_normal_pic_box">
 					<div></div>
+					<c:forEach items="${pageForm.pageProperties.productDetail.images}" var="image" varStatus="idx" step="1">
+					<c:if test="${idx.index eq 0}" >
 					<a class="bighref" id="linkNormalBox" href="javascript:void(0);"
 						rel="thing_item_pics"> <img
 						src="http://www.mlo.me/image/endefault/thing_item/zoom_in.png"
 						id="zoomIcon"> <img width="277"
-						val="http://www.mlo.me/upen/v/201008/Champagne-A-line-Multi-layer-Flower-Spaghetti-Taffeta-Lace-Wedding-Dress-32534-1.jpg"
-						alt="Champagne A-line Multi-layer Flower Spaghetti Taffeta Lace Wedding Dress"
-						src="http://www.mlo.me/upen/v/201008/Champagne-A-line-Multi-layer-Flower-Spaghetti-Taffeta-Lace-Wedding-Dress-32534-1.jpg"
+						val="${image.largerUrl}"
+						alt="${pageForm.pageProperties.productDetail.title}"
+						src="${image.largerUrl}"
 						id="imageNormalBox"> </a>
-				</div>
+						</div>
 				<div style="display: none">
-					<a
-						href="http://www.mlo.me/upen/v/201008/Champagne-A-line-Multi-layer-Flower-Spaghetti-Taffeta-Lace-Wedding-Dress-32534-1.jpg"
-						class="noneBox"></a> <a
-						href="http://www.mlo.me/upen/v/201008/Champagne-A-line-Multi-layer-Flower-Spaghetti-Taffeta-Lace-Wedding-Dress-32534-2.jpg"
-						class="noneBox" rel="thing_item_pics"></a>
+					</c:if>
+					<c:if test="${idx.index gt 0}" >
+					<a href="${image.largerUrl}" class="noneBox"></a> 
+					</c:if>
 				</div>
+				</c:forEach>
 				<!--<div class="item_normal_zoom"> <a href="###" class="link_pic_zoom bighref" target="_blank">Enlarge the Image</a> </div>-->
 				<div class="item_normal_socllbar">
 					<ul>
-						<li dis="0" class="smallPic"
-							url="http://www.mlo.me/thing/StyleZoom-id-32534-ProductsPicture-0.html"
-							val="http://www.mlo.me/upen/v/201008/Champagne-A-line-Multi-layer-Flower-Spaghetti-Taffeta-Lace-Wedding-Dress-32534-1.jpg">
-							<img
-							alt="Champagne A-line Multi-layer Flower Spaghetti Taffeta Lace Wedding Dress"
-							src="http://www.mlo.me/upen/s/201008/Champagne-A-line-Multi-layer-Flower-Spaghetti-Taffeta-Lace-Wedding-Dress-32534-1.jpg">
-						</li>
-						<li dis="1" class="smallPic"
-							url="http://www.mlo.me/thing/StyleZoom-id-32534-ProductsPicture-1.html"
-							val="http://www.mlo.me/upen/v/201008/Champagne-A-line-Multi-layer-Flower-Spaghetti-Taffeta-Lace-Wedding-Dress-32534-2.jpg">
-							<img
-							alt="Champagne A-line Multi-layer Flower Spaghetti Taffeta Lace Wedding Dress"
-							src="http://www.mlo.me/upen/s/201008/Champagne-A-line-Multi-layer-Flower-Spaghetti-Taffeta-Lace-Wedding-Dress-32534-2.jpg">
-						</li>
+						<c:forEach items="${pageForm.pageProperties.productDetail.images}" var="image" varStatus="idx" step="1">
+							<li dis="${idx.index}" class="smallPic"
+								url="http://www.mlo.me/thing/StyleZoom-id-32534-ProductsPicture-0.html"
+								val="${image.smallUrl}">
+								<img
+								alt="${pageForm.pageProperties.productDetail.title}"
+								src="${image.smallUrl}">
+							</li>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>
@@ -53,9 +52,7 @@
 		action="https://www.milanoo.com/shop/Cart.html">
 		<div class=" item_shopping_fun">
 			<div class="noFlow">
-
-				<h1>Champagne A-line Multi-layer Flower Spaghetti Taffeta Lace
-					Wedding Dress</h1>
+				<h1><c:out value="${pageForm.pageProperties.productDetail.title}" /></h1>
 			</div>
 			<div class="item_showWords"></div>
 			<div class="item_shopping_code">Item Code:#08100032534</div>
@@ -70,74 +67,16 @@
 				</div>
 				<table>
 					<tbody>
-						<tr>
-							<td>Color :</td>
-							<td>champagne</td>
-						</tr>
-						<tr>
-							<td>Fabric :</td>
-							<td>taffeta + lace</td>
-						</tr>
-						<tr>
-							<td>Length :</td>
-							<td>sweep</td>
-						</tr>
-						<tr>
-							<td>Neckline :</td>
-							<td>spaghetti</td>
-						</tr>
-						<tr>
-							<td>Silhouette :</td>
-							<td>a-line</td>
-						</tr>
+						<c:forEach items="${pageForm.pageProperties.productDetail.properties}" var="property" varStatus="idx" step="1">
+							<tr>
+								<td><c:out value="${property.name}" /> :</td>
+								<td><c:out value="${property.value}" /></td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
-				<div class="itme_description">Slim A-line wedding dress has
-					multi-layer skirt with many flowers decorated around the
-					waistline,showing your charm.Spaghetti design is full of romance.It
-					is made of taffeta and lace.The color is champagne.</div>
-				<p class="noFlow">
-					<a id="wholesale" class="item_help" href="javascript:void(0);">Submit
-						a wholesale inquiry</a>
-				</p>
-				<table cellspacing="0" cellpadding="0" class="item_qty">
-					<thead>
-						<tr>
-							<th>Qty.Range(units)</th>
-							<th>Wholesale Price(per units)</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr align="center">
-							<td>2-5</td>
-							<td><font color="#FD7905" style="font-weight: bold">US$
-									199.49 </font> &nbsp;&nbsp;&nbsp;&nbsp;(5% )</td>
-						</tr>
-						<tr align="center">
-							<td>6-9</td>
-							<td><font color="#FD7905" style="font-weight: bold">US$
-									188.99 </font> &nbsp;&nbsp;&nbsp;&nbsp;(10% )</td>
-						</tr>
-						<tr align="center">
-							<td>10+</td>
-							<td><font color="#FD7905" style="font-weight: bold">US$
-									178.49 </font> &nbsp;&nbsp;&nbsp;&nbsp;(15% )</td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="item_linkBox">
-					<div class="addthis_box">$(this).getAddthis();</div>
-				</div>
-				<div class="item_descriptionInfo">
-					<p>
-						Milanoo.com is a professional apparel online retailer, having our
-						own factory with 5 years of apparel production experience, and
-						focusing on providing the best price items for the customer. Want
-						to take a look of Milanoo.com Wedding Factory or more details? <a
-							href="http://www.milanoo.com/promotions/specials-id-866.html"
-							target="_blank">Click Here →</a>
-					</p>
-				</div>
+				<div class="itme_description"><c:out value="${pageForm.pageProperties.productDetail.abstractText}" /></div>
+				<c:out value="${pageForm.pageProperties.productDetail.detail}" />
 			</div>
 		</div>
 		<!--弹出custom-->
@@ -324,59 +263,68 @@ changeunit('in');
 
 					</div>
 				</div>
-				<div class="item_sizeBox">
-					<div class="item_ProBox_title">
-						<span>Size:</span><a onclick="tab_click(2);"
-							href="javascript:jq.goDiv('#tab_middle');"
-							class="item_funLink size_chart">Size Chart</a>
-					</div>
-					<select name="CustomAttributes_array[199]" id="Size0"><option
-							value="please">Please select your size</option>
-						<option value="custom">Custom-Made +US$14.99</option>
-						<option value="size1">US 2</option>
-						<option value="size2">US 4</option>
-						<option value="size3">US 6</option>
-						<option value="size4">US 8</option>
-						<option value="size5">US 10</option>
-						<option value="size6">US 12</option>
-						<option value="size7">US 14</option>
-						<option value="size8">US 16</option>
-						<option value="size9">US 18</option>
-						<option value="size10">US 20</option>
-						<option value="size11">US 22</option>
-						<option value="size12">US 24</option>
-						<option value="size13">US 26</option>
-						<option value="size14">US 28</option>
-					</select>
-				</div>
-				<div class="item_colorBox">
-					<div class="item_ProBox_title">
-						<span>Dress Color:</span><a onclick="tab_click(3);"
-							href="javascript:jq.goDiv('#tab_middle');"
-							class="item_funLink color_chart">Color Chart</a>
-					</div>
-					<input type="hidden" name="CustomAttributes_array[207]/"
-						id="weddingdresscolor1" value="color1"><a
-						dataname="weddingdresscolor1" data="color1"
-						href="javascript:void(0);" title="Refer to the image "
-						class="colorLink" style="border: 1px solid rgb(139, 33, 4);"><div
-							class="abPosition selectImg"></div>
-						<div class="select_refertotheimage"></div>
-					</a>
-				</div>
-
-				<input type="hidden" value="32534" name="ProductsId">
-				<div class="noFlow">
-					Qty: <input type="text" name="num" id="num" value="1" size="5"
-						maxlength="4" class="input_1"
-						onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value&gt;9999)this.value=9999;"
-						onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
-					<div class="item_funTotal" href="javascript:void(0);">
-						Total: <span>US$ <span id="AmountPrice3">209.99</span>
-						</span>
-					</div>
-				</div>
-
+				<c:forEach items="${pageForm.pageProperties.productDetail.properties}" var="property" varStatus="idx" step="1">
+					<c:if test='${property.strSelectType eq "INPUT_TEXT"}'>
+						<div class="noFlow">
+							<c:out value="${property.name}" />: <input type="text" name="<c:out value="${property.name}" />" id="<c:out value="${property.id}" />" value="<c:out value="${property.defaultValue}" />" size="5"
+								maxlength="4" class="input_1"
+								onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value&gt;9999)this.value=9999;"
+								onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
+							<div class="item_funTotal" href="javascript:void(0);">
+								Total: <span>US$ <span id="AmountPrice3">209.99</span>
+								</span>
+							</div>
+						</div>
+					</c:if>
+					<c:if test='${property.strSelectType=="SINGLE_LIST"}'>
+						<div class="item_sizeBox">
+							<div class="item_ProBox_title">
+								<span><c:out value="${property.name}" />:</span><a onclick="tab_click(2);"
+									href="javascript:jq.goDiv('#tab_middle');"
+									class="item_funLink size_chart">Size Chart</a>
+							</div>
+							<select name="CustomAttributes_array[199]" id="Size0">
+								<option	value="please">Please select</option>
+								<c:forEach items="${property.items}" var="item" varStatus="indx" step="1">
+									<option value="${item.value}">${item.displayName}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</c:if>
+					<c:if test='${property.strSelectType=="COLOR_SINGLE"}'>
+						<div class="item_sizeBox">
+							<div class="item_ProBox_title">
+								<span><c:out value="${property.name}" />:</span><a onclick="tab_click(2);"
+									href="javascript:jq.goDiv('#tab_middle');"
+									class="item_funLink size_chart">Size Chart</a>
+							</div>
+							<select name="CustomAttributes_array[199]" id="Size0" MULTIPLE>
+								<option	value="please">Please select</option>
+								<c:forEach items="${property.items}" var="item" varStatus="indx" step="1">
+									<option value="${item.value}">${item.displayName}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</c:if>
+					<c:if test='${property.strSelectType eq "MULTI_LIST"}'>
+						<div class="item_colorBox">
+							<div class="item_ProBox_title">
+								<span><c:out value="${property.name}" />:</span><a onclick="tab_click(3);"
+									href="javascript:jq.goDiv('#tab_middle');"
+									class="item_funLink color_chart">Color Chart</a>
+							</div>
+							<input type="hidden" name="CustomAttributes_array[207]/"
+								id="weddingdresscolor1" value="color1"><a
+								dataname="weddingdresscolor1" data="color1"
+								href="javascript:void(0);" title="Refer to the image "
+								class="colorLink" style="border: 1px solid rgb(139, 33, 4);"><div
+									class="abPosition selectImg"></div>
+								<div class="select_refertotheimage"></div>
+							</a>
+						</div>
+					</c:if>
+					<input type="hidden" value="${pageForm.pageProperties.productDetail.productId}" name="ProductId">
+				</c:forEach>
 				<!--musictagstock start-->
 				<div style="color: #F33">
 					<i id="StocksInfo"></i>
