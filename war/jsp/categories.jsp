@@ -9,7 +9,7 @@
 	
 	<title>${pageForm.category.pageTitle}</title>
 	<meta name="description" content=" spark leon tom denton ">
-	<meta name="keywords" content=" spark leon tom denton ">
+	<meta name="keywords" content="${pageForm.category.relatedKeyword}">
 	
 	<link rel="stylesheet" type="text/css" href="../css/header.css">
 	<link rel="stylesheet" type="text/css" href="../css/general.css">

@@ -16,6 +16,8 @@ import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Category;
 import com.spshop.model.Product;
 import com.spshop.model.Site;
+import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.SiteService;
 import com.spshop.utils.AllConstants;
 
 public abstract class BaseAction extends Action {
@@ -39,9 +41,7 @@ public abstract class BaseAction extends Action {
 	 * @param page
 	 */
 	private void populateSiteInfo(HttpServletRequest request, PageFormBean page) {
-		//Mockup data
-		Site site = new Site();
-		site.setDomain(request.getServerName() + ":" + "8888");
+		Site site = ServiceFactory.getService(SiteService.class).getSiteById(1);
 		page.setSite(site);
 	}
 	
