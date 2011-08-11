@@ -5,7 +5,9 @@
 		
 	</ui:style>
 	<g:HTMLPanel>
-		<g:Button text="Add" ui:field="addButton"/>
-		<g:VerticalPanel ui:field="host"/>
+		<g:HorizontalPanel>
+			<g:HorizontalPanel ui:field="host"/>
+			<g:Button text="Picker Category" ui:field="pickBTN"/>
+		</g:HorizontalPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

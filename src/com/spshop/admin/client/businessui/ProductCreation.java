@@ -4,14 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.BlurEvent;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.TextArea;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
+import com.spshop.admin.client.rich.RichText;
+import com.spshop.model.Category;
 import com.spshop.model.Product;
 import com.spshop.model.ProductOption;
 import com.spshop.model.enums.SelectType;
@@ -24,6 +30,12 @@ public class ProductCreation extends Composite{
 	@UiField ProdOptionManager optionManager;
 	@UiField Button removeOption;
 	@UiField Button Save;
+	@UiField ProdAttributeManager attributeManager;
+	@UiField TextBox name;
+	@UiField TextBox title;
+	@UiField TextArea keywords;
+	@UiField RichText detail;
+	@UiField CategoryPicker categoryPicker;
 	
 	private Product product;
 
@@ -49,18 +61,46 @@ public class ProductCreation extends Composite{
 		}
 	}
 	
-	public void setProduct(Product product) {
+	public void setProduct(final Product product) {
 		this.product = product;
 		List<ProductOption> options = product.getOptions();
 		if(null==options){
 			options = new ArrayList<ProductOption>();
+			product.setOptions(options);
 		}
+		
+		if(null==product.getCategories()){
+			product.setCategories(new ArrayList<Category>());
+		}
+		
+		name.setValue(product.getName());
+		title.setValue(product.getTitle());
+		keywords.setValue(product.getKeywords());
+		detail.setHTML(product.getDetail());
 		optionManager.setOptions(options);
+		attributeManager.setProduct(product);
+		categoryPicker.setComponet(product.getCategories());
 	}
 	public Product getProduct() {
 		return product;
 	}
 	@UiHandler("Save")
 	void onSaveClick(ClickEvent event) {
+	}
+	@UiHandler("keywords")
+	void onKeywordsKeyUp(KeyUpEvent event) {
+		product.setKeywords(keywords.getValue());
+	}
+	@UiHandler("title")
+	void onTitleKeyUp(KeyUpEvent event) {
+		product.setTitle(title.getValue());
+	}
+	@UiHandler("detail")
+	void onDetailBlur(BlurEvent event) {
+		product.setDetail(detail.getHTML());
+	}
+	@UiHandler("name")
+	void onNameKeyUp(KeyUpEvent event) {
+		product.setName(name.getValue());
 	}
 }
