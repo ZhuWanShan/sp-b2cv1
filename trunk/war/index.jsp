@@ -11,7 +11,7 @@
 	<meta name="description"
 		content=" Spark's shop ">
 	<meta name="keywords"
-		content=" spark leon tom denton ">
+		content="${pageForm.category.relatedKeyword}">
 		
 	<link rel="stylesheet" type="text/css"
 		href="css/header.css">

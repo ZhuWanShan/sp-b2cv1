@@ -29,13 +29,7 @@
 			<forward name="Success" path="/jsp/categories.jsp"></forward>
 		</action>
 		
-		<action 
-			path="/category/*" 
-			type="com.spshop.fe.actions.PageAction" 
-			name="pageForm"
-			scope="request">
-			<forward name="Success" path="/jsp/categories.jsp"></forward>
-		</action>
+
 		
 		<!-- For Tom to add product action -->
 			<action
