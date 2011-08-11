@@ -1,12 +1,12 @@
 package com.spshop.fe.formbeans;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.struts.action.ActionForm;
 
-import com.google.gwt.dev.util.collect.HashMap;
 import com.spshop.model.Category;
 import com.spshop.model.Product;
 import com.spshop.model.Site;

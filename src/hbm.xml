@@ -249,7 +249,7 @@
 		<property name="commentsTotal"></property>
 		<property name="priority"></property>
 		
-		<many-to-one name="cutOff" class="CutOff" column="product_id"></many-to-one>
+		<!--  <many-to-one name="cutOff" class="CutOff" column="product_id"></many-to-one>-->
 		<bag name="properties">
 			<key column="product_id"></key>
 			<one-to-many class="ProductProperty"/>
@@ -257,6 +257,11 @@
 		<bag name="options">
 			<key column="product_id"></key>
 			<one-to-many class="ProductOption"/>
+		</bag>
+		
+		<bag name="categories" table="SHOP_Product_Category">
+			<key column="product_id"></key>
+			<many-to-many class="Category" column="category_id"></many-to-many>
 		</bag>
 		
 		<bag name="images" table="SHOP_Product_image">
