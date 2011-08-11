@@ -38,13 +38,13 @@
 		</action>
 		
 		<!-- For Tom to add product action -->
-<!-- 		<action  -->
-<!-- 			path="/product/*"  -->
-<!-- 			type="com.spshop.fe.actions.ProductAction"  -->
-<!-- 			name="***" -->
-<!-- 			scope="request"> -->
-<!-- 			<forward name="Success" path="/jsp/goods.jsp"></forward> -->
-<!-- 		</action> -->
+			<action
+				path="/product/*"
+				type="com.spshop.fe.actions.ProductAction"
+				name="pageForm"
+				scope="request">
+				<forward name="Success" path="/jsp/goods.jsp"></forward>
+			</action>
 		
 <!-- 		<action  -->
 <!-- 			path="/keywords/*"  -->

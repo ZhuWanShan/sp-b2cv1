@@ -100,8 +100,13 @@ public class ProductOption extends Component{
 			obj.description = this.description;
 		}
 		if (this.items != null) {
-			/* Does not have a clone() method */
-			obj.items = this.items;
+			obj.items = new ArrayList<ProductOptionItem>();
+			if(null!=this.items){
+				for (ProductOptionItem c : this.items) {
+					ProductOptionItem s = c.clone();
+					obj.items.add(s);
+				}
+			}
 		}
 		if (this.strSelectType != null) {
 			/* Does not have a clone() method */

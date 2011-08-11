@@ -149,16 +149,31 @@ public class Product extends Component{
 			obj.cutOff = (CutOff) this.cutOff.clone();
 		}
 		if (this.options != null) {
-			/* Does not have a clone() method */
-			obj.options = this.options;
+			obj.options = new ArrayList<ProductOption>();
+			if(null!=this.options){
+				for (ProductOption c : this.options) {
+					ProductOption s = c.clone();
+					obj.options.add(s);
+				}
+			}
 		}
 		if (this.properties != null) {
-			/* Does not have a clone() method */
-			obj.properties = this.properties;
+			obj.properties = new ArrayList<ProductProperty>();
+			if(null!=this.properties){
+				for (ProductProperty c : this.properties) {
+					ProductProperty s = c.clone();
+					obj.properties.add(s);
+				}
+			}
 		}
 		if (this.images != null) {
-			/* Does not have a clone() method */
-			obj.images = this.images;
+			obj.images = new ArrayList<Image>();
+			if(null!=this.images){
+				for (Image c : this.images) {
+					Image s = c.clone();
+					obj.images.add(s);
+				}
+			}
 		}
 		return obj;
 	}

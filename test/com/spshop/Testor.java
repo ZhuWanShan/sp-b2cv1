@@ -1,10 +1,12 @@
 package com.spshop;
 
-import java.util.Date;
+import java.util.List;
 
-import com.spshop.model.CutOff;
+import com.spshop.model.Component;
+import com.spshop.model.Product;
+import com.spshop.model.query.QueryResult;
 import com.spshop.service.factory.ServiceFactory;
-import com.spshop.service.intf.CutOffService;
+import com.spshop.service.intf.ProductService;
 
 public class Testor{
 	public static void main(String[] args) {
@@ -31,12 +33,12 @@ public class Testor{
 //		CouponService couponService = ServiceFactory.getService(CouponService.class);
 //		Coupon coupon = new Coupon();
 //		couponService.save(coupon);
-		CutOffService cutOffService = ServiceFactory.getService(CutOffService.class);
-		CutOff cutOff = new CutOff();
-		cutOff.setCreateDate(new Date());
-		cutOff.setName("tomtest");
-		cutOff.setUpdateDate(new Date());
-		cutOffService.save(cutOff);
+//		CutOffService cutOffService = ServiceFactory.getService(CutOffService.class);
+//		CutOff cutOff = new CutOff();
+//		cutOff.setCreateDate(new Date());
+//		cutOff.setName("tomtest");
+//		cutOff.setUpdateDate(new Date());
+//		cutOffService.save(cutOff);
 //		DeliverService deliverService = ServiceFactory.getService(DeliverService.class);
 //		Deliver deliver = new Deliver();
 //		deliver.setCompany("HP");
@@ -62,11 +64,11 @@ public class Testor{
 		orderItemService.save(orderItem);
 		OrderStatusService orderStatusService = ServiceFactory.getService(OrderStatusService.class);
 		OrderStatus orderStatus = new OrderStatus();
-		orderStatusService.save(orderStatus);
-		ProductService productService = ServiceFactory.getService(ProductService.class);
-		Product product = new Product();
-		productService.save(product);
-		ProductOptionService productOptionService = ServiceFactory.getService(ProductOptionService.class);
+		orderStatusService.save(orderStatus);*/
+		QueryResult<Component> qs = ServiceFactory.getService(ProductService.class).queryByName("product-name");
+		List<Product> list = qs.<Product>toSpecificResult();
+		System.out.println(list.get(0).getImages().size());
+		/*ProductOptionService productOptionService = ServiceFactory.getService(ProductOptionService.class);
 		ProductOption productOption = new ProductOption();
 		productOptionService.save(productOption);
 		ProductOptionItemService productOptionItemService = ServiceFactory.getService(ProductOptionItemService.class);
