@@ -32,11 +32,11 @@ public class CategoryPicker extends ObservableComposite<List<Category>, Category
 	public CategoryPicker() {
 		initWidget(uiBinder.createAndBindUi(this));
 		tree = new CategoryTree();
+		tree.init();
 	}
 
 	@UiHandler("pickBTN")
 	void onPickBTNClick(ClickEvent event) {
-		tree.init();
 		tree.setSize("400px", "400px");
 		final CategoryPicker self = this;
 		final CategoryTree t = tree;
