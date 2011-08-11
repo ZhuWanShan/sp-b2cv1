@@ -1,6 +1,9 @@
 package com.spshop.admin.client.rich;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.BlurHandler;
+import com.google.gwt.event.dom.client.HasBlurHandlers;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -9,7 +12,7 @@ import com.google.gwt.user.client.ui.RichTextArea;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
-public class RichText extends Composite {
+public class RichText extends Composite implements HasBlurHandlers{
 
 	private static RichTextUiBinder uiBinder = GWT
 			.create(RichTextUiBinder.class);
@@ -45,5 +48,11 @@ public class RichText extends Composite {
 	public String getHTML(){
 		return textArea.getHTML();
 	}
+
+	@Override
+	public HandlerRegistration addBlurHandler(BlurHandler handler) {
+		return textArea.addBlurHandler(handler);
+	}
+	
 
 }

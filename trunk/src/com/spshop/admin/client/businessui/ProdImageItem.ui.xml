@@ -5,7 +5,5 @@
 		
 	</ui:style>
 	<g:HTMLPanel>
-		<g:Button text="Add" ui:field="addButton"/>
-		<g:VerticalPanel ui:field="host"/>
 	</g:HTMLPanel>
 </ui:UiBinder> 

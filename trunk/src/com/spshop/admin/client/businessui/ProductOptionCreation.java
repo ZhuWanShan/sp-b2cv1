@@ -145,6 +145,14 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 			colorPick.setVisible(false);
 			selector.hide();
 		}
+		optionName.setValue(option.getName());
+		opDesc.setValue(option.getDescription());
+		OpDefaultValue.setValue(option.getDefaultValue());
+		for(int i=0; i < OpTypes.getItemCount();i++){
+			if(OpTypes.getValue(i).endsWith(option.getStrSelectType())){
+				OpTypes.setSelectedIndex(i);
+			}
+		}
 		notifyChange();
 	}
 

@@ -1,100 +1,104 @@
-<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:p1="urn:import:com.spshop.admin.client.rich" xmlns:p2="urn:import:com.spshop.admin.client.businessui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:p1="urn:import:com.spshop.admin.client.rich"
+	xmlns:p2="urn:import:com.spshop.admin.client.businessui">
 	<ui:style>
 		
 	</ui:style>
 	<g:HTMLPanel height="100%">
-	<g:Button ui:field="Save">Save</g:Button>
-	<g:TabLayoutPanel barUnit="EM" barHeight="2.2" height="100%">
-		<g:tab>
-			<g:header>
-				Basic Info
-			</g:header>
-				<g:HTMLPanel height="700px">
-				<g:Grid>
-					<g:row>
-						<g:customCell>
-							<g:Label text="Name:"/>
-						</g:customCell>
-						<g:customCell>
-							<g:TextBox/>
-						</g:customCell>
-					</g:row>
-					<g:row>
-						<g:customCell>
-							<g:Label text="Title:"/>
-						</g:customCell>
-						<g:customCell>
-							<g:TextBox width="236px"/>
-						</g:customCell>
-					</g:row>
-					<g:row>
-						<g:customCell>
-							<g:Label text="Keywords"/>
-						</g:customCell>
-						<g:customCell>
-							<g:TextArea width="236px" height="50px"/>
-						</g:customCell>
-					</g:row>
-					<g:row>
-						<g:customCell>
-							<g:Label text="Abstract:"/>
-						</g:customCell>
-						<g:customCell>
-							<p1:RichText/>
-						</g:customCell>
-					</g:row>
-					<g:row>
-						<g:customCell>
-							<g:Label text="Detail:"/>
-						</g:customCell>
-						<g:customCell>
-							<p1:RichText/>
-						</g:customCell>
-					</g:row>
-						<g:row>
-						<g:customCell>
-							<g:Button text="Save"></g:Button>
-						</g:customCell>
-						<g:customCell>
-								<g:Label text=""/>
-						</g:customCell>
-					</g:row>
-				</g:Grid>
-				</g:HTMLPanel>
-				
-		</g:tab>
-		<g:tab>
-			<g:header>
-				Options
-			</g:header>
-			<g:HTMLPanel>
-				<g:Button text="Add Option" ui:field="addOption"></g:Button>
-				<g:Button text="Remove" ui:field="removeOption"/>
-				<p2:ProdOptionManager ui:field="optionManager" />
-			</g:HTMLPanel>
-		</g:tab>
-		
-		<g:tab>
-			<g:header>
-				Attributes
-			</g:header>
-			<g:HTML>Attributes</g:HTML>
-		</g:tab>
-		
-		<g:tab>
-			<g:header>
-				Images
-			</g:header>
-			<g:HTML>Imagess</g:HTML>
-		</g:tab>
+		<g:Button ui:field="Save">Save</g:Button>
+		<g:TabLayoutPanel barUnit="EM" barHeight="2.2"
+			height="100%">
 			<g:tab>
-			<g:header>
-				Others
+				<g:header>
+					Basic Info
 			</g:header>
-			<g:HTML>Others</g:HTML>
-		</g:tab>
-	</g:TabLayoutPanel>
+				<g:HTMLPanel height="900px">
+					<g:Grid>
+						<g:row>
+							<g:customCell>
+								<g:Label text="Name:" />
+							</g:customCell>
+							<g:customCell>
+								<g:TextBox ui:field="name" />
+							</g:customCell>
+						</g:row>
+						<g:row>
+							<g:customCell>
+								<g:Label text="Title:" />
+							</g:customCell>
+							<g:customCell>
+								<g:TextBox width="236px" ui:field="title" />
+							</g:customCell>
+						</g:row>
+						<g:row>
+							<g:customCell>
+								<g:Label text="Keywords" />
+							</g:customCell>
+							<g:customCell>
+								<g:TextArea width="236px" height="50px" ui:field="keywords" />
+							</g:customCell>
+						</g:row>
+						<g:row>
+							<g:customCell>
+								<g:Label text="Categories"/>
+							</g:customCell>
+							<g:customCell>
+								<p2:CategoryPicker ui:field="categoryPicker"/>
+							</g:customCell>
+						</g:row>
+						<!-- <g:row>
+							<g:customCell>
+								<g:Label text="Abstract:" />
+							</g:customCell>
+							<g:customCell>
+								<p1:RichText />
+							</g:customCell> 
+						</g:row>-->
+						<g:row>
+							<g:customCell>
+								<g:Label text="Detail:" />
+							</g:customCell>
+							<g:customCell>
+								<p1:RichText ui:field="detail" />
+							</g:customCell>
+						</g:row>
+						<g:row/>
+					</g:Grid>
+				</g:HTMLPanel>
+
+			</g:tab>
+			<g:tab>
+				<g:header>
+					Options
+			</g:header>
+				<g:HTMLPanel>
+					<g:Button text="Add Option" ui:field="addOption"></g:Button>
+					<g:Button text="Remove" ui:field="removeOption" />
+					<p2:ProdOptionManager ui:field="optionManager" />
+				</g:HTMLPanel>
+			</g:tab>
+
+			<g:tab>
+				<g:header>
+					Attributes
+			</g:header>
+				<g:HTMLPanel>
+					<p2:ProdAttributeManager ui:field="attributeManager" />
+				</g:HTMLPanel>
+			</g:tab>
+
+			<g:tab>
+				<g:header>
+					Images
+			</g:header>
+				<g:HTML>Imagess</g:HTML>
+			</g:tab>
+			<g:tab>
+				<g:header>
+					Others
+			</g:header>
+				<g:HTML>Others</g:HTML>
+			</g:tab>
+		</g:TabLayoutPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

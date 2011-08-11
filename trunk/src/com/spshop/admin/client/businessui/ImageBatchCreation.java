@@ -42,7 +42,6 @@ public class ImageBatchCreation extends Composite {
 
 	@UiHandler("formPanel")
 	void onFormPanelSubmitComplete(SubmitCompleteEvent event) {
-		final ImageBatchCreation self = this;
 		String rs = event.getResults();
 		PopWindow window = new PopWindow();
 		if ("".equals(rs)) {
