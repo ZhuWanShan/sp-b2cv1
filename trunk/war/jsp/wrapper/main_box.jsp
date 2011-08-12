@@ -1,7 +1,7 @@
 <%@ include file="../include.jsp" %>
 <div class="main_box">
 
-<div class="index_bigad" id="index_bigad" style="width: 972px; height: 410px;">
+<div class="index_bigad" id="index_bigad">
 	<c:out escapeXml="false" value="${pageForm.category.marketContent}"></c:out>
 </div>
 <div class="hei10"></div>
