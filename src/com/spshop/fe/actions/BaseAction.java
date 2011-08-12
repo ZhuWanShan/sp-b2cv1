@@ -51,6 +51,16 @@ public abstract class BaseAction extends Action {
 		page.setCategory(searchCategory(categories, categoryName));
 	}
 	
+	
+	/**
+	 * Find category from list in cache
+	 * 
+	 * @param categories
+	 *            The target list for finding
+	 * @param catName
+	 *            The category name
+	 * @return Searching result
+	 */
 	private Category searchCategory(List<Category> categories, String catName) {
 		Category result = null;
 		
