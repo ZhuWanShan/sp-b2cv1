@@ -18,6 +18,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.rich.RichText;
 import com.spshop.model.Category;
+import com.spshop.model.Image;
 import com.spshop.model.Product;
 import com.spshop.model.ProductOption;
 import com.spshop.model.enums.SelectType;
@@ -36,6 +37,7 @@ public class ProductCreation extends Composite{
 	@UiField TextArea keywords;
 	@UiField RichText detail;
 	@UiField CategoryPicker categoryPicker;
+	@UiField ProdImageManager imageManager;
 	
 	private Product product;
 
@@ -73,6 +75,10 @@ public class ProductCreation extends Composite{
 			product.setCategories(new ArrayList<Category>());
 		}
 		
+		if(null==product.getImages()){
+			product.setImages(new ArrayList<Image>());
+		}
+		
 		name.setValue(product.getName());
 		title.setValue(product.getTitle());
 		keywords.setValue(product.getKeywords());
@@ -80,6 +86,7 @@ public class ProductCreation extends Composite{
 		optionManager.setOptions(options);
 		attributeManager.setProduct(product);
 		categoryPicker.setComponet(product.getCategories());
+		imageManager.setComponet(product.getImages());
 	}
 	public Product getProduct() {
 		return product;
