@@ -85,12 +85,13 @@ public class CommandFactory {
 		};
 	}
 	
-	public static Command popUpImageQuery(boolean multiSelect,final SelectedCallBack callBack) {
+	public static Command popUpImageQuery(final boolean multiSelect,final SelectedCallBack callBack) {
 		return new CommandAdapter() {
 			@Override
 			public void execute() {
 				final ComponentQuery componentQuery = new ComponentQuery("Image Query",Image.class);
 				componentQuery.getQueryCondition().setAsc(false);
+				componentQuery.setEnableMultiSelect(multiSelect);
 				componentQuery.getQueryCondition().setOrderBy("createDate");
 				HTMLPanel content = new HTMLPanel("<div></div>");
 				content.setSize("850px", "500px");

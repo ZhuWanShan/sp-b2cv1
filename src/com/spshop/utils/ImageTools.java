@@ -17,7 +17,7 @@ import com.spshop.model.Image;
 public class ImageTools {
 	
 	
-	private final static String  COVERTPAHT="C:\\Program Files\\ImageMagick-5.5.7-Q8";
+	private final static String  COVERTPAHT="C:\\Program Files (x86)\\ImageMagick-5.5.7-Q8";
 	
 	/*
 	 * static { System.setProperty("jmagick.systemclassloader", "no"); }

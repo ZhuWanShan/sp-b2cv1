@@ -82,7 +82,7 @@
 				<g:header>
 					Attributes
 			</g:header>
-				<g:HTMLPanel>
+				<g:HTMLPanel width="100%">
 					<p2:ProdAttributeManager ui:field="attributeManager" />
 				</g:HTMLPanel>
 			</g:tab>
@@ -91,7 +91,9 @@
 				<g:header>
 					Images
 			</g:header>
-				<g:HTML>Imagess</g:HTML>
+				<g:HTMLPanel width="100%">
+					<p2:ProdImageManager ui:field="imageManager" />
+				</g:HTMLPanel>
 			</g:tab>
 			<g:tab>
 				<g:header>
