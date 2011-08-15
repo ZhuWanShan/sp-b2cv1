@@ -1,6 +1,7 @@
 package com.spshop.service.impl;
 
 import com.spshop.dao.intf.ProductDAO;
+import com.spshop.exception.ServiceException;
 import com.spshop.model.Component;
 import com.spshop.model.Product;
 import com.spshop.model.query.QueryCriteria;
@@ -27,11 +28,11 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 	@Override
 	public Product saveProduct(Product product) {
 		if(product.getId()<1&&!queryByName(product.getName()).getResult().isEmpty()){
-			throw new RuntimeException(product.getName()+" is already exist!");
+			throw new ServiceException(product.getName()+" is already exist!");
 		}
 		
 		getDao().save(product);
 		
-		return product;
+		return product.clone();
 	}
 }

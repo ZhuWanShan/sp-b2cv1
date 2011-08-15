@@ -13,5 +13,6 @@
 	<source path='admin/shared' />
 	<source path='admin/client/businessui' />
 	<source path='model' />
+	<source path='exception' />
 
 </module>
