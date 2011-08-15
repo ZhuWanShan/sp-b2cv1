@@ -23,4 +23,16 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 		QueryResult<Component> qs = getDao().queryByHQL(criteria);
 		return qs.clone();
 	}
+
+	@Override
+	public Product saveProduct(Product product) {
+		
+		if(!queryByName(product.getName()).getResult().isEmpty()){
+			throw new RuntimeException(product.getName()+" is already exist!");
+		}
+		
+		getDao().save(product);
+		
+		return product;
+	}
 }

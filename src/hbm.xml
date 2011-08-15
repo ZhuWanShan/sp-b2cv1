@@ -250,11 +250,11 @@
 		<property name="priority"></property>
 		
 		<!--  <many-to-one name="cutOff" class="CutOff" column="product_id"></many-to-one>-->
-		<bag name="properties">
+		<bag name="properties" cascade="all">
 			<key column="product_id"></key>
 			<one-to-many class="ProductProperty"/>
 		</bag>
-		<bag name="options">
+		<bag name="options" cascade="all">
 			<key column="product_id"></key>
 			<one-to-many class="ProductOption"/>
 		</bag>
@@ -282,7 +282,7 @@
 		<property name="description" length="800"></property>
 		<property name="strSelectType" length="50"></property>
 		<many-to-one name="product" class="Product" column="product_id"></many-to-one>
-		<bag name="items">
+		<bag name="items" cascade="all">
 			<key column="product_option_id"></key>
 			<one-to-many class="ProductOptionItem"/>
 		</bag>
