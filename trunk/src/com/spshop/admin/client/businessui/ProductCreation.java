@@ -11,11 +11,14 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
+import com.spshop.admin.client.AdminWorkspace;
+import com.spshop.admin.client.AsyncCallbackAdapter;
 import com.spshop.admin.client.rich.RichText;
 import com.spshop.model.Category;
 import com.spshop.model.Image;
@@ -93,6 +96,12 @@ public class ProductCreation extends Composite{
 	}
 	@UiHandler("Save")
 	void onSaveClick(ClickEvent event) {
+		AdminWorkspace.ADMIN_SERVICE_ASYNC.saveProduct(product, new AsyncCallbackAdapter<Product>() {
+			@Override
+			public void onSuccess(Product result) {
+				
+			}
+		});
 	}
 	@UiHandler("keywords")
 	void onKeywordsKeyUp(KeyUpEvent event) {

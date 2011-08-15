@@ -8,6 +8,7 @@ import com.spshop.admin.shared.LoginInfo;
 import com.spshop.model.Category;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
+import com.spshop.model.Product;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 @RemoteServiceRelativePath("admin")
@@ -17,5 +18,6 @@ public interface AdminService  extends RemoteService{
 	List<Category> getAllCategory();
 	Category saveCategory(Category category);
 	Image getImageById(long id);
+	Product saveProduct(Product product);
 }
 

@@ -7,11 +7,13 @@ import com.spshop.admin.client.businessui.service.AdminService;
 import com.spshop.model.Category;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
+import com.spshop.model.Product;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CategoryService;
 import com.spshop.service.intf.ImageService;
+import com.spshop.service.intf.ProductService;
 import com.spshop.service.intf.SiteService;
 public class AdminServiceImpl extends RemoteService implements AdminService{
 	/**
@@ -38,5 +40,11 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 	public Image getImageById(long id) {
 		Image image = ServiceFactory.getService(ImageService.class).getImageById(id);
 		return image;
+	}
+
+	@Override
+	public Product saveProduct(Product product) {
+		product = ServiceFactory.getService(ProductService.class).saveProduct(product);
+		return product;
 	}
 }
