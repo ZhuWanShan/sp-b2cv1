@@ -113,5 +113,18 @@ public class CommandFactory {
 			}
 		};
 	}
+
+	public static Command queryProduct() {
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				AdminWorkspace.contentPanel.body.clear();
+				ComponentQuery componentQuery = new ComponentQuery("Product Query",Product.class);
+				componentQuery.getQueryCondition().setAsc(false);
+				componentQuery.getQueryCondition().setOrderBy("createDate");
+				AdminWorkspace.contentPanel.body.add(componentQuery);
+			}
+		};
+	}
 	
 }
