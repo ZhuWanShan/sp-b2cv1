@@ -28,6 +28,9 @@ public class Product extends Component{
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
+	public Product(Product product) {
+		super(product);
+	}
 	public String getKeywords() {
 		return keywords;
 	}
@@ -119,7 +122,7 @@ public class Product extends Component{
 	 */
 	public Product clone() {
 		Product obj = null;
-		obj = new Product();
+		obj = new Product(this);
 		if (this.keywords != null) {
 			/* Does not have a clone() method */
 			obj.keywords = this.keywords;
@@ -152,7 +155,8 @@ public class Product extends Component{
 			obj.options = new ArrayList<ProductOption>();
 			if(null!=this.options){
 				for (ProductOption c : this.options) {
-					ProductOption s = c.clone();
+					c.setProduct(obj);
+					ProductOption s = c.clone(false);
 					obj.options.add(s);
 				}
 			}
@@ -161,7 +165,8 @@ public class Product extends Component{
 			obj.properties = new ArrayList<ProductProperty>();
 			if(null!=this.properties){
 				for (ProductProperty c : this.properties) {
-					ProductProperty s = c.clone();
+					ProductProperty s = c.clone(false);
+					s.setProduct(obj);
 					obj.properties.add(s);
 				}
 			}

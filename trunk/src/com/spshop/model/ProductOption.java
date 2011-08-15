@@ -24,6 +24,9 @@ public class ProductOption extends Component{
 	public ProductOption() {
 		
 	}
+	public ProductOption(ProductOption productOption) {
+		super(productOption);
+	}
 	public static ProductOption createWithItem(){
 		ProductOption option = new ProductOption();
 		option.setName("New Option");
@@ -92,9 +95,9 @@ public class ProductOption extends Component{
 	 * clone
 	 * @return Object
 	 */
-	public ProductOption clone() {
+	public ProductOption clone(boolean withProduct) {
 		ProductOption obj = null;
-		obj = new ProductOption();
+		obj = new ProductOption(this);
 		if (this.description != null) {
 			/* Does not have a clone() method */
 			obj.description = this.description;
@@ -103,7 +106,8 @@ public class ProductOption extends Component{
 			obj.items = new ArrayList<ProductOptionItem>();
 			if(null!=this.items){
 				for (ProductOptionItem c : this.items) {
-					ProductOptionItem s = c.clone();
+					ProductOptionItem s = c.clone(false);
+					s.setOption(obj);
 					obj.items.add(s);
 				}
 			}
@@ -116,10 +120,16 @@ public class ProductOption extends Component{
 			/* Does not have a clone() method */
 			obj.defaultValue = this.defaultValue;
 		}
-		if (this.product != null) {
-			obj.product = (Product) this.product.clone();
+		if(withProduct){
+			if (this.product != null) {
+				obj.product = (Product) this.product.clone();
+			}
 		}
+		
 		return obj;
+	}
+	public ProductOption clone(){
+		return clone(true);
 	}
 
 	

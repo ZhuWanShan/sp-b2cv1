@@ -11,7 +11,6 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.TextArea;
@@ -68,6 +67,10 @@ public class ProductCreation extends Composite{
 	
 	public void setProduct(final Product product) {
 		this.product = product;
+		this.product.setSite(AdminWorkspace.loginInfo.getSite());
+		if(product.getId()>0){
+			Save.setText("Update");
+		}
 		List<ProductOption> options = product.getOptions();
 		if(null==options){
 			options = new ArrayList<ProductOption>();
@@ -99,7 +102,7 @@ public class ProductCreation extends Composite{
 		AdminWorkspace.ADMIN_SERVICE_ASYNC.saveProduct(product, new AsyncCallbackAdapter<Product>() {
 			@Override
 			public void onSuccess(Product result) {
-				
+				setProduct(result);
 			}
 		});
 	}
