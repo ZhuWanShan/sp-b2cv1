@@ -68,6 +68,7 @@ public class AccordionMenu extends Composite {
 		case PRODUCT_MANAGEMENT:
 			AccordianItem root2 = new AccordianItem("Product Management", CommandFactory.emptyCommand());
 			root2.addItem(new AccordianItem("Create Product", CommandFactory.createProduct()));
+			root2.addItem(new AccordianItem("Query/Edit Product", CommandFactory.queryProduct()));
 			items.add(root2);
 			root2.setState(true);
 			break;

@@ -23,6 +23,7 @@ import com.spshop.admin.client.PopWindow;
 import com.spshop.admin.client.businessui.callback.OperationListenerAdapter;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
+import com.spshop.model.Product;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 @SuppressWarnings("rawtypes")
@@ -115,9 +116,35 @@ public class ComponentQuery extends ResizeComposite {
 		if (queryCondition.getType() == Image.class) {
 			initImageHeader();
 		}
-
+		
+		if (queryCondition.getType() == Product.class) {
+			initProductHeader();
+		}
 		// Initialize the table.
 
+	}
+
+	private void initProductHeader() {
+		header.getColumnFormatter().setWidth(0, "80px");
+		header.getColumnFormatter().setWidth(1, "150px");
+		header.getColumnFormatter().setWidth(2, "120px");
+		header.getColumnFormatter().setWidth(3, "100px");
+		header.getColumnFormatter().setWidth(4, "250px");
+		// header.getColumnFormatter().setWidth(5, "200px");
+
+		header.setText(0, 0, "Thumbnail");
+		header.setText(0, 1, "Name");
+		header.setText(0, 2, "Title");
+		header.setText(0, 3, "Create Date");
+		// header.setWidget(0, 4, new InlineLabel("Operation"));
+		header.setWidget(0, 4, navBar);
+		header.getCellFormatter().setHorizontalAlignment(0, 4,
+				HasHorizontalAlignment.ALIGN_RIGHT);
+		table.getColumnFormatter().setWidth(0, "80px");
+		table.getColumnFormatter().setWidth(1, "150px");
+		table.getColumnFormatter().setWidth(2, "120px");
+		table.getColumnFormatter().setWidth(3, "100px");
+		table.getColumnFormatter().setWidth(4, "250px");
 	}
 
 	private void initImageHeader() {
@@ -212,8 +239,45 @@ public class ComponentQuery extends ResizeComposite {
 			if (result.getComponentType().equals(Image.class.getName())) {
 				updateImage();
 			}
+			
+			if (result.getComponentType().equals(Product.class.getName())) {
+				updateProduct();
+			}
 		}
 
+	}
+
+	private void updateProduct() {
+		DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
+		for (int i = 0; i < result.getResult().size(); i++) {
+			Product product = (Product) result.getResult().get(i);
+			if(null!=product.getImages()&&product.getImages().size()>0){
+				table.setWidget(i, 0, new com.google.gwt.user.client.ui.Image(
+					product.getImages().get(0).getIconUrl()));
+			}
+			table.setText(i, 1, product.getName());
+			table.setText(i, 2, product.getTitle());
+			table.setText(i, 3, dateTimeFormat.format(product.getCreateDate()));
+			Operation<Product> operation = new Operation<Product>(product);
+			operation.setListener(new OperationListenerAdapter<Product>(){
+				@Override
+				public void onDelete(Product content) {
+					super.onDelete(content);
+				}
+				@Override
+				public void onEdit(Product content) {
+					ProductCreation productCreation = new ProductCreation(content);
+					productCreation.setSize("800px", "600px");
+					productCreation.setTitle("Edit Product");
+					PopWindow pop = new PopWindow("Edit Image",productCreation, true, true);
+					//pop.setSize("400px", "400px");
+					pop.center();
+				}
+			});
+			table.setWidget(i, 4, operation);
+			table.getCellFormatter().setHorizontalAlignment(i, 4,
+					HasHorizontalAlignment.ALIGN_RIGHT);
+		}
 	}
 
 	private void updateImage() {

@@ -18,6 +18,10 @@ public class ProductValidator extends Validator<Product>{
 			addMessage("At least have one category!");
 		}
 		
+		if(isEmpty(getComponent().getImages())){
+			addMessage("At least have one image!!");
+		}
+		
 		if(isEmpty(getComponent().getName())){
 			addMessage("Name can not be null!");
 		}

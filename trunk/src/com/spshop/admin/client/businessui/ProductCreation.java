@@ -1,6 +1,7 @@
 package com.spshop.admin.client.businessui;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.google.gwt.core.client.GWT;
@@ -67,9 +68,12 @@ public class ProductCreation extends Composite{
 	
 	public void setProduct(final Product product) {
 		this.product = product;
+		product.setUpdateDate(new Date());
 		this.product.setSite(AdminWorkspace.loginInfo.getSite());
 		if(product.getId()>0){
 			Save.setText("Update");
+		}else{
+			product.setCreateDate(new Date());
 		}
 		List<ProductOption> options = product.getOptions();
 		if(null==options){
