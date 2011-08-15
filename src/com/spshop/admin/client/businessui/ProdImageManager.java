@@ -63,23 +63,33 @@ public class ProdImageManager extends ObservableComposite<List<com.spshop.model.
 	}
 	
 	public void addImage(final Image image){
-		final ProdImageManager self = this;
-		this.componet.add(image);
-		final SimplePanel  fp = new SimplePanel();
-		fp.setStyleName(style.imageItem());
-		final VerticalPanel vp = new VerticalPanel();
-		vp.add(new com.google.gwt.user.client.ui.Image(image.getSmallUrl()));
-		Button btn = new Button("Remove");
-		vp.add(btn);
-		fp.add(vp);
-		host.add(fp);
-		btn.addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				self.host.remove(fp);
-				self.getComponet().remove(image);
+		if(!containsImage(image)){
+			final ProdImageManager self = this;
+			this.componet.add(image);
+			final SimplePanel  fp = new SimplePanel();
+			fp.setStyleName(style.imageItem());
+			final VerticalPanel vp = new VerticalPanel();
+			vp.add(new com.google.gwt.user.client.ui.Image(image.getSmallUrl()));
+			Button btn = new Button("Remove");
+			vp.add(btn);
+			fp.add(vp);
+			host.add(fp);
+			btn.addClickHandler(new ClickHandler() {
+				@Override
+				public void onClick(ClickEvent event) {
+					self.host.remove(fp);
+					self.getComponet().remove(image);
+				}
+			});
+		}
+	}
+	private boolean containsImage(Image image){
+		for (Component c : componet) {
+			if(c.getId()==image.getId()){
+				return true;
 			}
-		});
+		}
+		return false;
 	}
 
 }

@@ -26,8 +26,7 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 
 	@Override
 	public Product saveProduct(Product product) {
-		
-		if(!queryByName(product.getName()).getResult().isEmpty()){
+		if(product.getId()<1&&!queryByName(product.getName()).getResult().isEmpty()){
 			throw new RuntimeException(product.getName()+" is already exist!");
 		}
 		

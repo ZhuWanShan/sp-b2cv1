@@ -45,6 +45,7 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 	@Override
 	public Product saveProduct(Product product) {
 		product = ServiceFactory.getService(ProductService.class).saveProduct(product);
+		product=product.clone();
 		return product;
 	}
 }
