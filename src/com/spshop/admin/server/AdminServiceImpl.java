@@ -4,7 +4,7 @@ package com.spshop.admin.server;
 import java.util.List;
 
 import com.spshop.admin.client.businessui.service.AdminService;
-import com.spshop.exception.ServiceException;
+import com.spshop.exception.ServiceValidateException;
 import com.spshop.model.Category;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
@@ -44,11 +44,11 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 	}
 
 	@Override
-	public Product saveProduct(Product product)throws ServiceException {
+	public Product saveProduct(Product product)throws ServiceValidateException {
 		try {
 			product = ServiceFactory.getService(ProductService.class).saveProduct(product);
-		} catch (ServiceException e) {
-			throw new ServiceException(e.getMessage());
+		} catch (ServiceValidateException e) {
+			throw new ServiceValidateException(e.getMessage());
 		}
 		return product;
 	}

@@ -1,13 +1,14 @@
 package com.spshop.service.impl;
 
 import com.spshop.dao.intf.ProductDAO;
-import com.spshop.exception.ServiceException;
+import com.spshop.exception.ServiceValidateException;
 import com.spshop.model.Component;
 import com.spshop.model.Product;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 import com.spshop.service.AbstractService;
 import com.spshop.service.intf.ProductService;
+import com.spshop.validator.ProductValidator;
 
 public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long> implements ProductService{
 
@@ -27,8 +28,9 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 
 	@Override
 	public Product saveProduct(Product product) {
+		new ProductValidator(product).validate();
 		if(product.getId()<1&&!queryByName(product.getName()).getResult().isEmpty()){
-			throw new ServiceException(product.getName()+" is already exist!");
+			throw new ServiceValidateException(product.getName()+" is already exist!");
 		}
 		
 		getDao().save(product);
