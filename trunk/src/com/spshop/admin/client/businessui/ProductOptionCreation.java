@@ -98,7 +98,7 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 						optionItem.setName(btn.getColorName());
 						optionItem.setValue(btn.getColorValue());
 						optionItem.setOption(option);
-						self.itemManager.addOptionItem(optionItem);
+						self.itemManager.addOptionItem(optionItem,false);
 					}
 				}
 			}
@@ -114,30 +114,29 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 	void onButtonClick(ClickEvent event) {
 		ProductOptionItem item = new ProductOptionItem();
 		item.setOption(option);
-		itemManager.addOptionItem(item);
+		itemManager.addOptionItem(item,false);
 	}
 
 
 	public void setOption(ProductOption option) {
 		this.option = option;
+		List<ProductOptionItem> emptyItem = option.getItems();
+		if(null==emptyItem){
+			emptyItem= new ArrayList<ProductOptionItem>();
+		}
+		this.option.setItems(emptyItem);
 		if(this.option.getSelectType()==SelectType.INPUT_TEXT){
-			List<ProductOptionItem> emptyItem = new ArrayList<ProductOptionItem>();
-			this.option.setItems(emptyItem);
 			this.itemManager.setOptionItems(this.option.getItems());
 			this.button.setVisible(false);
 			itemManager.setVisible(false);
 			colorPick.setVisible(false);
 			selector.hide();
 		}else if(this.option.getSelectType()==SelectType.COLOR_SINGLE){
-			List<ProductOptionItem> emptyItem = new ArrayList<ProductOptionItem>();
-			this.option.setItems(emptyItem);
 			this.itemManager.setOptionItems(this.option.getItems());
 			this.button.setVisible(false);
 			itemManager.setVisible(true);
 			colorPick.setVisible(true);
 		}else{
-			List<ProductOptionItem> emptyItem = new ArrayList<ProductOptionItem>();
-			this.option.setItems(emptyItem);
 			this.itemManager.setOptionItems(this.option.getItems());
 			this.button.setVisible(true);
 			this.button.setEnabled(true);

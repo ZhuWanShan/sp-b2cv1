@@ -33,7 +33,7 @@ public class ProdOptionManager extends ResizeComposite{
 	}
 	
 	public void setOptions(List<ProductOption> options){
-		
+		this.host.clear();
 		this.options = options;
 		
 		Iterator<Widget> ite = host.iterator();
@@ -44,7 +44,7 @@ public class ProdOptionManager extends ResizeComposite{
 		
 		if(null!=options){
 			for (ProductOption productOption : options) {
-				add(productOption);
+				add(productOption,true);
 			}
 		}
 	}
@@ -59,8 +59,8 @@ public class ProdOptionManager extends ResizeComposite{
 		}
 	}
 	
-	public void add(ProductOption option) {
-		if(!containsOption(option)){
+	public void add(ProductOption option, boolean isRefresh) {
+		if(!containsOption(option)||isRefresh){
 			ProductOptionCreation creation =  new ProductOptionCreation(option);
 			creation.addChangeListener(new EditorChangeAdapter<ProductOption, ProductOptionCreation>() {
 				@Override
@@ -75,7 +75,9 @@ public class ProdOptionManager extends ResizeComposite{
 				}
 			});
 			host.add(creation,option.getName());
-			options.add(option);
+			if(!isRefresh){
+				options.add(option);
+			}
 			selectOption(option);
 		}
 	}

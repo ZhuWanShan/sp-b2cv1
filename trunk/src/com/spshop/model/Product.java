@@ -161,6 +161,17 @@ public class Product extends Component{
 				}
 			}
 		}
+		
+		if (this.categories != null) {
+			obj.categories = new ArrayList<Category>();
+			if(null!=this.categories){
+				for (Category c : this.categories) {
+					Category s = c.clone();
+					obj.categories.add(s);
+				}
+			}
+		}
+		
 		if (this.properties != null) {
 			obj.properties = new ArrayList<ProductProperty>();
 			if(null!=this.properties){
