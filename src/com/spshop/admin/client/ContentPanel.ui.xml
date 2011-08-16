@@ -31,7 +31,7 @@
     </g:north>
 
     <g:center>
-	      <g:HTMLPanel styleName='{style.body}' ui:field='body'>
+	      <g:HTMLPanel styleName='{style.body}' ui:field='body' height="100%">
 	      </g:HTMLPanel>
     </g:center>
   </g:DockLayoutPanel>

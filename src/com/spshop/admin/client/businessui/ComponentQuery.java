@@ -16,6 +16,7 @@ import com.google.gwt.user.client.ui.HTMLTable.Cell;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.ResizeComposite;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.AdminWorkspace;
 import com.spshop.admin.client.AsyncCallbackAdapter;
@@ -266,10 +267,13 @@ public class ComponentQuery extends ResizeComposite {
 				}
 				@Override
 				public void onEdit(Product content) {
+					ScrollPanel scrollPanel = new ScrollPanel();
+					scrollPanel.setSize("900px", "720px");
 					ProductCreation productCreation = new ProductCreation(content);
-					productCreation.setSize("800px", "600px");
+					productCreation.setSize("900px", "650px");
 					productCreation.setTitle("Edit Product");
-					PopWindow pop = new PopWindow("Edit Image",productCreation, true, true);
+					scrollPanel.add(productCreation);
+					PopWindow pop = new PopWindow("Edit Product",scrollPanel, true, true);
 					//pop.setSize("400px", "400px");
 					pop.center();
 				}
