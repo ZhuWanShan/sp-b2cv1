@@ -48,7 +48,7 @@ public class ProdImageManager extends ObservableComposite<List<com.spshop.model.
 				//Window.alert(selectedItems.toString());
 				//addImage((Image)selectedItems.get(0));
 				for (Component component : selectedItems) {
-					addImage((Image)component);
+					addImage((Image)component,false);
 				}
 			}
 		}).execute();
@@ -56,16 +56,19 @@ public class ProdImageManager extends ObservableComposite<List<com.spshop.model.
 
 	@Override
 	public void setComponet(List<com.spshop.model.Image> componet) {
+		this.host.clear();
 		this.componet = componet;
 		for (Image image : componet) {
-			 addImage(image);
+			 addImage(image,true);
 		}
 	}
 	
-	public void addImage(final Image image){
-		if(!containsImage(image)){
+	public void addImage(final Image image,boolean refresh){
+		if(!containsImage(image)||refresh){
 			final ProdImageManager self = this;
-			this.componet.add(image);
+			if(!refresh){
+				this.componet.add(image);
+			}
 			final SimplePanel  fp = new SimplePanel();
 			fp.setStyleName(style.imageItem());
 			final VerticalPanel vp = new VerticalPanel();

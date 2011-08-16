@@ -44,11 +44,11 @@ public class ProdOptionItemManager extends Composite{
 		}
 		
 		for(ProductOptionItem item:optionItems){
-			addOptionItem(item);
+			addOptionItem(item,true);
 		}
 	}
 	
-	public void addOptionItem(ProductOptionItem item){
+	public void addOptionItem(ProductOptionItem item,boolean isRefresh){
 		if(null==item.getName()){
 			item.setName("New Item");
 		}
@@ -73,7 +73,9 @@ public class ProdOptionItemManager extends Composite{
 				}
 			});
 			host.add(itemCreation);
-			optionItems.add(item);
+			if(!isRefresh){
+				optionItems.add(item);
+			}
 		}
 	}
 

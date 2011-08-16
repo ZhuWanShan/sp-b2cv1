@@ -57,7 +57,7 @@ public class ProductCreation extends Composite{
 		ProductOption productOption = ProductOption.createWithItem();
 		productOption.setSelectType(SelectType.INPUT_TEXT);
 		productOption.setProduct(product);
-		optionManager.add(productOption);
+		optionManager.add(productOption,false);
 	}
 	@UiHandler("removeOption")
 	void onRemoveOptionClick(ClickEvent event) {
@@ -69,11 +69,11 @@ public class ProductCreation extends Composite{
 	public void setProduct(final Product product) {
 		this.product = product;
 		product.setUpdateDate(new Date());
-		this.product.setSite(AdminWorkspace.loginInfo.getSite());
 		if(product.getId()>0){
 			Save.setText("Update");
 		}else{
 			product.setCreateDate(new Date());
+			this.product.setSite(AdminWorkspace.loginInfo.getSite());
 		}
 		List<ProductOption> options = product.getOptions();
 		if(null==options){

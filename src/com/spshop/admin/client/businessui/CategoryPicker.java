@@ -59,6 +59,7 @@ public class CategoryPicker extends ObservableComposite<List<Category>, Category
 
 	@Override
 	public void setComponet(List<Category> componet) {
+		host.clear();
 		this.componet = componet;
 		for (Category category : componet) {
 			host.add(createButton(category));
