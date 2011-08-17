@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.google.gwt.user.client.ui.Tree;
 import com.spshop.admin.client.AdminWorkspace;
-import com.spshop.admin.client.AsyncCallbackAdapter;
+import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.model.Category;
 
 public class CategoryTree extends Tree {

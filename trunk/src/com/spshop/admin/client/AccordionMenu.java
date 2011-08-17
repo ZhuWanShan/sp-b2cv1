@@ -7,8 +7,6 @@ import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TreeItem;
 
@@ -43,11 +41,9 @@ public class AccordionMenu extends Composite {
 				AccordianItem  accordianItem = (AccordianItem)item.getSelectedItem();
 				if(null!=accordianItem.getComand() && !accordianItem.getComand().isEmpty()){
 					AdminWorkspace.contentPanel.setTitle(accordianItem.getTitle());
-					PopWindow popWindow = new PopWindow(accordianItem.getTitle(),new HTML("Loading...") ,true,false);
-					popWindow.center();
+					CommandFactory.lock(accordianItem.getTitle()).execute();
 					accordianItem.getComand().execute();
-					popWindow.hide();
-					RootPanel.get().remove(popWindow);
+					CommandFactory.release().execute();
 				}
 			}
 		};

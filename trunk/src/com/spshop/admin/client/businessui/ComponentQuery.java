@@ -11,16 +11,15 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.FlexTable;
-import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLTable.Cell;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.ResizeComposite;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.AdminWorkspace;
-import com.spshop.admin.client.AsyncCallbackAdapter;
+import com.spshop.admin.client.CommandFactory;
 import com.spshop.admin.client.PopWindow;
+import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.admin.client.businessui.callback.OperationListenerAdapter;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
@@ -324,9 +323,7 @@ public class ComponentQuery extends ResizeComposite {
 	}
 
 	public void search() {
-		final PopWindow popWindow = new PopWindow("Search", new HTML(
-				"Loading..."), true, false);
-		popWindow.center();
+		CommandFactory.lock("Search").execute();
 		queryCriteria.setStartIndex(startIndex * VISIBLE_RECORD_COUNT);
 		queryCriteria.setMaxResuilt(VISIBLE_RECORD_COUNT);
 		AdminWorkspace.ADMIN_SERVICE_ASYNC.query(queryCriteria,
@@ -334,8 +331,7 @@ public class ComponentQuery extends ResizeComposite {
 					public void onSuccess(QueryResult<Component> result) {
 						setResult(result);
 						update();
-						popWindow.hide();
-						RootPanel.get().remove(popWindow);
+						CommandFactory.release().execute();
 					}
 				});
 	}

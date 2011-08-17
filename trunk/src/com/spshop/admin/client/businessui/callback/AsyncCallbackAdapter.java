@@ -1,13 +1,13 @@
-package com.spshop.admin.client;
+package com.spshop.admin.client.businessui.callback;
 
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.spshop.admin.client.CommandFactory;
 
 public class 
 AsyncCallbackAdapter<T> implements AsyncCallback<T>{
 	@Override
 	public void onFailure(Throwable throwable) {
-		Window.alert(throwable.getMessage());
+		CommandFactory.onError("Errors",throwable.getMessage()).execute();
 	}
 
 	@Override

@@ -4,6 +4,7 @@ package com.spshop.admin.client;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.spshop.admin.client.businessui.CategoryManager;
 import com.spshop.admin.client.businessui.ComponentQuery;
@@ -17,6 +18,10 @@ import com.spshop.model.enums.ImageSizeType;
 import com.spshop.model.enums.ImageType;
 
 public class CommandFactory {
+	
+	private static PopWindow loading ;
+	private static PopWindow error ;
+	
 	public static Command createProduct(){
 		return new CommandAdapter() {
 			@Override
@@ -32,7 +37,6 @@ public class CommandFactory {
 		return new CommandAdapter() {
 			@Override
 			public void execute() {
-				//Window.alert("Create Image");
 				AdminWorkspace.contentPanel.body.clear();
 				Image image =new Image();
 				image.setSizeType(ImageSizeType.PRODUCT_NORMAL);
@@ -56,7 +60,6 @@ public class CommandFactory {
 		return new CommandAdapter() {
 			@Override
 			public void execute() {
-				//Window.alert("Create Image");
 				AdminWorkspace.contentPanel.body.clear();
 				AdminWorkspace.contentPanel.body.add(new CategoryManager());
 			}
@@ -124,6 +127,62 @@ public class CommandFactory {
 				componentQuery.getQueryCondition().setOrderBy("createDate");
 				AdminWorkspace.contentPanel.body.add(componentQuery);
 			}
+		};
+	}
+	
+	
+	
+	private static void loading(String title){
+		if(null!=loading){
+			loading.hide();
+		}
+		loading=PopWindow.createLoading(title);
+		loading.setHTML("Processing...");
+		loading.center();
+	}
+	
+	private static void error(String title,String msg){
+		unloading();
+		if(null!=error){
+			error.hide();
+		}
+		error=new PopWindow(title, new HTML(msg), true, true);
+		error.center();
+	}
+	
+	private static void unloading(){
+		if(null!=loading){
+			loading.hide();
+		}
+	}
+	
+	public static Command lock(final String title) {
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				loading(title);
+			}
+			
+		};
+	}
+	
+	public static Command onError(final String title,final String msg) {
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				error(title,msg);
+			}
+			
+		};
+	}
+	
+	public static Command release() {
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				unloading();
+			}
+			
 		};
 	}
 	

@@ -19,8 +19,9 @@ import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.spshop.admin.client.AdminWorkspace;
-import com.spshop.admin.client.AsyncCallbackAdapter;
+import com.spshop.admin.client.CommandFactory;
 import com.spshop.admin.client.PopWindow;
+import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.admin.shared.ImageConstonts;
 import com.spshop.model.Image;
 import com.spshop.model.enums.ImageSizeType;
@@ -60,6 +61,7 @@ public class ImageCreation extends Composite{
 	
 	@UiHandler("formPanel")
 	void onFormPanelSubmitComplete(SubmitCompleteEvent event) {
+		CommandFactory.lock("Create Image").execute();
 		final ImageCreation self = this;
 		String rs = event.getResults();
 		String noWrapRs = rs.substring(rs.indexOf('>')+1,rs.lastIndexOf('<'));
@@ -69,6 +71,7 @@ public class ImageCreation extends Composite{
 				@Override
 				public void onSuccess(Image rs) {
 					self.setImage(rs);
+					CommandFactory.release().execute();
 				}
 			});
 		}else{
