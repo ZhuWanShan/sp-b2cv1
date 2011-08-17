@@ -257,6 +257,10 @@ public abstract class AbstractBaseDAO<T extends Component, ID extends Serializab
 			query.setDate("end", criteria.getEnd());
 			countQuery.setDate("end", criteria.getStart());
 		}
+		
+		query.setString("name", null==criteria.getKey()?"%%":"%"+criteria.getKey()+"%");
+		countQuery.setString("name", null==criteria.getKey()?"%%":"%"+criteria.getKey()+"%");
+		
 		if(null!=criteria.getProperties()&&!criteria.getProperties().isEmpty()){
 			for(String key : criteria.getProperties().keySet()){
 				Object value = criteria.getProperties().get(key);
@@ -266,9 +270,6 @@ public abstract class AbstractBaseDAO<T extends Component, ID extends Serializab
 				}
 			}
 		}
-		
-		query.setString("name", null==criteria.getKey()?"%%":"%"+criteria.getKey()+"%");
-		countQuery.setString("name", null==criteria.getKey()?"%%":"%"+criteria.getKey()+"%");
 		
 		List<Component> rs =query.list();
 		int count = Integer.valueOf(countQuery.list().get(0).toString());

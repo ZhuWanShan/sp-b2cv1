@@ -39,7 +39,12 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 
 	@Override
 	public Image getImageById(long id) {
-		Image image = ServiceFactory.getService(ImageService.class).getImageById(id);
+		Image image=null;
+		try {
+			image = ServiceFactory.getService(ImageService.class).getImageById(id);
+		} catch (Exception e) {
+			throw new ServiceValidateException(e.getMessage());
+		}
 		return image;
 	}
 
