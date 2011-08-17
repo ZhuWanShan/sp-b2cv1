@@ -9,4 +9,6 @@ public interface CategoryService extends BaseService<Category,CategoryDAO, Long>
 	List<Category> getTopCategories();
 
 	Category saveCategory(Category category);
+
+	public Category getCategoryByName(String name);
 }
