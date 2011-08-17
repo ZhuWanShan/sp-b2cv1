@@ -6,22 +6,22 @@ import java.util.Map;
 import com.spshop.exception.ServiceValidateException;
 
 public abstract class Validator<T> {
-	private StringBuffer buff = new StringBuffer();
+	private StringBuffer buff = new StringBuffer("<ul>");
 	private T component;
 	public Validator(T component) {
 		this.setComponent(component);
 	}
 	public void validate(){
 		runRules();
-		if(buff.length()>0){
-			throw new ServiceValidateException(buff.toString());
+		if(!buff.toString().equals("<ul>")){
+			throw new ServiceValidateException(buff.append("</ul>").toString());
 		}
 	}
 	
 	public abstract void runRules();
 	
 	public void addMessage(String msg){
-		buff.append(msg+"\n");
+		buff.append("<li style='color:red;list-style: decimal;padding: 5px;font-weight: bold;text-shadow: white 2px;'>"+msg+"</li>");
 	}
 	public void setComponent(T component) {
 		this.component = component;

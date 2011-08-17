@@ -18,8 +18,8 @@ import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.AdminWorkspace;
-import com.spshop.admin.client.AsyncCallbackAdapter;
-import com.spshop.admin.client.PopWindow;
+import com.spshop.admin.client.CommandFactory;
+import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.admin.client.rich.RichText;
 import com.spshop.model.Category;
 import com.spshop.model.Image;
@@ -104,13 +104,12 @@ public class ProductCreation extends Composite{
 	}
 	@UiHandler("Save")
 	void onSaveClick(ClickEvent event) {
-		final PopWindow loading = PopWindow.createLoading("Processing Product");
-		loading.center();
+		CommandFactory.lock("Save product").execute();
 		AdminWorkspace.ADMIN_SERVICE_ASYNC.saveProduct(product, new AsyncCallbackAdapter<Product>() {
 			@Override
 			public void onSuccess(Product result) {
 				setProduct(result);
-				loading.hide();
+				CommandFactory.release().execute();
 			}
 		});
 	}

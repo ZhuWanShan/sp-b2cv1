@@ -12,7 +12,6 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
-import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.spshop.admin.client.businessui.service.AdminService;
 import com.spshop.admin.client.businessui.service.AdminServiceAsync;
@@ -42,17 +41,12 @@ public class AdminWorkspace implements EntryPoint {
 
   public void onModuleLoad() {
 	  
-	  final PopWindow loading  =
-		  new PopWindow("Initialize", new HTML("Waiting..."),true, false);
 	  ADMIN_SERVICE_ASYNC.getLoginInfo(new AsyncCallback<LoginInfo>() {
 		
 		public void onSuccess(LoginInfo loginInfo) {
-			 loading.center();
 			 if(null!=loginInfo){
 				 AdminWorkspace.loginInfo = loginInfo;
 				 topPanel.setUserID(loginInfo.getUserID());
-				 loading.hide();
-				 RootLayoutPanel.get().remove(loading);
 			 }else{
 				 Window.Location.assign(LOGIN_URL);
 			 }

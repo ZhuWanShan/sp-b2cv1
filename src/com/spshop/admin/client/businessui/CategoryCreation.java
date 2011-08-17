@@ -16,9 +16,9 @@ import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.AdminWorkspace;
-import com.spshop.admin.client.AsyncCallbackAdapter;
 import com.spshop.admin.client.CommandFactory;
 import com.spshop.admin.client.PopWindow;
+import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.admin.client.businessui.callback.SelectedCallBack;
 import com.spshop.admin.client.rich.RichText;
 import com.spshop.model.Category;
@@ -108,8 +108,7 @@ public class CategoryCreation extends Composite {
 		if (category.getId() < 1) {
 			category.setCreateDate(new Date());
 		}
-		final PopWindow loading = PopWindow.createLoading("Save Category");
-		loading.center();
+		CommandFactory.lock("Save Category").execute();
 		button.setEnabled(false);
 		AdminWorkspace.ADMIN_SERVICE_ASYNC.saveCategory(category,
 				new AsyncCallbackAdapter<Category>() {
@@ -127,7 +126,7 @@ public class CategoryCreation extends Composite {
 						} else {
 							item.setCategory(rs);
 						}
-						loading.hide();
+						CommandFactory.release().execute();
 					}
 				});
 
