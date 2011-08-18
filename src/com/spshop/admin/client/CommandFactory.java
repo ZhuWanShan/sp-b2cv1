@@ -11,6 +11,7 @@ import com.spshop.admin.client.businessui.ComponentQuery;
 import com.spshop.admin.client.businessui.ImageBatchCreation;
 import com.spshop.admin.client.businessui.ImageCreation;
 import com.spshop.admin.client.businessui.ProductCreation;
+import com.spshop.admin.client.businessui.SiteManager;
 import com.spshop.admin.client.businessui.callback.SelectedCallBack;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
@@ -183,6 +184,17 @@ public class CommandFactory {
 				unloading();
 			}
 			
+		};
+	}
+
+	public static Command siteManager() {
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				AdminWorkspace.contentPanel.body.clear();
+				SiteManager siteManager = new SiteManager();
+				AdminWorkspace.contentPanel.body.add(siteManager);
+			}
 		};
 	}
 	

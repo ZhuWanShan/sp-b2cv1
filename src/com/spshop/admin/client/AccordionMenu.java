@@ -72,6 +72,7 @@ public class AccordionMenu extends Composite {
 		case SITE_MANAGEMENT:
 			AccordianItem root3 = new AccordianItem("Site Management", CommandFactory.emptyCommand());
 			root3.addItem(new AccordianItem("Category Management",  CommandFactory.categoryManager()));
+			root3.addItem(new AccordianItem("Site Management",  CommandFactory.siteManager()));
 			items.add(root3);
 			root3.setState(true);
 			break;
