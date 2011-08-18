@@ -9,7 +9,7 @@
   <ui:image field='logo' src='logo.png'/>
 
   <!-- IE6 cannot handle transparent png, which is what ImageResource creates -->
-  <ui:data field='logoIe6Data' src='logo_ie6.gif' />
+  <ui:data field='logoIe6Data' src='logo.png' />
 
   <ui:style>
 
