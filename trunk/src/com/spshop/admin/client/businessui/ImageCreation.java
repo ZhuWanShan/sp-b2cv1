@@ -7,6 +7,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FileUpload;
@@ -19,6 +20,7 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.spshop.admin.client.AdminWorkspace;
 import com.spshop.admin.client.CommandFactory;
 import com.spshop.admin.client.PopWindow;
@@ -46,7 +48,7 @@ public class ImageCreation extends Composite{
 	@UiField Hidden id;
 	@UiField Button submit;
 	@UiField FlowPanel small;
-	@UiField FlowPanel links;
+	@UiField VerticalPanel links;
 
 	interface ImageCreationUiBinder extends UiBinder<TabLayoutPanel, ImageCreation> {
 	}
@@ -98,19 +100,22 @@ public class ImageCreation extends Composite{
 			small.clear();
 			small.add(new com.google.gwt.user.client.ui.Image(image.getSmallUrl()));
 			links.clear();
-			Button large = new Button("Large");
-			Button logo = new Button("Logo");
-			Button thumbnail = new Button("Thumbnail");
-			Button icon = new Button("Icon");
-			Button original = new Button("Original");
+			Anchor large = new Anchor(AdminWorkspace.getSilteUrl()+image.getSmallUrl());
+			Anchor small = new Anchor(AdminWorkspace.getSilteUrl()+image.getLargerUrl());
+			Anchor logo = new Anchor(AdminWorkspace.getSilteUrl()+image.getLogoUrl());
+			Anchor thumbnail = new Anchor(AdminWorkspace.getSilteUrl()+image.getThumbnailUrl());
+			Anchor icon = new Anchor(AdminWorkspace.getSilteUrl()+image.getIconUrl());
+			Anchor original = new Anchor(AdminWorkspace.getSilteUrl()+image.getNoChangeUrl());
 			large.addClickHandler(new LinksClick(image.getLargerUrl(),ImageConstonts.LARGE_SIZE));
 			logo.addClickHandler(new LinksClick(image.getLogoUrl(),ImageConstonts.LOGO_SIZE));
 			thumbnail.addClickHandler(new LinksClick(image.getThumbnailUrl(),ImageConstonts.THUM_SIZE));
 			icon.addClickHandler(new LinksClick(image.getIconUrl(),ImageConstonts.ICON_SIZE));
 			original.addClickHandler(new LinksClick(image.getNoChangeUrl()));
+			small.addClickHandler(new LinksClick(image.getSmallUrl()));
 			links.add(large);
 			links.add(logo);
 			links.add(thumbnail);
+			links.add(small);
 			links.add(icon);
 			links.add(original);
 			links.setVisible(true);
