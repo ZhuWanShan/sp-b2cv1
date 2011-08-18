@@ -19,7 +19,6 @@ public class CategoryManager extends Composite{
 	private static CategoryManagerUiBinder uiBinder = GWT
 			.create(CategoryManagerUiBinder.class);
 	@UiField Button newCategory;
-	@UiField Button delete;
 	@UiField Button newChild;
 	@UiField HTMLPanel editor;
 	@UiField CategoryTree tree;
@@ -44,10 +43,9 @@ public class CategoryManager extends Composite{
 			}
 		});
 		if(null==category){
-			delete.setEnabled(false);
 			newChild.setEnabled(false);
 		}
-		tree.init();
+		tree.init(true);
 	}
 	@UiHandler("newCategory")
 	void onNewCategoryClick(ClickEvent event) {
@@ -57,10 +55,6 @@ public class CategoryManager extends Composite{
 		editor.add(categoryCreation);
 	}
 
-	@UiHandler("delete")
-	void onDeleteClick(ClickEvent event) {
-		
-	}
 	
 	@UiHandler("newChild")
 	void onNewChildClick(ClickEvent event) {
@@ -74,7 +68,6 @@ public class CategoryManager extends Composite{
 	public void setCategory(Category category) {
 		this.category = category;
 		if(null!=category){
-			delete.setEnabled(true);
 			newChild.setEnabled(true);
 		}
 	}

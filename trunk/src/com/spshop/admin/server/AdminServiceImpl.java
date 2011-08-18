@@ -31,6 +31,12 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 	public List<Category> getAllCategory() {
 		return ServiceFactory.getService(CategoryService.class).getTopCategories();
 	}
+	
+	@Override
+	public List<Category> getAllCategory(boolean includeDisable)
+			throws ServiceValidateException {
+		return ServiceFactory.getService(CategoryService.class).getTopCategories(includeDisable);
+	}
 
 	@Override
 	public Category saveCategory(Category category) {
@@ -57,4 +63,5 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 		}
 		return product;
 	}
+
 }

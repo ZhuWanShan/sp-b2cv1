@@ -26,4 +26,6 @@ public interface AdminServiceAsync {
 
 	void saveProduct(Product product, AsyncCallback<Product> callback) throws ServiceValidateException;
 
+	void getAllCategory(boolean includeDisable,AsyncCallback<List<Category>> callback) throws ServiceValidateException;
+
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.google.gwt.user.client.ui.Tree;
 import com.spshop.admin.client.AdminWorkspace;
+import com.spshop.admin.client.CommandFactory;
 import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.model.Category;
 
@@ -14,10 +15,11 @@ public class CategoryTree extends Tree {
 	final List<Category> categories = new ArrayList<Category>();
 	public CategoryTree() {
 	}
-	public void init() {
+	public void init(boolean includeDisable) {
+		CommandFactory.lock("Loading Category").execute();
 		final CategoryTree self= this;
 		AdminWorkspace.ADMIN_SERVICE_ASYNC
-				.getAllCategory(new AsyncCallbackAdapter<List<Category>>() {
+				.getAllCategory(includeDisable,new AsyncCallbackAdapter<List<Category>>() {
 						@Override
 						public void onSuccess(List<Category> rs) {
 							if(null!=rs){
@@ -25,6 +27,7 @@ public class CategoryTree extends Tree {
 								for(Category category : rs){
 									CategoryTreeItem item = new CategoryTreeItem(category);
 									self.addItem(item);
+									CommandFactory.release().execute();
 								}
 							}
 						}
