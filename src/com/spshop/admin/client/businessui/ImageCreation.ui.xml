@@ -57,7 +57,7 @@
 										<g:HTML></g:HTML>
 								</g:customCell>
 							<g:customCell>
-								<g:FlowPanel ui:field="links"/>
+								<g:VerticalPanel ui:field="links"/>
 							</g:customCell>
 						</g:row>
 					</g:Grid>

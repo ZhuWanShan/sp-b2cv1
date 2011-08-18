@@ -16,6 +16,7 @@ import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.spshop.admin.client.businessui.service.AdminService;
 import com.spshop.admin.client.businessui.service.AdminServiceAsync;
 import com.spshop.admin.shared.LoginInfo;
+import com.spshop.model.Site;
 
 public class AdminWorkspace implements EntryPoint {
 
@@ -76,5 +77,14 @@ public class AdminWorkspace implements EntryPoint {
     // displayed.
     RootLayoutPanel root = RootLayoutPanel.get();
     root.add(outer);
+  }
+  
+  public static String getSilteUrl(){
+	  String s= "";
+	  Site site = loginInfo.getSite();
+	  
+	  s = "http://"+site.getDomain();
+	  
+	  return s;
   }
 }
