@@ -7,6 +7,7 @@ import com.spshop.model.Category;
 
 public interface CategoryService extends BaseService<Category,CategoryDAO, Long>{
 	List<Category> getTopCategories();
+	List<Category> getTopCategories(boolean includeDisable);
 
 	Category saveCategory(Category category);
 

@@ -17,6 +17,9 @@ public class Category  extends Component{
 	private String pageTitle;
 	private boolean specialOffer;
 	private String marketContent;
+	private boolean enable;
+	private String description;
+	private int index;
 	
 	private List<Category> subCategories = new ArrayList<Category>();
 	private Category parent;
@@ -130,7 +133,15 @@ public class Category  extends Component{
 			/* Does not have a clone() method */
 			obj.pageTitle = this.pageTitle;
 		}
+		
+		if (this.description != null) {
+			/* Does not have a clone() method */
+			obj.description = this.description;
+		}
+		
 		obj.specialOffer = this.specialOffer;
+		obj.enable = this.enable;
+		obj.index = this.index;
 		if (this.marketContent != null) {
 			obj.marketContent=this.marketContent;
 		}
@@ -156,7 +167,29 @@ public class Category  extends Component{
 	public Category clone() {
 		return clone(true);
 	}
-	
-	
+
+	public boolean isEnable() {
+		return enable;
+	}
+
+	public void setEnable(boolean enable) {
+		this.enable = enable;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
+	}
 
 }

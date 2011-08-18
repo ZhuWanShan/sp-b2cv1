@@ -1,5 +1,6 @@
 package com.spshop.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.spshop.dao.intf.CategoryDAO;
@@ -17,16 +18,45 @@ import com.spshop.validator.CategoryValidator;
 public class CategoryServiceImpl extends AbstractService<Category,CategoryDAO, Long> implements CategoryService{
 
 	@Override
-	public List<Category> getTopCategories() {
+	public List<Category> getTopCategories(boolean includeDisable) {
 		QueryCriteria criteria = new QueryCriteria();
 		criteria.setType(Category.class.getName());
 		criteria.setStartIndex(0);
 		criteria.setMaxResuilt(20);
 		criteria.addProperty("parent", null);
-		criteria.setOrderBy("id");
+		criteria.setOrderBy("index");
+		if(!includeDisable){
+			criteria.addProperty("enable", Boolean.TRUE);
+		}
 		criteria.setAsc(true);
 		QueryResult<Component> qs = ServiceFactory.getService(SiteService.class).query(criteria);
+		
+		if(!includeDisable){
+			for(Category category : qs.<Category>toSpecificResult())
+			filterDisable(category);
+		}
+		
 		return qs.<Category>toSpecificResult();
+	}
+	
+	private void filterDisable(Category category) {
+		if(null!=category.getSubCategories()){
+			List<Category> cDisabled = new ArrayList<Category>();
+			for(Category c:category.getSubCategories()){
+				if(!c.isEnable()){
+					cDisabled.add(c);
+				}
+			}
+			category.getSubCategories().removeAll(cDisabled);
+			for(Category c:category.getSubCategories()){
+				filterDisable(c);
+			}
+		}
+	}
+
+	@Override
+	public List<Category> getTopCategories() {
+		return getTopCategories(false);
 	}
 	
 	@Override
@@ -61,6 +91,7 @@ public class CategoryServiceImpl extends AbstractService<Category,CategoryDAO, L
 				category.setName("home");
 				category.setDisplayName("Home");
 				category.setUrl("/");
+				category.setEnable(true);
 			}
 			c = save(category);
 		} catch (Exception e) {

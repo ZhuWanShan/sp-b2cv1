@@ -39,8 +39,11 @@
 		<property name="relatedKeyword"></property>
 		<property name="pageTitle"></property>
 		<property name="specialOffer"></property>
+		<property name="enable" column="isEnable"></property>
+		<property name="description" column="description" length="500"></property>
+		<property name="index" column="idx"></property>
 		<property name="marketContent" type="text"></property>
-		<bag name="subCategories" order-by="id desc" cascade="all">
+		<bag name="subCategories" order-by="idx asc" cascade="all">
 			<key>
 				<column name="parent_id"></column>
 			</key>

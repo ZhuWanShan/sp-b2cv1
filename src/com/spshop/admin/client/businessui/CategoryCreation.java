@@ -24,6 +24,7 @@ import com.spshop.admin.client.rich.RichText;
 import com.spshop.model.Category;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
+import com.google.gwt.user.client.ui.IntegerBox;
 
 public class CategoryCreation extends Composite {
 
@@ -54,6 +55,9 @@ public class CategoryCreation extends Composite {
 	TextBox pageTitle;
 	@UiField
 	Anchor showImage;
+	@UiField CheckBox cEnable;
+	@UiField TextArea description;
+	@UiField IntegerBox index;
 	
 	private com.google.gwt.user.client.ui.Image specialOfferImageUI;
 
@@ -73,11 +77,14 @@ public class CategoryCreation extends Composite {
 	private void setCategory(Category category) {
 		this.category = category;
 		name.setValue(category.getName());
+		cEnable.setValue(category.isEnable());
+		description.setText(category.getDescription());
 		displayName.setValue(category.getDisplayName());
 		url.setValue(category.getUrl());
 		relatedKeywords.setValue(category.getRelatedKeyword());
 		isSpecialOffer.setValue(category.isSpecialOffer());
 		pageTitle.setValue(category.getPageTitle());
+		index.setValue(category.getIndex());
 		marketContent.setHTML(null == category.getMarketContent() ? ""
 				: category.getMarketContent());
 		setSpecialOfferImage(category.getSpecialOfferImage());
@@ -96,6 +103,7 @@ public class CategoryCreation extends Composite {
 	@UiHandler("button")
 	void onButtonClick(ClickEvent event) {
 		category.setUpdateDate(new Date());
+		category.setIndex(index.getValue());
 		category.setName(name.getValue());
 		category.setDisplayName(displayName.getValue());
 		category.setMarketContent(marketContent.getHTML());
@@ -104,6 +112,8 @@ public class CategoryCreation extends Composite {
 		category.setSpecialOffer(isSpecialOffer.getValue());
 		category.setSpecialOfferImage(specialOfferImage);
 		category.setUrl(url.getValue());
+		category.setEnable(cEnable.getValue());
+		category.setDescription(description.getText());
 		// categoryManager.tree.update(category);
 		if (category.getId() < 1) {
 			category.setCreateDate(new Date());

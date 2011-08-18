@@ -17,6 +17,7 @@ public interface AdminService  extends RemoteService{
 	QueryResult<Component> query(QueryCriteria criteria) throws IllegalArgumentException;
 	LoginInfo getLoginInfo()throws IllegalArgumentException;
 	List<Category> getAllCategory()throws ServiceValidateException;
+	List<Category> getAllCategory(boolean includeDisable)throws ServiceValidateException;
 	Category saveCategory(Category category)throws ServiceValidateException;
 	Image getImageById(long id)throws ServiceValidateException;
 	Product saveProduct(Product product)throws ServiceValidateException;

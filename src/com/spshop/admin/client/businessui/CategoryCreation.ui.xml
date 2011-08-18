@@ -46,6 +46,14 @@
 			</g:row>
 			<g:row>
 				<g:customCell>
+					<g:Label text="Page Description:" />
+				</g:customCell>
+				<g:customCell>
+					<g:TextArea ui:field="description" />
+				</g:customCell>
+			</g:row>
+			<g:row>
+				<g:customCell>
 					<g:Label text="Related Keywords:" />
 				</g:customCell>
 				<g:customCell>
@@ -58,6 +66,23 @@
 				</g:customCell>
 				<g:customCell>
 					<g:CheckBox text="SpecialOffer" ui:field="isSpecialOffer" />
+				</g:customCell>
+			</g:row>
+			
+				<g:row>
+				<g:customCell>
+					<g:Label text="Index:" />
+				</g:customCell>
+				<g:customCell>
+					<g:IntegerBox ui:field="index"/>
+				</g:customCell>
+			</g:row>
+				<g:row>
+				<g:customCell>
+					<g:Label text="Enable" />
+				</g:customCell>
+				<g:customCell>
+					<g:CheckBox text="Enable" ui:field="cEnable" />
 				</g:customCell>
 			</g:row>
 			<g:row>

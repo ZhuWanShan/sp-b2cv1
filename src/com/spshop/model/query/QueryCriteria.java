@@ -94,7 +94,7 @@ public class QueryCriteria  implements Serializable{
 		return site;
 	}
 
-	public void addProperty(String name,String value) {
+	public void addProperty(String name,Object value) {
 		properties.put(name, value);
 	}
 
