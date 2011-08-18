@@ -26,7 +26,7 @@ public class SiteManager extends Composite {
 
 	public SiteManager() {
 		initWidget(uiBinder.createAndBindUi(this));
-		updateCatlogForm.setAction("HTTP://"+AdminWorkspace.getSilteUrl()+"/"+"initServlet");
+		updateCatlogForm.setAction(AdminWorkspace.getSilteUrl()+"/"+"initServlet");
 	}
 
 	@UiHandler("updateCategoryCache")
