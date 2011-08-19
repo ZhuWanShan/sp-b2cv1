@@ -91,6 +91,7 @@ jq('#main_menu').children('ul').children('li').hover(
     			el.prev().addClass('nav_onprev');
     		}
 			el.addClass('nav_on');
+			if (el.children('.sub_menu').children('.inner_box2').children().size() > 0)
 			el.children('.sub_menu').show();
 		}, 200);
 	},

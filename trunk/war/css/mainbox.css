@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-.index_bigad{ width:972px; position:relative;height:410px;}
+.index_bigad{ width:972px; position:relative;}
 .index_item_box1{padding:0 0 5px 5px; top:5px; right:200px; background:white;width:158px;}
 .index_item_box3{padding:0 0 5px 5px; top:5px; right:20px; background:white;width:158px;}
 .index_item_box2{padding:5px 5px 0 5px; bottom:0; right:25px; background:white;}
