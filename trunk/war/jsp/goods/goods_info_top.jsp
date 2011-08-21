@@ -11,32 +11,31 @@
 					<div></div>
 					<c:forEach items="${pageForm.pageProperties.productDetail.images}" var="image" varStatus="idx" step="1">
 					<c:if test="${idx.index eq 0}" >
-					<a class="bighref" id="linkNormalBox" href="javascript:void(0);"
-						rel="thing_item_pics"> <img
-						src="http://www.mlo.me/image/endefault/thing_item/zoom_in.png"
-						id="zoomIcon"> <img width="277"
-						val="${image.largerUrl}"
-						alt="${pageForm.pageProperties.productDetail.title}"
-						src="${image.largerUrl}"
-						id="imageNormalBox"> </a>
-						</div>
+					<a class="bighref" id="linkNormalBox" href="${image.largerUrl}" rel="thing_item_pics"> 
+						<img src="http://www.mlo.me/image/endefault/thing_item/zoom_in.png" id="zoomIcon"> 
+						<img width="277" val="${image.largerUrl}" alt="${pageForm.pageProperties.productDetail.title}" src="${image.largerUrl}" id="imageNormalBox"> 
+					</a>
+				</div>
 				<div style="display: none">
 					</c:if>
-					<c:if test="${idx.index gt 0}" >
-					<a href="${image.largerUrl}" class="noneBox"></a> 
+					<c:if test="${idx.index eq 0}" >
+						<a href="${image.largerUrl}" class="noneBox"></a> 
 					</c:if>
-				</div>
+					<c:if test="${idx.index gt 0}" >
+						<a href="${image.largerUrl}" class="noneBox" rel="thing_item_pics"></a> 
+					</c:if>
 				</c:forEach>
+				</div>
 				<!--<div class="item_normal_zoom"> <a href="###" class="link_pic_zoom bighref" target="_blank">Enlarge the Image</a> </div>-->
 				<div class="item_normal_socllbar">
 					<ul>
 						<c:forEach items="${pageForm.pageProperties.productDetail.images}" var="image" varStatus="idx" step="1">
 							<li dis="${idx.index}" class="smallPic"
 								url="http://www.mlo.me/thing/StyleZoom-id-32534-ProductsPicture-0.html"
-								val="${image.smallUrl}">
+								val="${image.largerUrl}">
 								<img
 								alt="${pageForm.pageProperties.productDetail.title}"
-								src="${image.smallUrl}">
+								src="${image.iconUrl}">
 							</li>
 						</c:forEach>
 					</ul>
@@ -263,10 +262,10 @@ changeunit('in');
 
 					</div>
 				</div>
-				<c:forEach items="${pageForm.pageProperties.productDetail.properties}" var="property" varStatus="idx" step="1">
-					<c:if test='${property.strSelectType eq "INPUT_TEXT"}'>
+				<c:forEach items="${pageForm.pageProperties.productDetail.options}" var="option" varStatus="idx" step="1">
+					<c:if test='${option.strSelectType eq "INPUT_TEXT"}'>
 						<div class="noFlow">
-							<c:out value="${property.name}" />: <input type="text" name="<c:out value="${property.name}" />" id="<c:out value="${property.id}" />" value="<c:out value="${property.defaultValue}" />" size="5"
+							<c:out value="${option.name}" />: <input type="text" name="<c:out value="${option.name}" />" id="<c:out value="${option.id}" />" value="<c:out value="${option.defaultValue}" />" size="5"
 								maxlength="4" class="input_1"
 								onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value&gt;9999)this.value=9999;"
 								onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
@@ -276,54 +275,57 @@ changeunit('in');
 							</div>
 						</div>
 					</c:if>
-					<c:if test='${property.strSelectType=="SINGLE_LIST"}'>
+					<c:if test='${option.strSelectType eq "SINGLE_LIST"}'>
 						<div class="item_sizeBox">
 							<div class="item_ProBox_title">
-								<span><c:out value="${property.name}" />:</span><a onclick="tab_click(2);"
+								<span><c:out value="${option.name}" />:</span><a onclick="tab_click(2);"
 									href="javascript:jq.goDiv('#tab_middle');"
 									class="item_funLink size_chart">Size Chart</a>
 							</div>
 							<select name="CustomAttributes_array[199]" id="Size0">
 								<option	value="please">Please select</option>
-								<c:forEach items="${property.items}" var="item" varStatus="indx" step="1">
-									<option value="${item.value}">${item.displayName}</option>
+								<c:forEach items="${option.items}" var="item" varStatus="indx" step="1">
+									<option value="${item.id}">${item.value}</option>
 								</c:forEach>
 							</select>
 						</div>
 					</c:if>
-					<c:if test='${property.strSelectType=="COLOR_SINGLE"}'>
+					<c:if test='${option.strSelectType eq "MULTI_LIST"}'>
 						<div class="item_sizeBox">
 							<div class="item_ProBox_title">
-								<span><c:out value="${property.name}" />:</span><a onclick="tab_click(2);"
+								<span><c:out value="${option.name}" />:</span><a onclick="tab_click(2);"
 									href="javascript:jq.goDiv('#tab_middle');"
 									class="item_funLink size_chart">Size Chart</a>
 							</div>
 							<select name="CustomAttributes_array[199]" id="Size0" MULTIPLE>
 								<option	value="please">Please select</option>
-								<c:forEach items="${property.items}" var="item" varStatus="indx" step="1">
-									<option value="${item.value}">${item.displayName}</option>
+								<c:forEach items="${option.items}" var="item" varStatus="indx" step="1">
+									<option value="${item.id}">${item.value}</option>
 								</c:forEach>
 							</select>
 						</div>
 					</c:if>
-					<c:if test='${property.strSelectType eq "MULTI_LIST"}'>
+					<c:if test='${option.strSelectType eq "COLOR_SINGLE"}'>
 						<div class="item_colorBox">
 							<div class="item_ProBox_title">
-								<span><c:out value="${property.name}" />:</span><a onclick="tab_click(3);"
+								<span><c:out value="${option.name}" />:</span><a onclick="tab_click(3);"
 									href="javascript:jq.goDiv('#tab_middle');"
 									class="item_funLink color_chart">Color Chart</a>
 							</div>
-							<input type="hidden" name="CustomAttributes_array[207]/"
-								id="weddingdresscolor1" value="color1"><a
-								dataname="weddingdresscolor1" data="color1"
-								href="javascript:void(0);" title="Refer to the image "
-								class="colorLink" style="border: 1px solid rgb(139, 33, 4);"><div
-									class="abPosition selectImg"></div>
-								<div class="select_refertotheimage"></div>
+							<input type="hidden" name="CustomAttributes_array[207]/" id="weddingdresscolor1" value="color1">
+							<c:forEach items="${option.items}" var="item" varStatus="indx" step="1">
+								<a dataname="Color0" data="color${indx.index}"
+								href="javascript:void(0);" title="${item.altTitle}"
+								class="colorLink" style="border: 1px solid rgb(139, 33, 4);">
+								<div class="abPosition"></div>
+								<div class="select_${item.name}" style="border-color:${item.value}"></div>
 							</a>
+							</c:forEach>
+							
+							
 						</div>
 					</c:if>
-					<input type="hidden" value="${pageForm.pageProperties.productDetail.productId}" name="ProductId">
+					<input type="hidden" value="${pageForm.pageProperties.productDetail.id}" name="ProductId">
 				</c:forEach>
 				<!--musictagstock start-->
 				<div style="color: #F33">
@@ -418,4 +420,6 @@ changeunit('in');
 			</div>
 		</div>
 	</form>
+	<script type="text/javascript" src="http://www.mlo.me/javascript/thing_item.js"></script>
+	<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 </div>
