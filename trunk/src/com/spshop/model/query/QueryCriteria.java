@@ -8,7 +8,7 @@ import java.util.Map;
 import com.spshop.model.Site;
 
 
-public class QueryCriteria  implements Serializable{
+public class QueryCriteria implements Serializable{
 	
 	/**
 	 * 
@@ -18,7 +18,7 @@ public class QueryCriteria  implements Serializable{
 	private Date start;
 	private Date end;
 	private String type;//Image,Product,
-	private int maxResuilt = 30;//
+	private int maxResult = 30;//
 	private int startIndex;//5
 	private String orderBy;
 	private boolean asc=false;
@@ -31,9 +31,9 @@ public class QueryCriteria  implements Serializable{
 	
 	
 
-	public QueryCriteria(int maxResuilt) {
+	public QueryCriteria(int maxResult) {
 		super();
-		this.maxResuilt = maxResuilt;
+		this.maxResult = maxResult;
 	}
 
 	public String getKey() {
@@ -61,12 +61,12 @@ public class QueryCriteria  implements Serializable{
 	}
 
 
-	public int getMaxResuilt() {
-		return maxResuilt;
+	public int getMaxResult() {
+		return maxResult;
 	}
 
-	public void setMaxResuilt(int maxResuilt) {
-		this.maxResuilt = maxResuilt;
+	public void setMaxResult(int maxResult) {
+		this.maxResult = maxResult;
 	}
 
 

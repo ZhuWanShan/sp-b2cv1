@@ -247,7 +247,7 @@ public abstract class AbstractBaseDAO<T extends Component, ID extends Serializab
 		
 		String countHql = "select count(name) "+hql;
 		
-		Query query =  getSession().createQuery(hql.toString()).setMaxResults(criteria.getMaxResuilt()).setFirstResult(criteria.getStartIndex());
+		Query query =  getSession().createQuery(hql.toString()).setMaxResults(criteria.getMaxResult()).setFirstResult(criteria.getStartIndex());
 		Query countQuery = getSession().createQuery(countHql);
 		if(null!=criteria.getStart()){
 			query.setDate("start", criteria.getStart());
