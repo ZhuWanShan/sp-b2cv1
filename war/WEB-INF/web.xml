@@ -11,10 +11,10 @@
 		<servlet-class>com.spshop.admin.server.AdminServiceImpl</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>initServlet</servlet-name>
-    	<servlet-class> com.spshop.admin.server.InitCacheService</servlet-class>
-    	<load-on-startup>0</load-on-startup>
-    </servlet>
+		<servlet-name>initServlet</servlet-name>
+		<servlet-class> com.spshop.admin.server.InitCacheService</servlet-class>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
 	<servlet>
 		<servlet-name>action</servlet-name>
 		<servlet-class>
@@ -30,12 +30,16 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-    <servlet>
+	<servlet>
 		<servlet-name>ImageCreate</servlet-name>
 		<servlet-class>com.spshop.admin.server.ImageProcessor</servlet-class>
 	</servlet>
-	
-    <servlet-mapping>
+	<servlet>
+		<servlet-name>ImageBatchCreate</servlet-name>
+		<servlet-class>com.spshop.admin.server.ImageBatchProcessor</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
 		<servlet-name>initServlet</servlet-name>
 		<url-pattern>/initServlet</url-pattern>
 	</servlet-mapping>
@@ -46,6 +50,10 @@
 	<servlet-mapping>
 		<servlet-name>ImageCreate</servlet-name>
 		<url-pattern>/workspace/imageUpload</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ImageBatchCreate</servlet-name>
+		<url-pattern>/workspace/imageBatchUpload</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
@@ -96,7 +104,26 @@
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.JPG</url-pattern>
 	</servlet-mapping>
-
+	<servlet>
+		<servlet-name>dwr-invoker</servlet-name>
+		<servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>crossDomainSessionSecurity</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>
+			<param-name>allowScriptTagRemoting</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dwr-invoker</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
 	<!-- Default page to serve -->
 	<welcome-file-list>
 		<welcome-file>ShopAdmin.html</welcome-file>
