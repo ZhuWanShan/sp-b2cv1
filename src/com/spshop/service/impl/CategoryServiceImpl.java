@@ -22,7 +22,7 @@ public class CategoryServiceImpl extends AbstractService<Category,CategoryDAO, L
 		QueryCriteria criteria = new QueryCriteria();
 		criteria.setType(Category.class.getName());
 		criteria.setStartIndex(0);
-		criteria.setMaxResuilt(20);
+		criteria.setMaxResult(20);
 		criteria.addProperty("parent", null);
 		criteria.setOrderBy("index");
 		if(!includeDisable){
@@ -64,7 +64,7 @@ public class CategoryServiceImpl extends AbstractService<Category,CategoryDAO, L
 		QueryCriteria criteria = new QueryCriteria();
 		criteria.setType(Category.class.getName());
 		criteria.setStartIndex(0);
-		criteria.setMaxResuilt(20);
+		criteria.setMaxResult(20);
 		criteria.addProperty("name", name);
 		criteria.setOrderBy("id");
 		criteria.setAsc(true);

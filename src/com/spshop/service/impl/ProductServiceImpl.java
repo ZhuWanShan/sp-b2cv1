@@ -18,7 +18,7 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 		QueryCriteria criteria = new QueryCriteria();
 		criteria.setType(Product.class.getName());
 		criteria.setStartIndex(0);
-		criteria.setMaxResuilt(20);
+		criteria.setMaxResult(20);
 		criteria.setKey(name);
 		criteria.setOrderBy("id");
 		criteria.setAsc(true);

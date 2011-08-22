@@ -325,7 +325,7 @@ public class ComponentQuery extends ResizeComposite {
 	public void search() {
 		CommandFactory.lock("Search").execute();
 		queryCriteria.setStartIndex(startIndex * VISIBLE_RECORD_COUNT);
-		queryCriteria.setMaxResuilt(VISIBLE_RECORD_COUNT);
+		queryCriteria.setMaxResult(VISIBLE_RECORD_COUNT);
 		AdminWorkspace.ADMIN_SERVICE_ASYNC.query(queryCriteria,
 				new AsyncCallbackAdapter<QueryResult<Component>>() {
 					public void onSuccess(QueryResult<Component> result) {
