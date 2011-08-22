@@ -1,7 +1,10 @@
 package com.spshop.service.impl;
 
+import java.util.List;
+
 import com.spshop.dao.intf.ProductDAO;
 import com.spshop.exception.ServiceValidateException;
+import com.spshop.model.Category;
 import com.spshop.model.Component;
 import com.spshop.model.Product;
 import com.spshop.model.query.QueryCriteria;
@@ -36,5 +39,20 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 		getDao().save(product);
 		
 		return product.clone();
+	}
+
+	@Override
+	public List<Product> queryByCategory(Category category, int start, int end) {
+		
+		String hql = "select p from Product as p join p.categories as ps where ps.id = " +category.getId() +" order by p.id desc";
+		
+		@SuppressWarnings("unchecked")
+		List<Product> ps = getDao().queryByHQL(hql,start-1,end);
+		
+		for(Product product : ps){
+			product = product.clone();
+		}
+		
+		return ps;
 	}
 }

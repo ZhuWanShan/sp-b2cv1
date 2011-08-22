@@ -40,6 +40,11 @@ public abstract class AbstractBaseDAO<T extends Component, ID extends Serializab
 				.getActualTypeArguments()[0];
 		this.persistentClass = (Class<T>) type;
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public List queryByHQL(String hql,int start, int max){
+		return getSession().createQuery(hql).setFirstResult(start).setMaxResults(max).list();
+	}
 
 	//
 	// @SuppressWarnings("unchecked")
@@ -246,7 +251,6 @@ public abstract class AbstractBaseDAO<T extends Component, ID extends Serializab
 		hql.append(criteria.isAsc()?"ASC":"DESC");
 		
 		String countHql = "select count(name) "+hql;
-		
 		Query query =  getSession().createQuery(hql.toString()).setMaxResults(criteria.getMaxResult()).setFirstResult(criteria.getStartIndex());
 		Query countQuery = getSession().createQuery(countHql);
 		if(null!=criteria.getStart()){
