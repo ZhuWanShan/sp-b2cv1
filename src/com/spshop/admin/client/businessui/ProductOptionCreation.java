@@ -202,6 +202,10 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 	void onColorPickClick(ClickEvent event) {
 		selector.setPopupPosition(event.getClientX(), event.getClientY());
 		selector.setItems(option.getItems());
+		selector.setAnimationEnabled(true);
+		//selector.setGlassEnabled(true);
+		//selector.setAutoHideEnabled(false);
+		//selector.setModal(true);
 		selector.show();
 	}
 }

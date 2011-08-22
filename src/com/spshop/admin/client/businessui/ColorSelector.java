@@ -64,6 +64,7 @@ public class ColorSelector extends PopupPanel implements ChangeObservable<Map<St
 	
 	interface SelectionStyle extends CssResource {
 		String selected();
+		String popup();
 	}
 
 	public ColorSelector() {
@@ -92,6 +93,7 @@ public class ColorSelector extends PopupPanel implements ChangeObservable<Map<St
 		colors.put(lilac.getColorName(),lilac);
 		colors.put(lightskyblue.getColorName(),lightskyblue);
 		colors.put(lavender.getColorName(),lavender);
+		addStyleName(selectionStyle.popup());
 	}
 
 	@Override
