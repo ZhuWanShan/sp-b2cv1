@@ -31,6 +31,51 @@
 		
 
 		
+		<action 
+			path="/createAccount" 
+			type="com.spshop.fe.actions.RegisterAction" 
+			name="pageForm"
+			scope="request">
+			<forward name="Success" path="/"></forward>
+			<forward name="Failure" path="/createAccount.jsp"></forward>
+		</action>
+		
+		<action 
+			path="/login" 
+			type="com.spshop.fe.actions.LoginAction" 
+			name="pageForm"
+			scope="request">
+			<forward name="Success" path="/"></forward>
+			<forward name="Failure" path="/createAccount.jsp"></forward>
+		</action>
+		
+		<action 
+			path="/indexLogin" 
+			type="com.spshop.fe.actions.LoginAction" 
+			name="pageForm"
+			scope="request">
+			<forward name="Success" path="/"></forward>
+			<forward name="Failure" path="/"></forward>
+		</action>
+		
+		<action 
+			path="/logout" 
+			type="com.spshop.fe.actions.LogoutAction" 
+			name="pageForm"
+			scope="request">
+			<forward name="Success" path="/"></forward>
+		</action>
+		
+		<action 
+			path="/recoveryPassword" 
+			type="com.spshop.fe.actions.RecoveryPasswordAction" 
+			name="pageForm"
+			scope="request">
+			<forward name="Success" path="/"></forward>
+		</action>
+		
+		
+		
 		<!-- For Tom to add product action -->
 			<action
 				path="/product/*"

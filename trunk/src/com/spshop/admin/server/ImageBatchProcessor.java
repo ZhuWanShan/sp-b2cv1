@@ -26,9 +26,9 @@ import org.apache.commons.io.FileUtils;
 import com.spshop.admin.shared.LoginInfo;
 import com.spshop.model.Image;
 import com.spshop.model.Site;
+import com.spshop.model.enums.ImageSizeType;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.ImageService;
-import com.spshop.utils.ProcessImage;
 
 public class ImageBatchProcessor extends RemoteHttp {
 
@@ -104,7 +104,7 @@ public class ImageBatchProcessor extends RemoteHttp {
 			while ((count = is.read(data, 0, BUFFER)) != -1) {
 				dest.write(data, 0, count);
 			}
-			fileName = System.nanoTime() + ".jpg";
+			fileName = entry.getName();
 			tempFile = new File(unZipDir + "/" + entry.getName());
 			realFile = new File(getServletContext().getRealPath(
 					site.getImagePath())
@@ -132,7 +132,7 @@ public class ImageBatchProcessor extends RemoteHttp {
 		image.setAltTitle(site.getImagePath() + "/" + fileName);
 		image.setName(site.getImagePath() + "/" + fileName);
 		image.setNoChangeUrl(site.getImagePath() + "/" + fileName);
-
+		image.setSizeType(ImageSizeType.PRODUCT_NORMAL);
 		imageService.saveImage(image, realFile.getAbsolutePath(), loginInfo);
 	}
 
