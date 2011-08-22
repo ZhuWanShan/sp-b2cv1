@@ -29,4 +29,14 @@ public class AllConstants {
 	public static String THIRD_PATH = "thirdPath";
 	
 	public static String CATEGORY_CACHE = "catetoryCache";
+	
+	//mail
+	public static final String SMTP = "smtp.gmail.com";
+	public static final String MAIL_USER_NAME = "DelgadoDing@gmail.com";
+	public static final String MAIL_PASSWORD = "dingyiren";
+	public static final String MAIL_DISPLAY_NAME = "Delgado@hp";
+	public static final String MAIL_SUBJECT = "hey, man, what are you fucking doing now?!";
+	public static final String MAIL_CHAR_SET = "UTF-8";
+	public static final String MAIL_CONTENT = "fucking, fucking";
+	public static final String LOGIN_FAILURE = "username or password not correct, please check";
 }

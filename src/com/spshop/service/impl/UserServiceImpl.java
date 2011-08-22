@@ -7,7 +7,32 @@ import com.spshop.service.intf.UserService;
 
 /**
  * @author Spark.Zhu
- *
+ * 
  */
-public class UserServiceImpl extends AbstractService<User, UserDAO, Long> implements UserService{
+public class UserServiceImpl extends AbstractService<User, UserDAO, Long>
+		implements UserService {
+
+	
+	@Override
+	public Boolean validateUserByEmail(String email) {
+		int count = getDao().queryUserCountByName(email);
+		if (0 != count) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public Boolean validateUser(User user) {
+		int count = getDao().queryUserByEmailAndPassword(user);
+		if (1 == count) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public User queryUserByEmail(String email){
+		return getDao().queryUserByName(email);
+	}
 }
