@@ -6,6 +6,10 @@
 			.selected {
 				border: solid 2px #CCC;
 			}
+			
+			.popup {
+				z-index: 99999;
+			}
 		</ui:style>
 	<ui:style>
 		.Grape {
