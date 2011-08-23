@@ -9,7 +9,7 @@
 	
 	<title>${pageForm.category.pageTitle}</title>
 	<meta name="description"
-		content=" Spark's shop ">
+		content="${pageForm.category.description}">
 	<meta name="keywords"
 		content="${pageForm.category.relatedKeyword}">
 		

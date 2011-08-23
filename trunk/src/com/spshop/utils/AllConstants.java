@@ -19,14 +19,18 @@ public class AllConstants {
 	public static String URL_SEPERATOR = "/";
 	public static String DOT = ".";
 	public static String CATEGORY_URL = "c";
+	public static String PRODUCT_URL = "product";
 	public static String HOME_URL = "home";
 	public static String KEYWORDS_URL = "keywords";
 	public static String EMPTY_STR = "";
 	
 	//URL Parameters' name
 	public static String CATEGORY_ID = "categoryId";
-	public static String SECOND_PATH = "secPath";
-	public static String THIRD_PATH = "thirdPath";
+	public static String START_INDEX = "startIndex";
+	public static String PAGE_SIZE = "pageSize";
+	public static String END_INDEX = "endIndex";
+	public static String PAGE_NUM = "pageNum";
+	public static String PROD_IN_CATEGORY_PAGE = "productsInCategoryPage";
 	
 	public static String CATEGORY_CACHE = "catetoryCache";
 	
