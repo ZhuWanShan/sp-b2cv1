@@ -8,7 +8,7 @@
 	
 	
 	<title>${pageForm.category.pageTitle}</title>
-	<meta name="description" content=" spark leon tom denton ">
+	<meta name="description" content="${pageForm.category.description}">
 	<meta name="keywords" content="${pageForm.category.relatedKeyword}">
 	
 	<link rel="stylesheet" type="text/css" href="../css/header.css">

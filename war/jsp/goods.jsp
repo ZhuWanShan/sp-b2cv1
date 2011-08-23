@@ -1,39 +1,31 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@include file="include.jsp" %>
 <html>
 <head>
-<link media="all" href="//s7.addthis.com/static/r07/widget58.css" type="text/css" rel="stylesheet"> 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
-         
-   
-<title>
-	XXXX Product - Spark's Shop
-</title> 
-  <meta name="description" content=" Spark's Shop ">
-  <meta name="keywords" content="spark leon tom denton">
-  
-	<link rel="stylesheet" type="text/css"
-		href="../css/header.css">
-	<link rel="stylesheet" type="text/css"
-		href="../css/general.css">
-	<link rel="stylesheet" type="text/css"
-		href="../css/index.css">
-	<link rel="stylesheet" type="text/css"
-		href="../css/footer.css">
-	<link rel="stylesheet" type="text/css"
-		href="../css/global.css">
-	<link rel="stylesheet" type="text/css"
-		href="../css/head.css">
-
-<script src="../js/jquery-1.5.1.js" type="text/javascript"></script>
+	<link media="all" href="//s7.addthis.com/static/r07/widget58.css" type="text/css" rel="stylesheet"> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+	   
+	<title>${pageForm.pageProperties.productDetail.title}</title>
+	<meta name="description" content=" Spark's Shop ">
+	<meta name="keywords" content="${pageForm.pageProperties.productDetail.keywords}">
+	  
+	<link rel="stylesheet" type="text/css" href="../css/header.css">
+	<link rel="stylesheet" type="text/css" href="../css/general.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<link rel="stylesheet" type="text/css" href="../css/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/head.css">
+	
+	<script src="../js/jquery-1.5.1.js" type="text/javascript"></script>
 	<script>
-	var Image_url = 'http://127.0.0.1:8888/css',root_url = 'http://127.0.0.1:8888/',seller_lang='en-uk';
-	var head_SearchKeywordsNo='Enter search keywords or item code here';
-	var SearchKeyword='Enter search keywords or item code here';
-	var jq=jQuery.noConflict();
+		var Image_url = 'http://127.0.0.1:8888/css',root_url = 'http://127.0.0.1:8888/',seller_lang='en-uk';
+		var head_SearchKeywordsNo='Enter search keywords or item code here';
+		var SearchKeyword='Enter search keywords or item code here';
+		var jq=jQuery.noConflict();
 	</script>
-<script src="../js/common.js" type="text/javascript"></script>
-<script src="../js/ajax.js" type="text/javascript"></script>
+	<script src="../js/common.js" type="text/javascript"></script>
+	<script src="../js/ajax.js" type="text/javascript"></script>
 
 </head>
 <body>

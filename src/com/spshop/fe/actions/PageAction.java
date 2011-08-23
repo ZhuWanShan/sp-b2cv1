@@ -11,6 +11,8 @@ import org.apache.struts.action.ActionMapping;
 
 import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Product;
+import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.ProductService;
 import com.spshop.utils.AllConstants;
 
 public class PageAction extends BaseAction {
@@ -20,12 +22,26 @@ public class PageAction extends BaseAction {
 		
 		if (uris.length != 0) {
 			if (AllConstants.CATEGORY_URL.equals(uris[1])) {
-				// TODO Not implemented so far, for category page
-				populateProductsByCategory(page);
-				populateCategoryForCategoryPage(uris[2], page);
+			    String current = request.getParameter(AllConstants.PAGE_NUM);
+			    Integer pageSize = 12;
+			    Integer pageNum = 1;
+			    
+			    if (current != null && !"".equals(current)) {
+                    pageNum = Integer.valueOf(current);
+                }
+			    
+			    populateCategoryForCategoryPage(uris[2], page);
+				populateProductsByCategory(page, pageSize * (pageNum - 1) + 1, pageSize);
+				
+				if(page.getPageProperties().get(AllConstants.PROD_IN_CATEGORY_PAGE) != null){
+				    List<Product> tempProds = (ArrayList<Product>) page.getPageProperties().get(AllConstants.PROD_IN_CATEGORY_PAGE);
+    				request.setAttribute(AllConstants.START_INDEX, pageSize * (pageNum - 1) + 1);
+    				request.setAttribute(AllConstants.END_INDEX, pageSize * (pageNum - 1) + tempProds.size());
+    				request.setAttribute(AllConstants.PAGE_NUM, pageNum);
+				}
 			} else if (AllConstants.KEYWORDS_URL.equals(uris[0])) {
 				// TODO Not implemented so far, for keywords page
-			} else {
+			} else if (AllConstants.PRODUCT_URL.equals(uris[1])) {
 				// TODO For other forward
 			}
 		} else {
@@ -35,20 +51,11 @@ public class PageAction extends BaseAction {
 		return mapping.findForward(AllConstants.SUCCESS_VALUE);
 	}
 	
-	private void populateProductsByCategory(PageFormBean page) {
+	private void populateProductsByCategory(PageFormBean page, int startIndex, int pageSize) {
 		List<Product> products = new ArrayList<Product>();
-		//products = ServiceFactory.getService(ProductService.class).findPageByPage(0, 24);
+		products = ServiceFactory.getService(ProductService.class).queryByCategory(page.getCategory(), startIndex, pageSize);
 		
-		//Mockup data
-		for (int i = 0; i < 24; i++) {
-			Product product = new Product();
-			product.setName("Product - " + i);
-			product.setTitle("Pro - Title - " + i);
-			products.add(product);
-			//product.setImages(images);
-		}
-		
-		page.addPageProperty("categoryPros", products);
+		page.addPageProperty(AllConstants.PROD_IN_CATEGORY_PAGE, products);
 	}
 
 }
