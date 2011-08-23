@@ -9,6 +9,7 @@ import com.spshop.model.Category;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
+import com.spshop.model.Site;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 
@@ -27,5 +28,7 @@ public interface AdminServiceAsync {
 	void saveProduct(Product product, AsyncCallback<Product> callback) throws ServiceValidateException;
 
 	void getAllCategory(boolean includeDisable,AsyncCallback<List<Category>> callback) throws ServiceValidateException;
+
+	void saveSite(Site site, AsyncCallback<Void> callback)throws ServiceValidateException;
 
 }

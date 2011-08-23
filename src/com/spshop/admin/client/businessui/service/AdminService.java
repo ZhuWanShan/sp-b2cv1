@@ -10,6 +10,7 @@ import com.spshop.model.Category;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
+import com.spshop.model.Site;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 @RemoteServiceRelativePath("admin")
@@ -21,5 +22,6 @@ public interface AdminService  extends RemoteService{
 	Category saveCategory(Category category)throws ServiceValidateException;
 	Image getImageById(long id)throws ServiceValidateException;
 	Product saveProduct(Product product)throws ServiceValidateException;
+	void saveSite(Site site)throws ServiceValidateException;
 }
 

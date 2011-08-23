@@ -1,4 +1,4 @@
-<div class="bottom">
+<%-- <div class="bottom">
 	<div class="content_box">
 		<div class="left_box">
 			<div class="hei10"></div>
@@ -33,4 +33,4 @@
 	<div class="content_box">
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
-</div>
+</div>--%>

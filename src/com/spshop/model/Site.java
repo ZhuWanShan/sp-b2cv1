@@ -13,6 +13,8 @@ public class Site extends Component{
 	private String domain;
 	private String imagePath;
 	private String imageMagicCommand;
+	private String siteFooter;
+	private String sideBar;
 	
 	public Site() {
 	}
@@ -100,11 +102,37 @@ public class Site extends Component{
 			/* Does not have a clone() method */
 			obj.imagePath = this.imagePath;
 		}
+		
+		if (this.siteFooter != null) {
+			/* Does not have a clone() method */
+			obj.siteFooter = this.siteFooter;
+		}
+		if (this.sideBar != null) {
+			/* Does not have a clone() method */
+			obj.sideBar = this.sideBar;
+		}
+		
 		if (this.imageMagicCommand != null) {
 			/* Does not have a clone() method */
 			obj.imageMagicCommand = this.imageMagicCommand;
 		}
 		return obj;
+	}
+
+	public void setSiteFooter(String siteFooter) {
+		this.siteFooter = siteFooter;
+	}
+
+	public String getSiteFooter() {
+		return siteFooter;
+	}
+
+	public void setSideBar(String sideBar) {
+		this.sideBar = sideBar;
+	}
+
+	public String getSideBar() {
+		return sideBar;
 	}
 
 }

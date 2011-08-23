@@ -9,6 +9,7 @@ import com.spshop.model.Category;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
+import com.spshop.model.Site;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 import com.spshop.service.factory.ServiceFactory;
@@ -62,6 +63,11 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 			throw new ServiceValidateException(e.getMessage());
 		}
 		return product;
+	}
+
+	@Override
+	public void saveSite(Site site) throws ServiceValidateException {
+		Site s = getLoginInfo().getSite();
 	}
 
 }
