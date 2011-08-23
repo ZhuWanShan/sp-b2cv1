@@ -22,7 +22,7 @@
 		</action>
 		
 		<action 
-			path="/category/*" 
+			path="/c/*" 
 			type="com.spshop.fe.actions.PageAction" 
 			name="pageForm"
 			scope="request">
@@ -78,7 +78,7 @@
 		
 		<!-- For Tom to add product action -->
 			<action
-				path="/product/*"
+				path="/*"
 				type="com.spshop.fe.actions.ProductAction"
 				name="pageForm"
 				scope="request">

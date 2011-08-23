@@ -101,7 +101,7 @@
 					<g:Label text="MarketContent" />
 				</g:customCell>
 				<g:customCell>
-				<rich:RichText ui:field="marketContent"></rich:RichText>
+				<rich:RichText ui:field="marketContent" height="400px" width="800px"></rich:RichText>
 				</g:customCell>
 			</g:row>
 			<g:row>

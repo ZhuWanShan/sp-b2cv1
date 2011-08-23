@@ -363,6 +363,8 @@
 		<property name="imagePath"></property>
 		<property name="suffix" length="100"></property>
 		<property name="prefix" length="100"></property>
+		<property name="siteFooter"></property>
+		<property name="sideBar"></property>
 		<many-to-one name="logo" class="Image" column="log_id"></many-to-one>
 	</class>
 	

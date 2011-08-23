@@ -36,7 +36,8 @@ public class RichText extends Composite implements HasBlurHandlers{
 		textArea = new RichTextArea();
 		toolbar  = new RichTextToolbar2(textArea);
 		textArea.addStyleName(richArea.richStyle());
-		textArea.setWidth("100%");
+		//textArea.setWidth("100%");
+		//textArea.setHeight("100%");
 		toolbar.addStyleName(richArea.richStyleHeader());
 		content.add(toolbar);
 		content.add(textArea);
@@ -47,6 +48,21 @@ public class RichText extends Composite implements HasBlurHandlers{
 	}
 	public String getHTML(){
 		return textArea.getHTML();
+	}
+	
+	@Override
+	public void setHeight(String height) {
+		textArea.setHeight(height);
+	}
+	
+	@Override
+	public void setWidth(String width) {
+		textArea.setWidth(width);
+	}
+	
+	@Override
+	public void setSize(String width, String height) {
+		textArea.setSize(width, height);
 	}
 
 	@Override

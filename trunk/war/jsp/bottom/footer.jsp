@@ -1,4 +1,4 @@
-<div class="search_tags">
+<%--<div class="search_tags">
 	<i>Product Tags: </i> <span> <a
 		href="http://www.milanoo.com/producttags/A/" title="A">A</a> <a
 		href="http://www.milanoo.com/producttags/B/" title="B">B</a> <a
@@ -28,6 +28,7 @@
 		href="http://www.milanoo.com/producttags/Z/" title="Z">Z</a> <a
 		href="http://www.milanoo.com/producttags/9/" title="0-9">0-9</a> </span>
 </div>
+
 <div class="bottom_menu">
 	<a target="_blank" href="http://www.milanoo.com/" s_itt_ocupdate="true"
 		title="Home">Home</a> | <a target="_blank" rel="nofollow"
@@ -107,3 +108,4 @@
 <div class="hei5"></div>
 <img alt="��ICP��10008200"
 	src="http://www.mlo.me/image/endefault/beianhao_en.gif">
+ --%>

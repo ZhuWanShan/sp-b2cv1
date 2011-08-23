@@ -62,7 +62,7 @@
 									<g:Label text="Detail:" />
 								</g:customCell>
 								<g:customCell>
-									<p1:RichText ui:field="detail" />
+									<p1:RichText ui:field="detail" height="400px" width="800px"/>
 								</g:customCell>
 							</g:row>
 							<g:row/>
