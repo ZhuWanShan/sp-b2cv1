@@ -35,6 +35,9 @@ public class PageAction extends BaseAction {
 				
 				if(page.getPageProperties().get(AllConstants.PROD_IN_CATEGORY_PAGE) != null){
 				    List<Product> tempProds = (ArrayList<Product>) page.getPageProperties().get(AllConstants.PROD_IN_CATEGORY_PAGE);
+				    Long count = ServiceFactory.getService(ProductService.class).queryCountByCategory(page.getCategory());
+				    
+				    request.setAttribute(AllConstants.PROD_COUNT, count);
     				request.setAttribute(AllConstants.START_INDEX, pageSize * (pageNum - 1) + 1);
     				request.setAttribute(AllConstants.END_INDEX, pageSize * (pageNum - 1) + tempProds.size());
     				request.setAttribute(AllConstants.PAGE_NUM, pageNum);

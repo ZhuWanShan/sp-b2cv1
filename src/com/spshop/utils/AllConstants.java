@@ -24,13 +24,14 @@ public class AllConstants {
 	public static String KEYWORDS_URL = "keywords";
 	public static String EMPTY_STR = "";
 	
-	//URL Parameters' name
+	//URL Parameters' name and Attributes' name
 	public static String CATEGORY_ID = "categoryId";
 	public static String START_INDEX = "startIndex";
 	public static String PAGE_SIZE = "pageSize";
 	public static String END_INDEX = "endIndex";
 	public static String PAGE_NUM = "pageNum";
 	public static String PROD_IN_CATEGORY_PAGE = "productsInCategoryPage";
+	public static String PROD_COUNT = "productsCount";
 	
 	public static String CATEGORY_CACHE = "catetoryCache";
 	

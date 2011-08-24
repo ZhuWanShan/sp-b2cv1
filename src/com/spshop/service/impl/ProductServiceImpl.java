@@ -55,4 +55,13 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 		
 		return ps;
 	}
+	
+	@Override
+	public Long queryCountByCategory(Category category) {
+	    String hql = "select count(p) from Product as p join p.categories as ps where ps.id = " +category.getId() +" order by p.id desc";
+	    
+	    List count = (List)getDao().queryByHQL(hql);
+	    
+	    return (Long)count.get(0);
+	}
 }
