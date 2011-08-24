@@ -43,11 +43,19 @@ public abstract class BaseAction extends Action {
 		page.setSite(site);
 	}
 	
-	public void populateCategoryForCategoryPage(String categoryName, PageFormBean page) {
+	void populateCategoryForCategoryPage(String categoryName, PageFormBean page) {
 		List<Category> categories = SCacheManager.getTopCategories();
 		
 		page.setCategory(searchCategory(categories, categoryName));
 	}
+	
+    void populatePathNodesForPage(Category category, List<Category> pathNodes) {
+        while (category.getParent() != null) {
+            populatePathNodesForPage(category.getParent(), pathNodes);
+            break;
+        }
+        pathNodes.add(category);
+    }
 	
 	
 	/**

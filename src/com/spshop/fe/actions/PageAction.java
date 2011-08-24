@@ -10,6 +10,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.spshop.fe.formbeans.PageFormBean;
+import com.spshop.model.Category;
 import com.spshop.model.Product;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.ProductService;
@@ -19,6 +20,7 @@ public class PageAction extends BaseAction {
 	@Override
 	public ActionForward processer(ActionMapping mapping, PageFormBean page, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String[] uris = request.getRequestURI().split(AllConstants.URL_SEPERATOR);
+		List<Category> pathNodes = new ArrayList<Category>();
 		
 		if (uris.length != 0) {
 			if (AllConstants.CATEGORY_URL.equals(uris[1])) {
@@ -31,6 +33,7 @@ public class PageAction extends BaseAction {
                 }
 			    
 			    populateCategoryForCategoryPage(uris[2], page);
+			    populatePathNodesForPage(page.getCategory(), pathNodes);
 				populateProductsByCategory(page, pageSize * (pageNum - 1) + 1, pageSize);
 				
 				if(page.getPageProperties().get(AllConstants.PROD_IN_CATEGORY_PAGE) != null){
@@ -47,6 +50,8 @@ public class PageAction extends BaseAction {
 			} else if (AllConstants.PRODUCT_URL.equals(uris[1])) {
 				// TODO For other forward
 			}
+			
+			page.setPathNodes(pathNodes);
 		} else {
 			populateCategoryForCategoryPage("home", page);
 		}

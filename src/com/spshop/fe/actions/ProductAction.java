@@ -29,8 +29,8 @@ public class ProductAction extends BaseAction {
 		if(list != null && list.size() > 0) {
 			Product product = list.get(0);
 			page.addPageProperty("productDetail", product);
+			populatePathNodesForPage(product.getCategories().get(0), page.getPathNodes());
 		}
-		
 		return mapping.findForward(AllConstants.SUCCESS_VALUE);
 	}
 }

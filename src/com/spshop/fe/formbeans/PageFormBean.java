@@ -29,9 +29,9 @@ public class PageFormBean extends ActionForm {
 	private Site site;
 	
 	/**
-	 * 	Products to be displayed
+	 *  Path nodes
 	 */
-	private List<Product> catProducts;
+	private List<Category> pathNodes = new ArrayList<Category>();
 	
 	private Category category;
 	
@@ -74,7 +74,15 @@ public class PageFormBean extends ActionForm {
 		this.pageProperties = pageProperties;
 	}
 
-	public Map<String, Object> getPageProperties() {
+	public void setPathNodes(List<Category> pathNodes) {
+        this.pathNodes = pathNodes;
+    }
+
+    public List<Category> getPathNodes() {
+        return pathNodes;
+    }
+
+    public Map<String, Object> getPageProperties() {
 		return pageProperties;
 	}
 	
