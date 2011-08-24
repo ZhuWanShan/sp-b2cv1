@@ -20,6 +20,7 @@ public class AllConstants {
 	
 	public static String URL_SEPERATOR = "/";
 	public static String DOT = ".";
+	public static String GREATER = "&gt;";
 	public static String CATEGORY_URL = "c";
 	public static String PRODUCT_URL = "product";
 	public static String HOME_URL = "home";
