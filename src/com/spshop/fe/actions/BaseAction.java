@@ -11,14 +11,12 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.spshop.cache.CacheMap;
+import com.spshop.cache.SCacheManager;
 import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Category;
-import com.spshop.model.Product;
 import com.spshop.model.Site;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.SiteService;
-import com.spshop.utils.AllConstants;
 
 public abstract class BaseAction extends Action {
 	
@@ -29,7 +27,7 @@ public abstract class BaseAction extends Action {
 	 */
 	private void populateMenuBar(PageFormBean page) {
 		List<Category> categories = new ArrayList<Category>();
-		categories = (List<Category>) CacheMap.getInstance().getCache(AllConstants.CATEGORY_CACHE);
+		categories = SCacheManager.getTopCategories();
 		
 		page.addAllCategories(categories);
 	}
@@ -46,7 +44,7 @@ public abstract class BaseAction extends Action {
 	}
 	
 	public void populateCategoryForCategoryPage(String categoryName, PageFormBean page) {
-		List<Category> categories = (List<Category>) CacheMap.getInstance().getCache(AllConstants.CATEGORY_CACHE);
+		List<Category> categories = SCacheManager.getTopCategories();
 		
 		page.setCategory(searchCategory(categories, categoryName));
 	}
