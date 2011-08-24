@@ -4,23 +4,20 @@
 	<div class="line1"></div>
 	<div class="page_box">
 		<div class="page_num">
-<!-- 			<a class="red fontbold">1</a><a -->
-<!-- 				href="#" -->
-<!-- 				att="page:2">2</a><a -->
-<!-- 				href="#" -->
-<!-- 				att="page:2">Next</a><input type="text" value="1" size="1" -->
-<!-- 				name="custompage" class="page_input" id="custompage"><input -->
-<!-- 				type="button" value="ok" -->
-<!-- 				onclick="#" -->
-<!-- 				name="go"> -->
 			<form action="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%=AllConstants.CATEGORY_URL %>/${pageForm.category.name}" method="post">
+				<c:if test="${requestScope.startIndex > 1}">
+					<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%=AllConstants.CATEGORY_URL %>/${pageForm.category.name}?<%=AllConstants.PAGE_NUM %>=${requestScope.pageNum - 1}">Prev</a>
+				</c:if>
+				<c:if test="${requestScope.endIndex < requestScope.productsCount}">
+					<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%=AllConstants.CATEGORY_URL %>/${pageForm.category.name}?<%=AllConstants.PAGE_NUM %>=${requestScope.pageNum + 1}">Next</a>
+				</c:if>
 				<input type="text" name="<%=AllConstants.PAGE_NUM %>" class="page_input" value="${requestScope.pageNum}">
 				<input type="hidden" name="<%=AllConstants.START_INDEX %>" value="${requestScope.startIndex}">
 				<input type="hidden" name="<%=AllConstants.END_INDEX %>" value="${requestScope.endIndex}">
 				<input type="submit" value="ok">
 			</form>
 		</div>
-		<span class="font_size11">Showing Results ${requestScope.startIndex} - ${requestScope.endIndex} of ${fn:length(pageForm.pageProperties.productsInCategoryPage)}</span>
+		<span class="font_size11">Showing Results ${requestScope.startIndex} - ${requestScope.endIndex} of ${requestScope.productsCount}</span>
 	</div>
 	<div class="hei5"></div>
 
@@ -61,19 +58,21 @@
 	</div>
 	
 	<div class="page_box">
-<!-- 	Comment out temporarily -->
-<!-- 		<div class="page_num"> -->
-<!-- 			<a class="red fontbold">1</a> -->
-<!-- 			<a  href="#" -->
-<!-- 				att="page:2">2</a><a -->
-<!-- 				href="#" -->
-<!-- 				att="page:2">Next</a><input type="text" value="1" size="1" -->
-<!-- 				name="custompage" class="page_input" id="custompage"><input -->
-<!-- 				type="button" value="ok" -->
-<!-- 				onclick="#" -->
-<!-- 				name="go"> -->
-<!-- 		</div> -->
-		<span class="font_size11">Showing Results ${requestScope.startIndex} - ${requestScope.endIndex} of ${fn:length(pageForm.pageProperties.productsInCategoryPage)}</span>
+		<div class="page_num">
+			<form action="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%=AllConstants.CATEGORY_URL %>/${pageForm.category.name}" method="post">
+				<c:if test="${requestScope.startIndex > 1}">
+					<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%=AllConstants.CATEGORY_URL %>/${pageForm.category.name}?<%=AllConstants.PAGE_NUM %>=${requestScope.pageNum - 1}">Prev</a>
+				</c:if>
+				<c:if test="${requestScope.endIndex < requestScope.productsCount}">
+					<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%=AllConstants.CATEGORY_URL %>/${pageForm.category.name}?<%=AllConstants.PAGE_NUM %>=${requestScope.pageNum + 1}">Next</a>
+				</c:if>
+				<input type="text" name="<%=AllConstants.PAGE_NUM %>" class="page_input" value="${requestScope.pageNum}">
+				<input type="hidden" name="<%=AllConstants.START_INDEX %>" value="${requestScope.startIndex}">
+				<input type="hidden" name="<%=AllConstants.END_INDEX %>" value="${requestScope.endIndex}">
+				<input type="submit" value="ok">
+			</form>
+		</div>
+		<span class="font_size11">Showing Results ${requestScope.startIndex} - ${requestScope.endIndex} of ${requestScope.productsCount}</span>
 	</div>
 	<div class="line1"></div>
 

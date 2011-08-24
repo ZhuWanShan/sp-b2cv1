@@ -41,4 +41,6 @@ public interface BaseDAO<T extends Component, ID extends Serializable> {
 	void evict(T entity);
 	
 	public List queryByHQL(String hql,int start, int max);
+	
+	public Object queryByHQL(String hql);
 }

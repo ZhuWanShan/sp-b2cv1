@@ -14,4 +14,6 @@ public interface ProductService extends BaseService<Product,ProductDAO, Long>{
 	Product saveProduct(Product product);
 	
 	List<Product> queryByCategory(Category category, int start, int end);
+	
+	Long queryCountByCategory(Category category);
 }
