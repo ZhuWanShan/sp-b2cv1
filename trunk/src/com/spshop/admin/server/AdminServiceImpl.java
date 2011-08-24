@@ -4,6 +4,7 @@ package com.spshop.admin.server;
 import java.util.List;
 
 import com.spshop.admin.client.businessui.service.AdminService;
+import com.spshop.admin.shared.LoginInfo;
 import com.spshop.exception.ServiceValidateException;
 import com.spshop.model.Category;
 import com.spshop.model.Component;
@@ -17,6 +18,7 @@ import com.spshop.service.intf.CategoryService;
 import com.spshop.service.intf.ImageService;
 import com.spshop.service.intf.ProductService;
 import com.spshop.service.intf.SiteService;
+import com.spshop.utils.AllConstants;
 public class AdminServiceImpl extends RemoteService implements AdminService{
 	/**
 	 * 
@@ -68,7 +70,10 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 	@Override
 	public Site saveSite(Site site) throws ServiceValidateException {
 		site = ServiceFactory.getService(SiteService.class).save(site).clone();
-		getLoginInfo(true);
+		LoginInfo loginInfo = getLoginInfo(true);
+		loginInfo.setSite(site);
+		getThreadLocalRequest().getSession().setAttribute(
+				AllConstants.ADMIN_LOGIN_INFO, loginInfo);
 		return site;
 	}
 
