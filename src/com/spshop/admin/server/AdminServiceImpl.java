@@ -66,8 +66,10 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 	}
 
 	@Override
-	public void saveSite(Site site) throws ServiceValidateException {
-		Site s = getLoginInfo().getSite();
+	public Site saveSite(Site site) throws ServiceValidateException {
+		site = ServiceFactory.getService(SiteService.class).save(site).clone();
+		getLoginInfo(true);
+		return site;
 	}
 
 }

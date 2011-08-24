@@ -55,9 +55,9 @@ public class ProdImageManager extends ObservableComposite<List<com.spshop.model.
 	}
 
 	@Override
-	public void setComponet(List<com.spshop.model.Image> componet) {
+	public void setComponent(List<com.spshop.model.Image> componet) {
 		this.host.clear();
-		this.componet = componet;
+		this.component = componet;
 		for (Image image : componet) {
 			 addImage(image,true);
 		}
@@ -67,7 +67,7 @@ public class ProdImageManager extends ObservableComposite<List<com.spshop.model.
 		if(!containsImage(image)||refresh){
 			final ProdImageManager self = this;
 			if(!refresh){
-				this.componet.add(image);
+				this.component.add(image);
 			}
 			final SimplePanel  fp = new SimplePanel();
 			fp.setStyleName(style.imageItem());
@@ -87,7 +87,7 @@ public class ProdImageManager extends ObservableComposite<List<com.spshop.model.
 		}
 	}
 	private boolean containsImage(Image image){
-		for (Component c : componet) {
+		for (Component c : component) {
 			if(c.getId()==image.getId()){
 				return true;
 			}

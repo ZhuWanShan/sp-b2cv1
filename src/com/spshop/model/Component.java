@@ -18,9 +18,15 @@ public  abstract class Component implements Serializable,Cloneable{
 	}
 	
 	public Component(Component component) {
+		this(component,true);
+	}
+	
+	public Component(Component component,boolean withSite) {
 		setId(component.getId());
-		if(null!=component.getSite()){
-			setSite(component.getSite().clone());
+		if(withSite){
+			if(null!=component.getSite()){
+				setSite(component.getSite().clone());
+			}
 		}
 		setName(component.getName());
 		setCreateDate(component.getCreateDate());

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50515
 File Encoding         : 65001
 
-Date: 2011-08-18 21:44:59
+Date: 2011-08-24 21:49:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -67,13 +67,13 @@ CREATE TABLE `shop_category` (
 -- ----------------------------
 -- Records of shop_category
 -- ----------------------------
-INSERT INTO `shop_category` VALUES ('', '0', null, '1', 'home', '2011-08-11 20:56:03', '2011-08-17 22:43:23', null, null, 'Home', null, '/', '', 'asdasdas', '', 'Home');
+INSERT INTO `shop_category` VALUES ('', '0', '', '1', 'home', '2011-08-11 20:56:03', '2011-08-19 16:49:20', null, null, 'Home', null, '/', 'asdasdasdasdasd', 'asdasdas', '', '<img class=\"fi_player\" lazysrc=\"http://i2.itc.cn/20110817/9b8_b81da229_c235_530b_152e_3b9c1a4e161b_1.jpg\" src=\"http://i2.itc.cn/20110817/9b8_b81da229_c235_530b_152e_3b9c1a4e161b_1.jpg\" height=\"380\" width=\"980\">');
 INSERT INTO `shop_category` VALUES ('', '0', null, '2', 'weddingdre2011col', '2011-07-27 17:06:16', '2011-08-06 18:14:35', null, '65', 'Wedding Dress 2011 Collection', null, null, 'Wedding Dress 2011 Collection keywords', 'Wedding Dress 2011 Collection - spark\'s shop', '', '');
 INSERT INTO `shop_category` VALUES ('', '0', null, '3', 'costumes', '2011-08-06 17:56:10', '2011-08-06 17:56:10', null, '65', 'Costumes', null, null, 'costumes keywords', 'Costumes - spark\'s shop', '', '');
-INSERT INTO `shop_category` VALUES ('', '1', 'asdfasdasd', '4', 'women', '2011-08-06 17:57:04', '2011-08-18 21:09:36', null, null, 'Women', null, '', 'women keywords', 'Women - spark\'s shop', '', '<br>');
+INSERT INTO `shop_category` VALUES ('', '2', 'asdfasdasd', '4', 'women', '2011-08-06 17:57:04', '2011-08-19 16:49:32', null, null, 'Women', null, '', 'women keywords', 'Women - spark\'s shop', '', '<img class=\"fi_player\" lazysrc=\"http://i2.itc.cn/20110817/9b8_b81da229_c235_530b_152e_3b9c1a4e161b_1.jpg\" src=\"http://i2.itc.cn/20110817/9b8_b81da229_c235_530b_152e_3b9c1a4e161b_1.jpg\" height=\"380\" width=\"980\">');
 INSERT INTO `shop_category` VALUES ('', '0', null, '5', 'men', '2011-08-06 17:59:32', '2011-08-06 17:59:32', null, '65', 'Men', null, null, 'men keywords', 'Men - spark\'s shop', '', '');
 INSERT INTO `shop_category` VALUES ('', '4', '', '6', 'shoes', '2011-08-06 18:00:54', '2011-08-18 21:09:21', null, null, 'Shoes', null, '', 'shoes keywords', 'Shoes - spark\'s shop', '', '');
-INSERT INTO `shop_category` VALUES ('', '2', '', '7', 'accessories', '2011-08-06 18:03:03', '2011-08-18 21:01:47', null, null, 'Accessories', null, '', 'accessories keywords', 'Accessories - spark\'s shop', '', '');
+INSERT INTO `shop_category` VALUES ('', '3', '', '7', 'accessories', '2011-08-06 18:03:03', '2011-08-20 15:39:51', null, null, 'Accessories', null, '', 'accessories keywords', 'Accessories - spark\'s shop', '', '<br>');
 INSERT INTO `shop_category` VALUES ('', '3', '', '8', 'sports', '2011-08-06 18:06:11', '2011-08-18 21:09:15', null, null, 'Sports', null, '', 'sports keywords', 'Sports - spark\'s shop', '', '');
 INSERT INTO `shop_category` VALUES ('', '5', '', '9', 'kids', '2011-08-06 18:07:04', '2011-08-18 21:00:49', null, null, 'Kids', null, '', 'kids keywords', 'Kids - spark\'s shop', '', '');
 INSERT INTO `shop_category` VALUES ('', '6', '', '10', 'weddingdre', '2011-08-06 18:20:00', '2011-08-18 21:00:54', null, null, 'Wedding Dresses', null, '', 'Wedding Dresses keywords', 'Wedding Dresses', '', '');
@@ -132,6 +132,9 @@ INSERT INTO `shop_category` VALUES ('', '0', null, '62', '2pieceswim', '2011-08
 INSERT INTO `shop_category` VALUES ('', '0', null, '63', 'bikiniswim', '2011-08-06 22:10:08', '2011-08-06 22:10:08', null, '48', 'Bikini Swimsuits', null, null, 'Bikini Swimsuits keywords', 'Bikini Swimsuits', '', '');
 INSERT INTO `shop_category` VALUES ('', '0', null, '64', 'boysclothing2_15y', '2011-08-06 22:11:34', '2011-08-06 22:11:34', null, '9', 'Boys Clothing (2-15 years)', null, null, 'Boys Clothing keywords', 'Boys Clothing (2-15 years)', '', '');
 INSERT INTO `shop_category` VALUES ('', '7', '', '65', 'WeddingEvents', '2011-07-27 16:57:52', '2011-08-18 21:00:58', null, null, 'Wedding & Events', null, 'www.google.com', 'wedding events keywords', 'Wedding & Events - spark\'s shop', '', '');
+INSERT INTO `shop_category` VALUES ('', '1', 'adasda', '66', 'man', '2011-08-20 15:39:27', '2011-08-20 16:23:06', null, null, 'Man', null, '', 'asdasdasd', 'Man\'s T shirt', '', 'asfasfasfasfasfasfasfasfass<br>asfasfasfasf<br>');
+INSERT INTO `shop_category` VALUES ('', '0', 'asdasd', '67', 'style1', '2011-08-20 15:55:52', '2011-08-20 15:55:52', null, '66', 'style A', null, '', 'asdasd', 'asdasd', '', 'asdasdasdasdasad');
+INSERT INTO `shop_category` VALUES ('', '0', 'asdas', '68', 'styleA1', '2011-08-20 15:56:22', '2011-08-20 15:56:22', null, '67', 'style A/A', null, 'zxcdzx', 'ascasdas', 'ascdas', '', '<br>');
 
 -- ----------------------------
 -- Table structure for `shop_comment`
@@ -308,7 +311,7 @@ CREATE TABLE `shop_image` (
   PRIMARY KEY (`ID`),
   KEY `FK23D25EB2BF627AED` (`site_id`),
   CONSTRAINT `FK23D25EB2BF627AED` FOREIGN KEY (`site_id`) REFERENCES `shop_site` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_image
@@ -326,6 +329,12 @@ INSERT INTO `shop_image` VALUES ('10', '/image/124960188464209.jpg', '2011-08-17
 INSERT INTO `shop_image` VALUES ('11', '/image/124961401143847.jpg', '2011-08-17 23:33:00', '2011-08-17 23:33:00', '1', '/image/124961401143847.jpg', '/image/124961401143847_460X635.jpg', '/image/124961401143847_317X438.jpg', '/image/124961401143847.jpg', '/image/124961401143847_74X102.jpg', '/image/124961401143847_46X63.jpg', '/image/124961401143847_192X265.jpg', 'PRODUCT_NORMAL', null);
 INSERT INTO `shop_image` VALUES ('12', '/image/124962494853956.jpg', '2011-08-17 23:33:01', '2011-08-17 23:33:01', '1', '/image/124962494853956.jpg', '/image/124962494853956_460X635.jpg', '/image/124962494853956_317X438.jpg', '/image/124962494853956.jpg', '/image/124962494853956_74X102.jpg', '/image/124962494853956_46X63.jpg', '/image/124962494853956_192X265.jpg', 'PRODUCT_NORMAL', null);
 INSERT INTO `shop_image` VALUES ('13', '/image/124963707999002.jpg', '2011-08-17 23:33:02', '2011-08-17 23:33:02', '1', '/image/124963707999002.jpg', '/image/124963707999002_460X635.jpg', '/image/124963707999002_317X438.jpg', '/image/124963707999002.jpg', '/image/124963707999002_74X102.jpg', '/image/124963707999002_46X63.jpg', '/image/124963707999002_192X265.jpg', 'PRODUCT_NORMAL', null);
+INSERT INTO `shop_image` VALUES ('14', 'asdasdas', '2011-08-18 23:23:44', '2011-08-18 23:23:44', '1', 'asdasdas', '/image/210804546586165_460X635.jpg', '/image/210804546586165_317X438.jpg', '/image/210804546586165.jpg', '/image/210804546586165_74X102.jpg', '/image/210804546586165_46X63.jpg', '/image/210804546586165_192X265.jpg', 'PRODUCT_NORMAL', 'INTERNAL');
+INSERT INTO `shop_image` VALUES ('15', 'asdasdasd', '2011-08-20 15:37:55', '2011-08-20 16:10:26', '1', 'asdasdasd', '/image/2851650812739_460X635.jpg', '/image/2851650812739_317X438.jpg', '/image/2851650812739.jpg', '/image/2851650812739_74X102.jpg', '/image/2851650812739_46X63.jpg', '/image/2851650812739_192X265.jpg', 'PRODUCT_NORMAL', 'INTERNAL');
+INSERT INTO `shop_image` VALUES ('16', 'kkkkkkkkkkk', '2011-08-20 16:33:46', '2011-08-20 16:33:46', '1', 'kkkkkkkkkkk', '/image/4251231763159_460X635.jpg', '/image/4251231763159_317X438.jpg', '/image/4251231763159.jpg', '/image/4251231763159_74X102.jpg', '/image/4251231763159_46X63.jpg', '/image/4251231763159_192X265.jpg', 'PRODUCT_NORMAL', 'INTERNAL');
+INSERT INTO `shop_image` VALUES ('17', 'Site logo', '2011-08-24 20:45:26', '2011-08-24 20:45:26', '1', 'Site logo', '/image/20701474687359_460X635.jpg', '/image/20701474687359_317X438.jpg', '/image/20701474687359.jpg', '/image/20701474687359_74X102.jpg', '/image/20701474687359_46X63.jpg', '/image/20701474687359_192X265.jpg', 'SPECIAL_OFFER', 'INTERNAL');
+INSERT INTO `shop_image` VALUES ('18', 'logo1', '2011-08-24 20:47:08', '2011-08-24 20:47:08', '1', 'logo1', '/image/20803489163549_460X635.jpg', '/image/20803489163549_317X438.jpg', '/image/20803489163549.jpg', '/image/20803489163549_74X102.jpg', '/image/20803489163549_46X63.jpg', '/image/20803489163549_192X265.jpg', 'SPECIAL_OFFER', 'INTERNAL');
+INSERT INTO `shop_image` VALUES ('19', 'logo2', '2011-08-24 20:47:19', '2011-08-24 20:47:19', '1', 'logo2', '/image/20814018098220_460X635.jpg', '/image/20814018098220_317X438.jpg', '/image/20814018098220.jpg', '/image/20814018098220_74X102.jpg', '/image/20814018098220_46X63.jpg', '/image/20814018098220_192X265.jpg', 'SPECIAL_OFFER', 'INTERNAL');
 
 -- ----------------------------
 -- Table structure for `shop_markplace`
@@ -482,13 +491,14 @@ CREATE TABLE `shop_product` (
   PRIMARY KEY (`ID`),
   KEY `FKF44D8886BF627AED` (`site_id`),
   CONSTRAINT `FKF44D8886BF627AED` FOREIGN KEY (`site_id`) REFERENCES `shop_site` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_product
 -- ----------------------------
-INSERT INTO `shop_product` VALUES ('12', 'Abc', '2011-08-16 22:10:20', '2011-08-16 23:38:01', '1', null, 'asdasd', '0', '0', null, '0', 'asdas', 'asdasdasdasd', '0', '0');
-INSERT INTO `shop_product` VALUES ('13', 'ddd', '2011-08-17 22:52:00', '2011-08-17 22:59:48', '1', null, 'asdas', '0', '0', null, '0', 'asasd', '<p class=\"noFlow\"><a class=\"item_help\" id=\"wholesale\">Submit a large order inquiry</a></p>\n          		  <div class=\"item_linkBox\">\n			<div style=\"display: block;\" class=\"addthis_box\"><div style=\"clear: both;\"><div style=\"float:left;\"><div class=\"addthis_toolbox addthis_default_style\"><a href=\"http://www.milanoo.com/Popular-Grape-Lace-Strapless-Floor-Length-Womens-Luxury-Wedding-Dress-p108072.html#\" title=\"Send to Facebook\" class=\"addthis_button_facebook at300b\"><span class=\"at300bs at15nc at15t_facebook\"></span></a><a href=\"http://www.milanoo.com/Popular-Grape-Lace-Strapless-Floor-Length-Womens-Luxury-Wedding-Dress-p108072.html#\" title=\"Tweet This\" class=\"addthis_button_twitter at300b\"><span class=\"at300bs at15nc at15t_twitter\"></span></a><a href=\"http://www.milanoo.com/Popular-Grape-Lace-Strapless-Floor-Length-Womens-Luxury-Wedding-Dress-p108072.html#\" title=\"Email\" class=\"addthis_button_email at300b\"><span class=\"at300bs at15nc at15t_email\"></span></a><a href=\"http://www.milanoo.com/Popular-Grape-Lace-Strapless-Floor-Length-Womens-Luxury-Wedding-Dress-p108072.html#\" class=\"addthis_button_compact at300m\"><span class=\"at300bs at15nc at15t_compact\"></span></a></div></div><br></div></div>\n		  </div>', '0', '0');
+INSERT INTO `shop_product` VALUES ('12', 'Abc', '2011-08-16 22:10:20', '2011-08-22 23:49:14', '1', null, 'asdasd', '0', '0', null, '0', 'asdas', '<img src=\"http://127.0.0.1:8888/image/210804546586165_74X102.jpg\">', '0', '0');
+INSERT INTO `shop_product` VALUES ('13', 'ddd', '2011-08-17 22:52:00', '2011-08-22 23:48:50', '1', null, 'asdas', '0', '0', null, '0', 'asasd', '<p class=\"noFlow\"><a class=\"item_help\" id=\"wholesale\">Submit a large order inquiry</a></p>\n          		  <div class=\"item_linkBox\">\n			<div style=\"display: block;\" class=\"addthis_box\"><div style=\"clear: both;\"><div style=\"float:left;\"><div class=\"addthis_toolbox addthis_default_style\"><a href=\"http://www.milanoo.com/Popular-Grape-Lace-Strapless-Floor-Length-Womens-Luxury-Wedding-Dress-p108072.html#\" title=\"Send to Facebook\" class=\"addthis_button_facebook at300b\"><span class=\"at300bs at15nc at15t_facebook\"></span></a><a href=\"http://www.milanoo.com/Popular-Grape-Lace-Strapless-Floor-Length-Womens-Luxury-Wedding-Dress-p108072.html#\" title=\"Tweet This\" class=\"addthis_button_twitter at300b\"><span class=\"at300bs at15nc at15t_twitter\"></span></a><a href=\"http://www.milanoo.com/Popular-Grape-Lace-Strapless-Floor-Length-Womens-Luxury-Wedding-Dress-p108072.html#\" title=\"Email\" class=\"addthis_button_email at300b\"><span class=\"at300bs at15nc at15t_email\"></span></a><a href=\"http://www.milanoo.com/Popular-Grape-Lace-Strapless-Floor-Length-Womens-Luxury-Wedding-Dress-p108072.html#\" class=\"addthis_button_compact at300m\"><span class=\"at300bs at15nc at15t_compact\"></span></a></div></div><br></div></div>\n		  </div>', '0', '0');
+INSERT INTO `shop_product` VALUES ('14', 'asdasd', '2011-08-20 16:10:57', '2011-08-22 23:48:34', '1', null, 'zadasd', '0', '0', null, '0', 'asda', 'asdasdasdasdasdasdasdasd<br>', '0', '0');
 
 -- ----------------------------
 -- Table structure for `shop_productoption`
@@ -506,7 +516,7 @@ CREATE TABLE `shop_productoption` (
   PRIMARY KEY (`ID`),
   KEY `FK53BA009B582107E7` (`product_id`),
   CONSTRAINT `FK53BA009B582107E7` FOREIGN KEY (`product_id`) REFERENCES `shop_product` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_productoption
@@ -517,7 +527,9 @@ INSERT INTO `shop_productoption` VALUES ('17', 'asdasd', null, null, 'asdasd', '
 INSERT INTO `shop_productoption` VALUES ('18', 'Size', null, null, 'us2', null, 'SINGLE_LIST', '13');
 INSERT INTO `shop_productoption` VALUES ('19', 'Dress Color', null, null, null, null, 'COLOR_SINGLE', '13');
 INSERT INTO `shop_productoption` VALUES ('20', 'Qty', null, null, null, null, 'INPUT_TEXT', '13');
-INSERT INTO `shop_productoption` VALUES ('21', 'New Option', null, null, null, null, 'MULTI_LIST', '13');
+INSERT INTO `shop_productoption` VALUES ('21', 'New Option', null, null, null, null, 'MULTI_LIST', null);
+INSERT INTO `shop_productoption` VALUES ('22', 'Color', null, null, '#E7B37A #CA9837 #CA9837 #E7B37A', null, 'COLOR_SINGLE', '14');
+INSERT INTO `shop_productoption` VALUES ('23', 'Size', null, null, 'asdasd', null, 'SINGLE_LIST', '14');
 
 -- ----------------------------
 -- Table structure for `shop_productoptionitem`
@@ -538,7 +550,7 @@ CREATE TABLE `shop_productoptionitem` (
   KEY `FKEF652A4E65CB8FC9` (`icon_id`),
   CONSTRAINT `FKEF652A4E23F866E6` FOREIGN KEY (`product_option_id`) REFERENCES `shop_productoption` (`ID`),
   CONSTRAINT `FKEF652A4E65CB8FC9` FOREIGN KEY (`icon_id`) REFERENCES `shop_image` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_productoptionitem
@@ -559,6 +571,22 @@ INSERT INTO `shop_productoptionitem` VALUES ('29', 'burgundy', null, null, null,
 INSERT INTO `shop_productoptionitem` VALUES ('30', 'Item 1', null, null, null, null, null, null, '20');
 INSERT INTO `shop_productoptionitem` VALUES ('31', 'Item 1', null, null, null, null, null, null, '21');
 INSERT INTO `shop_productoptionitem` VALUES ('32', 'New Item', null, null, null, null, null, null, '21');
+INSERT INTO `shop_productoptionitem` VALUES ('33', 'champagne', null, null, null, null, '#E7B37A #CA9837 #CA9837 #E7B37A', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('34', 'daffodil', null, null, null, null, '#CFCA68 #C1B141 #C1B141 #CFCA68', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('35', 'browncoffee', null, null, null, null, '#BB9A76 #87643F #87643F #BB9A76', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('36', 'chocolate', null, null, null, null, '#946D44 #6B4F37 #6B4F37 #946D44', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('37', 'blue', null, null, null, null, '#4074E7 #2E50A5 #2E50A5 #4074E7', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('38', 'black', null, null, null, null, '#4D4C4C #131313 #131313 #4D4C4C', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('39', 'burgundy', null, null, null, null, '#A43755 #551B29 #551B29 #A43755', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('40', 'SizeA', null, null, null, null, 'ASDASD', null, '23');
+INSERT INTO `shop_productoptionitem` VALUES ('41', 'sIZE ', null, null, null, null, 'asdasd', null, '23');
+INSERT INTO `shop_productoptionitem` VALUES ('42', 'champagne', null, null, null, null, '#E7B37A #CA9837 #CA9837 #E7B37A', null, '22');
+INSERT INTO `shop_productoptionitem` VALUES ('43', 'daffodil', null, null, null, null, '#CFCA68 #C1B141 #C1B141 #CFCA68', null, '22');
+INSERT INTO `shop_productoptionitem` VALUES ('44', 'browncoffee', null, null, null, null, '#BB9A76 #87643F #87643F #BB9A76', null, '22');
+INSERT INTO `shop_productoptionitem` VALUES ('45', 'chocolate', null, null, null, null, '#946D44 #6B4F37 #6B4F37 #946D44', null, '22');
+INSERT INTO `shop_productoptionitem` VALUES ('46', 'blue', null, null, null, null, '#4074E7 #2E50A5 #2E50A5 #4074E7', null, '22');
+INSERT INTO `shop_productoptionitem` VALUES ('47', 'black', null, null, null, null, '#4D4C4C #131313 #131313 #4D4C4C', null, '22');
+INSERT INTO `shop_productoptionitem` VALUES ('48', 'burgundy', null, null, null, null, '#A43755 #551B29 #551B29 #A43755', null, '22');
 
 -- ----------------------------
 -- Table structure for `shop_productproperty`
@@ -574,7 +602,7 @@ CREATE TABLE `shop_productproperty` (
   PRIMARY KEY (`ID`),
   KEY `FK16BFE47B582107E7` (`product_id`),
   CONSTRAINT `FK16BFE47B582107E7` FOREIGN KEY (`product_id`) REFERENCES `shop_product` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_productproperty
@@ -582,6 +610,8 @@ CREATE TABLE `shop_productproperty` (
 INSERT INTO `shop_productproperty` VALUES ('13', 'das', null, null, 'asdasd', '12');
 INSERT INTO `shop_productproperty` VALUES ('14', 'asdas', null, null, 'asdasd', '12');
 INSERT INTO `shop_productproperty` VALUES ('15', '0011', null, null, 'iseswwaa', '13');
+INSERT INTO `shop_productproperty` VALUES ('16', 'asdasd', null, null, 'asdasd', '14');
+INSERT INTO `shop_productproperty` VALUES ('17', 'asdasd', null, null, 'asdfasdas', '14');
 
 -- ----------------------------
 -- Table structure for `shop_product_category`
@@ -599,10 +629,15 @@ CREATE TABLE `shop_product_category` (
 -- ----------------------------
 -- Records of shop_product_category
 -- ----------------------------
-INSERT INTO `shop_product_category` VALUES ('12', '4');
-INSERT INTO `shop_product_category` VALUES ('12', '8');
+INSERT INTO `shop_product_category` VALUES ('14', '66');
+INSERT INTO `shop_product_category` VALUES ('14', '10');
+INSERT INTO `shop_product_category` VALUES ('14', '1');
 INSERT INTO `shop_product_category` VALUES ('13', '9');
 INSERT INTO `shop_product_category` VALUES ('13', '4');
+INSERT INTO `shop_product_category` VALUES ('13', '1');
+INSERT INTO `shop_product_category` VALUES ('12', '4');
+INSERT INTO `shop_product_category` VALUES ('12', '8');
+INSERT INTO `shop_product_category` VALUES ('12', '1');
 
 -- ----------------------------
 -- Table structure for `shop_product_image`
@@ -620,12 +655,13 @@ CREATE TABLE `shop_product_image` (
 -- ----------------------------
 -- Records of shop_product_image
 -- ----------------------------
-INSERT INTO `shop_product_image` VALUES ('12', '2');
+INSERT INTO `shop_product_image` VALUES ('14', '15');
+INSERT INTO `shop_product_image` VALUES ('14', '14');
+INSERT INTO `shop_product_image` VALUES ('14', '13');
+INSERT INTO `shop_product_image` VALUES ('14', '11');
+INSERT INTO `shop_product_image` VALUES ('14', '10');
 INSERT INTO `shop_product_image` VALUES ('13', '5');
-INSERT INTO `shop_product_image` VALUES ('13', '4');
-INSERT INTO `shop_product_image` VALUES ('13', '3');
-INSERT INTO `shop_product_image` VALUES ('13', '2');
-INSERT INTO `shop_product_image` VALUES ('13', '1');
+INSERT INTO `shop_product_image` VALUES ('12', '2');
 
 -- ----------------------------
 -- Table structure for `shop_promotion`
@@ -681,6 +717,12 @@ CREATE TABLE `shop_site` (
   `suffix` varchar(100) DEFAULT NULL,
   `prefix` varchar(100) DEFAULT NULL,
   `log_id` bigint(20) DEFAULT NULL,
+  `sideBar` text,
+  `siteFooter` text,
+  `delivery_img_id` int(11) DEFAULT NULL,
+  `featuredCat_img_id` int(11) DEFAULT NULL,
+  `deliveryURL` varchar(200) DEFAULT NULL,
+  `featuredCatURL` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `FK2A76A310C2B5B11E` (`log_id`),
   CONSTRAINT `FK2A76A310C2B5B11E` FOREIGN KEY (`log_id`) REFERENCES `shop_image` (`ID`)
@@ -689,7 +731,7 @@ CREATE TABLE `shop_site` (
 -- ----------------------------
 -- Records of shop_site
 -- ----------------------------
-INSERT INTO `shop_site` VALUES ('1', '127.0.0.1:8888', null, '/image', '/', 'www', null);
+INSERT INTO `shop_site` VALUES ('1', '127.0.0.1:8888', null, '/image', '/', 'www', '17', 'Test Side bar', 'Test footer<br>', '19', '18', 'http://tv.sohu.com', 'http://www.google.com');
 
 -- ----------------------------
 -- Table structure for `shop_user`
