@@ -3,8 +3,11 @@ package com.spshop.cache;
 import java.util.List;
 
 import com.spshop.model.Category;
+import com.spshop.model.Site;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CategoryService;
+import com.spshop.service.intf.SiteService;
+import com.spshop.utils.AllConstants;
 
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
@@ -34,8 +37,23 @@ public class SCacheManager {
 		return categories;
 	}
 	
-	public static void main(String[] args) {
-		System.out.println(getTopCategories());
+	public static Site getSite(){
+		return getSite(false);
 	}
+	
+	public static Site getSite(boolean faceUpdate){
+		SiteService ss = ServiceFactory.getService(SiteService.class);
+		Site site = null;
+		
+		if(!faceUpdate&&null!=getGlobalCache().get(AllConstants.DEFAULT_SITE_CACHE)){
+			site = (Site) getGlobalCache().get(AllConstants.DEFAULT_SITE_CACHE).getValue();
+		}else{
+			site = ss.getSiteById(AllConstants.DEFAULT_SITE_ID);
+			getGlobalCache().put(new Element(AllConstants.DEFAULT_SITE_CACHE, site));
+		}
+		
+		return site;
+	}
+	
 	
 }

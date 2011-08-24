@@ -24,6 +24,7 @@ public class InitCacheService extends HttpServlet {
 	
 	public void init() throws ServletException {
 		SCacheManager.getTopCategories();
+		SCacheManager.getSite();
 	}
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -33,5 +34,6 @@ public class InitCacheService extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		CategoryService cs = ServiceFactory.getService(CategoryService.class);
 		SCacheManager.getGlobalCache().put(new Element(CATEGORY_CACHE, cs.getTopCategories()));
+		SCacheManager.getSite(true);
 	}
 }
