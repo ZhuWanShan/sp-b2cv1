@@ -13,9 +13,8 @@ import com.spshop.model.Site;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.SiteService;
 import com.spshop.utils.AllConstants;
-
+import static com.spshop.utils.AllConstants.DEFAULT_SITE_ID;;
 public class RemoteService extends RemoteServiceServlet {
-	public static final long DEFAULT_SITE_ID = 1L;
 	/**
 	 * 
 	 */

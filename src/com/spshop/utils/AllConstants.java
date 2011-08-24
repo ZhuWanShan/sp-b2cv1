@@ -1,5 +1,7 @@
 package com.spshop.utils;
 
+import java.io.Serializable;
+
 
 /**
  * author Delgado
@@ -44,4 +46,7 @@ public class AllConstants {
 	public static final String MAIL_CHAR_SET = "UTF-8";
 	public static final String MAIL_CONTENT = "fucking, fucking";
 	public static final String LOGIN_FAILURE = "username or password not correct, please check";
+	
+	public static final long DEFAULT_SITE_ID = 1L;
+	public static final Serializable DEFAULT_SITE_CACHE = "DEFAULT_SITE_CACHE";
 }
