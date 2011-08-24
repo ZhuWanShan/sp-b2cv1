@@ -30,11 +30,11 @@ public class ProdAttributeCreation extends ObservableComposite<ProductProperty, 
 
 	public ProdAttributeCreation(ProductProperty productProperty) {
 		initWidget(uiBinder.createAndBindUi(this));
-		setComponet(productProperty);
+		setComponent(productProperty);
 	}
 	
-	public void setComponet(ProductProperty productProperty) {
-		this.componet = productProperty;
+	public void setComponent(ProductProperty productProperty) {
+		this.component = productProperty;
 		this.name.setValue(productProperty.getName());
 		this.value.setValue(productProperty.getValue());
 	}
@@ -45,12 +45,12 @@ public class ProdAttributeCreation extends ObservableComposite<ProductProperty, 
 	}
 	@UiHandler("value")
 	void onValueKeyUp(KeyUpEvent event) {
-		this.componet.setValue(value.getValue());
+		this.component.setValue(value.getValue());
 		notifyChange();
 	}
 	@UiHandler("name")
 	void onNameKeyUp(KeyUpEvent event) {
-		this.componet.setName(name.getValue());
+		this.component.setName(name.getValue());
 		notifyChange();
 	}
 }

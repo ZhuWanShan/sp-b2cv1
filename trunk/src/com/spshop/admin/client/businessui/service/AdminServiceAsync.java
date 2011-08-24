@@ -29,6 +29,8 @@ public interface AdminServiceAsync {
 
 	void getAllCategory(boolean includeDisable,AsyncCallback<List<Category>> callback) throws ServiceValidateException;
 
-	void saveSite(Site site, AsyncCallback<Void> callback)throws ServiceValidateException;
+	void saveSite(Site site, AsyncCallback<Site> callback)throws ServiceValidateException;
+
+	void getLoginInfo(boolean forceSession, AsyncCallback<LoginInfo> callback);
 
 }

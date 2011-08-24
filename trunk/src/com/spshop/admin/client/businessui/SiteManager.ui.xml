@@ -18,12 +18,78 @@
 		</g:Grid>
 		<g:ScrollPanel width="100%" height="500px">
 			<g:HTMLPanel>
-				<g:Label text="Side bar"/>
-				<p1:RichText height="300px" width="800px"/>
-				<g:Button text="Save Side bar"/>
-				<g:Label text="Footer"/>
-				<p1:RichText height="300px" width="800px"/>
-				<g:Button text="Save Footer"/>
+				<g:Grid>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Logo"/>
+						</g:customCell>
+						<g:customCell>
+							<g:FlowPanel>
+								<g:Button text="Pick a Image" ui:field="logoPicker"/>
+								<g:SimplePanel ui:field="logoImage"/>
+							</g:FlowPanel>
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="FeaturedCat"/>
+						</g:customCell>
+						<g:customCell>
+							<g:FlowPanel>
+								<g:Button text="Pick a Image" ui:field="featuredPicker"/>
+								<g:SimplePanel ui:field="featuredImage"/>
+							</g:FlowPanel>
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Delivery"/>
+						</g:customCell>
+						<g:customCell>
+							<g:FlowPanel>
+								<g:Button text="Pick a Image" ui:field="deliverPicker"/>
+								<g:SimplePanel ui:field="deliverImage"/>
+							</g:FlowPanel>
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Featured URL"/>
+						</g:customCell>
+						<g:customCell>
+							<g:TextBox ui:field="featuredUrl"/>
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Deliver URL"/>
+						</g:customCell>
+						<g:customCell>
+							<g:TextBox ui:field="deliverUrl"/>
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Side bar"/>
+						</g:customCell>
+						<g:customCell>
+							<p1:RichText height="300px" width="800px" ui:field="siderBar"/>
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Footer"/>
+						</g:customCell>
+						<g:customCell>
+							<p1:RichText height="300px" width="800px" ui:field="siteFooter"/>
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Button text="Save" ui:field="save"/>
+						</g:customCell>
+					</g:row>
+				</g:Grid>
 			</g:HTMLPanel>
 		</g:ScrollPanel>
 	</g:HTMLPanel>

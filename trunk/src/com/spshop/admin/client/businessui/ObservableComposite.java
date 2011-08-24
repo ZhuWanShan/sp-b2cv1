@@ -9,7 +9,7 @@ import com.spshop.admin.client.businessui.callback.ChangeObservable;
 import com.spshop.admin.client.businessui.callback.EditorChangeListener;
 public abstract class ObservableComposite<C,W extends Widget> extends Composite implements ChangeObservable<C, W>{
 	private Set<EditorChangeListener<C, W>> listeners = new TreeSet<EditorChangeListener<C, W>>();
-	protected C componet;
+	protected C component;
 	private W self;
 	
 	@SuppressWarnings("unchecked")
@@ -18,10 +18,10 @@ public abstract class ObservableComposite<C,W extends Widget> extends Composite 
 	}
 	
 	public C getComponet() {
-		return componet;
+		return component;
 	}
 
-	public abstract void setComponet(C componet);
+	public abstract void setComponent(C component);
 
 	@Override
 	public void addChangeListener(
@@ -31,13 +31,13 @@ public abstract class ObservableComposite<C,W extends Widget> extends Composite 
 	@Override
 	public void notifyChange() {
 		for (EditorChangeListener<C, W> lsn : listeners) {
-			lsn.onChange(componet, self);
+			lsn.onChange(component, self);
 		}
 	}
 	@Override
 	public void notifyDelete() {
 		for (EditorChangeListener<C, W> lsn : listeners) {
-			lsn.onDelete(componet, self);
+			lsn.onDelete(component, self);
 		}
 	}
 }

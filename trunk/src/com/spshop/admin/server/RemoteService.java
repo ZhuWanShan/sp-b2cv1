@@ -34,10 +34,17 @@ public class RemoteService extends RemoteServiceServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		super.service(request, response);
 	}
-
-	public LoginInfo getLoginInfo() {
-		LoginInfo loginInfo = (LoginInfo) getThreadLocalRequest().getSession()
-				.getAttribute(AllConstants.ADMIN_LOGIN_INFO);
+	
+	public LoginInfo getLoginInfo(){
+			return getLoginInfo(false);
+	}	
+	
+	public LoginInfo getLoginInfo(boolean forceRefresh) {
+		LoginInfo loginInfo = null;
+		if(forceRefresh){
+			loginInfo = (LoginInfo) getThreadLocalRequest().getSession()
+			.getAttribute(AllConstants.ADMIN_LOGIN_INFO);
+		}
 		if (null == loginInfo) {
 			loginInfo = new LoginInfo();
 			Site site = ServiceFactory.getService(SiteService.class).getSiteById(

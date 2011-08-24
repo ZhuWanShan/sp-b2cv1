@@ -42,21 +42,7 @@ public class AdminWorkspace implements EntryPoint {
 
   public void onModuleLoad() {
 	  
-	  ADMIN_SERVICE_ASYNC.getLoginInfo(new AsyncCallback<LoginInfo>() {
-		
-		public void onSuccess(LoginInfo loginInfo) {
-			 if(null!=loginInfo){
-				 AdminWorkspace.loginInfo = loginInfo;
-				 topPanel.setUserID(loginInfo.getUserID());
-			 }else{
-				 Window.Location.assign(LOGIN_URL);
-			 }
-		}
-		
-		public void onFailure(Throwable throwable) {
-			Window.Location.assign(LOGIN_URL);
-		}
-	});
+	 refreshLogin();
     // Inject global styles.
     GWT.<GlobalResources>create(GlobalResources.class).css().ensureInjected();
 
@@ -86,5 +72,23 @@ public class AdminWorkspace implements EntryPoint {
 	  s = "http://"+site.getDomain();
 	  
 	  return s;
+  }
+  
+  public static void refreshLogin(){
+	  ADMIN_SERVICE_ASYNC.getLoginInfo(new AsyncCallback<LoginInfo>() {
+			
+			public void onSuccess(LoginInfo loginInfo) {
+				 if(null!=loginInfo){
+					 AdminWorkspace.loginInfo = loginInfo;
+					 topPanel.setUserID(loginInfo.getUserID());
+				 }else{
+					 Window.Location.assign(LOGIN_URL);
+				 }
+			}
+			
+			public void onFailure(Throwable throwable) {
+				Window.Location.assign(LOGIN_URL);
+			}
+		});
   }
 }

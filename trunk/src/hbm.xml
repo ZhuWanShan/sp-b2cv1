@@ -366,6 +366,10 @@
 		<property name="siteFooter"></property>
 		<property name="sideBar"></property>
 		<many-to-one name="logo" class="Image" column="log_id"></many-to-one>
+		<many-to-one name="delivery" class="Image" column="delivery_img_id"></many-to-one>
+		<many-to-one name="featuredCat" class="Image" column="featuredCat_img_id"></many-to-one>
+		<property name="deliveryURL" length="200"></property>
+		<property name="featuredCatURL" length="200"></property>
 	</class>
 	
 	<class name="User" table="SHOP_User">

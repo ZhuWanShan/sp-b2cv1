@@ -96,8 +96,8 @@ public class ProductCreation extends Composite{
 		detail.setHTML(product.getDetail());
 		optionManager.setOptions(options);
 		attributeManager.setProduct(product);
-		categoryPicker.setComponet(product.getCategories());
-		imageManager.setComponet(product.getImages());
+		categoryPicker.setComponent(product.getCategories());
+		imageManager.setComponent(product.getImages());
 	}
 	public Product getProduct() {
 		return product;
