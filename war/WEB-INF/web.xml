@@ -132,4 +132,7 @@
 		<servlet-name>dwr-invoker</servlet-name>
 		<url-pattern>/dwr/*</url-pattern>
 	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>ShopAdmin.html</welcome-file>
+	</welcome-file-list>
 </web-app>
