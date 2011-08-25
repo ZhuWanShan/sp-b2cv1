@@ -15,8 +15,6 @@ import com.spshop.cache.SCacheManager;
 import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Category;
 import com.spshop.model.Site;
-import com.spshop.service.factory.ServiceFactory;
-import com.spshop.service.intf.SiteService;
 
 public abstract class BaseAction extends Action {
 	
@@ -39,7 +37,7 @@ public abstract class BaseAction extends Action {
 	 * @param page
 	 */
 	private void populateSiteInfo(HttpServletRequest request, PageFormBean page) {
-		Site site = ServiceFactory.getService(SiteService.class).getSiteById(1);
+		Site site = SCacheManager.getSite();
 		page.setSite(site);
 	}
 	
