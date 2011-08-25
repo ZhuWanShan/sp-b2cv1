@@ -1,5 +1,5 @@
-<%-- <div class="bottom">
-	<div class="content_box">
+<div class="bottom">
+<%--	<div class="content_box">
 		<div class="left_box">
 			<div class="hei10"></div>
 		</div>
@@ -29,8 +29,8 @@
 	<div class="otherinfo_box">
 		<jsp:include page="other_info.jsp"></jsp:include>
 	</div>
-	
+	 --%>
 	<div class="content_box">
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
-</div>--%>
+</div>

@@ -1,5 +1,9 @@
+<%@include file="../include.jsp" %>
 <div class="left_box index_left">
-	<div class="feature_list lineheight15">
+	<ss:site var="site">
+		${site.sideBar}
+	</ss:site>
+	<%-- <div class="feature_list lineheight15">
 		<ul>
 			<li><a title="Newsletter Subscribe"
 				href="http://www.milanoo.com/promotions/specials-id-570.html"> <img
@@ -75,4 +79,5 @@
 			</li>
 		</ul>
 	</div>
+	--%>
 </div>

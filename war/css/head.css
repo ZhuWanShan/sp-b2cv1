@@ -31,7 +31,7 @@ html{_text-overflow:ellipsis;}
 .top_box{background:#fff;}
 /*************** header*****************/
 .top_box{width:972px;height:130px;margin:0 auto 5px auto;position:relative;z-index:300;top:0;}
-.logo_box{padding-left:5px;position:absolute;left:0px;top:0px;background:url(logo_3years.png) no-repeat;height:80px;width:230px;}
+.logo_box{padding-left:5px;position:absolute;left:0px;top:0px;}
 .logo_box a:link,.logo_box a:visited{height:75px;width:210px;display:block;text-indent:-999px;overflow:hidden;}
 .kh_box{position:absolute;left:10px;top:60px;}
 .kh_box a{color:#A88F7A; font-weight:bold;}
