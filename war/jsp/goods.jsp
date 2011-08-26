@@ -57,16 +57,16 @@
 
 	<script type="text/javascript">var addthis_pub = 'Milanoo';</script>
 	
-	<script src="http://www.mlo.me/javascript/addthis.js" type="text/javascript"></script>
+	<script src="../js/addthis.js" type="text/javascript"></script>
 	
 	<script>var pic_high=0;</script>
 	
-	<link type="text/css" rel="stylesheet" href="http://www.mlo.me/image/endefault/thing_item/thing_item.css">
-	<link type="text/css" rel="stylesheet" href="http://www.mlo.me/image/default/thing_item/thing_item.css">
-	<link media="screen" href="http://www.mlo.me/image/endefault/thing_item/jquery.fancybox-1.3.4.css" type="text/css" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="../css/thing_item.css">
+	<link type="text/css" rel="stylesheet" href="../css/default_thing_item.css">
+	<link media="screen" href="../css/jquery.fancybox-1.3.4.css" type="text/css" rel="stylesheet">
 	
-	<script type="text/javascript" src="http://www.mlo.me/javascript/jq_ui_thing_item/jquery.mousewheel-3.0.4.pack.js"></script>
-	<script type="text/javascript" src="http://www.mlo.me/javascript/jq_ui_thing_item/jquery.fancybox-1.3.4.pack.js"></script>
+	<script type="text/javascript" src="../js/jquery.mousewheel-3.0.4.pack.js"></script>
+	<script type="text/javascript" src="../js/jquery.fancybox-1.3.4.pack.js"></script>
 
 	<!-- Main box start -->
 	<div class="main_box">
@@ -75,7 +75,6 @@
 		<jsp:include page="goods/correlation_thing.jsp"></jsp:include>
 		<div class="item_ad_box"> </div>
 		<jsp:include page="goods/goods_info_top.jsp"></jsp:include>
-		<jsp:include page="goods/goods_info_bottom.jsp"></jsp:include>
 	</div>
 	<!-- Main box end -->
 

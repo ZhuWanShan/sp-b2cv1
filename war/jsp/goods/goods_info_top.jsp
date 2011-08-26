@@ -75,7 +75,7 @@
 					</tbody>
 				</table>
 				<div class="itme_description"><c:out value="${pageForm.pageProperties.productDetail.abstractText}" /></div>
-				<c:out value="${pageForm.pageProperties.productDetail.detail}" />
+				<c:out value="${pageForm.pageProperties.productDetail.detail}" escapeXml="false"/>
 			</div>
 		</div>
 		<!--弹出custom-->
@@ -420,6 +420,6 @@ changeunit('in');
 			</div>
 		</div>
 	</form>
-	<script type="text/javascript" src="http://www.mlo.me/javascript/thing_item.js"></script>
-	<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+	<script type="text/javascript" src="../js/thing_item.js"></script>
+	<script type="text/javascript" src="../js/plusone.js"></script>
 </div>
