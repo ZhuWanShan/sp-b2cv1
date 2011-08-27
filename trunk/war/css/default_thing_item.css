@@ -19,4 +19,4 @@ a:link.rightArrow,a:visited.rightArrow { background: url(thingArrow.gif) -16px t
 .item_high_pic_box .viewimgage { width:380px; height:500px; text-align:center; margin:0 auto; display:none; cursor:move;}
 .item_high_pic_box .viewimgage img { float:left; font-size:0;}
 .item_high_pic_box button { position:absolute; width:42px; bottom:10px; z-index:10;}
-.item_high_pic_box .Enlarge,.item_high_pic_box .decrease,.item_high_pic_box .reset{_behavior: url(/image/endefault/iepngfix.htc); border:none; cursor:pointer; height:20px;}
+.item_high_pic_box .Enlarge,.item_high_pic_box .decrease,.item_high_pic_box .reset{_behavior: url(iepngfix.htc); border:none; cursor:pointer; height:20px;}
