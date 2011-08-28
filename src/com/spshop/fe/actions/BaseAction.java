@@ -1,7 +1,9 @@
 package com.spshop.fe.actions;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,8 +28,29 @@ public abstract class BaseAction extends Action {
 	private void populateMenuBar(PageFormBean page) {
 		List<Category> categories = new ArrayList<Category>();
 		categories = SCacheManager.getTopCategories();
+		Map<Object, Object> specialOffer = new HashMap<Object, Object>();
+		
+		for (Category category : categories) {
+		    List<Category> specialOffers = new ArrayList<Category>();
+		    specialOffer.put(category.getName(), findSpecialOffers(category.getSubCategories(), specialOffers));
+        }
+		page.setSpecialOffer(specialOffer);
 		
 		page.addAllCategories(categories);
+	}
+	
+	private List<Category> findSpecialOffers(List<Category> categories, List<Category> specialOffers) {
+	    
+        for (Category category : categories) {
+            if (category.isSpecialOffer()) {
+                specialOffers.add(category);
+            } else {
+                if (category.getSubCategories().size() != 0) {
+                    findSpecialOffers(category.getSubCategories(), specialOffers);
+                }
+            }
+        }
+	    return specialOffers;
 	}
 
 	/**

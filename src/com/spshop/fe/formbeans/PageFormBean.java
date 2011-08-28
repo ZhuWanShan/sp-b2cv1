@@ -8,7 +8,6 @@ import java.util.Map;
 import org.apache.struts.action.ActionForm;
 
 import com.spshop.model.Category;
-import com.spshop.model.Product;
 import com.spshop.model.Site;
 
 public class PageFormBean extends ActionForm {
@@ -33,8 +32,19 @@ public class PageFormBean extends ActionForm {
 	 */
 	private List<Category> pathNodes = new ArrayList<Category>();
 	
+	/**
+	 *  Page category
+	 */
 	private Category category;
 	
+	/**
+	 *  Special offer categories
+	 */
+	private Map<Object, Object> specialOffer = new HashMap<Object, Object>();
+	
+	/**
+	 *  Other page properties
+	 */
 	private Map<String, Object> pageProperties = new HashMap<String, Object>();
 	
 	public Category getCategory() {
@@ -80,6 +90,14 @@ public class PageFormBean extends ActionForm {
 
     public List<Category> getPathNodes() {
         return pathNodes;
+    }
+
+    public void setSpecialOffer(Map<Object, Object> specialOffer) {
+        this.specialOffer = specialOffer;
+    }
+
+    public Map<Object, Object> getSpecialOffer() {
+        return specialOffer;
     }
 
     public Map<String, Object> getPageProperties() {
