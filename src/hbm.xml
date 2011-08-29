@@ -39,6 +39,7 @@
 		<property name="relatedKeyword"></property>
 		<property name="pageTitle"></property>
 		<property name="specialOffer"></property>
+		<property name="displayMarketOnly" column="market_only"></property>
 		<property name="enable" column="isEnable"></property>
 		<property name="description" column="description" length="500"></property>
 		<property name="index" column="idx"></property>

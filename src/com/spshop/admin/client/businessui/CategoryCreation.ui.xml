@@ -87,6 +87,14 @@
 			</g:row>
 			<g:row>
 				<g:customCell>
+					<g:Label text="Market only" />
+				</g:customCell>
+				<g:customCell>
+					<g:CheckBox text="Market only" ui:field="marketOnly" />
+				</g:customCell>
+			</g:row>
+			<g:row>
+				<g:customCell>
 					<g:Label text="SpecicalOfferImage:" />
 				</g:customCell>
 				<g:customCell>
