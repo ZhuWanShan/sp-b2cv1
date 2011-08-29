@@ -25,7 +25,7 @@ public class CategoryServiceImpl extends AbstractService<Category,CategoryDAO, L
 		criteria.setMaxResult(20);
 		criteria.addProperty("parent", null);
 		criteria.setOrderBy("index");
-		criteria.addProperty("displayMarketOnly", Boolean.TRUE);
+		criteria.addProperty("displayMarketOnly", Boolean.FALSE);
 		if(!includeDisable){
 			criteria.addProperty("enable", Boolean.TRUE);
 		}
