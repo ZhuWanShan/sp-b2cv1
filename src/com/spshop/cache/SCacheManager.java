@@ -18,7 +18,7 @@ public class SCacheManager {
 	private static CacheManager cacheManager;
 	public static final String GLOBAL_CACHE = "global";
 	static{
-		cacheManager = new CacheManager(SCacheManager.class.getResourceAsStream("/ehache.xml"));
+		cacheManager = new CacheManager(SCacheManager.class.getResourceAsStream("/ehcache.xml"));
 	}
 	
 	public static Cache getGlobalCache(){
