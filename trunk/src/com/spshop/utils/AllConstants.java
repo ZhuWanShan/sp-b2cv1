@@ -17,6 +17,7 @@ public class AllConstants {
 	
 	public static String SUCCESS_VALUE = "Success";
 	public static String fAILURE_VALUE = "Failure";
+	public static String SPECIAL_CATEGORY_VALUE = "Special";
 	
 	public static String URL_SEPERATOR = "/";
 	public static String DOT = ".";
