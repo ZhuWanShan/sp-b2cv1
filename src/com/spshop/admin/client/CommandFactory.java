@@ -8,10 +8,12 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.spshop.admin.client.businessui.CategoryManager;
 import com.spshop.admin.client.businessui.ComponentQuery;
+import com.spshop.admin.client.businessui.DashboardSellingManager;
 import com.spshop.admin.client.businessui.ImageBatchCreation;
 import com.spshop.admin.client.businessui.ImageCreation;
 import com.spshop.admin.client.businessui.ProductCreation;
 import com.spshop.admin.client.businessui.SiteManager;
+import com.spshop.admin.client.businessui.TopSellingManager;
 import com.spshop.admin.client.businessui.callback.SelectedCallBack;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
@@ -117,6 +119,35 @@ public class CommandFactory {
 			}
 		};
 	}
+	
+	public static Command popUpQueryProduct(final boolean multiSelect,final SelectedCallBack callBack) {
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				final ComponentQuery componentQuery = new ComponentQuery("Product Query",Product.class);
+				componentQuery.getQueryCondition().setAsc(false);
+				componentQuery.setEnableMultiSelect(multiSelect);
+				componentQuery.getQueryCondition().setOrderBy("createDate");
+				HTMLPanel content = new HTMLPanel("<div></div>");
+				content.setSize("850px", "500px");
+				content.clear();
+				content.add(componentQuery);
+				Button button = new Button("Select");
+				
+				final PopWindow popWindow = new PopWindow("Product Query", content, true, true);
+				button.addClickHandler(new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent e) {
+						callBack.callBack(componentQuery.getSelected());
+						popWindow.hide();
+					}
+				});
+				popWindow.addButton(button);
+				popWindow.center();
+				
+			}
+		};
+	}
 
 	public static Command queryProduct() {
 		return new CommandAdapter() {
@@ -194,6 +225,28 @@ public class CommandFactory {
 				AdminWorkspace.contentPanel.body.clear();
 				SiteManager siteManager = new SiteManager();
 				AdminWorkspace.contentPanel.body.add(siteManager);
+			}
+		};
+	}
+	
+	public static Command topSelingManager() {
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				AdminWorkspace.contentPanel.body.clear();
+				TopSellingManager topSellingManager = new TopSellingManager();
+				AdminWorkspace.contentPanel.body.add(topSellingManager);
+			}
+		};
+	}
+	
+	public static Command dashboardSellingManager() {
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				AdminWorkspace.contentPanel.body.clear();
+				DashboardSellingManager dashboardSellingManager = new DashboardSellingManager();
+				AdminWorkspace.contentPanel.body.add(dashboardSellingManager);
 			}
 		};
 	}

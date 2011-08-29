@@ -155,4 +155,17 @@
 	<bean id="com.spshop.service.intf.UserOptionService" parent="transactionBase">
 		<property name="target" ref="com.spshop.service.intf.UserOptionService.target" />
 	</bean>
+	
+	<bean id="com.spshop.service.intf.TabSellingService.target" class="com.spshop.service.impl.TabSellingServiceImpl">
+	</bean>
+	<bean id="com.spshop.service.intf.TabSellingService" parent="transactionBase">
+		<property name="target" ref="com.spshop.service.intf.TabSellingService.target" />
+	</bean>
+
+	<bean id="com.spshop.service.intf.TabProductService.target" class="com.spshop.service.impl.TabProductServiceImpl">
+	</bean>
+	<bean id="com.spshop.service.intf.TabProductService" parent="transactionBase">
+		<property name="target" ref="com.spshop.service.intf.TabProductService.target" />
+	</bean>
+	
 </beans>

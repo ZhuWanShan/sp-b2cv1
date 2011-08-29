@@ -10,6 +10,7 @@ import com.spshop.model.Component;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
 import com.spshop.model.Site;
+import com.spshop.model.TabProduct;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 
@@ -33,4 +34,7 @@ public interface AdminServiceAsync {
 
 	void getLoginInfo(boolean forceSession, AsyncCallback<LoginInfo> callback);
 
+	void getTopSelling(AsyncCallback<TabProduct> callback);
+
+	void saveTopSelling(TabProduct product, AsyncCallback<TabProduct> callback);
 }

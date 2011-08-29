@@ -317,6 +317,30 @@
 		<many-to-one name="product" class="Product" column="product_id"></many-to-one>
 	</class>
 	
+	<class name="TabProduct" table="SHOP_TabProduct">
+		<id name="id" column="ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" length="100"></property>
+		
+		<bag name="products" cascade="all" table="tab_product">
+			<key column="tab_id"></key>
+			<many-to-many class="Product" column="product_id" />
+		</bag>
+	</class>
+	
+	<class name="TabSelling" table="SHOP_TabSelling">
+		<id name="id" column="ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" length="100"></property>
+		<bag name="tabs" cascade="all" table="tab_product_selling">
+			<key column="selling_id"></key>
+			<many-to-many class="Product" column="product_id" />
+		</bag>
+	</class>
+	
+	
 	<class name="Promotion" table="SHOP_Promotion" discriminator-value="Promotion">
 		<id name="id" column="ID">
 			<generator class="identity"></generator>
