@@ -56,6 +56,7 @@ public class CategoryCreation extends Composite {
 	@UiField
 	Anchor showImage;
 	@UiField CheckBox cEnable;
+	@UiField CheckBox marketOnly;
 	@UiField TextArea description;
 	@UiField IntegerBox index;
 	
@@ -83,6 +84,7 @@ public class CategoryCreation extends Composite {
 		url.setValue(category.getUrl());
 		relatedKeywords.setValue(category.getRelatedKeyword());
 		isSpecialOffer.setValue(category.isSpecialOffer());
+		marketOnly.setValue(category.isDisplayMarketOnly());
 		pageTitle.setValue(category.getPageTitle());
 		index.setValue(category.getIndex());
 		marketContent.setHTML(null == category.getMarketContent() ? ""
@@ -113,6 +115,7 @@ public class CategoryCreation extends Composite {
 		category.setSpecialOfferImage(specialOfferImage);
 		category.setUrl(url.getValue());
 		category.setEnable(cEnable.getValue());
+		category.setDisplayMarketOnly(marketOnly.getValue());
 		category.setDescription(description.getText());
 		// categoryManager.tree.update(category);
 		if (category.getId() < 1) {

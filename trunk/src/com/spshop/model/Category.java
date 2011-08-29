@@ -18,6 +18,7 @@ public class Category  extends Component{
 	private boolean specialOffer;
 	private String marketContent;
 	private boolean enable;
+	private boolean displayMarketOnly;
 	private String description;
 	private int index;
 	
@@ -140,6 +141,7 @@ public class Category  extends Component{
 		}
 		
 		obj.specialOffer = this.specialOffer;
+		obj.displayMarketOnly = this.displayMarketOnly;
 		obj.enable = this.enable;
 		obj.index = this.index;
 		if (this.marketContent != null) {
@@ -190,6 +192,14 @@ public class Category  extends Component{
 
 	public void setIndex(int index) {
 		this.index = index;
+	}
+
+	public void setDisplayMarketOnly(boolean displayMarketOnly) {
+		this.displayMarketOnly = displayMarketOnly;
+	}
+
+	public boolean isDisplayMarketOnly() {
+		return displayMarketOnly;
 	}
 
 }
