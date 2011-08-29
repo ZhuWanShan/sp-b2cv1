@@ -62,7 +62,7 @@ public class CategoryServiceImpl extends AbstractService<Category,CategoryDAO, L
 		if(null!=category.getSubCategories()){
 			List<Category> marketOnly = new ArrayList<Category>();
 			for(Category c:category.getSubCategories()){
-				if(!c.isDisplayMarketOnly()){
+				if(c.isDisplayMarketOnly()){
 					marketOnly.add(c);
 				}
 			}
