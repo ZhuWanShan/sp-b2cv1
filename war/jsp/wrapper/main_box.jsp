@@ -1,9 +1,8 @@
 <%@ include file="../include.jsp" %>
 <div class="main_box">
 
-<div class="index_bigad" id="index_bigad">
-	<c:out escapeXml="false" value="${pageForm.category.marketContent}"></c:out>
-</div>
+<jsp:include page="index_bigad.jsp"></jsp:include>
+
 <div class="hei10"></div>
 
 <div class="index_content01">
@@ -24,5 +23,5 @@
 
 <div class="hei10"></div>
 
-<div id="index_bigad_tmp" class="index_bigad" style="position: absolute; left: 0px; top: 0px;"></div>
+
 </div>
