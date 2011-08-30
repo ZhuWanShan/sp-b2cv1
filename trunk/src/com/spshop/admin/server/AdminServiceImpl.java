@@ -12,6 +12,7 @@ import com.spshop.model.Image;
 import com.spshop.model.Product;
 import com.spshop.model.Site;
 import com.spshop.model.TabProduct;
+import com.spshop.model.TabSelling;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 import com.spshop.service.factory.ServiceFactory;
@@ -20,6 +21,7 @@ import com.spshop.service.intf.ImageService;
 import com.spshop.service.intf.ProductService;
 import com.spshop.service.intf.SiteService;
 import com.spshop.service.intf.TabProductService;
+import com.spshop.service.intf.TabSellingService;
 import com.spshop.utils.AllConstants;
 public class AdminServiceImpl extends RemoteService implements AdminService{
 	/**
@@ -87,6 +89,17 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 	@Override
 	public TabProduct saveTopSelling(TabProduct product) throws ServiceValidateException {
 		return ServiceFactory.getService(TabProductService.class).saveTopSelling(product);
+	}
+
+	@Override
+	public TabSelling getDefaulTabSelling() throws ServiceValidateException {
+		return ServiceFactory.getService(TabSellingService.class).getDefaulTabSelling();
+	}
+
+	@Override
+	public TabSelling saveTabSelling(TabSelling selling)
+			throws ServiceValidateException {
+		return ServiceFactory.getService(TabSellingService.class).saveTabSelling(selling);
 	}
 
 }

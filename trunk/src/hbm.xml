@@ -337,7 +337,7 @@
 		<property name="name" length="100"></property>
 		<bag name="tabs" cascade="all" table="tab_product_selling">
 			<key column="selling_id"></key>
-			<many-to-many class="Product" column="product_id" />
+			<many-to-many class="TabProduct" column="t_product_id" />
 		</bag>
 	</class>
 	

@@ -14,9 +14,12 @@ import com.spshop.admin.client.businessui.ImageCreation;
 import com.spshop.admin.client.businessui.ProductCreation;
 import com.spshop.admin.client.businessui.SiteManager;
 import com.spshop.admin.client.businessui.TopSellingManager;
+import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.admin.client.businessui.callback.SelectedCallBack;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
+import com.spshop.model.TabProduct;
+import com.spshop.model.TabSelling;
 import com.spshop.model.enums.ImageSizeType;
 import com.spshop.model.enums.ImageType;
 
@@ -234,7 +237,16 @@ public class CommandFactory {
 			@Override
 			public void execute() {
 				AdminWorkspace.contentPanel.body.clear();
-				TopSellingManager topSellingManager = new TopSellingManager();
+				final TopSellingManager topSellingManager = new TopSellingManager();
+				topSellingManager.setShowName(false);
+				CommandFactory.lock("Process").execute();
+				AdminWorkspace.ADMIN_SERVICE_ASYNC.getTopSelling(new AsyncCallbackAdapter<TabProduct>(){
+					@Override
+					public void onSuccess(TabProduct rs) {
+						topSellingManager.setComponent(rs);
+						CommandFactory.release().execute();
+					}
+				});
 				AdminWorkspace.contentPanel.body.add(topSellingManager);
 			}
 		};
@@ -245,8 +257,14 @@ public class CommandFactory {
 			@Override
 			public void execute() {
 				AdminWorkspace.contentPanel.body.clear();
-				DashboardSellingManager dashboardSellingManager = new DashboardSellingManager();
+				final DashboardSellingManager dashboardSellingManager = new DashboardSellingManager();
 				AdminWorkspace.contentPanel.body.add(dashboardSellingManager);
+				AdminWorkspace.ADMIN_SERVICE_ASYNC.getDefaulTabSelling(new AsyncCallbackAdapter<TabSelling>(){
+					@Override
+					public void onSuccess(TabSelling rs) {
+						dashboardSellingManager.setComponent(rs);
+					}
+				});
 			}
 		};
 	}

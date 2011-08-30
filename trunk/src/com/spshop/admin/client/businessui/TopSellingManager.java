@@ -6,14 +6,17 @@ import java.util.List;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.Grid;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.AdminWorkspace;
@@ -32,6 +35,9 @@ public class TopSellingManager extends ObservableComposite<TabProduct, TopSellin
 	@UiField FlowPanel host;
 	@UiField ProductInline style;
 	@UiField Button save;
+	@UiField TextBox tabName;
+	@UiField Grid namePanel;
+	private boolean showName;
 
 	interface TopSellingManagerUiBinder extends
 			UiBinder<Widget, TopSellingManager> {
@@ -39,19 +45,14 @@ public class TopSellingManager extends ObservableComposite<TabProduct, TopSellin
 	
 	interface ProductInline extends CssResource{
 		String productItem();
+		String productDesc();
 	}
 
 	public TopSellingManager() {
 		initWidget(uiBinder.createAndBindUi(this));
-		final TopSellingManager self = this;
-		CommandFactory.lock("Process").execute();
-		AdminWorkspace.ADMIN_SERVICE_ASYNC.getTopSelling(new AsyncCallbackAdapter<TabProduct>(){
-			@Override
-			public void onSuccess(TabProduct rs) {
-				self.setComponent(rs);
-				CommandFactory.release().execute();
-			}
-		});
+		if(!isShowName()){
+			namePanel.setVisible(false);
+		}
 	}
 
 	@UiHandler("productPicker")
@@ -81,6 +82,7 @@ public class TopSellingManager extends ObservableComposite<TabProduct, TopSellin
 	@Override
 	public void setComponent(TabProduct component) {
 		host.clear();
+		tabName.setValue(component.getName());
 		this.component = component;
 		if(null==component.getProducts()){
 			this.component.setProducts(new ArrayList<Product>());
@@ -107,7 +109,8 @@ public class TopSellingManager extends ObservableComposite<TabProduct, TopSellin
 				self.host.remove(sp);
 			}
 		});
-		Label title = new Label(product.getTitle());
+		HTML title = new HTML(product.getTitle());
+		title.addStyleName(style.productDesc());
 		panel.add(title);
 		panel.add(btn);
 		host.add(sp);
@@ -123,5 +126,20 @@ public class TopSellingManager extends ObservableComposite<TabProduct, TopSellin
 				CommandFactory.release().execute();
 			}
 		});
+	}
+	@UiHandler("tabName")
+	void onTabNameKeyUp(KeyUpEvent event) {
+		getComponet().setName(tabName.getValue());
+		notifyChange();
+	}
+
+	public void setShowName(boolean showName) {
+		this.showName = showName;
+		namePanel.setVisible(showName);
+		save.setVisible(!showName);
+	}
+
+	public boolean isShowName() {
+		return showName;
 	}
 }

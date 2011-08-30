@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
-import com.google.gwt.user.client.ui.TabBar.Tab;
 import com.spshop.admin.shared.LoginInfo;
 import com.spshop.exception.ServiceValidateException;
 import com.spshop.model.Category;
@@ -13,6 +12,7 @@ import com.spshop.model.Image;
 import com.spshop.model.Product;
 import com.spshop.model.Site;
 import com.spshop.model.TabProduct;
+import com.spshop.model.TabSelling;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 @RemoteServiceRelativePath("admin")
@@ -28,5 +28,7 @@ public interface AdminService  extends RemoteService{
 	Site saveSite(Site site)throws ServiceValidateException;
 	TabProduct getTopSelling() throws ServiceValidateException;
 	TabProduct saveTopSelling(TabProduct product) throws ServiceValidateException;
+	TabSelling getDefaulTabSelling() throws ServiceValidateException;
+	TabSelling saveTabSelling(TabSelling selling) throws ServiceValidateException;
 }
 

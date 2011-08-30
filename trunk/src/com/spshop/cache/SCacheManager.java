@@ -4,9 +4,13 @@ import java.util.List;
 
 import com.spshop.model.Category;
 import com.spshop.model.Site;
+import com.spshop.model.TabProduct;
+import com.spshop.model.TabSelling;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CategoryService;
 import com.spshop.service.intf.SiteService;
+import com.spshop.service.intf.TabProductService;
+import com.spshop.service.intf.TabSellingService;
 import com.spshop.utils.AllConstants;
 
 import net.sf.ehcache.Cache;
@@ -53,6 +57,34 @@ public class SCacheManager {
 		}
 		
 		return site;
+	}
+	
+	public static TabProduct getTopSelling(boolean faceUpdate){
+		TabProductService ss = ServiceFactory.getService(TabProductService.class);
+		TabProduct tabProduct = null;
+		
+		if(!faceUpdate&&null!=getGlobalCache().get(AllConstants.DEFAULT_TOPSELLING_CACHE)){
+			tabProduct = (TabProduct) getGlobalCache().get(AllConstants.DEFAULT_TOPSELLING_CACHE).getValue();
+		}else{
+			tabProduct = ss.getTopSelling();
+			getGlobalCache().put(new Element(AllConstants.DEFAULT_TOPSELLING_CACHE, tabProduct));
+		}
+		
+		return tabProduct;
+	}
+	
+	public static TabSelling getTabSelling(boolean faceUpdate){
+		TabSellingService ss = ServiceFactory.getService(TabSellingService.class);
+		TabSelling tabSelling = null;
+		
+		if(!faceUpdate&&null!=getGlobalCache().get(AllConstants.DEFAULT_TABSELLING_CACHE)){
+			tabSelling = (TabSelling) getGlobalCache().get(AllConstants.DEFAULT_TABSELLING_CACHE).getValue();
+		}else{
+			tabSelling = ss.getDefaulTabSelling();
+			getGlobalCache().put(new Element(AllConstants.DEFAULT_TABSELLING_CACHE, tabSelling));
+		}
+		
+		return tabSelling;
 	}
 	
 	

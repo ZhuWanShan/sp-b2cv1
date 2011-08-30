@@ -51,4 +51,6 @@ public class AllConstants {
 	
 	public static final long DEFAULT_SITE_ID = 1L;
 	public static final Serializable DEFAULT_SITE_CACHE = "DEFAULT_SITE_CACHE";
+	public static final Serializable DEFAULT_TOPSELLING_CACHE = "DEFAULT_TOPSELLING_CACHE";
+	public static final Serializable DEFAULT_TABSELLING_CACHE = "DEFAULT_TABSELLING_CACHE";
 }
