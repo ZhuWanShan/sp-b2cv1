@@ -60,10 +60,10 @@ CREATE TABLE `tab_product` (
 DROP TABLE IF EXISTS `tab_product_selling`;
 CREATE TABLE `tab_product_selling` (
   `selling_id` bigint(20) NOT NULL,
-  `product_id` bigint(20) NOT NULL,
+  `t_product_id` bigint(20) NOT NULL,
   KEY `FK4A030F5687682EB8` (`selling_id`),
-  KEY `FK4A030F56582107E7` (`product_id`),
-  CONSTRAINT `FK4A030F56582107E7` FOREIGN KEY (`product_id`) REFERENCES `shop_product` (`ID`),
+  KEY `FK4A030F56582107E7` (`t_product_id`),
+  CONSTRAINT `FK4A030F56582107E7` FOREIGN KEY (`t_product_id`) REFERENCES `shop_tabproduct` (`ID`),
   CONSTRAINT `FK4A030F5687682EB8` FOREIGN KEY (`selling_id`) REFERENCES `shop_tabselling` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

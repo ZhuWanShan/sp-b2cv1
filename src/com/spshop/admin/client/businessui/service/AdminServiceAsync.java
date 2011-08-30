@@ -11,6 +11,7 @@ import com.spshop.model.Image;
 import com.spshop.model.Product;
 import com.spshop.model.Site;
 import com.spshop.model.TabProduct;
+import com.spshop.model.TabSelling;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 
@@ -37,4 +38,8 @@ public interface AdminServiceAsync {
 	void getTopSelling(AsyncCallback<TabProduct> callback);
 
 	void saveTopSelling(TabProduct product, AsyncCallback<TabProduct> callback);
+
+	void getDefaulTabSelling(AsyncCallback<TabSelling> callback);
+
+	void saveTabSelling(TabSelling selling, AsyncCallback<TabSelling> callback);
 }
