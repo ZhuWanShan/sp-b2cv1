@@ -25,9 +25,9 @@ public class CategoryServiceImpl extends AbstractService<Category,CategoryDAO, L
 		criteria.setMaxResult(20);
 		criteria.addProperty("parent", null);
 		criteria.setOrderBy("index");
-		criteria.addProperty("displayMarketOnly", Boolean.FALSE);
 		if(!includeDisable){
 			criteria.addProperty("enable", Boolean.TRUE);
+			criteria.addProperty("displayMarketOnly", Boolean.FALSE);
 		}
 		criteria.setAsc(true);
 		QueryResult<Component> qs = ServiceFactory.getService(SiteService.class).query(criteria);
@@ -37,9 +37,6 @@ public class CategoryServiceImpl extends AbstractService<Category,CategoryDAO, L
 				filterDisable(category);
 			}
 		}
-		for(Category category : qs.<Category>toSpecificResult()){
-			filterMartetOnly(category);
-		}
 		return qs.<Category>toSpecificResult();
 	}
 	
@@ -47,7 +44,7 @@ public class CategoryServiceImpl extends AbstractService<Category,CategoryDAO, L
 		if(null!=category.getSubCategories()){
 			List<Category> cDisabled = new ArrayList<Category>();
 			for(Category c:category.getSubCategories()){
-				if(!c.isEnable()){
+				if(!c.isEnable()||c.isDisplayMarketOnly()){
 					cDisabled.add(c);
 				}
 			}
@@ -58,7 +55,7 @@ public class CategoryServiceImpl extends AbstractService<Category,CategoryDAO, L
 		}
 	}
 	
-	private void filterMartetOnly(Category category) {
+	/*private void filterMartetOnly(Category category) {
 		if(null!=category.getSubCategories()){
 			List<Category> marketOnly = new ArrayList<Category>();
 			for(Category c:category.getSubCategories()){
@@ -71,7 +68,7 @@ public class CategoryServiceImpl extends AbstractService<Category,CategoryDAO, L
 				filterMartetOnly(c);
 			}
 		}
-	}
+	}*/
 
 	@Override
 	public List<Category> getTopCategories() {
