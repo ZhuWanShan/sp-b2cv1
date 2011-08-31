@@ -27,7 +27,7 @@
 			name="pageForm"
 			scope="request">
 			<forward name="Success" path="/jsp/categories.jsp"></forward>
-			<forward name="Special" path="/jsp/disabledCategory.jsp"></forward>
+			<forward name="Special" path="/jsp/market.jsp"></forward>
 		</action>
 		
 
