@@ -83,4 +83,9 @@ public class PopWindow extends DialogBox {
 	      }
 	    }
 	  }
+	  
+	  public PopWindow lock(){
+		  center();
+		  return this;
+	  }
 }

@@ -3,9 +3,10 @@ package com.spshop.admin.client.businessui;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Tree;
 import com.spshop.admin.client.AdminWorkspace;
-import com.spshop.admin.client.CommandFactory;
+import com.spshop.admin.client.PopWindow;
 import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.model.Category;
 
@@ -16,7 +17,7 @@ public class CategoryTree extends Tree {
 	public CategoryTree() {
 	}
 	public void init(boolean includeDisable) {
-		CommandFactory.lock("Loading Category").execute();
+		final PopWindow popWindow = PopWindow.createLoading("Loading").lock();
 		final CategoryTree self= this;
 		AdminWorkspace.ADMIN_SERVICE_ASYNC
 				.getAllCategory(includeDisable,new AsyncCallbackAdapter<List<Category>>() {
@@ -27,9 +28,10 @@ public class CategoryTree extends Tree {
 								for(Category category : rs){
 									CategoryTreeItem item = new CategoryTreeItem(category);
 									self.addItem(item);
-									CommandFactory.release().execute();
 								}
 							}
+							popWindow.hide();
+							RootPanel.get().remove(popWindow);
 						}
 				});
 	}

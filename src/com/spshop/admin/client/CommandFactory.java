@@ -6,6 +6,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.spshop.admin.client.businessui.CategoryManager;
 import com.spshop.admin.client.businessui.ComponentQuery;
 import com.spshop.admin.client.businessui.DashboardSellingManager;
@@ -236,6 +237,7 @@ public class CommandFactory {
 		return new CommandAdapter() {
 			@Override
 			public void execute() {
+				final PopWindow popWindow = PopWindow.createLoading("Loading").lock();
 				AdminWorkspace.contentPanel.body.clear();
 				final TopSellingManager topSellingManager = new TopSellingManager();
 				topSellingManager.setShowName(false);
@@ -244,7 +246,8 @@ public class CommandFactory {
 					@Override
 					public void onSuccess(TabProduct rs) {
 						topSellingManager.setComponent(rs);
-						CommandFactory.release().execute();
+						popWindow.hide();
+						RootPanel.get().remove(popWindow);
 					}
 				});
 				AdminWorkspace.contentPanel.body.add(topSellingManager);
@@ -256,6 +259,7 @@ public class CommandFactory {
 		return new CommandAdapter() {
 			@Override
 			public void execute() {
+				final PopWindow popWindow = PopWindow.createLoading("Loading").lock();
 				AdminWorkspace.contentPanel.body.clear();
 				final DashboardSellingManager dashboardSellingManager = new DashboardSellingManager();
 				AdminWorkspace.contentPanel.body.add(dashboardSellingManager);
@@ -263,8 +267,11 @@ public class CommandFactory {
 					@Override
 					public void onSuccess(TabSelling rs) {
 						dashboardSellingManager.setComponent(rs);
+						popWindow.hide();
+						RootPanel.get().remove(popWindow);
 					}
 				});
+				
 			}
 		};
 	}
