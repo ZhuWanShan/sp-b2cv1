@@ -36,11 +36,11 @@ public class PageAction extends BaseAction {
 			    populateCategoryForCategoryPage(uris[2], page);
 			    if(page.getCategory() == null) {
 			        Category category = ServiceFactory.getService(CategoryService.class).getCategoryByName(uris[2]);
-			        if (category.isDisplayMarketOnly()) {
-			            page.setCategory(category);
-			            return mapping.findForward(AllConstants.SPECIAL_CATEGORY_VALUE);
-                    }
+			        page.setCategory(category);
 			    }
+			    if (page.getCategory().isDisplayMarketOnly()) {
+		            return mapping.findForward(AllConstants.SPECIAL_CATEGORY_VALUE);
+                }
 			    populatePathNodesForPage(page.getCategory(), pathNodes);
 				populateProductsByCategory(page, pageSize * (pageNum - 1) + 1, pageSize);
 				
@@ -63,7 +63,6 @@ public class PageAction extends BaseAction {
 		} else {
 			populateCategoryForCategoryPage("home", page);
 		}
-
 		return mapping.findForward(AllConstants.SUCCESS_VALUE);
 	}
 	
