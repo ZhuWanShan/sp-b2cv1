@@ -2,8 +2,6 @@ package com.spshop.service.impl;
 
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
-
 import com.spshop.dao.intf.TabSellingDAO;
 import com.spshop.model.TabSelling;
 import com.spshop.service.AbstractService;
@@ -19,7 +17,7 @@ public class TabSellingServiceImpl extends AbstractService<TabSelling, TabSellin
 		
 		List<TabSelling> tabSellings = getDao().queryByHQL("From TabSelling where name = '"+DEFAULF_TAB_SELLING+"'", 0, 2);
 		
-		if(CollectionUtils.isEmpty(tabSellings)){
+		if(null==tabSellings||tabSellings.size()<1){
 			tabSelling = new TabSelling();
 			tabSelling.setName(DEFAULF_TAB_SELLING);
 		}else{
