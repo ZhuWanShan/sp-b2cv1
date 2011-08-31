@@ -8,7 +8,7 @@ import com.spshop.dao.intf.TabSellingDAO;
 import com.spshop.model.TabSelling;
 import com.spshop.service.AbstractService;
 import com.spshop.service.intf.TabSellingService;
-
+@SuppressWarnings("unchecked")
 public class TabSellingServiceImpl extends AbstractService<TabSelling, TabSellingDAO, Long> implements TabSellingService{
 	
 	private static final String DEFAULF_TAB_SELLING = "DEFAULF_TAB_SELLING";
@@ -17,7 +17,6 @@ public class TabSellingServiceImpl extends AbstractService<TabSelling, TabSellin
 	public TabSelling getDefaulTabSelling() {
 		TabSelling tabSelling = null;
 		
-		@SuppressWarnings("unchecked")
 		List<TabSelling> tabSellings = getDao().queryByHQL("From TabSelling where name = '"+DEFAULF_TAB_SELLING+"'", 0, 2);
 		
 		if(CollectionUtils.isEmpty(tabSellings)){
