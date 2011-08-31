@@ -45,7 +45,7 @@ public class CategoryManager extends Composite{
 		if(null==category){
 			newChild.setEnabled(false);
 		}
-		tree.init(true);
+		tree.init(true,true);
 	}
 	@UiHandler("newCategory")
 	void onNewCategoryClick(ClickEvent event) {

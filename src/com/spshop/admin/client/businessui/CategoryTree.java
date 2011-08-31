@@ -16,7 +16,7 @@ public class CategoryTree extends Tree {
 	final List<Category> categories = new ArrayList<Category>();
 	public CategoryTree() {
 	}
-	public void init(boolean includeDisable) {
+	public void init(boolean includeDisable,final boolean includeMarketOnly) {
 		final PopWindow popWindow = PopWindow.createLoading("Loading").lock();
 		final CategoryTree self= this;
 		AdminWorkspace.ADMIN_SERVICE_ASYNC
@@ -25,6 +25,9 @@ public class CategoryTree extends Tree {
 						public void onSuccess(List<Category> rs) {
 							if(null!=rs){
 								categories.addAll(rs);
+								if(!includeMarketOnly){
+									filterMartetOnly(rs);
+								}
 								for(Category category : rs){
 									CategoryTreeItem item = new CategoryTreeItem(category);
 									self.addItem(item);
@@ -34,6 +37,22 @@ public class CategoryTree extends Tree {
 							RootPanel.get().remove(popWindow);
 						}
 				});
+	}
+	
+	private List<Category> filterMartetOnly(List<Category> categories) {
+		if(null!=categories){
+			List<Category> marketOnly = new ArrayList<Category>();
+			for(Category c:categories){
+				if(c.isDisplayMarketOnly()){
+					marketOnly.add(c);
+				}
+			}
+			categories.removeAll(marketOnly);
+			for(Category c:categories){
+				filterMartetOnly(c.getSubCategories());
+			}
+		}
+		return categories;
 	}
 	
 	
