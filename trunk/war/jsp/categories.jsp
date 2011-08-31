@@ -53,7 +53,7 @@
 		<div class="left_box">
 			<jsp:include page="wrapper/category_name.jsp"></jsp:include>
 			<div class="hei10"></div>
-			<jsp:include page="wrapper/top5_selling.jsp"></jsp:include>
+			<jsp:include page="wrapper/top_selling.jsp"></jsp:include>
 			<div class="hei10"></div>
 			<jsp:include page="wrapper/mail_box.jsp"></jsp:include>
 		</div>
