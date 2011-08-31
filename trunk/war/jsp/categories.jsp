@@ -71,6 +71,7 @@
 	<!-- Main box end -->
 	
 	<!-- Bottom start -->
+	<div class="hei10"></div>
 	<jsp:include page="bottom/bottom_box.jsp"></jsp:include>
 	<!-- Bottom end -->
 	
