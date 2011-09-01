@@ -6,9 +6,9 @@
 				style="width: 150px; display: none; cursor: default; padding-top: 10px;"
 				class="user_menu_hidd currency ">
 				<a
-					href="http://www.milanoo.com/help/Submit-a-question-module-index.html"
+					href="#"
 					rel="nofollow" title="Submit a question">Submit a question </a> <a
-					href="http://www.milanoo.com/help/index-act-center.html"
+					href="#"
 					rel="nofollow" title="Help Center">Help Center</a>
 			</div>
 		</li>
@@ -18,7 +18,7 @@
 		}
 		</script>
 		<c:if test="${pageForm.pageProperties.email == null}">
-			<li id="base_unlogin_li" class="">Milanoo Login
+			<li id="base_unlogin_li" class="">Login
 				<div style="width: 200px; cursor: default; display: none;"
 					class="user_menu_hidd">
 					<form method="post" action="indexLogin.do">
@@ -29,8 +29,8 @@
 										name="loginEmail" id="loginEmail" class="loginuserpass">
 								</dd>
 								<dd>
-									Password<br> <input type="loginPassword"
-										name="loginPassword" class="login_input">
+									Password<br> <input type="password"
+										name="loginPassword" class="loginuserpass">
 								</dd>
 								<dd class="Question_mark">
 									Forgot your password?<br> <a
@@ -50,7 +50,7 @@
 							easier.</p>
 						<div class="hei5"></div>
 						<input type="button" value="CREATE AN ACCOUNT" class="button_01"
-							onclick="window.location.href='createAccount.jsp';">
+							onclick="window.location.href='/createAccount';">
 					</div>
 				</div>
 			</li>
@@ -64,21 +64,16 @@
 					<div class="indexlogin">
 						<dl>
 							<dd class="dashborder">
-								<a href="https://www.milanoo.com/member/" title="View Orders">View
-									Orders</a>
+								<a href="#" title="View Orders">View Orders</a>
 							</dd>
 							<dd class="dashborder">
-								<a href="https://www.milanoo.com/member/Information.html"
-									rel="nofollow" title="Account Settings">Account Settings</a>
+								<a href="#" rel="nofollow" title="Account Settings">Account Settings</a>
 							</dd>
 							<dd class="dashborder">
-								<a href="https://www.milanoo.com/member/favorite.html"
-									rel="nofollow" title="My Favorites">My Favorites</a>
+								<a href="#" rel="nofollow" title="My Favorites">My Favorites</a>
 							</dd>
 							<dd class="dashborder">
-								<a href="https://www.milanoo.com/member/Consignee.html"
-									rel="nofollow" title="Manage Address Book">Manage Address
-									Book</a>
+								<a href="#" rel="nofollow" title="Manage Address Book">Manage Address Book</a>
 							</dd>
 						</dl>
 					</div>

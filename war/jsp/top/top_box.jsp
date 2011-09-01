@@ -2,7 +2,7 @@
 <ss:site var="site">
 	<div class="top_box">
 		<div class="logo_box" style="background:url(${site.logo.noChangeUrl}) no-repeat;height:80px;width:230px;">
-			<a title="Wholesale apparel Milanoo.com" href="">Home page</a>
+			<a title="home" href="">Home page</a>
 		</div>
 		<!--div class="kh_box font_size11"><a href="http://www.milanoo.com/" title="Passion for Fashion!">Passion for Fashion!</a></div-->
 		<div class="search">

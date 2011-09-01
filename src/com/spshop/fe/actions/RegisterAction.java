@@ -21,17 +21,23 @@ public class RegisterAction extends BaseAction {
 
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		User user = new User();
-		user.setEmail(email);
-		user.setPassword(password);
-//		Boolean ifExist = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
-//		if(ifExist){
-//			return mapping.findForward(AllConstants.fAILURE_VALUE);
-//		}
-		page.addPageProperty("email", email);
-		ServiceFactory.getService(UserService.class).merge(user);
-		EmailTools.send(email,AllConstants.MAIL_SUBJECT,AllConstants.MAIL_CONTENT);
-		return mapping.findForward(AllConstants.SUCCESS_VALUE);
+		
+		if (email == null || password == null) {
+		    return mapping.findForward(AllConstants.fAILURE_VALUE);
+        } else {
+            User user = new User();
+            user.setEmail(email);
+            user.setPassword(password);
+    //		Boolean ifExist = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
+    //		if(ifExist){
+    //			return mapping.findForward(AllConstants.fAILURE_VALUE);
+    //		}
+            page.addPageProperty("email", email);
+            ServiceFactory.getService(UserService.class).merge(user);
+            EmailTools.send(email,AllConstants.MAIL_SUBJECT,AllConstants.MAIL_CONTENT);
+            return mapping.findForward(AllConstants.SUCCESS_VALUE);
+
+        }
 	}
 
 	
