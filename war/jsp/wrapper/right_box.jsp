@@ -117,14 +117,14 @@
 		</div>
 		</c:if>
 		<c:if test="${idx.index > 0}">
-		<div id="Spotlight" class="Spotlight${idx.index}">
+		<div id="Spotlight" class="Spotlight${idx.index}" style="display: none;">
 			<div class="other_Progoods" id="spotlightList">
 				<div>
 				<c:forEach items="${tabContent.products}" var="tabProduct">
 					<dl>
 						<dt>
 							<a title="${tabProduct.name}"
-								href="#">
+								href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${tabProduct.name}">
 								<img alt="${tabProduct.name}"
 								     src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}">
 							</a>
