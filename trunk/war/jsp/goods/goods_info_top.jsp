@@ -1,5 +1,5 @@
 <%@ include file="../include.jsp" %>
-
+<%@page import="com.spshop.utils.AllConstants"%>
 <div class="item_goods_info_box_top">
 	<div class="item_box_left_normal">
 		<!-- class="item_box_left" to high -->
@@ -54,15 +54,10 @@
 				<h1><c:out value="${pageForm.pageProperties.productDetail.title}" /></h1>
 			</div>
 			<div class="item_showWords"></div>
-			<div class="item_shopping_code">Item Code:#08100032534</div>
+			<div class="item_shopping_code">Item Code:${pageForm.pageProperties.productDetail.id}</div>
 			<div style="position: relative;" class="item_shopping_funbox">
 				<div class="list_stars">
-					<div title="5 out of 5 stars" class="starsSmall_box">
-						<div style="width: 100%;"></div>
-					</div>
-					<span class="item_reviews_link"><a
-						href="javascript:jq.goDiv('#pl');">4 customer reviews</a>
-					</span>
+						<script src="http://connect.facebook.net/en_US/all.js#appId=277233412302753&amp;xfbml=1"></script><fb:like href='http://www.prommagics.com' send="false" width="450" show_faces="true" font=""></fb:like>
 				</div>
 				<table>
 					<tbody>
@@ -78,7 +73,7 @@
 				<c:out value="${pageForm.pageProperties.productDetail.detail}" escapeXml="false"/>
 			</div>
 		</div>
-		<!--弹出custom-->
+		
 		<div style="display: none;" id="Customfloat" class="alert_thing_box">
 			<script type="text/javascript">
             //&lt;![CDATA[
