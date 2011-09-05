@@ -55,6 +55,7 @@ public class DashboardSellingManager extends ObservableComposite<TabSelling, Das
 			}
 		});
 		tab.setShowName(true);
+		tab.setShowButton(false);
 		tab.setComponent(tproduct);
 		host.add(tab , tproduct.getName());
 		//getComponet().getTabs().add(tproduct);

@@ -30,5 +30,6 @@ public interface AdminService  extends RemoteService{
 	TabProduct saveTopSelling(TabProduct product) throws ServiceValidateException;
 	TabSelling getDefaulTabSelling() throws ServiceValidateException;
 	TabSelling saveTabSelling(TabSelling selling) throws ServiceValidateException;
+	TabProduct getTopSelling(long id) throws ServiceValidateException;
 }
 

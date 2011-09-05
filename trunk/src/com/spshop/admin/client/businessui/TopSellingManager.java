@@ -38,6 +38,7 @@ public class TopSellingManager extends ObservableComposite<TabProduct, TopSellin
 	@UiField TextBox tabName;
 	@UiField Grid namePanel;
 	private boolean showName;
+	private boolean showBTN;
 
 	interface TopSellingManagerUiBinder extends
 			UiBinder<Widget, TopSellingManager> {
@@ -82,7 +83,7 @@ public class TopSellingManager extends ObservableComposite<TabProduct, TopSellin
 	@Override
 	public void setComponent(TabProduct component) {
 		host.clear();
-		tabName.setValue(component.getName());
+		tabName.setValue(null==component.getName()?"":component.getName());
 		this.component = component;
 		if(null==component.getProducts()){
 			this.component.setProducts(new ArrayList<Product>());
@@ -124,6 +125,7 @@ public class TopSellingManager extends ObservableComposite<TabProduct, TopSellin
 			public void onSuccess(TabProduct rs) {
 				self.setComponent(rs);
 				CommandFactory.release().execute();
+				notifyChange();
 			}
 		});
 	}
@@ -136,7 +138,15 @@ public class TopSellingManager extends ObservableComposite<TabProduct, TopSellin
 	public void setShowName(boolean showName) {
 		this.showName = showName;
 		namePanel.setVisible(showName);
-		save.setVisible(!showName);
+	}
+	
+	public void setShowButton(boolean showBTN) {
+		this.showBTN = showBTN;
+		save.setVisible(showBTN);
+	}
+	
+	public boolean isShowButton() {
+		return showBTN;
 	}
 
 	public boolean isShowName() {

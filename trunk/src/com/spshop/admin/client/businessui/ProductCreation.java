@@ -8,23 +8,32 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.BlurEvent;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.KeyUpEvent;
+import com.google.gwt.event.logical.shared.BeforeSelectionEvent;
+import com.google.gwt.event.logical.shared.BeforeSelectionHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.DoubleBox;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.AdminWorkspace;
 import com.spshop.admin.client.CommandFactory;
+import com.spshop.admin.client.PopWindow;
 import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
+import com.spshop.admin.client.businessui.callback.EditorChangeAdapter;
 import com.spshop.admin.client.rich.RichText;
 import com.spshop.model.Category;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
 import com.spshop.model.ProductOption;
+import com.spshop.model.TabProduct;
 import com.spshop.model.enums.SelectType;
 
 public class ProductCreation extends Composite{
@@ -42,6 +51,12 @@ public class ProductCreation extends Composite{
 	@UiField RichText detail;
 	@UiField CategoryPicker categoryPicker;
 	@UiField ProdImageManager imageManager;
+	@UiField DoubleBox prodPrice;
+	@UiField DoubleBox prodActualPrice;
+	@UiField CheckBox showComments;
+	@UiField TopSellingManager relatedProduct;
+	@UiField TabLayoutPanel host;
+	@UiField CheckBox showLikeButton;
 	
 	private Product product;
 
@@ -51,6 +66,39 @@ public class ProductCreation extends Composite{
 	public ProductCreation(Product product) {
 		initWidget(uiBinder.createAndBindUi(this));
 		setProduct(product);
+		TabProduct tp= new TabProduct();
+		relatedProduct.setComponent(tp);
+		relatedProduct.setShowName(false);
+		relatedProduct.setShowButton(true);
+		final ProductCreation self = this;
+		host.addBeforeSelectionHandler(new BeforeSelectionHandler<Integer>() {
+			@Override
+			public void onBeforeSelection(BeforeSelectionEvent<Integer> event) {
+				if(event.getItem().intValue()==3&&self.getProduct().getTabProductKey()>0){
+					final PopWindow load = PopWindow.createLoading("Update recommend").lock();
+					AdminWorkspace.ADMIN_SERVICE_ASYNC.getTopSelling(self.getProduct().getTabProductKey(), 
+					new AsyncCallbackAdapter<TabProduct>(){
+						@Override
+						public void onSuccess(TabProduct rs) {
+							self.relatedProduct.setComponent(rs);
+							load.hide();
+							RootPanel.get().remove(load);
+						}
+					});
+				}
+			}
+		});
+		
+		relatedProduct.addChangeListener(new EditorChangeAdapter<TabProduct, TopSellingManager>(){
+			@Override
+			public void onChange(TabProduct component, TopSellingManager widget) {
+				setTabProductKey(component.getId());
+			}
+		});
+	}
+	
+	private void setTabProductKey(long key){
+		product.setTabProductKey(key);
 	}
 	
 	@UiHandler("addOption")
@@ -98,12 +146,17 @@ public class ProductCreation extends Composite{
 		attributeManager.setProduct(product);
 		categoryPicker.setComponent(product.getCategories());
 		imageManager.setComponent(product.getImages());
+		prodPrice.setValue(product.getPrice());
+		prodActualPrice.setValue(product.getActualPrice());
+		showComments.setValue(product.isShowComments());
+		showLikeButton.setValue(product.isShowlikeButton());
 	}
 	public Product getProduct() {
 		return product;
 	}
 	@UiHandler("Save")
 	void onSaveClick(ClickEvent event) {
+		relatedProduct.getComponet().setName("PRODUCT_RELATED_"+product.getName());
 		CommandFactory.lock("Save product").execute();
 		AdminWorkspace.ADMIN_SERVICE_ASYNC.saveProduct(product, new AsyncCallbackAdapter<Product>() {
 			@Override
@@ -128,5 +181,21 @@ public class ProductCreation extends Composite{
 	@UiHandler("name")
 	void onNameKeyUp(KeyUpEvent event) {
 		product.setName(name.getValue());
+	}
+	@UiHandler("showComments")
+	void onShowCommentsClick(ClickEvent event) {
+		product.setShowComments(showComments.getValue());
+	}
+	@UiHandler("showLikeButton")
+	void onShowLikeButtonClick(ClickEvent event) {
+		product.setShowlikeButton(showLikeButton.getValue());
+	}
+	@UiHandler("prodActualPrice")
+	void onProdActualPriceKeyUp(KeyUpEvent event) {
+		product.setActualPrice(prodActualPrice.getValue());
+	}
+	@UiHandler("prodPrice")
+	void onProdPriceKeyUp(KeyUpEvent event) {
+		product.setPrice(prodPrice.getValue());
 	}
 }

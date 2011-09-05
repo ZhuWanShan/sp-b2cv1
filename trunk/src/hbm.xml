@@ -252,6 +252,13 @@
 		<property name="detail" length="8000"></property>
 		<property name="commentsTotal"></property>
 		<property name="priority"></property>
+		<property name="showComments"></property>
+		<property name="showlikeButton"></property>
+		<property name="tabProductKey"></property>
+		<property name="price"></property>
+		<property name="actualPrice"></property>
+		<property name="manualKey"></property>
+		
 		
 		<!--  <many-to-one name="cutOff" class="CutOff" column="product_id"></many-to-one>-->
 		<bag name="properties" cascade="all">

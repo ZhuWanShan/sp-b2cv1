@@ -102,4 +102,9 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 		return ServiceFactory.getService(TabSellingService.class).saveTabSelling(selling);
 	}
 
+	@Override
+	public TabProduct getTopSelling(long id) throws ServiceValidateException {
+		return ServiceFactory.getService(TabProductService.class).getTopSelling(id);
+	}
+
 }

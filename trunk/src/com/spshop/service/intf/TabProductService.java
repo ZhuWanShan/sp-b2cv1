@@ -6,4 +6,5 @@ import com.spshop.model.TabProduct;
 public interface TabProductService extends BaseService<TabProduct, TabProductDAO, Long>{
 	TabProduct getTopSelling();
 	TabProduct saveTopSelling(TabProduct product);
+	TabProduct getTopSelling(long id);
 }

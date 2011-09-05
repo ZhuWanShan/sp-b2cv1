@@ -42,4 +42,6 @@ public interface AdminServiceAsync {
 	void getDefaulTabSelling(AsyncCallback<TabSelling> callback);
 
 	void saveTabSelling(TabSelling selling, AsyncCallback<TabSelling> callback);
+
+	void getTopSelling(long id, AsyncCallback<TabProduct> callback);
 }
