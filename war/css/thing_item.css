@@ -55,7 +55,7 @@ li.sel{border:1px solid #f90;}
 .item_shopping_funbox{  padding-bottom:5px;}
 .item_shopping_code{ font-size:10px; color:#999999; margin:18px 0;}
 
-.list_stars{ padding-left:0; padding-top:0; margin-bottom:8px;}
+.list_stars{ padding-left:0; padding-top:0; margin-bottom:12px;}
 .itme_description{ margin-top:36px;}
 .item_help{ color:#BA6D5C; text-decoration:underline; padding-left:20px; float:right;}
 .item_qty{border:1px solid #e1e1e1; border-width:1px 0 0 1px;overflow:hidden; width:100%; clear:both; margin-top:10px;}

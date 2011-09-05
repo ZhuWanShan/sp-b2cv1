@@ -71,8 +71,8 @@ input,select{font-family:Arial, Helvetica, sans-serif;}
 .feature_list ul li img{float:left;padding:3px 8px 0 0;}
 .feature_list ul li p{line-height:12px;}
 /*评价星级*/
-.list_stars{padding:0 0 2px;height:13px;}
-.list_stars i{font-style:normal;display:block;font-size:11px;}
+/*.list_stars{padding:4px 2px;height:13px;}
+.list_stars i{font-style:normal;display:block;font-size:11px;}*/
 .starsSmall_box{background:url(star.gif) no-repeat -60px top;height:11px;width:60px;overflow:hidden;float:left;margin:2px 2px 0 0;}
 .starsSmall_box div{background:url(star.gif) no-repeat left top;height:11px;}
 /**********商品列表*****************/
