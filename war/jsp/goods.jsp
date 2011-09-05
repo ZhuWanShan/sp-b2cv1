@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@include file="include.jsp" %>
+<%@page import="com.spshop.utils.AllConstants"%>
 <html>
 <head>
 	<link media="all" href="//s7.addthis.com/static/r07/widget58.css" type="text/css" rel="stylesheet"> 
@@ -11,7 +12,7 @@
 	<meta name="keywords" content="${pageForm.pageProperties.productDetail.keywords}">
 	  
 	<link rel="stylesheet" type="text/css" href="../css/header.css">
-	<link rel="stylesheet" type="text/css" href="../css/general.css">
+	<link rel="stylesheet" type="text/css" href="../css/general.css">	
 	<link rel="stylesheet" type="text/css" href="../css/index.css">
 	<link rel="stylesheet" type="text/css" href="../css/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
@@ -41,22 +42,6 @@
 	<script type="text/javascript" src="../js/header.js"></script>
 	<!-- Top box end -->
 
-	<script>
-		jq('#textfield').w_nullInputState(head_SearchKeywordsNo.htmlToStr());
-		jq(function(){jq('#textfield').w_autoComplete({url:'/index.php?action=ajax&menu=searchkeyword',nodeclick:function(a){jq('#formss').submit();},waittime:300});});
-		jq('#textfield').next().bind('click',checksearch);
-		function checksearch(){
-			if(jq.trim(jq('#textfield').val())=='' || jq('#textfield').val()==head_SearchKeywordsNo.htmlToStr()){
-				return false;
-			}
-		}
-		
-		// Call main menu method
-		mainmenu();
-	</script>
-
-	<script type="text/javascript">var addthis_pub = 'Milanoo';</script>
-	
 	<script src="../js/addthis.js" type="text/javascript"></script>
 	
 	<script>var pic_high=0;</script>
@@ -77,6 +62,15 @@
 		<jsp:include page="goods/goods_info_top.jsp"></jsp:include>
 	</div>
 	<!-- Main box end -->
-
+	<div class="hei10"></div>
+	<!-- Bottom end -->
+	<div class="content_box">
+		<c:if test="${pageForm.pageProperties.productDetail.showComments}">
+			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:comments href='<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name }' num_posts="15" width="971"></fb:comments>
+		</c:if>
+	</div>
+		<!-- Bottom start -->
+	<jsp:include page="bottom/bottom_box.jsp"></jsp:include>
+	<script type="text/javascript" src="js/footer.js"></script>
 </body>
 </html>
