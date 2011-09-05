@@ -9,7 +9,7 @@
 	</ui:style>
 	<g:HTMLPanel height="100%">
 		<g:Button ui:field="Save">Save</g:Button>
-		<g:TabLayoutPanel barUnit="EM" barHeight="2.2" height="100%">
+		<g:TabLayoutPanel barUnit="EM" barHeight="2.2" height="100%" ui:field="host">
 			<g:tab>
 				<g:header>
 					Basic Info
@@ -88,29 +88,73 @@
 					Attributes
 			</g:header>
 				<g:ScrollPanel styleName="{style.scrollContent}">
-				<g:ScrollPanel styleName="{style.scrollContent}">
 					<g:HTMLPanel width="100%">
 						<p2:ProdAttributeManager ui:field="attributeManager" />
 					</g:HTMLPanel>
-				</g:ScrollPanel>
 				</g:ScrollPanel>
 			</g:tab>
 
 			<g:tab>
 				<g:header>
-					Images
+					Images/ReletedProduct
 			</g:header>
-			<g:ScrollPanel styleName="{style.scrollContent}">
+			 <g:ScrollPanel styleName="{style.scrollContent}">
 				<g:HTMLPanel width="100%">
 					<p2:ProdImageManager ui:field="imageManager" />
+					<p2:TopSellingManager ui:field="relatedProduct"/>
 				</g:HTMLPanel>
-			</g:ScrollPanel>
+			 </g:ScrollPanel>
 			</g:tab>
 			<g:tab>
 				<g:header>
 					Others
 			</g:header>
-				<g:HTML>Others</g:HTML>
+			<!-- <g:ScrollPanel styleName="{style.scrollContent}"></g:ScrollPanel> -->
+				<g:HTMLPanel width="100%">
+					<g:Grid>
+						<g:row>
+							<g:customCell>
+								<g:Label text="Price:"/>
+							</g:customCell>
+							<g:customCell>
+								<g:DoubleBox ui:field="prodPrice"/>
+							</g:customCell>
+						</g:row>
+						<g:row>
+							<g:customCell>
+								<g:Label text="Actual Price"/>
+							</g:customCell>
+							<g:customCell>
+								<g:DoubleBox ui:field="prodActualPrice"/>
+							</g:customCell>
+						</g:row>
+						<g:row>
+							<g:customCell>
+								<g:Label text="Show Comments:"/>
+							</g:customCell>
+							<g:customCell>
+								<g:CheckBox text="Show Comments" ui:field="showComments"/>
+							</g:customCell>
+						</g:row>
+						<g:row>
+							<g:customCell>
+								<g:Label text="Show like button"/>
+							</g:customCell>
+							<g:customCell>
+								<g:CheckBox text="Show like button" ui:field="showLikeButton"/>
+							</g:customCell>
+						</g:row>
+						<g:row>
+							<g:customCell>
+								<g:Label text="Manual:"/>
+							</g:customCell>
+							<g:customCell>
+								<g:Button text="Select A Manual"/>
+							</g:customCell>
+						</g:row>
+					</g:Grid>
+					</g:HTMLPanel>
+					
 			</g:tab>
 		</g:TabLayoutPanel>
 	</g:HTMLPanel>

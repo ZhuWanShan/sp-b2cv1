@@ -34,4 +34,9 @@ public class TabProductServiceImpl extends AbstractService<TabProduct, TabProduc
 		product  = save(product);
 		return product.clone();
 	}
+
+	@Override
+	public TabProduct getTopSelling(long id) {
+		return getDao().findById(id).clone();
+	}
 }
