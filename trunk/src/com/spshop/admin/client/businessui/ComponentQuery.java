@@ -151,23 +151,30 @@ public class ComponentQuery extends ResizeComposite {
 	}
 	
     private void initUserHeader() {
-        header.getColumnFormatter().setWidth(0, "80px");
-        header.getColumnFormatter().setWidth(1, "150px");
-        header.getColumnFormatter().setWidth(2, "120px");
+        header.getColumnFormatter().setWidth(0, "30px");
+        header.getColumnFormatter().setWidth(1, "100px");
+        header.getColumnFormatter().setWidth(2, "100px");
         header.getColumnFormatter().setWidth(3, "100px");
-        header.getColumnFormatter().setWidth(4, "250px");
+        header.getColumnFormatter().setWidth(4, "100px");
+        header.getColumnFormatter().setWidth(5, "120px");
+        header.getColumnFormatter().setWidth(6, "150px");
         header.setText(0, 0, "Id");
         header.setText(0, 1, "First Name");
         header.setText(0, 2, "Last Name");
-        header.setText(0, 3, "Create Date");
+        header.setText(0, 3, "Email");
+        header.setText(0, 4, "Tel");
+        header.setText(0, 5, "Create Date");
 
-        header.setWidget(0, 4, navBar);
-        header.getCellFormatter().setHorizontalAlignment(0, 4, HasHorizontalAlignment.ALIGN_RIGHT);
-        table.getColumnFormatter().setWidth(0, "80px");
-        table.getColumnFormatter().setWidth(1, "150px");
-        table.getColumnFormatter().setWidth(2, "120px");
+        header.setWidget(0, 6, navBar);
+        header.getCellFormatter().setHorizontalAlignment(0, 6, HasHorizontalAlignment.ALIGN_RIGHT);
+        
+        table.getColumnFormatter().setWidth(0, "30px");
+        table.getColumnFormatter().setWidth(1, "100px");
+        table.getColumnFormatter().setWidth(2, "100px");
         table.getColumnFormatter().setWidth(3, "100px");
-        table.getColumnFormatter().setWidth(4, "250px");
+        table.getColumnFormatter().setWidth(4, "100px");
+        table.getColumnFormatter().setWidth(5, "120px");
+        table.getColumnFormatter().setWidth(6, "150px");
     }
 
 	private void initProductHeader() {
@@ -341,16 +348,23 @@ public class ComponentQuery extends ResizeComposite {
             table.setText(i, 1, user.getFirstName());
             table.setText(i, 2, user.getLastName());
             table.setText(i, 3, user.getEmail());
-            table.setText(i, 4, dateTimeFormat.format(user.getCreateDate()));
+            table.setText(i, 4, user.getTelephone());
+            table.setText(i, 5, dateTimeFormat.format(user.getCreateDate()));
             Operation<User> operation = new Operation<User>(user);
             operation.setListener(new OperationListenerAdapter<User>(){
                 @Override
                 public void onEdit(User content) {
+                    // TODO Auto-generated method stub
                     super.onEdit(content);
                 }
+                @Override
+                public void onDelete(User content) {
+                    // TODO Auto-generated method stub
+                    super.onDelete(content);
+                }
             });
-            table.setWidget(i, 4, operation);
-            table.getCellFormatter().setHorizontalAlignment(i, 4,
+            table.setWidget(i, 6, operation);
+            table.getCellFormatter().setHorizontalAlignment(i, 6,
                     HasHorizontalAlignment.ALIGN_RIGHT);
         }
     }
