@@ -24,6 +24,7 @@ import com.spshop.model.Image;
 import com.spshop.model.Product;
 import com.spshop.model.TabProduct;
 import com.spshop.model.TabSelling;
+import com.spshop.model.User;
 import com.spshop.model.enums.ImageSizeType;
 import com.spshop.model.enums.ImageType;
 
@@ -308,5 +309,18 @@ public class CommandFactory {
 			}
 		};
 	}
+
+    public static Command queryUser() {
+        return new CommandAdapter() {
+            @Override
+            public void execute() {
+                AdminWorkspace.contentPanel.body.clear();
+                ComponentQuery componentQuery = new ComponentQuery("User Query", User.class);
+                componentQuery.getQueryCondition().setAsc(false);
+                componentQuery.getQueryCondition().setOrderBy("createDate");
+                AdminWorkspace.contentPanel.body.add(componentQuery);
+            }
+        };
+    }
 	
 }

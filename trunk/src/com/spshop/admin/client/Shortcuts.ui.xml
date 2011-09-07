@@ -48,5 +48,10 @@
       <g:header size='3'><div class='{style.stackHeader}'><div class=''/>Site Management</div></g:header>
       <workspace:AccordionMenu ui:field='siteManagement' type="SITE_MANAGEMENT"/>
     </g:stack>
+
+	<g:stack>
+		<g:header size='3'><div class='{style.stackHeader}'><div class='' />User Management</div></g:header>
+		<workspace:AccordionMenu ui:field='userManagement' type="USER_MANAGEMENT" />
+	</g:stack>
   </g:StackLayoutPanel>
 </ui:UiBinder>
