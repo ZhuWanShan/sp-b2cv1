@@ -1,6 +1,8 @@
 package com.spshop.admin.client;
 
 
+import java.util.Date;
+
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
@@ -10,6 +12,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.spshop.admin.client.businessui.CategoryManager;
 import com.spshop.admin.client.businessui.ComponentQuery;
 import com.spshop.admin.client.businessui.DashboardSellingManager;
+import com.spshop.admin.client.businessui.HTMLCreation;
 import com.spshop.admin.client.businessui.ImageBatchCreation;
 import com.spshop.admin.client.businessui.ImageCreation;
 import com.spshop.admin.client.businessui.ProductCreation;
@@ -274,6 +277,28 @@ public class CommandFactory {
 				
 			}
 		};
+	}
+
+	public static Command createHTML() {
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				final PopWindow popWindow = PopWindow.createLoading("Loading").lock();
+				AdminWorkspace.contentPanel.body.clear();
+				final HTMLCreation htmlCreation = new HTMLCreation();
+				com.spshop.model.HTML html = new com.spshop.model.HTML();
+				html.setCreateDate(new Date());
+				htmlCreation.setComponent(html);
+				AdminWorkspace.contentPanel.body.add(htmlCreation);
+				popWindow.hide();
+				RootPanel.get().remove(popWindow);
+			}
+		};
+	}
+
+	public static Command queryHTML() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

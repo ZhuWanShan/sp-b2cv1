@@ -233,6 +233,16 @@
 		<property name="status"></property>
 	</class>
 	
+	<class name="HTML" table="SHOP_HTML">
+		<id name="id" column="ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" length="100"></property>
+		<property name="createDate"></property>
+		<property name="updateDate"></property>
+		<property name="content"></property>
+	</class>
+	
 	<class name="Product" table="SHOP_Product">
 		<id name="id" column="ID">
 			<generator class="identity"></generator>

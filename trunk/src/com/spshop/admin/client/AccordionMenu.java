@@ -53,11 +53,13 @@ public class AccordionMenu extends Composite {
 	private List<AccordianItem> getItems(AccordionMenuType accordionMenuType) {
 		List<AccordianItem> items = new ArrayList<AccordianItem>();
 		switch (accordionMenuType) {
-		case IMAGE_MANAGEMENT:
-			AccordianItem root = new AccordianItem("Image Management", CommandFactory.emptyCommand());
+		case RESOURCE_MANAGEMENT:
+			AccordianItem root = new AccordianItem("Resource Management", CommandFactory.emptyCommand());
 			root.addItem(new AccordianItem("Create Image", CommandFactory.createImage()));
-			root.addItem(new AccordianItem("Query", CommandFactory.queryImage()));
+			root.addItem(new AccordianItem("Query Image", CommandFactory.queryImage()));
 			root.addItem(new AccordianItem("Create Batch Image", CommandFactory.createBatchImage()));
+			root.addItem(new AccordianItem("Create HTML", CommandFactory.createHTML()));
+			root.addItem(new AccordianItem("Query HTML", CommandFactory.queryHTML()));
 			items.add(root);
 			root.setState(true);
 			break;

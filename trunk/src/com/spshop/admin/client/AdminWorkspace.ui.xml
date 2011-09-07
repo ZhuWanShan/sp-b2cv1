@@ -10,7 +10,7 @@
 
     <g:center>
       <g:SplitLayoutPanel>
-        <g:west size='192'>
+        <g:west size='200'>
           <workSpace:Shortcuts ui:field='shortcuts' />
         </g:west>
         <g:center>

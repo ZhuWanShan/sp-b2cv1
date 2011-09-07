@@ -2,7 +2,7 @@ package com.spshop.admin.client;
 
 public enum AccordionMenuType {
 	
-	IMAGE_MANAGEMENT("IMAGE_MANAGEMENT"),
+	RESOURCE_MANAGEMENT("RESOURCE_MANAGEMENT"),
 	PRODUCT_MANAGEMENT("PRODUCT_MANAGEMENT"),
 	SITE_MANAGEMENT("SITE_MANAGEMENT");
 	private String value;
