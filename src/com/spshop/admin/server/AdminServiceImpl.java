@@ -8,6 +8,7 @@ import com.spshop.admin.shared.LoginInfo;
 import com.spshop.exception.ServiceValidateException;
 import com.spshop.model.Category;
 import com.spshop.model.Component;
+import com.spshop.model.HTML;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
 import com.spshop.model.Site;
@@ -17,6 +18,7 @@ import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CategoryService;
+import com.spshop.service.intf.HTMLService;
 import com.spshop.service.intf.ImageService;
 import com.spshop.service.intf.ProductService;
 import com.spshop.service.intf.SiteService;
@@ -105,6 +107,11 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 	@Override
 	public TabProduct getTopSelling(long id) throws ServiceValidateException {
 		return ServiceFactory.getService(TabProductService.class).getTopSelling(id);
+	}
+
+	@Override
+	public HTML saveHTML(HTML html) throws ServiceValidateException {
+		return ServiceFactory.getService(HTMLService.class).saveHTML(html);
 	}
 
 }

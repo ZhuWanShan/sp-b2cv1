@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import magick.MagickException;
 
-import com.spshop.admin.shared.ImageConstonts;
 import com.spshop.admin.shared.LoginInfo;
 import com.spshop.dao.intf.ImageDAO;
 import com.spshop.model.Image;

@@ -36,8 +36,8 @@
 
   <g:StackLayoutPanel styleName='{style.shortcuts}' unit='EM'>
    <g:stack>
-      <g:header size='3'><div class='{style.stackHeader}'><div class=''/>Image Management</div></g:header>
-      <workspace:AccordionMenu ui:field='imageManagement' type="IMAGE_MANAGEMENT"/>
+      <g:header size='3'><div class='{style.stackHeader}'><div class=''/>Resource Management</div></g:header>
+      <workspace:AccordionMenu ui:field='imageManagement' type="RESOURCE_MANAGEMENT"/>
     </g:stack>
     <g:stack>
       <g:header size='3'><div class='{style.stackHeader}'><div class=''/>Product Management</div></g:header>

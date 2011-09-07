@@ -134,4 +134,9 @@
 	    class="com.spshop.dao.impl.TabProductDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	
+	<bean id="com.spshop.dao.intf.HTMLDAO" class="com.spshop.dao.impl.HTMLDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 </beans>

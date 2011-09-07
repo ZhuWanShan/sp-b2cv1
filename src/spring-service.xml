@@ -164,8 +164,16 @@
 
 	<bean id="com.spshop.service.intf.TabProductService.target" class="com.spshop.service.impl.TabProductServiceImpl">
 	</bean>
+	
 	<bean id="com.spshop.service.intf.TabProductService" parent="transactionBase">
 		<property name="target" ref="com.spshop.service.intf.TabProductService.target" />
+	</bean>
+	
+	<bean id="com.spshop.service.intf.HTMLService.target" class="com.spshop.service.impl.HTMLServiceImpl">
+	</bean>
+	
+	<bean id="com.spshop.service.intf.HTMLService" parent="transactionBase">
+		<property name="target" ref="com.spshop.service.intf.HTMLService.target" />
 	</bean>
 	
 </beans>

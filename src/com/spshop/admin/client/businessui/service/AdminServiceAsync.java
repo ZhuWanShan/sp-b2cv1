@@ -7,6 +7,7 @@ import com.spshop.admin.shared.LoginInfo;
 import com.spshop.exception.ServiceValidateException;
 import com.spshop.model.Category;
 import com.spshop.model.Component;
+import com.spshop.model.HTML;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
 import com.spshop.model.Site;
@@ -44,4 +45,6 @@ public interface AdminServiceAsync {
 	void saveTabSelling(TabSelling selling, AsyncCallback<TabSelling> callback);
 
 	void getTopSelling(long id, AsyncCallback<TabProduct> callback);
+
+	void saveHTML(HTML html, AsyncCallback<HTML> callback);
 }
