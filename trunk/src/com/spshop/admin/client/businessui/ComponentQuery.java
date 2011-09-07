@@ -22,6 +22,7 @@ import com.spshop.admin.client.PopWindow;
 import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.admin.client.businessui.callback.OperationListenerAdapter;
 import com.spshop.model.Component;
+import com.spshop.model.HTML;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
 import com.spshop.model.query.QueryCriteria;
@@ -120,10 +121,29 @@ public class ComponentQuery extends ResizeComposite {
 		if (queryCondition.getType() == Product.class) {
 			initProductHeader();
 		}
+		
+		if (queryCondition.getType() == HTML.class) {
+			initHTMLHeader();
+		}
 		// Initialize the table.
 
 	}
 
+	private void initHTMLHeader(){
+		header.getColumnFormatter().setWidth(0, "200px");
+		header.getColumnFormatter().setWidth(1, "250px");
+		header.getColumnFormatter().setWidth(2, "250px");
+
+		header.setText(0, 0, "Name");
+		header.setText(0, 1, "Create Date");
+		header.setWidget(0, 2, navBar);
+		header.getCellFormatter().setHorizontalAlignment(0, 2,
+				HasHorizontalAlignment.ALIGN_RIGHT);
+		table.getColumnFormatter().setWidth(0, "200px");
+		table.getColumnFormatter().setWidth(1, "250px");
+		table.getColumnFormatter().setWidth(2, "250px");
+	}
+	
 	private void initProductHeader() {
 		header.getColumnFormatter().setWidth(0, "80px");
 		header.getColumnFormatter().setWidth(1, "150px");
@@ -243,8 +263,44 @@ public class ComponentQuery extends ResizeComposite {
 			if (result.getComponentType().equals(Product.class.getName())) {
 				updateProduct();
 			}
+			
+			if (result.getComponentType().equals(HTML.class.getName())) {
+				updateHTML();
+			}
 		}
 
+	}
+	
+	private void updateHTML() {
+		DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
+		for (int i = 0; i < result.getResult().size(); i++) {
+			HTML html = (HTML) result.getResult().get(i);
+			table.setText(i, 0, html.getName());
+			table.setText(i, 1, dateTimeFormat.format(html.getCreateDate()));
+			Operation<HTML> operation = new Operation<HTML>(html);
+			operation.setListener(new OperationListenerAdapter<HTML>(){
+				@Override
+				public void onDelete(HTML content) {
+					super.onDelete(content);
+				}
+				@Override
+				public void onEdit(HTML content) {
+					ScrollPanel scrollPanel = new ScrollPanel();
+					scrollPanel.setSize("900px", "420px");
+					HTMLCreation htmlCreation = new HTMLCreation();
+					htmlCreation.setComponent(content);
+					htmlCreation.setSize("900px", "350px");
+					htmlCreation.setTitle("Edit HTML");
+					scrollPanel.add(htmlCreation);
+					PopWindow pop = new PopWindow("Edit HTML",scrollPanel, true, true);
+					//pop.setSize("400px", "400px");
+					pop.center();
+				}
+			});
+			table.setWidget(i, 4, operation);
+			table.getCellFormatter().setHorizontalAlignment(i, 4,
+					HasHorizontalAlignment.ALIGN_RIGHT);
+		}
 	}
 
 	private void updateProduct() {
