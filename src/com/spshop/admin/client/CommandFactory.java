@@ -297,8 +297,16 @@ public class CommandFactory {
 	}
 
 	public static Command queryHTML() {
-		// TODO Auto-generated method stub
-		return null;
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				AdminWorkspace.contentPanel.body.clear();
+				ComponentQuery componentQuery = new ComponentQuery("HTML Query",com.spshop.model.HTML.class);
+				componentQuery.getQueryCondition().setAsc(false);
+				componentQuery.getQueryCondition().setOrderBy("createDate");
+				AdminWorkspace.contentPanel.body.add(componentQuery);
+			}
+		};
 	}
 	
 }
