@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50515
 File Encoding         : 65001
 
-Date: 2011-09-07 12:53:23
+Date: 2011-09-07 21:48:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -306,16 +306,19 @@ CREATE TABLE `shop_html` (
   `updateDate` datetime DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_html
 -- ----------------------------
 INSERT INTO `shop_html` VALUES ('1', 'asds', '2011-09-07 10:35:45', null, 'asdas');
-INSERT INTO `shop_html` VALUES ('2', '', '2011-09-07 11:28:59', null, 'asdasdasdasd');
+INSERT INTO `shop_html` VALUES ('2', '按时打算打算', '2011-09-07 11:28:59', null, 'asdasdasdasd');
 INSERT INTO `shop_html` VALUES ('3', 'asdasdasdas', '2011-09-07 11:29:09', null, 'asdasdasdasdasd');
-INSERT INTO `shop_html` VALUES ('4', '', '2011-09-07 11:29:19', null, 'dasdasda');
+INSERT INTO `shop_html` VALUES ('4', '按时打算', '2011-09-07 11:29:19', null, 'dasdasda');
 INSERT INTO `shop_html` VALUES ('5', 'asdasd', '2011-09-07 11:31:12', null, 'asdasdasdasd');
+INSERT INTO `shop_html` VALUES ('6', '你好', '2011-09-07 13:03:16', null, 'asdasdasdas');
+INSERT INTO `shop_html` VALUES ('7', 'asdfasd', '2011-09-07 19:18:46', null, 'asdasdasd');
+INSERT INTO `shop_html` VALUES ('8', 'adasd', '2011-09-07 19:49:49', null, 'asdasdasd');
 
 -- ----------------------------
 -- Table structure for `shop_image`
@@ -540,7 +543,7 @@ CREATE TABLE `shop_product` (
   PRIMARY KEY (`ID`),
   KEY `FKF44D8886BF627AED` (`site_id`),
   CONSTRAINT `FKF44D8886BF627AED` FOREIGN KEY (`site_id`) REFERENCES `shop_site` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_product
@@ -575,6 +578,7 @@ INSERT INTO `shop_product` VALUES ('38', 'Polyester-Womens-Gothic-Dress-10', '20
 INSERT INTO `shop_product` VALUES ('39', 'Men-T-shirt', '2011-08-25 01:24:33', '2011-08-25 17:29:44', '1', null, 'Men T-shirt', '0', '0', null, '0', 'Men\'s T-shirt', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `shop_product` VALUES ('40', 'DASASDA', '2011-09-05 22:19:27', '2011-09-05 22:24:20', '1', null, 'asdas', '0', '0', null, '0', 'asdas', 'adsasdasdasd', '0', '0', '1', '1', '29', '999', '77', '0');
 INSERT INTO `shop_product` VALUES ('41', '23423423423423', '2011-09-05 22:28:19', '2011-09-05 23:46:23', '1', null, 'daD', '0', '0', null, '0', 'ADA', 'If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.', '0', '0', '1', '1', '30', '999', '999', '0');
+INSERT INTO `shop_product` VALUES ('42', 'aDA', '2011-09-07 14:49:17', '2011-09-07 21:47:53', '1', null, 'dasdas', '0', '0', null, '0', 'asdas', 'dasdasdasdas<br>', '0', '0', '0', '0', '0', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for `shop_productoption`
@@ -592,7 +596,7 @@ CREATE TABLE `shop_productoption` (
   PRIMARY KEY (`ID`),
   KEY `FK53BA009B582107E7` (`product_id`),
   CONSTRAINT `FK53BA009B582107E7` FOREIGN KEY (`product_id`) REFERENCES `shop_product` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_productoption
@@ -610,6 +614,9 @@ INSERT INTO `shop_productoption` VALUES ('24', 'Qty', null, null, null, null, 'I
 INSERT INTO `shop_productoption` VALUES ('25', 'Color', null, null, null, null, 'COLOR_SINGLE', '41');
 INSERT INTO `shop_productoption` VALUES ('26', 'Size', null, null, null, null, 'SINGLE_LIST', '41');
 INSERT INTO `shop_productoption` VALUES ('27', 'Qty', null, null, null, null, 'INPUT_TEXT', '41');
+INSERT INTO `shop_productoption` VALUES ('28', 'Color', null, null, null, null, 'COLOR_SINGLE', '42');
+INSERT INTO `shop_productoption` VALUES ('29', 'Size', null, null, null, null, 'SINGLE_LIST', '42');
+INSERT INTO `shop_productoption` VALUES ('30', 'Qty', null, null, null, null, 'INPUT_TEXT', '42');
 
 -- ----------------------------
 -- Table structure for `shop_productoptionitem`
@@ -630,7 +637,7 @@ CREATE TABLE `shop_productoptionitem` (
   KEY `FKEF652A4E65CB8FC9` (`icon_id`),
   CONSTRAINT `FKEF652A4E23F866E6` FOREIGN KEY (`product_option_id`) REFERENCES `shop_productoption` (`ID`),
   CONSTRAINT `FKEF652A4E65CB8FC9` FOREIGN KEY (`icon_id`) REFERENCES `shop_image` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_productoptionitem
@@ -663,6 +670,25 @@ INSERT INTO `shop_productoptionitem` VALUES ('41', 'fuchsia', null, null, null, 
 INSERT INTO `shop_productoptionitem` VALUES ('42', 'gold', null, null, null, null, '#DCC181 #C5A272 #C5A272 #DCC181', null, '25');
 INSERT INTO `shop_productoptionitem` VALUES ('43', 'asdas', null, null, null, null, 'asdasd', null, '26');
 INSERT INTO `shop_productoptionitem` VALUES ('44', 'aaaa', null, null, null, null, 'asdasdas', null, '26');
+INSERT INTO `shop_productoptionitem` VALUES ('45', 'champagne', null, null, null, null, '#E7B37A #CA9837 #CA9837 #E7B37A', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('46', 'daffodil', null, null, null, null, '#CFCA68 #C1B141 #C1B141 #CFCA68', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('47', 'silver', null, null, null, null, '#EBEBEB #CFCFCF #CFCFCF #EBEBEB', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('48', 'white', null, null, null, null, '#FFFFFF #D9D9D9 #D9D9D9 #FFFFFF', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('49', 'huntergreen', null, null, null, null, '#266364 #033534 #033534 #266364', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('50', 'darknavy', null, null, null, null, '#647281 #1E2023 #1E2023 #647281', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('51', 'darkgreen', null, null, null, null, '#466025 #162121 #162121 #466025', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('52', 'browncoffee', null, null, null, null, '#BB9A76 #87643F #87643F #BB9A76', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('53', 'chocolate', null, null, null, null, '#946D44 #6B4F37 #6B4F37 #946D44', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('54', 'blue', null, null, null, null, '#4074E7 #2E50A5 #2E50A5 #4074E7', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('55', 'grape', null, null, null, null, '#715380 #563457 #563457 #715380', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('56', 'fuchsia', null, null, null, null, '#F24A78 #C8183F #C8183F #F24A78', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('57', 'ivory', null, null, null, null, '#FFFFFF #F7EED6 #F7EED6 #FFFFFF', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('58', 'gold', null, null, null, null, '#DCC181 #C5A272 #C5A272 #DCC181', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('59', 'black', null, null, null, null, '#4D4C4C #131313 #131313 #4D4C4C', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('60', 'burgundy', null, null, null, null, '#A43755 #551B29 #551B29 #A43755', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('61', 'aa', null, null, null, null, 'aaa', null, '29');
+INSERT INTO `shop_productoptionitem` VALUES ('62', 'asdas', null, null, null, null, 'asdasd', null, '29');
+INSERT INTO `shop_productoptionitem` VALUES ('63', 'eeee', null, null, null, null, 'asdasdasd', null, '29');
 
 -- ----------------------------
 -- Table structure for `shop_productproperty`
@@ -733,13 +759,14 @@ INSERT INTO `shop_product_category` VALUES ('28', '3');
 INSERT INTO `shop_product_category` VALUES ('26', '3');
 INSERT INTO `shop_product_category` VALUES ('25', '3');
 INSERT INTO `shop_product_category` VALUES ('34', '3');
-INSERT INTO `shop_product_category` VALUES ('39', '57');
-INSERT INTO `shop_product_category` VALUES ('40', '8');
-INSERT INTO `shop_product_category` VALUES ('38', '3');
 INSERT INTO `shop_product_category` VALUES ('37', '3');
 INSERT INTO `shop_product_category` VALUES ('36', '3');
 INSERT INTO `shop_product_category` VALUES ('35', '3');
+INSERT INTO `shop_product_category` VALUES ('38', '3');
 INSERT INTO `shop_product_category` VALUES ('41', '5');
+INSERT INTO `shop_product_category` VALUES ('40', '8');
+INSERT INTO `shop_product_category` VALUES ('39', '57');
+INSERT INTO `shop_product_category` VALUES ('42', '5');
 
 -- ----------------------------
 -- Table structure for `shop_product_image`
@@ -784,24 +811,28 @@ INSERT INTO `shop_product_image` VALUES ('28', '15');
 INSERT INTO `shop_product_image` VALUES ('26', '17');
 INSERT INTO `shop_product_image` VALUES ('25', '18');
 INSERT INTO `shop_product_image` VALUES ('34', '25');
-INSERT INTO `shop_product_image` VALUES ('39', '28');
-INSERT INTO `shop_product_image` VALUES ('39', '29');
-INSERT INTO `shop_product_image` VALUES ('39', '26');
-INSERT INTO `shop_product_image` VALUES ('39', '25');
-INSERT INTO `shop_product_image` VALUES ('39', '24');
-INSERT INTO `shop_product_image` VALUES ('40', '34');
-INSERT INTO `shop_product_image` VALUES ('40', '32');
-INSERT INTO `shop_product_image` VALUES ('40', '31');
-INSERT INTO `shop_product_image` VALUES ('40', '30');
-INSERT INTO `shop_product_image` VALUES ('38', '28');
 INSERT INTO `shop_product_image` VALUES ('37', '22');
 INSERT INTO `shop_product_image` VALUES ('36', '23');
 INSERT INTO `shop_product_image` VALUES ('35', '24');
+INSERT INTO `shop_product_image` VALUES ('38', '28');
 INSERT INTO `shop_product_image` VALUES ('41', '34');
 INSERT INTO `shop_product_image` VALUES ('41', '32');
 INSERT INTO `shop_product_image` VALUES ('41', '33');
 INSERT INTO `shop_product_image` VALUES ('41', '31');
 INSERT INTO `shop_product_image` VALUES ('41', '30');
+INSERT INTO `shop_product_image` VALUES ('40', '34');
+INSERT INTO `shop_product_image` VALUES ('40', '32');
+INSERT INTO `shop_product_image` VALUES ('40', '31');
+INSERT INTO `shop_product_image` VALUES ('40', '30');
+INSERT INTO `shop_product_image` VALUES ('39', '28');
+INSERT INTO `shop_product_image` VALUES ('39', '29');
+INSERT INTO `shop_product_image` VALUES ('39', '26');
+INSERT INTO `shop_product_image` VALUES ('39', '25');
+INSERT INTO `shop_product_image` VALUES ('39', '24');
+INSERT INTO `shop_product_image` VALUES ('42', '34');
+INSERT INTO `shop_product_image` VALUES ('42', '33');
+INSERT INTO `shop_product_image` VALUES ('42', '32');
+INSERT INTO `shop_product_image` VALUES ('42', '31');
 
 -- ----------------------------
 -- Table structure for `shop_promotion`
@@ -880,23 +911,26 @@ DROP TABLE IF EXISTS `shop_tabproduct`;
 CREATE TABLE `shop_tabproduct` (
   `ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
+  `createDate` date DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_tabproduct
 -- ----------------------------
-INSERT INTO `shop_tabproduct` VALUES ('16', 'DEFAUL_TOP_SELLING');
-INSERT INTO `shop_tabproduct` VALUES ('17', 'Hot');
-INSERT INTO `shop_tabproduct` VALUES ('18', 'adasdasdas');
-INSERT INTO `shop_tabproduct` VALUES ('19', 'Day Dresses');
-INSERT INTO `shop_tabproduct` VALUES ('24', 'asdasd');
-INSERT INTO `shop_tabproduct` VALUES ('25', 'asdfasfa asdasd');
-INSERT INTO `shop_tabproduct` VALUES ('26', 'asdasd');
-INSERT INTO `shop_tabproduct` VALUES ('27', '\"\"');
-INSERT INTO `shop_tabproduct` VALUES ('28', null);
-INSERT INTO `shop_tabproduct` VALUES ('29', null);
-INSERT INTO `shop_tabproduct` VALUES ('30', null);
+INSERT INTO `shop_tabproduct` VALUES ('16', 'DEFAUL_TOP_SELLING', '2011-09-07');
+INSERT INTO `shop_tabproduct` VALUES ('17', 'Hot', '2011-09-07');
+INSERT INTO `shop_tabproduct` VALUES ('18', 'adasdasdas', '2011-09-07');
+INSERT INTO `shop_tabproduct` VALUES ('19', 'Day Dresses', '2011-09-07');
+INSERT INTO `shop_tabproduct` VALUES ('24', 'asdasd', '2011-09-07');
+INSERT INTO `shop_tabproduct` VALUES ('25', 'asdfasfa asdasd', '2011-09-07');
+INSERT INTO `shop_tabproduct` VALUES ('26', 'asdasd', '2011-09-07');
+INSERT INTO `shop_tabproduct` VALUES ('27', '\"\"', '2011-09-07');
+INSERT INTO `shop_tabproduct` VALUES ('28', null, '2011-09-07');
+INSERT INTO `shop_tabproduct` VALUES ('29', null, '2011-09-07');
+INSERT INTO `shop_tabproduct` VALUES ('30', null, '2011-09-07');
+INSERT INTO `shop_tabproduct` VALUES ('31', 'asdasdasds', '2011-09-07');
+INSERT INTO `shop_tabproduct` VALUES ('32', 'sadasdas', '2011-09-07');
 
 -- ----------------------------
 -- Table structure for `shop_tabselling`
@@ -1043,6 +1077,15 @@ INSERT INTO `tab_product` VALUES ('30', '38');
 INSERT INTO `tab_product` VALUES ('30', '37');
 INSERT INTO `tab_product` VALUES ('30', '36');
 INSERT INTO `tab_product` VALUES ('30', '35');
+INSERT INTO `tab_product` VALUES ('31', '42');
+INSERT INTO `tab_product` VALUES ('31', '41');
+INSERT INTO `tab_product` VALUES ('31', '40');
+INSERT INTO `tab_product` VALUES ('31', '39');
+INSERT INTO `tab_product` VALUES ('31', '38');
+INSERT INTO `tab_product` VALUES ('32', '42');
+INSERT INTO `tab_product` VALUES ('32', '41');
+INSERT INTO `tab_product` VALUES ('32', '40');
+INSERT INTO `tab_product` VALUES ('32', '39');
 
 -- ----------------------------
 -- Table structure for `tab_product_selling`

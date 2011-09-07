@@ -6,6 +6,10 @@
 			padding-bottom: 50px;
 			height: 80%;
 		}
+		
+		.maunualHTML{
+			border: solid 1px #BBBBBB;
+		}
 	</ui:style>
 	<g:HTMLPanel height="100%">
 		<g:Button ui:field="Save">Save</g:Button>
@@ -101,6 +105,7 @@
 			 <g:ScrollPanel styleName="{style.scrollContent}">
 				<g:HTMLPanel width="100%">
 					<p2:ProdImageManager ui:field="imageManager" />
+					<g:Button ui:field="pickRelatedProduct" text="Pick Related Product"></g:Button>
 					<p2:TopSellingManager ui:field="relatedProduct"/>
 				</g:HTMLPanel>
 			 </g:ScrollPanel>
@@ -109,7 +114,7 @@
 				<g:header>
 					Others
 			</g:header>
-			<!-- <g:ScrollPanel styleName="{style.scrollContent}"></g:ScrollPanel> -->
+			<g:ScrollPanel styleName="{style.scrollContent}">
 				<g:HTMLPanel width="100%">
 					<g:Grid>
 						<g:row>
@@ -149,12 +154,14 @@
 								<g:Label text="Manual:"/>
 							</g:customCell>
 							<g:customCell>
-								<g:Button text="Select A Manual"/>
+								<g:Button text="Select A Manual" ui:field="manualPicker"/>
 							</g:customCell>
 						</g:row>
 					</g:Grid>
+					<g:HTMLPanel ui:field="manual" styleName="{style.maunualHTML}">
 					</g:HTMLPanel>
-					
+					</g:HTMLPanel>
+				</g:ScrollPanel>	
 			</g:tab>
 		</g:TabLayoutPanel>
 	</g:HTMLPanel>

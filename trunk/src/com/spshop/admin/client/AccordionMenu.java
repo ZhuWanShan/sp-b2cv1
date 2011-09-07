@@ -69,6 +69,8 @@ public class AccordionMenu extends Composite {
 			root2.addItem(new AccordianItem("Query/Edit Product", CommandFactory.queryProduct()));
 			root2.addItem(new AccordianItem("Top Selling", CommandFactory.topSelingManager()));
 			root2.addItem(new AccordianItem("Dashboard Selling", CommandFactory.dashboardSellingManager()));
+			root2.addItem(new AccordianItem("Related Product", CommandFactory.createRelatedProduct()));
+			root2.addItem(new AccordianItem("Query Related Product", CommandFactory.queryRelatedProduct()));
 			items.add(root2);
 			root2.setState(true);
 			break;

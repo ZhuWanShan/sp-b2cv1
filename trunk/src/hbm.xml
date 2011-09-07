@@ -340,6 +340,7 @@
 			<generator class="identity"></generator>
 		</id>
 		<property name="name" length="100"></property>
+		<property name="createDate"></property>
 		
 		<bag name="products" cascade="all" table="tab_product">
 			<key column="tab_id"></key>
