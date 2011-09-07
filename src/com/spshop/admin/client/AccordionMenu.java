@@ -80,6 +80,13 @@ public class AccordionMenu extends Composite {
 			items.add(root3);
 			root3.setState(true);
 			break;
+			
+		case USER_MANAGEMENT:
+            AccordianItem root4 = new AccordianItem("User Management", CommandFactory.emptyCommand());
+            root4.addItem(new AccordianItem("Query User", CommandFactory.queryUser()));
+            items.add(root4);
+            root4.setState(true);
+            break;
 
 		default:
 			break;
