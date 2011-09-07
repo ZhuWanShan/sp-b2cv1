@@ -249,6 +249,9 @@ public class CommandFactory {
 				AdminWorkspace.ADMIN_SERVICE_ASYNC.getTopSelling(new AsyncCallbackAdapter<TabProduct>(){
 					@Override
 					public void onSuccess(TabProduct rs) {
+						if(null==rs.getCreateDate()){
+							rs.setCreateDate(new Date());
+						}
 						topSellingManager.setComponent(rs);
 						popWindow.hide();
 						RootPanel.get().remove(popWindow);
@@ -322,5 +325,95 @@ public class CommandFactory {
             }
         };
     }
+
+	public static Command createRelatedProduct() {
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				final PopWindow popWindow = PopWindow.createLoading("Loading").lock();
+				AdminWorkspace.contentPanel.body.clear();
+				final TopSellingManager topSellingManager = new TopSellingManager();
+				topSellingManager.setShowName(true);
+				topSellingManager.setShowButton(true);
+				TabProduct tp = new TabProduct();
+				tp.setName("");
+				tp.setCreateDate(new Date());
+				topSellingManager.setComponent(tp);
+				AdminWorkspace.contentPanel.body.add(topSellingManager);
+				popWindow.hide();
+				RootPanel.get().remove(popWindow);
+			}
+		};
+	}
+
+	public static Command queryRelatedProduct() {
+		  return new CommandAdapter() {
+	            @Override
+	            public void execute() {
+	                AdminWorkspace.contentPanel.body.clear();
+	                ComponentQuery componentQuery = new ComponentQuery("Query Related Product", TabProduct.class);
+	                componentQuery.getQueryCondition().setAsc(false);
+	                componentQuery.getQueryCondition().setOrderBy("createDate");
+	                AdminWorkspace.contentPanel.body.add(componentQuery);
+	            }
+	        };
+	}
 	
+	
+	public static Command popUpTabProductQuery(final boolean multiSelect,final SelectedCallBack callBack) {
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				final ComponentQuery componentQuery = new ComponentQuery("Related Product Query",TabProduct.class);
+				componentQuery.getQueryCondition().setAsc(false);
+				componentQuery.setEnableMultiSelect(multiSelect);
+				componentQuery.getQueryCondition().setOrderBy("createDate");
+				HTMLPanel content = new HTMLPanel("<div></div>");
+				content.setSize("900px", "500px");
+				content.clear();
+				content.add(componentQuery);
+				Button button = new Button("Select");
+				
+				final PopWindow popWindow = new PopWindow("Related Product Query", content, true, true);
+				button.addClickHandler(new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent e) {
+						callBack.callBack(componentQuery.getSelected());
+						popWindow.hide();
+					}
+				});
+				popWindow.addButton(button);
+				popWindow.center();
+				
+			}
+		};
+	}
+	
+	public static Command popUpHTMLQuery(final boolean multiSelect,final SelectedCallBack callBack) {
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				final ComponentQuery componentQuery = new ComponentQuery("Related Product Query",com.spshop.model.HTML.class);
+				componentQuery.getQueryCondition().setAsc(false);
+				componentQuery.setEnableMultiSelect(multiSelect);
+				componentQuery.getQueryCondition().setOrderBy("createDate");
+				HTMLPanel content = new HTMLPanel("<div></div>");
+				content.setSize("900px", "500px");
+				content.clear();
+				content.add(componentQuery);
+				Button button = new Button("Select");
+				
+				final PopWindow popWindow = new PopWindow("Query HTML", content, true, true);
+				button.addClickHandler(new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent e) {
+						callBack.callBack(componentQuery.getSelected());
+						popWindow.hide();
+					}
+				});
+				popWindow.addButton(button);
+				popWindow.center();
+			}
+		};
+	}
 }

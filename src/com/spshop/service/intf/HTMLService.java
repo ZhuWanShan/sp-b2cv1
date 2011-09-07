@@ -5,4 +5,5 @@ import com.spshop.model.HTML;
 
 public interface HTMLService extends BaseService<HTML, HTMLDAO, Long>{
 	HTML saveHTML(HTML html);
+	HTML getHTML(long id);
 }

@@ -25,6 +25,7 @@ import com.spshop.model.Component;
 import com.spshop.model.HTML;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
+import com.spshop.model.TabProduct;
 import com.spshop.model.User;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
@@ -130,24 +131,39 @@ public class ComponentQuery extends ResizeComposite {
 		if (queryCondition.getType() == User.class) {
 		    initUserHeader();
         }
+		
+		if (queryCondition.getType() == TabProduct.class) {
+		    initTabProductHeader();
+        }
 		// Initialize the table.
 
 	}
 
 
-	private void initHTMLHeader(){
-		header.getColumnFormatter().setWidth(0, "200px");
-		header.getColumnFormatter().setWidth(1, "250px");
-		header.getColumnFormatter().setWidth(2, "250px");
+	private void initTabProductHeader() {
+		initHTMLHeader();
+	}
 
-		header.setText(0, 0, "Name");
-		header.setText(0, 1, "Create Date");
-		header.setWidget(0, 2, navBar);
-		header.getCellFormatter().setHorizontalAlignment(0, 2,
+	private void initHTMLHeader(){
+		header.getColumnFormatter().setWidth(0, "80px");
+		header.getColumnFormatter().setWidth(1, "150px");
+		header.getColumnFormatter().setWidth(2, "120px");
+		header.getColumnFormatter().setWidth(3, "100px");
+		header.getColumnFormatter().setWidth(4, "250px");
+		
+		header.setText(0, 0, " ");
+		header.setText(0, 1, "Name");
+		header.setText(0, 2, "Create Date");
+		header.setText(0, 3, " ");
+		header.setWidget(0, 4, navBar);
+		header.getCellFormatter().setHorizontalAlignment(0, 4,
 				HasHorizontalAlignment.ALIGN_RIGHT);
-		table.getColumnFormatter().setWidth(0, "200px");
-		table.getColumnFormatter().setWidth(1, "250px");
-		table.getColumnFormatter().setWidth(2, "250px");
+		
+		table.getColumnFormatter().setWidth(0, "80px");
+		table.getColumnFormatter().setWidth(1, "150px");
+		table.getColumnFormatter().setWidth(2, "120px");
+		table.getColumnFormatter().setWidth(3, "100px");
+		table.getColumnFormatter().setWidth(4, "250px");
 	}
 	
     private void initUserHeader() {
@@ -304,16 +320,58 @@ public class ComponentQuery extends ResizeComposite {
 			if (result.getComponentType().equals(User.class.getName())) {
                 updateUser();
             }
+			
+			if (result.getComponentType().equals(TabProduct.class.getName())) {
+                updateTabProduct();
+            }
 		}
 
 	}
 	
+	private void updateTabProduct() {
+		DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
+		for (int i = 0; i < result.getResult().size(); i++) {
+			TabProduct tp = (TabProduct) result.getResult().get(i);
+			table.setText(i, 1, tp.getName());
+			table.setText(i, 2, dateTimeFormat.format(tp.getCreateDate()));
+			Operation<TabProduct> operation = new Operation<TabProduct>(tp);
+			operation.setListener(new OperationListenerAdapter<TabProduct>(){
+				@Override
+				public void onDelete(TabProduct content) {
+					super.onDelete(content);
+				}
+				@Override
+				public void onEdit(TabProduct content) {
+					ScrollPanel scrollPanel = new ScrollPanel();
+					scrollPanel.setSize("900px", "420px");
+					TopSellingManager tabManager = new TopSellingManager();
+					tabManager.setShowButton(true);
+					if("DEFAUL_TOP_SELLING".equals(content.getName())){
+						tabManager.setShowName(false);
+					}else{
+						tabManager.setShowName(true);
+					}
+					tabManager.setComponent(content);
+					tabManager.setSize("900px", "350px");
+					tabManager.setTitle("Edit Related Product");
+					scrollPanel.add(tabManager);
+					PopWindow pop = new PopWindow("Edit Related Product",scrollPanel, true, true);
+					//pop.setSize("400px", "400px");
+					pop.center();
+				}
+			});
+			table.setWidget(i, 4, operation);
+			table.getCellFormatter().setHorizontalAlignment(i, 4,
+					HasHorizontalAlignment.ALIGN_RIGHT);
+		}
+	}
+
 	private void updateHTML() {
 		DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
 		for (int i = 0; i < result.getResult().size(); i++) {
 			HTML html = (HTML) result.getResult().get(i);
-			table.setText(i, 0, html.getName());
-			table.setText(i, 1, dateTimeFormat.format(html.getCreateDate()));
+			table.setText(i, 1, html.getName());
+			table.setText(i, 2, dateTimeFormat.format(html.getCreateDate()));
 			Operation<HTML> operation = new Operation<HTML>(html);
 			operation.setListener(new OperationListenerAdapter<HTML>(){
 				@Override

@@ -39,6 +39,7 @@ public class TopSellingManager extends ObservableComposite<TabProduct, TopSellin
 	@UiField Grid namePanel;
 	private boolean showName;
 	private boolean showBTN;
+	private boolean showPicker;
 
 	interface TopSellingManagerUiBinder extends
 			UiBinder<Widget, TopSellingManager> {
@@ -134,7 +135,7 @@ public class TopSellingManager extends ObservableComposite<TabProduct, TopSellin
 		getComponet().setName(tabName.getValue());
 		notifyChange();
 	}
-
+	
 	public void setShowName(boolean showName) {
 		this.showName = showName;
 		namePanel.setVisible(showName);
@@ -151,5 +152,14 @@ public class TopSellingManager extends ObservableComposite<TabProduct, TopSellin
 
 	public boolean isShowName() {
 		return showName;
+	}
+
+	public void setShowPicker(boolean showPicker) {
+		this.showPicker = showPicker;
+		productPicker.setVisible(showPicker);
+	}
+
+	public boolean isShowPicker() {
+		return showPicker;
 	}
 }

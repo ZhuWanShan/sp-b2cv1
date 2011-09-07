@@ -47,4 +47,6 @@ public interface AdminServiceAsync {
 	void getTopSelling(long id, AsyncCallback<TabProduct> callback);
 
 	void saveHTML(HTML html, AsyncCallback<HTML> callback);
+
+	void getHTML(long id, AsyncCallback<HTML> callback);
 }

@@ -13,5 +13,10 @@ public class HTMLServiceImpl extends AbstractService<HTML, HTMLDAO, Long> implem
 		new HTMLValidator(html).validate();
 		return save(html).clone();
 	}
+
+	@Override
+	public HTML getHTML(long id) {
+		return fetchById(id).clone();
+	}
 	
 }

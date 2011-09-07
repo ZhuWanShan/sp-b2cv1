@@ -18,6 +18,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DoubleBox;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.user.client.ui.TextArea;
@@ -28,8 +29,11 @@ import com.spshop.admin.client.CommandFactory;
 import com.spshop.admin.client.PopWindow;
 import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.admin.client.businessui.callback.EditorChangeAdapter;
+import com.spshop.admin.client.businessui.callback.SelectedCallBack;
 import com.spshop.admin.client.rich.RichText;
 import com.spshop.model.Category;
+import com.spshop.model.Component;
+import com.spshop.model.HTML;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
 import com.spshop.model.ProductOption;
@@ -41,6 +45,7 @@ public class ProductCreation extends Composite{
 	private static ImageCreationUiBinder uiBinder = GWT
 			.create(ImageCreationUiBinder.class);
 	@UiField Button addOption;
+	@UiField Button pickRelatedProduct;
 	@UiField ProdOptionManager optionManager;
 	@UiField Button removeOption;
 	@UiField Button Save;
@@ -57,6 +62,8 @@ public class ProductCreation extends Composite{
 	@UiField TopSellingManager relatedProduct;
 	@UiField TabLayoutPanel host;
 	@UiField CheckBox showLikeButton;
+	@UiField Button manualPicker;
+	@UiField HTMLPanel manual;
 	
 	private Product product;
 
@@ -69,7 +76,8 @@ public class ProductCreation extends Composite{
 		TabProduct tp= new TabProduct();
 		relatedProduct.setComponent(tp);
 		relatedProduct.setShowName(false);
-		relatedProduct.setShowButton(true);
+		relatedProduct.setShowButton(false);
+		relatedProduct.setShowPicker(false);
 		final ProductCreation self = this;
 		host.addBeforeSelectionHandler(new BeforeSelectionHandler<Integer>() {
 			@Override
@@ -81,6 +89,20 @@ public class ProductCreation extends Composite{
 						@Override
 						public void onSuccess(TabProduct rs) {
 							self.relatedProduct.setComponent(rs);
+							load.hide();
+							RootPanel.get().remove(load);
+						}
+					});
+				}
+				
+				if(event.getItem().intValue()==4&&self.getProduct().getManualKey()>0){
+					final PopWindow load = PopWindow.createLoading("Update recommend").lock();
+					AdminWorkspace.ADMIN_SERVICE_ASYNC.getHTML(self.getProduct().getManualKey(), 
+					new AsyncCallbackAdapter<HTML>(){
+						@Override
+						public void onSuccess(HTML rs) {
+							getManual().clear();
+							getManual().add(new com.google.gwt.user.client.ui.HTML(rs.getContent()));
 							load.hide();
 							RootPanel.get().remove(load);
 						}
@@ -156,7 +178,6 @@ public class ProductCreation extends Composite{
 	}
 	@UiHandler("Save")
 	void onSaveClick(ClickEvent event) {
-		relatedProduct.getComponet().setName("PRODUCT_RELATED_"+product.getName());
 		CommandFactory.lock("Save product").execute();
 		AdminWorkspace.ADMIN_SERVICE_ASYNC.saveProduct(product, new AsyncCallbackAdapter<Product>() {
 			@Override
@@ -197,5 +218,39 @@ public class ProductCreation extends Composite{
 	@UiHandler("prodPrice")
 	void onProdPriceKeyUp(KeyUpEvent event) {
 		product.setPrice(prodPrice.getValue());
+	}
+	@UiHandler("pickRelatedProduct")
+	void onPickRelatedProductClick(ClickEvent event) {
+		CommandFactory.popUpTabProductQuery(false, new SelectedCallBack() {
+			
+			@Override
+			public void callBack(List<Component> selectedItems) {
+				TabProduct tabProduct =(TabProduct)selectedItems.get(0);
+				getRelatedProduct().setComponent(tabProduct);
+				getProduct().setTabProductKey(tabProduct.getId());
+			}
+		}).execute();
+	}
+	
+	@UiHandler("manualPicker")
+	void onManualPickerClick(ClickEvent event) {
+		CommandFactory.popUpHTMLQuery(false, new SelectedCallBack() {
+			
+			@Override
+			public void callBack(List<Component> selectedItems) {
+				HTML html = (HTML)selectedItems.get(0);
+				getProduct().setManualKey(html.getId());
+				getManual().clear();
+				getManual().add(new com.google.gwt.user.client.ui.HTML(html.getContent()));
+			}
+		}).execute();
+	}
+	
+	public TopSellingManager getRelatedProduct() {
+		return relatedProduct;
+	}
+
+	public HTMLPanel getManual() {
+		return manual;
 	}
 }
