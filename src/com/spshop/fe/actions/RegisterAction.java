@@ -1,5 +1,7 @@
 package com.spshop.fe.actions;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -28,6 +30,8 @@ public class RegisterAction extends BaseAction {
             User user = new User();
             user.setEmail(email);
             user.setPassword(password);
+            user.setCreateDate(new Date());
+            user.setName(email);
     //		Boolean ifExist = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
     //		if(ifExist){
     //			return mapping.findForward(AllConstants.fAILURE_VALUE);

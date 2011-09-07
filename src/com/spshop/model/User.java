@@ -19,7 +19,11 @@ public class User extends Component{
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getEmail() {
+	public User(User user) {
+	    super(user);
+    }
+
+    public String getEmail() {
 		return email;
 	}
 
@@ -90,7 +94,8 @@ public class User extends Component{
 	 */
 	public User clone() {
 		User obj = null;
-		obj = new User();
+		obj = new User(this);
+		
 		if (this.email != null) {
 			/* Does not have a clone() method */
 			obj.email = this.email;
