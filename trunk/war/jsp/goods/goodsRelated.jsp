@@ -3,9 +3,11 @@
 <div id="tab_middle" class="item_goods_info_box_bottom">
   <div class="item_reviews">
   <div class="item_tab">
-  	<ss:html var="html" htmlId="${pageForm.pageProperties.productDetail.manualKey}">
-   	 <c:out value="${html.content}" escapeXml="false"></c:out>
-    </ss:html>
+  	<c:if test="${pageForm.pageProperties.productDetail.manualKey > 0}">
+	  	<ss:html var="html" htmlId="${pageForm.pageProperties.productDetail.manualKey}">
+	   	 <c:out value="${html.content}" escapeXml="false"></c:out>
+	    </ss:html>
+    </c:if>
   </div>
   <%-- 
     <div name="pl" id="pl" class="item_reviews_fun">
@@ -51,18 +53,20 @@
 
   
 <div class="item_bottom_right">
-	<ss:topSelling var="rp" tabId="${pageForm.pageProperties.productDetail.tabProductKey }">
-		<h3>Customers Who Bought This Item Also Bought</h3>
-		<div class="item_bottom_funBt">
-		</div>
-	    <ul class="complete_look_normal">
-	     <c:forEach items="${rp.products}" var="product">
-	      <li> <a title="${product.title }" href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${product.name}"><img width="80" height="105" border="0" alt="${product.title }" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}"></a>
-	        <div>US$ ${product.actualPrice}</div>
-	      </li>
-	     </c:forEach>
-	    </ul>
-    </ss:topSelling>
+	<c:if test="${pageForm.pageProperties.productDetail.tabProductKey > 0}">
+		<ss:topSelling var="rp" tabId="${pageForm.pageProperties.productDetail.tabProductKey }">
+			<h3>Customers Who Bought This Item Also Bought</h3>
+			<div class="item_bottom_funBt">
+			</div>
+		    <ul class="complete_look_normal">
+		     <c:forEach items="${rp.products}" var="product">
+		      <li> <a title="${product.title }" href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${product.name}"><img width="80" height="105" border="0" alt="${product.title }" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}"></a>
+		        <div>US$ ${product.actualPrice}</div>
+		      </li>
+		     </c:forEach>
+		    </ul>
+	    </ss:topSelling>
+    </c:if>
 </div>  
   
 </div>
