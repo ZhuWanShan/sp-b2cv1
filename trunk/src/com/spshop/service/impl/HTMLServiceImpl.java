@@ -16,7 +16,7 @@ public class HTMLServiceImpl extends AbstractService<HTML, HTMLDAO, Long> implem
 
 	@Override
 	public HTML getHTML(long id) {
-		return fetchById(id).clone();
+		return findById(id).clone();
 	}
 	
 }

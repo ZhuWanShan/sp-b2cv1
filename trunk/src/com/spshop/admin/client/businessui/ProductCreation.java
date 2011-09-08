@@ -49,6 +49,7 @@ public class ProductCreation extends Composite{
 	@UiField ProdOptionManager optionManager;
 	@UiField Button removeOption;
 	@UiField Button Save;
+	@UiField Button copy;
 	@UiField ProdAttributeManager attributeManager;
 	@UiField TextBox name;
 	@UiField TextBox title;
@@ -142,9 +143,11 @@ public class ProductCreation extends Composite{
 		product.setUpdateDate(new Date());
 		if(product.getId()>0){
 			Save.setText("Update");
+			copy.setVisible(true);
 		}else{
 			product.setCreateDate(new Date());
 			this.product.setSite(AdminWorkspace.loginInfo.getSite());
+			copy.setVisible(false);
 		}
 		List<ProductOption> options = product.getOptions();
 		if(null==options){
@@ -186,6 +189,14 @@ public class ProductCreation extends Composite{
 				CommandFactory.release().execute();
 			}
 		});
+	}
+	@UiHandler("copy")
+	void onCopyClick(ClickEvent event) {
+		CommandFactory.lock("Save product").execute();
+		Product product = getProduct().deepCopy();
+		setProduct(product);
+		Save.setText("Save");
+		CommandFactory.release().execute();
 	}
 	@UiHandler("keywords")
 	void onKeywordsKeyUp(KeyUpEvent event) {

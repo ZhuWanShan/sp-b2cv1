@@ -13,6 +13,7 @@
 	</ui:style>
 	<g:HTMLPanel height="100%">
 		<g:Button ui:field="Save">Save</g:Button>
+		<g:Button ui:field="copy">Copy</g:Button>
 		<g:TabLayoutPanel barUnit="EM" barHeight="2.2" height="100%" ui:field="host">
 			<g:tab>
 				<g:header>
