@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50515
 File Encoding         : 65001
 
-Date: 2011-09-07 21:48:54
+Date: 2011-09-08 23:50:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -56,6 +56,7 @@ CREATE TABLE `shop_category` (
   `specialOffer` bit(1) DEFAULT NULL,
   `marketContent` longtext,
   `market_only` int(11) DEFAULT NULL,
+  `deleted` bit(1) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `FKD43A7447C7120C87` (`specialOffer_image`),
   KEY `FKD43A7447BF627AED` (`site_id`),
@@ -63,84 +64,85 @@ CREATE TABLE `shop_category` (
   CONSTRAINT `FKD43A7447BF210EE1` FOREIGN KEY (`parent_id`) REFERENCES `shop_category` (`ID`),
   CONSTRAINT `FKD43A7447BF627AED` FOREIGN KEY (`site_id`) REFERENCES `shop_site` (`ID`),
   CONSTRAINT `FKD43A7447C7120C87` FOREIGN KEY (`specialOffer_image`) REFERENCES `shop_image` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_category
 -- ----------------------------
-INSERT INTO `shop_category` VALUES ('', '0', '', '1', 'home', '2011-08-11 20:56:03', '2011-08-27 02:38:34', null, null, 'Home', null, '/', '', 'asdasdas', '', '<img src=\"http://127.0.0.1:8888/image/19372690665746.jpg\">', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '2', 'weddingdre2011col', '2011-07-27 17:06:16', '2011-08-06 18:14:35', null, '65', 'Wedding Dress 2011 Collection', null, null, 'Wedding Dress 2011 Collection keywords', 'Wedding Dress 2011 Collection - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', '', '3', 'costumes', '2011-08-06 17:56:10', '2011-08-27 12:15:23', null, null, 'Costumes', null, '', 'costumes keywords', 'Costumes - spark\'s shop', '', '<img src=\"http://127.0.0.1:8888/image/19372690665746.jpg\">', '0');
-INSERT INTO `shop_category` VALUES ('', '7', 'asdfasdasd', '4', 'women', '2011-08-06 17:57:04', '2011-08-18 21:09:36', null, null, 'Women', null, '', 'women keywords', 'Women - spark\'s shop', '', '<br>', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '5', 'men', '2011-08-06 17:59:32', '2011-08-06 17:59:32', null, null, 'Men', null, null, 'men keywords', 'Men - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '4', '', '6', 'shoes', '2011-08-06 18:00:54', '2011-08-18 21:09:21', null, null, 'Shoes', null, '', 'shoes keywords', 'Shoes - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '2', '', '7', 'accessories', '2011-08-06 18:03:03', '2011-08-18 21:01:47', null, null, 'Accessories', null, '', 'accessories keywords', 'Accessories - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '3', '', '8', 'sports', '2011-08-06 18:06:11', '2011-08-18 21:09:15', null, null, 'Sports', null, '', 'sports keywords', 'Sports - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '5', '', '9', 'kids', '2011-08-06 18:07:04', '2011-08-18 21:00:49', null, null, 'Kids', null, '', 'kids keywords', 'Kids - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '6', '', '10', 'weddingdre', '2011-08-06 18:20:00', '2011-08-18 21:00:54', null, '65', 'Wedding Dresses', null, '', 'Wedding Dresses keywords', 'Wedding Dresses', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '11', 'weddingpartydre', '2011-08-06 18:23:19', '2011-08-09 21:16:19', null, '65', 'Wedding Party Dresses', null, 'www.facebook.com', 'Wedding Party Dresses keywords', 'Wedding Party Dresses', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '12', 'springfashiontrend', '2011-08-06 18:29:08', '2011-08-06 18:29:08', null, '2', 'Spring Fashion Trends', null, null, 'Spring Fashion Trends keywords', 'Spring Fashion Trends', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '13', 'summerfashiontrends', '2011-08-06 18:30:46', '2011-08-06 18:30:46', null, '2', 'Summer Fashion Trends', null, null, 'Summer Fashion Trends keywords', 'Summer Fashion Trends - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '14', 'fallfashiontrends', '2011-08-06 18:35:31', '2011-08-06 18:35:31', null, '2', 'Fall Fashion Trends', null, null, 'Fall Fashion Trends keywords', 'Fall Fashion Trends', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '15', 'winterfashiontrends', '2011-08-06 18:36:22', '2011-08-06 18:36:22', null, '2', 'Winter Fashion Trends', null, null, 'Winter Fashion Trends keywords', 'Winter Fashion Trends', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '16', 'weddingdreunder100', '2011-08-06 19:27:37', '2011-08-06 19:27:37', null, '10', 'Wedding Dress Under $100', null, null, 'Wedding Dress Under $100 Keywords', 'Wedding Dress Under $100', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '17', 'receptiondre', '2011-08-06 19:35:05', '2011-08-06 19:35:05', null, '10', 'Reception Dresses', null, null, 'Reception Dresses Keywords', 'Reception Dresses - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '18', 'beachweddingdre', '2011-08-06 19:39:29', '2011-08-06 19:39:29', null, '10', 'Beach Wedding Dresses', null, null, 'Beach Wedding Dresses keywords', 'Beach Wedding Dresses - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '19', 'littlegirldre', '2011-08-06 19:40:47', '2011-08-06 19:40:47', null, '11', 'Little Girl Dresses', null, null, 'Little Girl Dresses keywords', 'Little Girl Dresses - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '20', 'maternitybridesmaiddre', '2011-08-06 20:02:53', '2011-08-06 20:02:53', null, '11', 'Maternity Bridesmaid Dresses', null, null, 'Maternity Bridesmaid Dresses keywords', 'Maternity Bridesmaid Dresses - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '21', 'flowergirldre', '2011-08-06 20:04:19', '2011-08-06 20:04:19', null, '11', 'Flower Girl Dresses', null, null, 'Flower Girl Dresses keywords', 'Flower Girl Dresses - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '22', 'juniorbridesmaiddre', '2011-08-06 20:11:56', '2011-08-06 20:11:56', null, '11', 'Junior Bridesmaid Dresses', null, null, 'Junior Bridesmaid Dresses keywords', 'Junior Bridesmaid Dresses - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '23', 'bridesmaiddre', '2011-08-06 20:25:13', '2011-08-06 20:25:13', null, '11', 'Bridesmaid Dresses', null, null, 'Bridesmaid Dresses keywords', 'Bridesmaid Dresses - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '24', 'cosplay', '2011-08-06 20:34:05', '2011-08-06 20:35:33', null, '3', 'Cosplay Costumes', null, null, 'Cosplay Costumes keywords', 'Cosplay Costumes - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '25', 'punkclothing', '2011-08-06 20:35:15', '2011-08-06 20:35:15', null, '3', 'Punk Clothing', null, null, 'Punk Clothing keywords', 'Punk Clothing - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '26', 'mascot', '2011-08-06 20:37:45', '2011-08-06 20:37:45', null, '3', 'Mascot Costumes', null, null, 'Mascot Costumes keywords', 'Mascot Costumes - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '27', 'lolitaclothing', '2011-08-06 20:40:05', '2011-08-06 20:40:05', null, '3', 'Lolita Clothing', null, null, 'Lolita Clothing keywords', 'Lolita Clothing - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '28', 'cosplaywigs', '2011-08-06 20:45:32', '2011-08-06 20:45:32', null, '24', 'Cosplay Wigs', null, null, 'Cosplay Wigs keywords', 'Cosplay Wigs - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '29', 'cosplayshoes', '2011-08-06 20:47:25', '2011-08-06 20:47:25', null, '24', 'Cosplay Shoes', null, null, 'Cosplay Wigs keywords', 'Cosplay Shoes - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '30', 'schooluniform', '2011-08-06 20:49:07', '2011-08-06 20:49:07', null, '24', 'School Uniform', null, null, 'School Uniform keywords', 'School Uniform - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '31', 'punkdre', '2011-08-06 20:50:12', '2011-08-06 20:50:12', null, '25', 'Punk Dresses', null, null, 'Punk Dresses keywords', 'Punk Dresses - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '32', 'punkskirts', '2011-08-06 20:51:08', '2011-08-06 20:51:08', null, '25', 'Punk Skirts', null, null, 'Punk Skirts keywords', 'Punk Skirts - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '33', 'punkcoats', '2011-08-06 20:52:10', '2011-08-06 20:52:10', null, '25', 'Punk Coats', null, null, 'Punk Coats keywords', 'Punk Coats - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '34', 'bearmascots', '2011-08-06 20:53:27', '2011-08-06 20:53:27', null, '26', 'Bear Mascots', null, null, 'Bear Mascots keywords', 'Bear Mascots - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '35', 'lionmascots', '2011-08-06 20:56:22', '2011-08-06 20:56:22', null, '26', 'Lion Mascots', null, null, 'Lion Mascots keywords', 'Lion Mascots - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '36', 'lolitadre', '2011-08-06 20:58:18', '2011-08-06 20:58:18', null, '27', 'Lolita Dresses', null, null, 'Lolita Dresses', 'Lolita Dresses - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '37', 'lolitashirts', '2011-08-06 21:00:54', '2011-08-06 21:00:54', null, '27', 'Lolita Shirts', null, null, 'Lolita Shirts keywords', 'Lolita Shirts', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '38', 'lolitaoutfits', '2011-08-06 21:01:53', '2011-08-06 21:01:53', null, '27', 'Lolita Outfits', null, null, 'Lolita Outfits keywords', 'Lolita Outfits', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '39', 'lolitablouses', '2011-08-06 21:02:50', '2011-08-06 21:02:50', null, '27', 'Lolita Blouses', null, null, 'Lolita Blouses', 'Lolita Blouses', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '40', 'lolitabloomers', '2011-08-06 21:03:54', '2011-08-06 21:03:54', null, '27', 'Lolita Bloomers', null, null, 'Lolita Bloomers keywords', 'Lolita Bloomers', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '41', 'coastjackets', '2011-08-06 21:05:15', '2011-08-06 21:05:15', null, '27', 'Coast & Jackets', null, null, 'Coast Jackets keywords', 'Coast & Jackets', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '42', 'springsummer2011', '2011-08-06 21:14:15', '2011-08-06 21:14:15', null, '4', 'Spring/Summer 2011 Trends', null, null, 'Spring Summer 2011 Trends keywords', 'Spring/Summer 2011 Trends', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '43', 'pants', '2011-08-06 21:21:23', '2011-08-06 21:21:23', null, '4', 'Pants', null, null, 'Pants keywords', 'Pants', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '44', 'womenfeatures', '2011-08-06 21:22:43', '2011-08-06 21:24:53', null, '4', 'Features', null, null, 'Features keywords', 'Features', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '45', 'mentshirts', '2011-08-06 21:24:31', '2011-08-06 21:24:31', null, '5', 'Men\'s T-Shirts', null, null, 'Men T-Shirts keywords', 'Men\'s T-Shirts', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '46', 'fashionshoes', '2011-08-06 21:27:45', '2011-08-06 21:27:45', null, '6', 'Fashion Shoes', null, null, 'Fashion Shoes keywords', 'Fashion Shoes', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '47', 'jewelry', '2011-08-06 21:30:43', '2011-08-06 21:30:43', null, '7', 'Jewelry', null, null, 'Jewelry keywords', 'Jewelry', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '48', 'swimsuits', '2011-08-06 21:31:44', '2011-08-06 21:31:44', null, '8', 'Swim Suits', null, null, 'Swim Suits', 'Swim Suits', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '49', 'baby0_24m', '2011-08-06 21:40:47', '2011-08-06 21:40:47', null, '9', 'Baby (0-24 months)', null, null, 'Baby (0-24 months) keywords', 'Baby (0-24 months)', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '50', 'pleateddre', '2011-08-06 21:45:00', '2011-08-06 21:45:00', null, '42', 'Pleated Dresses', null, null, 'Pleated Dresses keywords', 'Pleated Dresses', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '51', 'pleatedskirts', '2011-08-06 21:46:18', '2011-08-06 21:46:18', null, '42', 'Pleated Skirts', null, null, 'Pleated Skirts keywords', 'Pleated Skirts', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '52', 'womenharempants', '2011-08-06 21:48:22', '2011-08-06 21:48:22', null, '43', 'Women\'s Harem Pants', null, null, 'Women\'s Harem Pants keywords', 'Women\'s Harem Pants', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '53', 'summerinthenet', '2011-08-06 21:50:17', '2011-08-06 21:50:17', null, '44', 'Summer In The Net', null, null, 'Summer Net keywords', 'Summer In The Net', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '54', 'sequins', '2011-08-06 21:51:40', '2011-08-06 21:51:40', null, '44', 'Sequins', null, null, 'Sequins keywords', 'Sequins', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '55', 'parishilton', '2011-08-06 21:54:47', '2011-08-06 21:54:47', null, '44', 'Paris Hilton', null, null, 'Paris Hilton keywords', 'Paris Hilton', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '56', 'poloshirts', '2011-08-06 21:56:13', '2011-08-06 21:56:13', null, '45', 'Polo Shirts', null, null, 'Polo shirts keywords', 'Polo Shirts', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '57', 'mtshirts', '2011-08-06 21:57:14', '2011-08-06 21:58:05', null, '45', 'T-Shirts', null, null, 'T-Shirts Men keywords', 'T-Shirts', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '58', 'paintedshoes', '2011-08-06 22:03:25', '2011-08-06 22:03:25', null, '46', 'Painted Shoes', null, null, 'Painted Shoes keywords', 'Painted Shoes', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '2', '', '59', 'pearljewelry', '2011-08-06 22:04:31', '2011-08-18 21:01:17', null, '47', 'Pearl Jewelry', null, '', 'Pearl Jewelry keywords', 'Pearl Jewelry', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '60', 'crystaljewelry', '2011-08-06 22:05:51', '2011-08-06 22:05:51', null, '47', 'Crystal Jewelry', null, null, 'Crystal Jewelry keywords', 'Crystal Jewelry', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '61', 'onepieceswim', '2011-08-06 22:07:11', '2011-08-06 22:08:29', null, '48', 'One Piece Swimsuits', null, null, 'One Piece Swimsuits keywords', 'One Piece Swimsuits', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '62', '2pieceswim', '2011-08-06 22:09:30', '2011-08-06 22:09:29', null, '48', 'Two Piece Swimsuits', null, null, 'Two Piece Swimsuits keywords', 'Two Piece Swimsuits', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '63', 'bikiniswim', '2011-08-06 22:10:08', '2011-08-06 22:10:08', null, '48', 'Bikini Swimsuits', null, null, 'Bikini Swimsuits keywords', 'Bikini Swimsuits', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', null, '64', 'boysclothing2_15y', '2011-08-06 22:11:34', '2011-08-06 22:11:34', null, '9', 'Boys Clothing (2-15 years)', null, null, 'Boys Clothing keywords', 'Boys Clothing (2-15 years)', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '1', '', '65', 'WeddingEvents', '2011-07-27 16:57:52', '2011-08-18 21:00:58', null, null, 'Wedding & Events', null, 'www.google.com', 'wedding events keywords', 'Wedding & Events - spark\'s shop', '', '', '0');
-INSERT INTO `shop_category` VALUES ('', '0', 'Special Offer Root1 desc', '66', 'specialofferroot1', '2011-08-28 20:56:08', '2011-08-28 20:56:08', null, '3', 'Special Offer Root1', null, '', 'Special Offer Root1 keywords', 'Special Offer Root1', '', '<br>', '0');
-INSERT INTO `shop_category` VALUES ('', '0', 'Special Offer Root2 desc', '67', 'specialofferroot2', '2011-08-28 20:56:58', '2011-08-28 20:56:58', null, '3', 'Special Offer Root2', null, '', 'Special Offer Root2 keywords', 'Special Offer Root2', '', '<br>', '0');
-INSERT INTO `shop_category` VALUES ('', '0', 'Special Offer Root3 desc', '68', 'specialofferroot3', '2011-08-28 20:57:35', '2011-08-28 20:57:35', null, '3', 'Special Offer Root3', null, '', 'Special Offer Root3 keywords', 'Special Offer Root3', '', '<br>', '0');
-INSERT INTO `shop_category` VALUES ('', '0', 'Special Offer Root4 desc', '69', 'specialofferroot4', '2011-08-28 22:25:31', '2011-08-28 22:25:31', null, '24', 'Special Offer Root4', null, '', 'Special Offer Root4 keywords', 'Special Offer Root4', '', '<br>', '0');
-INSERT INTO `shop_category` VALUES ('', '0', 'Special Offer Root5 desc', '70', 'specialofferroot5', '2011-08-28 22:26:34', '2011-08-28 23:58:18', null, '28', 'Special Offer Root5', '32', '', 'Special Offer Root5 keywords', 'Special Offer Root5', '', '<br>', '0');
-INSERT INTO `shop_category` VALUES ('', '0', 'Special Offer Root6 desc', '71', 'specialofferroot6', '2011-08-28 22:27:39', '2011-08-28 22:27:39', null, '31', 'Special Offer Root6', null, '', 'Special Offer Root6 desc', 'Special Offer Root6', '', '<br>', '0');
-INSERT INTO `shop_category` VALUES ('', '0', 'Special Offer Root7 desc', '72', 'specialofferroot7', '2011-08-28 22:30:09', '2011-08-29 00:10:00', null, '56', 'Special Offer Root7', '33', '', 'Special Offer Root7 keywords', 'Special Offer Root7', '', '<br>', '0');
-INSERT INTO `shop_category` VALUES ('', '15', 'Gundam seed', '73', 'gundam', '2011-08-29 23:10:22', '2011-09-01 00:25:46', null, null, 'Gundam', null, '', 'seed gundam kira', 'Gundam', '', '<a href=\"http://www.xiaonei.com\"><img src=\"http://127.0.0.1:8888/image/13359512696421.jpg\"></a><br><br>', '1');
+INSERT INTO `shop_category` VALUES ('', '0', '', '1', 'home', '2011-08-11 20:56:03', '2011-08-27 02:38:34', null, null, 'Home', null, '/', '', 'asdasdas', '', '<img src=\"http://127.0.0.1:8888/image/19372690665746.jpg\">', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '2', 'weddingdre2011col', '2011-07-27 17:06:16', '2011-08-06 18:14:35', null, '65', 'Wedding Dress 2011 Collection', null, null, 'Wedding Dress 2011 Collection keywords', 'Wedding Dress 2011 Collection - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', '', '3', 'costumes', '2011-08-06 17:56:10', '2011-08-27 12:15:23', null, null, 'Costumes', null, '', 'costumes keywords', 'Costumes - spark\'s shop', '', '<img src=\"http://127.0.0.1:8888/image/19372690665746.jpg\">', '0', '');
+INSERT INTO `shop_category` VALUES ('', '7', 'asdfasdasd', '4', 'women', '2011-08-06 17:57:04', '2011-08-18 21:09:36', null, null, 'Women', null, '', 'women keywords', 'Women - spark\'s shop', '', '<br>', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '5', 'men', '2011-08-06 17:59:32', '2011-08-06 17:59:32', null, null, 'Men', null, null, 'men keywords', 'Men - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '4', '', '6', 'shoes', '2011-08-06 18:00:54', '2011-09-08 23:39:14', null, null, 'Shoes', null, '', 'shoes keywords', 'Shoes - spark\'s shop', '', '<br>', '0', '');
+INSERT INTO `shop_category` VALUES ('', '2', '', '7', 'accessories', '2011-08-06 18:03:03', '2011-08-18 21:01:47', null, null, 'Accessories', null, '', 'accessories keywords', 'Accessories - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '3', '', '8', 'sports', '2011-08-06 18:06:11', '2011-08-18 21:09:15', null, null, 'Sports', null, '', 'sports keywords', 'Sports - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '5', '', '9', 'kids', '2011-08-06 18:07:04', '2011-09-08 23:34:27', null, null, 'Kids', null, '', 'kids keywords', 'Kids - spark\'s shop', '', '<br>', '0', '');
+INSERT INTO `shop_category` VALUES ('', '6', '', '10', 'weddingdre', '2011-08-06 18:20:00', '2011-08-18 21:00:54', null, '65', 'Wedding Dresses', null, '', 'Wedding Dresses keywords', 'Wedding Dresses', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '11', 'weddingpartydre', '2011-08-06 18:23:19', '2011-08-09 21:16:19', null, '65', 'Wedding Party Dresses', null, 'www.facebook.com', 'Wedding Party Dresses keywords', 'Wedding Party Dresses', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '12', 'springfashiontrend', '2011-08-06 18:29:08', '2011-08-06 18:29:08', null, '2', 'Spring Fashion Trends', null, null, 'Spring Fashion Trends keywords', 'Spring Fashion Trends', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '13', 'summerfashiontrends', '2011-08-06 18:30:46', '2011-08-06 18:30:46', null, '2', 'Summer Fashion Trends', null, null, 'Summer Fashion Trends keywords', 'Summer Fashion Trends - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '14', 'fallfashiontrends', '2011-08-06 18:35:31', '2011-08-06 18:35:31', null, '2', 'Fall Fashion Trends', null, null, 'Fall Fashion Trends keywords', 'Fall Fashion Trends', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '15', 'winterfashiontrends', '2011-08-06 18:36:22', '2011-08-06 18:36:22', null, '2', 'Winter Fashion Trends', null, null, 'Winter Fashion Trends keywords', 'Winter Fashion Trends', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '16', 'weddingdreunder100', '2011-08-06 19:27:37', '2011-08-06 19:27:37', null, '10', 'Wedding Dress Under $100', null, null, 'Wedding Dress Under $100 Keywords', 'Wedding Dress Under $100', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '17', 'receptiondre', '2011-08-06 19:35:05', '2011-08-06 19:35:05', null, '10', 'Reception Dresses', null, null, 'Reception Dresses Keywords', 'Reception Dresses - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '18', 'beachweddingdre', '2011-08-06 19:39:29', '2011-08-06 19:39:29', null, '10', 'Beach Wedding Dresses', null, null, 'Beach Wedding Dresses keywords', 'Beach Wedding Dresses - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '19', 'littlegirldre', '2011-08-06 19:40:47', '2011-08-06 19:40:47', null, '11', 'Little Girl Dresses', null, null, 'Little Girl Dresses keywords', 'Little Girl Dresses - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '20', 'maternitybridesmaiddre', '2011-08-06 20:02:53', '2011-08-06 20:02:53', null, '11', 'Maternity Bridesmaid Dresses', null, null, 'Maternity Bridesmaid Dresses keywords', 'Maternity Bridesmaid Dresses - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '21', 'flowergirldre', '2011-08-06 20:04:19', '2011-08-06 20:04:19', null, '11', 'Flower Girl Dresses', null, null, 'Flower Girl Dresses keywords', 'Flower Girl Dresses - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '22', 'juniorbridesmaiddre', '2011-08-06 20:11:56', '2011-08-06 20:11:56', null, '11', 'Junior Bridesmaid Dresses', null, null, 'Junior Bridesmaid Dresses keywords', 'Junior Bridesmaid Dresses - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '23', 'bridesmaiddre', '2011-08-06 20:25:13', '2011-08-06 20:25:13', null, '11', 'Bridesmaid Dresses', null, null, 'Bridesmaid Dresses keywords', 'Bridesmaid Dresses - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '24', 'cosplay', '2011-08-06 20:34:05', '2011-08-06 20:35:33', null, '3', 'Cosplay Costumes', null, null, 'Cosplay Costumes keywords', 'Cosplay Costumes - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '25', 'punkclothing', '2011-08-06 20:35:15', '2011-08-06 20:35:15', null, '3', 'Punk Clothing', null, null, 'Punk Clothing keywords', 'Punk Clothing - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '26', 'mascot', '2011-08-06 20:37:45', '2011-08-06 20:37:45', null, '3', 'Mascot Costumes', null, null, 'Mascot Costumes keywords', 'Mascot Costumes - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '27', 'lolitaclothing', '2011-08-06 20:40:05', '2011-08-06 20:40:05', null, '3', 'Lolita Clothing', null, null, 'Lolita Clothing keywords', 'Lolita Clothing - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '28', 'cosplaywigs', '2011-08-06 20:45:32', '2011-08-06 20:45:32', null, '24', 'Cosplay Wigs', null, null, 'Cosplay Wigs keywords', 'Cosplay Wigs - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '29', 'cosplayshoes', '2011-08-06 20:47:25', '2011-08-06 20:47:25', null, '24', 'Cosplay Shoes', null, null, 'Cosplay Wigs keywords', 'Cosplay Shoes - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '30', 'schooluniform', '2011-08-06 20:49:07', '2011-08-06 20:49:07', null, '24', 'School Uniform', null, null, 'School Uniform keywords', 'School Uniform - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '31', 'punkdre', '2011-08-06 20:50:12', '2011-08-06 20:50:12', null, '25', 'Punk Dresses', null, null, 'Punk Dresses keywords', 'Punk Dresses - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '32', 'punkskirts', '2011-08-06 20:51:08', '2011-08-06 20:51:08', null, '25', 'Punk Skirts', null, null, 'Punk Skirts keywords', 'Punk Skirts - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '33', 'punkcoats', '2011-08-06 20:52:10', '2011-08-06 20:52:10', null, '25', 'Punk Coats', null, null, 'Punk Coats keywords', 'Punk Coats - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '34', 'bearmascots', '2011-08-06 20:53:27', '2011-08-06 20:53:27', null, '26', 'Bear Mascots', null, null, 'Bear Mascots keywords', 'Bear Mascots - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '35', 'lionmascots', '2011-08-06 20:56:22', '2011-08-06 20:56:22', null, '26', 'Lion Mascots', null, null, 'Lion Mascots keywords', 'Lion Mascots - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '36', 'lolitadre', '2011-08-06 20:58:18', '2011-08-06 20:58:18', null, '27', 'Lolita Dresses', null, null, 'Lolita Dresses', 'Lolita Dresses - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '37', 'lolitashirts', '2011-08-06 21:00:54', '2011-08-06 21:00:54', null, '27', 'Lolita Shirts', null, null, 'Lolita Shirts keywords', 'Lolita Shirts', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '38', 'lolitaoutfits', '2011-08-06 21:01:53', '2011-08-06 21:01:53', null, '27', 'Lolita Outfits', null, null, 'Lolita Outfits keywords', 'Lolita Outfits', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '39', 'lolitablouses', '2011-08-06 21:02:50', '2011-08-06 21:02:50', null, '27', 'Lolita Blouses', null, null, 'Lolita Blouses', 'Lolita Blouses', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '40', 'lolitabloomers', '2011-08-06 21:03:54', '2011-08-06 21:03:54', null, '27', 'Lolita Bloomers', null, null, 'Lolita Bloomers keywords', 'Lolita Bloomers', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '41', 'coastjackets', '2011-08-06 21:05:15', '2011-08-06 21:05:15', null, '27', 'Coast & Jackets', null, null, 'Coast Jackets keywords', 'Coast & Jackets', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '42', 'springsummer2011', '2011-08-06 21:14:15', '2011-08-06 21:14:15', null, '4', 'Spring/Summer 2011 Trends', null, null, 'Spring Summer 2011 Trends keywords', 'Spring/Summer 2011 Trends', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '43', 'pants', '2011-08-06 21:21:23', '2011-08-06 21:21:23', null, '4', 'Pants', null, null, 'Pants keywords', 'Pants', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '44', 'womenfeatures', '2011-08-06 21:22:43', '2011-08-06 21:24:53', null, '4', 'Features', null, null, 'Features keywords', 'Features', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '45', 'mentshirts', '2011-08-06 21:24:31', '2011-08-06 21:24:31', null, '5', 'Men\'s T-Shirts', null, null, 'Men T-Shirts keywords', 'Men\'s T-Shirts', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', '', '46', 'fashionshoes', '2011-08-06 21:27:45', '2011-09-08 23:34:44', null, null, 'Fashion Shoes', null, '', 'Fashion Shoes keywords', 'Fashion Shoes', '', '<br>', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '47', 'jewelry', '2011-08-06 21:30:43', '2011-08-06 21:30:43', null, '7', 'Jewelry', null, null, 'Jewelry keywords', 'Jewelry', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '48', 'swimsuits', '2011-08-06 21:31:44', '2011-08-06 21:31:44', null, '8', 'Swim Suits', null, null, 'Swim Suits', 'Swim Suits', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '49', 'baby0_24m', '2011-08-06 21:40:47', '2011-08-06 21:40:47', null, '9', 'Baby (0-24 months)', null, null, 'Baby (0-24 months) keywords', 'Baby (0-24 months)', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '50', 'pleateddre', '2011-08-06 21:45:00', '2011-08-06 21:45:00', null, '42', 'Pleated Dresses', null, null, 'Pleated Dresses keywords', 'Pleated Dresses', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '51', 'pleatedskirts', '2011-08-06 21:46:18', '2011-08-06 21:46:18', null, '42', 'Pleated Skirts', null, null, 'Pleated Skirts keywords', 'Pleated Skirts', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '52', 'womenharempants', '2011-08-06 21:48:22', '2011-08-06 21:48:22', null, '43', 'Women\'s Harem Pants', null, null, 'Women\'s Harem Pants keywords', 'Women\'s Harem Pants', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '53', 'summerinthenet', '2011-08-06 21:50:17', '2011-08-06 21:50:17', null, '44', 'Summer In The Net', null, null, 'Summer Net keywords', 'Summer In The Net', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '54', 'sequins', '2011-08-06 21:51:40', '2011-08-06 21:51:40', null, '44', 'Sequins', null, null, 'Sequins keywords', 'Sequins', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '55', 'parishilton', '2011-08-06 21:54:47', '2011-08-06 21:54:47', null, '44', 'Paris Hilton', null, null, 'Paris Hilton keywords', 'Paris Hilton', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '56', 'poloshirts', '2011-08-06 21:56:13', '2011-08-06 21:56:13', null, '45', 'Polo Shirts', null, null, 'Polo shirts keywords', 'Polo Shirts', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '57', 'mtshirts', '2011-08-06 21:57:14', '2011-08-06 21:58:05', null, '45', 'T-Shirts', null, null, 'T-Shirts Men keywords', 'T-Shirts', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', '', '58', 'paintedshoes', '2011-08-06 22:03:25', '2011-09-08 23:16:44', null, null, 'Painted Shoes', null, '', 'Painted Shoes keywords', 'Painted Shoes', '', '<br>', '0', '');
+INSERT INTO `shop_category` VALUES ('', '2', '', '59', 'pearljewelry', '2011-08-06 22:04:31', '2011-08-18 21:01:17', null, '47', 'Pearl Jewelry', null, '', 'Pearl Jewelry keywords', 'Pearl Jewelry', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '60', 'crystaljewelry', '2011-08-06 22:05:51', '2011-08-06 22:05:51', null, '47', 'Crystal Jewelry', null, null, 'Crystal Jewelry keywords', 'Crystal Jewelry', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '61', 'onepieceswim', '2011-08-06 22:07:11', '2011-08-06 22:08:29', null, '48', 'One Piece Swimsuits', null, null, 'One Piece Swimsuits keywords', 'One Piece Swimsuits', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '62', '2pieceswim', '2011-08-06 22:09:30', '2011-08-06 22:09:29', null, '48', 'Two Piece Swimsuits', null, null, 'Two Piece Swimsuits keywords', 'Two Piece Swimsuits', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '63', 'bikiniswim', '2011-08-06 22:10:08', '2011-08-06 22:10:08', null, '48', 'Bikini Swimsuits', null, null, 'Bikini Swimsuits keywords', 'Bikini Swimsuits', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', null, '64', 'boysclothing2_15y', '2011-08-06 22:11:34', '2011-08-06 22:11:34', null, '9', 'Boys Clothing (2-15 years)', null, null, 'Boys Clothing keywords', 'Boys Clothing (2-15 years)', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '1', '', '65', 'WeddingEvents', '2011-07-27 16:57:52', '2011-08-18 21:00:58', null, null, 'Wedding & Events', null, 'www.google.com', 'wedding events keywords', 'Wedding & Events - spark\'s shop', '', '', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', 'Special Offer Root1 desc', '66', 'specialofferroot1', '2011-08-28 20:56:08', '2011-08-28 20:56:08', null, '3', 'Special Offer Root1', null, '', 'Special Offer Root1 keywords', 'Special Offer Root1', '', '<br>', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', 'Special Offer Root2 desc', '67', 'specialofferroot2', '2011-08-28 20:56:58', '2011-08-28 20:56:58', null, '3', 'Special Offer Root2', null, '', 'Special Offer Root2 keywords', 'Special Offer Root2', '', '<br>', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', 'Special Offer Root3 desc', '68', 'specialofferroot3', '2011-08-28 20:57:35', '2011-08-28 20:57:35', null, '3', 'Special Offer Root3', null, '', 'Special Offer Root3 keywords', 'Special Offer Root3', '', '<br>', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', 'Special Offer Root4 desc', '69', 'specialofferroot4', '2011-08-28 22:25:31', '2011-08-28 22:25:31', null, '24', 'Special Offer Root4', null, '', 'Special Offer Root4 keywords', 'Special Offer Root4', '', '<br>', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', 'Special Offer Root5 desc', '70', 'specialofferroot5', '2011-08-28 22:26:34', '2011-08-28 23:58:18', null, '28', 'Special Offer Root5', '32', '', 'Special Offer Root5 keywords', 'Special Offer Root5', '', '<br>', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', 'Special Offer Root6 desc', '71', 'specialofferroot6', '2011-08-28 22:27:39', '2011-08-28 22:27:39', null, '31', 'Special Offer Root6', null, '', 'Special Offer Root6 desc', 'Special Offer Root6', '', '<br>', '0', '');
+INSERT INTO `shop_category` VALUES ('', '0', 'Special Offer Root7 desc', '72', 'specialofferroot7', '2011-08-28 22:30:09', '2011-08-29 00:10:00', null, '56', 'Special Offer Root7', '33', '', 'Special Offer Root7 keywords', 'Special Offer Root7', '', '<br>', '0', '');
+INSERT INTO `shop_category` VALUES ('', '15', 'Gundam seed', '73', 'gundam', '2011-08-29 23:10:22', '2011-09-08 00:05:31', null, null, 'Gundam', null, '', 'seed gundam kira', 'Gundam', '', '<a href=\"http://www.xiaonei.com\"><img src=\"http://127.0.0.1:8888/image/13359512696421.jpg\"></a><br><br>', '1', '');
+INSERT INTO `shop_category` VALUES ('', '0', 'asdasd', '74', 'asdas', '2011-09-08 00:06:10', '2011-09-08 00:06:10', null, '73', 'asdas', null, '', 'asdasd', 'asdas', '', 'asdasdasjhkasfjksdhfsdkhfsdfhfsdfsdfsdf', '1', '');
 
 -- ----------------------------
 -- Table structure for `shop_comment`
@@ -306,19 +308,12 @@ CREATE TABLE `shop_html` (
   `updateDate` datetime DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_html
 -- ----------------------------
-INSERT INTO `shop_html` VALUES ('1', 'asds', '2011-09-07 10:35:45', null, 'asdas');
-INSERT INTO `shop_html` VALUES ('2', '按时打算打算', '2011-09-07 11:28:59', null, 'asdasdasdasd');
-INSERT INTO `shop_html` VALUES ('3', 'asdasdasdas', '2011-09-07 11:29:09', null, 'asdasdasdasdasd');
-INSERT INTO `shop_html` VALUES ('4', '按时打算', '2011-09-07 11:29:19', null, 'dasdasda');
-INSERT INTO `shop_html` VALUES ('5', 'asdasd', '2011-09-07 11:31:12', null, 'asdasdasdasd');
-INSERT INTO `shop_html` VALUES ('6', '你好', '2011-09-07 13:03:16', null, 'asdasdasdas');
-INSERT INTO `shop_html` VALUES ('7', 'asdfasd', '2011-09-07 19:18:46', null, 'asdasdasd');
-INSERT INTO `shop_html` VALUES ('8', 'adasd', '2011-09-07 19:49:49', null, 'asdasdasd');
+INSERT INTO `shop_html` VALUES ('6', 'asdas', '2011-09-08 22:48:53', null, 'asdasdasd');
 
 -- ----------------------------
 -- Table structure for `shop_image`
@@ -543,7 +538,7 @@ CREATE TABLE `shop_product` (
   PRIMARY KEY (`ID`),
   KEY `FKF44D8886BF627AED` (`site_id`),
   CONSTRAINT `FKF44D8886BF627AED` FOREIGN KEY (`site_id`) REFERENCES `shop_site` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_product
@@ -579,6 +574,14 @@ INSERT INTO `shop_product` VALUES ('39', 'Men-T-shirt', '2011-08-25 01:24:33', '
 INSERT INTO `shop_product` VALUES ('40', 'DASASDA', '2011-09-05 22:19:27', '2011-09-05 22:24:20', '1', null, 'asdas', '0', '0', null, '0', 'asdas', 'adsasdasdasd', '0', '0', '1', '1', '29', '999', '77', '0');
 INSERT INTO `shop_product` VALUES ('41', '23423423423423', '2011-09-05 22:28:19', '2011-09-05 23:46:23', '1', null, 'daD', '0', '0', null, '0', 'ADA', 'If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.', '0', '0', '1', '1', '30', '999', '999', '0');
 INSERT INTO `shop_product` VALUES ('42', 'aDA', '2011-09-07 14:49:17', '2011-09-07 21:47:53', '1', null, 'dasdas', '0', '0', null, '0', 'asdas', 'dasdasdasdas<br>', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `shop_product` VALUES ('43', 'ascfasdazzz', '2011-09-07 23:29:07', '2011-09-08 00:34:07', '1', null, 'dasdas', '0', '0', null, '0', 'asdas', 'asdasd', '0', '0', '1', '1', '17', '2312312', '123121', '3');
+INSERT INTO `shop_product` VALUES ('44', 'asdaaaaaaaa', '2011-09-08 17:31:49', '2011-09-08 21:37:45', '1', null, 'asdasd', '0', '0', null, '0', 'asda', 'asdasdasdasd<br>', '0', '0', '1', '1', '17', '0', '0', '8');
+INSERT INTO `shop_product` VALUES ('45', 'dddddazzzzzz', '2011-09-08 22:42:35', '2011-09-08 22:42:35', '1', null, 'asdasd', '0', '0', null, '0', 'asda', 'asdasdasdasd<br>', '0', '0', '1', '1', '17', '0', '0', '8');
+INSERT INTO `shop_product` VALUES ('46', 'dddddazzzzzzddddzxxx', '2011-09-08 22:43:08', '2011-09-08 22:43:08', '1', null, 'asdasd', '0', '0', null, '0', 'asda', 'asdasdasdasd<br>', '0', '0', '1', '1', '17', '0', '0', '8');
+INSERT INTO `shop_product` VALUES ('47', 'Hello-spark', '2011-09-08 22:46:23', '2011-09-08 22:46:23', '1', null, 'Hello-spark', '0', '0', null, '0', 'Hello-spark', 'Hello-spark', '0', '0', '1', '1', '32', '66', '444', '0');
+INSERT INTO `shop_product` VALUES ('48', 'asdas', '2011-09-08 22:49:12', '2011-09-08 22:49:12', '1', null, 'asasdasd', '0', '0', null, '0', 'asd', 'asdasdasd', '0', '0', '1', '1', '24', '222', '333', '6');
+INSERT INTO `shop_product` VALUES ('49', 'asdaxzzzzz', '2011-09-08 22:50:28', '2011-09-08 22:50:28', '1', null, 'asasdasdadasdasd', '0', '0', null, '0', 'asd', 'asdasdasd', '0', '0', '1', '1', '24', '222', '333', '6');
+INSERT INTO `shop_product` VALUES ('50', 'xcxcxczczxczxczxczx', '2011-09-08 22:50:35', '2011-09-08 22:50:35', '1', null, 'asasdasdadasdasdadasd', '0', '0', null, '0', 'asd', 'asdasdasd', '0', '0', '1', '1', '24', '222', '333', '6');
 
 -- ----------------------------
 -- Table structure for `shop_productoption`
@@ -596,7 +599,7 @@ CREATE TABLE `shop_productoption` (
   PRIMARY KEY (`ID`),
   KEY `FK53BA009B582107E7` (`product_id`),
   CONSTRAINT `FK53BA009B582107E7` FOREIGN KEY (`product_id`) REFERENCES `shop_product` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_productoption
@@ -617,6 +620,18 @@ INSERT INTO `shop_productoption` VALUES ('27', 'Qty', null, null, null, null, 'I
 INSERT INTO `shop_productoption` VALUES ('28', 'Color', null, null, null, null, 'COLOR_SINGLE', '42');
 INSERT INTO `shop_productoption` VALUES ('29', 'Size', null, null, null, null, 'SINGLE_LIST', '42');
 INSERT INTO `shop_productoption` VALUES ('30', 'Qty', null, null, null, null, 'INPUT_TEXT', '42');
+INSERT INTO `shop_productoption` VALUES ('31', 'Color', null, null, null, null, 'COLOR_SINGLE', '43');
+INSERT INTO `shop_productoption` VALUES ('32', 'Size', null, null, null, null, 'SINGLE_LIST', '43');
+INSERT INTO `shop_productoption` VALUES ('33', 'Qty', null, null, null, null, 'INPUT_TEXT', '43');
+INSERT INTO `shop_productoption` VALUES ('34', 'Color', null, null, null, null, 'COLOR_SINGLE', '46');
+INSERT INTO `shop_productoption` VALUES ('35', 'Size', null, null, null, null, 'SINGLE_LIST', '46');
+INSERT INTO `shop_productoption` VALUES ('36', 'Qty', null, null, null, null, 'INPUT_TEXT', '46');
+INSERT INTO `shop_productoption` VALUES ('37', 'Color', null, null, null, null, 'COLOR_SINGLE', '47');
+INSERT INTO `shop_productoption` VALUES ('38', 'Size', null, null, null, null, 'SINGLE_LIST', '47');
+INSERT INTO `shop_productoption` VALUES ('39', 'Qty', null, null, null, null, 'INPUT_TEXT', '47');
+INSERT INTO `shop_productoption` VALUES ('40', 'Color', null, null, null, null, 'COLOR_SINGLE', '50');
+INSERT INTO `shop_productoption` VALUES ('41', 'Size', null, null, null, null, 'SINGLE_LIST', '50');
+INSERT INTO `shop_productoption` VALUES ('42', 'Qty', null, null, null, null, 'INPUT_TEXT', '50');
 
 -- ----------------------------
 -- Table structure for `shop_productoptionitem`
@@ -637,7 +652,7 @@ CREATE TABLE `shop_productoptionitem` (
   KEY `FKEF652A4E65CB8FC9` (`icon_id`),
   CONSTRAINT `FKEF652A4E23F866E6` FOREIGN KEY (`product_option_id`) REFERENCES `shop_productoption` (`ID`),
   CONSTRAINT `FKEF652A4E65CB8FC9` FOREIGN KEY (`icon_id`) REFERENCES `shop_image` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_productoptionitem
@@ -689,6 +704,21 @@ INSERT INTO `shop_productoptionitem` VALUES ('60', 'burgundy', null, null, null,
 INSERT INTO `shop_productoptionitem` VALUES ('61', 'aa', null, null, null, null, 'aaa', null, '29');
 INSERT INTO `shop_productoptionitem` VALUES ('62', 'asdas', null, null, null, null, 'asdasd', null, '29');
 INSERT INTO `shop_productoptionitem` VALUES ('63', 'eeee', null, null, null, null, 'asdasdasd', null, '29');
+INSERT INTO `shop_productoptionitem` VALUES ('64', 'champagne', null, null, null, null, '#E7B37A #CA9837 #CA9837 #E7B37A', null, '31');
+INSERT INTO `shop_productoptionitem` VALUES ('65', 'daffodil', null, null, null, null, '#CFCA68 #C1B141 #C1B141 #CFCA68', null, '31');
+INSERT INTO `shop_productoptionitem` VALUES ('66', 'silver', null, null, null, null, '#EBEBEB #CFCFCF #CFCFCF #EBEBEB', null, '31');
+INSERT INTO `shop_productoptionitem` VALUES ('67', 'white', null, null, null, null, '#FFFFFF #D9D9D9 #D9D9D9 #FFFFFF', null, '31');
+INSERT INTO `shop_productoptionitem` VALUES ('68', 'darknavy', null, null, null, null, '#647281 #1E2023 #1E2023 #647281', null, '31');
+INSERT INTO `shop_productoptionitem` VALUES ('69', 'darkgreen', null, null, null, null, '#466025 #162121 #162121 #466025', null, '31');
+INSERT INTO `shop_productoptionitem` VALUES ('70', 'browncoffee', null, null, null, null, '#BB9A76 #87643F #87643F #BB9A76', null, '31');
+INSERT INTO `shop_productoptionitem` VALUES ('71', 'chocolate', null, null, null, null, '#946D44 #6B4F37 #6B4F37 #946D44', null, '31');
+INSERT INTO `shop_productoptionitem` VALUES ('72', 'grape', null, null, null, null, '#715380 #563457 #563457 #715380', null, '31');
+INSERT INTO `shop_productoptionitem` VALUES ('73', 'fuchsia', null, null, null, null, '#F24A78 #C8183F #C8183F #F24A78', null, '31');
+INSERT INTO `shop_productoptionitem` VALUES ('74', 'ivory', null, null, null, null, '#FFFFFF #F7EED6 #F7EED6 #FFFFFF', null, '31');
+INSERT INTO `shop_productoptionitem` VALUES ('75', 'burgundy', null, null, null, null, '#A43755 #551B29 #551B29 #A43755', null, '31');
+INSERT INTO `shop_productoptionitem` VALUES ('76', 'asda', null, null, null, null, 'asdasd', null, '32');
+INSERT INTO `shop_productoptionitem` VALUES ('77', 'Nesdss', null, null, null, null, 'assas', null, '32');
+INSERT INTO `shop_productoptionitem` VALUES ('78', 'assas', null, null, null, null, 'asdasdas', null, '32');
 
 -- ----------------------------
 -- Table structure for `shop_productproperty`
@@ -704,7 +734,7 @@ CREATE TABLE `shop_productproperty` (
   PRIMARY KEY (`ID`),
   KEY `FK16BFE47B582107E7` (`product_id`),
   CONSTRAINT `FK16BFE47B582107E7` FOREIGN KEY (`product_id`) REFERENCES `shop_product` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_productproperty
@@ -717,6 +747,17 @@ INSERT INTO `shop_productproperty` VALUES ('17', 'asd', null, null, 'asdasdasd',
 INSERT INTO `shop_productproperty` VALUES ('18', 'asdas', null, null, 'asdasd', '40');
 INSERT INTO `shop_productproperty` VALUES ('19', 'asd', null, null, 'asasdas', '41');
 INSERT INTO `shop_productproperty` VALUES ('20', 'asdas', null, null, 'dasdas', '41');
+INSERT INTO `shop_productproperty` VALUES ('21', 'asdas', null, null, 'asdasd', '43');
+INSERT INTO `shop_productproperty` VALUES ('22', 'asdasd', null, null, 'asdasdas', '43');
+INSERT INTO `shop_productproperty` VALUES ('23', 'asdasdas', null, null, 'dasdasdasdas', '43');
+INSERT INTO `shop_productproperty` VALUES ('24', 'asdasdas', null, null, 'asdasdasd', '43');
+INSERT INTO `shop_productproperty` VALUES ('25', 'asdas', null, null, 'asdasd', '46');
+INSERT INTO `shop_productproperty` VALUES ('26', 'asdasd', null, null, 'asdasd', '46');
+INSERT INTO `shop_productproperty` VALUES ('27', 'asdas', null, null, 'asdasd', '46');
+INSERT INTO `shop_productproperty` VALUES ('28', 'asdas', null, null, 'asdasdas', '46');
+INSERT INTO `shop_productproperty` VALUES ('29', 'asdasd', null, null, 'asdasd', '46');
+INSERT INTO `shop_productproperty` VALUES ('30', 'asdas', null, null, 'asdasdas', '47');
+INSERT INTO `shop_productproperty` VALUES ('31', 'adas', null, null, 'dasdasdasdas', '50');
 
 -- ----------------------------
 -- Table structure for `shop_product_category`
@@ -767,6 +808,14 @@ INSERT INTO `shop_product_category` VALUES ('41', '5');
 INSERT INTO `shop_product_category` VALUES ('40', '8');
 INSERT INTO `shop_product_category` VALUES ('39', '57');
 INSERT INTO `shop_product_category` VALUES ('42', '5');
+INSERT INTO `shop_product_category` VALUES ('43', '5');
+INSERT INTO `shop_product_category` VALUES ('44', '7');
+INSERT INTO `shop_product_category` VALUES ('45', '7');
+INSERT INTO `shop_product_category` VALUES ('46', '7');
+INSERT INTO `shop_product_category` VALUES ('47', '5');
+INSERT INTO `shop_product_category` VALUES ('48', '5');
+INSERT INTO `shop_product_category` VALUES ('49', '5');
+INSERT INTO `shop_product_category` VALUES ('50', '5');
 
 -- ----------------------------
 -- Table structure for `shop_product_image`
@@ -833,6 +882,46 @@ INSERT INTO `shop_product_image` VALUES ('42', '34');
 INSERT INTO `shop_product_image` VALUES ('42', '33');
 INSERT INTO `shop_product_image` VALUES ('42', '32');
 INSERT INTO `shop_product_image` VALUES ('42', '31');
+INSERT INTO `shop_product_image` VALUES ('43', '34');
+INSERT INTO `shop_product_image` VALUES ('43', '33');
+INSERT INTO `shop_product_image` VALUES ('43', '32');
+INSERT INTO `shop_product_image` VALUES ('43', '31');
+INSERT INTO `shop_product_image` VALUES ('44', '34');
+INSERT INTO `shop_product_image` VALUES ('44', '31');
+INSERT INTO `shop_product_image` VALUES ('44', '33');
+INSERT INTO `shop_product_image` VALUES ('44', '32');
+INSERT INTO `shop_product_image` VALUES ('44', '30');
+INSERT INTO `shop_product_image` VALUES ('45', '34');
+INSERT INTO `shop_product_image` VALUES ('45', '31');
+INSERT INTO `shop_product_image` VALUES ('45', '33');
+INSERT INTO `shop_product_image` VALUES ('45', '32');
+INSERT INTO `shop_product_image` VALUES ('45', '30');
+INSERT INTO `shop_product_image` VALUES ('46', '34');
+INSERT INTO `shop_product_image` VALUES ('46', '31');
+INSERT INTO `shop_product_image` VALUES ('46', '33');
+INSERT INTO `shop_product_image` VALUES ('46', '32');
+INSERT INTO `shop_product_image` VALUES ('46', '30');
+INSERT INTO `shop_product_image` VALUES ('47', '34');
+INSERT INTO `shop_product_image` VALUES ('47', '33');
+INSERT INTO `shop_product_image` VALUES ('47', '32');
+INSERT INTO `shop_product_image` VALUES ('47', '31');
+INSERT INTO `shop_product_image` VALUES ('47', '30');
+INSERT INTO `shop_product_image` VALUES ('47', '29');
+INSERT INTO `shop_product_image` VALUES ('48', '34');
+INSERT INTO `shop_product_image` VALUES ('48', '33');
+INSERT INTO `shop_product_image` VALUES ('48', '32');
+INSERT INTO `shop_product_image` VALUES ('48', '31');
+INSERT INTO `shop_product_image` VALUES ('48', '30');
+INSERT INTO `shop_product_image` VALUES ('49', '34');
+INSERT INTO `shop_product_image` VALUES ('49', '33');
+INSERT INTO `shop_product_image` VALUES ('49', '32');
+INSERT INTO `shop_product_image` VALUES ('49', '31');
+INSERT INTO `shop_product_image` VALUES ('49', '30');
+INSERT INTO `shop_product_image` VALUES ('50', '34');
+INSERT INTO `shop_product_image` VALUES ('50', '33');
+INSERT INTO `shop_product_image` VALUES ('50', '32');
+INSERT INTO `shop_product_image` VALUES ('50', '31');
+INSERT INTO `shop_product_image` VALUES ('50', '30');
 
 -- ----------------------------
 -- Table structure for `shop_promotion`
