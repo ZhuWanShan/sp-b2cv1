@@ -18,6 +18,7 @@ public class Category  extends Component{
 	private boolean specialOffer;
 	private String marketContent;
 	private boolean enable;
+	private boolean deleted;
 	private boolean displayMarketOnly;
 	private String description;
 	private int index;
@@ -143,6 +144,7 @@ public class Category  extends Component{
 		obj.specialOffer = this.specialOffer;
 		obj.displayMarketOnly = this.displayMarketOnly;
 		obj.enable = this.enable;
+		obj.deleted = this.deleted;
 		obj.index = this.index;
 		if (this.marketContent != null) {
 			obj.marketContent=this.marketContent;
@@ -200,6 +202,14 @@ public class Category  extends Component{
 
 	public boolean isDisplayMarketOnly() {
 		return displayMarketOnly;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+
+	public boolean isDeleted() {
+		return deleted;
 	}
 
 }
