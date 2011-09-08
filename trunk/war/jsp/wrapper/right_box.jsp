@@ -106,11 +106,15 @@
 						</a>
 					</strong>
 					<div class="dilyMadness_save">
+						<c:if test="${tabProduct.actualPrice ne tabProduct.price }">
 						<p class="save_title">Save</p>
-						<p class="save_num">35%</p>
+						<p class="save_num">
+							<fmt:formatNumber type="number" value="${(1 - tabProduct.actualPrice / tabProduct.price) * 100}" maxFractionDigits="2"/>%
+						</p>
+						</c:if>
 					</div>
-					<del>product.originalPrice</del>
-					<p class="dilyMadness_priceTip">product.price</p>
+					<del>${tabProduct.price}</del>
+					<p class="dilyMadness_priceTip">US$ ${tabProduct.actualPrice}</p>
 				</li>
 			</c:forEach>
 			</ul>
@@ -136,9 +140,13 @@
 								   ${tabProduct.title}
 								</a>
 							</p>
-							<p class="save_per font_size20">Save:28%</p>
-							<del>product.originalPrice</del>
-							<p class="goods_price">product.price</p>
+							<p class="save_per font_size20">
+							<c:if test="${tabProduct.price ne tabProduct.actualPrice}">
+								Save:<fmt:formatNumber type="number" value="${(1 - tabProduct.actualPrice / tabProduct.price) * 100}" maxFractionDigits="2"/>%
+							</c:if>
+							</p>
+							<del>${tabProduct.price}</del>
+							<p class="goods_price">US$ ${tabProduct.actualPrice}</p>
 						</dd>
 					</dl>
 				</c:forEach>
