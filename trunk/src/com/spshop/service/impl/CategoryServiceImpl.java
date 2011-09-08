@@ -25,31 +25,35 @@ public class CategoryServiceImpl extends AbstractService<Category,CategoryDAO, L
 		criteria.setMaxResult(20);
 		criteria.addProperty("parent", null);
 		criteria.setOrderBy("index");
+		criteria.addProperty("deleted", Boolean.FALSE);
 		if(!includeDisable){
 			criteria.addProperty("enable", Boolean.TRUE);
 		}
 		criteria.setAsc(true);
 		QueryResult<Component> qs = ServiceFactory.getService(SiteService.class).query(criteria);
 		
-		if(!includeDisable){
-			for(Category category : qs.<Category>toSpecificResult()){
-				filterDisable(category);
-			}
+		for(Category category : qs.<Category>toSpecificResult()){
+			filter(category,!includeDisable,false);
 		}
+		
 		return qs.<Category>toSpecificResult();
 	}
 	
-	private void filterDisable(Category category) {
+	private void filter(Category category,boolean includeDisable, boolean includeDeleted) {
 		if(null!=category.getSubCategories()){
-			List<Category> cDisabled = new ArrayList<Category>();
+			List<Category> spinOff = new ArrayList<Category>();
 			for(Category c:category.getSubCategories()){
-				if(!c.isEnable()){
-					cDisabled.add(c);
+				if(!c.isEnable()&&!includeDisable){
+					spinOff.add(c);
+				}
+				
+				if(c.isDeleted()&&!includeDeleted){
+					spinOff.add(c);
 				}
 			}
-			category.getSubCategories().removeAll(cDisabled);
+			category.getSubCategories().removeAll(spinOff);
 			for(Category c:category.getSubCategories()){
-				filterDisable(c);
+				filter(c,includeDisable,includeDeleted);
 			}
 		}
 	}

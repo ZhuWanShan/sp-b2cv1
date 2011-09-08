@@ -8,6 +8,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
@@ -59,6 +60,7 @@ public class CategoryCreation extends Composite {
 	@UiField CheckBox marketOnly;
 	@UiField TextArea description;
 	@UiField IntegerBox index;
+	@UiField Button delete;
 	
 	private com.google.gwt.user.client.ui.Image specialOfferImageUI;
 
@@ -76,6 +78,7 @@ public class CategoryCreation extends Composite {
 
 
 	private void setCategory(Category category) {
+		
 		this.category = category;
 		name.setValue(category.getName());
 		cEnable.setValue(category.isEnable());
@@ -96,6 +99,11 @@ public class CategoryCreation extends Composite {
 			showImage.setVisible(false);
 		}
 		
+		if(category.getId()>1){
+			delete.setVisible(true);
+		}else{
+			delete.setVisible(false);
+		}
 	}
 
 	public Category getCategory() {
@@ -104,6 +112,10 @@ public class CategoryCreation extends Composite {
 
 	@UiHandler("button")
 	void onButtonClick(ClickEvent event) {
+		save();
+	}
+	
+	private void save(){
 		category.setUpdateDate(new Date());
 		category.setIndex(index.getValue());
 		category.setName(name.getValue());
@@ -204,4 +216,11 @@ public class CategoryCreation extends Composite {
 		return addRootCategory;
 	}
 	
+	@UiHandler("delete")
+	void onDeleteClick(ClickEvent event) {
+		if(Window.confirm("Are you sure?")){
+			getCategory().setDeleted(true);
+			save();
+		}
+	}
 }
