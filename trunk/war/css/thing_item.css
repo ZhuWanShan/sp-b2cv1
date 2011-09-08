@@ -173,7 +173,7 @@ input.item_emailenter{background:url(goods-bt.png) -340px -181px no-repeat; colo
 
 .item_reviews_helpful{ float:right; margin-top:10px;}
 /**********item_tab****************/
-.item_tab{position:relative; margin-bottom:40px;}
+.item_tab{position:relative; margin-bottom:5px;}
 .item_tabMenu{height:30px;border-left:1px solid #E0E0E0;}
 .item_tabMenu li{float:left;height:28px;color:#575757;padding:0 22px; background:#EAEAEA;border:1px solid #D6D6D6; border-width:1px 1px 1px 0; line-height:28px; cursor:pointer;}
 .item_tabMenu li.first{}
@@ -221,7 +221,7 @@ input.item_emailenter{background:url(goods-bt.png) -340px -181px no-repeat; colo
 /********* å•†å“åˆ—è¡¨ *********/
 /********* ç¿»é¡µ *********/
 
-.pages_box { clear: both; float: none; margin-top: 20px; padding: 10px 4px; text-align: right; }
+.pages_box { clear: both; float: none; margin-top: 5px; padding: 10px 4px; text-align: right; }
 .pages_box em { font-size: 11px; color: #666666; font-style: normal; padding-right: 10px; }
 .pages_box input { vertical-align: middle; width:23px; font-size:12px;}
 .pages_box strong { border: 1px solid #d9d300; padding: 3px 6px; text-decoration: none; margin-right: 4px; color: #FFFFFF; background: #d9d300; width: auto; }

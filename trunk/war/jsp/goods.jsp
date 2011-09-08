@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@include file="include.jsp" %>
-<%@page import="com.spshop.utils.AllConstants"%>
 <html>
 <head>
 	<link media="all" href="//s7.addthis.com/static/r07/widget58.css" type="text/css" rel="stylesheet"> 
@@ -60,17 +59,17 @@
 		<jsp:include page="goods/correlation_thing.jsp"></jsp:include>
 		<div class="item_ad_box"> </div>
 		<jsp:include page="goods/goods_info_top.jsp"></jsp:include>
+		
+		<!-- goods related -->
+		<jsp:include page="goods/goodsRelated.jsp"></jsp:include>
+		<!-- goods related  end-->
 	</div>
 	<!-- Main box end -->
-	<div class="hei10"></div>
-	<!-- Bottom end -->
-	<div class="content_box">
-		<c:if test="${pageForm.pageProperties.productDetail.showComments}">
-			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:comments href='<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name }' num_posts="15" width="971"></fb:comments>
-		</c:if>
-	</div>
+	
+	
 		<!-- Bottom start -->
 	<jsp:include page="bottom/bottom_box.jsp"></jsp:include>
 	<script type="text/javascript" src="js/footer.js"></script>
+	<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
 </body>
 </html>
