@@ -26,7 +26,6 @@ public class InitCacheService extends HttpServlet {
 		SCacheManager.getTopCategories();
 		SCacheManager.getSite();
 		SCacheManager.getTabSelling(true);
-		SCacheManager.getTopSelling(true);
 	}
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -38,6 +37,5 @@ public class InitCacheService extends HttpServlet {
 		SCacheManager.getGlobalCache().put(new Element(CATEGORY_CACHE, cs.getTopCategories()));
 		SCacheManager.getSite(true);
 		SCacheManager.getTabSelling(true);
-		SCacheManager.getTopSelling(true);
 	}
 }

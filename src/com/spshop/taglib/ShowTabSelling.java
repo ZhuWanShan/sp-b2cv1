@@ -42,6 +42,5 @@ public class ShowTabSelling extends TagSupport{
 		 var = "topSelling";
 		 forceUpdate=false;
 	}
-	
-	
+
 }

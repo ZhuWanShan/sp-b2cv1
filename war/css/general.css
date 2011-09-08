@@ -300,7 +300,7 @@ input,select{font-family:Arial, Helvetica, sans-serif;}
 .table_style1 td b{color:#000;}
 .table_style1 td a{color:#184C95;}
 .table_style1 td a:hover{color:#000;}
-.pages_box{clear:both;float:none;margin-top:20px;padding:10px 4px;text-align:right;}
+.pages_box{clear:both;float:none;margin-top:5px;padding:10px 4px;text-align:right;}
 .pages_box em{font-size:11px;color:#666666;font-style:normal;padding-right:10px;}
 .pages_box input{vertical-align:middle;}
 .pages_box strong{border:1px solid #d9d300;padding:3px 6px;text-decoration:none;margin-right:4px;color:#FFFFFF;background:#d9d300;width:auto;}
