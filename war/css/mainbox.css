@@ -33,7 +33,6 @@
 .dilyMadness_save .save_title{font-size:18px; color:#ffbe41;font-weight: bold; margin-bottom:-5px;}
 .dilyMadness_save .save_num{font-size:28px; color:#e50001;}
 .daily_madness del{position:absolute;right:6px;bottom:40px; font-size:11px; color:#8b8b8b;}
-.dilyMadness_priceTip{ position:absolute; bottom:2px; right:-6px;background:no-repeat; width:84px;height:38px; color:#c60000; font-size:12px; font-weight:bold; text-align:center; line-height:32px;}
   
 .other_Progoods{ margin:10px 0 0 8px; display:block;}
 .other_Progoods dl{ float:left; padding:8px 4px; width:234px; height:145px; border:#e9e9e9 solid 2px; margin:10px 7px 7px 0; display:inline; background:#fff; }
