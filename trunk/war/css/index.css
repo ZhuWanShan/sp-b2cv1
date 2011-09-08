@@ -28,7 +28,19 @@
 .daily_madness dl dd strong{ display:block; height:30px; margin-bottom:8px; overflow:hidden; font-weight:normal; line-height:14px;}
 .daily_madness dl dd .spacing{ padding-bottom:7px;}
 .daily_madness dl dd .display_right{ text-align:right;}
-
+.dilyMadness_priceTip {
+    background: url("indexIntegration_bg.png") no-repeat scroll 0 -341px transparent;
+    bottom: 2px;
+    color: #C60000;
+    font-size: 12px;
+    font-weight: bold;
+    height: 38px;
+    line-height: 32px;
+    position: absolute;
+    right: -6px;
+    text-align: center;
+    width: 84px;
+}
 .Spotlight{ display:none;}
 /*
 .Spotlight .goods_list{ margin:10px 5px 10px 12px; _margin:5px 2px 10px 12px;}

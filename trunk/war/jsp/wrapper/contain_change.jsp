@@ -43,8 +43,8 @@
 							</a>
 						</strong>
 					<span class="Reference_Price"> 
-						<del> product.price</del> 
-						<span class="red fontbold"> product.price </span> 
+						<del> ${product.price}</del> 
+						<span class="red fontbold"> ${product.actualPrice} </span> 
 					</span>
 					<div class="list_stars">
 						<span class="Reference_Price"> 
