@@ -1,25 +1,26 @@
 package com.spshop.taglib;
 
+import java.util.List;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 import com.spshop.cache.SCacheFacade;
-import com.spshop.model.HTML;
 
-public class ShowHTML extends TagSupport{
+public class ShowTabProductNames extends TagSupport{
 	
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = -2585682872396456649L;
-	private String var = "topSelling";
+	private String var = "names";
 	private boolean forceUpdate=false;
-	private int htmlId;
+	private int tabId;
 	
 	@Override
 	public int doStartTag() throws JspException {
-		HTML html = SCacheFacade.getHTML(htmlId,false);
-		pageContext.setAttribute(var, html);
+		List<String> names = SCacheFacade.getTabProductNames(tabId);
+		pageContext.setAttribute(var, names);
 		return EVAL_BODY_INCLUDE;
 	}
 	
@@ -39,17 +40,16 @@ public class ShowHTML extends TagSupport{
 	@Override
 	public void release() {
 		super.release();
-		 var = "topSelling";
+		 var = "names";
 		 forceUpdate=false;
-		 htmlId = 0;
-	}
-
-	public int getHtmlId() {
-		return htmlId;
-	}
-
-	public void setHtmlId(int htmlId) {
-		this.htmlId = htmlId;
+		 tabId = 0;
 	}
 	
+	public int getTabId() {
+		return tabId;
+	}
+
+	public void setTabId(int tabId) {
+		this.tabId = tabId;
+	}
 }

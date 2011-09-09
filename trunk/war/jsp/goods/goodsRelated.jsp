@@ -54,18 +54,20 @@
   
 <div class="item_bottom_right">
 	<c:if test="${pageForm.pageProperties.productDetail.tabProductKey > 0}">
-		<ss:topSelling var="rp" tabId="${pageForm.pageProperties.productDetail.tabProductKey }">
+		<ss:tabProductNames var="names" tabId="${pageForm.pageProperties.productDetail.tabProductKey }">
 			<h3>Customers Who Bought This Item Also Bought</h3>
 			<div class="item_bottom_funBt">
 			</div>
 		    <ul class="complete_look_normal">
-		     <c:forEach items="${rp.products}" var="product">
-		      <li> <a title="${product.title }" href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${product.name}"><img width="80" height="105" border="0" alt="${product.title }" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}"></a>
-		        <div>US$ ${product.actualPrice}</div>
-		      </li>
+		     <c:forEach items="${names}" var="name">
+		     	<ss:product var="product" productName="${name}">
+				      <li> <a title="${product.title }" href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${product.name}"><img width="80" height="105" border="0" alt="${product.title }" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}"></a>
+				        <div>US$ ${product.actualPrice}</div>
+				      </li>
+		      </ss:product>
 		     </c:forEach>
 		    </ul>
-	    </ss:topSelling>
+	    </ss:tabProductNames>
     </c:if>
 </div>  
   

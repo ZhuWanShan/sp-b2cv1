@@ -16,4 +16,8 @@ public interface ProductService extends BaseService<Product,ProductDAO, Long>{
 	List<Product> queryByCategory(Category category, int start, int end);
 	
 	Long queryCountByCategory(Category category);
+	
+	List<String> queryProdNameByCategory(Category category, int start, int end);
+	
+	Product getProductByName(String name);
 }

@@ -9,7 +9,7 @@
 		<description>Show site</description>
 		<name>site</name>
 		<tag-class>com.spshop.taglib.ShowSite</tag-class>
-		<body-content>jsp</body-content>
+		<body-content>JSP</body-content>
 		<attribute>
 			<name>var</name>
 			<required>true</required>
@@ -27,7 +27,7 @@
 		<description>Show TopSelling</description>
 		<name>topSelling</name>
 		<tag-class>com.spshop.taglib.ShowTopSelling</tag-class>
-		<body-content>jsp</body-content>
+		<body-content>JSP</body-content>
 		<attribute>
 			<name>var</name>
 			<required>true</required>
@@ -51,7 +51,7 @@
 		<description>Show HTML</description>
 		<name>html</name>
 		<tag-class>com.spshop.taglib.ShowHTML</tag-class>
-		<body-content>jsp</body-content>
+		<body-content>JSP</body-content>
 		<attribute>
 			<name>var</name>
 			<required>true</required>
@@ -75,7 +75,7 @@
 		<description>Show tabSelling</description>
 		<name>tabSelling</name>
 		<tag-class>com.spshop.taglib.ShowTabSelling</tag-class>
-		<body-content>jsp</body-content>
+		<body-content>JSP</body-content>
 		<attribute>
 			<name>var</name>
 			<required>true</required>
@@ -85,6 +85,78 @@
 		<attribute>
 			<name>forceUpdate</name>
 			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<description>Show tab Product Names</description>
+		<name>tabProductNames</name>
+		<tag-class>com.spshop.taglib.ShowTabProductNames</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>forceUpdate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>tabId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<description>Show category Product Names</description>
+		<name>categoryProductNames</name>
+		<tag-class>com.spshop.taglib.ShowProductNamesByCategory</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>forceUpdate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>category</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<description>Show Product </description>
+		<name>product</name>
+		<tag-class>com.spshop.taglib.ShowProduct</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>forceUpdate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>productName</name>
+			<required>true</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 	</tag>

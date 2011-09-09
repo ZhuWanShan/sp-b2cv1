@@ -3,7 +3,7 @@ package com.spshop.taglib;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import com.spshop.cache.SCacheManager;
+import com.spshop.cache.SCacheFacade;
 import com.spshop.model.TabSelling;
 
 public class ShowTabSelling extends TagSupport{
@@ -18,7 +18,7 @@ public class ShowTabSelling extends TagSupport{
 	@Override
 	public int doStartTag() throws JspException {
 		
-		TabSelling tabSelling = SCacheManager.getTabSelling(false);
+		TabSelling tabSelling = SCacheFacade.getTabSelling(false);
 		pageContext.setAttribute(var, tabSelling);
 		return EVAL_BODY_INCLUDE;
 	}
