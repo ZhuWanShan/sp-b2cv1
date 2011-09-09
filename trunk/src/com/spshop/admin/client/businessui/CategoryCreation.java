@@ -101,8 +101,10 @@ public class CategoryCreation extends Composite {
 		
 		if(category.getId()>1){
 			delete.setVisible(true);
+			button.setText("Update");
 		}else{
 			delete.setVisible(false);
+			button.setText("Save");
 		}
 	}
 
@@ -134,7 +136,6 @@ public class CategoryCreation extends Composite {
 			category.setCreateDate(new Date());
 		}
 		CommandFactory.lock("Save Category").execute();
-		button.setEnabled(false);
 		AdminWorkspace.ADMIN_SERVICE_ASYNC.saveCategory(category,
 				new AsyncCallbackAdapter<Category>() {
 					@Override
@@ -151,6 +152,7 @@ public class CategoryCreation extends Composite {
 						} else {
 							item.setCategory(rs);
 						}
+						button.setText("Update");
 						CommandFactory.release().execute();
 					}
 				});

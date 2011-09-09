@@ -16,6 +16,9 @@ public class CategoryValidator extends Validator<Category>{
 		if(isEmpty(getComponent().getDisplayName())){
 			addMessage("Category diplay name cannot be null !");
 		}
+		if(!isName(getComponent().getName())){
+			addMessage("Name Only allow a-z, 0-9 , - , _!");
+		}
 	}
 
 }

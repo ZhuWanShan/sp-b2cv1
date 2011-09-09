@@ -57,5 +57,13 @@ public abstract class Validator<T> {
 		}
 		return false;
 	}
+	
+	public boolean isName(String str){
+		if(!isEmpty(str)){
+			return str.matches("[\\d\\w_-]+");
+		}
+		return false;
+	}
+
 
 }
