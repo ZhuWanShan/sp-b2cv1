@@ -13,7 +13,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.spshop.cache.SCacheManager;
+import com.spshop.cache.SCacheFacade;
 import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Category;
 import com.spshop.model.Site;
@@ -27,7 +27,7 @@ public abstract class BaseAction extends Action {
 	 */
 	private void populateMenuBar(PageFormBean page) {
 		List<Category> categories = new ArrayList<Category>();
-		categories = SCacheManager.getTopCategories();
+		categories = SCacheFacade.getTopCategories();
 		Map<Object, Object> specialOffer = new HashMap<Object, Object>();
 		
 		for (Category category : categories) {
@@ -60,12 +60,12 @@ public abstract class BaseAction extends Action {
 	 * @param page
 	 */
 	private void populateSiteInfo(HttpServletRequest request, PageFormBean page) {
-		Site site = SCacheManager.getSite();
+		Site site = SCacheFacade.getSite();
 		page.setSite(site);
 	}
 	
 	void populateCategoryForCategoryPage(String categoryName, PageFormBean page) {
-		List<Category> categories = SCacheManager.getTopCategories();
+		List<Category> categories = SCacheFacade.getTopCategories();
 		
 		page.setCategory(searchCategory(categories, categoryName));
 	}

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.ehcache.Element;
 
-import com.spshop.cache.SCacheManager;
+import com.spshop.cache.SCacheFacade;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CategoryService;
 
@@ -23,9 +23,9 @@ public class InitCacheService extends HttpServlet {
 	private static final long serialVersionUID = 7424034770029029671L;
 	
 	public void init() throws ServletException {
-		SCacheManager.getTopCategories();
-		SCacheManager.getSite();
-		SCacheManager.getTabSelling(true);
+		SCacheFacade.getTopCategories();
+		SCacheFacade.getSite();
+		SCacheFacade.getTabSelling(true);
 	}
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -34,8 +34,8 @@ public class InitCacheService extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		CategoryService cs = ServiceFactory.getService(CategoryService.class);
-		SCacheManager.getGlobalCache().put(new Element(CATEGORY_CACHE, cs.getTopCategories()));
-		SCacheManager.getSite(true);
-		SCacheManager.getTabSelling(true);
+		SCacheFacade.getGlobalCache().put(new Element(CATEGORY_CACHE, cs.getTopCategories()));
+		SCacheFacade.getSite(true);
+		SCacheFacade.getTabSelling(true);
 	}
 }

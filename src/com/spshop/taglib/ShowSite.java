@@ -5,7 +5,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 import org.apache.jasper.servlet.JspServlet;
 
-import com.spshop.cache.SCacheManager;
+import com.spshop.cache.SCacheFacade;
 import com.spshop.model.Site;
 
 public class ShowSite extends TagSupport{
@@ -18,7 +18,7 @@ public class ShowSite extends TagSupport{
 	private boolean forceUpdate=false;
 
 	public int doStartTag() throws JspException {
-		Site site = SCacheManager.getSite(forceUpdate);
+		Site site = SCacheFacade.getSite(forceUpdate);
 		
 		pageContext.setAttribute(var, site);
 		

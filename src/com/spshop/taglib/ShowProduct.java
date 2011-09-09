@@ -4,22 +4,22 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 import com.spshop.cache.SCacheFacade;
-import com.spshop.model.HTML;
+import com.spshop.model.Product;
 
-public class ShowHTML extends TagSupport{
+public class ShowProduct extends TagSupport{
 	
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = -2585682872396456649L;
-	private String var = "topSelling";
+	private String var = "product";
 	private boolean forceUpdate=false;
-	private int htmlId;
+	private String productName;
 	
 	@Override
 	public int doStartTag() throws JspException {
-		HTML html = SCacheFacade.getHTML(htmlId,false);
-		pageContext.setAttribute(var, html);
+		Product product = SCacheFacade.getProduct(productName);
+		pageContext.setAttribute(var, product);
 		return EVAL_BODY_INCLUDE;
 	}
 	
@@ -39,17 +39,16 @@ public class ShowHTML extends TagSupport{
 	@Override
 	public void release() {
 		super.release();
-		 var = "topSelling";
+		 var = "product";
 		 forceUpdate=false;
-		 htmlId = 0;
+		 productName = null;
 	}
 
-	public int getHtmlId() {
-		return htmlId;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
-	public void setHtmlId(int htmlId) {
-		this.htmlId = htmlId;
+	public String getProductName() {
+		return productName;
 	}
-	
 }
