@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import com.spshop.cache.SCacheFacade;
 import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Category;
 import com.spshop.model.Product;
@@ -68,8 +69,10 @@ public class PageAction extends BaseAction {
 	
 	private void populateProductsByCategory(PageFormBean page, int startIndex, int pageSize) {
 		List<Product> products = new ArrayList<Product>();
-		products = ServiceFactory.getService(ProductService.class).queryByCategory(page.getCategory(), startIndex, pageSize);
-		
+		List<String> productNames =SCacheFacade.getCategoryProductNames(page.getCategory(), startIndex-1, startIndex+pageSize-1);
+		for (String name : productNames) {
+			products.add(SCacheFacade.getProduct(name));
+		}
 		page.addPageProperty(AllConstants.PROD_IN_CATEGORY_PAGE, products);
 	}
 
