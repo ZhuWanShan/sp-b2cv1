@@ -143,11 +143,11 @@ public class SCacheFacade{
 	}
 	
 
-	public static List<String> getCategoryProductNames(Category category){
-		List<String> names = (List<String>) getCategoryProductNameCache().get(category.getName());
+	public static List<String> getCategoryProductNames(Category category,int start, int end){
+		List<String> names = (List<String>) getCategoryProductNameCache().get(category.getName()+"_start_"+start+"_end_"+end);
 		if(null==names){
-			names = ServiceFactory.getService(ProductService.class).queryProdNameByCategory(category,0,9);
-			getTabProductNameCache().put(category.getName(), names);
+			names = ServiceFactory.getService(ProductService.class).queryProdNameByCategory(category,start,end);
+			getTabProductNameCache().put(category.getName()+"_start_"+start+"_end_"+end, names);
 		}
 
 		return names;

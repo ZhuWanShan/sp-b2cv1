@@ -20,7 +20,7 @@ public class ShowProductNamesByCategory extends TagSupport{
 	
 	@Override
 	public int doStartTag() throws JspException {
-		List<String> names = SCacheFacade.getCategoryProductNames(category);
+		List<String> names = SCacheFacade.getCategoryProductNames(category,0,9);
 		pageContext.setAttribute(var, names);
 		return EVAL_BODY_INCLUDE;
 	}

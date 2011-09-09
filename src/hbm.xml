@@ -181,10 +181,6 @@
 		<property name="updateDate"></property>
 		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
-		<bag name="coupons" table="SHOP_order_coupon">
-			<key column="order_id"></key>
-			<many-to-many class="Coupon" column="coupon_id"></many-to-many>
-		</bag>
 		<property name="customerAddress" length="200"></property>
 		<property name="customerCompany" length="200" ></property>
 		<property name="customerCountry" length="200"></property>
@@ -195,7 +191,7 @@
 		<property name="deliverCode" length="200"></property>
 		<property name="deliverCompany" length="200"></property>
 		<property name="deliverPhone" length="200"></property>
-		<bag name="items">
+		<bag name="items" cascade="all">
 			<key column="order_id"></key>
 			<one-to-many class="OrderItem"/>
 		</bag>
@@ -213,10 +209,9 @@
 		<property name="updateDate"></property>
 		
 		<property name="finalPrice"></property>
-		<many-to-one name="order" class="Order" column="order_id"></many-to-one>
 		<many-to-one name="product" class="Product" column="product_id"></many-to-one>
 		<property name="quantity"></property>
-		<bag name="userOptions">
+		<bag name="userOptions" cascade="all">
 			<key column="item_id"></key>
 			<one-to-many class="UserOption"/>
 		</bag>
@@ -229,8 +224,6 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
-		
 		<property name="status"></property>
 	</class>
 	
@@ -442,10 +435,8 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
-		
-		<property name="optional" length="200"></property>
+		<property name="strOptionType"></property>
+		<property name="optionName" length="200"></property>
 		<property name="value" length="200"></property>
-		<many-to-one name="orderItem" class="OrderItem" column="order_item_id"></many-to-one>
 	</class>
 </hibernate-mapping>

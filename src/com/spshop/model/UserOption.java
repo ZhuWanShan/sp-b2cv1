@@ -1,5 +1,7 @@
 package com.spshop.model;
 
+import com.spshop.model.enums.SelectType;
+
 public class UserOption extends Component{
 
 	/**
@@ -7,19 +9,24 @@ public class UserOption extends Component{
 	 */
 	private static final long serialVersionUID = -1976590524674580292L;
 	
-	private String optional;
+	private String optionName;
 	private String value;
-	private OrderItem orderItem;
+	private String strOptionType;
+	//private OrderItem orderItem;
 	
 	public UserOption() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public UserOption(UserOption option) {
+		super(option);
+	}
+	
 	public String getOptional() {
-		return optional;
+		return optionName;
 	}
 	public void setOptional(String optional) {
-		this.optional = optional;
+		this.optionName = optional;
 	}
 	public String getValue() {
 		return value;
@@ -27,11 +34,29 @@ public class UserOption extends Component{
 	public void setValue(String value) {
 		this.value = value;
 	}
-	public OrderItem getOrderItem() {
-		return orderItem;
+
+	public String getOptionName() {
+		return optionName;
 	}
-	public void setOrderItem(OrderItem orderItem) {
-		this.orderItem = orderItem;
+
+	public void setOptionName(String optionName) {
+		this.optionName = optionName;
+	}
+
+	public String getStrOptionType() {
+		return strOptionType;
+	}
+
+	public void setStrOptionType(String strOptionType) {
+		this.strOptionType = strOptionType;
+	}
+
+	public void setOptionType(SelectType selectType) {
+		this.strOptionType = selectType.getValue();
+	}
+	
+	public SelectType getOptionType() {
+		return SelectType.valueOf(strOptionType);
 	}
 
 	/**
@@ -41,19 +66,22 @@ public class UserOption extends Component{
 	 */
 	public UserOption clone() {
 		UserOption obj = null;
-		obj = new UserOption();
-		if (this.optional != null) {
+		obj = new UserOption(this);
+		if (this.optionName != null) {
 			/* Does not have a clone() method */
-			obj.optional = this.optional;
+			obj.optionName = this.optionName;
 		}
 		if (this.value != null) {
 			/* Does not have a clone() method */
 			obj.value = this.value;
 		}
-		if (this.orderItem != null) {
-			obj.orderItem = (OrderItem) this.orderItem.clone();
+		if (this.strOptionType != null) {
+			/* Does not have a clone() method */
+			obj.strOptionType = this.strOptionType;
 		}
 		return obj;
 	}
+	
+	
 	
 }

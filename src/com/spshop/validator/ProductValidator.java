@@ -10,6 +10,7 @@ public class ProductValidator extends Validator<Product>{
 
 	@Override
 	public void runRules() {
+		
 		if(isEmpty(getComponent().getTitle())){
 			addMessage("Title can not be null!");
 		}
@@ -24,6 +25,10 @@ public class ProductValidator extends Validator<Product>{
 		
 		if(isEmpty(getComponent().getName())){
 			addMessage("Name can not be null!");
+		}
+		
+		if(!isName(getComponent().getName())){
+			addMessage("Name Only allow a-z, 0-9 , - , _!");
 		}
 	}
 
