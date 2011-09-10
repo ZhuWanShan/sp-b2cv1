@@ -13,6 +13,11 @@
 		memoryStoreEvictionPolicy="LRU" overflowToDisk="true"
 		maxElementsOnDisk="10000" />
 		
+	<cache name="cart" eternal="false"
+		timeToLiveSeconds="600" maxElementsInMemory="1000"
+		memoryStoreEvictionPolicy="LRU" overflowToDisk="true"
+		maxElementsOnDisk="500" />
+		
 	<cache name="product" eternal="false"
 		timeToLiveSeconds="600" maxElementsInMemory="1000"
 		memoryStoreEvictionPolicy="LRU" overflowToDisk="true"

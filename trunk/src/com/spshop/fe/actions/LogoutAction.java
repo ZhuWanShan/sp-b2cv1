@@ -2,6 +2,7 @@ package com.spshop.fe.actions;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -14,7 +15,8 @@ public class LogoutAction extends BaseAction {
 	public ActionForward processer(ActionMapping mapping, PageFormBean page,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		page.addPageProperty("loginError", "");
+		HttpSession session = request.getSession();
+		session.setAttribute("email", null);
 		return mapping.findForward(AllConstants.SUCCESS_VALUE);
 	}
 

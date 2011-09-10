@@ -32,6 +32,7 @@ public class Product extends Component{
 	private boolean showComments;
 	private long manualKey;
 	private boolean showlikeButton;
+	private String productUrl;
 	
 	public Product() {
 		ProductOption colorOp = new ProductOption();
@@ -294,6 +295,18 @@ public class Product extends Component{
 	}
 	public void setShowlikeButton(boolean showlikeButton) {
 		this.showlikeButton = showlikeButton;
+	}
+	/**
+	 * @return the productUrl
+	 */
+	public String getProductUrl() {
+		return productUrl;
+	}
+	/**
+	 * @param productUrl the productUrl to set
+	 */
+	public void setProductUrl(String productUrl) {
+		this.productUrl = productUrl;
 	}
 	
 	
