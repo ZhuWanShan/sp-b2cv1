@@ -38,6 +38,7 @@ public class AllConstants {
 	public static String PROD_COUNT = "productsCount";
 	
 	public static String CATEGORY_CACHE = "catetoryCache";
+	public static String ORDER_CACHE = "orderCache";
 	
 	//mail
 	public static final String SMTP = "smtp.gmail.com";

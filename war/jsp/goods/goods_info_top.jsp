@@ -4,7 +4,7 @@
 	<div class="item_box_left_normal">
 		<!-- class="item_box_left" to high -->
 		<div class="no_float">
-	
+			
 			<!-- normal picture -->
 			<div class="item_normal_pic" id="item_normal_pic">
 				<div class="item_normal_pic_box">
@@ -48,7 +48,7 @@
 	</div>
 	<!-- shopping function -->
 	<form onsubmit="return formsubmit();" name="cusform" method="post"
-		action="https://www.milanoo.com/shop/Cart.html">
+		action="displayCart.do">
 		<div class=" item_shopping_fun">
 			<div class="noFlow">
 				<h1><c:out value="${pageForm.pageProperties.productDetail.title}" /></h1>
@@ -260,12 +260,13 @@ changeunit('in');
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}" var="option" varStatus="idx" step="1">
 					<c:if test='${option.strSelectType eq "INPUT_TEXT"}'>
 						<div class="noFlow">
-							<c:out value="${option.name}" />: <input type="text" name="<c:out value="${option.name}" />" id="<c:out value="${option.id}" />" value="<c:out value="${option.defaultValue}" />" size="5"
+							<c:out value="${option.name}" />: <input type="text" name="product_inputText_<c:out value='${option.name}' />" id="<c:out value="${option.id}" />" value="<c:out value="${option.defaultValue}" />" size="5"
 								maxlength="4" class="input_1"
 								onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value&gt;9999)this.value=9999;"
 								onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
 							<div class="item_funTotal" href="javascript:void(0);">
-								Total: <span>US$ <span id="AmountPrice3">209.99</span>
+								<input type="hidden" name="product_inputText_price" value="${pageForm.pageProperties.productDetail.price}"/>
+								Total: <span>US$ <span id="AmountPrice3">${pageForm.pageProperties.productDetail.price}</span>
 								</span>
 							</div>
 						</div>
@@ -277,10 +278,10 @@ changeunit('in');
 									href="javascript:jq.goDiv('#tab_middle');"
 									class="item_funLink size_chart">Size Chart</a>
 							</div>
-							<select name="CustomAttributes_array[199]" id="Size0">
+							<select name="product_singleList_<c:out value='${option.name}' />" id="Size0">
 								<option	value="please">Please select</option>
 								<c:forEach items="${option.items}" var="item" varStatus="indx" step="1">
-									<option value="${item.id}">${item.value}</option>
+									<option value="${item.value}" <c:if test="${item.value eq option.defaultValue}">selected="selected"</c:if>>${item.value}</option>
 								</c:forEach>
 							</select>
 						</div>
@@ -292,10 +293,10 @@ changeunit('in');
 									href="javascript:jq.goDiv('#tab_middle');"
 									class="item_funLink size_chart">Size Chart</a>
 							</div>
-							<select name="CustomAttributes_array[199]" id="Size0" MULTIPLE>
+							<select name="product_multiList_<c:out value='${option.name}' />" id="Size0" MULTIPLE>
 								<option	value="please">Please select</option>
 								<c:forEach items="${option.items}" var="item" varStatus="indx" step="1">
-									<option value="${item.id}">${item.value}</option>
+									<option value="${item.value}" <c:if test="${fn:contains(option.defaultValue, item.value)}">selected="selected"</c:if>>${item.value}</option>
 								</c:forEach>
 							</select>
 						</div>
@@ -307,14 +308,15 @@ changeunit('in');
 									href="javascript:jq.goDiv('#tab_middle');"
 									class="item_funLink color_chart">Color Chart</a>
 							</div>
-							<input type="hidden" name="CustomAttributes_array[207]/" id="weddingdresscolor1" value="color1">
+							<input type="hidden" name="product_colorSingle_<c:out value='${option.name}' />" id="goodColor" value="">
 							<c:forEach items="${option.items}" var="item" varStatus="indx" step="1">
-								<a dataname="Color0" data="color${indx.index}"
+								<a dataname="Color0" data="color${indx.index}" value = "${item.value}"
 								href="javascript:void(0);" title="${item.altTitle}"
 								class="colorLink" style="border: 1px solid rgb(139, 33, 4);">
-								<div class="abPosition"></div>
-								<div class="select_${item.name}" style="border-color:${item.value}"></div>
-							</a>
+								<div <c:if test='${option.defaultValue eq item.value}'>class="abPosition selectImg" </c:if> class="abPosition" ></div>
+								<div class="select_${item.name}"  style="border-color:${item.value}"></div>
+								
+							</a> 
 							</c:forEach>
 							
 							
@@ -322,6 +324,8 @@ changeunit('in');
 					</c:if>
 					<input type="hidden" value="${pageForm.pageProperties.productDetail.id}" name="ProductId">
 				</c:forEach>
+				
+				
 				<!--musictagstock start-->
 				<div style="color: #F33">
 					<i id="StocksInfo"></i>
@@ -366,6 +370,7 @@ changeunit('in');
 			jq(".colorLink[dataName='"+dataName+"'] div").removeClass('selectImg');
 			jq(this).find("div:first").addClass('selectImg');
 			jq(this).css("border","1px solid #8b2104"); 
+			$('goodColor').value = jq(this).attr('value');
 	 	 	chooseSize();
 	});
 	
@@ -374,25 +379,22 @@ changeunit('in');
 			<ul style="display: block;" id="choosePro" class="choosePro">
 				<li>Dress Color:Refer to the image</li>
 			</ul>
+			<c:if test='${pageForm.pageProperties.displayOrderItem != null}'>
 			<div class="addtocart">
+			
 				<input type="submit" style="display: none;" id="sub"
 					value="ADD TO MY BAG" class="item_addBag"> <input
-					type="button" id="nosub" value="ADD TO MY BAG" class="item_addBag">
+					type="submit" id="nosub" value="ADD TO MY BAG" class="item_addBag">
 				<div class="sub_outDiv_normal" style="display: none;"
 					id="sub_outDiv">
-					<div id="notselect_tips" class="notselect_tips">
-						<div class="tips_title">PLEASE SELECT</div>
-						<ul id="nochoose">
-							<li>Size</li>
-						</ul>
-					</div>
+					
 					<div style="" id="notselect_tips1" class="tip_arrow">&nbsp;</div>
 				</div>
 			</div>
 			<a onclick="favorite('32534')" id="favorite_32534"
 				class="item_potionsFavorite" href="javascript:void(0);">Add to
 				my Favorite </a>
-
+			</c:if>
 			<div class="item_funWords">
 				<div id="favorite" style="display: none;" class="details_l"></div>
 			</div>
@@ -417,4 +419,64 @@ changeunit('in');
 	</form>
 	<script type="text/javascript" src="../js/thing_item.js"></script>
 	<script type="text/javascript" src="../js/plusone.js"></script>
+	
+	<script type="text/javascript">
+	function formsubmit(){
+		if("${email}" == null || "${email}" == ""){
+			alert("please login first");
+			return false;
+		}
+		var inputArray = document.getElementsByTagName('input');
+		if(inputArray!=null){
+			for(var i=0;i<inputArray.length;i++){
+				var inputItem = inputArray[i];
+				var optionName = inputItem.name;
+				if(optionName.startWith("product_")){
+					if(inputItem.value==null||inputItem.value==""){
+						var names = inputItem.name.split("_");
+						var name = names[names.length-1];
+						alert("please fill "+name);
+						return false;
+					}
+				}
+			}
+		}
+		
+		var selectArray = document.getElementsByTagName('select');
+		if(selectArray!=null){
+			for(var i=0;i<selectArray.length;i++){
+				var selectItem = selectArray[i];
+				var optionName = selectItem.name;
+				if(optionName.startWith("product_")){
+					if(selectItem.value==null||selectItem.value==""){
+						var names = selectItem.name.split("_");
+						var name = names[names.length-1];
+						alert("please select "+name);
+						return false;
+					}
+				}
+			}
+		}
+	}
+	
+	String.prototype.endWith=function(str){
+		if(str==null||str==""||this.length==0||str.length>this.length)
+		  return false;
+		if(this.substring(this.length-str.length)==str)
+		  return true;
+		else
+		  return false;
+		return true;
+		}
+
+		String.prototype.startWith=function(str){
+		if(str==null||str==""||this.length==0||str.length>this.length)
+		  return false;
+		if(this.substr(0,str.length)==str)
+		  return true;
+		else
+		  return false;
+		return true;
+		}
+	</script>
 </div>

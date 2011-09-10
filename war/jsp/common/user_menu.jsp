@@ -14,10 +14,13 @@
 		</li>
 		<script type="text/javascript">
 		if(""!="${pageForm.pageProperties.loginError}"){
-			alert("Wrong User ID or PasswordÔºÅ");
+			alert("Wrong User ID or Password!Å");
 		}
 		</script>
-		<c:if test="${pageForm.pageProperties.email == null}">
+		<% 
+		String email = (String) request.getSession().getAttribute("email");
+		%>
+		<c:if test="${email eq null}">
 			<li id="base_unlogin_li" class="">Login
 				<div style="width: 200px; cursor: default; display: none;"
 					class="user_menu_hidd">
@@ -55,8 +58,8 @@
 				</div>
 			</li>
 		</c:if>
-		<c:if test="${pageForm.pageProperties.email != null}">
-			<li id="hide_login_li"><span id="hide_login_span">${pageForm.pageProperties.email}</span>.
+		<c:if test="${email!=null}">
+			<li id="hide_login_li"><span id="hide_login_span">${email}</span>.
 				(<a href="logout.do"
 				title="Sign out">Sign out</a>)
 				<div style="width: 100%; display: none; cursor: default;"

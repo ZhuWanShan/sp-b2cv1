@@ -1,7 +1,7 @@
 package com.spshop.cache;
 
 import static com.spshop.utils.AllConstants.CATEGORY_CACHE;
-
+import static com.spshop.utils.AllConstants.ORDER_CACHE;
 import java.util.List;
 
 import net.sf.ehcache.Cache;
@@ -9,6 +9,7 @@ import net.sf.ehcache.Element;
 
 import com.spshop.model.Category;
 import com.spshop.model.HTML;
+import com.spshop.model.Order;
 import com.spshop.model.Product;
 import com.spshop.model.Site;
 import com.spshop.model.TabProduct;
@@ -26,6 +27,7 @@ public class SCacheFacade{
 	private static SCacheManager cacheManager;
 	public static final String GLOBAL_CACHE = "global";
 	public static final String PRODUCT_CACHE = "product";
+	public static final String CART_CACHE = "cart";
 	public static final String TAB_PRODUCT_NAME_CACHE = "tabProductNames";
 	public static final String CATRGORY_PRODUCT_NAME_CACHE = "categoryProductNames";
 	static{
@@ -46,6 +48,26 @@ public class SCacheFacade{
 	
 	public static SCache getTabProductNameCache(){
 		return cacheManager.getSCache(TAB_PRODUCT_NAME_CACHE);
+	}
+	
+
+	public static Cache getCartCache() {
+		return cacheManager.getCache(CART_CACHE);
+	}
+
+	public static Order getOrder(String userEmail) {
+		if (null != getCartCache() && null != getCartCache().get(userEmail)) {
+			Order order = (Order) getCartCache().get(userEmail).getValue();
+			return order;
+		}
+		return null;
+	}
+	
+	public static void addOrder(String email, Order order) {
+		if (null != getCartCache()){
+			getCartCache().put(new Element(email, order));
+		}
+		
 	}
 	
 	public static List<Category> getTopCategories(){
