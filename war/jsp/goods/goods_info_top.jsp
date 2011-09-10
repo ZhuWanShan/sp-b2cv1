@@ -263,10 +263,7 @@ changeunit('in');
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}" var="option" varStatus="idx" step="1">
 					<c:if test='${option.strSelectType eq "INPUT_TEXT"}'>
 						<div class="noFlow">
-							<c:out value="${option.name}" />: <input type="text" name="product_inputText_<c:out value='${option.name}' />" id="<c:out value="${option.id}" />" value="<c:out value="${option.defaultValue}" />" size="5"
-								maxlength="4" class="input_1"
-								onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value&gt;9999)this.value=9999;"
-								onkeyup="value=value.replace(/[0-9a-zA-Z]/g,'');ChangePrice();">
+							<div class="item_funTotal"><c:out value="${option.name}" />: <input type="text" name="product_inputText_<c:out value='${option.name}' />" id="<c:out value="${option.id}" />" value="<c:out value="${option.defaultValue}" />" size="5" maxlength="4" class="input_1" onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value&gt;9999)this.value=9999;" onkeyup="value=value.replace(/[0-9a-zA-Z]/g,'');ChangePrice();"></div>
 							<div class="item_funTotal" href="javascript:void(0);">
 								<input type="hidden" name="product_inputText_price" value="${pageForm.pageProperties.productDetail.price}"/>
 								Total: <span>US$ <span id="AmountPrice3">${pageForm.pageProperties.productDetail.price}</span>
