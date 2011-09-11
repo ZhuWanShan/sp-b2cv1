@@ -35,22 +35,22 @@
 							alt="${product.title}"
 							src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].logoUrl}"> 
 						</a>
-					</div> 
-						<strong class="goods_name"> 
-							<a	title="${product.title}"
-								href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${product.name}">
-								${product.title}
-							</a>
-						</strong>
+				</div> 
+				<strong class="goods_name"> 
+					<a	title="${product.title}"
+						href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${product.name}">
+						${product.title}
+					</a>
+				</strong>
+				<span class="Reference_Price"> 
+					<del> ${product.price}</del> 
+					<span class="red fontbold"> ${product.actualPrice} </span> 
+				</span>
+				<div class="list_stars">
 					<span class="Reference_Price"> 
-						<del> ${product.price}</del> 
-						<span class="red fontbold"> ${product.actualPrice} </span> 
+						<!-- TODO Rate -->
 					</span>
-					<div class="list_stars">
-						<span class="Reference_Price"> 
-							<a href="#" class="blue underline" rel="nofollow">Write a review</a> 
-						</span>
-					</div>
+				</div>
 				</li>
 		</c:forEach>
 		</ul>

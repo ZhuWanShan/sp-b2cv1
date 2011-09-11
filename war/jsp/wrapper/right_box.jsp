@@ -109,7 +109,7 @@
 						<c:if test="${tabProduct.actualPrice ne tabProduct.price }">
 						<p class="save_title">Save</p>
 						<p class="save_num">
-							<fmt:formatNumber type="number" value="${(1 - tabProduct.actualPrice / tabProduct.price) * 100}" maxFractionDigits="2"/>%
+							<fmt:formatNumber type="number" value="${(1 - tabProduct.actualPrice / tabProduct.price) * 100}" maxFractionDigits="0"/>%
 						</p>
 						</c:if>
 					</div>
@@ -142,7 +142,7 @@
 							</p>
 							<p class="save_per font_size20">
 							<c:if test="${tabProduct.price ne tabProduct.actualPrice}">
-								Save:<fmt:formatNumber type="number" value="${(1 - tabProduct.actualPrice / tabProduct.price) * 100}" maxFractionDigits="2"/>%
+								Save:<fmt:formatNumber type="number" value="${(1 - tabProduct.actualPrice / tabProduct.price) * 100}" maxFractionDigits="0"/>%
 							</c:if>
 							</p>
 							<del>${tabProduct.price}</del>

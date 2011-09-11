@@ -2,7 +2,7 @@
 <%@page import="com.spshop.utils.AllConstants"%>
 <div class="top5selling">
 <ss:topSelling var="topData">
-	<h3 class="red font_size16">${topData.name}</h3>
+	<h3 class="red font_size16">Top Selling</h3>
 	<ul>
 	<c:forEach items="${topData.products}" var="topProduct">
 		<li>
