@@ -185,9 +185,6 @@ lt  ;!-- .kuanjia_box {
 }
 
 .intro {
-	background: #f3f3f3
-		url(http://www.mlo.me/image/endefault/mobantupian/hunsha/Templates_logo.gif)
-		no-repeat 8px center;
 	border: #c1bebe solid 1px;
 	margin: 0 10px;
 	padding: 7px 5px 7px 140px;
@@ -1846,9 +1843,6 @@ gt
 						</div>
 					</div>
 				</div>
-				<iframe width="720" scrolling="no" height="870" frameborder="0"
-					src="http://www.milanoo.com/theme/endefault/TemplateGoods/kindly.htm"
-					style="display: none;" id="size_tab05"> </iframe>
 			</div>
 		</div>
 		<script>

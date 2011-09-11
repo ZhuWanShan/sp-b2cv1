@@ -14,7 +14,7 @@ a:link.rightArrow,a:visited.rightArrow { background: url(thingArrow.gif) -16px t
 .mainThing a:link.link_now,
 .mainThing a:visited.link_now { border: 1px solid #f38b1c; background:#fff;}
 .mainThing a b { text-align: center; clear: both; float: none; display: block; font-size: 11px; font-weight: normal; padding-top: 3px; color:#F07302; }
-.mainThing img { height:90px; max-width:90px; display: block; margin-right: auto; margin-left: auto; clear: both; float: none; border-width: 0px; border-style: none; background:url(loading_img_s.gif); background-repeat: no-repeat; background-position: center center; }
+.mainThing img { height:90px; max-width:90px; display: block; margin-right: auto; margin-left: auto; clear: both; float: none; border-width: 0px; border-style: none;  }
 .item_high_pic_box{ width:380px; height:500px; margin-bottom:10px; text-align: center; position: relative;}
 .item_high_pic_box .viewimgage { width:380px; height:500px; text-align:center; margin:0 auto; display:none; cursor:move;}
 .item_high_pic_box .viewimgage img { float:left; font-size:0;}

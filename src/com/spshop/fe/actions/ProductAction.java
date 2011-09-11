@@ -26,7 +26,8 @@ public class ProductAction extends BaseAction {
 		String[] uris = request.getRequestURI().split("/");
 		String productName = uris[uris.length - 1];
 		Product product = SCacheFacade.getProduct(productName);
-		if (product != null) {
+		Product displayProduct = product.clone();
+		if (displayProduct != null) {
 
 			String index = request.getParameter("itemIndex");
 			if (null != index && !"".equals(index)) {
@@ -39,7 +40,7 @@ public class ProductAction extends BaseAction {
 					OrderItem userOrderItem = order.getItems().get(itemIndex);
 					if (userOrderItem != null) {
 						for (UserOption uo : userOrderItem.getUserOptions()) {
-							for (ProductOption po : product.getOptions()) {
+							for (ProductOption po : displayProduct.getOptions()) {
 								if (po.getName().equals(uo.getOptionName())) {
 									po.setDefaultValue(uo.getValue());
 								}
@@ -50,7 +51,7 @@ public class ProductAction extends BaseAction {
 				}
 			}
 
-			page.addPageProperty("productDetail", product);
+			page.addPageProperty("productDetail", displayProduct);
 			populatePathNodesForPage(product.getCategories().get(0),
 					page.getPathNodes());
 		}
