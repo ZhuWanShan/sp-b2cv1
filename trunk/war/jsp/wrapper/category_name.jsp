@@ -13,7 +13,7 @@
 			<a href="<%= AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%= AllConstants.CATEGORY_URL %>/${subCategory.name}"
 				   title="${subCategory.displayName}" class="cg">
 				   ${subCategory.displayName}
-				   <img src="http://www.mlo.me/image/endefault/thing_hot.gif"
+				   <img src="/css/thing_hot.gif"
 						style="display: none; border: none;" class="thinghot">
 			</a>
 		</c:if>
@@ -21,7 +21,7 @@
 			<a href="<%=AllConstants.HTTP_PROTOCOL%>${pageForm.category.url}"
 			   title="${subCategory.displayName}" class="cg">
 			   ${subCategory.displayName} 
-			   <img src="http://www.mlo.me/image/endefault/thing_hot.gif"
+			   <img src="/css/thing_hot.gif"
 			   		style="display: none; border: none;" class="thinghot">
 			</a>
 		</c:if>
