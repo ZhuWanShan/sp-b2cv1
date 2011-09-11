@@ -400,7 +400,7 @@ changeunit('in');
 	</script>
 			<ul style="display: none;" id="choosePro" class="choosePro">
 			</ul>
-			<c:if test='${pageForm.pageProperties.displayOrderItem != null}'>
+			<c:if test='${pageForm.pageProperties.displayOrderItem == null}'>
 				<div class="addtocart">
 
 					<input type="submit" style="display: none;" id="sub"

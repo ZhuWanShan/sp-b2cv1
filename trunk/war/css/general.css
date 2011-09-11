@@ -596,3 +596,9 @@ input.list_search_button{height:20px; width:23px;background:url('./arrow_ICON.gi
 /*------列表页广告---------*/
 #classAD1{z-index:9; left:523px;top:0px; height:286px; width:210px;}
 #classAD2{z-index:1; left:0;top:0;width:762px; height:450px;}
+
+
+/*------订单页---------*/
+.bankIcon{width:50px;height:50px; float:left ; margin-left:30px;}
+.bankList{list-style:none; width:140px;}
+.bankList li{float:left; width:120px;margin-top:20px}
