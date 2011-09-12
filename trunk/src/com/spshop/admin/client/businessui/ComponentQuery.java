@@ -170,10 +170,10 @@ public class ComponentQuery extends ResizeComposite {
         header.getColumnFormatter().setWidth(0, "30px");
         header.getColumnFormatter().setWidth(1, "100px");
         header.getColumnFormatter().setWidth(2, "100px");
-        header.getColumnFormatter().setWidth(3, "100px");
-        header.getColumnFormatter().setWidth(4, "100px");
-        header.getColumnFormatter().setWidth(5, "120px");
-        header.getColumnFormatter().setWidth(6, "150px");
+        header.getColumnFormatter().setWidth(3, "130px");
+        header.getColumnFormatter().setWidth(4, "110px");
+        header.getColumnFormatter().setWidth(5, "100px");
+        header.getColumnFormatter().setWidth(6, "130px");
         header.setText(0, 0, "Id");
         header.setText(0, 1, "First Name");
         header.setText(0, 2, "Last Name");
@@ -187,10 +187,10 @@ public class ComponentQuery extends ResizeComposite {
         table.getColumnFormatter().setWidth(0, "30px");
         table.getColumnFormatter().setWidth(1, "100px");
         table.getColumnFormatter().setWidth(2, "100px");
-        table.getColumnFormatter().setWidth(3, "100px");
-        table.getColumnFormatter().setWidth(4, "100px");
-        table.getColumnFormatter().setWidth(5, "120px");
-        table.getColumnFormatter().setWidth(6, "150px");
+        table.getColumnFormatter().setWidth(3, "130px");
+        table.getColumnFormatter().setWidth(4, "110px");
+        table.getColumnFormatter().setWidth(5, "100px");
+        table.getColumnFormatter().setWidth(6, "130px");
     }
 
 	private void initProductHeader() {
@@ -412,8 +412,11 @@ public class ComponentQuery extends ResizeComposite {
             operation.setListener(new OperationListenerAdapter<User>(){
                 @Override
                 public void onEdit(User content) {
-                    // TODO Auto-generated method stub
-                    super.onEdit(content);
+                    UserProfile userProfile = new UserProfile(content);
+                    userProfile.setSize("400px", "300px");
+                    userProfile.setTitle("Profile");
+                    PopWindow pop = new PopWindow("Profile",userProfile, true, true);
+                    pop.center();
                 }
                 @Override
                 public void onDelete(User content) {
