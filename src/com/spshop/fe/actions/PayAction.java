@@ -19,10 +19,7 @@ public class PayAction extends BaseAction {
 	public ActionForward processer(ActionMapping mapping, PageFormBean page,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		HttpSession session = request.getSession();
-		String email = (String) session.getAttribute("email");
-		Order order = SCacheFacade.getOrder(email);
-		ServiceFactory.getService(OrderService.class).merge(order); 
+		
 		return mapping.findForward(AllConstants.SUCCESS_VALUE);
 	}
 

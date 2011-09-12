@@ -48,7 +48,7 @@
 							<th>Item Price</th>
 							<th>Qty</th>
 							<th>Price</th>
-							<th></th>
+							<th>Status</th>
 						</tr>
 
 					</thead>
@@ -71,11 +71,10 @@
 						</td>
 						<td class="center red"><c:out value="${item.product.price}" />
 						</td>
-						<td class="center"><input name="ProductsId[2]" type="hidden"
-							value="119012"> <input name="listid[]" type="hidden"
-							value="2"> <c:out value="${item.quantity}" /></td>
+						<td class="center"><c:out value="${item.quantity}" /></td>
 						<td class="center red"><c:out value="${item.finalPrice}" /><br>
 						</td>
+						<td class="center red"><c:out value="${pageForm.pageProperties.orderDetail.status.status}" /><br>
 						</tr>
 						</c:forEach>
 					</tbody>

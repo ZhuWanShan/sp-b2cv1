@@ -70,6 +70,13 @@ public class SCacheFacade{
 		
 	}
 	
+	public static void removeOrder(String email) {
+		if (null != getCartCache()){
+			getCartCache().remove(email);
+		}
+		
+	}
+	
 	public static List<Category> getTopCategories(){
 		CategoryService cs = ServiceFactory.getService(CategoryService.class);
 		List<Category> categories = null;
