@@ -511,10 +511,12 @@ input.submit_blue2{background:url('./reg-bg.gif') no-repeat -183px 0; width:336p
 .loginReg_font i{font-style:normal;}
 .form_blue1{overflow:hidden; float:left;width:446px;border:1px solid #7D96AA;box-shadow:1px 1px 2px #ccc;}
 .form_blue2{overflow:hidden; float:right;width:518px;border:1px solid #7D96AA;box-shadow:0 -2px 3px #BBCFDE inset, 1px 1px 2px #ccc; background:url('./reg-bg-2.gif');}
+.form_blue3{overflow:hidden; float:left;width:100%;border:1px solid #7D96AA;box-shadow:0 -2px 3px #BBCFDE inset, 1px 1px 2px #ccc; background:url('./reg-bg-2.gif');}
 .form_blue1 a,.form_blue2 a{text-decoration:underline;}
 .item_blue1 .item_blue_title1{background:url('./reg-bg.gif') no-repeat 0 -32px; height:38px;border-bottom:1px solid #7D96AA; padding:10px 0 0 24px;}
 .item_blue_title1 .blue_word{color:#5FAFC6;}
 .item_blue2 h1{background:url('./reg-bg.gif') no-repeat 0 -32px; height:38px;border-bottom:1px solid #7D96AA; padding:10px 0 0 24px;text-transform:uppercase;color:#46839A;}
+.item_blue3 h1{background:url('./reg-bg.gif') 0 -32px; height:38px;border-bottom:1px solid #7D96AA; padding:10px 0 0 24px;text-transform:uppercase;color:#46839A;}
 .item_blue3{overflow:hidden;width:972px;border:1px solid #7D96AA;box-shadow:1px 1px 2px #ccc;}
 .item_blue3 .item_blue_title1{background:url('./reg-bg.gif') repeat-x 0 -32px; height:38px;border-bottom:1px solid #7D96AA; padding:10px 0 0 24px;}
 .item_blue3 .item_blue_title1 h1{color:#46839A;text-transform:uppercase;}
