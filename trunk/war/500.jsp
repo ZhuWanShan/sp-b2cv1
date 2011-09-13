@@ -51,25 +51,33 @@
 	
 	<div id="allBanner" class="main_box" style="width: 972px; height: 0px;"></div>
 
-	<h1>Server Not Available</h1>
-	<br>
-	<div>
-		<p>We've made recent upgrades to sshop.com. If you've reached this
-			page by selecting a bookmark that previously worked, the page has
-			likely been moved due to our recent redesign.</p>
-		<p>You can either return to the previous page, visit the sshop.com
-			home page, or search sshop.com.</p>
+	<div class="main_box">
+		<div class="hei10"></div>
+		<div class="form_blue3">
+			<div class="item_blue3">
+				<h1>Server Not Available</h1>
+				<br>
+				<div style="padding:10px">
+					<p>We've made recent upgrades to sshop.com. If you've reached this
+						page by selecting a bookmark that previously worked, the page has
+						likely been moved due to our recent redesign.</p>
+					<p>You can either return to the previous page, visit the sshop.com
+						home page, or search sshop.com.</p>
+					<br>
+				</div>
+				<ul style="padding:10px">
+					<li>
+						<a href="javascript:history.back()">Return to previous page</a>
+					</li>
+					<li>
+						<a href="/">Visit sshop.com home page</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="hei10"></div>
 		<br>
 	</div>
-	<ul>
-		<li>
-			<a href="javascript:history.back()">Return to previous page</a>
-		</li>
-		<li>
-			<a href="/">Visit sshop.com home page</a>
-		</li>
-	</ul>
-	<br>
 
 	<script type="text/javascript" src="js/index.js"></script>
 	

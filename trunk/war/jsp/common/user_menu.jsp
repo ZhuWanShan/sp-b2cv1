@@ -14,7 +14,7 @@
 		</li>
 		<script type="text/javascript">
 		if(""!="${pageForm.pageProperties.loginError}"){
-			alert("Wrong User ID or Password!Å");
+			alert("Wrong User ID or Password!¬Å");
 		}
 		</script>
 		<% 
@@ -70,7 +70,7 @@
 								<a href="#" title="View Orders">View Orders</a>
 							</dd>
 							<dd class="dashborder">
-								<a href="#" rel="nofollow" title="Account Settings">Account Settings</a>
+								<a href="/editProfile" rel="nofollow" title="Account Settings">Account Settings</a>
 							</dd>
 							<dd class="dashborder">
 								<a href="#" rel="nofollow" title="My Favorites">My Favorites</a>

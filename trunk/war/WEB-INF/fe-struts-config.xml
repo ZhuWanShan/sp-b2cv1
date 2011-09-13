@@ -124,6 +124,11 @@
 				scope="request">
 				<forward name="Success" path="/jsp/goods.jsp"></forward>
 			</action>
+
+		<action path="/editProfile" type="com.spshop.fe.actions.EditProfileAction"
+			name="pageForm" scope="request">
+			<forward name="Success" path="/jsp/editProfile.jsp"></forward>
+		</action>
 		
 <!-- 		<action  -->
 <!-- 			path="/keywords/*"  -->
