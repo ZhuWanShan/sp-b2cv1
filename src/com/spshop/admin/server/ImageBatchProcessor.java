@@ -25,7 +25,6 @@ import org.apache.commons.io.FileUtils;
 
 import com.spshop.admin.shared.LoginInfo;
 import com.spshop.model.Image;
-import com.spshop.model.Site;
 import com.spshop.model.enums.ImageSizeType;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.ImageService;
@@ -38,19 +37,15 @@ public class ImageBatchProcessor extends RemoteHttp {
 	private static final long serialVersionUID = 477413844967078323L;
 	private static final int BUFFER = 512;
 
-	public static Site site = null;
-	public static LoginInfo loginInfo = null;
-	List items = null;
-	String name = null;
-	String unZipDir = "tempZip/";
-
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		LoginInfo loginInfo = null;
+		List items = null;
+		String unZipDir = getServletContext().getRealPath("/tempZip");
 		FileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
 		loginInfo = getLoginInfo(req);
-		site = loginInfo.getSite();
 
 		String zipFileName = System.nanoTime() + ".zip";
 
@@ -64,19 +59,17 @@ public class ImageBatchProcessor extends RemoteHttp {
 		File orignalFile = null;
 		while (iter.hasNext()) {
 			FileItem item = (FileItem) iter.next();
-			if (item.isFormField()) {
-				if (item.getFieldName().equals("imageZipFile")) {
-					name = item.getString();
-				}
-			} else {
+			if (!item.isFormField()) {
 				orignalFile = new File(unZipDir + zipFileName);
 				try {
 					item.write(orignalFile);
-					int count = unzipAndCreateImage(zipFileName);
+					int count = unzipAndCreateImage(zipFileName,unZipDir,loginInfo);
 					resp.getWriter().print(count);
 				} catch (Exception e) {
 					throw new IOException(e);
 				}
+			} else {
+				
 			}
 		}
 	}
@@ -89,7 +82,7 @@ public class ImageBatchProcessor extends RemoteHttp {
 	FileOutputStream fos = null;
 	byte data[] = new byte[BUFFER];
 
-	private int unzipAndCreateImage(String zipFileName) throws IOException {
+	private int unzipAndCreateImage(String zipFileName,String unZipDir,LoginInfo loginInfo) throws IOException {
 		ZipFile zipfile = new ZipFile(unZipDir + zipFileName);
 		Enumeration e = zipfile.entries();
 		String fileName = "";
@@ -107,7 +100,7 @@ public class ImageBatchProcessor extends RemoteHttp {
 			fileName = fileName.replaceAll("[^a-zA-Z\\.]", "_");
 			tempFile = new File(unZipDir + "/" + entry.getName());
 			realFile = new File(getServletContext().getRealPath(
-					site.getImagePath())
+					loginInfo.getSite().getImagePath())
 					+ "/" + fileName);
 			dest.flush();
 			dest.close();
@@ -118,22 +111,22 @@ public class ImageBatchProcessor extends RemoteHttp {
 			// ProcessImage processImage = new ProcessImage();
 			// new Thread(processImage,
 			// fileName+"__"+realFile.getAbsolutePath()).start();
-			processImage(fileName);
+			processImage(fileName,loginInfo);
 			counter++;
 		}
 		return counter;
 	}
 
-	private void processImage(String fileName) {
+	private void processImage(String fileName,LoginInfo loginInfo) {
 		ImageService imageService = ServiceFactory
 				.getService(ImageService.class);
 		Image image = new Image();
-		image.setSite(site);
+		image.setSite(loginInfo.getSite());
 		image.setCreateDate(new Date());
 		image.setUpdateDate(new Date());
-		image.setAltTitle(site.getImagePath() + "/" + fileName);
+		image.setAltTitle(loginInfo.getSite().getImagePath() + "/" + fileName);
 		image.setName(fileName.substring(0,fileName.lastIndexOf('.')));
-		image.setNoChangeUrl(site.getImagePath() + "/" + fileName);
+		image.setNoChangeUrl(loginInfo.getSite().getImagePath() + "/" + fileName);
 		image.setSizeType(ImageSizeType.PRODUCT_NORMAL);
 		imageService.saveImage(image, realFile.getAbsolutePath(), loginInfo);
 	}
