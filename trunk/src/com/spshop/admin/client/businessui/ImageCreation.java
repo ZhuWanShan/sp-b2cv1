@@ -100,11 +100,12 @@ public class ImageCreation extends Composite{
 			small.clear();
 			small.add(new com.google.gwt.user.client.ui.Image(image.getSmallUrl()));
 			links.clear();
-			Anchor large = new Anchor(AdminWorkspace.getSilteUrl()+image.getSmallUrl());
-			Anchor small = new Anchor(AdminWorkspace.getSilteUrl()+image.getLargerUrl());
+			Anchor large = new Anchor(AdminWorkspace.getSilteUrl()+image.getLargerUrl());
 			Anchor logo = new Anchor(AdminWorkspace.getSilteUrl()+image.getLogoUrl());
 			Anchor thumbnail = new Anchor(AdminWorkspace.getSilteUrl()+image.getThumbnailUrl());
+			Anchor small = new Anchor(AdminWorkspace.getSilteUrl()+image.getSmallUrl());
 			Anchor icon = new Anchor(AdminWorkspace.getSilteUrl()+image.getIconUrl());
+			
 			Anchor original = new Anchor(AdminWorkspace.getSilteUrl()+image.getNoChangeUrl());
 			large.addClickHandler(new LinksClick(image.getLargerUrl(),ImageConstonts.LARGE_SIZE));
 			logo.addClickHandler(new LinksClick(image.getLogoUrl(),ImageConstonts.LOGO_SIZE));

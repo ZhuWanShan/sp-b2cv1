@@ -29,7 +29,7 @@ import com.spshop.model.Site;
 import com.spshop.model.enums.ImageSizeType;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.ImageService;
-
+@SuppressWarnings("rawtypes")
 public class ImageBatchProcessor extends RemoteHttp {
 
 	/**
@@ -44,7 +44,6 @@ public class ImageBatchProcessor extends RemoteHttp {
 	String name = null;
 	String unZipDir = "tempZip/";
 
-	@SuppressWarnings("rawtypes")
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -63,7 +62,6 @@ public class ImageBatchProcessor extends RemoteHttp {
 
 		Iterator iter = items.iterator();
 		File orignalFile = null;
-
 		while (iter.hasNext()) {
 			FileItem item = (FileItem) iter.next();
 			if (item.isFormField()) {
@@ -74,7 +72,8 @@ public class ImageBatchProcessor extends RemoteHttp {
 				orignalFile = new File(unZipDir + zipFileName);
 				try {
 					item.write(orignalFile);
-					unzipAndCreateImage(zipFileName);
+					int count = unzipAndCreateImage(zipFileName);
+					resp.getWriter().print(count);
 				} catch (Exception e) {
 					throw new IOException(e);
 				}
@@ -90,11 +89,11 @@ public class ImageBatchProcessor extends RemoteHttp {
 	FileOutputStream fos = null;
 	byte data[] = new byte[BUFFER];
 
-	private void unzipAndCreateImage(String zipFileName) throws IOException {
+	private int unzipAndCreateImage(String zipFileName) throws IOException {
 		ZipFile zipfile = new ZipFile(unZipDir + zipFileName);
 		Enumeration e = zipfile.entries();
 		String fileName = "";
-
+		int counter = 0;
 		while (e.hasMoreElements()) {
 			entry = (ZipEntry) e.nextElement();
 			is = new BufferedInputStream(zipfile.getInputStream(entry));
@@ -119,7 +118,9 @@ public class ImageBatchProcessor extends RemoteHttp {
 			// new Thread(processImage,
 			// fileName+"__"+realFile.getAbsolutePath()).start();
 			processImage(fileName);
+			counter++;
 		}
+		return counter;
 	}
 
 	private void processImage(String fileName) {
@@ -130,7 +131,7 @@ public class ImageBatchProcessor extends RemoteHttp {
 		image.setCreateDate(new Date());
 		image.setUpdateDate(new Date());
 		image.setAltTitle(site.getImagePath() + "/" + fileName);
-		image.setName(site.getImagePath() + "/" + fileName);
+		image.setName(fileName.substring(0,fileName.lastIndexOf('.')));
 		image.setNoChangeUrl(site.getImagePath() + "/" + fileName);
 		image.setSizeType(ImageSizeType.PRODUCT_NORMAL);
 		imageService.saveImage(image, realFile.getAbsolutePath(), loginInfo);
