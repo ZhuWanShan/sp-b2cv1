@@ -44,9 +44,10 @@ public class ImageBatchCreation extends Composite {
 	void onFormPanelSubmitComplete(SubmitCompleteEvent event) {
 		String rs = event.getResults();
 		PopWindow window = new PopWindow();
-		if ("".equals(rs)) {
-			window.setText("Congratulation");
-			window.setContent(new HTML("Upload Success"));
+		String noWrapRs = rs.substring(rs.indexOf('>')+1,rs.lastIndexOf('<'));
+		if(null!=noWrapRs&&noWrapRs.matches("\\d+")){
+			window.setText("Upload Success");
+			window.setContent(new HTML("Image Count: " + noWrapRs ));
 			window.setGlassEnabled(true);
 			window.center();
 		} else {

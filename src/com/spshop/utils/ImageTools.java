@@ -1,14 +1,11 @@
 package com.spshop.utils;
 
-import java.awt.Dimension;
-import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Properties;
 
-import magick.ImageInfo;
 import magick.MagickException;
-import magick.MagickImage;
 
 import com.spshop.admin.shared.ImageConstonts;
 import com.spshop.admin.shared.LoginInfo;
@@ -17,72 +14,45 @@ import com.spshop.model.Image;
 public class ImageTools {
 	
 	
-	private final static String  COVERTPAHT="C:\\Program Files (x86)\\ImageMagick-5.5.7-Q8";
+	private static String  COVERTPAHT="C:\\Program Files (x86)\\ImageMagick-5.5.7-Q8";
+	private final static String COMMAND_KEY = "command.path";
 	
-	/*
-	 * static { System.setProperty("jmagick.systemclassloader", "no"); }
-	 */
-
-	/*
-	 * static ImageInfo info = null; static MagickImage image = null; static
-	 * Dimension imageDim = null; static MagickImage scaled = null; static
-	 * double srcH; static double srcW; static double fullH; static double
-	 * fullW; static String imagePath; static String toPath;
-	 */
+	static{
+		Properties pro = new Properties();
+		try {
+			pro.load(ImageTools.class.getResourceAsStream("/imagemagick.properties"));
+			COVERTPAHT = pro.getProperty(COMMAND_KEY);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 	public static Image changeSize(Image img, LoginInfo loginInfo,
 			String filePath) throws MagickException, IOException {
-		try {
-			/*
-			 * ; imagePath = filePath; info = new ImageInfo(filePath); image =
-			 * new MagickImage(info); imageDim = image.getDimension(); srcH =
-			 * imageDim.width; srcW = imageDim.height; fullH = srcH; fullW =
-			 * srcW;
-			 */
-			img.setIconUrl(loginInfo.getSite().getImagePath()
-					+ "/"
-					+ reSize(ImageConstonts.ICON_SIZE[0],
-							ImageConstonts.ICON_SIZE[1], filePath));
-			img.setLargerUrl(loginInfo.getSite().getImagePath()
-					+ "/"
-					+ reSize(ImageConstonts.LARGE_SIZE[0],
-							ImageConstonts.LARGE_SIZE[1], filePath));
-			img.setThumbnailUrl((loginInfo.getSite().getImagePath() + "/" + reSize(
-					ImageConstonts.THUM_SIZE[0], ImageConstonts.THUM_SIZE[1],
-					filePath)));
-			img.setSmallUrl((loginInfo.getSite().getImagePath() + "/" + reSize(
-					ImageConstonts.SMALL_SIZE[0], ImageConstonts.SMALL_SIZE[1],
-					filePath)));
-			img.setLogoUrl((loginInfo.getSite().getImagePath() + "/" + reSize(
-					ImageConstonts.LOGO_SIZE[0], ImageConstonts.LOGO_SIZE[1],
-					filePath)));
-		} finally {
-			/*
-			 * if (scaled != null) { scaled.destroyImages(); }
-			 */
-			System.gc();
-		}
-		return img;
+		
+			String [] names = reSize(ImageConstonts.IMAGE_SIZES, filePath);
+			
+			img.setLargerUrl(loginInfo.getSite().getImagePath() + "/"+ names[0]);
+			
+			img.setLogoUrl((loginInfo.getSite().getImagePath() + "/" + names[1]));
+			
+			img.setThumbnailUrl((loginInfo.getSite().getImagePath() + "/" + names[2]));
+			
+			img.setSmallUrl((loginInfo.getSite().getImagePath() + "/" + names[3]));
+			
+			img.setIconUrl(loginInfo.getSite().getImagePath()+ "/" + names[4]);
+
+			return img;
 	}
 
-	private static String reSize( int width,int height, String filePath)
+	private static String[] reSize(int[][] size, String filePath)
 			throws MagickException, IOException {
-		/*
-		 * if (srcH <= height && srcW <= width) { return
-		 * getImageName(imagePath); }
-		 * 
-		 * if (srcH * srcH / srcW > srcH * height / width) { fullH = srcW *
-		 * height / width; } else { fullW = srcH * width / height; }
-		 * 
-		 * scaled = image.chopImage(new Rectangle((int) fullH, (int) fullW,
-		 * (int) (srcH - fullH) > 0 ? (int) (srcH - fullH) : 0, (int) (srcW -
-		 * fullW) > 0 ? (int) (srcW - fullW) : 0));
-		 * 
-		 * scaled = scaled.scaleImage(height, width);// 小图片文件的大小.
-		 * scaled.setFileName(toPath + "/" + getImageName(imagePath, height,
-		 * width)); scaled.writeImage(info);
-		 */
-
+		
+		String[] imageNames = new String[size.length];
+		int height = size[0][1];
+		int width = size[0][0];
+		
 		String toPath = getImagePath(filePath);
 
 		java.io.File file = new java.io.File(filePath);
@@ -105,37 +75,31 @@ public class ImageTools {
 		
 		String tempPath = toPath + "\\"+ getImageName(filePath, fullH, fullW);
 		try {
-			String [] cmds = new String[2];
-			cmds[0]=COVERTPAHT+"\\convert " + filePath + " -crop " + fullW+ "x"
-					+ fullH + "+0+0 " + tempPath;
-			cmds[1] =COVERTPAHT+"\\convert " + tempPath + " -resize " +width +"x"
-			+ height+ " " + toPath + "\\"
-			+ getImageName(filePath, height, width);
-			Process process = runtime.exec(cmds[0]);
-			InputStream err = process.getErrorStream();
-			int c = 0;
-			while((c=err.read())!=-1){
-				System.out.print((char)c);
+			String [] cmds = new String[size.length];
+			String initCMD=COVERTPAHT+"\\convert " + filePath + " -crop " + fullW+ "x"
+			+ fullH + "+0+0 " + tempPath;
+			for(int i = 0; i<cmds.length ; i++){
+				String toImage = getImageName(filePath, size[i][0], size[i][1]);
+				cmds[i] =COVERTPAHT+"\\convert " + tempPath + " -resize " +size[i][0] +"x"
+				+ size[i][1]+ " " + toPath + "\\"+  toImage;
+				imageNames[i] = toImage;
 			}
-			runtime.exec(cmds[1]);
-			/*InputStream in = process.getInputStream();
-			int c = 0;
-			while((c=in.read())!=-1){
-				System.out.print(c);
+			Process process = runtime.exec(initCMD);
+			InputStream in = process.getErrorStream();
+			int r = 0;
+			
+			while((r=in.read())!=-1){
+				System.out.print((char)r);
 			}
 			in.close();
-			Process process2 = runtime.exec(cmds[1]);
-			InputStream in2 = process2.getInputStream();
-			
-			while((c=in2.read())!=-1){
-				System.out.print(c);
+			runtime = Runtime.getRuntime();
+			for (String cmd : cmds) {
+				runtime.exec(cmd);
 			}
-			in2.close();*/
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		return getImageName(filePath, height, width);
+		return imageNames;
 	}
 	
 	private static String getImageName(String imagePath, int hight, int width) {
@@ -150,54 +114,10 @@ public class ImageTools {
 				+ names[names.length - 1];
 	}
 
-	private static String getImageName(String imagePath) {
-		return getImageName(imagePath, -1, -1);
-	}
-
 	public static String getImagePath(String imagePath) {
 		File file = new File(imagePath).getParentFile();
 		return file.getAbsolutePath();
 	}
 
-	public static String changeSize(String filePath, String toPath, int height,
-			int width) throws MagickException {
-		ImageInfo info = null;
-		MagickImage image = null;
-		Dimension imageDim = null;
-		MagickImage scaled = null;
-		try {
-			info = new ImageInfo(filePath);
-			image = new MagickImage(info);
-			imageDim = image.getDimension();
-			double srcH = imageDim.width;
-			double srcW = imageDim.height;
-			double fullH = srcH;
-			double fullW = srcW;
-			if (srcH <= height && srcW <= width) {
-				return getImageName(filePath);
-			}
-
-			if (srcH * srcH / srcW > srcH * height / width) {
-				fullH = srcW * height / width;
-			} else {
-				fullW = srcH * width / height;
-			}
-
-			scaled = image.chopImage(new Rectangle((int) fullH, (int) fullW,
-					(int) (srcH - fullH) > 0 ? (int) (srcH - fullH) : 0,
-					(int) (srcW - fullW) > 0 ? (int) (srcW - fullW) : 0));
-
-			scaled = scaled.scaleImage(height, width);// 小图片文件的大小.
-			scaled.setFileName(toPath + "/"
-					+ getImageName(filePath, height, width));
-			scaled.writeImage(info);
-
-			return getImageName(filePath, height, width);
-		} finally {
-			if (scaled != null) {
-				scaled.destroyImages();
-			}
-		}
-	}
 
 }
