@@ -25,22 +25,19 @@
 		href="css/global.css">
 	<link rel="stylesheet" type="text/css"
 		href="css/head.css">
-
-
-	<script src="js/jquery-1.5.1.js"
-		type="text/javascript"></script>
-	<script>
-	var Image_url = 'http://127.0.0.1:8888/css',root_url = 'http://127.0.0.1:8888/',seller_lang='en-uk';
-	var head_SearchKeywordsNo='Enter search keywords or item code here';
-	var SearchKeyword='Enter search keywords or item code here';
-	var jq=jQuery.noConflict();
-	</script>
-	<script src="js/common.js"
-		type="text/javascript"></script>
-	<script src="js/ajax.js"
-		type="text/javascript"></script>
-
+	<link  href="css/mainbox.css" type="text/css" rel="stylesheet" />
 	
+	<script src="js/jquery-1.5.1.js" type="text/javascript"></script>
+	<script>
+		var Image_url = 'http://127.0.0.1:8888/css',root_url = 'http://127.0.0.1:8888/',seller_lang='en-uk';
+		var head_SearchKeywordsNo='Enter search keywords or item code here';
+		var SearchKeyword='Enter search keywords or item code here';
+		var jq=jQuery.noConflict();
+	</script>
+	<script src="js/common.js" type="text/javascript"></script>
+	<script src="js/ajax.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/footer.js"></script>
 </head>
 <body>
 	<!-- Header start -->
@@ -56,20 +53,15 @@
 	<!-- Top box end -->
 	
 	<!-- Main box start -->
-	<link  href="css/mainbox.css" type="text/css" rel="stylesheet" />
 	<jsp:include page="jsp/wrapper/main_box.jsp"></jsp:include>
 	<!-- Main box end -->
 	
 	<div class="hei10"></div>
-	
-	<script type="text/javascript" src="js/index.js"></script>
 	
 	<div id="allBanner_tmp" class="main_box" style="position: absolute; left: 305.5px; top: 27px;"></div>
 	
 	<!-- Bottom start -->
 	<jsp:include page="jsp/bottom/bottom_box.jsp"></jsp:include>
 	<!-- Bottom end -->
-	
-	<script type="text/javascript" src="js/footer.js"></script>
 </body>
 </html>
