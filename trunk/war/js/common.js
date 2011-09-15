@@ -18,7 +18,7 @@ var xml_http_data_in_processed = '<img src="' + Image_url + 'check_loading.gif" 
 
 function $(id) {
 	return document.getElementById(id);
-}
+} 
 
 //new js
 function TS_menuover(menuid) {
@@ -27,7 +27,7 @@ function TS_menuover(menuid) {
 
 function TS_menuout(menuid) {
 	document.getElementById(menuid).className='';
-}
+} 
 
 TS_menu_clock=setTimeout("1+1",10);
 function TS_menu() {
@@ -251,7 +251,7 @@ function ajax_js(iswarning, jsname,Charges) {//数组包括判断
 			return false;
 			break;
 		case 'ycfavorite':
-			setTimeout("$('favorite').style.display = 'none';", 3000);
+			setTimeout("$('favorite').style.display = 'none';", 8000);
 			break;
 		case 'Charges':
 			ShippingCharges(Charges);
@@ -1175,7 +1175,7 @@ if(typeof(jQuery)!='undefined') {
 			})
 		};
 		$.fn.footer_c= function() {
-			var footer_inner="<ul><li><dl><dt>WHY SHOP WITH US</dt><dd><a title=\"7-day Policy for Return\" href=\"http://www.milanoo.com/help/7-day-Policy-for-Return-and-15-day-Policy-for-Exchange-All-Milanoo-Products-Do-You-Have-A-Guarantee-or-Warranty-module-index-id-6.html\" rel=\"nofollow\" target=\"_blank\">7-day Policy for Return</a></dd><dd><a title=\"15-day Policy for Exchange\" href=\"http://www.milanoo.com/help/7-day-Policy-for-Return-and-15-day-Policy-for-Exchange-All-Milanoo-Products-Do-You-Have-A-Guarantee-or-Warranty-module-index-id-6.html\" rel=\"nofollow\" target=\"_blank\">15-day Policy for Exchange</a></dd><dd><a title=\"Pay with Credit Card\" href=\"http://www.milanoo.com/help/Payment-Methods-module-index-id-19.html\" rel=\"nofollow\" target=\"_blank\">Pay with Credit Card</a></dd><dd><a title=\"Pay with PayPal\" href=\"http://www.milanoo.com/help/Payment-Methods-module-index-id-19.html\" rel=\"nofollow\" target=\"_blank\">Pay with PayPal</a></dd><dd><a title=\"Fast shipping & delivery\" href=\"http://www.milanoo.com/help/Could-you-introduce-briefly-EMSUPSDHLTNTand-Sagawa-Express--module-index-id-75.html\" rel=\"nofollow\" target=\"_blank\">Fast shipping & delivery</a></dd></dl></li><li><dl><dt>WHAT'S IN STORE</dt><dd><a title=\"Wedding Apparel\" href=\"http://www.milanoo.com/wholesale-Wedding-Apparel-c391\" rel=\"nofollow\" target=\"_blank\">Wedding Apparel</a></dd><dd><a title=\"Special Occasion Dresses\" href=\"http://www.milanoo.com/wholesale-Special-Occasion-Dresses-c564\" rel=\"nofollow\" target=\"_blank\">Special Occasion Dresses</a></dd><dd><a title=\"Catsuits & Zentai\" href=\"http://www.milanoo.com/wholesale-Catsuits-Zentai-c314\" rel=\"nofollow\" target=\"_blank\">Catsuits & Zentai</a></dd><dd><a title=\"Cosplay Costumes\" href=\"http://www.milanoo.com/wholesale-Cosplay-Costumes-c300\" rel=\"nofollow\" target=\"_blank\">Cosplay Costumes</a></dd><dd><a title=\"Lolita Clothing\" href=\"http://www.milanoo.com/wholesale-Lolita-Clothing-c634\" rel=\"nofollow\" target=\"_blank\">Lolita Clothing</a></dd><dd><a title=\"Sexy Lingerie\" href=\"http://www.milanoo.com/wholesale-Sexy-Lingerie-c322\" rel=\"nofollow\" target=\"_blank\">Sexy Lingerie</a></dd><dd><a title=\"Poduct A-Z\" href=\"http://www.milanoo.com/producttags/A/\" rel=\"nofollow\" target=\"_blank\">Poduct A-Z</a></dd></dl></li><li><dl><dt>HOW CAN WE HELP</dt><dd><a title=\"Track Order\" href=\"http://www.milanoo.com/help/How-to-Make-an-Order-from-Milanoo-module-index-id-1.html\" rel=\"nofollow\" target=\"_blank\">Track Order</a></dd><dd><a title=\"Help Center\" href=\"http://www.milanoo.com/help/index-act-center.html\" rel=\"nofollow\" target=\"_blank\">Help Center</a></dd><dd><a title=\"Online Chat\" id=\"_lpChatBtn\" href='https://server.iad.liveperson.net/hc/47928991/?cmd=file&file=visitorWantsToChat&site=47928991&byhref=1&SESSIONVAR!opid=2&imageUrl=https://server.iad.liveperson.net/hcp/Gallery/ChatButton-Gallery/English/Retail/3c' target='chat47928991'  onClick=\"lpButtonCTTUrl = 'https://server.iad.liveperson.net/hc/47928991/?cmd=file&file=visitorWantsToChat&site=47928991&SESSIONVAR!opid=2&imageUrl=https://server.iad.liveperson.net/hcp/Gallery/ChatButton-Gallery/English/Retail/3c&referrer='+escape(document.location); lpButtonCTTUrl = (typeof(lpAppendVisitorCookies) != 'undefined' ? lpAppendVisitorCookies(lpButtonCTTUrl) : lpButtonCTTUrl); lpButtonCTTUrl = ((typeof(lpMTag)!='undefined' && typeof(lpMTag.addFirstPartyCookies)!='undefined')?lpMTag.addFirstPartyCookies(lpButtonCTTUrl):lpButtonCTTUrl);window.open(lpButtonCTTUrl,'chat47928991','width=475,height=400,resizable=yes');return false;\">Online Chat</a></dd><dd><a title=\"My account\" href=\"https://www.milanoo.com/member/\" rel=\"nofollow\" target=\"_blank\">My account</a></dd><dd><a title=\"Contact Milanoo\" href=\"http://www.milanoo.com/help/Submit-a-question-module-index.html\" rel=\"nofollow\" target=\"_blank\">Contact Milanoo</a></dd></dl></li><li><dl><dt>FURTHER INFORMATION</dt><dd><a title=\"About us\" href=\"http://www.milanoo.com/help/About-Milanoo-module-index-id-41.html\" rel=\"nofollow\" target=\"_blank\">About us</a></dd><dd><a title=\"Delivery costs\" href=\"http://www.milanoo.com/help/Can-You-Show-Me-How-You-Calculate-Shipping-module-index-id-38.html\" rel=\"nofollow\" target=\"_blank\">Delivery costs</a></dd><dd><a title=\"Security\" href=\"http://www.milanoo.com/help/Privacy-Policy-module-index-id-72.html\" rel=\"nofollow\" target=\"_blank\">Security</a></dd><dd><a title=\"Affiliate Program\" href=\"http://www.milanoo.com/help/About-Milanoo-Affiliates-Programme-module-index-id-67.html\" rel=\"nofollow\" target=\"_blank\">Affiliate Program</a></dd></dl></li></ul><div class=\"hei10\"></div>";
+			var footer_inner="<ul><li><dl><dt>WHY SHOP WITH US</dt><dd><a title=\"7-day Policy for Return\" href=\"http://www.milanoo.com/help/7-day-Policy-for-Return-and-15-day-Policy-for-Exchange-All-Milanoo-Products-Do-You-Have-A-Guarantee-or-Warranty-module-index-id-6.html\" rel=\"nofollow\" target=\"_blank\">7-day Policy for Return</a></dd><dd><a title=\"15-day Policy for Exchange\" href=\"http://www.milanoo.com/help/7-day-Policy-for-Return-and-15-day-Policy-for-Exchange-All-Milanoo-Products-Do-You-Have-A-Guarantee-or-Warranty-module-index-id-6.html\" rel=\"nofollow\" target=\"_blank\">15-day Policy for Exchange</a></dd><dd><a title=\"Pay with Credit Card\" href=\"http://www.milanoo.com/help/Payment-Methods-module-index-id-19.html\" rel=\"nofollow\" target=\"_blank\">Pay with Credit Card</a></dd><dd><a title=\"Pay with PayPal\" href=\"http://www.milanoo.com/help/Payment-Methods-module-index-id-19.html\" rel=\"nofollow\" target=\"_blank\">Pay with PayPal</a></dd><dd><a title=\"Fast shipping & delivery\" href=\"http://www.milanoo.com/help/Could-you-introduce-briefly-EMSUPSDHLTNTand-Sagawa-Express--module-index-id-75.html\" rel=\"nofollow\" target=\"_blank\">Fast shipping & delivery</a></dd></dl></li><li><dl><dt>WHAT'S IN STORE</dt><dd><a title=\"Wedding Apparel\" href=\"http://www.milanoo.com/Wedding-Apparel-c391\" rel=\"nofollow\" target=\"_blank\">Wedding Apparel</a></dd><dd><a title=\"Special Occasion Dresses\" href=\"http://www.milanoo.com/Special-Occasion-Dresses-c564\" rel=\"nofollow\" target=\"_blank\">Special Occasion Dresses</a></dd><dd><a title=\"Catsuits & Zentai\" href=\"http://www.milanoo.com/Catsuits-Zentai-c314\" rel=\"nofollow\" target=\"_blank\">Catsuits & Zentai</a></dd><dd><a title=\"Cosplay Costumes\" href=\"http://www.milanoo.com/Cosplay-Costumes-c300\" rel=\"nofollow\" target=\"_blank\">Cosplay Costumes</a></dd><dd><a title=\"Lolita Clothing\" href=\"http://www.milanoo.com/Lolita-Clothing-c634\" rel=\"nofollow\" target=\"_blank\">Lolita Clothing</a></dd><dd><a title=\"Sexy Lingerie\" href=\"http://www.milanoo.com/Sexy-Lingerie-c322\" rel=\"nofollow\" target=\"_blank\">Sexy Lingerie</a></dd><dd><a title=\"Poduct A-Z\" href=\"http://www.milanoo.com/producttags/A/\" rel=\"nofollow\" target=\"_blank\">Poduct A-Z</a></dd></dl></li><li><dl><dt>HOW CAN WE HELP</dt><dd><a title=\"Track Order\" href=\"http://www.milanoo.com/help/How-to-Make-an-Order-from-Milanoo-module-index-id-1.html\" rel=\"nofollow\" target=\"_blank\">Track Order</a></dd><dd><a title=\"Help Center\" href=\"http://www.milanoo.com/help/index-act-center.html\" rel=\"nofollow\" target=\"_blank\">Help Center</a></dd><!--<dd><a title=\"Online Chat\" id=\"_lpChatBtn\" href='https://server.iad.liveperson.net/hc/47928991/?cmd=file&file=visitorWantsToChat&site=47928991&byhref=1&SESSIONVAR!opid=2&imageUrl=https://server.iad.liveperson.net/hcp/Gallery/ChatButton-Gallery/English/Retail/3c' target='chat47928991'  onClick=\"lpButtonCTTUrl = 'https://server.iad.liveperson.net/hc/47928991/?cmd=file&file=visitorWantsToChat&site=47928991&SESSIONVAR!opid=2&imageUrl=https://server.iad.liveperson.net/hcp/Gallery/ChatButton-Gallery/English/Retail/3c&referrer='+escape(document.location); lpButtonCTTUrl = (typeof(lpAppendVisitorCookies) != 'undefined' ? lpAppendVisitorCookies(lpButtonCTTUrl) : lpButtonCTTUrl); lpButtonCTTUrl = ((typeof(lpMTag)!='undefined' && typeof(lpMTag.addFirstPartyCookies)!='undefined')?lpMTag.addFirstPartyCookies(lpButtonCTTUrl):lpButtonCTTUrl);window.open(lpButtonCTTUrl,'chat47928991','width=475,height=400,resizable=yes');return false;\">Online Chat</a></dd>--><dd><a title=\"My account\" href=\"https://www.milanoo.com/member/\" rel=\"nofollow\" target=\"_blank\">My account</a></dd><dd><a title=\"Contact Milanoo\" href=\"http://www.milanoo.com/help/Submit-a-question-module-index.html\" rel=\"nofollow\" target=\"_blank\">Contact Milanoo</a></dd></dl></li><li><dl><dt>FURTHER INFORMATION</dt><dd><a title=\"About us\" href=\"http://www.milanoo.com/help/About-Milanoo-module-index-id-41.html\" rel=\"nofollow\" target=\"_blank\">About us</a></dd><dd><a title=\"Delivery costs\" href=\"http://www.milanoo.com/help/Can-You-Show-Me-How-You-Calculate-Shipping-module-index-id-38.html\" rel=\"nofollow\" target=\"_blank\">Delivery costs</a></dd><dd><a title=\"Security\" href=\"http://www.milanoo.com/help/Privacy-Policy-module-index-id-72.html\" rel=\"nofollow\" target=\"_blank\">Security</a></dd><dd><a title=\"Affiliate Program\" href=\"http://www.milanoo.com/help/About-Milanoo-Affiliates-Programme-module-index-id-67.html\" rel=\"nofollow\" target=\"_blank\">Affiliate Program</a></dd></dl></li></ul><div class=\"hei10\"></div>";
 			this.html(footer_inner);
 		};
 		$.fn.footer_c_jp= function() {
@@ -1262,7 +1262,7 @@ if(typeof(jQuery)!='undefined') {
     		            $("#"+overlayName).css({width:jq(storedParam.container).outerWidth(),height:jq(storedParam.container).outerHeight()}).show();                    
                         this.appendTo(document.body).show(); 
                         var msgDivLeftP=msgDivTopP=0;                    
-                        this.css({position:'absolute','z-index':20001});
+                        this.css({position:'fixed','z-index':20001});
                         if(storedParam.container === document.body)
                         {                                                                                       
                            msgDivTopP = ($(window).height() - this.outerHeight())/2 + document.documentElement.scrollTop;
@@ -1273,7 +1273,7 @@ if(typeof(jQuery)!='undefined') {
                            msgDivTopP = ($('#'+overlayName).outerHeight() - this.outerHeight())/2 + $('#'+overlayName).offset().top;
                            msgDivLeftP = ($('#'+overlayName).outerWidth() - this.outerWidth())/2+$('#'+overlayName).offset().left;                        
                         }
-                        this.css({top:msgDivTopP,left:msgDivLeftP});
+                        this.css({top:'45%',left:msgDivLeftP});
 		                break;
 		            case 'close':
 		               this.hide();
@@ -1754,16 +1754,27 @@ if(typeof(jQuery)!='undefined') {
 				for(var i=1;i<=c.picnum[x-1];i++) {
 					top=Math.floor((i-1)/this.numx[x-1])*(c.picheight[x-1]/this.numy[x-1]);
 					left=(i-1)%this.numx[x-1]*(c.picwidth[x-1]/this.numx[x-1]);
-					imgstr+='<img src="'+this.imgadd[x-1]+c.imgname+c.imgpre[x-1]+i+'.jpg" style="position:absolute;left:'+left+'px;top:'+top+'px" />'
+					imgstr+='<img onerror=this.src="'+this.imgadd[x-1]+c.imgname+c.imgpre[x-1]+i+'.JPG" src="'+this.imgadd[x-1]+c.imgname+c.imgpre[x-1]+i+'.jpg" style="position:absolute;left:'+left+'px;top:'+top+'px" />'
 				}
 				this.setcss($('<div id="'+this.arrid[x]+'">').width(c.picwidth[x-1]).height(c.picheight[x-1]).html(imgstr).appendTo(this.bdiv).draggable({
 					drag: function(a,b) {
 						return self.posdivmov(a,b)
 					},
 					stop: function(a,b) {
+						document.body.onselectstart = function(){ return true };
 						b.helper.draggable('option','axis',false)
 					}
-				}))
+				}));
+				
+				$( '#'+ this.arrid[x] ).mousedown(function(){
+					document.body.onselectstart = function(){ return false };
+					return false;
+				});
+				
+				$( '#'+ this.arrid[x] ).append( 
+					'<div style="width: '+ c.picwidth[x-1] +'px;height: '+ c.picheight[x-1] +'px;' +
+					'position:absolute;z-index:0;left:0;top:0;background:#fff;opacity:0;filter:alpha(opacity=0);"></div>' 
+				);
 			},
 			setcss: function(a) {
 				a.css({
@@ -1798,13 +1809,21 @@ if(typeof(jQuery)!='undefined') {
 				var b=this.options,self=this;
 				this.swidth=Math.floor(this.ewidth/6);
 				this.sheight=Math.floor(this.eheight/6);
-				this.sdiv=$('<div style="border:#ACA899 1px solid;position:absolute;right:4px;bottom:4px;width:'+this.swidth+'px;height:'+this.sheight+'px;">').append('<img src="'+b.path+b.imgname+'_s.jpg" width="'+this.swidth+'" height="'+this.sheight+'" />');
+				this.sdiv=$('<div style="border:#ACA899 1px solid;position:absolute;right:4px;bottom:4px;width:'+this.swidth+'px;height:'+this.sheight+'px;z-index:1">').append('<img src="'+b.path+b.imgname+'_s.jpg" width="'+this.swidth+'" height="'+this.sheight+'" />');
 				this.skuang=$('<div style="background:#FFFFFE;border:#F8DBB6 1px solid;position:absolute;cursor:crosshair;opacity:0.6;filter:alpha(opacity=60);">').appendTo(this.sdiv).draggable({
 					containment:'parent',
 					drag: function(e,a) {
 						self.dragfun(e,a)
+					},
+					stop: function(){
+						document.body.onselectstart = function(){ return true };
 					}
 				});
+				
+				this.skuang.mousedown(function(){
+					document.body.onselectstart = function(){ return false };
+				});
+				
 				this.sdiv.appendTo(this.element);
 				this.skuangsize()
 			},
