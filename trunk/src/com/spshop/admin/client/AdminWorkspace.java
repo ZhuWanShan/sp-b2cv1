@@ -42,7 +42,6 @@ public class AdminWorkspace implements EntryPoint {
 
   public void onModuleLoad() {
 	  
-	 refreshLogin();
     // Inject global styles.
     GWT.<GlobalResources>create(GlobalResources.class).css().ensureInjected();
 
@@ -63,6 +62,8 @@ public class AdminWorkspace implements EntryPoint {
     // displayed.
     RootLayoutPanel root = RootLayoutPanel.get();
     root.add(outer);
+    
+    refreshLogin();
   }
   
   public static String getSilteUrl(){

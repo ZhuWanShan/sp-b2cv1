@@ -128,7 +128,7 @@ public class SiteManager extends ObservableComposite<Site, SiteManager>{
 		AdminWorkspace.ADMIN_SERVICE_ASYNC.saveSite(getComponet(), new AsyncCallbackAdapter<Site>(){
 			@Override
 			public void onSuccess(Site rs) {
-				AdminWorkspace.ADMIN_SERVICE_ASYNC.getLoginInfo(true,new AsyncCallback<LoginInfo>() {
+				AdminWorkspace.ADMIN_SERVICE_ASYNC.getLoginInfo(new AsyncCallback<LoginInfo>() {
 						public void onSuccess(LoginInfo loginInfo) {
 							setComponent(loginInfo.getSite());
 							CommandFactory.release().execute();

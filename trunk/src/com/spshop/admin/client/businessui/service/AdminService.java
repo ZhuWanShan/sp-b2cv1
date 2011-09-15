@@ -20,7 +20,6 @@ import com.spshop.model.query.QueryResult;
 public interface AdminService  extends RemoteService{
 	QueryResult<Component> query(QueryCriteria criteria) throws IllegalArgumentException;
 	LoginInfo getLoginInfo()throws IllegalArgumentException;
-	LoginInfo getLoginInfo(boolean forceSession)throws IllegalArgumentException;
 	List<Category> getAllCategory()throws ServiceValidateException;
 	List<Category> getAllCategory(boolean includeDisable)throws ServiceValidateException;
 	Category saveCategory(Category category)throws ServiceValidateException;
