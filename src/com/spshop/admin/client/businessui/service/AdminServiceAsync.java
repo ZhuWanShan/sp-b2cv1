@@ -34,8 +34,6 @@ public interface AdminServiceAsync {
 
 	void saveSite(Site site, AsyncCallback<Site> callback)throws ServiceValidateException;
 
-	void getLoginInfo(boolean forceSession, AsyncCallback<LoginInfo> callback);
-
 	void getTopSelling(AsyncCallback<TabProduct> callback);
 
 	void saveTopSelling(TabProduct product, AsyncCallback<TabProduct> callback);

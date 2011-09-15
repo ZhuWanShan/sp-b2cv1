@@ -9,35 +9,6 @@
 	    </ss:html>
     </c:if>
   </div>
-  <%-- 
-    <div name="pl" id="pl" class="item_reviews_fun">
-      <h2>Reviews</h2>
-      <div class="item_reviews_button"> <a class="item_reviews_writle" href="javascript:jq.goDiv('#writepl');">Write a Review:</a> <!--span class="prin_link"><a href="javascript:void(0);">Print Page</a></span--> </div>
-    </div>
-    <ul class="item_reviews_list">
-           <li>
-        <div class="item_reviews_words">
-        <div class="item_reviews_user">
-		  <strong></strong> 
-		  <div style="float:left;">By <strong>Name</strong>&nbsp;&nbsp;2011-6-23  17:51:47</div>
-			<span class="item_reviews_start">
-			  <div class="starsSmall_box" title="5 out of 5 stars">
-				<div style="width:100%;"></div>
-			  </div>
-			</span>
-		</div>
-          <div id="PLcoon_1" class="item_reviews_content">can the bows on the shoes be removed? 
-          </div>
-                              
-          <div id="helpful60107" class="item_reviews_helpful"> Help other customers find the most helpful reviews Was this review helpful to you?
-            <input type="button" onclick="ishelpful('1',60107);" class="input_button_yes" value="Yes">
-			|
-			<input type="button" onclick="ishelpful('0',60107);" class="input_button_no" value="No">
-          </div>
-        </div>
-      </li>
-         </ul>
-   --%>
      <div class="pages_box"> 
     	<c:if test="${pageForm.pageProperties.productDetail.showComments}">
     		<H1 style="float: left;">Comments</H1>

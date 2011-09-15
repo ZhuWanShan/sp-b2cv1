@@ -18,8 +18,9 @@ public abstract class RemoteHttp extends HttpServlet{
 	private static final long serialVersionUID = 1376230598507318187L;
 
 	public LoginInfo getLoginInfo(HttpServletRequest request){
+		
 		LoginInfo loginInfo = (LoginInfo) request.getSession().getAttribute(AllConstants.ADMIN_LOGIN_INFO);
-		if(null==loginInfo){
+		if((null==loginInfo)||(null==loginInfo.getUserID())){
 			throw new RuntimeException(ExceptionType.NO_SIGN_IN.getValue());
 		}
 		return loginInfo;

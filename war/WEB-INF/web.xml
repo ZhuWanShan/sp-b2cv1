@@ -46,6 +46,16 @@
 		<servlet-name>ImageBatchCreate</servlet-name>
 		<servlet-class>com.spshop.admin.server.ImageBatchProcessor</servlet-class>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>AdminLogin</servlet-name>
+		<servlet-class>com.spshop.admin.server.LoginService</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>AdminLogin</servlet-name>
+		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>initServlet</servlet-name>

@@ -9,11 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.spshop.admin.shared.ExceptionType;
 import com.spshop.admin.shared.LoginInfo;
-import com.spshop.model.Site;
-import com.spshop.service.factory.ServiceFactory;
-import com.spshop.service.intf.SiteService;
 import com.spshop.utils.AllConstants;
-import static com.spshop.utils.AllConstants.DEFAULT_SITE_ID;;
 public class RemoteService extends RemoteServiceServlet {
 	/**
 	 * 
@@ -35,24 +31,7 @@ public class RemoteService extends RemoteServiceServlet {
 	}
 	
 	public LoginInfo getLoginInfo(){
-			return getLoginInfo(false);
-	}	
-	
-	public LoginInfo getLoginInfo(boolean forceRefresh) {
-		LoginInfo loginInfo = null;
-		if(forceRefresh){
-			loginInfo = (LoginInfo) getThreadLocalRequest().getSession()
+			return (LoginInfo) getThreadLocalRequest().getSession()
 			.getAttribute(AllConstants.ADMIN_LOGIN_INFO);
-		}
-		if (null == loginInfo) {
-			loginInfo = new LoginInfo();
-			Site site = ServiceFactory.getService(SiteService.class).getSiteById(
-					DEFAULT_SITE_ID);
-			loginInfo.setSite(site);
-			loginInfo.setUserID("szhu.spark@gmail.com");
-			getThreadLocalRequest().getSession().setAttribute(
-					AllConstants.ADMIN_LOGIN_INFO, loginInfo);
-		}
-		return loginInfo;
-	}
+	}	
 }
