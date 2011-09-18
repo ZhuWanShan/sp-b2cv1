@@ -49,8 +49,7 @@
 		</div>
 	</div>
 	<!-- shopping function -->
-	<form onsubmit="return formsubmit();" name="cusform" method="post"
-		action="displayCart.do">
+	<form onsubmit="return formsubmit();" name="cusform" method="post" action="displayCart.do">
 		<div class=" item_shopping_fun">
 			<div class="noFlow">
 				<h1>
@@ -62,8 +61,7 @@
 				Code:${pageForm.pageProperties.productDetail.id}</div>
 			<div style="position: relative;" class="item_shopping_funbox">
 				<div class="list_stars">
-					<script
-						src="http://connect.facebook.net/en_US/all.js#appId=277233412302753&amp;xfbml=1"></script>
+					<script	src="http://connect.facebook.net/en_US/all.js#appId=277233412302753&amp;xfbml=1"></script>
 					<fb:like href='http://www.prommagics.com' send="false" width="450"
 						show_faces="true" font=""></fb:like>
 				</div>
@@ -123,29 +121,30 @@
 							ÑÑÐ±. </a> <a rel="nofollow" class="link_now"
 							href="#">
 							$MXN </a>
-
-
 					</div>
 				</div>
 			
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
 					var="option" varStatus="idx" step="1">
 						<c:if test='${option.strSelectType eq "INPUT_TEXT"}'>
-						<div class="noFlow">
-							<div class="item_funTotal">
-								<c:out value="${option.name}" />
-								: <input type="text"
-									name="product_inputText_<c:out value='${option.name}' />"
-									id="<c:out value="${option.id}" />"
-									value="<c:out value="${option.defaultValue}" />" size="5"
-									maxlength="4" class="input_1"
-									onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value>9999)this.value=9999;"
-									onkeyup="value=value.replace(/[0-9a-zA-Z]/g,'');ChangePrice();">
-							</div>
-							<div class="item_funTotal" href="javascript:void(0);">
-								<input type="hidden" name="product_inputText_price"
-									value="${pageForm.pageProperties.productDetail.price}" />
-							</div>
+						<div class="noFlow" align="right">
+							<div style="float:left"><c:out value="${option.name}" />: </div>
+							<c:if test='${option.name eq "Qty"}'>
+								<input type="text" name="num" id="num"
+										value="<c:out value="${option.defaultValue}" />" size="5" maxlength="4" class="input_1"
+										onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value>9999)this.value=9999;"
+										onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
+								<div class="item_funTotal" href="javascript:void(0);">
+									<input type="hidden" id="product_inputText_price" name="product_inputText_price" value="${pageForm.pageProperties.productDetail.actualPrice}" />
+									Total: <span>US$ <span id="AmountPrice3">${pageForm.pageProperties.productDetail.actualPrice}</span></span>
+								</div>
+							</c:if>
+							<c:if test='${!(option.name eq "Qty")}'>
+								<input type="text" name="product_inputText_<c:out value="${option.name}" />" id="<c:out value="${option.id}" />"
+										value="<c:out value="${option.defaultValue}" />" size="5"
+										maxlength="4" class="input_1">
+								<div class="item_funTotal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+							</c:if>
 						</div>
 					</c:if>
 					<c:if test='${option.strSelectType eq "SINGLE_LIST"}'>
@@ -217,8 +216,6 @@
 						value="${pageForm.pageProperties.productDetail.id}"
 						name="ProductId">
 				</c:forEach>
-
-				Total: <span>US$ <span id="AmountPrice3">${pageForm.pageProperties.productDetail.price}</span></span>
 				<!--musictagstock start-->
 				<div style="color: #F33">
 					<i id="StocksInfo"></i>
@@ -231,19 +228,34 @@
 				</p>--%>
 			</div>
 			<script>
+				var toutaoPrice =0; 
+				var xiaoshu=2; 
+				jq("select").change( function() {
+					ChangePrice();	
+				});
 				jq(".colorLink").click(function(){
 						jq("#"+jq(this).attr('dataName')).val(jq(this).attr('data'));
 						var dataName = jq(this).attr('dataName');
-			
-						
 						jq(".colorLink[dataName='"+dataName+"']").css("border","1px solid #717171");
 						jq(".colorLink[dataName='"+dataName+"'] div").removeClass('selectImg');
 						jq(this).find("div:first").addClass('selectImg');
 						jq(this).css("border","1px solid #8b2104"); 
 						$('goodColor').value = jq(this).attr('value');
 				});
-				
-				jq(".item_colorBox").each(function(){ if(jq(this).find(".colorLink").size()==1){jq(this).find(".colorLink:first").click();}}); 
+				jq(".item_colorBox").each(function(){ if(jq(this).find(".colorLink").size()==1){jq(this).find(".colorLink:first").click();}});
+				function ChangePrice(){
+					if($('num').value!=0&&$('num').value!=""){
+						ProductsPrice = $('product_inputText_price').value;
+								if(iscustom=='custom'){
+							ProductsPrice =parseFloat(ProductsPrice)+parseFloat(CustomPrices);
+						}
+						
+						ProductsPrice =parseFloat(ProductsPrice)+parseFloat(toutaoPrice);
+								
+						$('money').innerHTML=(parseFloat(ProductsPrice)).toFixed(xiaoshu);
+						$('AmountPrice3').innerHTML=((parseFloat(ProductsPrice)).toFixed(xiaoshu)*$('num').value).toFixed(xiaoshu);
+					}	
+				}
 		</script>
 		<ul style="display: none;" id="choosePro" class="choosePro">
 		</ul>
