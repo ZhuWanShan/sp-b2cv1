@@ -14,7 +14,7 @@
 						<c:if test="${idx.index eq 0}">
 							<a class="bighref" id="linkNormalBox" href="${image.largerUrl}"
 								rel="thing_item_pics"> <img
-								src="http://www.mlo.me/image/endefault/thing_item/zoom_in.png"
+								src="../css/zoom_in.png"
 								id="zoomIcon"> <img width="277" val="${image.largerUrl}"
 								alt="${pageForm.pageProperties.productDetail.title}"
 								src="${image.largerUrl}" id="imageNormalBox"> </a>
@@ -35,7 +35,6 @@
 						<c:forEach items="${pageForm.pageProperties.productDetail.images}"
 							var="image" varStatus="idx" step="1">
 							<li dis="${idx.index}" class="smallPic"
-								url="http://www.mlo.me/thing/StyleZoom-id-32534-ProductsPicture-0.html"
 								val="${image.largerUrl}"><img
 								alt="${pageForm.pageProperties.productDetail.title}"
 								src="${image.iconUrl}"></li>
@@ -60,11 +59,6 @@
 			<div class="item_shopping_code">Item
 				Code:${pageForm.pageProperties.productDetail.id}</div>
 			<div style="position: relative;" class="item_shopping_funbox">
-				<div class="list_stars">
-					<script	src="http://connect.facebook.net/en_US/all.js#appId=277233412302753&amp;xfbml=1"></script>
-					<fb:like href='http://www.prommagics.com' send="false" width="450"
-						show_faces="true" font=""></fb:like>
-				</div>
 				<table>
 					<tbody>
 						<c:forEach
@@ -127,16 +121,24 @@
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
 					var="option" varStatus="idx" step="1">
 						<c:if test='${option.strSelectType eq "INPUT_TEXT"}'>
-						<div class="noFlow" align="right">
-							<div style="float:left"><c:out value="${option.name}" />: </div>
+						<div class="noFlow">
+							<c:out value="${option.name}" />: 
 							<c:if test='${option.name eq "Qty"}'>
-								<input type="text" name="num" id="num"
+								<c:if test="${option.defaultValue eq null}">
+									<input type="text" name="num" id="num"
+										value="1" size="5" maxlength="4" class="input_1"
+										onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value>9999)this.value=9999;"
+										onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
+								</c:if>
+								<c:if test='${!(option.name eq "Qty")}'>
+									<input type="text" name="num" id="num"
 										value="<c:out value="${option.defaultValue}" />" size="5" maxlength="4" class="input_1"
 										onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value>9999)this.value=9999;"
 										onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
+								</c:if>
 								<div class="item_funTotal" href="javascript:void(0);">
 									<input type="hidden" id="product_inputText_price" name="product_inputText_price" value="${pageForm.pageProperties.productDetail.actualPrice}" />
-									Total: <span>US$ <span id="AmountPrice3">${pageForm.pageProperties.productDetail.actualPrice}</span></span>
+									<label id="AmountPrice3">Total: <span>US$ <span>${pageForm.pageProperties.productDetail.actualPrice}</span></span></label>
 								</div>
 							</c:if>
 							<c:if test='${!(option.name eq "Qty")}'>
@@ -187,7 +189,7 @@
 						</div>
 					</c:if>
 					
-					<c:if test='${option.strSelectType eq "COLOR_SINGLE"}'>
+					<c:if test='${(option.strSelectType eq "COLOR_SINGLE") and (!empty option.items) }'>
 						<div class="item_colorBox">
 							<div class="item_ProBox_title">
 								<span><c:out value="${option.name}" />:</span><a
@@ -229,7 +231,7 @@
 			</div>
 			<script>
 				var toutaoPrice =0; 
-				var xiaoshu=2; 
+				var xiaoshu=1; 
 				jq("select").change( function() {
 					ChangePrice();	
 				});
@@ -253,7 +255,7 @@
 						ProductsPrice =parseFloat(ProductsPrice)+parseFloat(toutaoPrice);
 								
 						$('money').innerHTML=(parseFloat(ProductsPrice)).toFixed(xiaoshu);
-						$('AmountPrice3').innerHTML=((parseFloat(ProductsPrice)).toFixed(xiaoshu)*$('num').value).toFixed(xiaoshu);
+						$('AmountPrice3').innerHTML="Total: <span>US$ <span>"+((parseFloat(ProductsPrice)).toFixed(xiaoshu)*$('num').value).toFixed(xiaoshu)+"</span></span>";
 					}	
 				}
 		</script>
@@ -281,20 +283,6 @@
 			</c:if>
 			<div class="item_funWords">
 				<div id="favorite" style="display: none;" class="details_l"></div>
-			</div>
-			<div class="verisign_paypal">
-
-				<span class="paypal"><a href="javascript:void(0)"
-					title="paypal" rel="nofollow"
-					onclick="javascript:window.open('https://www.paypal.com/verified/pal=paypal@milanoo.com','olcwhatispaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=400, height=350');"><img
-						width="50" alt="paypal"
-						src="/css/paypal.verified.png">
-				</a> </span> <span class="verisign"><a
-					href="#"
-					title="Verisign Secured" target="_blank" rel="nofollow"><img
-						width="90" src="/css/vers.jpg"
-						alt="Verisign Secured"> </a> </span>
-
 			</div>
 		</div>
 	</form>
