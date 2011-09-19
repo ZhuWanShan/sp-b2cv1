@@ -152,10 +152,7 @@
 					<c:if test='${option.strSelectType eq "SINGLE_LIST"}'>
 						<div class="item_sizeBox">
 							<div class="item_ProBox_title">
-								<span><c:out value="${option.name}" />:</span><a
-									onclick="tab_click(2);"
-									href="javascript:jq.goDiv('#tab_middle');"
-									class="item_funLink size_chart">Size Chart</a>
+								<span><c:out value="${option.name}" />:</span>
 							</div>
 							<select
 								name="product_singleList_<c:out value='${option.name}' />"
@@ -192,10 +189,7 @@
 					<c:if test='${(option.strSelectType eq "COLOR_SINGLE") and (!empty option.items) }'>
 						<div class="item_colorBox">
 							<div class="item_ProBox_title">
-								<span><c:out value="${option.name}" />:</span><a
-									onclick="tab_click(3);"
-									href="javascript:jq.goDiv('#tab_middle');"
-									class="item_funLink color_chart">Color Chart</a>
+								<span><c:out value="${option.name}" />:</span>
 							</div>
 							<input type="hidden"
 								name="product_colorSingle_<c:out value='${option.name}' />"
