@@ -108,7 +108,7 @@ li.sel{border:1px solid #f90;}
 .item_property_show{ margin:20px 0;border:1px solid #CC0201;background:white; padding:2px;}
 .item_property{ margin:20px 0;border:1px solid #F5F5F5;background:#F5F5F5; padding:2px;}
 .item_property_show select,.item_property select{ width:180px;}
-.item_property_show input,.item_property input{ width:30px; height:20px; line-height:20px; text-align:center;}
+.item_property_show input,.item_property input{ height:20px; line-height:20px; text-align:center;}
 
 .item_propertyAlert{background:#FFDDD6; color:#CC0201; height:25px; line-height:25px; text-align:center; font-size:10px; margin-top:10px; font-weight:bold; visibility:hidden; }
 .item_funHelp{font-style:italic;color:#797979;text-decoration:underline;float:right;margin:5px 0;}
