@@ -155,20 +155,28 @@ public class Product extends Component{
 		
 		product.setId(0);
 		if(null!=getProperties()){
+			List<ProductProperty> props = new ArrayList<ProductProperty>();
 			for(ProductProperty property : getProperties()){
 				property.setId(0);
+				props.add(property);
 			}
+			product.setProperties(props);
 		}
 		
 		if(null!=getOptions()){
+			List<ProductOption> options = new ArrayList<ProductOption>();
 			for(ProductOption option : getOptions()){
 				option.setId(0);
 				if(null!=option.getItems()){
+					List<ProductOptionItem> optionItems = new ArrayList<ProductOptionItem>();
 					for(ProductOptionItem item : option.getItems()){
 						item.setId(0);
+						optionItems.add(item);
 					}
 				}
+				options.add(option);
 			}
+			product.setOptions(options);
 		}
 		
 		return product;

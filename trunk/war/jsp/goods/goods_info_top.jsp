@@ -96,25 +96,12 @@
 					</a> </span><span class="item_price_num"> <span id="money">${pageForm.pageProperties.productDetail.actualPrice}</span>
 					</span>
 					<div class="currencyAll">
-						<a rel="nofollow" class="link_now"
-							href="#">
-							â¬ </a> <a rel="nofollow" class="link_now"
-							href="#">
-							Â¥ </a> <a rel="nofollow" class="link_now"
-							href="#">
-							Â£ </a> <a rel="nofollow" class="link_now"
-							href="#">
-							CA$ </a> <a rel="nofollow" class="link_now"
-							href="#">
-							AU$ </a> <a rel="nofollow" class="link_now"
-							href="#">
-							CHF </a> <a rel="nofollow" class="link_now"
-							href="#">
-							HK$ </a> <a rel="nofollow" class="link_now"
-							href="#">
-							ÑÑÐ±. </a> <a rel="nofollow" class="link_now"
-							href="#">
-							$MXN </a>
+						<a rel="nofollow" class="link_now" href="#">$</a>
+						<a rel="nofollow" class="link_now" href="#">&#8364;</a> 
+						<a rel="nofollow" class="link_now" href="#">&#8356;</a> 
+						<a rel="nofollow" class="link_now" href="#">CA$</a>
+						<a rel="nofollow" class="link_now" href="#">AU$</a>
+						<a rel="nofollow" class="link_now" href="#">CHF</a> 
 					</div>
 				</div>
 			
