@@ -1,9 +1,9 @@
 <%@page import="com.spshop.utils.AllConstants"%>
 <%@include file="../include.jsp" %>
-
+<ss:menubar items="menuItems" specialOffers="specialOfferItems">
 <div class="main_menu" id="main_menu">
 	<ul>
-	<c:forEach items="${pageForm.categories}" var="category" varStatus="idx" step="1">
+	<c:forEach items="${menuItems}" var="category" varStatus="idx" step="1">
 		<li class="first">
 			<span>
 			<c:if test='${category.name != "home"}'>
@@ -79,7 +79,7 @@
 				</div>
 				<div class="inner_box_along">
 				<c:if test=""></c:if>
-				<c:forEach items='${pageForm.specialOffer}' var="specialOffer">
+				<c:forEach items='${specialOfferItems}' var="specialOffer">
 					<c:if test="${specialOffer.key == category.name && fn:length(specialOffer.value) != 0}">
 						<c:forEach items="${specialOffer.value}" var="special">
 						<dl>
@@ -132,3 +132,4 @@
 	</c:forEach>
 	</ul>
 </div>
+</ss:menubar>
