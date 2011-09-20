@@ -21,39 +21,6 @@ import com.spshop.model.Site;
 public abstract class BaseAction extends Action {
 	
 	/**
-	 * Populate MenuBar data for page
-	 * 
-	 * @param page
-	 */
-	private void populateMenuBar(PageFormBean page) {
-		List<Category> categories = new ArrayList<Category>();
-		categories = SCacheFacade.getTopCategories();
-		Map<Object, Object> specialOffer = new HashMap<Object, Object>();
-		
-		for (Category category : categories) {
-		    List<Category> specialOffers = new ArrayList<Category>();
-		    specialOffer.put(category.getName(), findSpecialOffers(category.getSubCategories(), specialOffers));
-        }
-		page.setSpecialOffer(specialOffer);
-		
-		page.addAllCategories(categories);
-	}
-	
-	private List<Category> findSpecialOffers(List<Category> categories, List<Category> specialOffers) {
-	    
-        for (Category category : categories) {
-            if (category.isSpecialOffer()) {
-                specialOffers.add(category);
-            } else {
-                if (category.getSubCategories().size() != 0) {
-                    findSpecialOffers(category.getSubCategories(), specialOffers);
-                }
-            }
-        }
-	    return specialOffers;
-	}
-
-	/**
 	 * Populate Site Informations for page
 	 * 
 	 * @param request
@@ -108,7 +75,6 @@ public abstract class BaseAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		PageFormBean page = (PageFormBean) form;
-		populateMenuBar(page);
 		populateSiteInfo(request, page);
 		
 		return processer(mapping, page, request, response);

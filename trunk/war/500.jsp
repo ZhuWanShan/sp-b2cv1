@@ -50,6 +50,11 @@
 	<!-- Header end -->
 	
 	<div id="allBanner" class="main_box" style="width: 972px; height: 0px;"></div>
+	
+	<!-- Top box start -->
+	<jsp:include page="jsp/top/top_box.jsp"></jsp:include>
+	<script type="text/javascript" src="js/header.js"></script>
+	<!-- Top box end -->
 
 	<div class="main_box">
 		<div class="hei10"></div>
