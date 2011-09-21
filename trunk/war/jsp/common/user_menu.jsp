@@ -17,10 +17,7 @@
 			alert("Wrong User ID or Password!");
 		}
 		</script>
-		<% 
-		String email = (String) request.getSession().getAttribute("email");
-		%>
-		<c:if test="${email eq null}">
+		<c:if test="${sessionScope.email eq null}">
 			<li id="base_unlogin_li" class="">Login
 				<div style="width: 200px; cursor: default; display: none;"
 					class="user_menu_hidd">
@@ -58,8 +55,8 @@
 				</div>
 			</li>
 		</c:if>
-		<c:if test="${email!=null}">
-			<li id="hide_login_li"><span id="hide_login_span">${email}</span>.
+		<c:if test="${sessionScope.email != null}">
+			<li id="hide_login_li"><span id="hide_login_span">${sessionScope.email}</span>.
 				(<a href="logout.do"
 				title="Sign out">Sign out</a>)
 				<div style="width: 100%; display: none; cursor: default;"
