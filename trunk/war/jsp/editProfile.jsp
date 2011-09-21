@@ -62,7 +62,7 @@
 			<h1>Edit Profile</h1>
 			<form action="/editProfile" method="post" style="padding: 0 0 0 80px;">
 				<input type="hidden" name="isModify" value="true">
-				<ul class="table_ul1 loginReg">
+				<ul class="table_ul1 editProfile">
 					<li><i>First Name:</i>
 						<input name="firstName" id="firstName" size="32" maxlength="100" value="${pageForm.pageProperties.userProfile.firstName }"/>
 					</li>
@@ -71,6 +71,15 @@
 					</li>
 					<li><i>Telephone:</i>
 						<input name="telephone" id="telephone" size="32" maxlength="100" value="${pageForm.pageProperties.userProfile.telephone }"/>
+					</li>
+					<li><i>Country:</i>
+						<input name="country" id="country" size="32" maxlength="100" value="${pageForm.pageProperties.userProfile.country }" />
+					</li>
+					<li><i>Zip:</i>
+						<input name="zipcode" id="zipcode" size="32" maxlength="100" value="${pageForm.pageProperties.userProfile.zipcode }" />
+					</li>
+					<li><i>Address:</i>
+						<input name="address" id="address" size="32" maxlength="256" value="${pageForm.pageProperties.userProfile.address }" />
 					</li>
 				</ul>
 				<div class="putIn_box2">
