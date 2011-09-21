@@ -23,8 +23,12 @@ public class RegisterAction extends BaseAction {
 
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+		User tempUser = null;
+		if (email != null && !"".equals(email)) {
+		    tempUser = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
+        }
 		
-		if (email == null || password == null) {
+		if (email == null || password == null || tempUser != null) {
 		    return mapping.findForward(AllConstants.fAILURE_VALUE);
         } else {
             User user = new User();
@@ -32,13 +36,10 @@ public class RegisterAction extends BaseAction {
             user.setPassword(password);
             user.setCreateDate(new Date());
             user.setName(email);
-    //		Boolean ifExist = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
-    //		if(ifExist){
-    //			return mapping.findForward(AllConstants.fAILURE_VALUE);
-    //		}
-            page.addPageProperty("email", email);
+            
             ServiceFactory.getService(UserService.class).merge(user);
             EmailTools.send(email,AllConstants.MAIL_SUBJECT,AllConstants.MAIL_CONTENT);
+            request.getSession(true).setAttribute("email", email);
             return mapping.findForward(AllConstants.SUCCESS_VALUE);
 
         }
