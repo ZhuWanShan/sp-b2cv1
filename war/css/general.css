@@ -500,6 +500,9 @@ input.submit_blue2{background:url('./reg-bg.gif') no-repeat -183px 0; width:336p
 .Shop_Safely span{ border:#ccc solid 1px; display:block; width:425px;}
 .Shop_Safely img{ margin:3px 5px; vertical-align:middle;}
 /************* 登陆注册v3 *************/
+.editProfile{padding-left:20px}
+.editProfile li{clear:both;float:none;padding-left:10px;height:30px; *height:auto;}
+.editProfile li i{padding:0px 3px 0px 0px; width: 100px;}
 .regLoginItem{padding-left:20px;padding-top:4px;margin-bottom:10px;font-size:13px;font-weight:bold;}
 .loginReg{padding-left:20px}
 .loginReg li.cw img{vertical-align:middle;}
