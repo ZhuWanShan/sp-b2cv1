@@ -48,7 +48,7 @@
 		</div>
 	</div>
 	<!-- shopping function -->
-	<form onsubmit="return formsubmit();" name="cusform" method="post" action="displayCart.do">
+	<form name="cusform" method="post" action="/shoppingCart">
 		<div class=" item_shopping_fun">
 			<div class="noFlow">
 				<h1>
@@ -112,24 +112,18 @@
 							<c:out value="${option.name}" />: 
 							<c:if test='${option.name eq "Qty"}'>
 								<c:if test="${option.defaultValue eq null}">
-									<input type="text" name="num" id="num"
+									<input type="text" name="qty" id="num"
 										value="1" size="5" maxlength="4" class="input_1"
 										onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value>9999)this.value=9999;"
 										onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
 								</c:if>
-								<c:if test='${!(option.name eq "Qty")}'>
-									<input type="text" name="num" id="num"
-										value="<c:out value="${option.defaultValue}" />" size="5" maxlength="4" class="input_1"
-										onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value>9999)this.value=9999;"
-										onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
-								</c:if>
 								<div class="item_funTotal" href="javascript:void(0);">
-									<input type="hidden" id="product_inputText_price" name="product_inputText_price" value="${pageForm.pageProperties.productDetail.actualPrice}" />
+									<input type="hidden" id="product_inputText_price" name="qty" value="${pageForm.pageProperties.productDetail.actualPrice}" />
 									<label id="AmountPrice3">Total: <span>US$ <span>${pageForm.pageProperties.productDetail.actualPrice}</span></span></label>
 								</div>
 							</c:if>
 							<c:if test='${!(option.name eq "Qty")}'>
-								<input type="text" name="product_inputText_<c:out value="${option.name}" />" id="<c:out value="${option.id}" />"
+								<input type="text" name="text@${option.name}" id="<c:out value="${option.id}" />"
 										value="<c:out value="${option.defaultValue}" />" size="5"
 										maxlength="4" class="input_1">
 								<div class="item_funTotal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
@@ -142,7 +136,7 @@
 								<span><c:out value="${option.name}" />:</span>
 							</div>
 							<select
-								name="product_singleList_<c:out value='${option.name}' />"
+								name="text@${option.name}"
 								id="Size0">
 								<option value="please">Please select</option>
 								<c:forEach items="${option.items}" var="item" varStatus="indx"
@@ -161,7 +155,7 @@
 									href="javascript:jq.goDiv('#tab_middle');"
 									class="item_funLink size_chart">Size Chart</a>
 							</div>
-							<select name="product_multiList_<c:out value='${option.name}' />"
+							<select name="texts@${option.name}"
 								id="Size0" MULTIPLE>
 								<option value="please">Please select</option>
 								<c:forEach items="${option.items}" var="item" varStatus="indx"
@@ -179,7 +173,7 @@
 								<span><c:out value="${option.name}" />:</span>
 							</div>
 							<input type="hidden"
-								name="product_colorSingle_<c:out value='${option.name}' />"
+								name="color@${option.name}"
 								id="goodColor" value="">
 							<c:forEach items="${option.items}" var="item" varStatus="indx"
 								step="1">
@@ -195,10 +189,13 @@
 							</c:forEach>
 						</div>
 					</c:if>
-					<input type="hidden"
-						value="${pageForm.pageProperties.productDetail.id}"
-						name="ProductId">
 				</c:forEach>
+				<input type="hidden"
+						value="${pageForm.pageProperties.productDetail.name}"
+						name="ProductId">
+				<input type="hidden"
+						name="operation"
+						value="addItem">
 				<!--musictagstock start-->
 				<div style="color: #F33">
 					<i id="StocksInfo"></i>

@@ -14,6 +14,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.PopWindow;
 import com.spshop.model.Category;
@@ -37,10 +38,13 @@ public class CategoryPicker extends ObservableComposite<List<Category>, Category
 
 	@UiHandler("pickBTN")
 	void onPickBTNClick(ClickEvent event) {
-		tree.setSize("400px", "400px");
+		ScrollPanel tp = new ScrollPanel();
+		tp.setSize("400px", "400px");
+		tp.add(tree);
+//		tree.setSize("400px", "400px");
 		final CategoryPicker self = this;
 		final CategoryTree t = tree;
-		PopWindow popWindow = new PopWindow("Select category",tree,true,true);
+		PopWindow popWindow = new PopWindow("Select category",tp,true,true);
 		Button add = new Button("Add");
 		popWindow.addButton(add);
 		add.addClickHandler(new ClickHandler() {
