@@ -1955,6 +1955,10 @@ if(typeof(jQuery)!='undefined') {
 	})(jQuery);
 }
 
+function trim(str) {//字符过滤
+	return (str + '').replace(/(\s+)$/g, '').replace(/^\s+/g, '');
+}
+
 function crm_order_alert(v)
 {
 	 return ;
