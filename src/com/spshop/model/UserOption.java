@@ -22,12 +22,6 @@ public class UserOption extends Component{
 		super(option);
 	}
 	
-	public String getOptional() {
-		return optionName;
-	}
-	public void setOptional(String optional) {
-		this.optionName = optional;
-	}
 	public String getValue() {
 		return value;
 	}
@@ -41,6 +35,7 @@ public class UserOption extends Component{
 
 	public void setOptionName(String optionName) {
 		this.optionName = optionName;
+		setName(optionName);
 	}
 
 	public String getStrOptionType() {
@@ -81,6 +76,32 @@ public class UserOption extends Component{
 		}
 		return obj;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (getClass() != obj.getClass())
+			return false;
+		UserOption other = (UserOption) obj;
+		if (optionName == null) {
+			if (other.optionName != null)
+				return false;
+		} else if (!optionName.equals(other.optionName))
+			return false;
+		if (strOptionType == null) {
+			if (other.strOptionType != null)
+				return false;
+		} else if (!strOptionType.equals(other.strOptionType))
+			return false;
+		if (value == null) {
+			if (other.value != null)
+				return false;
+		} else if (!value.equals(other.value))
+			return false;
+		return true;
+	}
+	
 	
 	
 	

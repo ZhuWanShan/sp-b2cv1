@@ -2,8 +2,6 @@ package com.spshop.service.impl;
 
 import java.util.List;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
-
 import com.spshop.dao.intf.ProductDAO;
 import com.spshop.exception.ServiceValidateException;
 import com.spshop.model.Category;
@@ -58,6 +56,7 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 		return ps;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Long queryCountByCategory(Category category) {
 	    String hql = "select count(p) from Product as p join p.categories as ps where ps.id = " +category.getId() +" order by p.id desc";
