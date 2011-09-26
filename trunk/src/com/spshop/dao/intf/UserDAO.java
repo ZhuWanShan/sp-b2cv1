@@ -6,7 +6,7 @@ public interface UserDAO extends BaseDAO<User, Long>{
 
 	int queryUserCountByName(String email);
 
-	int queryUserByEmailAndPassword(User user);
+	User queryUserByEmailAndPassword(User user);
 
 	User queryUserByName(String email);
 	

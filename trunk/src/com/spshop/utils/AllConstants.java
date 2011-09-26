@@ -36,6 +36,10 @@ public class AllConstants {
 	public static String PAGE_NUM = "pageNum";
 	public static String PROD_IN_CATEGORY_PAGE = "productsInCategoryPage";
 	public static String PROD_COUNT = "productsCount";
+	public static String ACTION = "action";
+	public static String LOGIN_ACTION = "login";
+	public static String LOGOUT_ACTION = "logout";
+	public static String USER_INFO = "userInfo";
 	
 	public static String CATEGORY_CACHE = "catetoryCache";
 	public static String ORDER_CACHE = "orderCache";

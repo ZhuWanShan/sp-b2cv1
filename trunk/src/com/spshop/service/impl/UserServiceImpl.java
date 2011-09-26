@@ -23,12 +23,8 @@ public class UserServiceImpl extends AbstractService<User, UserDAO, Long>
 	}
 
 	@Override
-	public Boolean validateUser(User user) {
-		int count = getDao().queryUserByEmailAndPassword(user);
-		if (1 == count) {
-			return true;
-		}
-		return false;
+	public User validateUser(User user) {
+		return getDao().queryUserByEmailAndPassword(user);
 	}
 
 	@Override

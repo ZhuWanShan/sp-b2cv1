@@ -32,7 +32,7 @@ public class UserDAOImpl extends AbstractBaseDAO<User, Long> implements UserDAO 
 	}
 
 	@Override
-	public int queryUserByEmailAndPassword(User user) {
+	public User queryUserByEmailAndPassword(User user) {
 		List<Criterion> list = new ArrayList<Criterion>();
 		if (!StringUtils.isEmpty(user.getEmail())) {
 			Criterion criterion1 = Restrictions.eq("email", user.getEmail());
@@ -50,7 +50,11 @@ public class UserDAOImpl extends AbstractBaseDAO<User, Long> implements UserDAO 
 				criterions[i] = list.get(i);
 			}
 		}
-		return findByCriteria(criterions).size();
+		List<User> users = findByCriteria(criterions);
+        if (users != null && users.size()>0) {
+            return users.get(0);
+        }
+		return null;
 	}
 
 	@Override

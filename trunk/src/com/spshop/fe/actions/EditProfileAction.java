@@ -19,11 +19,9 @@ public class EditProfileAction extends BaseAction {
                                    PageFormBean page,
                                    HttpServletRequest request,
                                    HttpServletResponse response) throws Exception {
-        User user = null;
-        String email = String.valueOf(request.getSession().getAttribute("email"));
-        Boolean isModify = Boolean.valueOf(request.getParameter("isModify")); 
-        if (email != null && !"null".equals(email)) {
-            user = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
+        User user = (User)request.getSession().getAttribute(AllConstants.USER_INFO);
+        Boolean isModify = Boolean.valueOf(request.getParameter("isModify"));
+        if (user != null) {
             if (isModify) {
                 populateUserModel(user, request);
                 user = ServiceFactory.getService(UserService.class).merge(user);
@@ -34,15 +32,15 @@ public class EditProfileAction extends BaseAction {
             throw new IllegalStateException("This session timed out!!");
         }
     }
-    
-    private void populateUserModel(User user, HttpServletRequest request){
+
+    private void populateUserModel(User user, HttpServletRequest request) {
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String telephone = request.getParameter("telephone");
         String address = request.getParameter("address");
         String zipcode = request.getParameter("zipcode");
         String country = request.getParameter("country");
-        
+
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setTelephone(telephone);
