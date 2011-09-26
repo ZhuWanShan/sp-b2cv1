@@ -1,3 +1,4 @@
+<%@page import="com.spshop.utils.AllConstants"%>
 <%@ include file="../include.jsp"%>
 <div class="user_menu" id="user_menu">
 	<ul>
@@ -17,11 +18,11 @@
 			alert("Wrong User ID or Password!");
 		}
 		</script>
-		<c:if test="${sessionScope.email eq null}">
+		<c:if test="${sessionScope.userInfo eq null}">
 			<li id="base_unlogin_li" class="">Login
 				<div style="width: 200px; cursor: default; display: none;"
 					class="user_menu_hidd">
-					<form method="post" action="indexLogin.do">
+					<form method="post" action="/login">
 						<div class="border_bot indexlogin">
 							<dl>
 								<dd>
@@ -38,6 +39,7 @@
 										class="underline" rel="nofollow">Click here</a>
 								</dd>
 								<dd>
+									<input type="hidden" name="<%=AllConstants.ACTION %>" value="<%=AllConstants.LOGIN_ACTION %>">
 									<input type="submit" value="Login"
 										class="button_01"><span id="warn_login_span"></span>
 								</dd>
@@ -55,10 +57,9 @@
 				</div>
 			</li>
 		</c:if>
-		<c:if test="${sessionScope.email != null}">
-			<li id="hide_login_li"><span id="hide_login_span">${sessionScope.email}</span>.
-				(<a href="logout.do"
-				title="Sign out">Sign out</a>)
+		<c:if test="${sessionScope.userInfo != null}">
+			<li id="hide_login_li"><span id="hide_login_span">${sessionScope.userInfo.email}</span>.
+				(<a href="/login?<%=AllConstants.ACTION %>=<%=AllConstants.LOGOUT_ACTION %>" title="Sign out">Sign out</a>)
 				<div style="width: 100%; display: none; cursor: default;"
 					class="user_menu_hidd">
 					<div class="indexlogin">

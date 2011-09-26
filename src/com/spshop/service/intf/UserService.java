@@ -7,7 +7,7 @@ public interface UserService extends BaseService<User, UserDAO, Long>{
 
 	Boolean validateUserByEmail(String email);
 
-	Boolean validateUser(User user);
+	User validateUser(User user);
 
 	User queryUserByEmail(String email);
 
