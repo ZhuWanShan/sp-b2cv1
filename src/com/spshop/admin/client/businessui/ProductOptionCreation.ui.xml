@@ -38,6 +38,14 @@
 						<g:ListBox visibleItemCount="1" ui:field="OpTypes"/>
 					</g:customCell>
 				</g:row>
+			<!--  	<g:row>
+					<g:customCell>
+						<g:Label text="Show Customized Size"/>
+					</g:customCell>
+					<g:customCell>
+						<g:CheckBox text="Customized Size" ui:field="customizedSize"/>
+					</g:customCell>
+				</g:row>-->
 				<g:row>
 					<g:customCell>
 						<g:HorizontalPanel>

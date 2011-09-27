@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@include file="include.jsp" %>
-<%@page import="com.spshop.utils.AllConstants"%>
 <html>
 <head>
 	<link media="all" href="//s7.addthis.com/static/r07/widget58.css" type="text/css" rel="stylesheet"> 
@@ -28,6 +27,7 @@
 	</script>
 	<script src="../js/common.js" type="text/javascript"></script>
 	<script src="../js/ajax.js" type="text/javascript"></script>
+	<script src="../js/shoppingCart.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -42,32 +42,12 @@
 	<jsp:include page="top/top_box.jsp"></jsp:include>
 	<script type="text/javascript" src="../js/header.js"></script>
 	<!-- Top box end -->
-
-	<script src="../js/addthis.js" type="text/javascript"></script>
-	
-	<script>var pic_high=0;</script>
-	
-	<link type="text/css" rel="stylesheet" href="../css/thing_item.css">
-	<link type="text/css" rel="stylesheet" href="../css/default_thing_item.css">
-	<link media="screen" href="../css/jquery.fancybox-1.3.4.css" type="text/css" rel="stylesheet">
-	
-	<script type="text/javascript" src="../js/jquery.mousewheel-3.0.4.pack.js"></script>
-	<script type="text/javascript" src="../js/jquery.fancybox-1.3.4.pack.js"></script>
-
 	<!-- Main box start -->
 	<div class="main_box">
 		<jsp:include page="wrapper/path_title.jsp"></jsp:include>
 		
 		<div class="item_ad_box"> </div>
 		<jsp:include page="cart/cartDetail.jsp"></jsp:include>
-	</div>
-	<!-- Main box end -->
-	<div class="hei10"></div>
-	<!-- Bottom end -->
-	<div class="content_box">
-		<c:if test="${pageForm.pageProperties.productDetail.showComments}">
-			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:comments href='<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name }' num_posts="15" width="971"></fb:comments>
-		</c:if>
 	</div>
 		<!-- Bottom start -->
 	<jsp:include page="bottom/bottom_box.jsp"></jsp:include>

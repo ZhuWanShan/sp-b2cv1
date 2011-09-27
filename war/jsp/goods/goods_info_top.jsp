@@ -2,6 +2,7 @@
 <%@page import="com.spshop.utils.AllConstants"%>
 <div class="item_goods_info_box_top">
 	<div class="item_box_left_normal">
+		<jsp:include page="customsize.jsp"></jsp:include>
 		<!-- class="item_box_left" to high -->
 		<div class="no_float">
 
@@ -142,7 +143,7 @@
 								<c:forEach items="${option.items}" var="item" varStatus="indx"
 									step="1">
 									<option value="${item.value}"
-										<c:if test="${item.value eq option.defaultValue}">selected="selected"</c:if>>${item.value}</option>
+										<c:if test="${item.value eq option.defaultValue}">selected="selected"</c:if>>${item.name}</option>
 								</c:forEach>
 							</select>
 						</div>
@@ -193,6 +194,7 @@
 				<input type="hidden"
 						value="${pageForm.pageProperties.productDetail.name}"
 						name="ProductId">
+				<input type="hidden" name="text@Customized Size" id="CustomizedHidden">
 				<input type="hidden"
 						name="operation"
 						value="addItem">
@@ -237,6 +239,9 @@
 					}	
 				}
 		</script>
+		<div id="CustomizedSizeDesp" style="display: none;padding: 4px;">
+			
+		</div>
 		<ul style="display: none;" id="choosePro" class="choosePro">
 		</ul>
 			<c:if test='${pageForm.pageProperties.displayOrderItem == null}'>

@@ -1,13 +1,14 @@
 <%@ include file="../include.jsp" %>
+<%@page import="com.spshop.utils.AllConstants"%>
 <div id="container">
 	<button class="button_orange left" type="button"
-		onclick="location.href='http://www.milanoo.com/'">Continue
+		onclick="location.href='<%= AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}'">Continue
 		Shopping</button>
 	<div id="right_column">
 		<p id="order_title">Let me order now!</p>
 		<div id="check_box">
 			<p>
-				TOTAL: <span><c:out value="${pageForm.pageProperties.orderDetail.totalPrice}" /></span>
+				TOTAL: <span><c:out value="${shoppingcart.totalPrice}" /></span>
 			</p>
 
 			<input type="button" value="CHECKOUT"
@@ -22,17 +23,18 @@
 				src="#/bt_paypal_gery.gif">
 		</div>
 		<div id="safe_box">
+		<%-- 
 			<p id="descript">Security of shopping on Milanoo is guaranteed!</p>
 			<p>
 				<a href="javascript:void(0);" target="_blank"><img
 				src="#">
-				<%-- 
-					src="http://www.mlo.me/image/default/shoppingOrder/PaypalVerify.gif">--%>
+					src="http://www.mlo.me/image/default/shoppingOrder/PaypalVerify.gif">
 					height="60">
 				</a> <a href="javascript:void(0);" target="_blank"><img
 					src="../../css/vers.jpg">
 				</a>
 			</p>
+			--%>
 		</div>
 	</div>
 	<div id="left_column">
@@ -57,16 +59,29 @@
 						<tr>
 						<c:forEach items="${item.product.images}" var="image" end="0">
 							<td valign="top">
+								<div style="float: left;">
 								<input type="hidden" name="itemName" value="${item.name }">
 								<a href="/${item.product.name}"
 									target="_blank">
-									<img style="float: left;" val="${image.iconUrl}"
+									<img  val="${image.iconUrl}"
 										src="${image.iconUrl}"
 										class="left MR10">
-										</a> 
-								<span style="float: left;"> <a href="/${item.product.name}" 
-										target="_blank"><strong>${item.product.title}</strong>
-									</a></span>
+										</a>
+								</div>
+								<div style="float: left;margin-left: 10px;width: 300px">
+									<span>
+										<a href="/${item.product.name}" 
+											target="_blank"><strong>${item.product.title}</strong>
+										</a>
+									</span>
+									<c:forEach items="${item.userOptions}" var="opt">
+										<c:if test="${opt.name eq 'Color' }">
+											<div style="padding: 3px">
+												<span style="border-color:${opt.value};display:inline-block;border-style: solid;border-width: 9px;" class="select_daffodil"></span>
+											</div>
+										</c:if>
+									</c:forEach>
+								</div>
 							</td>
 						</c:forEach>
 							<td class="center red"><c:out value="${item.product.actualPrice}"/></td>
@@ -84,7 +99,26 @@
 								</form>
 							</td>
 							<td class="center red">
-								<a class="link_remove">Show Options</a><br>
+								<a class="link_remove showCartOptions">Show Detail</a><br>
+								
+								<div style="position: absolute;z-index: 2;width: 200px;min-height: 200px"
+								class="cartOptionsDashboard">
+									<c:forEach items="${item.userOptions}" var="opt">
+										<div>
+											<c:choose>
+											<c:when test="${opt.name eq 'Color' }">
+												<span>${opt.name } :</span>
+												<span style="border-color:${opt.value};display:inline-block;border-style: solid;border-width: 9px;" class="select_daffodil"></span>
+											</c:when>
+											<c:otherwise>
+												<span>${opt.name } :</span>
+												<span>${opt.value}</span>
+											</c:otherwise>
+											</c:choose>
+										</div>
+									</c:forEach>
+								</div>
+								
 								<c:out value="${item.finalPrice}"/><br> <a
 								href="#" onclick="javascript:return removeItem('${item.name}_remove')"
 								class="link_remove">Remove</a>

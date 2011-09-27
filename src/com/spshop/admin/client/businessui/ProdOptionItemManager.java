@@ -12,6 +12,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.spshop.admin.client.businessui.callback.EditorChangeAdapter;
 import com.spshop.model.ProductOptionItem;
+import com.spshop.model.enums.BUConsts;
 
 public class ProdOptionItemManager extends Composite{
 
@@ -83,7 +84,7 @@ public class ProdOptionItemManager extends Composite{
 		return optionItems;
 	}
 	
-	private boolean haveSameOption(ProductOptionItem item){
+	public boolean haveSameOption(ProductOptionItem item){
 		for(ProductOptionItem it:optionItems){
 			if(it!=item&&it.getName().equals(item.getName())){
 				return true;
@@ -94,6 +95,19 @@ public class ProdOptionItemManager extends Composite{
 
 	public VerticalPanel getHost() {
 		return host;
+	}
+
+	public void removeCustomizedItem() {
+		ProductOptionItem re = null;
+		for(ProductOptionItem it:optionItems){
+			if(BUConsts.CUSTOMIZED_SIZE.equals(it.getName())){
+				re = it;
+			}
+		}
+		if(null!=re){
+			optionItems.remove(re);
+		}
+		setOptionItems(optionItems);
 	}
 	
 	

@@ -2040,5 +2040,62 @@ jQuery.fn.defaultValue = function() {
 })( jQuery );
 
 jQuery( document ).ready(function() {
+	
+	jQuery("#alert_thing_box_customizedsize").hide();
+	
 	jQuery( '.jq_default_value' ).defaultValue();
+	
+	jQuery( 'option[value=Customized]' ).click(function(){
+		jQuery("#alert_thing_box_customizedsize").show("normal");
+	});
+	
+	jQuery( '#alert_thing_box_customizedsize_submit' ).click(function(){
+		
+		var customizes = jQuery("input[id^='Customszie']");
+		
+		var sizes = new Array();
+		var unit = jQuery("#customizeUnit").val();
+		
+		for(var index =0 ; index< customizes.length ; index++){
+			var value = jQuery(customizes[index]).val();
+			if(parseInt(value)){
+				sizes[index] = new Object();
+				sizes[index].key = jQuery(customizes[index]).attr("name");
+				sizes[index].value = value;
+				jQuery(customizes[index]).siblings("span[id^='cussize']").hide();
+			}else{
+				jQuery(customizes[index]).siblings("span[id^='cussize']").show();
+				return;
+			}
+		}
+		
+		var html = createCustomized(sizes,unit);
+		
+		jQuery("#CustomizedSizeDesp").html(html);
+		jQuery("#CustomizedHidden").val(html);
+		jQuery("#CustomizedSizeDesp").show();
+		
+		jQuery("#alert_thing_box_customizedsize").hide();
+	});
+	
+	jQuery( '#alert_thing_box_customizedsize_cancel' ).click(function(){
+		jQuery("#alert_thing_box_customizedsize").hide();
+	});
+	
 });
+
+
+function createCustomized(sizes, unit){
+	if(!sizes || sizes.length < 1){
+		return null;
+	}
+	var template = "<table><tbody><tr><td>Customized Size:</td><td>&nbsp;</td><td>&nbsp;</td></tr>"
+	for(var i = 0; i<sizes.length ; i++){
+		template = template + "<tr><td>"+sizes[i].key+"</td>"+"<td><span>"+sizes[i].value+"</span></td>"
+				+"<td><span>"+unit+"</span></td>"
+				+"</tr>"
+	}
+	template = template + "</tbody></table>";
+	
+	return template;
+}

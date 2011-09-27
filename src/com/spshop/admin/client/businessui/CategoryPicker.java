@@ -85,7 +85,7 @@ public class CategoryPicker extends ObservableComposite<List<Category>, Category
 			
 			@Override
 			public void onMouseOver(MouseOverEvent event) {
-				btn.setText("Remove X");
+				btn.setText(category.getDisplayName()+" X");
 			}
 		});
 		btn.addMouseOutHandler(new MouseOutHandler() {
