@@ -2090,7 +2090,7 @@ function createCustomized(sizes, unit){
 	if(!sizes || sizes.length < 1){
 		return null;
 	}
-	var template = "<table><tbody><tr><td>Customized Size:</td><td>&nbsp;</td><td>&nbsp;</td></tr>"
+	var template = "<table><tbody>"
 	for(var i = 0; i<sizes.length ; i++){
 		template = template + "<tr><td>"+sizes[i].key+"</td>"+"<td><span>"+sizes[i].value+"</span></td>"
 				+"<td><span>"+unit+"</span></td>"
