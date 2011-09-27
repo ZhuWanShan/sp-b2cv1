@@ -194,7 +194,7 @@
 				<input type="hidden"
 						value="${pageForm.pageProperties.productDetail.name}"
 						name="ProductId">
-				<input type="hidden" name="text@Customized Size" id="CustomizedHidden">
+				<input type="hidden" id="CustomizedHidden">
 				<input type="hidden"
 						name="operation"
 						value="addItem">

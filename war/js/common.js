@@ -2040,7 +2040,7 @@ jQuery.fn.defaultValue = function() {
 })( jQuery );
 
 jQuery( document ).ready(function() {
-	
+	jQuery("#CustomizedHidden").attr("name","");
 	jQuery("#alert_thing_box_customizedsize").hide();
 	
 	jQuery( '.jq_default_value' ).defaultValue();
@@ -2072,6 +2072,7 @@ jQuery( document ).ready(function() {
 		var html = createCustomized(sizes,unit);
 		
 		jQuery("#CustomizedSizeDesp").html(html);
+		jQuery("#CustomizedHidden").attr("name","text@Customized Size");
 		jQuery("#CustomizedHidden").val(html);
 		jQuery("#CustomizedSizeDesp").show();
 		
