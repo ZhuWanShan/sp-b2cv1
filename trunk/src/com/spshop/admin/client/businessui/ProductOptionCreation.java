@@ -26,6 +26,7 @@ import com.spshop.admin.client.businessui.callback.EditorChangeListener;
 import com.spshop.admin.client.rich.ColorButton;
 import com.spshop.model.ProductOption;
 import com.spshop.model.ProductOptionItem;
+import com.spshop.model.enums.BUConsts;
 import com.spshop.model.enums.SelectType;
 
 public class ProductOptionCreation extends Composite implements ChangeObservable<ProductOption, ProductOptionCreation>{
@@ -43,6 +44,7 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 	@UiField TextBox OpDefaultValue;
 	@UiField ListBox OpTypes;
 	@UiField Button colorPick;
+//	@UiField CheckBox customizedSize;
 	ColorSelector selector = new ColorSelector();
 	
 	
@@ -83,9 +85,22 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 			items = new ArrayList<ProductOptionItem>();
 			option.setItems(items);
 		}
+		if("Size".equals(option.getName()) && option.getId() < 1){
+			ProductOptionItem item = new ProductOptionItem();
+			item.setName(BUConsts.CUSTOMIZED_SIZE);
+			item.setValue("Customized");
+			if(!haveOption(item, option.getItems())){
+				items.add(item);
+			}
+		}
+		
 		itemManager.setOptionItems(items);
 		this.setOption(option);
 		final ProductOptionCreation self = this;
+		
+		
+		
+		
 		selector.addChangeListener(new EditorChangeAdapter<Map<String,ColorButton>, ColorSelector>(){
 			@Override
 			public void onChange(Map<String, ColorButton> colors,
@@ -108,6 +123,16 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 					ColorSelector widget) {
 			}
 		});
+		
+	}
+	
+	private boolean haveOption(ProductOptionItem item, List<ProductOptionItem> items){
+		for (ProductOptionItem it : items) {
+			if(it.getName().equals(item.getName())){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	@UiHandler("button")
@@ -152,6 +177,13 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 				OpTypes.setSelectedIndex(i);
 			}
 		}
+//		
+//		if("Size".equals(option.getName())){
+//			customizedSize.setEnabled(true);
+//		}else{
+//			customizedSize.setEnabled(false);
+//		}
+		
 		notifyChange();
 	}
 
@@ -208,4 +240,19 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 		//selector.setModal(true);
 		selector.show();
 	}
+	/*@UiHandler("customizedSize")
+	void onCustomizedSizeClick(ClickEvent event) {
+		toggleCumtomizedSize(customizedSize.getValue());
+	}
+	
+	private void toggleCumtomizedSize(boolean customized){
+		if(customized){
+			ProductOptionItem item = new ProductOptionItem();
+			item.setName(BUConsts.CUSTOMIZED_SIZE);
+			item.setValue(BUConsts.CUSTOMIZED_SIZE);
+			itemManager.addOptionItem(item,false);
+		}else{
+			itemManager.removeCustomizedItem();
+		}
+	}*/
 }

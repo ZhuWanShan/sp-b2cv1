@@ -1,9 +1,7 @@
 package com.spshop.fe.actions;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,10 +14,12 @@ import org.apache.struts.action.ActionMapping;
 import com.spshop.cache.SCacheFacade;
 import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Category;
+import com.spshop.model.Order;
 import com.spshop.model.Site;
+import com.spshop.model.cart.ShoppingCart;
 
 public abstract class BaseAction extends Action {
-	
+	public static final String SHOPPINGCART = "shoppingcart";
 	/**
 	 * Populate Site Informations for page
 	 * 
@@ -45,6 +45,18 @@ public abstract class BaseAction extends Action {
         pathNodes.add(category);
     }
 	
+	public ShoppingCart getCart(HttpServletRequest request){
+		ShoppingCart shoppingCart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
+		
+		if(null==shoppingCart){
+			Order order = new Order();
+			order.setCreateDate(new Date());
+			shoppingCart = new ShoppingCart(order);
+			request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
+		}
+		
+		return shoppingCart;
+	}
 	
 	/**
 	 * Find category from list in cache

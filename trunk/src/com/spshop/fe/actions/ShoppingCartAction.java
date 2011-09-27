@@ -14,10 +14,8 @@ import org.apache.struts.action.ActionMapping;
 
 import com.spshop.cache.SCacheFacade;
 import com.spshop.fe.formbeans.PageFormBean;
-import com.spshop.model.Order;
 import com.spshop.model.Product;
 import com.spshop.model.UserOption;
-import com.spshop.model.cart.ShoppingCart;
 import com.spshop.model.enums.SelectType;
 import com.spshop.utils.AllConstants;
 
@@ -29,7 +27,6 @@ public class ShoppingCartAction extends BaseAction {
 	private static final String TEXT = "text";
 	private static final String TEXTS = "texts";
 	private static final String SPLITER = "@";
-	private static final String SHOPPINGCART = "shoppingcart";
 	private static final String ADDITEM = "addItem";
 	private static final String UPDATEITEM = "updateItem";
 	private static final String REMOVEITEM = "removeItem";
@@ -89,6 +86,11 @@ public class ShoppingCartAction extends BaseAction {
 		} catch (NumberFormatException e) {
 			//e.printStackTrace();
 		}
+		
+		if(quantity<1){
+			quantity = 1;
+		}
+		
 		return quantity;
 	}
 	
@@ -105,19 +107,6 @@ public class ShoppingCartAction extends BaseAction {
 	
 	private String retriveOption(ServletRequest request){
 		return request.getParameter(OPERATION);
-	}
-	
-	private ShoppingCart getCart(HttpServletRequest request){
-		ShoppingCart shoppingCart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
-		
-		if(null==shoppingCart){
-			Order order = new Order();
-			order.setCreateDate(new Date());
-			shoppingCart = new ShoppingCart(order);
-			request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
-		}
-		
-		return shoppingCart;
 	}
 	
 	@Override

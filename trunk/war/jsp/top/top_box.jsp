@@ -1,4 +1,5 @@
 <%@include file="../include.jsp" %>
+<%@page import="com.spshop.utils.AllConstants" %>
 <ss:site var="site">
 	<div class="top_box">
 		<div class="logo_box" style="background:url(${site.logo.noChangeUrl}) no-repeat;height:80px;width:230px;">

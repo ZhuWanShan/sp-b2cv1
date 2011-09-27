@@ -43,6 +43,7 @@ public class Product extends Component{
 		ProductOption sizeOp = new ProductOption();
 		sizeOp.setName("Size");
 		sizeOp.setSelectType(SelectType.SINGLE_LIST);
+		
 		sizeOp.setProduct(this);
 		
 		ProductOption qty = new ProductOption();

@@ -78,3 +78,17 @@ input,select{font-size:12px;line-height:1.5em;vertical-align:middle}
 .button_orange{text-transform:capitalize;padding:4px 8px;cursor:pointer;background:#FFCC38;color:#b00;text-shadow:1px 1px 1px white;border:1px solid #ADADAD;background:-webkit-gradient(linear,0 0,0 100%,from(#FFD636),to(#FDAE4F));box-shadow:1px 1px 3px #E5E5E5;background:-moz-linear-gradient(top,#FFD636,#FDAE4F);font-family:Verdana;font-weight:bold}
 .button_yellow{border:1px solid #bbb;border-radius:5px;text-shadow:0 1px 1px white;color:#272727;background:#FFE188;background:-webkit-gradient(linear,0 0,0 100%,from(#FFE47D),to(#FFDE9A));background:-moz-linear-gradient(top,#FFE47D,#FFDE9A);padding:0 8px;cursor:pointer;margin-top:4px;text-transform:uppercase;box-shadow:1px 1px 3px #ccc}
 .center{text-align:center}
+
+.cartOptionsDashboard{
+	background: none repeat scroll 0 0 #FFF;
+    border: 1px solid #BBBBBB;
+    font-size: 10px;
+    font-weight: normal;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    text-align: left;
+    text-transform: capitalize;
+    padding: 20px;
+}
+	
