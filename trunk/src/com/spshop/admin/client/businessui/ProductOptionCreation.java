@@ -85,15 +85,6 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 			items = new ArrayList<ProductOptionItem>();
 			option.setItems(items);
 		}
-		if("Size".equals(option.getName()) && option.getId() < 1){
-			ProductOptionItem item = new ProductOptionItem();
-			item.setName(BUConsts.CUSTOMIZED_SIZE);
-			item.setValue("Customized");
-			if(!haveOption(item, option.getItems())){
-				items.add(item);
-			}
-		}
-		
 		itemManager.setOptionItems(items);
 		this.setOption(option);
 		final ProductOptionCreation self = this;
