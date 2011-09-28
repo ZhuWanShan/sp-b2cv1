@@ -1,11 +1,18 @@
 package com.spshop.utils;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import javax.imageio.ImageIO;
+
 import magick.MagickException;
+
+import org.apache.log4j.Logger;
 
 import com.spshop.admin.shared.ImageConstonts;
 import com.spshop.admin.shared.LoginInfo;
@@ -13,6 +20,7 @@ import com.spshop.model.Image;
 
 public class ImageTools {
 	
+	private static Logger logger = Logger.getLogger(ImageTools.class);
 	
 	private static String  COVERTPAHT="C:\\Program Files (x86)\\ImageMagick-5.5.7-Q8";
 	private final static String COMMAND_KEY = "command.path";
@@ -31,7 +39,7 @@ public class ImageTools {
 	public static Image changeSize(Image img, LoginInfo loginInfo,
 			String filePath) throws MagickException, IOException {
 		
-			String [] names = reSize(ImageConstonts.IMAGE_SIZES, filePath);
+			String [] names = reSizeWithBorder(filePath);
 			
 			img.setLargerUrl(loginInfo.getSite().getImagePath() + "/"+ names[0]);
 			
@@ -45,7 +53,113 @@ public class ImageTools {
 
 			return img;
 	}
+	
+	public static String[] reSizeWithBorder(String filePath)
+	throws MagickException, IOException {
+		String[] imageNames = new String[ImageConstonts.IMAGE_SIZES.length];
+		String toPath = getImagePath(filePath);
+		
+		String largePathRelative = getImageName(filePath, ImageConstonts.LARGE_SIZE[0], ImageConstonts.LARGE_SIZE[1]);
+		String largePath = toPath + "\\"+ largePathRelative;
+		
+		String logoPathRelative = getImageName(filePath, ImageConstonts.LOGO_SIZE[0], ImageConstonts.LOGO_SIZE[1]);
+		String logoPath = toPath + "\\"+ logoPathRelative;
+		
+		String thumPathRelative = getImageName(filePath, ImageConstonts.THUM_SIZE[0], ImageConstonts.THUM_SIZE[1]);
+		String thumPath = toPath + "\\"+ thumPathRelative;
+		
+		String smallPathRelative = getImageName(filePath, ImageConstonts.SMALL_SIZE[0], ImageConstonts.SMALL_SIZE[1]);
+		String smallPath = toPath + "\\"+ smallPathRelative;
+		
+		String iconPathRelative = getImageName(filePath, ImageConstonts.ICON_SIZE[0], ImageConstonts.ICON_SIZE[1]);
+		String iconPath = toPath + "\\"+ iconPathRelative;
+		
+		String cmd1 = COVERTPAHT+"\\convert " + filePath + " -resize " + ImageConstonts.LARGE_SIZE[0] +"x"
+		+ ImageConstonts.LARGE_SIZE[1]+ " " + largePath;
+		
+		String cmd2 = COVERTPAHT+"\\convert " + filePath + " -resize " + ImageConstonts.LOGO_SIZE[0] +"x"
+		+ ImageConstonts.LOGO_SIZE[1]+ " " + logoPath;
+		
+		String cmd3 = COVERTPAHT+"\\convert " + filePath + " -resize " + ImageConstonts.THUM_SIZE[0] +"x"
+		+ ImageConstonts.THUM_SIZE[1]+ " " + thumPath;
+		
+		String cmd4 = COVERTPAHT+"\\convert " + filePath + " -resize " + ImageConstonts.SMALL_SIZE[0] +"x"
+		+ ImageConstonts.SMALL_SIZE[1]+ " " + smallPath;
+		
+		String cmd5 = COVERTPAHT+"\\convert " + filePath + " -resize " + ImageConstonts.ICON_SIZE[0] +"x"
+		+ ImageConstonts.ICON_SIZE[1]+ " " + iconPath;
+		
+		Runtime runtime = Runtime.getRuntime();
+		
+		Process process = runtime.exec(cmd1);
+		Process process1 = runtime.exec(cmd2);
+		Process process2 = runtime.exec(cmd3);
+		Process process3 = runtime.exec(cmd4);
+		Process process4 = runtime.exec(cmd5);
+		
+	     while (true) {  
+	            try {  
+	            	process.waitFor();  
+	            	process1.waitFor(); 
+	            	process2.waitFor(); 
+	            	process3.waitFor(); 
+	            	process4.waitFor(); 
+	                break;
+	            } catch (java.lang.InterruptedException e) {  
+	            	logger.error(e);
+	            }  
+	      }  
+		
+	     borderImage(largePath, ImageConstonts.LARGE_SIZE[1], ImageConstonts.LARGE_SIZE[0]);
+	     borderImage(logoPath, ImageConstonts.LOGO_SIZE[1], ImageConstonts.LOGO_SIZE[0]);
+	     borderImage(thumPath, ImageConstonts.THUM_SIZE[1], ImageConstonts.THUM_SIZE[0]);
+	     borderImage(smallPath, ImageConstonts.SMALL_SIZE[1], ImageConstonts.SMALL_SIZE[0]);
+	     borderImage(iconPath, ImageConstonts.ICON_SIZE[1], ImageConstonts.ICON_SIZE[0]);
+		
+	     imageNames[0] = largePathRelative;
+	     imageNames[1] = logoPathRelative;
+	     imageNames[2] = thumPathRelative;
+	     imageNames[3] = smallPathRelative;
+	     imageNames[4] = iconPathRelative;
+	     
+		return imageNames;
+	}
+	
+	private static void borderImage(String filePath, int height, int width){
+		 try {  
+	            File f = new File(filePath);  
+	            BufferedImage bi = ImageIO.read(f); 
+	            
+	            int srcH = bi.getHeight();
+	    		int srcW = bi.getWidth();
+	    		
+	    		int y = height - srcH;
+	    		int x = width - srcW;
+	    		
+	    		if(x>0){
+	    			x = x/2;
+	    		}
+	    		
+	    		if(y>0){
+	    			y = y/2;
+	    		}
+	    		
+	    		BufferedImage targetImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+	    		
+	    		Graphics g = targetImage.getGraphics();
+	    		Color  c = g.getColor();
+	    		g.setColor(Color.white);
+	    		g.fillRect(0, 0, width, height);
+	    		g.setColor(c);
+	    		g.drawImage(bi, x, y, null);
+	    		
+	            ImageIO.write((BufferedImage) targetImage, "jpg", f);  
+	        } catch (IOException e) {  
+	            e.printStackTrace();  
+	        }  
+	}
 
+	@SuppressWarnings("unused")
 	private static String[] reSize(int[][] size, String filePath)
 			throws MagickException, IOException {
 		
@@ -117,6 +231,10 @@ public class ImageTools {
 	public static String getImagePath(String imagePath) {
 		File file = new File(imagePath).getParentFile();
 		return file.getAbsolutePath();
+	}
+	
+	public static void main(String[] args) throws MagickException, IOException {
+		reSizeWithBorder("C:\\T\\Tulips.jpg");
 	}
 
 
