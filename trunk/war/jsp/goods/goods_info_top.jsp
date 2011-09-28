@@ -171,7 +171,8 @@
 					<c:if test='${(option.strSelectType eq "COLOR_SINGLE") and (!empty option.items) }'>
 						<div class="item_colorBox">
 							<div class="item_ProBox_title">
-								<span><c:out value="${option.name}" />:</span>
+								<span><c:out value="${option.name}" />:</span><br>
+								(If no color selected, the color as picture)<br>
 							</div>
 							<input type="hidden"
 								name="color@${option.name}"

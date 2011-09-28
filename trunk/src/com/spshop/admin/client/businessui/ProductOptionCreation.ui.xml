@@ -56,7 +56,9 @@
 				</g:row>
 			</g:Grid>
 			<g:HTMLPanel ui:field="itemManagerPanel" width="100%">
-				<p2:ProdOptionItemManager ui:field="itemManager"/> 
+				<g:ScrollPanel height="400px">
+					<p2:ProdOptionItemManager ui:field="itemManager" /> 
+				</g:ScrollPanel>
 			</g:HTMLPanel>
 		</g:VerticalPanel>
 	</g:HTMLPanel>

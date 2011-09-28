@@ -1,4 +1,4 @@
-<div class="alert_thing_box" style="position: absolute;display:none;top: 100px;left: 200px" id="alert_thing_box_customizedsize">
+<div class="alert_thing_box" style="position: absolute;display:none;top: 100px;left: 200px;z-index: 100" id="alert_thing_box_customizedsize">
 	<script type="text/javascript">
 		function changeunit(value) {
 			if (value == 'in')
@@ -95,6 +95,12 @@
 							</span>
 							</td>
 						</tr>
+						<tr>
+							<td>Special Requirements:</td>
+							<td>
+								<textarea id="CustomszieSpecial" name="Special Req" rows="5" cols="20"></textarea>
+							</td>
+						</tr>
 					</table>
 					<br /> Please provide detailed measurement information for
 					customization base on "How to Measure". <br />
@@ -104,9 +110,8 @@
 					<br /> Please measure with shoes on when you measure "Hollow to
 					floor".
 				</div>
-
 			</div>
-
+			
 			<script language="javascript">
 				changeunit('in');
 			</script>

@@ -31,6 +31,11 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 
 	@Override
 	public Product saveProduct(Product product) {
+		String name = product.getName();
+		if(null!=name){
+			name = name.replaceAll("\\s+", "-");
+			product.setName(name);
+		}
 		new ProductValidator(product).validate();
 		if(product.getId()<1&&!queryByName(product.getName()).getResult().isEmpty()){
 			throw new ServiceValidateException(product.getName()+" is already exist!");
@@ -75,7 +80,11 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 
 	@Override
 	public Product getProductByName(String name) {
-		return getDao().getProductByName(name).clone();
+		Product product = getDao().getProductByName(name);
+		if(null==product){
+			return null;
+		}
+		return product.clone();
 	}
 	
 	
