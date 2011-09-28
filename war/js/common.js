@@ -2045,20 +2045,26 @@ jQuery( document ).ready(function() {
 	
 	jQuery( '.jq_default_value' ).defaultValue();
 	
-	jQuery( 'option[value=Customized]' ).click(function(){
-		jQuery("#alert_thing_box_customizedsize").show("normal");
+	jQuery( "select[name='text@Size']" ).change(function(){
+		if("Customized"==jQuery( "select[name='text@Size']" ).val()){
+			jQuery("#alert_thing_box_customizedsize").show("normal");
+		}else{
+			jQuery("#CustomizedSizeDesp").html("");
+			jQuery("#CustomizedHidden").attr("name","");
+			jQuery("#CustomizedHidden").val("");
+		}
 	});
 	
 	jQuery( '#alert_thing_box_customizedsize_submit' ).click(function(){
 		
-		var customizes = jQuery("input[id^='Customszie']");
+		var customizes = jQuery("input[id^='Customszie'], textarea[id^='Customszie']");
 		
 		var sizes = new Array();
 		var unit = jQuery("#customizeUnit").val();
 		
 		for(var index =0 ; index< customizes.length ; index++){
 			var value = jQuery(customizes[index]).val();
-			if(parseInt(value)){
+			if(parseInt(value) || "CustomszieSpecial"==jQuery(customizes[index]).attr("id")){
 				sizes[index] = new Object();
 				sizes[index].key = jQuery(customizes[index]).attr("name");
 				sizes[index].value = value;
@@ -2068,6 +2074,8 @@ jQuery( document ).ready(function() {
 				return;
 			}
 		}
+		
+		
 		
 		var html = createCustomized(sizes,unit);
 		
@@ -2092,8 +2100,12 @@ function createCustomized(sizes, unit){
 	}
 	var template = "<table><tbody>"
 	for(var i = 0; i<sizes.length ; i++){
+		var u = "";
+		if(parseInt(sizes[i].value)){
+			u = unit;
+		}
 		template = template + "<tr><td>"+sizes[i].key+"</td>"+"<td><span>"+sizes[i].value+"</span></td>"
-				+"<td><span>"+unit+"</span></td>"
+				+"<td><span>"+u+"</span></td>"
 				+"</tr>"
 	}
 	template = template + "</tbody></table>";
