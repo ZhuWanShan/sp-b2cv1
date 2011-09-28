@@ -3,6 +3,7 @@ package com.spshop.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.spshop.model.enums.BUConsts;
 import com.spshop.model.enums.SelectType;
 
 public class Product extends Component{
@@ -40,9 +41,15 @@ public class Product extends Component{
 		colorOp.setName("Color");
 		colorOp.setSelectType(SelectType.COLOR_SINGLE);
 		
+		ProductOptionItem item = new ProductOptionItem();
+		item.setName(BUConsts.CUSTOMIZED_SIZE);
+		item.setValue("Customized");
+		
 		ProductOption sizeOp = new ProductOption();
 		sizeOp.setName("Size");
 		sizeOp.setSelectType(SelectType.SINGLE_LIST);
+		sizeOp.setItems(new ArrayList<ProductOptionItem>());
+		sizeOp.getItems().add(item);
 		
 		sizeOp.setProduct(this);
 		
