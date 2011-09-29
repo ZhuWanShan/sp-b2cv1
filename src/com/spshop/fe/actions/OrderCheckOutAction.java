@@ -10,7 +10,7 @@ import org.apache.struts.action.ActionMapping;
 import com.spshop.cache.SCacheFacade;
 import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Order;
-import com.spshop.model.OrderStatus;
+import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.OrderService;
 import com.spshop.utils.AllConstants;

@@ -17,6 +17,7 @@ import com.spshop.model.Category;
 import com.spshop.model.Order;
 import com.spshop.model.Site;
 import com.spshop.model.cart.ShoppingCart;
+import com.spshop.model.enums.OrderStatus;
 
 public abstract class BaseAction extends Action {
 	public static final String SHOPPINGCART = "shoppingcart";
@@ -52,6 +53,7 @@ public abstract class BaseAction extends Action {
 			Order order = new Order();
 			order.setCreateDate(new Date());
 			shoppingCart = new ShoppingCart(order);
+			order.setStatus(OrderStatus.ONSHOPPING.getValue());
 			request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
 		}
 		

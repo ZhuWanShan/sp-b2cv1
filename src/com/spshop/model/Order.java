@@ -24,7 +24,7 @@ public class Order extends Component{
 	private List<OrderItem> items;
 	//private List<Coupon> coupons;
 	private float totalPrice;
-	private OrderStatus status;
+	private String status;
 	
 	public Order() {
 	}
@@ -130,11 +130,11 @@ public class Order extends Component{
 		return coupons;
 	}*/
 
-	public void setStatus(OrderStatus status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	public OrderStatus getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
@@ -213,7 +213,7 @@ public class Order extends Component{
 		}
 		obj.totalPrice = this.totalPrice;
 		if (this.status != null) {
-			obj.status = (OrderStatus) this.status.clone();
+			obj.status = this.status;
 		}
 		return obj;
 	}

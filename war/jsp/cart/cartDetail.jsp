@@ -63,8 +63,7 @@
 								<input type="hidden" name="itemName" value="${item.name }">
 								<a href="/${item.product.name}"
 									target="_blank">
-									<img  val="${image.iconUrl}"
-										src="${image.iconUrl}"
+									<img src="${image.iconUrl}"
 										class="left MR10">
 										</a>
 								</div>
@@ -84,7 +83,7 @@
 								</div>
 							</td>
 						</c:forEach>
-							<td class="center red"><c:out value="${item.product.actualPrice}"/></td>
+							<td class="center red"><c:out value="${item.finalPrice}"/></td>
 							<td class="center">
 								<form action="/shoppingCart" method="post" id="${item.name}">
 									<input name="ProductsId[2]" type="hidden"
@@ -101,10 +100,9 @@
 							<td class="center red">
 								<a class="link_remove showCartOptions">Show Detail</a><br>
 								
-								<div style="position: absolute;z-index: 2;width: 200px;min-height: 200px"
-								class="cartOptionsDashboard">
+								<div style="position: absolute;" class="cartOptionsDashboard">
 									<c:forEach items="${item.userOptions}" var="opt">
-										<div>
+										<div class="cartOptionsDashboard_Content"> 
 											<c:choose>
 											<c:when test="${opt.name eq 'Color' }">
 												<span>${opt.name } :</span>
@@ -118,8 +116,7 @@
 										</div>
 									</c:forEach>
 								</div>
-								
-								<c:out value="${item.finalPrice}"/><br> <a
+								<c:out value="${item.itemTotalPrice}"/><br> <a
 								href="#" onclick="javascript:return removeItem('${item.name}_remove')"
 								class="link_remove">Remove</a>
 								<div style="display: none;">
@@ -133,14 +130,6 @@
 						</c:forEach>
 					</tbody>
 				</table>
-				<script type="text/javascript">
-					function updateShoppingItem(item){
-						jq("#"+item).submit();
-					}
-					function removeItem(item){
-						jq("#"+item).submit();
-					}
-				</script>
 			</div>
 	</div>
 </div>
