@@ -25,7 +25,6 @@
 			checkpassword();
 			checkpassword2();
 			checkemail();
-			print_css['email'] = className='cg';
 			if(!$('Conditions').checked){
 				$('Conditionsinfo').style.display='';
 				$('Conditionsinfo').innerHTML='<img src=\"../css/unchecked.gif\"> Please select "agree to abide by rules of membership"';
