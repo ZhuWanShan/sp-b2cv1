@@ -19,9 +19,11 @@ public class RecoveryPasswordAction extends BaseAction {
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 
-		String email = request.getParameter("loginEmail");
+		String email = request.getParameter("recoveryEmail");
 		User user = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
-		EmailTools.send(email,AllConstants.MAIL_SUBJECT,user.getPassword());
+		if (user != null) {
+            EmailTools.sendRecoveryEmail(email);
+        }
 		return mapping.findForward(AllConstants.SUCCESS_VALUE);
 	}
 

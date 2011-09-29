@@ -44,18 +44,32 @@ public class AllConstants {
 	public static String CATEGORY_CACHE = "catetoryCache";
 	public static String ORDER_CACHE = "orderCache";
 	
-	//mail
-	public static final String SMTP = "smtp.gmail.com";
-	public static final String MAIL_USER_NAME = "DelgadoDing@gmail.com";
-	public static final String MAIL_PASSWORD = "dingyiren";
-	public static final String MAIL_DISPLAY_NAME = "Delgado@hp";
-	public static final String MAIL_SUBJECT = "hey, man, what are you fucking doing now?!";
-	public static final String MAIL_CHAR_SET = "UTF-8";
-	public static final String MAIL_CONTENT = "fucking, fucking";
 	public static final String LOGIN_FAILURE = "username or password not correct, please check";
 	
 	public static final long DEFAULT_SITE_ID = 1L;
 	public static final Serializable DEFAULT_SITE_CACHE = "DEFAULT_SITE_CACHE";
 	public static final Serializable DEFAULT_TOPSELLING_CACHE = "DEFAULT_TOPSELLING_CACHE";
 	public static final Serializable DEFAULT_TABSELLING_CACHE = "DEFAULT_TABSELLING_CACHE";
+	
+	//Email
+	public static final String REGISTER_MAIL_HOST_NAME = "register.email.host.name";
+	public static final String REGISTER_MAIL_FROM_ACCOUNT = "register.email.from.account";
+	public static final String REGISTER_MAIL_FROM_PASSWORD = "register.email.from.password";
+	public static final String REGISTER_MAIL_TITLE = "register.email.title";
+	public static final String REGISTER_MAIL_CONTENT = "register.email.content";
+	
+	public static final String RECOVERY_MAIL_HOST_NAME = "recovery.email.host.name";
+	public static final String RECOVERY_MAIL_FROM_ACCOUNT = "recovery.email.from.account";
+	public static final String RECOVERY_MAIL_FROM_PASSWORD = "recovery.email.from.password";
+	public static final String RECOVERY_MAIL_TITLE = "recovery.email.title";
+	public static final String RECOVERY_MAIL_CONTENT = "recovery.email.content";
+	
+	public static final String DEFAULT_MAIL_CHARSET = "UTF-8";
+    public static final String DEFAULT_MAIL_HOST_NAME = "smtp.gmail.com";
+    public static final String DEFAULT_MAIL_FROM_ACCOUNT = "honeybuymaster@gmail.com";
+    public static final String DEFAULT_MAIL_FROM_PASSWORD = "=-0987654321`";
+    public static final String DEFAULT_REGISTER_MAIL_TITLE = "Your account, in Honey-Buy, is created!";
+    public static final String DEFAULT_REGISTER_MAIL_CONTENT = "Congratulations! You r the registered user of Honey-Buy!";
+    public static final String DEFAULT_RECOVERY_MAIL_TITLE = "Your account, in Honey-Buy, is recoveried!";
+    public static final String DEFAULT_RECOVERY_MAIL_CONTENT = "Congratulations! Your password is ...";
 }

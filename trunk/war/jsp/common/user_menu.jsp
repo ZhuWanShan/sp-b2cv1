@@ -58,7 +58,10 @@
 			</li>
 		</c:if>
 		<c:if test="${sessionScope.userInfo != null}">
-			<li id="hide_login_li"><span id="hide_login_span">${sessionScope.userInfo.email}</span>.
+			<li id="hide_login_li">
+				<span id="hide_login_span">
+					${sessionScope.userInfo.email}
+				</span>.
 				(<a href="/login?<%=AllConstants.ACTION %>=<%=AllConstants.LOGOUT_ACTION %>" title="Sign out">Sign out</a>)
 				<div style="width: 100%; display: none; cursor: default;"
 					class="user_menu_hidd">

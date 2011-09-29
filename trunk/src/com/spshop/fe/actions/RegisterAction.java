@@ -16,35 +16,34 @@ import com.spshop.utils.AllConstants;
 import com.spshop.utils.EmailTools;
 
 public class RegisterAction extends BaseAction {
-	@Override
-	public ActionForward processer(ActionMapping mapping, PageFormBean page,
-			HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
+    @Override
+    public ActionForward processer(ActionMapping mapping,
+                                   PageFormBean page,
+                                   HttpServletRequest request,
+                                   HttpServletResponse response) throws Exception {
 
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
-		User tempUser = null;
-		if (email != null && !"".equals(email)) {
-		    tempUser = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
-        }
-		
-		if (email == null || password == null || tempUser != null) {
-		    return mapping.findForward(AllConstants.fAILURE_VALUE);
-        } else {
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+
+        if (email != null && password != null) {
             User user = new User();
             user.setEmail(email);
             user.setPassword(password);
-            user.setCreateDate(new Date());
-            user.setName(email);
+            createUser(user);
             
-            ServiceFactory.getService(UserService.class).merge(user);
-            EmailTools.send(email,AllConstants.MAIL_SUBJECT,AllConstants.MAIL_CONTENT);
-            request.getSession(true).setAttribute("email", email);
+            EmailTools.sendRegisterEmail(email);
+            
+            request.getSession(true).setAttribute(AllConstants.USER_INFO, user);
             return mapping.findForward(AllConstants.SUCCESS_VALUE);
-
+        } else {
+            return mapping.findForward(AllConstants.fAILURE_VALUE);
         }
-	}
+    }
 
-	
+    private void createUser(User user) {
+        user.setCreateDate(new Date());
+        user.setName(user.getEmail());
+        user = ServiceFactory.getService(UserService.class).merge(user);
+    }
 
 }
