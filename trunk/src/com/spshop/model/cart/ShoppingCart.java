@@ -49,7 +49,7 @@ public class ShoppingCart {
 				orderItem.setCreateDate(new Date());
 				orderItem.setUpdateDate(new Date());
 				orderItem.setQuantity(qty);
-				orderItem.setFinalPrice((float)(qty*product.getActualPrice()));
+				orderItem.setFinalPrice((float)product.getActualPrice());
 				order.getItems().add(orderItem);
 			}
 			
@@ -85,7 +85,7 @@ public class ShoppingCart {
 		float totalPrice = 0f;
 		if(null!=order.getItems()){
 			for (OrderItem item : order.getItems()) {
-				totalPrice = totalPrice + item.getFinalPrice();
+				totalPrice = totalPrice + item.getItemTotalPrice();
 			}
 		}
 		return totalPrice;

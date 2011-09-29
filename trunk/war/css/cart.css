@@ -90,6 +90,11 @@ input,select{font-size:12px;line-height:1.5em;vertical-align:middle}
     text-align: left;
     text-transform: capitalize;
     padding: 20px;
-    z-index: 999;
+    height: auto;
+    max-width: 200px;
+}
+
+.cartOptionsDashboard_Content{
+	 height: auto;
 }
 	

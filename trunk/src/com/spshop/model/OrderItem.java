@@ -47,6 +47,10 @@ public class OrderItem extends Component{
 	public List<UserOption> getUserOptions() {
 		return userOptions;
 	}
+	
+	public float getItemTotalPrice(){
+		return getFinalPrice()*getQuantity();
+	}
 
 	public OrderItem clone() {
 		OrderItem obj = null;

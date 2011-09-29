@@ -191,11 +191,11 @@
 		<property name="deliverCode" length="200"></property>
 		<property name="deliverCompany" length="200"></property>
 		<property name="deliverPhone" length="200"></property>
+		<property name="status" length="255" column="order_status"></property>
 		<bag name="items" cascade="all">
 			<key column="order_id"></key>
 			<one-to-many class="OrderItem"/>
 		</bag>
-		<many-to-one name="status" class="OrderStatus" column="status_id" insert="false" update="false"></many-to-one>
 		<property name="totalPrice"></property>
 		<many-to-one name="user" class="User" column="user_id"></many-to-one>
 	</class>
