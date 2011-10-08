@@ -4,15 +4,19 @@ import java.io.Serializable;
 import java.util.Date;
 
 public  abstract class Component implements Serializable,Cloneable{
+	public static final String EXPIRED="Y";
+	public static final String NOT_EXPIRED="N";
 	/**
-	 * 
+	 *
 	 */
-	private static final long serialVersionUID = -3766816128763115672L;
+	private static final long serialVersionUID = 5832328929094344696L;
 	private long id;
 	private Site site;
 	private String name;
 	private Date createDate;
 	private Date updateDate;
+	private boolean expired;
+	private String strExpired;
 	
 	public Component() {
 	}
@@ -73,6 +77,26 @@ public  abstract class Component implements Serializable,Cloneable{
 		return site;
 	}
 	
+	public void setStrExpired(String e){
+		if(EXPIRED.equals(e)){
+			strExpired = e;
+		}else{
+			strExpired = NOT_EXPIRED; 
+		}
+	}
+	
+	public String getStrExpired(){
+		if(strExpired == EXPIRED){
+			return EXPIRED;
+		}else{
+			return NOT_EXPIRED;
+		}
+	}
+	
+	public boolean isExpired() {
+		return strExpired == EXPIRED;
+	}
+
 	public abstract Component clone();
 
 	@Override
@@ -102,6 +126,11 @@ public  abstract class Component implements Serializable,Cloneable{
 			return false;
 		if (id != other.id)
 			return false;
+		
+		if(expired!=other.expired){
+			return false;
+		}
+		
 		if (name == null) {
 			if (other.name != null)
 				return false;

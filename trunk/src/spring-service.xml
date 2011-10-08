@@ -96,12 +96,6 @@
 		<property name="target" ref="com.spshop.service.intf.OrderItemService.target" />
 	</bean>
 
-	<bean id="com.spshop.service.intf.OrderStatusService.target" class="com.spshop.service.impl.OrderStatusServiceImpl">
-	</bean>
-	<bean id="com.spshop.service.intf.OrderStatusService" parent="transactionBase">
-		<property name="target" ref="com.spshop.service.intf.OrderStatusService.target" />
-	</bean>
-
 	<bean id="com.spshop.service.intf.ProductService.target" class="com.spshop.service.impl.ProductServiceImpl">
 	</bean>
 	<bean id="com.spshop.service.intf.ProductService" parent="transactionBase">

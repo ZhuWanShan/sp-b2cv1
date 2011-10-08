@@ -32,6 +32,8 @@ public class ShoppingCartAction extends BaseAction {
 	private static final String REMOVEITEM = "removeItem";
 	private static final String ITEMNAME = "itemName";
 	private static final String OPERATION = "operation";
+	private static final String CHECKOUT = "checkout";
+	private static final String CHECKOUT_WITH_USER = "cwu";
 	
 	@SuppressWarnings("unchecked")
 	private List<UserOption> retriveUserOptions(ServletRequest request){
@@ -131,6 +133,12 @@ public class ShoppingCartAction extends BaseAction {
 			String itemName = retriveItemName(request);
 			getCart(request).remove(itemName);
 		}
+		
+		if(CHECKOUT.equals(retriveOption(request))){
+			
+		}
+		
+		
 
 		return mapping.findForward(AllConstants.SUCCESS_VALUE);
 

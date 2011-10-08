@@ -64,6 +64,7 @@
 		
 		<property name="content" length="8000"></property>
 		<property name="rate"></property>
+		<property name="strExpired" length="3"></property>
 		<many-to-one name="product" class="Product" column="product_id"></many-to-one>
 		<bag name="replyList">
 			<key>
@@ -150,6 +151,7 @@
 		<property name="thumbnailUrl" length="200"></property>
 		<property name="strSizeType" length="200"></property>
 		<property name="strType" length="200"></property>
+		<property name="strExpired" length="3"></property>
 	</class>
 	
 	<class name="Newsletter" table="SHOP_Newsletter">
@@ -217,16 +219,6 @@
 		</bag>
 	</class>
 	
-	<class name="OrderStatus" table="SHOP_OrderStatus">
-		<id name="id" column="ID">
-			<generator class="identity"></generator>
-		</id>
-		<property name="name" length="100"></property>
-		<property name="createDate"></property>
-		<property name="updateDate"></property>
-		<property name="status"></property>
-	</class>
-	
 	<class name="HTML" table="SHOP_HTML">
 		<id name="id" column="ID">
 			<generator class="identity"></generator>
@@ -235,6 +227,7 @@
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
 		<property name="content"></property>
+		<property name="strExpired" length="3"></property>
 	</class>
 	
 	<class name="Product" table="SHOP_Product">
@@ -262,7 +255,7 @@
 		<property name="price"></property>
 		<property name="actualPrice"></property>
 		<property name="manualKey"></property>
-		
+		<property name="strExpired" length="3"></property>
 		
 		<!--  <many-to-one name="cutOff" class="CutOff" column="product_id"></many-to-one>-->
 		<bag name="properties" cascade="all">

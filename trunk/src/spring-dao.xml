@@ -80,11 +80,6 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 
-	<bean id="com.spshop.dao.intf.OrderStatusDAO"
-	    class="com.spshop.dao.impl.OrderStatusDAOImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-
 	<bean id="com.spshop.dao.intf.ProductDAO"
 	    class="com.spshop.dao.impl.ProductDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>

@@ -9,4 +9,6 @@ public interface ImageService extends BaseService<Image,ImageDAO, Long>{
 	Image saveImage(Image image,String imagePath,LoginInfo info);
 
 	Image getImageById(long id);
+	
+	Image saveImage(Image image);
 }
