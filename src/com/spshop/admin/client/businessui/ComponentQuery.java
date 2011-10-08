@@ -80,6 +80,7 @@ public class ComponentQuery extends ResizeComposite {
 		queryCondition.setType(type);
 		initTable();
 	}
+	
 
 	/**
 	 * Sets the listener that will be notified when an item is selected.
@@ -218,10 +219,10 @@ public class ComponentQuery extends ResizeComposite {
 
 	private void initImageHeader() {
 		header.getColumnFormatter().setWidth(0, "80px");
-		header.getColumnFormatter().setWidth(1, "150px");
+		header.getColumnFormatter().setWidth(1, "250px");
 		header.getColumnFormatter().setWidth(2, "120px");
 		header.getColumnFormatter().setWidth(3, "100px");
-		header.getColumnFormatter().setWidth(4, "250px");
+		header.getColumnFormatter().setWidth(4, "150px");
 		// header.getColumnFormatter().setWidth(5, "200px");
 
 		header.setText(0, 0, "Thumbnail");
@@ -233,10 +234,10 @@ public class ComponentQuery extends ResizeComposite {
 		header.getCellFormatter().setHorizontalAlignment(0, 4,
 				HasHorizontalAlignment.ALIGN_RIGHT);
 		table.getColumnFormatter().setWidth(0, "80px");
-		table.getColumnFormatter().setWidth(1, "150px");
+		table.getColumnFormatter().setWidth(1, "250px");
 		table.getColumnFormatter().setWidth(2, "120px");
 		table.getColumnFormatter().setWidth(3, "100px");
-		table.getColumnFormatter().setWidth(4, "250px");
+		table.getColumnFormatter().setWidth(4, "150px");
 	}
 
 	/**
