@@ -106,7 +106,7 @@ public class ImageBatchProcessor extends RemoteHttp {
 				dest.write(data, 0, count);
 			}
 			fileName = entry.getName();
-			fileName = redefineFileName(fileName.replaceAll("[^a-zA-Z\\.]", "_"));
+			fileName = redefineFileName(fileName.replaceAll("[^a-zA-Z\\.]", " ").trim());
 			tempFile = new File(unZipDir + "/" + entry.getName());
 			realFile = new File(getServletContext().getRealPath(
 					loginInfo.getSite().getImagePath())
