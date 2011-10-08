@@ -24,7 +24,6 @@ public class ImageServiceImpl extends AbstractService<Image,ImageDAO, Long> impl
 		} catch (MagickException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		save(image);
@@ -35,6 +34,13 @@ public class ImageServiceImpl extends AbstractService<Image,ImageDAO, Long> impl
 	public Image getImageById(long id) {
 		Image image = fetchById(id);
 		return image.clone();
+	}
+
+
+
+	@Override
+	public Image saveImage(Image image) {
+		return save(image).clone();
 	}
 	
 }

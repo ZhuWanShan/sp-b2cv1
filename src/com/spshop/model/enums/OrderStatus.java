@@ -2,6 +2,7 @@ package com.spshop.model.enums;
 
 public enum OrderStatus{
 		ONSHOPPING("ONSHOPPING","On Shoppingcart"),
+		PENDING("PENDING","Pending"),
 		ORDERING("ORDERING","Ordering"),
 		CHECKED("CHECKED","Checked"),
 		SHIPPING("SHIPPING","Shipping"),
