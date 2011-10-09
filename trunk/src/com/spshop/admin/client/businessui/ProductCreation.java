@@ -18,8 +18,8 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DoubleBox;
-import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
@@ -64,7 +64,7 @@ public class ProductCreation extends Composite{
 	@UiField TabLayoutPanel host;
 	@UiField CheckBox showLikeButton;
 	@UiField Button manualPicker;
-	@UiField HTMLPanel manual;
+	@UiField TabLayoutPanel manual;
 	
 	private Product product;
 
@@ -96,15 +96,19 @@ public class ProductCreation extends Composite{
 					});
 				}
 				
-				if(event.getItem().intValue()==4&&self.getProduct().getManualKey()>0){
+				if(event.getItem().intValue()==4&&self.getProduct().getManualKey()!=null&&self.getProduct().getManualKey().length()>0){
 					final PopWindow load = PopWindow.createLoading("Update recommend").lock();
-					AdminWorkspace.ADMIN_SERVICE_ASYNC.getHTML(self.getProduct().getManualKey(), 
-					new AsyncCallbackAdapter<HTML>(){
+					AdminWorkspace.ADMIN_SERVICE_ASYNC.getHTMLs(self.getProduct().getManualKey(), 
+					new AsyncCallbackAdapter<List<HTML>>(){
 						@Override
-						public void onSuccess(HTML rs) {
+						public void onSuccess(List<HTML> htmls) {
 							getManual().clear();
+							/*
 							getManual().add(new com.google.gwt.user.client.ui.HTML(rs.getContent()));
-							load.hide();
+							load.hide();*/
+							for (HTML html : htmls) {
+								getManual().add(createManualPanel(html.getContent()), html.getName());
+							}
 							RootPanel.get().remove(load);
 						}
 					});
@@ -136,6 +140,13 @@ public class ProductCreation extends Composite{
 		if(Window.confirm("Are your sure!")){
 			optionManager.removeCurrentOption();
 		}
+	}
+	
+	private ScrollPanel createManualPanel(String html){
+		ScrollPanel sp = new ScrollPanel();
+		sp.setHeight("400px");
+		sp.add(new com.google.gwt.user.client.ui.HTML(html));
+		return sp;
 	}
 	
 	public void setProduct(final Product product) {
@@ -245,14 +256,37 @@ public class ProductCreation extends Composite{
 	
 	@UiHandler("manualPicker")
 	void onManualPickerClick(ClickEvent event) {
-		CommandFactory.popUpHTMLQuery(false, new SelectedCallBack() {
+		CommandFactory.popUpHTMLQuery(true, new SelectedCallBack() {
 			
 			@Override
 			public void callBack(List<Component> selectedItems) {
-				HTML html = (HTML)selectedItems.get(0);
-				getProduct().setManualKey(html.getId());
-				getManual().clear();
-				getManual().add(new com.google.gwt.user.client.ui.HTML(html.getContent()));
+			//	HTML html = (HTML)selectedItems.get(0);
+				String mannualKey = "";
+				if(null!=selectedItems){
+					for (int i = 0; i < selectedItems.size(); i++) {
+						mannualKey = mannualKey + selectedItems.get(i).getId();
+						if(i < selectedItems.size()-1){
+							mannualKey = mannualKey+",";
+						}
+					}
+				}
+				
+				getProduct().setManualKey(mannualKey);
+				final PopWindow load = PopWindow.createLoading("Update recommend").lock();
+				AdminWorkspace.ADMIN_SERVICE_ASYNC.getHTMLs(mannualKey, 
+				new AsyncCallbackAdapter<List<HTML>>(){
+					@Override
+					public void onSuccess(List<HTML> htmls) {
+						getManual().clear();
+						/*
+						getManual().add(new com.google.gwt.user.client.ui.HTML(rs.getContent()));
+						load.hide();*/
+						for (HTML html : htmls) {
+							getManual().add(createManualPanel(html.getContent()), html.getName());
+						}
+						RootPanel.get().remove(load);
+					}
+				});
 			}
 		}).execute();
 	}
@@ -261,7 +295,7 @@ public class ProductCreation extends Composite{
 		return relatedProduct;
 	}
 
-	public HTMLPanel getManual() {
+	public TabLayoutPanel getManual() {
 		return manual;
 	}
 }

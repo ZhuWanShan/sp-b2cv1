@@ -33,5 +33,6 @@ public interface AdminService  extends RemoteService{
 	TabProduct getTopSelling(long id) throws ServiceValidateException;
 	HTML saveHTML(HTML html) throws ServiceValidateException;
 	HTML getHTML(long id) throws ServiceValidateException;
+	List<HTML> getHTMLs(String ids) throws ServiceValidateException;
 }
 

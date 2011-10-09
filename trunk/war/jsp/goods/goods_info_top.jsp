@@ -77,8 +77,6 @@
 					<c:out
 						value="${pageForm.pageProperties.productDetail.abstractText}" />
 				</div>
-				<c:out value="${pageForm.pageProperties.productDetail.detail}"
-					escapeXml="false" />
 			</div>
 		</div>
 
