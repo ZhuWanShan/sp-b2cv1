@@ -149,7 +149,7 @@ input.item_emailenter{background:url(goods-bt.png) -340px -181px no-repeat; colo
 .tab_select{position:absolute; z-index:1; top:-21px; _top:0; }
 
 
-.item_reviews{margin-top:16px; float:left;width:725px;}
+.item_reviews{margin-top:16px; float:left;width:972px;}
 .item_reviews_fun{ margin-bottom:16px;}
 .item_reviews_fun h2{ color:#4B2300; font-size:18px; width:90px; float:left; margin-right:8px;}
 .item_reviews_button{ overflow:hidden; zoom:1;}
@@ -187,7 +187,7 @@ input.item_emailenter{background:url(goods-bt.png) -340px -181px no-repeat; colo
 #item_NoticesEnd{width:608px;}
 
 /**************************/
-.item_bottom_right{float:right;width:237px; margin-bottom:30px; margin-top:10px;}
+.item_bottom_right{float:right;width:972px; margin-bottom:30px; margin-top:10px;}
 .item_bottom_right h1{font-size:20px; font-weight:bold; color:black;}
 .item_bottom_right .item_bottom_funBt{width:100%; overflow:hidden; border-bottom:1px dotted #B1B1B1; padding-bottom:8px; margin-bottom:8px;}
 .item_bottom_right .item_bottom_funBt .btLeft{float:left; height:24px; width:26px; display:block; background:url(goods-bg.gif) -3px -515px no-repeat;}

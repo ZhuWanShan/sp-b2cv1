@@ -47,4 +47,6 @@ public interface AdminServiceAsync {
 	void saveHTML(HTML html, AsyncCallback<HTML> callback);
 
 	void getHTML(long id, AsyncCallback<HTML> callback);
+
+	void getHTMLs(String ids, AsyncCallback<List<HTML>> callback);
 }

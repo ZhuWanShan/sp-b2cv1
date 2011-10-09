@@ -158,8 +158,8 @@
 							</g:customCell>
 						</g:row>
 					</g:Grid>
-					<g:HTMLPanel ui:field="manual" styleName="{style.maunualHTML}">
-					</g:HTMLPanel>
+					<g:TabLayoutPanel ui:field="manual" styleName="{style.maunualHTML}" barHeight="2" barUnit="EM" height="420px">
+					</g:TabLayoutPanel>
 					</g:HTMLPanel>
 				</g:ScrollPanel>	
 			</g:tab>

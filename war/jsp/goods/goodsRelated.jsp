@@ -1,28 +1,7 @@
 <%@include file="../include.jsp" %>
 <%@page import="com.spshop.utils.AllConstants"%>
 <div id="tab_middle" class="item_goods_info_box_bottom">
-  <div class="item_reviews">
-  <div class="item_tab">
-  	<c:if test="${pageForm.pageProperties.productDetail.manualKey > 0}">
-	  	<ss:html var="html" htmlId="${pageForm.pageProperties.productDetail.manualKey}">
-	   	 <c:out value="${html.content}" escapeXml="false"></c:out>
-	    </ss:html>
-    </c:if>
-  </div>
-     <div class="pages_box"> 
-    	<c:if test="${pageForm.pageProperties.productDetail.showComments}">
-    		<H1 style="float: left;">Comments</H1>
-			<fb:comments href='<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name }' num_posts="15" width="720"></fb:comments>
-		</c:if>
-      </div>
-    <div id="writepl" class="item_reviews_bottom_page">
-    <%-- --%>
-      <div>
-      </div>
-    </div>
-  </div>  
 
-  
 <div class="item_bottom_right">
 	<c:if test="${pageForm.pageProperties.productDetail.tabProductKey > 0}">
 		<ss:tabProductNames var="names" tabId="${pageForm.pageProperties.productDetail.tabProductKey }">
@@ -41,7 +20,30 @@
 	    </ss:tabProductNames>
     </c:if>
 </div>  
-  
+
+  <div class="item_reviews">
+  <div class="item_tab">
+  <%-- 
+  	<c:if test="${pageForm.pageProperties.productDetail.manualKey > 0}">
+	  	<ss:html var="html" htmlId="${pageForm.pageProperties.productDetail.manualKey}">
+	   	 <c:out value="${html.content}" escapeXml="false"></c:out>
+	    </ss:html>
+    </c:if>
+    --%>
+    <%@include file="goods-desc.jsp" %>
+  </div>
+     <div class="pages_box"> 
+    	<c:if test="${pageForm.pageProperties.productDetail.showComments}">
+    		<H1 style="float: left;">Comments</H1>
+			<fb:comments href='<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name }' num_posts="15" width="972"></fb:comments>
+		</c:if>
+      </div>
+    <div id="writepl" class="item_reviews_bottom_page">
+    <%-- --%>
+      <div>
+      </div>
+    </div>
+  </div>  
 </div>
 
 <div class="hei10"></div>

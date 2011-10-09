@@ -18,7 +18,11 @@ public class ImageServiceImpl extends AbstractService<Image,ImageDAO, Long> impl
 	@Override
 	public Image saveImage(Image image,String imagePath,LoginInfo info) {
 		Image img = image;
-		
+		String imgName = System.nanoTime()+"";
+		if(null!=image.getName()){
+			imgName = image.getName().replaceAll("_", " ").trim();
+			image.setName(imgName);
+		}
 		try {
 			img = ImageTools.changeSize(image,info,imagePath);
 		} catch (MagickException e) {

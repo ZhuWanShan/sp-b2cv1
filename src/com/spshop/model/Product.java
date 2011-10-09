@@ -31,7 +31,7 @@ public class Product extends Component{
 	private double price;
 	private double actualPrice;
 	private boolean showComments;
-	private long manualKey;
+	private String manualKey;
 	private boolean showlikeButton;
 	private String productUrl;
 	
@@ -151,10 +151,10 @@ public class Product extends Component{
 		return images;
 	}
 	
-	public long getManualKey() {
+	public String getManualKey() {
 		return manualKey;
 	}
-	public void setManualKey(long manualKey) {
+	public void setManualKey(String manualKey) {
 		this.manualKey = manualKey;
 	}
 	

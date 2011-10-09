@@ -119,4 +119,9 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 		return ServiceFactory.getService(HTMLService.class).getHTML(id);
 	}
 
+	@Override
+	public List<HTML> getHTMLs(String ids) throws ServiceValidateException {
+		return ServiceFactory.getService(HTMLService.class).getHTMLs(ids);
+	}
+
 }
