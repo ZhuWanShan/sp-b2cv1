@@ -16,7 +16,7 @@
 							<a class="bighref" id="linkNormalBox" href="${image.largerUrl}"
 								rel="thing_item_pics"> <img
 								src="../css/zoom_in.png"
-								id="zoomIcon"> <img width="277" val="${image.largerUrl}"
+								id="zoomIcon"> <img width="277" val="${image.noChangeUrl}"
 								alt="${pageForm.pageProperties.productDetail.title}"
 								src="${image.largerUrl}" id="imageNormalBox"> </a>
 				</div>
