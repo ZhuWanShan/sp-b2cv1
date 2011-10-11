@@ -3,14 +3,10 @@
 	margin: 6px;
 	border: 0px;
 	padding: 0px;
-	width: 724px !important;
-	width: /**/ 724px ;
 }
 
 .notice_box {
 	margin: 0px;
-	width: 724px !important;
-	width: /**/ 724px ;
 }
 
 .notice_top {
@@ -53,8 +49,6 @@
 	border: 0px;
 	font: 12px/18px Verdana, Arial, Helvetica, sans-serif;
 	color: #000000;
-	width: 711px !important;
-	width: /**/ 724px ;
 }
 
 .bt_box {
@@ -65,8 +59,6 @@
 	line-height: 15px;
 	color: #000000;
 	clear: both;
-	width: 702px !important;
-	width: /**/ 718px ;
 }
 
 .tempnr_box {
@@ -76,8 +68,6 @@
 	font: 12px/18px Verdana, Arial, Helvetica, sans-serif;
 	color: #000000;
 	list-style: disc outside;
-	width: 704px !important;
-	width: /**/ 724px ;
 }
 
 .tablestyle {
@@ -104,7 +94,6 @@
 	margin: 0px;
 	padding: 0px;
 	border: 0px;
-	width: 724px;
 }
 
 .nr_right {
@@ -124,7 +113,6 @@
 
 .bottom_mbpage {
 	height: 5px;
-	width: 724px;
 	margin: 0px;
 	padding: 0px;
 	border: 0px;
@@ -152,7 +140,6 @@
 .neirong_box {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	width: 724px;
 	font: 12px Verdana, Arial, Helvetica, sans-serif;
 	color: #353432;
 	line-height: 20px;
