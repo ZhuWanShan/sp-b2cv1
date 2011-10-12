@@ -12,6 +12,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.spshop.admin.client.businessui.CategoryManager;
 import com.spshop.admin.client.businessui.ComponentQuery;
 import com.spshop.admin.client.businessui.DashboardSellingManager;
+import com.spshop.admin.client.businessui.DeliveryManager;
 import com.spshop.admin.client.businessui.HTMLCreation;
 import com.spshop.admin.client.businessui.ImageBatchCreation;
 import com.spshop.admin.client.businessui.ImageCreation;
@@ -413,6 +414,17 @@ public class CommandFactory {
 				});
 				popWindow.addButton(button);
 				popWindow.center();
+			}
+		};
+	}
+	
+	public static Command deliveryManager(){
+		return new CommandAdapter() {
+			@Override
+			public void execute() {
+				AdminWorkspace.contentPanel.body.clear();
+				DeliveryManager deliveryManager = new DeliveryManager(); 
+				AdminWorkspace.contentPanel.body.add(deliveryManager);
 			}
 		};
 	}
