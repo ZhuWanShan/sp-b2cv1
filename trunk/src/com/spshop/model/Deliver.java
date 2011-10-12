@@ -8,11 +8,15 @@ public class Deliver extends Component{
 	private static final long serialVersionUID = -817593465733096672L;
 	
 	private String company;
-	private Image icon;
 	private float price;
 	
+	private Country country;
+	
 	public Deliver() {
-		// TODO Auto-generated constructor stub
+	}
+	
+	public Deliver(Deliver deliver) {
+		super(deliver);
 	}
 	
 	public String getCompany() {
@@ -21,17 +25,19 @@ public class Deliver extends Component{
 	public void setCompany(String company) {
 		this.company = company;
 	}
-	public Image getIcon() {
-		return icon;
-	}
-	public void setIcon(Image icon) {
-		this.icon = icon;
-	}
 	public float getPrice() {
 		return price;
 	}
 	public void setPrice(float price) {
 		this.price = price;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+
+	public Country getCountry() {
+		return country;
 	}
 
 	/**
@@ -41,15 +47,16 @@ public class Deliver extends Component{
 	 */
 	public Deliver clone() {
 		Deliver obj = null;
-		obj = new Deliver();
+		obj = new Deliver(this);
 		if (this.company != null) {
-			/* Does not have a clone() method */
 			obj.company = this.company;
 		}
-		if (this.icon != null) {
-			obj.icon = (Image) this.icon.clone();
-		}
 		obj.price = this.price;
+		if (this.country != null) {
+			obj.country = (Country) this.country.clone();
+		}
 		return obj;
 	}
+	
+	
 }

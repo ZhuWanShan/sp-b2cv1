@@ -94,12 +94,9 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
-		
 		<property name="code" length="100"></property>
 		<property name="abbrCode" length="50"></property>
 		
-		<many-to-one name="icon" class="Image" column="image_id"></many-to-one>
 	</class>
 	
 	<class name="Deliver" table="SHOP_Deliver">
@@ -109,12 +106,11 @@
 		<property name="name" length="100"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
 		<property name="company" length="100"></property>
 		<property name="price"></property>
 		
-		<many-to-one name="icon" class="Image" column="image_id"></many-to-one>
+		<many-to-one name="country" class="Country" column="country_id"></many-to-one>
 	</class>
 	
 	
