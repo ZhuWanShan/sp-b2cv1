@@ -11,25 +11,25 @@
 				<c:forEach items="${pageForm.pageProperties.productDetail.images}"
 						var="image" varStatus="idx" step="1">
 						<c:if test="${idx.index eq 0}">
-				<div class="item_normal_pic_box">
-					<div></div>
-							<a class="bighref" id="linkNormalBox" href="${image.largerUrl}"
-								rel="thing_item_pics"> <img
-								src="../css/zoom_in.png"
-								id="zoomIcon"> <img width="277" val="${image.noChangeUrl}"
-								alt="${pageForm.pageProperties.productDetail.title}"
-								src="${image.largerUrl}" id="imageNormalBox"> </a>
-				</div>
-				</c:if>
-					<div style="display: none">
+							<div class="item_normal_pic_box">
+								<div></div>
+										<a class="bighref" id="linkNormalBox" href="${image.noChangeUrl}"
+											rel="thing_item_pics"> <img
+											src="../css/zoom_in.png"
+											id="zoomIcon"> <img width="277" val="${image.noChangeUrl}"
+											alt="${pageForm.pageProperties.productDetail.title}"
+											src="${image.largerUrl}" id="imageNormalBox"> </a>
+							</div>
+						</c:if>
+						<div style="display: none">
 						
-						<c:if test="${idx.index eq 0}">
-							<a href="${image.largerUrl}" class="noneBox"></a>
-						</c:if>
-						<c:if test="${idx.index gt 0}">
-							<a href="${image.noChangeUrl}" class="noneBox" rel="thing_item_pics"></a>
-						</c:if>
-					</div>
+							<c:if test="${idx.index eq 0}">
+								<a href="${image.noChangeUrl}" class="noneBox"></a>
+							</c:if>
+							<c:if test="${idx.index gt 0}">
+								<a href="${image.noChangeUrl}" class="noneBox" rel="thing_item_pics"></a>
+							</c:if>
+						</div>
 				</c:forEach>
 				<!--<div class="item_normal_zoom"> <a href="###" class="link_pic_zoom bighref" target="_blank">Enlarge the Image</a> </div>-->
 				<div class="item_normal_socllbar">
