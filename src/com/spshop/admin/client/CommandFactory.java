@@ -2,6 +2,7 @@ package com.spshop.admin.client;
 
 
 import java.util.Date;
+import java.util.List;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -21,6 +22,7 @@ import com.spshop.admin.client.businessui.SiteManager;
 import com.spshop.admin.client.businessui.TopSellingManager;
 import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.admin.client.businessui.callback.SelectedCallBack;
+import com.spshop.model.Country;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
 import com.spshop.model.TabProduct;
@@ -423,7 +425,19 @@ public class CommandFactory {
 			@Override
 			public void execute() {
 				AdminWorkspace.contentPanel.body.clear();
-				DeliveryManager deliveryManager = new DeliveryManager(); 
+
+				final DeliveryManager deliveryManager = new DeliveryManager(); 
+
+				final PopWindow loading = PopWindow.createLoading("Waiting").lock();
+				AdminWorkspace.ADMIN_SERVICE_ASYNC.getAllCountries(new AsyncCallbackAdapter<List<Country>>(){
+					@Override
+					public void onSuccess(List<Country> rs) {
+						deliveryManager.setCountryList(rs);
+						loading.hide();
+						RootPanel.get().remove(loading);
+					}
+				});
+				
 				AdminWorkspace.contentPanel.body.add(deliveryManager);
 			}
 		};

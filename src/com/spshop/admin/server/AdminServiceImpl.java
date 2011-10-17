@@ -8,6 +8,7 @@ import com.spshop.admin.shared.LoginInfo;
 import com.spshop.exception.ServiceValidateException;
 import com.spshop.model.Category;
 import com.spshop.model.Component;
+import com.spshop.model.Country;
 import com.spshop.model.HTML;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
@@ -18,6 +19,7 @@ import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CategoryService;
+import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.HTMLService;
 import com.spshop.service.intf.ImageService;
 import com.spshop.service.intf.ProductService;
@@ -122,6 +124,21 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 	@Override
 	public List<HTML> getHTMLs(String ids) throws ServiceValidateException {
 		return ServiceFactory.getService(HTMLService.class).getHTMLs(ids);
+	}
+
+	@Override
+	public Country saveCountry(Country country) throws ServiceValidateException {
+		return ServiceFactory.getService(CountryService.class).save(country);
+	}
+
+	@Override
+	public List<Country> getAllCountries() throws ServiceValidateException {
+		return ServiceFactory.getService(CountryService.class).getAllCountries();
+	}
+
+	@Override
+	public Country getCountryById(long id) throws ServiceValidateException {
+		return ServiceFactory.getService(CountryService.class).getCountryById(id);
 	}
 
 }
