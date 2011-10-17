@@ -96,6 +96,7 @@
 		<property name="updateDate"></property>
 		<property name="code" length="100"></property>
 		<property name="abbrCode" length="50"></property>
+		<property name="dePrice"></property>
 		
 	</class>
 	

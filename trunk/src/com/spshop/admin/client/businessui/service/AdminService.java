@@ -8,6 +8,7 @@ import com.spshop.admin.shared.LoginInfo;
 import com.spshop.exception.ServiceValidateException;
 import com.spshop.model.Category;
 import com.spshop.model.Component;
+import com.spshop.model.Country;
 import com.spshop.model.HTML;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
@@ -34,5 +35,8 @@ public interface AdminService  extends RemoteService{
 	HTML saveHTML(HTML html) throws ServiceValidateException;
 	HTML getHTML(long id) throws ServiceValidateException;
 	List<HTML> getHTMLs(String ids) throws ServiceValidateException;
+	Country saveCountry(Country country) throws ServiceValidateException;
+	public List<Country> getAllCountries() throws ServiceValidateException;
+	public Country getCountryById(long id) throws ServiceValidateException;
 }
 

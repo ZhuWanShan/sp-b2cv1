@@ -9,9 +9,9 @@ public class Country extends Component{
 	
 	private String code;
 	private String abbrCode;
+	private float dePrice;
 	
 	public Country() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Country(Country country) {
@@ -47,7 +47,16 @@ public class Country extends Component{
 			/* Does not have a clone() method */
 			obj.abbrCode = this.abbrCode;
 		}
+		obj.dePrice = this.dePrice;
 		return obj;
+	}
+
+	public void setDePrice(float dePrice) {
+		this.dePrice = dePrice;
+	}
+
+	public float getDePrice() {
+		return dePrice;
 	}
 	
 	

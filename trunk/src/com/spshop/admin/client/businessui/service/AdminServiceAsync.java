@@ -7,6 +7,7 @@ import com.spshop.admin.shared.LoginInfo;
 import com.spshop.exception.ServiceValidateException;
 import com.spshop.model.Category;
 import com.spshop.model.Component;
+import com.spshop.model.Country;
 import com.spshop.model.HTML;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
@@ -49,4 +50,10 @@ public interface AdminServiceAsync {
 	void getHTML(long id, AsyncCallback<HTML> callback);
 
 	void getHTMLs(String ids, AsyncCallback<List<HTML>> callback);
+
+	void saveCountry(Country country, AsyncCallback<Country> callback);
+
+	void getAllCountries(AsyncCallback<List<Country>> callback);
+
+	void getCountryById(long id, AsyncCallback<Country> callback);
 }
