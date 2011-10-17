@@ -1,7 +1,7 @@
 <%@ include file="../include.jsp" %>
 <%@page import="com.spshop.utils.AllConstants"%>
-
-<c:forEach items="${pageForm.categories}" var="category">
+<ss:menubar items="categories" specialOffers="specialOfferItems">
+<c:forEach items="${categories}" var="category">
 <c:if test='${category.name != "home"}'>
 <dl class="main_Categories font_size10 lineheight15 float_left">
 	<dt class="fontbold font_size11">
@@ -33,3 +33,4 @@
 </dl>
 </c:if>
 </c:forEach>
+</ss:menubar>
