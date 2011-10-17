@@ -13,14 +13,6 @@
 
 			<input type="button" value="CHECKOUT"
 				onclick="javascript:window.location.href='checkOut.do'">
-			<p id="paypal">
-				<span id="or">or</span> <a href="javascript:void(0);"> <img
-					src="http://www.mlo.me/image/default/shoppingOrder/paypal.png"
-					onclick="javascript:$('act').value='paypal';$('cart_form').submit();">
-				</a>
-			</p>
-			<img id="paypay" style="display: none;" class="bt_img"
-				src="#/bt_paypal_gery.gif">
 		</div>
 		<div id="safe_box">
 		<%-- 
