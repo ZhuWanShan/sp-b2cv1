@@ -1,13 +1,14 @@
 package com.spshop.cache;
 
 import static com.spshop.utils.AllConstants.CATEGORY_CACHE;
-import static com.spshop.utils.AllConstants.ORDER_CACHE;
+
 import java.util.List;
 
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.Element;
 
 import com.spshop.model.Category;
+import com.spshop.model.Country;
 import com.spshop.model.HTML;
 import com.spshop.model.Order;
 import com.spshop.model.Product;
@@ -16,6 +17,7 @@ import com.spshop.model.TabProduct;
 import com.spshop.model.TabSelling;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CategoryService;
+import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.HTMLService;
 import com.spshop.service.intf.ProductService;
 import com.spshop.service.intf.SiteService;
@@ -30,12 +32,19 @@ public class SCacheFacade{
 	public static final String CART_CACHE = "cart";
 	public static final String TAB_PRODUCT_NAME_CACHE = "tabProductNames";
 	public static final String CATRGORY_PRODUCT_NAME_CACHE = "categoryProductNames";
+	public static final String COUNTRY_CACHE_KEY = "COUNTRY_CACHE_KEY";
+	public static final String COUNTRY_CACHE = "countryCache";
+	
 	static{
 		cacheManager = new SCacheManager(SCacheFacade.class.getResourceAsStream("/ehcache.xml"));
 	}
 	
 	public static Cache getGlobalCache(){
 		return cacheManager.getCache(GLOBAL_CACHE);
+	}
+	
+	public static SCache getContryCache(){
+		return cacheManager.getSCache(COUNTRY_CACHE);
 	}
 	
 	public static SCache getProductCache(){
@@ -194,5 +203,14 @@ public class SCacheFacade{
 		return product;
 	}
 	
-	
+	public static List<Country> getCounties(){
+		List<Country> countries = (List<Country>) getContryCache().get(COUNTRY_CACHE_KEY); 
+		
+		if(null==countries){
+			countries = ServiceFactory.getService(CountryService.class).getAllCountries();
+			getContryCache().put(COUNTRY_CACHE_KEY,countries);
+		}
+		
+		return countries;
+	}
 }
