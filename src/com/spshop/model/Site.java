@@ -17,6 +17,8 @@ public class Site extends Component{
 	private String sideBar;
 	private Image featuredCat;
 	private Image delivery;
+	private float freeDeliveryPrice;
+	
 	public Image getFeaturedCat() {
 		return featuredCat;
 	}
@@ -178,7 +180,18 @@ public class Site extends Component{
 			/* Does not have a clone() method */
 			obj.deliveryURL = this.deliveryURL;
 		}
+		
+		obj.freeDeliveryPrice = this.freeDeliveryPrice;
+		
 		return obj;
+	}
+
+	public void setFreeDeliveryPrice(float freeDeliveryPrice) {
+		this.freeDeliveryPrice = freeDeliveryPrice;
+	}
+
+	public float getFreeDeliveryPrice() {
+		return freeDeliveryPrice;
 	}
 
 }

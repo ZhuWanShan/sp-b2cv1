@@ -27,6 +27,7 @@ import com.spshop.admin.client.rich.RichText;
 import com.spshop.admin.shared.LoginInfo;
 import com.spshop.model.Component;
 import com.spshop.model.Site;
+import com.google.gwt.user.client.ui.DoubleBox;
 
 public class SiteManager extends ObservableComposite<Site, SiteManager>{
 
@@ -46,6 +47,7 @@ public class SiteManager extends ObservableComposite<Site, SiteManager>{
 	@UiField RichText siderBar;
 	@UiField RichText siteFooter;
 	@UiField Button save;
+	@UiField DoubleBox freeDeliveryPrice;
 
 	interface SiteManagerUiBinder extends UiBinder<Widget, SiteManager> {
 	}
@@ -84,6 +86,7 @@ public class SiteManager extends ObservableComposite<Site, SiteManager>{
 		featuredUrl.setValue(component.getFeaturedCatURL());
 		siderBar.setHTML(component.getSideBar());
 		siteFooter.setHTML(component.getSiteFooter());
+		freeDeliveryPrice.setValue(Double.valueOf(component.getFreeDeliveryPrice()));
 	}
 	@UiHandler("logoPicker")
 	void onLogoPickerClick(ClickEvent event) {
@@ -157,5 +160,9 @@ public class SiteManager extends ObservableComposite<Site, SiteManager>{
 	@UiHandler("siteFooter")
 	void onRichTextBlur(BlurEvent event) {
 		component.setSiteFooter(siteFooter.getHTML());
+	}
+	@UiHandler("freeDeliveryPrice")
+	void onFreeDeliveryPriceKeyUp(KeyUpEvent event) {
+		component.setFreeDeliveryPrice(freeDeliveryPrice.getValue().floatValue());
 	}
 }

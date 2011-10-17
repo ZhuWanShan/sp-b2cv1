@@ -388,6 +388,7 @@
 		<property name="prefix" length="100"></property>
 		<property name="siteFooter"></property>
 		<property name="sideBar"></property>
+		<property name="freeDeliveryPrice"></property>
 		<many-to-one name="logo" class="Image" column="log_id"></many-to-one>
 		<many-to-one name="delivery" class="Image" column="delivery_img_id"></many-to-one>
 		<many-to-one name="featuredCat" class="Image" column="featuredCat_img_id"></many-to-one>
