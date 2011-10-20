@@ -31,11 +31,11 @@ jq(document).ready(function(){
 			});
 		});
 		
-		if(totalPrice > freePrice){
-			jq("#DileveryPrice").html(0);
+		if(totalPrice){
+			if(totalPrice > freePrice){
+				jq("#DileveryPrice").html(0);
+			}
 		}
-		
-		
 		
 		jq("#MemberState_new").change(function(){
 			var dePrice = 0;

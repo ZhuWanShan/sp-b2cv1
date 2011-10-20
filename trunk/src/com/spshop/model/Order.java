@@ -9,7 +9,6 @@ public class Order extends Component{
 	 * 
 	 */
 	private static final long serialVersionUID = 8785205423133606769L;
-	
 	private String customerName;
 	private String customerCompany;
 	private String customerAddress;

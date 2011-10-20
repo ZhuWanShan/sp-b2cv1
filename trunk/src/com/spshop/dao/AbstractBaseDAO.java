@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -48,6 +49,24 @@ public abstract class AbstractBaseDAO<T extends Component, ID extends Serializab
 	
 	public Object queryByHQL(String hql){
 	    return getSession().createQuery(hql).list();
+	}
+	
+	public Object queryByHQL(String hql,Map<String,Object> params){
+		Query q = getSession().createQuery(hql);
+		for (String key : params.keySet()) {
+			q.setParameter(key, params.get(key));
+		}
+	    return q.list();
+	}
+	
+	public Object queryByHQL(String hql,Object... params){
+		Query q = getSession().createQuery(hql);
+		if(null!=params){
+			for (int i = 0 ; i < params.length; i++) {
+				q.setParameter(i, params[i]);
+			}
+		}
+	    return q.list();
 	}
 
 	//

@@ -19,6 +19,7 @@ import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CategoryService;
 import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.HTMLService;
+import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.ProductService;
 import com.spshop.service.intf.SiteService;
 import com.spshop.service.intf.TabProductService;
@@ -34,6 +35,7 @@ public class SCacheFacade{
 	public static final String CATRGORY_PRODUCT_NAME_CACHE = "categoryProductNames";
 	public static final String COUNTRY_CACHE_KEY = "COUNTRY_CACHE_KEY";
 	public static final String COUNTRY_CACHE = "countryCache";
+	public static final String ORDER_CACHE = "orderCache";
 	
 	static{
 		cacheManager = new SCacheManager(SCacheFacade.class.getResourceAsStream("/ehcache.xml"));
@@ -57,6 +59,10 @@ public class SCacheFacade{
 	
 	public static SCache getTabProductNameCache(){
 		return cacheManager.getSCache(TAB_PRODUCT_NAME_CACHE);
+	}
+	
+	public static SCache getOrderCache(){
+		return cacheManager.getSCache(ORDER_CACHE);
 	}
 	
 
@@ -212,5 +218,27 @@ public class SCacheFacade{
 		}
 		
 		return countries;
+	}
+	
+	public static Order getOrderById(String id){
+		Order order = (Order) getOrderCache().get("ORDER_"+id);
+		
+		if(null==order){
+			order = ServiceFactory.getService(OrderService.class).getOrderById(id);
+			getOrderCache().put("ORDER_"+id, order);
+		}
+		
+		return order;
+	}
+	
+	public static List<Order> getOrdersByUserId(int id){
+		List<Order> orders = (List<Order>) getOrderCache().get("User_"+id);
+		
+		if(null==orders){
+			orders = ServiceFactory.getService(OrderService.class).getOrdersByUserId(id);
+			getOrderCache().put("User_"+id, orders);
+		}
+		
+		return orders;
 	}
 }

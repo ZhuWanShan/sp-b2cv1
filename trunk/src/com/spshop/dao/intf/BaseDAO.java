@@ -2,6 +2,7 @@ package com.spshop.dao.intf;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.SessionFactory;
 
@@ -44,4 +45,8 @@ public interface BaseDAO<T extends Component, ID extends Serializable> {
 	public List queryByHQL(String hql,int start, int max);
 	
 	public Object queryByHQL(String hql);
+	
+	public Object queryByHQL(String hql,Object... params);
+	
+	public Object queryByHQL(String hql,Map<String,Object> params);
 }
