@@ -32,6 +32,11 @@
 		timeToLiveSeconds="600" maxElementsInMemory="1000"
 		memoryStoreEvictionPolicy="LRU" overflowToDisk="true"
 		maxElementsOnDisk="600" />
+		
+	<cache name="countryCache" eternal="false"
+		timeToLiveSeconds="60" maxElementsInMemory="1000"
+		memoryStoreEvictionPolicy="LRU" overflowToDisk="true"
+		maxElementsOnDisk="60" />
 	
 	<cache name="others" eternal="false"
 		timeToLiveSeconds="86400" maxElementsInMemory="1000"
