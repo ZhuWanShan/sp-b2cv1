@@ -14,9 +14,15 @@ import org.apache.struts.action.ActionMapping;
 
 import com.spshop.cache.SCacheFacade;
 import com.spshop.fe.formbeans.PageFormBean;
+import com.spshop.model.Order;
 import com.spshop.model.Product;
+import com.spshop.model.User;
 import com.spshop.model.UserOption;
+import com.spshop.model.cart.ShoppingCart;
+import com.spshop.model.enums.OrderStatus;
 import com.spshop.model.enums.SelectType;
+import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.OrderService;
 import com.spshop.utils.AllConstants;
 
 public class ShoppingCartAction extends BaseAction {
@@ -33,7 +39,6 @@ public class ShoppingCartAction extends BaseAction {
 	private static final String ITEMNAME = "itemName";
 	private static final String OPERATION = "operation";
 	private static final String CHECKOUT = "checkout";
-	private static final String CHECKOUT_WITH_USER = "cwu";
 	
 	@SuppressWarnings("unchecked")
 	private List<UserOption> retriveUserOptions(ServletRequest request){
@@ -111,10 +116,27 @@ public class ShoppingCartAction extends BaseAction {
 		return request.getParameter(OPERATION);
 	}
 	
+	private User retriveUser(HttpServletRequest request){
+		return (User) request.getSession().getAttribute(AllConstants.USER_INFO);
+	}
+	
+	
+	private void clearCart(HttpServletRequest request){
+		Order order = new Order();
+		order.setCreateDate(new Date());
+		ShoppingCart shoppingCart = new ShoppingCart(order);
+		request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
+		
+	}
+	
 	@Override
 	public ActionForward processer(ActionMapping mapping, PageFormBean page,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		
+		List<String> errorStrings = new ArrayList<String>();
+		List<String> msgs = new ArrayList<String>();
+		
 		if(ADDITEM.equals(retriveOption(request))){
 			int qty = retriveQty(request);
 			Product product = SCacheFacade.getProduct(retriveProductId(request));
@@ -135,11 +157,21 @@ public class ShoppingCartAction extends BaseAction {
 		}
 		
 		if(CHECKOUT.equals(retriveOption(request))){
+			Order order = getCart(request).getOrder();
 			
+			if(null==order.getItems()||order.getItems().size()<1){
+				errorStrings.add("Shopping cart is empty!");
+			}else{
+				if(null!=retriveUser(request)){
+					order.setUser(retriveUser(request));
+				}
+				ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
+			}
+			clearCart(request);
 		}
 		
-		
-
+		request.setAttribute(AllConstants.REQUEST_ERROR, errorStrings);
+		request.setAttribute(AllConstants.REQUEST_MSG, msgs);
 		return mapping.findForward(AllConstants.SUCCESS_VALUE);
 
 	}

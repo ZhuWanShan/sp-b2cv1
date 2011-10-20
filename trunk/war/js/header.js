@@ -158,25 +158,10 @@ jq('#top_Cart').mouseover(function(){
 	if(jq('#universalCart').is(':visible')){
 		jq('#universalCart').hideTime('stop');
 	}else{
-		jq('#universalCart').hideTime('stop').hideTime(150,['show',[0,function(){
-			getHeaderCart();
-			if($oldusermenuli!=''){$oldusermenuli.removeClass('current').children('.user_menu_hidd').hideTime('stop').hide();$oldusermenuli='';}
-		}]]);
 	}
 }).mouseout(function(){
 	jq('#universalCart').hideTime('stop').hideTime(150,['fadeOut',[100]]);
 });
-function getHeaderCart(){
-	jq.ajax({   
-		type: "get", 
-		cache:"false",  
-		url: root_url+"index.php?action=ajax&menu_action=Cart_header&exit=1", 
-		datatype: "html",		
-		success: function(data) {
-			jq("#universalCart").html(data);
-		}
-	}); 
-}
 //会员登录改ajax操作
 function loginAjax(loginusername,loginuserpass,loginmethod,url){
 	jq.ajax({
@@ -195,18 +180,6 @@ function loginAjax(loginusername,loginuserpass,loginmethod,url){
 		}
 	});
 	return false;
-}
-//购物车的删除操作
-function headerCartDel(url){
-	jq.ajax({
-		cache:"false",
-		url:url,
-		success:function(data){
-			if(data==1){
-				getHeaderCart();
-			}
-		}
-	});
 }
 //顶部固定条的CSS3效果
 if(!is_ie || is_ie=='9.0'){
