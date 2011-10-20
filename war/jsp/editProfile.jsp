@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="com.spshop.utils.AllConstants"%>
 <%@include file="include.jsp" %>
 <html>
 <head>
@@ -64,22 +65,52 @@
 				<input type="hidden" name="isModify" value="true">
 				<ul class="table_ul1 editProfile">
 					<li><i>First Name:</i>
-						<input name="firstName" id="firstName" size="32" maxlength="100" value="${pageForm.pageProperties.userProfile.firstName }"/>
+						<input name="firstName" id="firstName" size="32" maxlength="100" value="${sessionScope.userInfo.firstName }"/>
 					</li>
 					<li><i>Last Name:</i>
-						<input name="lastName" id="lastName" size="32" maxlength="100" value="${pageForm.pageProperties.userProfile.lastName }"/>
+						<input name="lastName" id="lastName" size="32" maxlength="100" value="${sessionScope.userInfo.lastName }"/>
+					</li>
+					<li><i>Gender:</i>
+						<select id="gender" name="gender">
+						<c:choose>
+							<c:when test='${sessionScope.userInfo.gender eq "male"}'>
+								<option selected="selected" value="<%= AllConstants.GENDER_MALE%>">Male</option>
+								<option value="<%= AllConstants.GENDER_FEMALE%>">Female</option>
+								<option value="<%= AllConstants.GENDER_OTHERS%>">Unknown</option>
+							</c:when>
+							<c:when test='${sessionScope.userInfo.gender eq "female"}'>
+								<option value="<%= AllConstants.GENDER_MALE%>">Male</option>
+								<option selected="selected" value="<%= AllConstants.GENDER_FEMALE%>">Female</option>
+								<option value="<%= AllConstants.GENDER_OTHERS%>">Unknown</option>
+							</c:when>
+							<c:otherwise>
+								<option value="<%= AllConstants.GENDER_MALE%>">Male</option>
+								<option value="<%= AllConstants.GENDER_FEMALE%>">Female</option>
+								<option selected="selected" value="<%= AllConstants.GENDER_OTHERS%>">Unknown</option>
+							</c:otherwise>
+						</c:choose>
+						</select>
 					</li>
 					<li><i>Telephone:</i>
-						<input name="telephone" id="telephone" size="32" maxlength="100" value="${pageForm.pageProperties.userProfile.telephone }"/>
+						<input name="telephone" id="telephone" size="32" maxlength="100" value="${sessionScope.userInfo.telephone }"/>
 					</li>
 					<li><i>Country:</i>
-						<input name="country" id="country" size="32" maxlength="100" value="${pageForm.pageProperties.userProfile.country }" />
+						<select id="country" name="country">
+							<ss:countries var="countries">
+								<c:forEach var="country" items="${countries}">
+									<option value="${country.id}">${country.name}</option>
+								</c:forEach>
+							</ss:countries>
+						</select>
+					</li>
+					<li><i>City:</i>
+						<input name="city" id="city" size="32" maxlength="100" value="${sessionScope.userInfo.city }" />
 					</li>
 					<li><i>Zip:</i>
-						<input name="zipcode" id="zipcode" size="32" maxlength="100" value="${pageForm.pageProperties.userProfile.zipcode }" />
+						<input name="zipcode" id="zipcode" size="32" maxlength="100" value="${sessionScope.userInfo.zipcode }" />
 					</li>
 					<li><i>Address:</i>
-						<input name="address" id="address" size="32" maxlength="256" value="${pageForm.pageProperties.userProfile.address }" />
+						<input name="address" id="address" size="32" maxlength="256" value="${sessionScope.userInfo.address }" />
 					</li>
 				</ul>
 				<div class="putIn_box2">
