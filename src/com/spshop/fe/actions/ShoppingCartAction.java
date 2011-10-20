@@ -168,7 +168,7 @@ public class ShoppingCartAction extends BaseAction {
 				}
 				order.setName(getOrderId());
 				order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
-				request.getSession().setAttribute(AllConstants.DEFAULT_ORDER, order);
+				request.setAttribute(AllConstants.DEFAULT_ORDER, order);
 			}
 			clearCart(request);
 		}
