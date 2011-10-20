@@ -80,4 +80,5 @@ public class AllConstants {
     
     public static final String REQUEST_ERROR = "requestErrors";
     public static final String REQUEST_MSG = "requestMsg";
+    public static final String DEFAULT_ORDER = "defaultOrder";
 }
