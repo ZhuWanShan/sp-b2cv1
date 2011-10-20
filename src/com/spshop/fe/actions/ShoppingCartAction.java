@@ -166,8 +166,8 @@ public class ShoppingCartAction extends BaseAction {
 				if(null!=retriveUser(request)){
 					order.setUser(retriveUser(request));
 				}
-				order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
 				order.setName(getOrderId());
+				order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
 				request.getSession().setAttribute(AllConstants.DEFAULT_ORDER, order);
 			}
 			clearCart(request);
