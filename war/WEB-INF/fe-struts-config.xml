@@ -75,6 +75,14 @@
 		</action>
 		
 		<action 
+			path="/orders" 
+			type="com.spshop.fe.actions.ShoppingCartAction" 
+			name="pageForm"
+			scope="request">
+			<forward name="Success" path="/jsp/order.jsp"></forward>
+		</action>
+		
+		<action 
 			path="/pay" 
 			type="com.spshop.fe.actions.PayAction" 
 			name="pageForm"

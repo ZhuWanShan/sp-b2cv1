@@ -1,6 +1,37 @@
 <%@ include file="../include.jsp" %>
 <%@page import="com.spshop.utils.AllConstants"%>
 <div id="container">
+
+	<form action="/orders" method="post">
+		<c:if test="${(empty defaultOrder)}">
+			<c:if test="${not empty sessionScope.userInfo}">
+				<select name="id" style="height: 25px">
+					<ss:orders var="orders" userId="${userInfo.id}">
+						<c:forEach items="${orders}" var="order">
+							<option value="${order.name}">${order.name}</option>
+						</c:forEach>
+					</ss:orders>
+				</select>
+			</c:if>
+			<c:if test="${empty sessionScope.userInfo}">
+				<input type="text" name="id" >
+			</c:if>
+				<button class="button_orange" type="submit"
+				onclick="location.href='<%= AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}'">GO</button>
+		</c:if>
+	</form>
+	<c:if test="${(not empty param.id)}">
+		<ss:order var="order" orderId="${param.id}">
+			<c:set value="${order}" var="defaultOrder"></c:set>
+		</ss:order>
+	</c:if>
+	<c:if test="${(not empty sessionScope.userInfo)&&(empty defaultOrder)}">
+		<ss:orders var="orders" userId="${sessionScope.userInfo.id}">
+				<c:forEach items="${orders}" var="order" end="1">
+					<c:set value="${order}" var="defaultOrder"></c:set>
+				</c:forEach>
+		</ss:orders>
+	</c:if>
 	<div id="right_column">
 		<p id="order_title">Total Price</p>
 		<div id="check_box">
@@ -8,26 +39,19 @@
 				TOTAL: <span><c:out value="${defaultOrder.totalPrice}" /></span>
 			</p>
 		</div>
-		<div id="safe_box">
-		<%-- 
-			<p id="descript">Security of shopping on Milanoo is guaranteed!</p>
+		<div id="check_box">
 			<p>
-				<a href="javascript:void(0);" target="_blank"><img
-				src="#">
-					src="http://www.mlo.me/image/default/shoppingOrder/PaypalVerify.gif">
-					height="60">
-				</a> <a href="javascript:void(0);" target="_blank"><img
-					src="../../css/vers.jpg">
-				</a>
+				Status: <span><c:out value="${defaultOrder.status}" /></span>
 			</p>
-			--%>
+		</div>
+		<div id="safe_box">
 		</div>
 	</div>
 	<div id="left_column">
 			<input name="act" id="act" type="hidden" value="edit">
 			<div class="cart_box">
 				<p class="cart_title">
-					<strong>Order: ${defaultOrder.id }</strong>
+					<strong>Order: ${defaultOrder.name }</strong>
 				</p>
 				<table id="shopping_list" cellspacing="0">
 					<thead>

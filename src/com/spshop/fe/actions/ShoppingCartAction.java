@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
@@ -166,6 +167,7 @@ public class ShoppingCartAction extends BaseAction {
 					order.setUser(retriveUser(request));
 				}
 				order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
+				order.setName(getOrderId());
 				request.getSession().setAttribute(AllConstants.DEFAULT_ORDER, order);
 			}
 			clearCart(request);
@@ -175,6 +177,20 @@ public class ShoppingCartAction extends BaseAction {
 		request.setAttribute(AllConstants.REQUEST_MSG, msgs);
 		return mapping.findForward(AllConstants.SUCCESS_VALUE);
 
+	}
+	
+	private String getOrderId(){
+		String id = "Order";
+		
+		id = id + new Random().nextInt(999999);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + new Random().nextInt(999999);
+		
+		return id;
 	}
 
 }
