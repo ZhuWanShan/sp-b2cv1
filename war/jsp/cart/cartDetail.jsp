@@ -9,10 +9,13 @@
 		<div id="check_box">
 			<p>
 				TOTAL: <span><c:out value="${shoppingcart.totalPrice}" /></span>
+				<script type="text/javascript">
+					var totalPrice = ${shoppingcart.totalPrice};
+				</script>
 			</p>
 
 			<input type="button" value="CHECKOUT"
-				onclick="javascript:window.location.href='checkOut.do'">
+				onclick="cartCheckOut()">
 		</div>
 		<div id="safe_box">
 		<%-- 

@@ -77,4 +77,7 @@ public class AllConstants {
     public static final String GENDER_MALE = "male";
     public static final String GENDER_FEMALE = "female";
     public static final String GENDER_OTHERS = "unknown";
+    
+    public static final String REQUEST_ERROR = "requestErrors";
+    public static final String REQUEST_MSG = "requestMsg";
 }
