@@ -1,5 +1,7 @@
 package com.spshop.fe.actions;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,10 +25,12 @@ public class EditProfileAction extends BaseAction {
         Boolean isModify = Boolean.valueOf(request.getParameter("isModify"));
         if (user != null) {
             if (isModify) {
+                user = ServiceFactory.getService(UserService.class).queryUserByEmail(user.getEmail());
                 populateUserModel(user, request);
-                user = ServiceFactory.getService(UserService.class).merge(user);
+                ServiceFactory.getService(UserService.class).merge(user);
+                user.setPassword("");
             }
-            page.addPageProperty("userProfile", user);
+            request.getSession().setAttribute(AllConstants.USER_INFO, user);
             return mapping.findForward(AllConstants.SUCCESS_VALUE);
         } else {
             throw new IllegalStateException("This session timed out!!");
@@ -36,17 +40,22 @@ public class EditProfileAction extends BaseAction {
     private void populateUserModel(User user, HttpServletRequest request) {
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
+        String gender = request.getParameter("gender");
         String telephone = request.getParameter("telephone");
         String address = request.getParameter("address");
         String zipcode = request.getParameter("zipcode");
         String country = request.getParameter("country");
+        String city = request.getParameter("city");
 
         user.setFirstName(firstName);
         user.setLastName(lastName);
+        user.setGender(gender);
         user.setTelephone(telephone);
         user.setAddress(address);
         user.setZipcode(zipcode);
         user.setCountry(country);
+        user.setCity(city);
+        user.setUpdateDate(new Date());
     }
 
 }

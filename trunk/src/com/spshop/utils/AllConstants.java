@@ -72,4 +72,9 @@ public class AllConstants {
     public static final String DEFAULT_REGISTER_MAIL_CONTENT = "Congratulations! You r the registered user of Honey-Buy!";
     public static final String DEFAULT_RECOVERY_MAIL_TITLE = "Your account, in Honey-Buy, is recoveried!";
     public static final String DEFAULT_RECOVERY_MAIL_CONTENT = "Congratulations! Your password is ...";
+    
+    //Gender
+    public static final String GENDER_MALE = "male";
+    public static final String GENDER_FEMALE = "female";
+    public static final String GENDER_OTHERS = "unknown";
 }
