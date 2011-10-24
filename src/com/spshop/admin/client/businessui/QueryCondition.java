@@ -1,5 +1,7 @@
 package com.spshop.admin.client.businessui;
 
+import java.util.List;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.i18n.client.DateTimeFormat;
@@ -31,6 +33,9 @@ public class QueryCondition extends Composite {
 	@UiField Button search;
 	private String orderBy;
 	private boolean asc = false;
+	private String hql;
+	private List<Object> params;
+	
 
 	interface QueryConditionUiBinder extends UiBinder<Widget, QueryCondition> {
 	}
@@ -91,4 +96,21 @@ public class QueryCondition extends Composite {
 	public void setAsc(boolean asc) {
 		this.asc = asc;
 	}
+
+    public String getHql() {
+        return hql;
+    }
+
+    public void setHql(String hql) {
+        this.hql = hql;
+    }
+
+    public List<Object> getParams() {
+        return params;
+    }
+
+    public void setParams(List<Object> params) {
+        this.params = params;
+    }
+
 }

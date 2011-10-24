@@ -11,6 +11,7 @@ import com.spshop.model.Component;
 import com.spshop.model.Country;
 import com.spshop.model.HTML;
 import com.spshop.model.Image;
+import com.spshop.model.Order;
 import com.spshop.model.Product;
 import com.spshop.model.Site;
 import com.spshop.model.TabProduct;
@@ -22,6 +23,7 @@ import com.spshop.service.intf.CategoryService;
 import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.HTMLService;
 import com.spshop.service.intf.ImageService;
+import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.ProductService;
 import com.spshop.service.intf.SiteService;
 import com.spshop.service.intf.TabProductService;
@@ -140,5 +142,15 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 	public Country getCountryById(long id) throws ServiceValidateException {
 		return ServiceFactory.getService(CountryService.class).getCountryById(id);
 	}
+
+    @Override
+    public Order updateOrderStatus(Order order) {
+        return ServiceFactory.getService(OrderService.class).saveOrder(order, order.getStatus());
+    }
+
+    @Override
+    public QueryResult<Component> queryByHQL(String hql, List<Object> params, String className) throws IllegalArgumentException {
+        return ServiceFactory.getService(SiteService.class).queryByHQL(hql, params, className);
+    }
 
 }

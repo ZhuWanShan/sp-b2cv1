@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 
 import com.spshop.model.Component;
 import com.spshop.model.query.QueryCriteria;
+import com.spshop.model.query.QueryResult;
 public interface BaseDAO<T extends Component, ID extends Serializable> {
 	T findById(ID id);
 
@@ -47,6 +48,8 @@ public interface BaseDAO<T extends Component, ID extends Serializable> {
 	public Object queryByHQL(String hql);
 	
 	public Object queryByHQL(String hql,Object... params);
+	
+	public QueryResult<Component> queryByHQL(String hql, List<Object> params, String className);
 	
 	public Object queryByHQL(String hql,Map<String,Object> params);
 }

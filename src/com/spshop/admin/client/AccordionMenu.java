@@ -80,6 +80,7 @@ public class AccordionMenu extends Composite {
 			root3.addItem(new AccordianItem("Category Management",  CommandFactory.categoryManager()));
 			root3.addItem(new AccordianItem("Site Management",  CommandFactory.siteManager()));
 			root3.addItem(new AccordianItem("Delivery&Country",  CommandFactory.deliveryManager()));
+			root3.addItem(new AccordianItem("OrderList Management", CommandFactory.manageOrder()));
 			items.add(root3);
 			root3.setState(true);
 			break;

@@ -1,0 +1,29 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:p1="urn:import:com.spshop.admin.client.businessui">
+	<ui:style>
+		.important {
+			font-weight: bold;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:Grid>
+			<g:row>
+				<g:customCell>
+					<g:Label text="Order Stauts" />
+				</g:customCell>
+				<g:customCell>
+					<p1:OrderStatusSelection ui:field="orderStatus"/>
+				</g:customCell>
+			</g:row>
+			<g:row>
+				<g:customCell>
+					<g:Label/>
+				</g:customCell>
+				<g:customCell>
+					<g:Button text="Save" ui:field="button"/>
+				</g:customCell>
+			</g:row>
+		</g:Grid>
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 
