@@ -24,6 +24,7 @@ import com.spshop.admin.client.businessui.callback.OperationListenerAdapter;
 import com.spshop.model.Component;
 import com.spshop.model.HTML;
 import com.spshop.model.Image;
+import com.spshop.model.Order;
 import com.spshop.model.Product;
 import com.spshop.model.TabProduct;
 import com.spshop.model.User;
@@ -136,6 +137,10 @@ public class ComponentQuery extends ResizeComposite {
 		if (queryCondition.getType() == TabProduct.class) {
 		    initTabProductHeader();
         }
+		
+		if (queryCondition.getType() == Order.class) {
+            initOrderHeader();
+        }
 		// Initialize the table.
 
 	}
@@ -239,6 +244,30 @@ public class ComponentQuery extends ResizeComposite {
 		table.getColumnFormatter().setWidth(3, "100px");
 		table.getColumnFormatter().setWidth(4, "150px");
 	}
+	
+    private void initOrderHeader() {
+        header.getColumnFormatter().setWidth(0, "100px");
+        header.getColumnFormatter().setWidth(1, "100px");
+        header.getColumnFormatter().setWidth(2, "100px");
+        header.getColumnFormatter().setWidth(3, "130px");
+        header.getColumnFormatter().setWidth(4, "110px");
+        header.getColumnFormatter().setWidth(5, "130px");
+        header.setText(0, 0, "Customer");
+        header.setText(0, 1, "Email");
+        header.setText(0, 2, "Create Date");
+        header.setText(0, 3, "Total Price");
+        header.setText(0, 4, "Status");
+
+        header.setWidget(0, 5, navBar);
+        header.getCellFormatter().setHorizontalAlignment(0, 5, HasHorizontalAlignment.ALIGN_RIGHT);
+        
+        table.getColumnFormatter().setWidth(0, "100px");
+        table.getColumnFormatter().setWidth(1, "100px");
+        table.getColumnFormatter().setWidth(2, "100px");
+        table.getColumnFormatter().setWidth(3, "130px");
+        table.getColumnFormatter().setWidth(4, "110px");
+        table.getColumnFormatter().setWidth(5, "130px");
+    }
 
 	/**
 	 * Selects the given row (relative to the current page).
@@ -325,6 +354,10 @@ public class ComponentQuery extends ResizeComposite {
 			if (result.getComponentType().equals(TabProduct.class.getName())) {
                 updateTabProduct();
             }
+			
+			if (result.getComponentType().equals(Order.class.getName())) {
+                updateOrder();
+            }
 		}
 
 	}
@@ -409,23 +442,8 @@ public class ComponentQuery extends ResizeComposite {
             table.setText(i, 3, user.getEmail());
             table.setText(i, 4, user.getTelephone());
             table.setText(i, 5, dateTimeFormat.format(user.getCreateDate()));
-            Operation<User> operation = new Operation<User>(user);
-            operation.setListener(new OperationListenerAdapter<User>(){
-                @Override
-                public void onEdit(User content) {
-                    UserProfile userProfile = new UserProfile(content);
-                    userProfile.setSize("400px", "300px");
-                    userProfile.setTitle("Profile");
-                    PopWindow pop = new PopWindow("Profile",userProfile, true, true);
-                    pop.center();
-                }
-                @Override
-                public void onDelete(User content) {
-                    // TODO Auto-generated method stub
-                    super.onDelete(content);
-                }
-            });
-            table.setWidget(i, 6, operation);
+            ShowOrder showOrder = new ShowOrder(user);
+            table.setWidget(i, 6, showOrder);
             table.getCellFormatter().setHorizontalAlignment(i, 6,
                     HasHorizontalAlignment.ALIGN_RIGHT);
         }
@@ -497,6 +515,37 @@ public class ComponentQuery extends ResizeComposite {
 					HasHorizontalAlignment.ALIGN_RIGHT);
 		}
 	}
+	
+	private void updateOrder() {
+        DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
+        for (int i = 0; i < result.getResult().size(); i++) {
+            Order order = (Order) result.getResult().get(i);
+            table.setText(i, 0, order.getCustomerName());
+            table.setText(i, 1, order.getCustomerEmail());
+            table.setText(i, 2, dateTimeFormat.format(order.getCreateDate()));
+            table.setText(i, 3, String.valueOf(order.getTotalPrice()));
+            table.setText(i, 4, order.getStatus());
+            Operation<Order> operation = new Operation<Order>(order);
+            operation.setListener(new OperationListenerAdapter<Order>(){
+                @Override
+                public void onEdit(Order content) {
+                    OrderInfo orderInfo = new OrderInfo(content);
+                    orderInfo.setSize("400px", "300px");
+                    orderInfo.setTitle("Order Info");
+                    PopWindow pop = new PopWindow("Order Info",orderInfo, true, true);
+                    pop.center();
+                }
+                @Override
+                public void onDelete(Order content) {
+                    // TODO Auto-generated method stub
+                    super.onDelete(content);
+                }
+            });
+            table.setWidget(i, 5, operation);
+            table.getCellFormatter().setHorizontalAlignment(i, 5,
+                    HasHorizontalAlignment.ALIGN_RIGHT);
+        }
+    }
 
 	public void setQueryCriteria(QueryCriteria queryCriteria) {
 		this.queryCriteria = queryCriteria;
@@ -508,16 +557,30 @@ public class ComponentQuery extends ResizeComposite {
 
 	public void search() {
 		CommandFactory.lock("Search").execute();
-		queryCriteria.setStartIndex(startIndex * VISIBLE_RECORD_COUNT);
-		queryCriteria.setMaxResult(VISIBLE_RECORD_COUNT);
-		AdminWorkspace.ADMIN_SERVICE_ASYNC.query(queryCriteria,
-				new AsyncCallbackAdapter<QueryResult<Component>>() {
-					public void onSuccess(QueryResult<Component> result) {
-						setResult(result);
-						update();
-						CommandFactory.release().execute();
-					}
-				});
+		String hql = this.queryCondition.getHql();
+		List<Object> params = this.queryCondition.getParams();
+		String className = this.queryCondition.getType().getName();
+		if (hql != null && className != null && hql.trim() != "" && className.trim() != "") {
+		    AdminWorkspace.ADMIN_SERVICE_ASYNC.queryByHQL(hql, params, className, new AsyncCallbackAdapter<QueryResult<Component>>() {
+		        @Override
+		        public void onSuccess(QueryResult<Component> rs) {
+		            setResult(rs);
+                    update();
+                    CommandFactory.release().execute();
+		        }
+		    });
+        } else {
+            queryCriteria.setStartIndex(startIndex * VISIBLE_RECORD_COUNT);
+            queryCriteria.setMaxResult(VISIBLE_RECORD_COUNT);
+            AdminWorkspace.ADMIN_SERVICE_ASYNC.query(queryCriteria,
+                                                     new AsyncCallbackAdapter<QueryResult<Component>>() {
+                public void onSuccess(QueryResult<Component> result) {
+                    setResult(result);
+                    update();
+                    CommandFactory.release().execute();
+                }
+            });
+        }
 	}
 
 	public QueryResult<Component> getResult() {

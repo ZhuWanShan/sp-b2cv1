@@ -24,6 +24,7 @@ import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.admin.client.businessui.callback.SelectedCallBack;
 import com.spshop.model.Country;
 import com.spshop.model.Image;
+import com.spshop.model.Order;
 import com.spshop.model.Product;
 import com.spshop.model.TabProduct;
 import com.spshop.model.TabSelling;
@@ -100,6 +101,27 @@ public class CommandFactory {
 				AdminWorkspace.contentPanel.body.add(componentQuery);
 			}
 		};
+	}
+	
+	public static Command popUpShowOrder(final boolean multiSelect, final User user, final SelectedCallBack callBack) {
+	    return new CommandAdapter(){
+	        @Override
+	        public void execute() {
+                final ComponentQuery componentQuery = new ComponentQuery("My Order", Order.class);
+                String hql = "select o from Order as o join o.user as ou where ou.id = " + user.getId() + " order by o.id desc";
+                componentQuery.getQueryCondition().setAsc(false);
+                componentQuery.setEnableMultiSelect(multiSelect);
+                componentQuery.getQueryCondition().setOrderBy("createDate");
+                componentQuery.getQueryCondition().setHql(hql);
+                HTMLPanel content = new HTMLPanel("<div></div>");
+                content.setSize("960px", "500px");
+                content.clear();
+                content.add(componentQuery);
+                
+                final PopWindow popWindow = new PopWindow("My Order", content, true, true);
+                popWindow.center();
+	        }
+	    };
 	}
 	
 	public static Command popUpImageQuery(final boolean multiSelect,final SelectedCallBack callBack) {
@@ -442,4 +464,17 @@ public class CommandFactory {
 			}
 		};
 	}
+	
+    public static Command manageOrder() {
+        return new CommandAdapter() {
+            @Override
+            public void execute() {
+                AdminWorkspace.contentPanel.body.clear();
+                ComponentQuery componentQuery = new ComponentQuery("Order List", Order.class);
+                componentQuery.getQueryCondition().setAsc(false);
+                componentQuery.getQueryCondition().setOrderBy("createDate");
+                AdminWorkspace.contentPanel.body.add(componentQuery);
+            }
+        };
+    }
 }
