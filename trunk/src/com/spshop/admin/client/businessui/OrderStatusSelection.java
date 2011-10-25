@@ -12,8 +12,6 @@ public class OrderStatusSelection extends Composite {
 
     private static OrderStatusSelectionUiBinder uiBinder = GWT.create(OrderStatusSelectionUiBinder.class);
     
-    private String selectedValue;
-    
     @UiField ListBox orderStatus;
 
     interface OrderStatusSelectionUiBinder extends UiBinder<Widget, OrderStatusSelection> {
