@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.Random;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
@@ -15,15 +14,9 @@ import org.apache.struts.action.ActionMapping;
 
 import com.spshop.cache.SCacheFacade;
 import com.spshop.fe.formbeans.PageFormBean;
-import com.spshop.model.Order;
 import com.spshop.model.Product;
-import com.spshop.model.User;
 import com.spshop.model.UserOption;
-import com.spshop.model.cart.ShoppingCart;
-import com.spshop.model.enums.OrderStatus;
 import com.spshop.model.enums.SelectType;
-import com.spshop.service.factory.ServiceFactory;
-import com.spshop.service.intf.OrderService;
 import com.spshop.utils.AllConstants;
 
 public class ShoppingCartAction extends BaseAction {
@@ -40,6 +33,10 @@ public class ShoppingCartAction extends BaseAction {
 	private static final String ITEMNAME = "itemName";
 	private static final String OPERATION = "operation";
 	private static final String CHECKOUT = "checkout";
+	private static final String PAYMENT = "payment";
+	
+	
+	private static final String PAYMEMT_PAYPAL="paypal";
 	
 	@SuppressWarnings("unchecked")
 	private List<UserOption> retriveUserOptions(ServletRequest request){
@@ -117,17 +114,8 @@ public class ShoppingCartAction extends BaseAction {
 		return request.getParameter(OPERATION);
 	}
 	
-	private User retriveUser(HttpServletRequest request){
-		return (User) request.getSession().getAttribute(AllConstants.USER_INFO);
-	}
-	
-	
-	private void clearCart(HttpServletRequest request){
-		Order order = new Order();
-		order.setCreateDate(new Date());
-		ShoppingCart shoppingCart = new ShoppingCart(order);
-		request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
-		
+	private String retrivePaymentType(ServletRequest request){
+		return request.getParameter(PAYMENT);
 	}
 	
 	@Override
@@ -158,39 +146,19 @@ public class ShoppingCartAction extends BaseAction {
 		}
 		
 		if(CHECKOUT.equals(retriveOption(request))){
-			Order order = getCart(request).getOrder();
 			
-			if(null==order.getItems()||order.getItems().size()<1){
-				errorStrings.add("Shopping cart is empty!");
-			}else{
-				if(null!=retriveUser(request)){
-					order.setUser(retriveUser(request));
-				}
-				order.setName(getOrderId());
-				order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
-				request.setAttribute(AllConstants.DEFAULT_ORDER, order);
+			String payment = retrivePaymentType(request);
+			
+			if(PAYMEMT_PAYPAL.equals(payment)){
+				request.getRequestDispatcher("/jsp/pay_payPal.jsp").forward(request, response);
+				return null;
 			}
-			clearCart(request);
 		}
 		
 		request.setAttribute(AllConstants.REQUEST_ERROR, errorStrings);
 		request.setAttribute(AllConstants.REQUEST_MSG, msgs);
 		return mapping.findForward(AllConstants.SUCCESS_VALUE);
 
-	}
-	
-	private String getOrderId(){
-		String id = "Order";
-		
-		id = id + new Random().nextInt(999999);
-		id = id + (char)(new Random().nextInt(24)+65);
-		id = id + (char)(new Random().nextInt(24)+65);
-		id = id + (char)(new Random().nextInt(24)+65);
-		id = id + (char)(new Random().nextInt(24)+65);
-		id = id + (char)(new Random().nextInt(24)+65);
-		id = id + new Random().nextInt(999999);
-		
-		return id;
 	}
 
 }
