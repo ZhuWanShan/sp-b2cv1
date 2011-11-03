@@ -52,7 +52,7 @@ public class CheckOrder extends BaseAction {
 			System.out.println("######################################");
 			System.out.println("str: " + str);
 			System.out.println("######################################");
-			URL u = new URL("http://www.sandbox.paypal.com/cgi-bin/webscr");
+			URL u = new URL("https://www.sandbox.paypal.com/c2/cgi-bin/webscr");
 			// URL u = new URL("http://www.paypal.com/cgi-bin/webscr");
 			URLConnection uc = u.openConnection();
 			uc.setDoOutput(true);
