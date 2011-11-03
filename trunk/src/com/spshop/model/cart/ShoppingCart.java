@@ -61,7 +61,7 @@ public class ShoppingCart {
 			for (OrderItem item : order.getItems()) {
 				if(item.getName().equals(itemName)){
 					item.setQuantity(qty);
-					item.setFinalPrice((float)(item.getProduct().getActualPrice()*qty));
+					item.setFinalPrice((float)(item.getProduct().getActualPrice()));
 				}
 			}
 		}

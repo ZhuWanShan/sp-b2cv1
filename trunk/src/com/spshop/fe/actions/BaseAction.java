@@ -2,6 +2,7 @@ package com.spshop.fe.actions;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -54,6 +55,7 @@ public abstract class BaseAction extends Action {
 			order.setCreateDate(new Date());
 			shoppingCart = new ShoppingCart(order);
 			order.setStatus(OrderStatus.ONSHOPPING.getValue());
+			order.setName(getOrderId());
 			request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
 		}
 		
@@ -104,5 +106,17 @@ public abstract class BaseAction extends Action {
 	 */
 	public abstract ActionForward processer(ActionMapping mapping, PageFormBean page, HttpServletRequest request, HttpServletResponse response) throws Exception;
 
-
+	
+	private String getOrderId(){
+		String id = "Order";
+		id = id + new Random().nextInt(999999);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + new Random().nextInt(999999);
+		
+		return id;
+	}
 }

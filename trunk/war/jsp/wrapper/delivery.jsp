@@ -176,7 +176,7 @@
 				</div>
 				<div class="pay_div">
 					<input type="radio"
-						value="paymentType" name="Payment" checked="checked"> <a class="helplink"
+						value="paypal" name="payment" checked="checked"> <a class="helplink"
 						target="_blank"
 						href="#"><img
 						border="0" src="/css/paypal.gif" >
