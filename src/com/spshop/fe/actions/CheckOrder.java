@@ -41,12 +41,17 @@ public class CheckOrder extends BaseAction {
 			
 			Enumeration en = request.getParameterNames();
 			String str = "cmd=_notify-validate";
+			System.out.println("################Accept######################");
 			while (en.hasMoreElements()) {
 				String paramName = (String) en.nextElement();
 				String paramValue = request.getParameter(paramName);
 				str = str + "&" + paramName + "="
 						+ URLEncoder.encode(paramValue, "iso-8859-1");
+				System.out.println(paramName+": " + request.getParameter(paramName));
 			}
+			System.out.println("######################################");
+			System.out.println("str: " + str);
+			System.out.println("######################################");
 			URL u = new URL("http://www.sandbox.paypal.com/cgi-bin/webscr");
 			// URL u = new URL("http://www.paypal.com/cgi-bin/webscr");
 			URLConnection uc = u.openConnection();
@@ -73,22 +78,17 @@ public class CheckOrder extends BaseAction {
 			String txnId = request.getParameter("txn_id");
 			String receiverEmail = request.getParameter("receiver_email");
 			String payerEmail = request.getParameter("payer_email");
+			
+			Enumeration els = request.getParameterNames();
 			// …
 			// 获取 PayPal 对回发信息的回复信息，判断刚才的通知是否为 PayPal 发出的
-			if (res.equals("VERIFIED")) {
+			if ("VERIFIED".equals(res)) {
 				// 检查付款状态
 				// 检查 txn_id 是否已经处理过
 				// 检查 receiver_email 是否是您的 PayPal 账户中的 EMAIL 地址
 				// 检查付款金额和货币单位是否正确
 				// 处理其他数据，包括写数据库
 				Order order = getCart(request).getOrder();
-				
-				Enumeration els = request.getParameterNames();
-				
-				while (els.hasMoreElements()) {
-					String paramName = (String) els.nextElement();
-					System.out.println(paramName+": " + request.getParameter(paramName));
-				}
 				
 				if(null==order.getItems()||order.getItems().size()<1){
 					errorStrings.add("Shopping cart is empty!");
@@ -101,7 +101,7 @@ public class CheckOrder extends BaseAction {
 					request.setAttribute(AllConstants.DEFAULT_ORDER, order);
 				}
 				clearCart(request);
-			} else if (res.equals("INVALID")) {
+			} else if ("INVALID".equals(res)) {
 				// 非法信息，可以将此记录到您的日志文件中以备调查
 				System.out.println("##############INVALID########################");
 			} else {
