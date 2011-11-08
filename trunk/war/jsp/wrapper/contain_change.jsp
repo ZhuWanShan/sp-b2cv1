@@ -22,7 +22,7 @@
 	<div class="hei5"></div>
 
 	<div class="hei10"></div>
-	<div class="B_Categories">
+	<div class="B_Categories Gallery_pic">
 		<ul>
 		<c:forEach items="${pageForm.pageProperties.productsInCategoryPage}" var="product">
 			<li class="goods_list box_shadow">
@@ -33,7 +33,7 @@
 							href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${product.name}" title="">
 							<img
 							alt="${product.title}"
-							src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].logoUrl}"> 
+							src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].largerUrl}"> 
 						</a>
 				</div> 
 				<strong class="goods_name"> 

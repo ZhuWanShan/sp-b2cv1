@@ -27,7 +27,7 @@ public class PageAction extends BaseAction {
 		if (uris.length != 0) {
 			if (AllConstants.CATEGORY_URL.equals(uris[1])) {
 			    String current = request.getParameter(AllConstants.PAGE_NUM);
-			    Integer pageSize = 12;
+			    Integer pageSize = 24;
 			    Integer pageNum = 1;
 			    
 			    if (current != null && !"".equals(current)) {

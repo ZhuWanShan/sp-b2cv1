@@ -13,7 +13,7 @@ public class EmailTools {
 
     static {
         try {
-            emailProperties.load(LoginService.class.getResourceAsStream("/emailConfig.properties"));
+            emailProperties.load(EmailTools.class.getResourceAsStream("/emailConfig.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }

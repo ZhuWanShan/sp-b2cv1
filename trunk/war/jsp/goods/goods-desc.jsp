@@ -1,6 +1,6 @@
 <style type="text/css">
  .kuanjia_box {
-	margin: 6px;
+	margin: 0px;
 	border: 0px;
 	padding: 0px;
 }
