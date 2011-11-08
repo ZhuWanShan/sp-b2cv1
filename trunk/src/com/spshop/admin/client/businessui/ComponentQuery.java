@@ -530,7 +530,7 @@ public class ComponentQuery extends ResizeComposite {
                 @Override
                 public void onEdit(Order content) {
                     OrderInfo orderInfo = new OrderInfo(content);
-                    orderInfo.setSize("400px", "300px");
+                    orderInfo.setSize("800px", "600px");
                     orderInfo.setTitle("Order Info");
                     PopWindow pop = new PopWindow("Order Info",orderInfo, true, true);
                     pop.center();
