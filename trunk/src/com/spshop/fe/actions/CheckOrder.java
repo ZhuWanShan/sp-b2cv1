@@ -13,6 +13,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
@@ -25,6 +26,9 @@ import com.spshop.service.intf.OrderService;
 public class CheckOrder extends BaseAction {
 	
 	private static final String ACCOUNT = "s1@hp.com";
+	
+	private static Logger logger = Logger.getLogger(CheckOrder.class);
+	
 	@SuppressWarnings("rawtypes")
 	@Override
 	public ActionForward processer(ActionMapping mapping, PageFormBean page,
@@ -32,24 +36,24 @@ public class CheckOrder extends BaseAction {
 			throws Exception {
 		
 		try {
-			System.out.println("Accept request");
+			logger.info("Accept request");
 			
 			List<String> errorStrings = new ArrayList<String>();
 			List<String> msgs = new ArrayList<String>();
 			
 			Enumeration en = request.getParameterNames();
 			String str = "cmd=_notify-validate";
-			System.out.println("################Accept######################");
+			logger.info("################Accept######################");
 			while (en.hasMoreElements()) {
 				String paramName = (String) en.nextElement();
 				String paramValue = request.getParameter(paramName);
 				str = str + "&" + paramName + "="
 						+ URLEncoder.encode(paramValue, "iso-8859-1");
-				System.out.println(paramName+": " + request.getParameter(paramName));
+				logger.info(paramName+": " + request.getParameter(paramName));
 			}
-			System.out.println("######################################");
-			System.out.println("str: " + str);
-			System.out.println("######################################");
+			logger.info("######################################");
+			logger.info("str: " + str);
+			logger.info("######################################");
 			URL u = new URL("https://www.sandbox.paypal.com/c2/cgi-bin/webscr");
 			// URL u = new URL("http://www.paypal.com/cgi-bin/webscr");
 			URLConnection uc = u.openConnection();
@@ -69,7 +73,7 @@ public class CheckOrder extends BaseAction {
 			// 该付款明细所有变量可参考：
 			// https://www.paypal.com/IntegrationCenter/ic_ipn-pdt-variable-reference.html
 			String itemName = request.getParameter("item_name");
-			String itemNumber = request.getParameter("item_number");
+			String quantity = request.getParameter("quantity");
 			String paymentStatus = request.getParameter("payment_status");
 			String paymentAmount = request.getParameter("mc_gross");
 			String paymentCurrency = request.getParameter("mc_currency");
@@ -94,29 +98,29 @@ public class CheckOrder extends BaseAction {
 				// 检查付款金额和货币单位是否正确
 				// 处理其他数据，包括写数据库
 				Order order = ServiceFactory.getService(OrderService.class).getOrderById(itemName);
-				System.out.println(">>>>>>>>>>>>>>>>>>>VERIFIED>>>>>>>>>>>>>>>>>>>>>>");
+				logger.info(">>>>>>>>>>>>>>>>>>>VERIFIED>>>>>>>>>>>>>>>>>>>>>>");
 				if(null!=order){
 					order.setCustomerEmail(payerEmail);
-					System.out.println(">>>>>>>>>>>>>>>>>>>paymentAmount:"+paymentAmount+">>>>>>>>>>>>>>>>>>>>>>");
-					System.out.println(">>>>>>>>>>>>>>>>>>>paymentCurrency:"+paymentCurrency+">>>>>>>>>>>>>>>>>>>>>>");
-					System.out.println(">>>>>>>>>>>>>>>>>>>receiverEmail:"+receiverEmail+">>>>>>>>>>>>>>>>>>>>>>");
-					System.out.println(">>>>>>>>>>>>>>>>>>>itemNumber:"+itemNumber+">>>>>>>>>>>>>>>>>>>>>>");
-					System.out.println(">>>>>>>>>>>>>>>>>>>(order.getTotalPrice()+order.getDePrice()):"+(order.getTotalPrice()+order.getDePrice())+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>paymentAmount:"+paymentAmount+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>paymentCurrency:"+paymentCurrency+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>receiverEmail:"+receiverEmail+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>itemNumber:"+quantity+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>(order.getTotalPrice()+order.getDePrice()):"+(order.getTotalPrice()+order.getDePrice())+">>>>>>>>>>>>>>>>>>>>>>");
 					
-					System.out.println(">>>>>>>>>>>>>>>>>>>receiverEmail.equalsIgnoreCase(ACCOUNT):"+receiverEmail.equalsIgnoreCase(ACCOUNT)+">>>>>>>>>>>>>>>>>>>>>>");
-					System.out.println(">>>>>>>>>>>>>>>>>>>itemNumber.equals('1'):"+itemNumber.equals("1")+">>>>>>>>>>>>>>>>>>>>>>");
-					System.out.println(">>>>>>>>>>>>>>>>>>>order.getCurrency().equals(paymentCurrency):"+order.getCurrency().equals(paymentCurrency)+">>>>>>>>>>>>>>>>>>>>>>");
-					System.out.println(">>>>>>>>>>>>>>>>>>>receiverEmail.equalsIgnoreCase(ACCOUNT):"+receiverEmail.equalsIgnoreCase(ACCOUNT)+">>>>>>>>>>>>>>>>>>>>>>");
-					System.out.println(">>>>>>>>>>>>>>>>>>>order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount):"+((order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount))+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>receiverEmail.equalsIgnoreCase(ACCOUNT):"+receiverEmail.equalsIgnoreCase(ACCOUNT)+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>itemNumber.equals('1'):"+quantity.equals("1")+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>order.getCurrency().equals(paymentCurrency):"+order.getCurrency().equals(paymentCurrency)+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>receiverEmail.equalsIgnoreCase(ACCOUNT):"+receiverEmail.equalsIgnoreCase(ACCOUNT)+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount):"+((order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount))+">>>>>>>>>>>>>>>>>>>>>>");
 					if((order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount)
 							&&order.getCurrency().equals(paymentCurrency)
 							&&receiverEmail.equalsIgnoreCase(ACCOUNT)
-							&&itemNumber.equals("1")){
+							&&quantity.equals("1")){
 						order.setStatus(OrderStatus.PAYED.getValue());
 					}else{
-						System.out.println(">>>>>>>>>>>>>>>>>>>NOT enough mony>>>>>>>>>>>>>>>>>>>>>>");
+						logger.info(">>>>>>>>>>>>>>>>>>>NOT enough mony>>>>>>>>>>>>>>>>>>>>>>");
 					}
-					System.out.println("order.getAddressType():"+order.getAddressType());
+					logger.info("order.getAddressType():"+order.getAddressType());
 					if("PA".equals(order.getAddressType())){
 						order.setCity(address_city);
 						order.setCustomerCountry(address_country);
@@ -124,17 +128,17 @@ public class CheckOrder extends BaseAction {
 						order.setCustomerZipcode(address_zip);
 						order.setCustomerTelephone(contact_phone);
 						order.setCustomerAddress(address_street);
-						System.out.println("Pay>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+						logger.info("Pay>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 					}
 				}
 				
 				
 			} else if ("INVALID".equals(res)) {
 				// 非法信息，可以将此记录到您的日志文件中以备调查
-				System.out.println("##############INVALID########################");
+				logger.info("##############INVALID########################");
 			} else {
 				// 处理其他错误
-				System.out.println("##############ORTHER########################");
+				logger.info("##############ORTHER########################");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
