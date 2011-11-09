@@ -188,6 +188,11 @@
 		<property name="deliverCode" length="200"></property>
 		<property name="deliverCompany" length="200"></property>
 		<property name="deliverPhone" length="200"></property>
+		<property name="orderType" length="200"></property>
+		<property name="addressType" length="200"></property>
+		<property name="city" length="200"></property>
+		<property name="dePrice"></property>
+		<property name="currency" length="200"></property>
 		<property name="status" length="255" column="order_status"></property>
 		<bag name="items" cascade="all">
 			<key column="order_id"></key>

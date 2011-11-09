@@ -31,9 +31,14 @@ jq(document).ready(function(){
 			});
 		});
 		
+		if(window.defaultPrice){
+			jq("#cDileveryPrice").html(window.defaultPrice);
+		}
+		
 		if(totalPrice){
 			if(totalPrice > freePrice){
 				jq("#DileveryPrice").html(0);
+				jq("#cDileveryPrice").html(0);
 			}
 		}
 		
@@ -45,5 +50,23 @@ jq(document).ready(function(){
 				dePrice = eval("country_"+jq("#MemberState_new").val());
 			}
 			jq("#DileveryPrice").html(dePrice);
+			jq("#cDileveryPrice").html(dePrice);
+		});
+		
+		var adType = jq("#OrderAddressTypeID").val();
+		
+		if(adType!="MA"){
+			jq("#ship_ul").hide();
+		}
+		
+		jq("#OrderAddressTypeID").change(function(){
+			
+			var adType = jq("#OrderAddressTypeID").val();
+			
+			if(adType!="MA"){
+				jq("#ship_ul").hide();
+			}else{
+				jq("#ship_ul").show();
+			}
 		});
 });

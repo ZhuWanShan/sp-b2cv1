@@ -7,7 +7,47 @@
 	<form action="/checkOut" method="post" id="cartCheckOut">
 	<div class="box_item_content">
 		<div class="content_left">
-			<h3 class="item_title">Shipping Address</h3>
+			<h3 class="item_title">Shipping Address:<c:if test="${empty userInfo}">
+				<select name="addressType" id="OrderAddressTypeID">
+					<option value="LA">Use my login Address</option>
+					<option value="MA">Manually Input Address</option>
+					<option value="PA">Paypal account Address</option>
+				</select>
+				</c:if> 
+			 </h3>
+			 
+			 <table>
+			 	<tr>
+								<td><span class="red">*</span>Recipient Country/Region:</td>
+								<td class="W260"><select id="MemberState_new"
+									name="MemberState">
+										<ss:countries var="countries">
+											<c:forEach var="country" items="${countries}" varStatus="stat">
+												<c:if test="${stat.index==0}">
+													<c:set var="defaultPrice" value="${country.dePrice }"></c:set>
+													<option value="${country.id}" selected="selected">${country.name}</option>
+												</c:if>
+												<c:if test="${stat.index!=0}">
+													<option value="${country.id}">${country.name}</option>
+												</c:if>
+											</c:forEach>
+										</ss:countries>
+								</select>
+									<ss:site var="site">
+											<script type="text/javascript">
+												var freePrice = ${site.freeDeliveryPrice}
+											</script>
+									</ss:site>
+									<ss:countries var="countries">
+										<c:forEach var="country" items="${countries}">
+											<script type="text/javascript">
+												var country_${country.id} = ${country.dePrice}
+											</script>
+										</c:forEach>
+									</ss:countries>
+								</td>
+							</tr>
+			 </table>
 			<ul id="ship_ul">
 				<li id="addr_new" style="margin-left: 20px;"><input
 					type="radio" style="display: none;" value="addr_new"
@@ -76,38 +116,6 @@
 									apartment, suite, unit, building, floor</td>
 							</tr>
 
-							<tr>
-								<td><span class="red">*</span>Recipient Country/Region:</td>
-								<td class="W260"><select id="MemberState_new"
-									name="MemberState">
-										<ss:countries var="countries">
-											<c:forEach var="country" items="${countries}" varStatus="stat">
-												<c:if test="${stat.index==0}">
-													<c:set var="defaultPrice" value="${country.dePrice }"></c:set>
-													<option value="${country.id}" selected="selected">${country.name}</option>
-												</c:if>
-												<c:if test="${stat.index!=0}">
-													<option value="${country.id}">${country.name}</option>
-												</c:if>
-											</c:forEach>
-										</ss:countries>
-								</select>
-									<ss:site var="site">
-											<script type="text/javascript">
-												var freePrice = ${site.freeDeliveryPrice}
-											</script>
-									</ss:site>
-									<ss:countries var="countries">
-										<c:forEach var="country" items="${countries}">
-											<script type="text/javascript">
-												var country_${country.id} = ${country.dePrice}
-											</script>
-										</c:forEach>
-									</ss:countries>
-								</td>
-							</tr>
-							
-							
 							<tr style="display: none;" id="no_shipment_tr">
 								<td colspan="2"><span style="color: red">The
 										shipment is unavailable to Canary Islands</span>
@@ -169,7 +177,11 @@
 
 								<li>Dilevery Price: <span id="DileveryPrice">${defaultPrice }</span>
 								</li>
-
+								<c:if test="${defaultPrice > 0 }">
+									<script type="text/javascript">
+										window.defaultPrice = ${defaultPrice };
+									</script>
+								</c:if>
 							</ul>
 						</div>
 					</div>
@@ -184,7 +196,7 @@
 				</div>
 
 
-		
+			
 
 			</ul>
 		</div>
@@ -192,9 +204,6 @@
 
 		<input type="hidden" name="operation" value="checkout">
 	</div>
-
-
-
 
 </div>
 </form>

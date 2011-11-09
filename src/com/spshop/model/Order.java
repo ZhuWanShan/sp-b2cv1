@@ -22,8 +22,13 @@ public class Order extends Component{
 	private String deliverPhone;
 	private List<OrderItem> items;
 	//private List<Coupon> coupons;
+	private String orderType;
 	private float totalPrice;
 	private String status;
+	private String addressType;
+	private String city;
+	private float dePrice;
+	private String currency;
 	
 	public Order() {
 	}
@@ -199,6 +204,29 @@ public class Order extends Component{
 			/* Does not have a clone() method */
 			obj.deliverPhone = this.deliverPhone;
 		}
+		
+		if (this.orderType != null) {
+			/* Does not have a clone() method */
+			obj.orderType = this.orderType;
+		}
+		
+		if (this.addressType != null) {
+			/* Does not have a clone() method */
+			obj.addressType = this.addressType;
+		}
+		
+		obj.dePrice = this.dePrice;
+		
+		if (this.city != null) {
+			/* Does not have a clone() method */
+			obj.city = this.city;
+		}
+		
+		if (this.currency != null) {
+			/* Does not have a clone() method */
+			obj.currency = this.currency;
+		}
+		
 		if (this.items != null) {
 			List<OrderItem> items = new ArrayList<OrderItem>();
 			
@@ -215,6 +243,46 @@ public class Order extends Component{
 			obj.status = this.status;
 		}
 		return obj;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+	}
+
+	public String getOrderType() {
+		return orderType;
+	}
+
+	public void setAddressType(String addressType) {
+		this.addressType = addressType;
+	}
+
+	public String getAddressType() {
+		return addressType;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setDePrice(float dePrice) {
+		this.dePrice = dePrice;
+	}
+
+	public float getDePrice() {
+		return dePrice;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	public String getCurrency() {
+		return currency;
 	}
 	
 	
