@@ -102,7 +102,13 @@ public class CheckOrder extends BaseAction {
 					System.out.println(">>>>>>>>>>>>>>>>>>>receiverEmail:"+receiverEmail+">>>>>>>>>>>>>>>>>>>>>>");
 					System.out.println(">>>>>>>>>>>>>>>>>>>itemNumber:"+itemNumber+">>>>>>>>>>>>>>>>>>>>>>");
 					System.out.println(">>>>>>>>>>>>>>>>>>>(order.getTotalPrice()+order.getDePrice()):"+(order.getTotalPrice()+order.getDePrice())+">>>>>>>>>>>>>>>>>>>>>>");
-					if((order.getTotalPrice()+order.getDePrice()) <= Float.parseFloat(paymentAmount)
+					
+					System.out.println(">>>>>>>>>>>>>>>>>>>receiverEmail.equalsIgnoreCase(ACCOUNT):"+receiverEmail.equalsIgnoreCase(ACCOUNT)+">>>>>>>>>>>>>>>>>>>>>>");
+					System.out.println(">>>>>>>>>>>>>>>>>>>itemNumber.equals('1'):"+itemNumber.equals("1")+">>>>>>>>>>>>>>>>>>>>>>");
+					System.out.println(">>>>>>>>>>>>>>>>>>>order.getCurrency().equals(paymentCurrency):"+order.getCurrency().equals(paymentCurrency)+">>>>>>>>>>>>>>>>>>>>>>");
+					System.out.println(">>>>>>>>>>>>>>>>>>>receiverEmail.equalsIgnoreCase(ACCOUNT):"+receiverEmail.equalsIgnoreCase(ACCOUNT)+">>>>>>>>>>>>>>>>>>>>>>");
+					System.out.println(">>>>>>>>>>>>>>>>>>>order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount):"+((order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount))+">>>>>>>>>>>>>>>>>>>>>>");
+					if((order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount)
 							&&order.getCurrency().equals(paymentCurrency)
 							&&receiverEmail.equalsIgnoreCase(ACCOUNT)
 							&&itemNumber.equals("1")){
@@ -110,7 +116,7 @@ public class CheckOrder extends BaseAction {
 					}else{
 						System.out.println(">>>>>>>>>>>>>>>>>>>NOT enough mony>>>>>>>>>>>>>>>>>>>>>>");
 					}
-					
+					System.out.println("order.getAddressType():"+order.getAddressType());
 					if("PA".equals(order.getAddressType())){
 						order.setCity(address_city);
 						order.setCustomerCountry(address_country);
