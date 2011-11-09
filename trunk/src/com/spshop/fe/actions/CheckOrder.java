@@ -130,6 +130,8 @@ public class CheckOrder extends BaseAction {
 						order.setCustomerAddress(address_street);
 						logger.info("Pay>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 					}
+					
+					ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAYED.getValue());
 				}
 				
 				
