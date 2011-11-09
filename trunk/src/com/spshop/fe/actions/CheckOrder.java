@@ -7,7 +7,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 
@@ -19,14 +18,13 @@ import org.apache.struts.action.ActionMapping;
 
 import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Order;
-import com.spshop.model.User;
-import com.spshop.model.cart.ShoppingCart;
 import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.OrderService;
-import com.spshop.utils.AllConstants;
 
 public class CheckOrder extends BaseAction {
+	
+	private static final String ACCOUNT = "s1@hp.com";
 	@SuppressWarnings("rawtypes")
 	@Override
 	public ActionForward processer(ActionMapping mapping, PageFormBean page,
@@ -77,8 +75,15 @@ public class CheckOrder extends BaseAction {
 			String paymentCurrency = request.getParameter("mc_currency");
 			String txnId = request.getParameter("txn_id");
 			String receiverEmail = request.getParameter("receiver_email");
-			String payerEmail = request.getParameter("payer_email");
 			
+			String payerEmail = request.getParameter("payer_email");
+			String address_city = request.getParameter("address_city");
+			String contact_phone = request.getParameter("contact_phone");
+			String address_country = request.getParameter("address_country");
+			String address_street = request.getParameter("address_street");
+			String address_zip = request.getParameter("address_zip");
+			String first_name = request.getParameter("first_name");
+			String last_name = request.getParameter("last_name");
 			Enumeration els = request.getParameterNames();
 			// …
 			// 获取 PayPal 对回发信息的回复信息，判断刚才的通知是否为 PayPal 发出的
@@ -88,19 +93,29 @@ public class CheckOrder extends BaseAction {
 				// 检查 receiver_email 是否是您的 PayPal 账户中的 EMAIL 地址
 				// 检查付款金额和货币单位是否正确
 				// 处理其他数据，包括写数据库
-				Order order = getCart(request).getOrder();
+				Order order = ServiceFactory.getService(OrderService.class).getOrderById(itemName);
 				
-				if(null==order.getItems()||order.getItems().size()<1){
-					errorStrings.add("Shopping cart is empty!");
-				}else{
-					if(null!=retriveUser(request)){
-						order.setUser(retriveUser(request));
+				if(null!=order){
+					order.setCustomerEmail(payerEmail);
+					if((order.getTotalPrice()+order.getDePrice()) <= Float.parseFloat(paymentAmount)
+							&&order.getCurrency().equals(paymentCurrency)
+							&&receiverEmail.equals(ACCOUNT)
+							&&itemNumber.equals("1")){
+						order.setStatus(OrderStatus.PAYED.getValue());
 					}
-					//order.setName(getOrderId());
-					order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
-					request.setAttribute(AllConstants.DEFAULT_ORDER, order);
+					
+					if("PA".equals(order.getOrderType())){
+						order.setCity(address_city);
+						order.setCustomerCountry(address_country);
+						order.setCustomerName(last_name+" " + first_name);
+						order.setCustomerZipcode(address_zip);
+						order.setCustomerTelephone(contact_phone);
+						order.setCustomerAddress(address_street);
+						System.out.println("Pay>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+					}
 				}
-				clearCart(request);
+				
+				
 			} else if ("INVALID".equals(res)) {
 				// 非法信息，可以将此记录到您的日志文件中以备调查
 				System.out.println("##############INVALID########################");
@@ -112,19 +127,8 @@ public class CheckOrder extends BaseAction {
 			e.printStackTrace();
 		}
 
-		 return mapping.findForward(AllConstants.SUCCESS_VALUE);
-	}
-	
-	private User retriveUser(HttpServletRequest request){
-		return (User) request.getSession().getAttribute(AllConstants.USER_INFO);
+		 return null;
 	}
 	
 	
-	private void clearCart(HttpServletRequest request){
-		Order order = new Order();
-		order.setCreateDate(new Date());
-		ShoppingCart shoppingCart = new ShoppingCart(order);
-		request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
-		
-	}
 }

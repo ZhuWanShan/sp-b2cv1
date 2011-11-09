@@ -46,23 +46,36 @@
 	<!-- Main box start -->
 	<div class="main_box"></div>
 	<div class="main_box">
-		<h1>Order: ${shoppingcart.order.name }</h1>
-		<form action="https://sandbox.paypal.com/cgi-bin/webscr" method="post">
+		<h2>Order: ${defaultOrder.name }</h2>
+		<h2>Price: ${defaultOrder.totalPrice } + ${defaultOrder.dePrice }</h2>
+		<form action="https://sandbox.paypal.com/cgi-bin/webscr" method="post" id="paypaysubmitForm">
 			<input type="hidden" name="cmd" value="_xclick">
 			<input type="hidden" name="business" value="s1@hp.com">
-			<input type="hidden" name="item_name" value="${shoppingcart.order.name }">
-			<input type="hidden" name="amount" value="800.00">
+			<input type="hidden" name="item_name" value="${defaultOrder.name }">
+			<input type="hidden" name="amount" value="${defaultOrder.totalPrice + defaultOrder.dePrice }">
 			<input type="hidden" name="currency_code" value="USD">
 			<input type="hidden" name="lc" value="US">
-			<input type="hidden" name="return" 
-			value="http://127.0.0.1:8888">
-			<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but23.gif" 
-			border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-			<input type="hidden" name="notify_url" value="http://127.0.0.1:8888/checkorder">
+			<input type="hidden" name="return" value="http://127.0.0.1:8888">
+			<input type="button" id="paypaysubmit" style="background-image: url(https://www.paypal.com/en_US/i/btn/x-click-but23.gif);width: 72px;height: 27px"
+			border="0" alt="Make payments with PayPal - it's fast, free and secure!" >
 		</form>
 	</div>
+
 	<!-- Main box end -->
-	
+		<script type="text/javascript">
+			
+				jq("#paypaysubmit").click(function(){
+						jQuery.ajax({
+							  url: "shoppingCart?operation=pay",
+							  context: document.body,
+							  success: function(){
+								 jq("#paypaysubmitForm").submit();
+							  }
+						});
+				}
+			);
+						
+	</script>
 	<!-- Bottom start -->
 	<jsp:include page="bottom/bottom_box.jsp"></jsp:include>
 	<!-- Bottom end -->

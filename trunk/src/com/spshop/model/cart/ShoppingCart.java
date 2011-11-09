@@ -54,6 +54,7 @@ public class ShoppingCart {
 			}
 			
 		}
+		calTotal();
 	}
 
 	public void update(String itemName, int qty) {
@@ -65,6 +66,7 @@ public class ShoppingCart {
 				}
 			}
 		}
+		calTotal();
 	}
 
 	public void remove(String itemName) {
@@ -79,16 +81,7 @@ public class ShoppingCart {
 				order.getItems().remove(toRemoveItem);
 			}
 		}
-	}
-	
-	public float getTotalPrice(){
-		float totalPrice = 0f;
-		if(null!=order.getItems()){
-			for (OrderItem item : order.getItems()) {
-				totalPrice = totalPrice + item.getItemTotalPrice();
-			}
-		}
-		return totalPrice;
+		calTotal();
 	}
 	
 	public int getItemCount(){
@@ -96,5 +89,17 @@ public class ShoppingCart {
 			return order.getItems().size();
 		}
 		return 0;
+	}
+	
+	private void calTotal(){
+		if(null!=order.getItems()||order.getItems().size()>1){
+			float totalPrice = 0;
+			for (OrderItem orderItem : order.getItems()) {
+				totalPrice = totalPrice + orderItem.getFinalPrice()*orderItem.getQuantity();
+			}
+			order.setTotalPrice(totalPrice);
+		}else{
+			order.setTotalPrice(0f);
+		}
 	}
 }
