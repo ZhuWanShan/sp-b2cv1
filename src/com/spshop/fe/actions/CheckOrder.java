@@ -101,9 +101,10 @@ public class CheckOrder extends BaseAction {
 					System.out.println(">>>>>>>>>>>>>>>>>>>paymentCurrency:"+paymentCurrency+">>>>>>>>>>>>>>>>>>>>>>");
 					System.out.println(">>>>>>>>>>>>>>>>>>>receiverEmail:"+receiverEmail+">>>>>>>>>>>>>>>>>>>>>>");
 					System.out.println(">>>>>>>>>>>>>>>>>>>itemNumber:"+itemNumber+">>>>>>>>>>>>>>>>>>>>>>");
+					System.out.println(">>>>>>>>>>>>>>>>>>>(order.getTotalPrice()+order.getDePrice()):"+(order.getTotalPrice()+order.getDePrice())+">>>>>>>>>>>>>>>>>>>>>>");
 					if((order.getTotalPrice()+order.getDePrice()) <= Float.parseFloat(paymentAmount)
 							&&order.getCurrency().equals(paymentCurrency)
-							&&receiverEmail.equals(ACCOUNT)
+							&&receiverEmail.equalsIgnoreCase(ACCOUNT)
 							&&itemNumber.equals("1")){
 						order.setStatus(OrderStatus.PAYED.getValue());
 					}else{
