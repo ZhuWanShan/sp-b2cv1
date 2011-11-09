@@ -111,7 +111,7 @@ public class CheckOrder extends BaseAction {
 						System.out.println(">>>>>>>>>>>>>>>>>>>NOT enough mony>>>>>>>>>>>>>>>>>>>>>>");
 					}
 					
-					if("PA".equals(order.getOrderType())){
+					if("PA".equals(order.getAddressType())){
 						order.setCity(address_city);
 						order.setCustomerCountry(address_country);
 						order.setCustomerName(last_name+" " + first_name);
