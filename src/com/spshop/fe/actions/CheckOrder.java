@@ -94,14 +94,20 @@ public class CheckOrder extends BaseAction {
 				// 检查付款金额和货币单位是否正确
 				// 处理其他数据，包括写数据库
 				Order order = ServiceFactory.getService(OrderService.class).getOrderById(itemName);
-				
+				System.out.println(">>>>>>>>>>>>>>>>>>>VERIFIED>>>>>>>>>>>>>>>>>>>>>>");
 				if(null!=order){
 					order.setCustomerEmail(payerEmail);
+					System.out.println(">>>>>>>>>>>>>>>>>>>paymentAmount:"+paymentAmount+">>>>>>>>>>>>>>>>>>>>>>");
+					System.out.println(">>>>>>>>>>>>>>>>>>>paymentCurrency:"+paymentCurrency+">>>>>>>>>>>>>>>>>>>>>>");
+					System.out.println(">>>>>>>>>>>>>>>>>>>receiverEmail:"+receiverEmail+">>>>>>>>>>>>>>>>>>>>>>");
+					System.out.println(">>>>>>>>>>>>>>>>>>>itemNumber:"+itemNumber+">>>>>>>>>>>>>>>>>>>>>>");
 					if((order.getTotalPrice()+order.getDePrice()) <= Float.parseFloat(paymentAmount)
 							&&order.getCurrency().equals(paymentCurrency)
 							&&receiverEmail.equals(ACCOUNT)
 							&&itemNumber.equals("1")){
 						order.setStatus(OrderStatus.PAYED.getValue());
+					}else{
+						System.out.println(">>>>>>>>>>>>>>>>>>>NOT enough mony>>>>>>>>>>>>>>>>>>>>>>");
 					}
 					
 					if("PA".equals(order.getOrderType())){
