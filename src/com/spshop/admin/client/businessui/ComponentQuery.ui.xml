@@ -58,7 +58,7 @@
 			}
 		</ui:style>
 
-	<g:SplitLayoutPanel styleName='{style.outer}' height="100%">
+	<g:SplitLayoutPanel styleName='{style.outer}' height="100%" ui:field="container">
 		<g:north size="90">
 			<workspace:QueryCondition ui:field="queryCondition"/>
 		</g:north>

@@ -32,6 +32,7 @@ import com.spshop.model.User;
 import com.spshop.model.enums.ImageSizeType;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
+import com.google.gwt.user.client.ui.SplitLayoutPanel;
 @SuppressWarnings("rawtypes")
 public class ComponentQuery extends ResizeComposite {
 
@@ -60,6 +61,7 @@ public class ComponentQuery extends ResizeComposite {
 
 	@UiField
 	QueryCondition queryCondition;
+	@UiField SplitLayoutPanel container;
 
 	private QueryCriteria queryCriteria;
 
@@ -627,6 +629,10 @@ public class ComponentQuery extends ResizeComposite {
 			return result.getResult().get(selectedRows.get(0).intValue());
 		}
 		return null;
+	}
+	
+	public SplitLayoutPanel getContainer(){
+		return container;
 	}
 
 }
