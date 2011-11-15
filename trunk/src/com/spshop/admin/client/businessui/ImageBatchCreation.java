@@ -14,6 +14,8 @@ import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteEvent;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.spshop.admin.client.PopWindow;
+import com.spshop.model.enums.ImageSizeType;
+import com.google.gwt.user.client.ui.ListBox;
 
 public class ImageBatchCreation extends Composite {
 
@@ -30,6 +32,7 @@ public class ImageBatchCreation extends Composite {
 	Button submit;
 	@UiField
 	FlowPanel small;
+	@UiField ListBox sizeType;
 
 	interface ImageBatchCreationUiBinder extends
 			UiBinder<TabLayoutPanel, ImageBatchCreation> {
@@ -38,6 +41,9 @@ public class ImageBatchCreation extends Composite {
 	public ImageBatchCreation() {
 		initWidget(uiBinder.createAndBindUi(this));
 		formPanel.setEncoding(FormPanel.ENCODING_MULTIPART);
+		for (ImageSizeType type : ImageSizeType.values()) {
+			sizeType.addItem(type.getTitle(), type.getValue());
+		}
 	}
 
 	@UiHandler("formPanel")

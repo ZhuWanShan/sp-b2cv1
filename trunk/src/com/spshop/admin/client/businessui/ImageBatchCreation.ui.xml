@@ -23,6 +23,14 @@
 						</g:row>
 						<g:row>
 							<g:customCell>
+								<g:InlineLabel text="Size Type:"/>
+							</g:customCell>
+							<g:customCell>
+								<g:ListBox visibleItemCount="1" ui:field="sizeType" name="sizeType"/>
+							</g:customCell>
+						</g:row>
+						<g:row>
+							<g:customCell>
 								<g:Button ui:field="submit" text="Create"/>
 							</g:customCell>
 							
@@ -35,6 +43,7 @@
 								<g:FlowPanel  ui:field="small"/>
 							</g:customCell>
 						</g:row>
+						<g:row/>
 					</g:Grid>
 				</g:HTMLPanel>
 			</g:FormPanel>

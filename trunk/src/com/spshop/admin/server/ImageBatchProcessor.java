@@ -46,30 +46,35 @@ public class ImageBatchProcessor extends RemoteHttp {
 		FileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
 		loginInfo = getLoginInfo(req);
-
 		String zipFileName = System.nanoTime() + ".zip";
-
+		String sizeType = ImageSizeType.PRODUCT_NORMAL.getValue();
 		try {
 			items = upload.parseRequest(req);
 		} catch (FileUploadException ex) {
 			throw new ServletException(ex);
 		}
-
+		FileItem zipFile = null;
 		Iterator iter = items.iterator();
 		File orignalFile = null;
 		while (iter.hasNext()) {
 			FileItem item = (FileItem) iter.next();
 			if (!item.isFormField()) {
-				orignalFile = new File(unZipDir + zipFileName);
-				try {
-					item.write(orignalFile);
-					int count = unzipAndCreateImage(zipFileName,unZipDir,loginInfo);
-					resp.getWriter().print(count);
-				} catch (Exception e) {
-					e.printStackTrace();
-					throw new IOException(e);
-				}
-			} 
+				zipFile = item;
+			} else if(item.isFormField() && "sizeType".equals(item.getFieldName())){
+				sizeType = item.getString();
+			}
+		}
+		
+		if(null!=zipFile){
+			orignalFile = new File(unZipDir + zipFileName);
+			try {
+				zipFile.write(orignalFile);
+				int count = unzipAndCreateImage(zipFileName,unZipDir,loginInfo,sizeType);
+				resp.getWriter().print(count);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new IOException(e);
+			}
 		}
 	}
 
@@ -91,7 +96,7 @@ public class ImageBatchProcessor extends RemoteHttp {
 		return prefix+"."+names[names.length-1];
 	}
 	
-	private int unzipAndCreateImage(String zipFileName,String unZipDir,LoginInfo loginInfo) throws IOException {
+	private int unzipAndCreateImage(String zipFileName,String unZipDir,LoginInfo loginInfo, String sizeType) throws IOException {
 		ZipFile zipfile = new ZipFile(unZipDir + zipFileName);
 		Enumeration e = zipfile.entries();
 		String fileName = "";
@@ -106,7 +111,7 @@ public class ImageBatchProcessor extends RemoteHttp {
 				dest.write(data, 0, count);
 			}
 			fileName = entry.getName();
-			fileName = redefineFileName(fileName.replaceAll("[^a-zA-Z\\.]", "_"));
+			fileName = redefineFileName(fileName.replaceAll("[^a-zA-Z0-9\\.]", "_"));
 			tempFile = new File(unZipDir + "/" + entry.getName());
 			realFile = new File(getServletContext().getRealPath(
 					loginInfo.getSite().getImagePath())
@@ -121,7 +126,7 @@ public class ImageBatchProcessor extends RemoteHttp {
 			// new Thread(processImage,
 			// fileName+"__"+realFile.getAbsolutePath()).start();
 			try {
-				processImage(fileName,loginInfo);
+				processImage(fileName,loginInfo,sizeType);
 				counter++;
 			} catch (Exception e1) {
 				e1.printStackTrace();
@@ -130,7 +135,7 @@ public class ImageBatchProcessor extends RemoteHttp {
 		return counter;
 	}
 	
-	private void processImage(String fileName,LoginInfo loginInfo) {
+	private void processImage(String fileName,LoginInfo loginInfo, String sizeType) {
 		ImageService imageService = ServiceFactory
 				.getService(ImageService.class);
 		Image image = new Image();
@@ -140,7 +145,7 @@ public class ImageBatchProcessor extends RemoteHttp {
 		image.setAltTitle(loginInfo.getSite().getImagePath() + "/" + fileName);
 		image.setName(fileName.substring(0,fileName.lastIndexOf('.')));
 		image.setNoChangeUrl(loginInfo.getSite().getImagePath() + "/" + fileName);
-		image.setSizeType(ImageSizeType.PRODUCT_NORMAL);
+		image.setStrSizeType(sizeType);
 		imageService.saveImage(image, realFile.getAbsolutePath(), loginInfo);
 	}
 
