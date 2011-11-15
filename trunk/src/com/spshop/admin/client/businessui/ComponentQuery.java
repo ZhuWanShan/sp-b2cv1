@@ -13,6 +13,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTMLTable.Cell;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.ResizeComposite;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -28,6 +29,7 @@ import com.spshop.model.Order;
 import com.spshop.model.Product;
 import com.spshop.model.TabProduct;
 import com.spshop.model.User;
+import com.spshop.model.enums.ImageSizeType;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 @SuppressWarnings("rawtypes")
@@ -120,6 +122,15 @@ public class ComponentQuery extends ResizeComposite {
 		// Initialize the header.
 		if (queryCondition.getType() == Image.class) {
 			initImageHeader();
+			
+			ListBox listBox = new ListBox(false);
+			
+			for (ImageSizeType type : ImageSizeType.values()) {
+				listBox.addItem(type.getTitle(), type.getValue());
+			}
+			
+			queryCondition.addField("strSizeType","Type", listBox);
+			
 		}
 		
 		if (queryCondition.getType() == Product.class) {
@@ -276,7 +287,7 @@ public class ComponentQuery extends ResizeComposite {
 	 *            the row to be selected
 	 */
 	private void selectRow(int row) {
-
+		
 		if (row > result.getResult().size() - 1) {
 			return;
 		}

@@ -14,9 +14,10 @@ import magick.MagickException;
 
 import org.apache.log4j.Logger;
 
-import com.spshop.admin.shared.ImageConstonts;
+import com.spshop.admin.shared.ImageSize;
 import com.spshop.admin.shared.LoginInfo;
 import com.spshop.model.Image;
+import com.spshop.model.enums.ImageSizeType;
 
 public class ImageTools {
 	
@@ -25,21 +26,46 @@ public class ImageTools {
 	private static String  COVERTPAHT="C:\\Program Files (x86)\\ImageMagick-5.5.7-Q8";
 	private final static String COMMAND_KEY = "command.path";
 	
+	private static Properties IMAGE_SIZES = new Properties();
+	
 	static{
 		Properties pro = new Properties();
 		try {
+			
 			pro.load(ImageTools.class.getResourceAsStream("/imagemagick.properties"));
+			IMAGE_SIZES.load(ImageTools.class.getResourceAsStream("/imagemagick.properties"));
+			
 			COVERTPAHT = pro.getProperty(COMMAND_KEY);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
+	public static int[] getXY(ImageSizeType type, ImageSize size){
+		
+		int[] rSize = new int[2];
+		
+		String key = "image.size.";
+		key = key + type.getValue()+"."+size;
+		String value = IMAGE_SIZES.getProperty(key);
+		if(null == value){
+			key = "image.size.DEFAULT."+size;
+			value = IMAGE_SIZES.getProperty(key);
+		}
+		
+		String[] sizes = value.split(",");
+		
+		rSize[0] = Integer.valueOf(sizes[0]);
+		rSize[1] = Integer.valueOf(sizes[1]);
+		
+		return rSize;
+	}
+	
 
 	public static Image changeSize(Image img, LoginInfo loginInfo,
 			String filePath) throws MagickException, IOException {
 		
-			String [] names = reSizeWithBorder(filePath);
+			String [] names = reSizeWithBorder(filePath, img.getSizeType());
 			
 			img.setLargerUrl(loginInfo.getSite().getImagePath() + "/"+ names[0]);
 			
@@ -54,40 +80,40 @@ public class ImageTools {
 			return img;
 	}
 	
-	public static String[] reSizeWithBorder(String filePath)
+	public static String[] reSizeWithBorder(String filePath, ImageSizeType sizeType)
 	throws MagickException, IOException {
-		String[] imageNames = new String[ImageConstonts.IMAGE_SIZES.length];
+		String[] imageNames = new String[ImageSize.values().length];
 		String toPath = getImagePath(filePath);
 		
-		String largePathRelative = getImageName(filePath, ImageConstonts.LARGE_SIZE[0], ImageConstonts.LARGE_SIZE[1]);
+		String largePathRelative = getImageName(filePath, getXY(sizeType,ImageSize.LARGE_SIZE)[0], getXY(sizeType,ImageSize.LARGE_SIZE)[1]);
 		String largePath = toPath + "\\"+ largePathRelative;
 		
-		String logoPathRelative = getImageName(filePath, ImageConstonts.LOGO_SIZE[0], ImageConstonts.LOGO_SIZE[1]);
+		String logoPathRelative = getImageName(filePath, getXY(sizeType,ImageSize.LOGO_SIZE)[0], getXY(sizeType,ImageSize.LOGO_SIZE)[1]);
 		String logoPath = toPath + "\\"+ logoPathRelative;
 		
-		String thumPathRelative = getImageName(filePath, ImageConstonts.THUM_SIZE[0], ImageConstonts.THUM_SIZE[1]);
+		String thumPathRelative = getImageName(filePath, getXY(sizeType,ImageSize.THUM_SIZE)[0], getXY(sizeType,ImageSize.THUM_SIZE)[1]);
 		String thumPath = toPath + "\\"+ thumPathRelative;
 		
-		String smallPathRelative = getImageName(filePath, ImageConstonts.SMALL_SIZE[0], ImageConstonts.SMALL_SIZE[1]);
+		String smallPathRelative = getImageName(filePath, getXY(sizeType,ImageSize.SMALL_SIZE)[0], getXY(sizeType,ImageSize.SMALL_SIZE)[1]);
 		String smallPath = toPath + "\\"+ smallPathRelative;
 		
-		String iconPathRelative = getImageName(filePath, ImageConstonts.ICON_SIZE[0], ImageConstonts.ICON_SIZE[1]);
+		String iconPathRelative = getImageName(filePath, getXY(sizeType,ImageSize.ICON_SIZE)[0], getXY(sizeType,ImageSize.ICON_SIZE)[1]);
 		String iconPath = toPath + "\\"+ iconPathRelative;
 		
-		String cmd1 = COVERTPAHT+"\\convert " + filePath + " -resize " + ImageConstonts.LARGE_SIZE[0] +"x"
-		+ ImageConstonts.LARGE_SIZE[1]+ " " + largePath;
+		String cmd1 = COVERTPAHT+"\\convert " + filePath + " -resize " + getXY(sizeType,ImageSize.LARGE_SIZE)[0] +"x"
+		+ getXY(sizeType,ImageSize.LARGE_SIZE)[1]+ " " + largePath;
 		
-		String cmd2 = COVERTPAHT+"\\convert " + filePath + " -resize " + ImageConstonts.LOGO_SIZE[0] +"x"
-		+ ImageConstonts.LOGO_SIZE[1]+ " " + logoPath;
+		String cmd2 = COVERTPAHT+"\\convert " + filePath + " -resize " + getXY(sizeType,ImageSize.LOGO_SIZE)[0] +"x"
+		+ getXY(sizeType,ImageSize.LOGO_SIZE)[1]+ " " + logoPath;
 		
-		String cmd3 = COVERTPAHT+"\\convert " + filePath + " -resize " + ImageConstonts.THUM_SIZE[0] +"x"
-		+ ImageConstonts.THUM_SIZE[1]+ " " + thumPath;
+		String cmd3 = COVERTPAHT+"\\convert " + filePath + " -resize " + getXY(sizeType,ImageSize.THUM_SIZE)[0] +"x"
+		+ getXY(sizeType,ImageSize.THUM_SIZE)[1]+ " " + thumPath;
 		
-		String cmd4 = COVERTPAHT+"\\convert " + filePath + " -resize " + ImageConstonts.SMALL_SIZE[0] +"x"
-		+ ImageConstonts.SMALL_SIZE[1]+ " " + smallPath;
+		String cmd4 = COVERTPAHT+"\\convert " + filePath + " -resize " + getXY(sizeType,ImageSize.SMALL_SIZE)[0] +"x"
+		+ getXY(sizeType,ImageSize.SMALL_SIZE)[1]+ " " + smallPath;
 		
-		String cmd5 = COVERTPAHT+"\\convert " + filePath + " -resize " + ImageConstonts.ICON_SIZE[0] +"x"
-		+ ImageConstonts.ICON_SIZE[1]+ " " + iconPath;
+		String cmd5 = COVERTPAHT+"\\convert " + filePath + " -resize " + getXY(sizeType,ImageSize.ICON_SIZE)[0] +"x"
+		+ getXY(sizeType,ImageSize.ICON_SIZE)[1]+ " " + iconPath;
 		
 		Runtime runtime = Runtime.getRuntime();
 		
@@ -110,11 +136,11 @@ public class ImageTools {
 	            }  
 	      }  
 		
-	     borderImage(largePath, ImageConstonts.LARGE_SIZE[1], ImageConstonts.LARGE_SIZE[0]);
-	     borderImage(logoPath, ImageConstonts.LOGO_SIZE[1], ImageConstonts.LOGO_SIZE[0]);
-	     borderImage(thumPath, ImageConstonts.THUM_SIZE[1], ImageConstonts.THUM_SIZE[0]);
-	     borderImage(smallPath, ImageConstonts.SMALL_SIZE[1], ImageConstonts.SMALL_SIZE[0]);
-	     borderImage(iconPath, ImageConstonts.ICON_SIZE[1], ImageConstonts.ICON_SIZE[0]);
+	     borderImage(largePath, getXY(sizeType,ImageSize.LARGE_SIZE)[1], getXY(sizeType,ImageSize.LARGE_SIZE)[0]);
+	     borderImage(logoPath, getXY(sizeType,ImageSize.LOGO_SIZE)[1], getXY(sizeType,ImageSize.LOGO_SIZE)[0]);
+	     borderImage(thumPath, getXY(sizeType,ImageSize.THUM_SIZE)[1], getXY(sizeType,ImageSize.THUM_SIZE)[0]);
+	     borderImage(smallPath, getXY(sizeType,ImageSize.SMALL_SIZE)[1], getXY(sizeType,ImageSize.SMALL_SIZE)[0]);
+	     borderImage(iconPath, getXY(sizeType,ImageSize.ICON_SIZE)[1], getXY(sizeType,ImageSize.ICON_SIZE)[0]);
 		
 	     imageNames[0] = largePathRelative;
 	     imageNames[1] = logoPathRelative;
@@ -234,7 +260,7 @@ public class ImageTools {
 	}
 	
 	public static void main(String[] args) throws MagickException, IOException {
-		reSizeWithBorder("C:\\T\\Tulips.jpg");
+		reSizeWithBorder("C:\\T\\Tulips.jpg", ImageSizeType.PRODUCT_SQUARE);
 	}
 
 

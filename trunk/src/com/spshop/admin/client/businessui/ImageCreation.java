@@ -25,7 +25,6 @@ import com.spshop.admin.client.AdminWorkspace;
 import com.spshop.admin.client.CommandFactory;
 import com.spshop.admin.client.PopWindow;
 import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
-import com.spshop.admin.shared.ImageConstonts;
 import com.spshop.model.Image;
 import com.spshop.model.enums.ImageSizeType;
 public class ImageCreation extends Composite{
@@ -107,10 +106,10 @@ public class ImageCreation extends Composite{
 			Anchor icon = new Anchor(AdminWorkspace.getSilteUrl()+image.getIconUrl());
 			
 			Anchor original = new Anchor(AdminWorkspace.getSilteUrl()+image.getNoChangeUrl());
-			large.addClickHandler(new LinksClick(image.getLargerUrl(),ImageConstonts.LARGE_SIZE));
-			logo.addClickHandler(new LinksClick(image.getLogoUrl(),ImageConstonts.LOGO_SIZE));
-			thumbnail.addClickHandler(new LinksClick(image.getThumbnailUrl(),ImageConstonts.THUM_SIZE));
-			icon.addClickHandler(new LinksClick(image.getIconUrl(),ImageConstonts.ICON_SIZE));
+			large.addClickHandler(new LinksClick(image.getLargerUrl()));
+			logo.addClickHandler(new LinksClick(image.getLogoUrl()));
+			thumbnail.addClickHandler(new LinksClick(image.getThumbnailUrl()));
+			icon.addClickHandler(new LinksClick(image.getIconUrl()));
 			original.addClickHandler(new LinksClick(image.getNoChangeUrl()));
 			small.addClickHandler(new LinksClick(image.getSmallUrl()));
 			links.add(large);
@@ -120,6 +119,7 @@ public class ImageCreation extends Composite{
 			links.add(icon);
 			links.add(original);
 			links.setVisible(true);
+			imageType.setEnabled(false);
 		}else{
 			submit.setText("Create");
 			links.clear();
