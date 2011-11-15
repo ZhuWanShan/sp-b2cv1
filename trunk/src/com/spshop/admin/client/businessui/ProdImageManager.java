@@ -11,10 +11,12 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.CommandFactory;
+import com.spshop.admin.client.PopWindow;
 import com.spshop.admin.client.businessui.callback.SelectedCallBack;
 import com.spshop.model.Component;
 import com.spshop.model.Image;
@@ -64,28 +66,48 @@ public class ProdImageManager extends ObservableComposite<List<com.spshop.model.
 	}
 	
 	public void addImage(final Image image,boolean refresh){
-		if(!containsImage(image)||refresh){
-			final ProdImageManager self = this;
-			if(!refresh){
-				this.component.add(image);
-			}
-			final SimplePanel  fp = new SimplePanel();
-			fp.setStyleName(style.imageItem());
-			final VerticalPanel vp = new VerticalPanel();
-			vp.add(new com.google.gwt.user.client.ui.Image(image.getSmallUrl()));
-			Button btn = new Button("Remove");
-			vp.add(btn);
-			fp.add(vp);
-			host.add(fp);
-			btn.addClickHandler(new ClickHandler() {
-				@Override
-				public void onClick(ClickEvent event) {
-					self.host.remove(fp);
-					self.getComponet().remove(image);
+		if(isSameTypeImage(image)){
+			if(!containsImage(image)||refresh){
+				final ProdImageManager self = this;
+				if(!refresh){
+					this.component.add(image);
 				}
-			});
+				final SimplePanel  fp = new SimplePanel();
+				fp.setStyleName(style.imageItem());
+				final VerticalPanel vp = new VerticalPanel();
+				vp.add(new com.google.gwt.user.client.ui.Image(image.getSmallUrl()));
+				Button btn = new Button("Remove");
+				vp.add(btn);
+				fp.add(vp);
+				host.add(fp);
+				btn.addClickHandler(new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						self.host.remove(fp);
+						self.getComponet().remove(image);
+					}
+				});
+			}
+		}else{
+			PopWindow window = new PopWindow("Error", new HTML("Cannot add two type images to one product!"), true, true);
+			window.center();
 		}
 	}
+	
+	private boolean isSameTypeImage(Image image){
+		if(null != component){
+			for (Component c : component) {
+				if(((Image)c).getSizeType()==image.getSizeType()){
+					return true;
+				}else{
+					return false;
+				}
+			}
+		}
+		
+		return true;
+	}
+	
 	private boolean containsImage(Image image){
 		for (Component c : component) {
 			if(c.getId()==image.getId()){

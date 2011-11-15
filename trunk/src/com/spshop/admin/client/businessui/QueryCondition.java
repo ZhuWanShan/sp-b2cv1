@@ -143,8 +143,8 @@ public class QueryCondition extends Composite {
 			fields.put(name, field);
 			InlineLabel inlineLabel = new InlineLabel(label + ":");
 			inlineLabel.addStyleName(style.conditonLabel());
-			conditionField.add(inlineLabel);
-			conditionField.add((Widget)field);
+			conditionField.insert(inlineLabel, conditionField.getWidgetIndex(search));
+			conditionField.insert((Widget)field,conditionField.getWidgetIndex(search));
 		}
 	}
 

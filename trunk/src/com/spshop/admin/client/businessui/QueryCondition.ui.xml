@@ -26,8 +26,6 @@
 					<p1:DateBox ui:field="start" />
 					<g:InlineLabel text="To:" styleName="{style.conditonLabel}"/>
 					<p1:DateBox ui:field="end"/>
-				</g:FlowPanel>
-				<g:FlowPanel styleName="{style.ConditionField}">
 					<g:Button ui:field="search">Go</g:Button>
 				</g:FlowPanel>
 			</g:FlowPanel>
