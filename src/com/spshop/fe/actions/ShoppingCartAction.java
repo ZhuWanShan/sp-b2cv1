@@ -239,7 +239,7 @@ public class ShoppingCartAction extends BaseAction {
 							order.setCity(c.getName());
 						}
 						
-					}else if(ADDRESS_PA.equals(retriveAddressType(request))){
+					}else{
 						order.setAddressType(ADDRESS_PA);
 					}
 					//order.setName(getOrderId());

@@ -2,7 +2,8 @@ package com.spshop.model.enums;
 
 public enum ImageSizeType {
 	SPECIAL_OFFER("SPECIAL_OFFER","Special Offer"),
-	PRODUCT_NORMAL("PRODUCT_NORMAL","Product Normal");
+	PRODUCT_NORMAL("PRODUCT_NORMAL","Product Normal"),
+	PRODUCT_SQUARE("PRODUCT_SQUARE","Product Square");
 	private String value;
 	private String title;
 	private ImageSizeType(String value,String title){
