@@ -55,7 +55,9 @@
 			<input type="hidden" name="amount" value="${defaultOrder.totalPrice + defaultOrder.dePrice }">
 			<input type="hidden" name="currency_code" value="USD">
 			<input type="hidden" name="lc" value="US">
-			<input type="hidden" name="return" value="http://127.0.0.1:8888">
+			<ss:site var="siteDefault">
+				<input type="hidden" name="return" value="${siteDefault.domain }">
+			</ss:site>
 			<input type="button" id="paypaysubmit" style="background-image: url(https://www.paypal.com/en_US/i/btn/x-click-but23.gif);width: 72px;height: 27px"
 			border="0" alt="Make payments with PayPal - it's fast, free and secure!" >
 		</form>
