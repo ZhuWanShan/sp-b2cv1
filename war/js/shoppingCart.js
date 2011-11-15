@@ -14,10 +14,6 @@ function updateShoppingItem(id){
 	return null;
 }
 
-function cartCheckOut(){
-	jq("#cartCheckOut").submit();
-}
-
 jq(document).ready(function(){
 		jq(".cartOptionsDashboard").hide();	
 		var showOptionLink = jq(".showCartOptions");

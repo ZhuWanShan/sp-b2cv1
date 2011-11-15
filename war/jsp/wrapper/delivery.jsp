@@ -194,10 +194,6 @@
 						border="0" src="/css/paypal.gif" >
 					</a><i>The safer, easier way to pay.</i>
 				</div>
-
-
-			
-
 			</ul>
 		</div>
 
@@ -207,3 +203,9 @@
 
 </div>
 </form>
+
+<<script type="text/javascript">
+<!--
+	
+//-->
+</script>
