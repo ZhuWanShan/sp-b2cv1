@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
 	   
 	<title>${pageForm.pageProperties.productDetail.title}</title>
-	<meta name="description" content=" Spark's Shop ">
+	<meta name="description" content="Buy ${pageForm.pageProperties.productDetail.title} at wholesale price from HoneyBuy.com, all free shipping! Buy Now!">
 	<meta name="keywords" content="${pageForm.pageProperties.productDetail.keywords}">
 	  
 	<link rel="stylesheet" type="text/css" href="../css/header.css">
