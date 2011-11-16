@@ -1,24 +1,26 @@
 package com.spshop.taglib;
 
+import java.util.List;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 import com.spshop.cache.SCacheFacade;
-import com.spshop.model.Site;
+import com.spshop.model.Image;
 
-public class ShowSite extends TagSupport{
+public class ShowColors extends TagSupport{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -226429618949310355L;
 	
-	private String var="site";
-	private boolean forceUpdate=false;
+	private String var="colors";
 
 	public int doStartTag() throws JspException {
-		Site site = SCacheFacade.getSite(forceUpdate);
 		
-		pageContext.setAttribute(var, site);
+		List<Image> colors = SCacheFacade.getColors();
+		
+		pageContext.setAttribute(var, colors);
 		
 		return EVAL_BODY_INCLUDE;
 	}
@@ -31,18 +33,9 @@ public class ShowSite extends TagSupport{
 		this.var = var;
 	}
 
-	public boolean isForceUpdate() {
-		return forceUpdate;
-	}
-
-	public void setForceUpdate(boolean forceUpdate) {
-		this.forceUpdate = forceUpdate;
-	}
-	
 	
 	public void release() {
 		super.release();
-		var="site";
-		forceUpdate=false;
+		var="colors";
 	}
 }
