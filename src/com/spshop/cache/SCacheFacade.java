@@ -10,6 +10,7 @@ import net.sf.ehcache.Element;
 import com.spshop.model.Category;
 import com.spshop.model.Country;
 import com.spshop.model.HTML;
+import com.spshop.model.Image;
 import com.spshop.model.Order;
 import com.spshop.model.Product;
 import com.spshop.model.Site;
@@ -36,6 +37,7 @@ public class SCacheFacade{
 	public static final String COUNTRY_CACHE_KEY = "COUNTRY_CACHE_KEY";
 	public static final String COUNTRY_CACHE = "countryCache";
 	public static final String ORDER_CACHE = "orderCache";
+	public static final String COLOR_CACHE = "colorCache";
 	
 	static{
 		cacheManager = new SCacheManager(SCacheFacade.class.getResourceAsStream("/ehcache.xml"));
@@ -65,9 +67,12 @@ public class SCacheFacade{
 		return cacheManager.getSCache(ORDER_CACHE);
 	}
 	
-
 	public static Cache getCartCache() {
 		return cacheManager.getCache(CART_CACHE);
+	}
+	
+	public static Cache getColorCache(){
+		return cacheManager.getCache(COLOR_CACHE);
 	}
 
 	public static Order getOrder(String userEmail) {
@@ -240,5 +245,17 @@ public class SCacheFacade{
 		}
 		
 		return orders;
+	}
+	
+	
+	public static List<Image> getColors(){
+		List<Image> colors = (List<Image>) getOrderCache().get("Colors");
+		
+		if(null==colors){
+			colors = ServiceFactory.getService(SiteService.class).getAllColors();
+			getOrderCache().put("Colors",colors);
+		}
+		
+		return colors;
 	}
 }

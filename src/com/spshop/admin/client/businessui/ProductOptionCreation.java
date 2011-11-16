@@ -20,13 +20,17 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
+import com.spshop.admin.client.CommandFactory;
 import com.spshop.admin.client.businessui.callback.ChangeObservable;
 import com.spshop.admin.client.businessui.callback.EditorChangeAdapter;
 import com.spshop.admin.client.businessui.callback.EditorChangeListener;
+import com.spshop.admin.client.businessui.callback.SelectedCallBack;
 import com.spshop.admin.client.rich.ColorButton;
+import com.spshop.model.Component;
+import com.spshop.model.Image;
 import com.spshop.model.ProductOption;
 import com.spshop.model.ProductOptionItem;
-import com.spshop.model.enums.BUConsts;
+import com.spshop.model.enums.ImageSizeType;
 import com.spshop.model.enums.SelectType;
 
 public class ProductOptionCreation extends Composite implements ChangeObservable<ProductOption, ProductOptionCreation>{
@@ -85,6 +89,7 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 			items = new ArrayList<ProductOptionItem>();
 			option.setItems(items);
 		}
+		itemManager.setOptionType(option.getSelectType());
 		itemManager.setOptionItems(items);
 		this.setOption(option);
 		final ProductOptionCreation self = this;
@@ -136,6 +141,7 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 
 	public void setOption(ProductOption option) {
 		this.option = option;
+		itemManager.setOptionType(option.getSelectType());
 		List<ProductOptionItem> emptyItem = option.getItems();
 		if(null==emptyItem){
 			emptyItem= new ArrayList<ProductOptionItem>();
@@ -223,13 +229,32 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 	}
 	@UiHandler("colorPick")
 	void onColorPickClick(ClickEvent event) {
-		selector.setPopupPosition(event.getClientX(), event.getClientY());
-		selector.setItems(option.getItems());
-		selector.setAnimationEnabled(true);
+		CommandFactory.popUpImageQuery(true, new SelectedCallBack() {
+			
+			@Override
+			public void callBack(List<Component> selectedItems) {
+				List<ProductOptionItem> items = new ArrayList<ProductOptionItem>();
+				for (Component component : selectedItems) {
+					Image image = (Image) component;
+					if(image.getSizeType() == ImageSizeType.PRODUCT_COLOR){
+						ProductOptionItem item = new ProductOptionItem();
+						item.setOption(option);
+						item.setName(image.getName());
+						item.setValue(image.getSmallUrl());
+						items.add(item);
+					}
+				}
+				option.setItems(items);
+				itemManager.setOptionItems(items);
+			}
+		}).execute();
+		//selector.setPopupPosition(event.getClientX(), event.getClientY());
+		//selector.setItems(option.getItems());
+		//selector.setAnimationEnabled(true);
 		//selector.setGlassEnabled(true);
 		//selector.setAutoHideEnabled(false);
 		//selector.setModal(true);
-		selector.show();
+		//selector.show();
 	}
 	/*@UiHandler("customizedSize")
 	void onCustomizedSizeClick(ClickEvent event) {

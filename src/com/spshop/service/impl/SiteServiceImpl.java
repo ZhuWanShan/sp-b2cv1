@@ -1,9 +1,12 @@
 package com.spshop.service.impl;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.spshop.dao.intf.SiteDAO;
 import com.spshop.model.Component;
+import com.spshop.model.Image;
 import com.spshop.model.Site;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
@@ -29,5 +32,30 @@ public class SiteServiceImpl extends AbstractService<Site,SiteDAO, Long> impleme
         QueryResult<Component> qs = getDao().queryByHQL(hql, params, className);
         return qs.clone();
     }
+
+	@Override
+	public List<Image> getAllColors() {
+		List<Image> rs = new ArrayList<Image>();
+		
+		 List<Object> imgs= getDao().getAllColors();
+		 
+		 for (Object object : imgs) {
+			 rs.add(((Image)object).clone());
+		}
+		
+		return rs;
+	}
+
+	@Override
+	public Image getColorImgById(long id) {
+		
+		Image img = getDao().getColorImgById(id);
+		
+		if(null != img){
+			img = img.clone();
+		}
+		
+		return img;
+	}
 	
 }

@@ -42,6 +42,11 @@
 		timeToLiveSeconds="1" maxElementsInMemory="1000"
 		memoryStoreEvictionPolicy="LRU" overflowToDisk="true"
 		maxElementsOnDisk="60" />
+		
+	<cache name="colorCache" eternal="false"
+		timeToLiveSeconds="86400" maxElementsInMemory="1000"
+		memoryStoreEvictionPolicy="LRU" overflowToDisk="true"
+		maxElementsOnDisk="60" />
 	
 	<cache name="others" eternal="false"
 		timeToLiveSeconds="86400" maxElementsInMemory="1000"

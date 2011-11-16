@@ -13,6 +13,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.spshop.admin.client.businessui.callback.EditorChangeAdapter;
 import com.spshop.model.ProductOptionItem;
 import com.spshop.model.enums.BUConsts;
+import com.spshop.model.enums.SelectType;
 
 public class ProdOptionItemManager extends Composite{
 
@@ -22,6 +23,7 @@ public class ProdOptionItemManager extends Composite{
 	@UiField
 	ItemManagerStyle style;
 	private List<ProductOptionItem> optionItems;
+	private SelectType optionType;
 	interface ProdOptionItemManagerUiBinder extends
 			UiBinder<VerticalPanel, ProdOptionItemManager> {
 	}
@@ -55,7 +57,7 @@ public class ProdOptionItemManager extends Composite{
 		}
 		final ProdOptionItemManager manager = this;
 		if(!haveSameOption(item)){
-			ProdOptionItemCreation itemCreation = new ProdOptionItemCreation(item);
+			ProdOptionItemCreation itemCreation = new ProdOptionItemCreation(item, null==optionType?SelectType.INPUT_TEXT:optionType);
 			itemCreation.addChangeListener(new EditorChangeAdapter<ProductOptionItem, ProdOptionItemCreation>(){
 				@Override
 				public void onChange(ProductOptionItem component,
@@ -108,6 +110,14 @@ public class ProdOptionItemManager extends Composite{
 			optionItems.remove(re);
 		}
 		setOptionItems(optionItems);
+	}
+
+	public void setOptionType(SelectType optionType) {
+		this.optionType = optionType;
+	}
+
+	public SelectType getOptionType() {
+		return optionType;
 	}
 	
 	
