@@ -171,12 +171,51 @@
 						<div class="item_colorBox">
 							<div class="item_ProBox_title">
 								<span><c:out value="${option.name}" />:</span><br>
-								(If no color selected, the color as picture)<br>
 							</div>
 							<input type="hidden"
 								name="color@${option.name}"
 								id="goodColor" value="">
-							<c:forEach items="${option.items}" var="item" varStatus="indx"
+								<select id="productColorSelector">
+									<option value="asp">As first picture</option>
+									<option value="other">Select other color</option>
+								</select>
+								
+								<div class="colorSelectWindow" style="display: none;">
+									
+									<div class="colorWindow-large">
+										<c:forEach items="${option.items}" begin="0" end="0" var="item">
+											<img alt="${item.name}" src="${item.value}">
+										</c:forEach>
+										<button type="button">OK</button>
+									</div>
+									
+									<div class="colorWindow-list">
+										<c:forEach items="${option.items}" begin="1" var="item">
+											<img alt="${item.name}" src="${item.value}">
+										</c:forEach>
+									</div>
+									<script type="text/javascript">
+									
+										jq("#productColorSelector").change(function(){
+											if(jq("#productColorSelector").val()=="other"){
+												jq(".colorSelectWindow").show();
+											}
+										});
+									
+										jq(".colorSelectWindow .colorWindow-list img").each(function(index, item){
+											jq(item).click(function(){
+												jq(".colorSelectWindow .colorWindow-list img").removeClass("color-selected");
+												jq(this).addClass("color-selected");
+												jq(".colorSelectWindow .colorWindow-large img").attr("src",jq(this).attr("src"));
+											});
+										});
+										
+										jq(".colorSelectWindow .colorWindow-large button").click(function(){
+											jq(".colorSelectWindow").hide();
+										});
+									</script>
+								</div>
+							<%-- <c:forEach items="${option.items}" var="item" varStatus="indx"
 								step="1">
 								<a dataname="Color0" data="color${indx.index}"
 									value="${item.value}" href="javascript:void(0);"
@@ -188,6 +227,7 @@
 									<div class="select_${item.name}"
 										style="border-color:${item.value}"></div> </a>
 							</c:forEach>
+							--%>
 						</div>
 					</c:if>
 				</c:forEach>
