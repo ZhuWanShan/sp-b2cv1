@@ -79,3 +79,49 @@
 .cos_sort{ height:25px;}
 .cos_sort li{ float:left; line-height:20px; padding:0 10px; font-size:11px; margin-right:5px; border:#d7d7d7 solid 1px; box-shadow:-1px -1px 1px #fafafa; -webkit-box-shadow:-1px -1px 1px #fafafa; background:#f0f0f0;background:-moz-linear-gradient(top, #fafafa, #e9e9e9); background: -webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#e9e9e9));}
 .cos_sort li.current_tab{box-shadow:-3px -1px 1px #fdeeb7; -webkit-box-shadow:-3px -1px 1px #fdeeb7; cursor:pointer; background:#ffe18b;background:-moz-linear-gradient(top, #ffe47d, #ffdd96); background: -webkit-gradient(linear, 0 0, 0 100%, from(#ffe47d), to(#ffdd96));}
+
+
+.colorSelectWindow{
+	position: absolute; top: 200px; left: 100px; z-index: 100;
+	height: 200px;
+	width: 700px;
+	border: 1px solid #aaaaaa;
+	background-color: white;
+	padding: 10px;
+}
+
+.colorWindow-large{
+	float: left;
+	width: 180px;
+}
+.colorWindow-large button{
+	margin: 10px;
+	background: url("Image_mosaic.png") no-repeat scroll 0 -374px transparent;
+    border-style: none;
+    border-width: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    height: 31px;
+    text-align: center;
+    text-decoration: none;
+    width: 88px;
+}
+	
+.colorWindow-list{
+	margin: 10px;
+	float: left;
+	width: 500px;
+}
+
+.colorWindow-list img{
+	margin: 5px;
+	width: 36px;
+	border: 2px dotted #FFFFFF;
+}
+
+.colorWindow-list .color-selected{
+	border: 2px dotted #ff0000;
+	opacity:0.5;
+}
