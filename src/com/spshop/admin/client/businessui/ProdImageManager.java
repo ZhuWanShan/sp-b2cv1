@@ -66,46 +66,29 @@ public class ProdImageManager extends ObservableComposite<List<com.spshop.model.
 	}
 	
 	public void addImage(final Image image,boolean refresh){
-		if(isSameTypeImage(image)){
-			if(!containsImage(image)||refresh){
-				final ProdImageManager self = this;
-				if(!refresh){
-					this.component.add(image);
-				}
-				final SimplePanel  fp = new SimplePanel();
-				fp.setStyleName(style.imageItem());
-				final VerticalPanel vp = new VerticalPanel();
-				vp.add(new com.google.gwt.user.client.ui.Image(image.getSmallUrl()));
-				Button btn = new Button("Remove");
-				vp.add(btn);
-				fp.add(vp);
-				host.add(fp);
-				btn.addClickHandler(new ClickHandler() {
-					@Override
-					public void onClick(ClickEvent event) {
-						self.host.remove(fp);
-						self.getComponet().remove(image);
-					}
-				});
+		
+		if(!containsImage(image)||refresh){
+			final ProdImageManager self = this;
+			if(!refresh){
+				this.component.add(image);
 			}
-		}else{
-			PopWindow window = new PopWindow("Error", new HTML("Cannot add two type images to one product!"), true, true);
-			window.center();
-		}
-	}
-	
-	private boolean isSameTypeImage(Image image){
-		if(null != component){
-			for (Component c : component) {
-				if(((Image)c).getSizeType()==image.getSizeType()){
-					return true;
-				}else{
-					return false;
+			final SimplePanel  fp = new SimplePanel();
+			fp.setStyleName(style.imageItem());
+			final VerticalPanel vp = new VerticalPanel();
+			vp.add(new com.google.gwt.user.client.ui.Image(image.getSmallUrl()));
+			Button btn = new Button("Remove");
+			vp.add(btn);
+			fp.add(vp);
+			host.add(fp);
+			btn.addClickHandler(new ClickHandler() {
+				@Override
+				public void onClick(ClickEvent event) {
+					self.host.remove(fp);
+					self.getComponet().remove(image);
 				}
-			}
+			});
 		}
 		
-		return true;
 	}
 	
 	private boolean containsImage(Image image){

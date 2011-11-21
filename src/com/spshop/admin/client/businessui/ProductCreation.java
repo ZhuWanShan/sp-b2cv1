@@ -38,6 +38,7 @@ import com.spshop.model.Image;
 import com.spshop.model.Product;
 import com.spshop.model.ProductOption;
 import com.spshop.model.TabProduct;
+import com.spshop.model.enums.ImageSizeType;
 import com.spshop.model.enums.SelectType;
 
 public class ProductCreation extends Composite{
@@ -192,6 +193,11 @@ public class ProductCreation extends Composite{
 	}
 	@UiHandler("Save")
 	void onSaveClick(ClickEvent event) {
+		if(isHaveDiffrientTypeImage()){
+			PopWindow window = new PopWindow("Error", new com.google.gwt.user.client.ui.HTML("Cannot add two type images to one product! Please Remove."), true, true);
+			window.center();
+			return;
+		}
 		CommandFactory.lock("Save product").execute();
 		AdminWorkspace.ADMIN_SERVICE_ASYNC.saveProduct(product, new AsyncCallbackAdapter<Product>() {
 			@Override
@@ -256,6 +262,7 @@ public class ProductCreation extends Composite{
 	
 	@UiHandler("manualPicker")
 	void onManualPickerClick(ClickEvent event) {
+		
 		CommandFactory.popUpHTMLQuery(true, new SelectedCallBack() {
 			
 			@Override
@@ -297,5 +304,20 @@ public class ProductCreation extends Composite{
 
 	public TabLayoutPanel getManual() {
 		return manual;
+	}
+	
+	private boolean isHaveDiffrientTypeImage(){
+		ImageSizeType sizeType = null;
+		if(null != product.getImages()){
+			for (Image image : product.getImages()) {
+				if(sizeType==null){
+					sizeType = image.getSizeType();
+				}else if(sizeType != image.getSizeType()){
+					return true;
+				}
+			}
+		}
+		
+		return false;
 	}
 }
