@@ -230,7 +230,6 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 	@UiHandler("colorPick")
 	void onColorPickClick(ClickEvent event) {
 		CommandFactory.popUpImageQuery(true, new SelectedCallBack() {
-			
 			@Override
 			public void callBack(List<Component> selectedItems) {
 				List<ProductOptionItem> items = new ArrayList<ProductOptionItem>();
@@ -256,6 +255,7 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 		//selector.setModal(true);
 		//selector.show();
 	}
+	
 	/*@UiHandler("customizedSize")
 	void onCustomizedSizeClick(ClickEvent event) {
 		toggleCumtomizedSize(customizedSize.getValue());
