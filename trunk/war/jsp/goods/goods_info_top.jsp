@@ -14,11 +14,20 @@
 							<div class="item_normal_pic_box">
 								<div></div>
 										<a class="bighref" id="linkNormalBox" href="${image.noChangeUrl}"
-											rel="thing_item_pics"> <img
-											src="../css/zoom_in.png"
-											id="zoomIcon"> <img width="277" val="${image.noChangeUrl}"
-											alt="${pageForm.pageProperties.productDetail.title}"
-											src="${image.largerUrl}" id="imageNormalBox"> </a>
+											rel="thing_item_pics"> 
+											<img src="../css/zoom_in.png"
+												 id="zoomIcon"> 
+											<c:if test='${image.strSizeType eq "PRODUCT_SQUARE"}'>
+												<img style="width:277px; padding-top:${(370-277)/2}px;" val="${image.noChangeUrl}"
+													 alt="${pageForm.pageProperties.productDetail.title}"
+													 src="${image.largerUrl}" id="imageNormalBox">
+											</c:if>
+											<c:if test='${image.strSizeType eq "PRODUCT_NORMAL"}'>
+												<img style="width:277px;" val="${image.noChangeUrl}"
+													 alt="${pageForm.pageProperties.productDetail.title}"
+													 src="${image.largerUrl}" id="imageNormalBox">
+											</c:if>
+										</a>
 							</div>
 						</c:if>
 						<div style="display: none">
@@ -37,9 +46,16 @@
 						<c:forEach items="${pageForm.pageProperties.productDetail.images}"
 							var="image" varStatus="idx" step="1">
 							<li dis="${idx.index}" class="smallPic"
-								val="${image.largerUrl}"><img
-								alt="${pageForm.pageProperties.productDetail.title}"
-								src="${image.iconUrl}"></li>
+								val="${image.largerUrl}">
+								<c:if test='${image.strSizeType eq "PRODUCT_SQUARE"}'>
+								<img style="width:46px; padding-top:${(63-46)/2}px;" alt="${pageForm.pageProperties.productDetail.title}"
+									 src="${image.iconUrl}">
+								</c:if>
+								<c:if test='${image.strSizeType eq "PRODUCT_NORMAL"}'>
+								<img style="width:46px;" alt="${pageForm.pageProperties.productDetail.title}"
+									 src="${image.iconUrl}">
+								</c:if>
+							</li>
 						</c:forEach>
 					</ul>
 				</div>

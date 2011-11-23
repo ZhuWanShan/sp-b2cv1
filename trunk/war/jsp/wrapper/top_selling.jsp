@@ -7,9 +7,16 @@
 	<c:forEach items="${topData.products}" var="topProduct">
 		<li>
 			<a title="${topProduct.title}" href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${topProduct.name}">
+				<c:if test='${topProduct.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
 				<img src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${topProduct.images[0].thumbnailUrl}"
-					alt="${topProduct.title}"
-					style="width: 65px; height: 87px;">
+					 alt="${topProduct.title}"
+					 style="padding-top:${(87-65)/2}px; padding-bottom:${(87-65)/2}px;">
+				</c:if>
+				<c:if test='${topProduct.images[0].strSizeType eq "PRODUCT_NORMAL"}'>
+				<img src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${topProduct.images[0].thumbnailUrl}"
+					 alt="${topProduct.title}"
+					 style="height: 87px;">
+				</c:if>
 			</a><br>
 			
 			<a title="" href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${topProduct.name}"
