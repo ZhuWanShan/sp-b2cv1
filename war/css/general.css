@@ -179,7 +179,7 @@ input,select{font-family:Arial, Helvetica, sans-serif;}
 .top5selling{background:#f2f2f2;}
 .top5selling h3{line-height:30px;text-align:center;}
 .top5selling ul li{float:left;width:90px;height:117px;overflow:hidden;text-align:center;margin:8px 0;}
-.top5selling ul li img{height:85px;}
+.top5selling ul li img{width: 65px;}
 .Selector_title { cursor:default;}
 /**********一级分类图片列****************/
 .A_Categories ul li{float:left;width:150px;height:225px;overflow:hidden;padding:3px;margin:0 9px 25px 24px;_margin:0 8px 25px 23px;display:inline;}

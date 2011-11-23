@@ -27,13 +27,18 @@
 		<c:forEach items="${pageForm.pageProperties.productsInCategoryPage}" var="product">
 			<li class="goods_list box_shadow">
 				<div class="goods_picture">
-						<div></div>
-
 						<a onclick="redirect('<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${product.name}')"
 							href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${product.name}" title="">
-							<img
-							alt="${product.title}"
-							src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].largerUrl}"> 
+							<c:if test='${product.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
+								<img style="padding-top:${(310-225)/2}px;"
+								alt="${product.title}"
+								src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].largerUrl}"> 
+							</c:if>
+							<c:if test='${product.images[0].strSizeType eq "PRODUCT_NORMAL"}'>
+								<img
+								alt="${product.title}"
+								src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].largerUrl}"> 
+							</c:if>
 						</a>
 				</div> 
 				<strong class="goods_name"> 

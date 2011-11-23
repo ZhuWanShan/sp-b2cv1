@@ -7,12 +7,12 @@
 		<c:if test="${idx.index == 0}">
 		<h3 aim="Promotions_con&gt;.daily_madness countdown_sun go_dailymadness"
 			class="link_now">
-				<a href="#" style="display: block">${tabTitle.name}</a>
+				<a style="display: block">${tabTitle.name}</a>
 		</h3>
 		</c:if>
 		<c:if test="${idx.index > 0}">
 		<h3 aim="Promotions_con&gt;.Spotlight${idx.index} countdown_sun go_dailymadness">
-				<a href="#" style="display: block">${tabTitle.name}</a>
+				<a style="display: block">${tabTitle.name}</a>
 		</h3>
 		</c:if>
 	</c:forEach>
@@ -97,7 +97,12 @@
 					<div class="goods_picture">
 						<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${tabProduct.name}" 
 						   title="${tabProduct.title}">
-							<img src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}" alt="${tabProduct.title}" />
+							<c:if test='${tabProduct.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
+							<img style="width:164px; padding-top:${(226-164)/2}px;" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}" alt="${tabProduct.title}" />
+							</c:if>
+							<c:if test='${tabProduct.images[0].strSizeType eq "PRODUCT_NORMAL"}'>
+							<img style="width:164px;" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}" alt="${tabProduct.title}" />
+							</c:if>
 						</a>
 					</div>
 					<strong class="goods_name">
@@ -129,8 +134,14 @@
 						<dt>
 							<a title="${tabProduct.name}"
 								href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${tabProduct.name}">
+								<c:if test='${tabProduct.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
+								<img style="padding-top:${(145-97)/2}px;padding-bottom:${(145-97)/2}px;" alt="${tabProduct.name}"
+								     src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}">
+								</c:if>
+								<c:if test='${tabProduct.images[0].strSizeType eq "PRODUCT_NORMAL"}'>
 								<img alt="${tabProduct.name}"
 								     src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}">
+								</c:if>
 							</a>
 						</dt>
 						<dd>

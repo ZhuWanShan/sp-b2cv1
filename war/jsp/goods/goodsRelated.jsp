@@ -11,7 +11,15 @@
 		    <ul class="complete_look_normal">
 		     <c:forEach items="${names}" var="name">
 		     	<ss:product var="product" productName="${name}">
-				      <li> <a title="${product.title }" href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${product.name}"><img width="80" height="105" border="0" alt="${product.title }" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}"></a>
+				      <li> 
+				      	<a title="${product.title }" href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${product.name}">
+				      		<c:if test='${product.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
+				      		<img style="width: 80px; height: 105; padding-top: ${(105-80)/2}px;" border="0" alt="${product.title }" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}">
+				      		</c:if>
+				      		<c:if test='${product.images[0].strSizeType eq "PRODUCT_NORMAL"}'>
+				      		<img style="width: 80px; height: 105;" border="0" alt="${product.title }" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}">
+				      		</c:if>
+				      	</a>
 				        <div>US$ ${product.actualPrice}</div>
 				      </li>
 		      </ss:product>
