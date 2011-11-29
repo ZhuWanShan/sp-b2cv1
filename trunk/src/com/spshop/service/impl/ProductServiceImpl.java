@@ -1,7 +1,10 @@
 package com.spshop.service.impl;
 
+import java.util.Iterator;
 import java.util.List;
 
+import com.spshop.cache.SCache;
+import com.spshop.cache.SCacheFacade;
 import com.spshop.dao.intf.ProductDAO;
 import com.spshop.exception.ServiceValidateException;
 import com.spshop.model.Category;
@@ -85,6 +88,18 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 			return null;
 		}
 		return product.clone();
+	}
+
+	@Override
+	public void loadAllProduct() {
+		String hql = "from Product";
+		List products = getDao().queryByHQL(hql, 0, 10000);
+		SCache sCache = SCacheFacade.getProductCache();
+		for (Object object : products) {
+			Product product = (Product) object;
+			product=product.clone();
+			sCache.put(product.getName(), product);
+		}
 	}
 	
 	

@@ -3,6 +3,9 @@ package com.spshop.admin.server;
 import static com.spshop.utils.AllConstants.CATEGORY_CACHE;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,9 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.ehcache.Element;
 
+import com.spshop.cache.SCache;
 import com.spshop.cache.SCacheFacade;
+import com.spshop.cache.SCacheManager;
+import com.spshop.model.Product;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CategoryService;
+import com.spshop.service.intf.ProductService;
 
 public class InitCacheService extends HttpServlet {
 
@@ -26,6 +33,20 @@ public class InitCacheService extends HttpServlet {
 		SCacheFacade.getTopCategories();
 		SCacheFacade.getSite();
 		SCacheFacade.getTabSelling(true);
+		System.out.println("init product Cache............");
+		ServiceFactory.getService(ProductService.class).loadAllProduct();
+		System.out.println("end product Cache............");
+		TimerTask timerTask = new TimerTask() {
+			
+			@Override
+			public void run() {
+				System.out.println("refresh..");
+				ServiceFactory.getService(ProductService.class).loadAllProduct();
+			}
+		};
+		
+		Timer timer = new Timer("reFreshProductCache", true);
+		timer.schedule(timerTask, 500000, 1200000);
 	}
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

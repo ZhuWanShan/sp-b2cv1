@@ -19,7 +19,7 @@
 		maxElementsOnDisk="500" />
 		
 	<cache name="product" eternal="false"
-		timeToLiveSeconds="600" maxElementsInMemory="1000"
+		timeToLiveSeconds="12000" maxElementsInMemory="15000"
 		memoryStoreEvictionPolicy="LRU" overflowToDisk="true"
 		maxElementsOnDisk="500" />
 	

@@ -9,5 +9,4 @@ import com.spshop.service.AbstractService;
 import com.spshop.service.intf.CommentService;
 
 public class CommentServiceImpl extends AbstractService<Comment,CommentDAO, Long> implements CommentService{
-
 }
