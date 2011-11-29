@@ -202,12 +202,13 @@
 										<c:forEach items="${option.items}" begin="0" end="0" var="item">
 											<img alt="${item.name}" src="${item.value}">
 										</c:forEach>
+										<span id="colorWindow-largeDESC" style="width: 20px"></span><br>
 										<button type="button">OK</button>
 									</div>
 									
 									<div class="colorWindow-list">
 										<c:forEach items="${option.items}" begin="1" var="item">
-											<img alt="${item.name}" src="${item.value}">
+											<img alt="${item.name}" src="${item.value}" title="${item.name}">
 										</c:forEach>
 									</div>
 									<script type="text/javascript">
@@ -215,6 +216,10 @@
 										jq("#productColorSelector").change(function(){
 											if(jq("#productColorSelector").val()=="other"){
 												jq(".colorSelectWindow").show();
+											}else{
+												var templete = "<table><tr><td>Color: "+name+"</td></tr><tr><td>As First Picture</td></tr></table>";
+												jq("#CustomizedColorDesp").html(templete);
+												jq("#CustomizedColorDesp").show();
 											}
 										});
 									
@@ -223,10 +228,29 @@
 												jq(".colorSelectWindow .colorWindow-list img").removeClass("color-selected");
 												jq(this).addClass("color-selected");
 												jq(".colorSelectWindow .colorWindow-large img").attr("src",jq(this).attr("src"));
+												jq(".colorSelectWindow .colorWindow-large img").attr("title",jq(this).attr("title"));
+												jq(".colorSelectWindow .colorWindow-large img").attr("alt",jq(this).attr("alt"));
+												jq("#colorWindow-largeDESC").html(jq(this).attr("title"));
+												
 											});
 										});
 										
 										jq(".colorSelectWindow .colorWindow-large button").click(function(){
+											
+											var selectedImg = jq(".colorSelectWindow .colorWindow-list .color-selected");
+											
+											var value = selectedImg.attr("src");
+											var name = selectedImg.attr("title");
+											
+											if(value && name){
+												jq("#goodColor").val(name+"##"+value);
+												var templete = "<table><tr><td>Color: "+name+"</td></tr><tr><td><img style='width:36px;height:36px' alt='' src='"+value+"'></td></tr></table>";
+												jq("#CustomizedColorDesp").html(templete);
+												jq("#CustomizedColorDesp").show();
+											}else{
+												window.alert("Please choose a color!");
+											}
+											
 											jq(".colorSelectWindow").hide();
 										});
 									</script>
@@ -296,6 +320,9 @@
 				}
 		</script>
 		<div id="CustomizedSizeDesp" style="display: none;padding: 4px;">
+			
+		</div>
+		<div id="CustomizedColorDesp" style="display: none;padding: 4px;">
 			
 		</div>
 		<ul style="display: none;" id="choosePro" class="choosePro">
