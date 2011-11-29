@@ -20,4 +20,6 @@ public interface ProductService extends BaseService<Product,ProductDAO, Long>{
 	List<String> queryProdNameByCategory(Category category, int start, int end);
 	
 	Product getProductByName(String name);
+	
+	void loadAllProduct();
 }
