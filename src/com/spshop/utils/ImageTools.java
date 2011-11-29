@@ -86,19 +86,19 @@ public class ImageTools {
 		String toPath = getImagePath(filePath);
 		
 		String largePathRelative = getImageName(filePath, getXY(sizeType,ImageSize.LARGE_SIZE)[0], getXY(sizeType,ImageSize.LARGE_SIZE)[1]);
-		String largePath = toPath + "\\"+ largePathRelative;
+		String largePath = toPath + "/"+ largePathRelative;
 		
 		String logoPathRelative = getImageName(filePath, getXY(sizeType,ImageSize.LOGO_SIZE)[0], getXY(sizeType,ImageSize.LOGO_SIZE)[1]);
-		String logoPath = toPath + "\\"+ logoPathRelative;
+		String logoPath = toPath + "/"+ logoPathRelative;
 		
 		String thumPathRelative = getImageName(filePath, getXY(sizeType,ImageSize.THUM_SIZE)[0], getXY(sizeType,ImageSize.THUM_SIZE)[1]);
-		String thumPath = toPath + "\\"+ thumPathRelative;
+		String thumPath = toPath + "/"+ thumPathRelative;
 		
 		String smallPathRelative = getImageName(filePath, getXY(sizeType,ImageSize.SMALL_SIZE)[0], getXY(sizeType,ImageSize.SMALL_SIZE)[1]);
-		String smallPath = toPath + "\\"+ smallPathRelative;
+		String smallPath = toPath + "/"+ smallPathRelative;
 		
 		String iconPathRelative = getImageName(filePath, getXY(sizeType,ImageSize.ICON_SIZE)[0], getXY(sizeType,ImageSize.ICON_SIZE)[1]);
-		String iconPath = toPath + "\\"+ iconPathRelative;
+		String iconPath = toPath + "/"+ iconPathRelative;
 		
 		String cmd1 = COVERTPAHT+" " + filePath + " -resize " + getXY(sizeType,ImageSize.LARGE_SIZE)[0] +"x"
 		+ getXY(sizeType,ImageSize.LARGE_SIZE)[1]+ " " + largePath;
@@ -213,15 +213,15 @@ public class ImageTools {
 		
 		Runtime runtime = Runtime.getRuntime();
 		
-		String tempPath = toPath + "\\"+ getImageName(filePath, fullH, fullW);
+		String tempPath = toPath + "/"+ getImageName(filePath, fullH, fullW);
 		try {
 			String [] cmds = new String[size.length];
-			String initCMD=COVERTPAHT+"\\convert " + filePath + " -crop " + fullW+ "x"
+			String initCMD=COVERTPAHT+" " + filePath + " -crop " + fullW+ "x"
 			+ fullH + "+0+0 " + tempPath;
 			for(int i = 0; i<cmds.length ; i++){
 				String toImage = getImageName(filePath, size[i][0], size[i][1]);
-				cmds[i] =COVERTPAHT+"\\convert " + tempPath + " -resize " +size[i][0] +"x"
-				+ size[i][1]+ " " + toPath + "\\"+  toImage;
+				cmds[i] =COVERTPAHT+" " + tempPath + " -resize " +size[i][0] +"x"
+				+ size[i][1]+ " " + toPath + "/"+  toImage;
 				imageNames[i] = toImage;
 			}
 			Process process = runtime.exec(initCMD);
