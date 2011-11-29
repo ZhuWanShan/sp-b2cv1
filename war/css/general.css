@@ -195,7 +195,7 @@ input,select{font-family:Arial, Helvetica, sans-serif;}
 .goods_list{float:left;width:164px;padding:3px;display:inline;margin:10px 8px 30px 12px;*margin:10px 2px 30px 15px;overflow:hidden;position:;}
 .B_Categories .goods_list{height:302px;}
 .goods_picture div{/*position:absolute;bottom:0; right:0;*/}
-.goods_list .goods_picture{height:230px;width:100%;overflow:hidden;text-align:center;position:relative;margin-bottom:7px;}
+.goods_list .goods_picture{width:100%;overflow:hidden;text-align:center;position:relative;margin-bottom:7px;}
 .goods_list .goods_name{display:block;font-size:11px;font-weight:normal;height:28px;overflow:hidden;line-height:14px;padding:0 0 2px; }
 .goods_list .goods_name a{color:#000;}
 .goods_list .goods_name a:hover{color:#ff5a00;}
@@ -208,7 +208,7 @@ input,select{font-family:Arial, Helvetica, sans-serif;}
 .details_l{border:1px solid #FFB548; background:#F9F4E2; padding:10px 5px; }
 /**********商品大图列表*****************/
 .Gallery_pic .goods_list{height:385px;width:226px;margin:10px 8px 30px 14px;}
-.Gallery_pic .goods_picture{height:310px;}
+/* .Gallery_pic .goods_picture{height:310px;} */
 /**********商品内容详细列表*****************/
 .Details_list{padding:0 10px;}
 .thing_list{padding:10px 0;}
