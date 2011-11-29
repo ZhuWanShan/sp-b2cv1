@@ -100,19 +100,19 @@ public class ImageTools {
 		String iconPathRelative = getImageName(filePath, getXY(sizeType,ImageSize.ICON_SIZE)[0], getXY(sizeType,ImageSize.ICON_SIZE)[1]);
 		String iconPath = toPath + "\\"+ iconPathRelative;
 		
-		String cmd1 = COVERTPAHT+"\\convert " + filePath + " -resize " + getXY(sizeType,ImageSize.LARGE_SIZE)[0] +"x"
+		String cmd1 = COVERTPAHT+" " + filePath + " -resize " + getXY(sizeType,ImageSize.LARGE_SIZE)[0] +"x"
 		+ getXY(sizeType,ImageSize.LARGE_SIZE)[1]+ " " + largePath;
 		
-		String cmd2 = COVERTPAHT+"\\convert " + filePath + " -resize " + getXY(sizeType,ImageSize.LOGO_SIZE)[0] +"x"
+		String cmd2 = COVERTPAHT+" " + filePath + " -resize " + getXY(sizeType,ImageSize.LOGO_SIZE)[0] +"x"
 		+ getXY(sizeType,ImageSize.LOGO_SIZE)[1]+ " " + logoPath;
 		
-		String cmd3 = COVERTPAHT+"\\convert " + filePath + " -resize " + getXY(sizeType,ImageSize.THUM_SIZE)[0] +"x"
+		String cmd3 = COVERTPAHT+" " + filePath + " -resize " + getXY(sizeType,ImageSize.THUM_SIZE)[0] +"x"
 		+ getXY(sizeType,ImageSize.THUM_SIZE)[1]+ " " + thumPath;
 		
-		String cmd4 = COVERTPAHT+"\\convert " + filePath + " -resize " + getXY(sizeType,ImageSize.SMALL_SIZE)[0] +"x"
+		String cmd4 = COVERTPAHT+" " + filePath + " -resize " + getXY(sizeType,ImageSize.SMALL_SIZE)[0] +"x"
 		+ getXY(sizeType,ImageSize.SMALL_SIZE)[1]+ " " + smallPath;
 		
-		String cmd5 = COVERTPAHT+"\\convert " + filePath + " -resize " + getXY(sizeType,ImageSize.ICON_SIZE)[0] +"x"
+		String cmd5 = COVERTPAHT+" " + filePath + " -resize " + getXY(sizeType,ImageSize.ICON_SIZE)[0] +"x"
 		+ getXY(sizeType,ImageSize.ICON_SIZE)[1]+ " " + iconPath;
 		
 		Runtime runtime = Runtime.getRuntime();
