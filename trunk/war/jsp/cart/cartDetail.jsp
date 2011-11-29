@@ -93,7 +93,7 @@
 									<c:forEach items="${item.userOptions}" var="opt">
 										<c:if test="${opt.name eq 'Color' }">
 											<div style="padding: 3px">
-												<span style="border-color:${opt.value};display:inline-block;border-style: solid;border-width: 9px;" class="select_daffodil"></span>
+												<img alt='${fn:split(opt.value,"##")[0] }' src='${fn:split(opt.value,"##")[1] }' title='${fn:split(opt.value,"##")[0] }' width="24" height="24">
 											</div>
 										</c:if>
 									</c:forEach>
