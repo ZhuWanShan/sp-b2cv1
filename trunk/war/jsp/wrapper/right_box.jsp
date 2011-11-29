@@ -88,6 +88,7 @@
 		</style>
 	<c:forEach items="${tabData.tabs}" var="tabContent" varStatus="idx" step="1">
 		<c:if test="${idx.index == 0}">
+		<ss:cal imgSize="THUM_SIZE" prodList="${tabContent.products}" width="164" paddingSize="dmPaddingSize" heightVal="dmHeightVal">
 		<div class="daily_madness" style="display: block;">
 		<!-- Needn't use it temporarily -->
 		<%-- <jsp:include page="daily_madness_title.jsp"></jsp:include> --%>
@@ -98,7 +99,7 @@
 						<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${tabProduct.name}" 
 						   title="${tabProduct.title}">
 							<c:if test='${tabProduct.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
-							<img style="width:164px; padding-top:${(226-164)/2}px;" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}" alt="${tabProduct.title}" />
+							<img style="width:164px; padding-top:${dmPaddingSize}px;padding-bottom:${dmPaddingSize}px;" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}" alt="${tabProduct.title}" />
 							</c:if>
 							<c:if test='${tabProduct.images[0].strSizeType eq "PRODUCT_NORMAL"}'>
 							<img style="width:164px;" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}" alt="${tabProduct.title}" />
@@ -124,8 +125,10 @@
 			</c:forEach>
 			</ul>
 		</div>
+		</ss:cal>
 		</c:if>
 		<c:if test="${idx.index > 0}">
+		<ss:cal imgSize="THUM_SIZE" prodList="${tabContent.products}" width="97" paddingSize="slPaddingSize" heightVal="slHeightVal">
 		<div id="Spotlight" class="Spotlight${idx.index}" style="display: none;">
 			<div class="other_Progoods" id="spotlightList">
 				<div>
@@ -135,7 +138,7 @@
 							<a title="${tabProduct.name}"
 								href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${tabProduct.name}">
 								<c:if test='${tabProduct.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
-								<img style="padding-top:${(145-97)/2}px;padding-bottom:${(145-97)/2}px;" alt="${tabProduct.name}"
+								<img style="padding-top:${slPaddingSize}px;padding-bottom:${slPaddingSize}px;" alt="${tabProduct.name}"
 								     src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}">
 								</c:if>
 								<c:if test='${tabProduct.images[0].strSizeType eq "PRODUCT_NORMAL"}'>
@@ -164,6 +167,7 @@
 				</div>
 			</div>
 		</div>
+		</ss:cal>
 		</c:if>
 	</c:forEach>
 	</div>
