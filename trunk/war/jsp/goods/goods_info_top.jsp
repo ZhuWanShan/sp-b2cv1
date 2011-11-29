@@ -202,7 +202,11 @@
 										<c:forEach items="${option.items}" begin="0" end="0" var="item">
 											<img alt="${item.name}" src="${item.value}">
 										</c:forEach>
-										<span id="colorWindow-largeDESC" style="width: 20px"></span><br>
+										<table align="center" width="90%">
+											<tr align="center">
+												<td align="center"><span id="colorWindow-largeDESC" style="height: 20px"></span><br></td>
+											</tr>
+										</table>
 										<button type="button">OK</button>
 									</div>
 									
