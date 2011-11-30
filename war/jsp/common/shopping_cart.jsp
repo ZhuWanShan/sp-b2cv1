@@ -12,7 +12,7 @@
 						<span><a
 							onclick="javascript:document.getElementById('universalCart').style.display='none';"
 							href="javascript:void(0)"><img
-								src="http://www.mlo.me/image/endefault/btn-closeCart.gif"
+								src="/im/btn-closeCart.gif"
 								alt="close cart">
 						</a>
 						</span>${shoppingcart.itemCount} Item(s) in the Shopping Bag
