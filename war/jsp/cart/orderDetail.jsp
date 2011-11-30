@@ -106,7 +106,7 @@
 											<c:choose>
 											<c:when test="${opt.name eq 'Color' }">
 												<span>${opt.name } :</span>
-												<span style="border-color:${opt.value};display:inline-block;border-style: solid;border-width: 9px;" class="select_daffodil"></span>
+												<img alt='${fn:split(opt.value,"##")[0] }' src='${fn:split(opt.value,"##")[1] }' title='${fn:split(opt.value,"##")[0] }' width="18" height="18">
 											</c:when>
 											<c:otherwise>
 												<span>${opt.name } :</span>
