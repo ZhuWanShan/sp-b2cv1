@@ -282,7 +282,7 @@ intro_func('style1');
 							<div class="ItemSpecificationBottom"></div>
 						</div>
 						<div class="needtoknow">
-							<h5>Shopping from milanoo.com, you might need to know those
+							<h5>Shopping from honeybuy.com, you might need to know those
 								points as follows:</h5>
 							<div class="howtouse">
 								<img
@@ -320,7 +320,7 @@ intro_func('style1');
 									photographs.</li>
 								<li>We recommend back of the dress be made into the style
 									of corset or bandage if there is no picture available to
-									display on Milanoo.com.</li>
+									display on honeybuy.com.</li>
 							</ul>
 						</div>
 						<div class="sp_content">
@@ -1946,7 +1946,7 @@ if(a2||a3)
 					<div class="item_reviews_reply">
 						<div class="item_reviews_reply_box">
 							<div class="item_reviews_reply_user">
-								<span><strong>Reply</strong> by Milanoo.com</span> 2011-7-21
+								<span><strong>Reply</strong> by honeybuy.com</span> 2011-7-21
 								22:54:45
 							</div>
 							<div class="item_reviews_reply_content">
@@ -1986,7 +1986,7 @@ if(a2||a3)
 					<div class="item_reviews_reply">
 						<div class="item_reviews_reply_box">
 							<div class="item_reviews_reply_user">
-								<span><strong>Reply</strong> by Milanoo.com</span> 2011-7-12
+								<span><strong>Reply</strong> by honeybuy.com</span> 2011-7-12
 								13:43:41
 							</div>
 							<div class="item_reviews_reply_content">
@@ -2026,7 +2026,7 @@ if(a2||a3)
 					<div class="item_reviews_reply">
 						<div class="item_reviews_reply_box">
 							<div class="item_reviews_reply_user">
-								<span><strong>Reply</strong> by Milanoo.com</span> 2011-7-12
+								<span><strong>Reply</strong> by honeybuy.com</span> 2011-7-12
 								13:37:45
 							</div>
 							<div class="item_reviews_reply_content">
@@ -2068,7 +2068,7 @@ if(a2||a3)
 					<div class="item_reviews_reply">
 						<div class="item_reviews_reply_box">
 							<div class="item_reviews_reply_user">
-								<span><strong>Reply</strong> by Milanoo.com</span> 2011-7-4
+								<span><strong>Reply</strong> by honeybuy.com</span> 2011-7-4
 								22:35:09
 							</div>
 							<div class="item_reviews_reply_content">
@@ -2100,10 +2100,10 @@ if(a2||a3)
 	{
 		if (style=='style1')
 		{
-			str_info = "&lt;p&gt;Milanoo.com is a professional apparel online retailer, having our own factory with 5 years of apparel production experience, and focusing on providing the best price items for the customer. Want to take a look of Milanoo.com Wedding Factory and more details? &lt;a href='#' onclick='window.showModalDialog(\"http://www.milanoo.com/image/endefault/mobantupian/wedding_production/wedding_production.htm\",\"_blank\",\"center:no;dialogTop:0;dialogLeft:0;dialogWidth:990px;dialogHeight:600px;scroll:yes;\")'&gt;Click Here&lt;/a&gt; →&lt;/p&gt;";
+			str_info = "&lt;p&gt;honeybuy.com is a professional apparel online retailer, having our own factory with 5 years of apparel production experience, and focusing on providing the best price items for the customer. Want to take a look of honeybuy.com Wedding Factory and more details? &lt;a href='#' onclick='window.showModalDialog(\"http://www.honeybuy.com/image/endefault/mobantupian/wedding_production/wedding_production.htm\",\"_blank\",\"center:no;dialogTop:0;dialogLeft:0;dialogWidth:990px;dialogHeight:600px;scroll:yes;\")'&gt;Click Here&lt;/a&gt; →&lt;/p&gt;";
 		}else if(style=='style2')
 		{
-			str_info = "&lt;p&gt;Milanoo.com is a professional apparel online retailer, having our own factory with 5 years of apparel production experience, and focusing on providing the best price items for the customer. Want to take a look of Milanoo.com Wedding Factory and more details? &lt;a href='#' onclick='window.showModalDialog(\"http://www.milanoo.com/image/endefault/mobantupian/wedding_production/wedding_production.htm\",\"_blank\",\"center:no;dialogTop:0;dialogLeft:0;dialogWidth:990px;dialogHeight:600px;scroll:yes;\")'&gt;Click Here&lt;/a&gt; →&lt;/p&gt;";
+			str_info = "&lt;p&gt;honeybuy.com is a professional apparel online retailer, having our own factory with 5 years of apparel production experience, and focusing on providing the best price items for the customer. Want to take a look of honeybuy.com Wedding Factory and more details? &lt;a href='#' onclick='window.showModalDialog(\"http://www.honeybuy.com/image/endefault/mobantupian/wedding_production/wedding_production.htm\",\"_blank\",\"center:no;dialogTop:0;dialogLeft:0;dialogWidth:990px;dialogHeight:600px;scroll:yes;\")'&gt;Click Here&lt;/a&gt; →&lt;/p&gt;";
 		}
 		if(str_info &amp;&amp; $('intro'))$('intro').innerHTML=str_info;
 		return;
@@ -2195,10 +2195,10 @@ if(a2||a3)
 						<div class="zkm">
 							<span>Code:</span><input type="text" class="input_code"
 								maxlength="4" size="4" name="VCode">
-							<script type="text/javascript">document.write("&lt;a href=\"javascript:changeimg('pl')\"&gt;&lt;img id='vfcodepl' src='http://www.milanoo.com/?action=authcode&amp;act=pl&amp;",Math.random(),"' style='border:1px solid #e4eef9' align=\"absmiddle\" alt=\"Try a different image\"&gt;&lt;/a&gt;");</script>
+							<script type="text/javascript">document.write("&lt;a href=\"javascript:changeimg('pl')\"&gt;&lt;img id='vfcodepl' src='http://www.honeybuy.com/?action=authcode&amp;act=pl&amp;",Math.random(),"' style='border:1px solid #e4eef9' align=\"absmiddle\" alt=\"Try a different image\"&gt;&lt;/a&gt;");</script>
 							<a href="javascript:changeimg('pl')"><img align="absmiddle"
 								alt="Try a different image" style="border: 1px solid #e4eef9"
-								src="http://www.milanoo.com/?action=authcode&amp;act=pl&amp;0.5133482569780278"
+								src="http://www.honeybuy.com/?action=authcode&amp;act=pl&amp;0.5133482569780278"
 								id="vfcodepl"> </a>
 						</div>
 						<input type="submit" value="Submit" class="item_reviews_submit">
@@ -2220,7 +2220,7 @@ if(a2||a3)
 			<!-- class="complete_look" to high pic -->
 			<li><a
 				title="Stylish Coffee 100% Viscose Feather Patterned Ladies Maxi Dress"
-				href="http://www.milanoo.com/Stylish-Coffee-100-Viscose-Feather-Patterned-Ladies-Maxi-Dress-p73533.html"><img
+				href="http://www.honeybuy.com/Stylish-Coffee-100-Viscose-Feather-Patterned-Ladies-Maxi-Dress-p73533.html"><img
 					width="80" height="105" border="0"
 					alt="Stylish Coffee 100% Viscose Feather Patterned Ladies Maxi Dress"
 					src="http://www.mlo.me/upen/m/20110516/Stylish-Coffee-Viscose-Feather-Patterned-Ladies-Maxi-Dress-73533-1.jpg">
@@ -2229,7 +2229,7 @@ if(a2||a3)
 			</li>
 			<li><a
 				title="Wonderful Gray 100% Viscose Feather Patterned Womens Maxi Dress"
-				href="http://www.milanoo.com/Wonderful-Gray-100-Viscose-Feather-Patterned-Womens-Maxi-Dress-p73527.html"><img
+				href="http://www.honeybuy.com/Wonderful-Gray-100-Viscose-Feather-Patterned-Womens-Maxi-Dress-p73527.html"><img
 					width="80" height="105" border="0"
 					alt="Wonderful Gray 100% Viscose Feather Patterned Womens Maxi Dress"
 					src="http://www.mlo.me/upen/m/20110516/Wonderful-Gray-Viscose-Feather-Patterned-Womens-Maxi-Dress-73527-2.jpg">
@@ -2238,7 +2238,7 @@ if(a2||a3)
 			</li>
 			<li><a
 				title="Chinoiserie Indigo Blue  Sleeveless Chiffon Womens Dress"
-				href="http://www.milanoo.com/Chinoiserie-Indigo-Blue-Sleeveless-Chiffon-Womens-Dress-p83749.html"><img
+				href="http://www.honeybuy.com/Chinoiserie-Indigo-Blue-Sleeveless-Chiffon-Womens-Dress-p83749.html"><img
 					width="80" height="105" border="0"
 					alt="Chinoiserie Indigo Blue  Sleeveless Chiffon Womens Dress"
 					src="http://www.mlo.me/upen/m/2011/201106/20110627/20110627113754_2_D6E7.jpg">
@@ -2247,7 +2247,7 @@ if(a2||a3)
 			</li>
 			<li><a
 				title="Ball Gown Lace Square-Neckline With Waist Ribbon Chapel Train Taffeta Satin Wedding Gown"
-				href="http://www.milanoo.com/Ball-Gown-Lace-Square-Neckline-With-Waist-Ribbon-Chapel-Train-Taffeta-Satin-Wedding-Gown-p3776.html"><img
+				href="http://www.honeybuy.com/Ball-Gown-Lace-Square-Neckline-With-Waist-Ribbon-Chapel-Train-Taffeta-Satin-Wedding-Gown-p3776.html"><img
 					width="80" height="105" border="0"
 					alt="Ball Gown Lace Square-Neckline With Waist Ribbon Chapel Train Taffeta Satin Wedding Gown"
 					src="http://www.mlo.me/upen/m/200809/Ball-Gown-Lace-Square-Neckline-With-Waist-Ribbon-Chapel-Train-Taffeta-Satin-Wedding-Gown-3776-1.jpg">

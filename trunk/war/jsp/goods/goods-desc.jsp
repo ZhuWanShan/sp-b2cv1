@@ -38,7 +38,7 @@
 .notice_content ul li {
 	list-style: none;
 	background:
-		url(http://www.milanoo.com/image/endefault/mobantupian/images/cirle.jpg)
+		url(http://www.honeybuy.com/image/endefault/mobantupian/images/cirle.jpg)
 		no-repeat left 7px;
 	padding-left: 12px;
 }

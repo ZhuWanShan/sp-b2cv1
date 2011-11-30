@@ -157,7 +157,7 @@
 								<td>&nbsp;</td>
 								<td valign="top" style="font-size: 10px;" class="W260">We
 									ask for your phone number just incase we need to reach you for
-									any reason regarding your order with Milanoo.com. We do not
+									any reason regarding your order with honeybuy.com. We do not
 									rent, share, or sell your personal information. Ever.</td>
 							</tr>
 						</tbody>

@@ -41,7 +41,7 @@
 		</script>
 		<div id="safe_box">
 		<%-- 
-			<p id="descript">Security of shopping on Milanoo is guaranteed!</p>
+			<p id="descript">Security of shopping on honeybuy is guaranteed!</p>
 			<p>
 				<a href="javascript:void(0);" target="_blank"><img
 				src="#">
