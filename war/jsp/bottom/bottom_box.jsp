@@ -4,9 +4,9 @@
 			<div class="hei10"></div>
 		</div>
 		
-		<!--div class="float_left Light_gray2 fontbold shareus">SHARE US TO:<a href="#"><img src="http://www.mlo.me/image/endefault/share_logom.gif" alt="milanoo" /></a> <a rel="nofollow" href="#"><img src="http://www.mlo.me/image/endefault/share_logot.gif" alt="twitter" /></a> <a rel="nofollow" href="#"><img src="http://www.mlo.me/image/endefault/share_logof.gif" alt="facebook" /></a> <a rel="nofollow" href="#"><img src="http://www.mlo.me/image/endefault/share_logoy.gif" alt="youtube" /></a></div-->
+		<!--div class="float_left Light_gray2 fontbold shareus">SHARE US TO:<a href="#"><img src="http://www.mlo.me/image/endefault/share_logom.gif" alt="honeybuy" /></a> <a rel="nofollow" href="#"><img src="http://www.mlo.me/image/endefault/share_logot.gif" alt="twitter" /></a> <a rel="nofollow" href="#"><img src="http://www.mlo.me/image/endefault/share_logof.gif" alt="facebook" /></a> <a rel="nofollow" href="#"><img src="http://www.mlo.me/image/endefault/share_logoy.gif" alt="youtube" /></a></div-->
 		<div class="float_left">
-			<form onsubmit="return checksearch();" id="formss1" name="formss1" method="post" action="http://www.milanoo.com/search">
+			<form onsubmit="return checksearch();" id="formss1" name="formss1" method="post" action="http://www.honeybuy.com/search">
 				<div class="search_box">
 					<input type="hidden" value="0" name="class"> <input
 						type="text" autocomplete="off"

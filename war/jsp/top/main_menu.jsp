@@ -106,7 +106,7 @@
 						</div>
 						<ul class="topNavClassAd">
 							<li>
-								<a href="http://www.milanoo.com/promotions/specials-id-1491.html?intcmp=EN_DHWD3_08192011">
+								<a href="http://www.honeybuy.com/promotions/specials-id-1491.html?intcmp=EN_DHWD3_08192011">
 									
 								</a>
 							<c:if test="${empty specialOffer.value[0].url}">

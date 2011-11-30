@@ -48,7 +48,7 @@
 					</form>
 					<div class="indexlogin">
 						<p class="lineheight15 font_size11">Create account for
-							benefits like faster checkout to make shopping milanoo.com even
+							benefits like faster checkout to make shopping honeybuy.com even
 							easier.</p>
 						<div class="hei5"></div>
 						<input type="button" value="CREATE AN ACCOUNT" class="button_01"
