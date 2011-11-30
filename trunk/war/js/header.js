@@ -159,6 +159,7 @@ jq('#top_Cart').mouseover(function(){
 		//jq('#universalCart').hideTime('stop');
 		jq('#universalCart').show();
 	}else{
+		jq('#universalCart').show();
 	}
 }).mouseout(function(){
 	jq('#universalCart').hide();
