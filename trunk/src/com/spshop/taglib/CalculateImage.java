@@ -6,8 +6,6 @@ import java.util.List;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import org.apache.commons.collections.CollectionUtils;
-
 import com.spshop.admin.shared.ImageSize;
 import com.spshop.model.Image;
 import com.spshop.model.Product;
@@ -35,7 +33,7 @@ public class CalculateImage extends TagSupport {
         Float maxH = 0f;
         Float minH = 600f;
         
-        if (CollectionUtils.isNotEmpty(this.prodList)) {
+        if (null != this.prodList) {
             Float tempW = 0f;
             Float tempH = 0f;
             for (Product p : prodList) {
