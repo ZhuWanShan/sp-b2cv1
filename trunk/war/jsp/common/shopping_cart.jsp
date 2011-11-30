@@ -42,5 +42,17 @@
 		</div>
 		<div class="box_bottom"></div>
 	</div>
-
+	<script type="text/javascript">
+		jq('#top_Cart').mouseover(function(){
+			if(jq('#universalCart').is(':visible')){
+				jq('#universalCart').hideTime('stop');
+				alert("show");
+			}else{
+				alert("already SHOW");
+			}
+		}).mouseout(function(){
+			jq('#universalCart').hideTime('stop').hideTime(150,['fadeOut',[100]]);
+			alert("out");
+		});
+	</script>
 </div>
