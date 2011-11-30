@@ -156,11 +156,12 @@ $ts_menu.children('li').w_hoverClass({css:'acitve'})
 //购物车
 jq('#top_Cart').mouseover(function(){
 	if(jq('#universalCart').is(':visible')){
-		jq('#universalCart').hideTime('stop');
+		//jq('#universalCart').hideTime('stop');
+		jq('#universalCart').show();
 	}else{
 	}
 }).mouseout(function(){
-	jq('#universalCart').hideTime('stop').hideTime(150,['fadeOut',[100]]);
+	jq('#universalCart').hide();
 });
 //会员登录改ajax操作
 function loginAjax(loginusername,loginuserpass,loginmethod,url){
