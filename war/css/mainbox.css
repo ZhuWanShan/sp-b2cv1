@@ -10,7 +10,7 @@
 .index_item_words h3{font-size:14px;}
 .index_item_words h3 a{color:#6B353F;}
 .index_item_words div{width:133px; color:#727272;}
-/*7.4*/.index_tab{height:424px; overflow:hidden;}
+/*7.4*/.index_tab{height:800px; overflow:hidden;}
 .index_left{overflow:hidden;}
 .index_content01{}
 .index_content01 .index_left .feature_list li h4 a{color:#333333;}
@@ -19,7 +19,7 @@
 .Promotions_tab h3{ float:left; border-right:#beb7b0 solid 1px; padding:0 12px; line-height:39px; color:#614f11; cursor:pointer; text-shadow:0 1px 0 rgba(255, 255, 255, 0.8); font-size:12px;}
 .Promotions_tab h3.link_now{ background:url(Promotions_tabon.gif) repeat-x; color:#4a1805;}
 /*7.4每日抢购样式修改*/
-.tab_content{ height:385px; background:#FBF9F7; position:relative; overflow:hidden;}
+.tab_content{ height:770px; background:#FBF9F7; position:relative; overflow:hidden;}
 .daily_madness{ padding:0 0 0 8px;}
 .daily_madness li{ overflow:visible; position:relative; height:320px; margin:10px 8px 30px;}
 .countdown_sun{ float:none; clear:right;}
