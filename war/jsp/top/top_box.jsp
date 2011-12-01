@@ -15,7 +15,7 @@
 			<a target="_blank" href="${site.featuredCatURL}">
 				<span style="width:165px;height:50px;background: url(${site.featuredCat.noChangeUrl }) no-repeat 0px 0px;display:inline-block;float:left" ></span>
 			</a>
-			<a target="_blank" href="${site.deliveryURL}"><img style="width: 165px;height: 50px;background: url(${site.delivery.noChangeUrl }) no-repeat 0px 0px;;display:inline-block;float:left"/>
+			<a target="_blank" href="${site.deliveryURL}"><span style="width: 165px;height: 50px;background: url(${site.delivery.noChangeUrl }) no-repeat 0px 0px;;display:inline-block;float:left"></span>
 			</a>
 		</div>
 		<jsp:include page="main_menu.jsp"></jsp:include>
