@@ -5,4 +5,5 @@
 			${site.sideBar}
 		</ss:site>
 	</div>
+	<jsp:include page="mail_box.jsp"></jsp:include>
 </div>
