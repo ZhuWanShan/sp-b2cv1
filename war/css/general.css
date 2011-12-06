@@ -167,7 +167,7 @@ input,select{font-family:Arial, Helvetica, sans-serif;}
 .sarea99 {background-image: url(sarea99.png); background-repeat: no-repeat; background-position: left top; height: 30px; width: 31px; position: absolute; z-index: 2; bottom: 0px; right: 0px; }
 .ContinueShopping{padding:5px 8px;font-weight: bold;}
 /**********邮件订阅*****************/
-.Mail_subscription{height:244px;background:url(email_bg.gif) no-repeat;position:relative;margin-top: 10px;}
+.Mail_subscription{position:relative;margin-top: 10px;}
 .Mail_subscription .login_input{position:absolute;top:166px;left:18px;color:#888;text-align:center;border:#716e62 solid 1px;}
 .Mail_subscription .button_01{position:absolute;top:203px;left:50px;}
 /**********列表****************/
