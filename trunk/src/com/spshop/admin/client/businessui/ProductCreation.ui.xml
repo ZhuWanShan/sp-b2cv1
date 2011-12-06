@@ -154,7 +154,10 @@
 								<g:Label text="Manual:"/>
 							</g:customCell>
 							<g:customCell>
-								<g:Button text="Select A Manual" ui:field="manualPicker"/>
+								<g:HorizontalPanel>
+									<g:Button text="Select A Manual" ui:field="manualPicker"/>
+									<g:Button text="Remove Manual" ui:field="removeManual"/>
+								</g:HorizontalPanel>
 							</g:customCell>
 						</g:row>
 					</g:Grid>
