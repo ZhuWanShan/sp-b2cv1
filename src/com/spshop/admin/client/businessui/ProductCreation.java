@@ -1,6 +1,7 @@
 package com.spshop.admin.client.businessui;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -65,6 +66,7 @@ public class ProductCreation extends Composite{
 	@UiField TabLayoutPanel host;
 	@UiField CheckBox showLikeButton;
 	@UiField Button manualPicker;
+	@UiField Button removeManual;
 	@UiField TabLayoutPanel manual;
 	
 	private Product product;
@@ -260,6 +262,26 @@ public class ProductCreation extends Composite{
 		}).execute();
 	}
 	
+	@UiHandler("removeManual")
+	void onRemoveManualClick(ClickEvent event) {
+		String mannualKey = getProduct().getManualKey() == null?"" : getProduct().getManualKey();
+		List<String> ks = Arrays.asList(mannualKey.split(","));
+		List<String> keys = new ArrayList<String>();
+		keys.addAll(ks);
+		int index = getManual().getSelectedIndex();
+		
+		keys.remove(index);
+		mannualKey = "";
+		for (String key : keys) {
+			mannualKey = mannualKey+key+",";
+		}
+		if(mannualKey.indexOf(',')!=-1){
+			mannualKey=mannualKey.substring(0, mannualKey.lastIndexOf(','));
+		}
+		getProduct().setManualKey(mannualKey);
+		getManual().remove(index);
+	}
+	
 	@UiHandler("manualPicker")
 	void onManualPickerClick(ClickEvent event) {
 		
@@ -268,18 +290,23 @@ public class ProductCreation extends Composite{
 			@Override
 			public void callBack(List<Component> selectedItems) {
 			//	HTML html = (HTML)selectedItems.get(0);
-				String mannualKey = "";
+				String mannualKey = getProduct().getManualKey() == null?"" : getProduct().getManualKey()+",";
+				List<String> keys = Arrays.asList(mannualKey.split(","));
 				if(null!=selectedItems){
 					for (int i = 0; i < selectedItems.size(); i++) {
-						mannualKey = mannualKey + selectedItems.get(i).getId();
-						if(i < selectedItems.size()-1){
-							mannualKey = mannualKey+",";
+						if(!keys.contains(selectedItems.get(i).getId()+"")){
+							mannualKey = mannualKey + selectedItems.get(i).getId()+",";
 						}
 					}
 				}
 				
+				mannualKey=mannualKey.substring(0, mannualKey.lastIndexOf(','));
+				
 				getProduct().setManualKey(mannualKey);
 				final PopWindow load = PopWindow.createLoading("Update recommend").lock();
+				
+				final String key = mannualKey;
+				
 				AdminWorkspace.ADMIN_SERVICE_ASYNC.getHTMLs(mannualKey, 
 				new AsyncCallbackAdapter<List<HTML>>(){
 					@Override
@@ -288,8 +315,12 @@ public class ProductCreation extends Composite{
 						/*
 						getManual().add(new com.google.gwt.user.client.ui.HTML(rs.getContent()));
 						load.hide();*/
-						for (HTML html : htmls) {
-							getManual().add(createManualPanel(html.getContent()), html.getName());
+						for(String id : Arrays.asList(key.split(","))){
+							for (HTML html : htmls) {
+								if(id.equalsIgnoreCase(html.getId()+"")){
+									getManual().add(createManualPanel(html.getContent()), html.getName());
+								}
+							}
 						}
 						RootPanel.get().remove(load);
 					}
