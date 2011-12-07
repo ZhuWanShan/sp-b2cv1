@@ -17,28 +17,11 @@
 			<p>
 				SHIPPING: <span id="cDileveryPrice">${defaultPrice }</span>
 			</p>
-
-			<input type="button" value="CHECKOUT"
-				onclick="cartCheckOut()">
+			<form action="/shoppingCart" method="post">
+				<input type="hidden" name="operation" value="goToCheck">
+				<input type="submit" value="CHECKOUT">
+			</form>
 		</div>
-		
-		<script type="text/javascript">
-			var userID = ${(not empty userInfo)?userInfo.id:0};
-			var addressType = jq("#OrderAddressTypeID").val();
-			function cartCheckOut(){
-				if(userID){
-					
-				}else if(addressType=='MA'){
-					alert("login please...");
-					return null;
-				}else if(addressType!='LA'){
-					alert("login please...");
-					return null;
-				}
-				
-				jq("#cartCheckOut").submit();
-			}			
-		</script>
 		<div id="safe_box">
 		<%-- 
 			<p id="descript">Security of shopping on honeybuy is guaranteed!</p>

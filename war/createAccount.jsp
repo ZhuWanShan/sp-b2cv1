@@ -5,7 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
-	
+	<base href="http://${pageForm.site.domain }/" />
 	<title>Create a new Account</title>
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -57,7 +57,7 @@
 					<h3>Returning Guests</h3>
 					<div class="blue_word">If you have an account, please Login.</div>
 				</div>
-				<form action="/login" method="post">
+				<form action="${processCheckWithoutLogin?'/login/cmd/goto_check':'/login' }" method="post">
 					<ul class="table_ul1 loginReg">
 						<li>Your E-mail address: <input name="loginEmail" id="loginEmail" type="text" size="35" maxlength="50" />
 							<div class="message_yes"></div>
@@ -67,12 +67,23 @@
 						<li>
 							<a href="recoveryPassword.jsp">Forgot your password? Click here</a>
 						</li>
-						<li>${pageForm.pageProperties.loginError}</li>
+						<c:if test="${pageForm.pageProperties.loginError}">
+							<li>${pageForm.pageProperties.loginError}</li>
+						</c:if>
 					</ul>
 					<div class="putIn_box2">
-						<input type="hidden" name="<%=AllConstants.ACTION %>" value="<%=AllConstants.LOGIN_ACTION %>"/>
+						<input type="hidden" name="<%=AllConstants.ACTION %>" value="<%=AllConstants.LOGIN_ACTION %>" />
 						<input type="submit" class="submit_blue1" value="Login" />
 					</div>
+					<c:if test="${processCheckWithoutLogin }">
+						<ul class="table_ul1 loginReg">
+							<li>You can purchase from Honeybuy.com without an account. You can register one next time.</li>
+						</ul>
+						<div class="putIn_box2">
+								<input type="hidden" name="asGeust" value="true"></input>
+								<input type="submit" class="submit_blue1" value="As Guset" />
+						</div>
+					</c:if>
 				</form>
 			</div>
 			<div class="hei10"></div>

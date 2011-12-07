@@ -247,9 +247,11 @@ public class ProductOptionCreation extends Composite implements ChangeObservable
 				if(null != option.getItems()){
 					for (ProductOptionItem productOptionItem : option.getItems()) {
 						boolean hasOpt = false;
-						for (ProductOptionItem productOptionItem2 : items) {
-							if(productOptionItem.getValue().equalsIgnoreCase(productOptionItem2.getValue())){
-								hasOpt = true;
+						if(null != productOptionItem.getValue() && productOptionItem.getValue().endsWith(".jpg")){
+							for (ProductOptionItem productOptionItem2 : items) {
+								if(productOptionItem.getValue().equalsIgnoreCase(productOptionItem2.getValue())){
+									hasOpt = true;
+								}
 							}
 						}
 						if(!hasOpt){

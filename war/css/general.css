@@ -335,7 +335,7 @@ input, select{font-size:12px;line-height:1.5em;vertical-align:middle;}
 .main122 div.form_3{float:right;width:380px;overflow:hidden;overflow:hidden;}
 
 .web_title{padding-bottom:8px;color:#666;font:bold 12px/18px Arial, Helvetica, sans-serif;}
-.table_ul1 { list-style: none; clear: both; float: none; padding: 10px 0px 20px 120px; display: block; }
+.table_ul1 { list-style: none; clear: both; float: none; padding: 10px 0px 0px 120px; display: block; }
 .table_ul1 input,
 .table_ul1 select,
 .table_ul1 textarea { margin-top:3px; float: left; padding-bottom: 2px; margin-right: 4px; }

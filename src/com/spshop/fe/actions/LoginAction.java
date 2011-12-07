@@ -8,21 +8,28 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.spshop.cache.SCacheFacade;
 import com.spshop.fe.formbeans.PageFormBean;
-import com.spshop.model.Order;
 import com.spshop.model.User;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.UserService;
 import com.spshop.utils.AllConstants;
 
 public class LoginAction extends BaseAction {
+	public static final String CMD_GOTO_CHECK_WITHOUT_LOGIN ="goto_check";
     @Override
     public ActionForward processer(ActionMapping mapping,
                                    PageFormBean page,
                                    HttpServletRequest request,
                                    HttpServletResponse response) throws Exception {
-
+    	
+    	if(CMD_GOTO_CHECK_WITHOUT_LOGIN.equals(retrieveCMDURL(request))){
+    		request.setAttribute("processCheckWithoutLogin", true);
+    	}
+    	
+    	if("true".equals(request.getParameter("asGeust"))){
+    		return mapping.findForward(AllConstants.SUCCESS_VALUE);
+    	}
+    	
         String action = request.getParameter(AllConstants.ACTION);
         HttpSession session = request.getSession();
         if (AllConstants.LOGIN_ACTION.equals(action)) {
@@ -49,12 +56,12 @@ public class LoginAction extends BaseAction {
             return mapping.findForward(AllConstants.fAILURE_VALUE);
         }
     }
-
+    
     private void populateLoginInfo(HttpServletRequest request, User user) {
         String email = request.getParameter("loginEmail");
         String password = request.getParameter("loginPassword");
         user.setEmail(email);
         user.setPassword(password);
     }
-
+    
 }

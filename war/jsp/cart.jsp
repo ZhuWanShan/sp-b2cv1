@@ -2,6 +2,7 @@
 <%@include file="include.jsp"%>
 <html>
 <head>
+<base href="http://${pageForm.site.domain }/" />
 <link media="all" href="//s7.addthis.com/static/r07/widget58.css"
 	type="text/css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -51,7 +52,9 @@
 		<jsp:include page="wrapper/path_title.jsp"></jsp:include>
 
 		<div class="item_ad_box"></div>
-		<jsp:include page="cart/cartDetail.jsp"></jsp:include>
+		<c:if test="${!showCheckOption }">
+			<jsp:include page="cart/cartDetail.jsp"></jsp:include>
+		</c:if>
 		<jsp:include page="wrapper/delivery.jsp"></jsp:include>
 	</div>
 	<!-- Bottom start -->

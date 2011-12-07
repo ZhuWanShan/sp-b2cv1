@@ -120,4 +120,13 @@ public abstract class BaseAction extends Action {
 		
 		return id;
 	}
+	
+	 protected String retrieveCMDURL(HttpServletRequest request){
+	    	String uri = request.getRequestURI();
+	    	if(uri.indexOf("cmd/")!=-1){
+	    		uri = uri.substring(uri.indexOf("cmd/")+"cmd/".length());
+	    	}
+	    	return uri;
+	 }
+
 }
