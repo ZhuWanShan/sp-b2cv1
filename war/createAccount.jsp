@@ -59,10 +59,10 @@
 				</div>
 				<form action="${processCheckWithoutLogin?'/login/cmd/goto_check':'/login' }" method="post">
 					<ul class="table_ul1 loginReg">
-						<li>Your E-mail address: <input name="loginEmail" id="loginEmail" type="text" size="35" maxlength="50" />
+						<li><span>Your E-mail address:</span> <input name="loginEmail" id="loginEmail" type="text" size="35" maxlength="50" />
 							<div class="message_yes"></div>
 						</li>
-						<li>Password: <input name="loginPassword" type="password" id="loginPassword" size="35" maxlength="20" />
+						<li><span>Password: </span><input name="loginPassword" type="password" id="loginPassword" size="35" maxlength="20" />
 						</li>
 						<li>
 							<a href="recoveryPassword.jsp">Forgot your password? Click here</a>

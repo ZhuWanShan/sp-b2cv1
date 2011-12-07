@@ -338,12 +338,12 @@ input, select{font-size:12px;line-height:1.5em;vertical-align:middle;}
 .table_ul1 { list-style: none; clear: both; float: none; padding: 10px 0px 0px 120px; display: block; }
 .table_ul1 input,
 .table_ul1 select,
-.table_ul1 textarea { margin-top:3px; float: left; padding-bottom: 2px; margin-right: 4px; }
+.table_ul1 textarea { margin-top:3px; padding-bottom: 2px; margin-right: 4px; }
 .table_ul1 li { padding-top: 4px; padding-bottom: 4px; clear: both; float: none; }
 .table_ul1 li i { float: left; font-style: normal; padding: 6px 26px 0px 4px; }
 .table_ul1 li i img { vertical-align: middle; }
 .table_ul1 li font { font-family:Verdana, Geneva, sans-serif; }
-.table_ul1 li span { width:190px; font-size: 13px; font-weight: normal; color: #666666; display: block; float:left; text-align: right; margin-right: 10px; padding-top: 5px; }
+.table_ul1 li span { width:125px; font-size: 13px; font-weight: normal; color: #666666; display: inline-block; float:left; text-align: left; padding-top: 5px; }
 .table_ul1 li .submit_box { float:left; padding-left:20px; }
 .table_ul1 div.payHidd_div { margin-right:19px; margin-left:200px; margin-top: 15px; }
 .payHidd_div { color: #6b6b6b; padding: 5px 10px 10px; border: 1px solid #dddddd; clear: both; float: none; margin: 10px 230px 8px 40px; font-size: 11px; line-height: 1.5em; }
