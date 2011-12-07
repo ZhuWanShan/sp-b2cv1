@@ -46,8 +46,6 @@
 	<jsp:include page="jsp/wrapper/main_box.jsp"></jsp:include>
 	<!-- Main box end -->
 
-	<div class="hei10"></div>
-
 	<div id="allBanner_tmp" class="main_box"
 		style="position: absolute; left: 305.5px; top: 27px;"></div>
 
