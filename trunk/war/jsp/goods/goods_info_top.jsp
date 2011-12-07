@@ -192,7 +192,7 @@
 								name="color@${option.name}"
 								id="goodColor" value="">
 								<select id="productColorSelector">
-									<option value="asp">As first picture</option>
+									<option value="asp">The Same As Picture</option>
 									<option value="other">Select other color</option>
 								</select>
 								
@@ -200,19 +200,26 @@
 									
 									<div class="colorWindow-large">
 										<c:forEach items="${option.items}" begin="0" end="0" var="item">
-											<img alt="${item.name}" src="${item.value}">
+											<c:if test="${fn:endsWith(item.value, '.jpg')}">
+												<img alt="${item.name}" src="${item.value}">
+											</c:if>
 										</c:forEach>
 										<table align="center" width="90%">
+											
 											<tr align="center">
 												<td align="center"><span id="colorWindow-largeDESC" style="height: 20px"></span><br></td>
 											</tr>
+											
 										</table>
 										<button type="button">OK</button>
 									</div>
 									
 									<div class="colorWindow-list">
+									
 										<c:forEach items="${option.items}" begin="1" var="item">
-											<img alt="${item.name}" src="${item.value}" title="${item.name}">
+											<c:if test="${fn:endsWith(item.value, '.jpg')}">
+												<img alt="${item.name}" src="${item.value}" title="${item.name}">
+											</c:if>
 										</c:forEach>
 									</div>
 									<script type="text/javascript">
