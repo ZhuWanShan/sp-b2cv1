@@ -51,6 +51,15 @@
 		</action>
 		
 		<action 
+			path="/login/cmd/goto_check" 
+			type="com.spshop.fe.actions.LoginAction" 
+			name="pageForm"
+			scope="request">
+			<forward name="Success" path="/shopping/cmd/check" redirect="true"></forward>
+			<forward name="Failure" path="/createAccount.jsp"></forward>
+		</action>
+		
+		<action 
 			path="/recoveryPassword" 
 			type="com.spshop.fe.actions.RecoveryPasswordAction" 
 			name="pageForm"
@@ -60,6 +69,14 @@
 		
 		<action 
 			path="/shoppingCart" 
+			type="com.spshop.fe.actions.ShoppingCartAction" 
+			name="pageForm"
+			scope="request">
+			<forward name="Success" path="/jsp/cart.jsp"></forward>
+		</action>
+		
+		<action 
+			path="/shopping/cmd/check" 
 			type="com.spshop.fe.actions.ShoppingCartAction" 
 			name="pageForm"
 			scope="request">

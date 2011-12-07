@@ -51,6 +51,8 @@ public class ShoppingCartAction extends BaseAction {
 	private static final String ADDRESS_PA="PA";
 	private static final String ADDRESS_LA="LA";
 	
+	public static final String CMD_CHECK = "check";
+	
 	@SuppressWarnings("unchecked")
 	private List<UserOption> retriveUserOptions(ServletRequest request){
 		List<UserOption> options = new ArrayList<UserOption>();
@@ -118,12 +120,13 @@ public class ShoppingCartAction extends BaseAction {
 		try {
 			name = request.getParameter(ITEMNAME);
 		} catch (NumberFormatException e) {
+			
 			//e.printStackTrace();
 		}
 		return name;
 	}
 	
-	private String retriveOption(ServletRequest request){
+	private String retriveOperation(ServletRequest request){
 		return request.getParameter(OPERATION);
 	}
 	
@@ -163,6 +166,10 @@ public class ShoppingCartAction extends BaseAction {
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		
+		if(CMD_CHECK.equals(retrieveCMDURL(request))){
+			request.setAttribute("showCheckOption", true);
+		}
+		
 		int country = 0;
 		
 		try {
@@ -181,7 +188,7 @@ public class ShoppingCartAction extends BaseAction {
 		
 		Order order = getCart(request).getOrder();
 		
-		if(ADDITEM.equals(retriveOption(request))){
+		if(ADDITEM.equals(retriveOperation(request))){
 			int qty = retriveQty(request);
 			Product product = SCacheFacade.getProduct(retriveProductId(request));
 			List<UserOption> options = retriveUserOptions(request);
@@ -189,23 +196,29 @@ public class ShoppingCartAction extends BaseAction {
 			getCart(request).addItem(product,options,qty);
 		}
 		
-		if(UPDATEITEM.equals(retriveOption(request))){
+		if(UPDATEITEM.equals(retriveOperation(request))){
 			int qty = retriveQty(request);
 			String itemName = retriveItemName(request);
 			getCart(request).update(itemName,qty);
 		}
 		
-		if(REMOVEITEM.equals(retriveOption(request))){
+		if(REMOVEITEM.equals(retriveOperation(request))){
 			String itemName = retriveItemName(request);
 			getCart(request).remove(itemName);
 		}
 		
-		if("pay".equals(retriveOption(request))){
+		if("pay".equals(retriveOperation(request))){
 			order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
 			clearCart(request);
 		}
-		
-		if(CHECKOUT.equals(retriveOption(request))){
+		if("goToCheck".equals(retriveOperation(request))){
+			if(null == request.getSession().getAttribute(AllConstants.USER_INFO)){
+				response.sendRedirect("/login/cmd/goto_check");
+				return null;
+			}
+			//request.setAttribute("showCheckOption", true);
+		}
+		if(CHECKOUT.equals(retriveOperation(request))){
 			
 			String payment = retrivePaymentType(request);
 			if(PAYMEMT_PAYPAL.equals(payment)){

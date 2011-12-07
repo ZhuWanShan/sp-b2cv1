@@ -2,6 +2,7 @@
 <%@include file="include.jsp"%>
 <html>
 <head>
+<base href="http://${pageForm.site.domain }/" />
 <link media="all" href="//s7.addthis.com/static/r07/widget58.css"
 	type="text/css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">

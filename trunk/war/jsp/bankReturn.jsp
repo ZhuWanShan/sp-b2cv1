@@ -2,7 +2,7 @@
 <%@include file="include.jsp" %>
 <html>
 <head>
-
+<base href="http://${pageForm.site.domain }/" />
 </head>
 <body onload="javascript:window.location.href='checkOut.do'">
 
