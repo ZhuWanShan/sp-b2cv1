@@ -200,9 +200,7 @@
 									
 									<div class="colorWindow-large">
 										<c:forEach items="${option.items}" begin="0" end="0" var="item">
-											<c:if test="${fn:endsWith(item.value, '.jpg')}">
-												<img alt="${item.name}" src="${item.value}">
-											</c:if>
+											<img alt="${item.name}" src="${fn:endsWith(item.value, '.jpg')?item.value:''}">
 										</c:forEach>
 										<table align="center" width="90%">
 											
