@@ -50,9 +50,11 @@ public class ProdOptionItemCreation extends Composite implements ChangeObservabl
 	public void setOptionItem(ProductOptionItem optionItem, SelectType type) {
 		this.optionItem = optionItem;
 		if(type == SelectType.COLOR_SINGLE){
-			Image img = new Image(optionItem.getValue());
-			img.setSize("20px", "20px");
-			this.value.add(img); 
+			if(null != optionItem.getValue() && optionItem.getValue().endsWith(".jpg")){
+				Image img = new Image(optionItem.getValue());
+				img.setSize("20px", "20px");
+				this.value.add(img); 
+			}
 		}else{
 			final TextBox tb = new TextBox();
 			tb.addKeyUpHandler(new KeyUpHandler() {
