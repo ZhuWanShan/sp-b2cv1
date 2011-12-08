@@ -40,6 +40,7 @@ public class AllConstants {
 	public static String LOGIN_ACTION = "login";
 	public static String LOGOUT_ACTION = "logout";
 	public static String USER_INFO = "userInfo";
+	public static String SUBSCRIBE_EMAL = "subscribeEmail";
 	
 	public static String CATEGORY_CACHE = "catetoryCache";
 	public static String ORDER_CACHE = "orderCache";

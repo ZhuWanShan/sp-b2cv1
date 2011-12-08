@@ -134,4 +134,8 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
+	<bean id="com.spshop.dao.intf.EmailDAO" class="com.spshop.dao.impl.EmailDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 </beans>

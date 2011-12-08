@@ -26,7 +26,7 @@
 				},
 				{
 					provider: 'email',
-					actionURL: 'http://localhost:8888/c/costumes',
+					actionURL: '/storeEmail',
 					confirmationText:'Thank you for following us',
 					action: 'dialog',
 					title: 'Email'
@@ -45,4 +45,6 @@
 	</script>
 	<br><br>
 	<div id="bar1" style="text-align:center;"></div>
+	<div class="hei10"></div>
+	<jsp:include page="news_letter.jsp"></jsp:include>
 </div>
