@@ -119,7 +119,7 @@ public class ImageCreation extends Composite{
 			links.add(icon);
 			links.add(original);
 			links.setVisible(true);
-			imageType.setEnabled(false);
+			imageType.setEnabled(true);
 		}else{
 			submit.setText("Create");
 			links.clear();
