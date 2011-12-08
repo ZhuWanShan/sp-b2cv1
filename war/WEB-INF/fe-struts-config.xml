@@ -130,6 +130,11 @@
 			<forward name="Success" path="/jsp/editProfile.jsp"></forward>
 		</action>
 		
+		<action path="/storeEmail" type="com.spshop.fe.actions.StoreEmailAction"
+			name="pageForm" scope="request">
+			<forward name="Success" path="/"></forward>
+		</action>
+		
 <!-- 		<action  -->
 <!-- 			path="/keywords/*"  -->
 <!-- 			type="com.spshop.fe.actions.PageAction"  -->

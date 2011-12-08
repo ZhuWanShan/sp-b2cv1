@@ -433,4 +433,14 @@
 		<property name="optionName" length="200"></property>
 		<property name="value" length="200"></property>
 	</class>
+	
+	<class name="Email" table="SHOP_Email">
+		<id name="id" column="ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" length="100"></property>
+		<property name="createDate"></property>
+		<property name="updateDate"></property>
+		<property name="emailAddress" length="100"></property>
+	</class>
 </hibernate-mapping>

@@ -170,4 +170,11 @@
 		<property name="target" ref="com.spshop.service.intf.HTMLService.target" />
 	</bean>
 	
+	<bean id="com.spshop.service.intf.EmailService.target" class="com.spshop.service.impl.EmailServiceImpl">
+	</bean>
+	
+	<bean id="com.spshop.service.intf.EmailService" parent="transactionBase">
+		<property name="target" ref="com.spshop.service.intf.EmailService.target" />
+	</bean>
+	
 </beans>
