@@ -140,12 +140,13 @@ public abstract class BaseAction extends Action {
 	 }
 	 
 	 private void dealURL( HttpServletRequest request, HttpServletResponse response, String domain) throws IOException{
-		/* 
-		 String noPrefixDomain = domain.replaceFirst("(?i)(^http://)(www\\.)*", "");
+		 
+		 String noPrefixDomain = domain.replaceFirst("(?i)(^http://)*(www\\.)*", "");
 		 String url = request.getRequestURL().toString();
 		 if(url.matches(noPrefixDomain)){
-			 response.sendRedirect(domain);
-		 }*/
+			 response.setStatus(301);
+			 response.sendRedirect("http://"+domain);
+		 }
 	 }
 	 
 	 public static void main(String[] args) {
