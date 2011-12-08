@@ -143,13 +143,8 @@ public abstract class BaseAction extends Action {
 		 
 		 String noPrefixDomain = domain.replaceFirst("(?i)(^http://)(www\\.)*", "");
 		 String url = request.getRequestURL().toString();
-		 if(url.startsWith(noPrefixDomain)){
-			 url = url.replaceAll(noPrefixDomain, domain);
-			 if(null != domain){
-				 url = url + "?" + request.getQueryString();
-				 response.setStatus(301);
-				 response.sendRedirect(url);
-			 }
+		 if(url.matches(noPrefixDomain)){
+			 response.sendRedirect(domain);
 		 }
 	 }
 	 
