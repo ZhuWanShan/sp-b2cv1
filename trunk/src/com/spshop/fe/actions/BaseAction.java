@@ -1,5 +1,6 @@
 package com.spshop.fe.actions;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -93,8 +94,17 @@ public abstract class BaseAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		PageFormBean page = (PageFormBean) form;
 		populateSiteInfo(request, page);
+		ActionForward forward = null;
 		
-		return processer(mapping, page, request, response);
+		dealURL(request, response, page.getSite().getDomain());
+		
+		try {
+			forward = processer(mapping, page, request, response);
+		} catch (Exception e) {
+			response.sendError(HttpServletResponse.SC_NOT_FOUND);
+			e.printStackTrace();
+		}
+		return forward;
 	}
 	
 	/**
@@ -128,5 +138,23 @@ public abstract class BaseAction extends Action {
 	    	}
 	    	return uri;
 	 }
-
+	 
+	 private void dealURL( HttpServletRequest request, HttpServletResponse response, String domain) throws IOException{
+		 
+		 String noPrefixDomain = domain.replaceFirst("(?i)(^http://)(www\\.)*", "");
+		 String url = request.getRequestURL().toString();
+		 if(url.startsWith(noPrefixDomain)){
+			 url = url.replaceAll(noPrefixDomain, domain);
+			 if(null != domain){
+				 url = url + "?" + request.getQueryString();
+				 response.setStatus(301);
+				 response.sendRedirect(url);
+			 }
+		 }
+	 }
+	 
+	 public static void main(String[] args) {
+		System.out.println("http://www.google.com".replaceFirst("(?i)(^http://)(www\\.)*", ""));
+		System.out.println("http://google.com".replaceFirst("(?i)(^http://)(www\\.)*", ""));
+	}
 }
