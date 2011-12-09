@@ -142,11 +142,13 @@ public abstract class BaseAction extends Action {
 	 }
 	 
 	 private boolean dealURL( HttpServletRequest request, HttpServletResponse response, String domain) throws IOException{
-		 if(request.getRequestURL().toString().equalsIgnoreCase("http://honeybuy.com")
-				 ||request.getRequestURL().toString().equalsIgnoreCase("http://honeybuy.com/")
-				 ||request.getRequestURL().toString().equalsIgnoreCase("honeybuy.com/")
-				 ||request.getRequestURL().toString().equalsIgnoreCase("honeybuy.com")){
-			 response.sendRedirect("http://www.honeybuy.com");
+		 String url = request.getRequestURL().toString();
+		 if(url.matches("(?i)(^http://honeybuy.com)(.*)")){
+			 url = url.replaceAll("(?i)(^http://)", "http://www.");
+			 if(null != request.getQueryString()){
+				 url = url + "?" + request.getQueryString();
+			 }
+			 response.sendRedirect(url);
 			 return true;
 		 }
 		 return false;
