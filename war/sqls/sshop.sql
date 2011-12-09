@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50515
 File Encoding         : 65001
 
-Date: 2011-10-11 20:52:47
+Date: 2011-11-24 12:29:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -215,16 +215,19 @@ CREATE TABLE `shop_country` (
   `code` varchar(100) DEFAULT NULL,
   `abbrCode` varchar(50) DEFAULT NULL,
   `image_id` bigint(20) DEFAULT NULL,
+  `dePrice` float DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `FK3FD7132DD0E15FA7` (`image_id`),
   KEY `FK3FD7132DBF627AED` (`site_id`),
   CONSTRAINT `FK3FD7132DBF627AED` FOREIGN KEY (`site_id`) REFERENCES `shop_site` (`ID`),
   CONSTRAINT `FK3FD7132DD0E15FA7` FOREIGN KEY (`image_id`) REFERENCES `shop_image` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_country
 -- ----------------------------
+INSERT INTO `shop_country` VALUES ('9', '中国', '2011-10-13 22:45:56', '2011-10-13 22:45:56', null, null, 'CN', null, '15');
+INSERT INTO `shop_country` VALUES ('10', 'United State', '2011-10-13 22:46:44', '2011-10-20 19:06:05', null, null, 'US', null, '20');
 
 -- ----------------------------
 -- Table structure for `shop_coupon`
@@ -316,7 +319,7 @@ CREATE TABLE `shop_html` (
   `name` varchar(100) DEFAULT NULL,
   `createDate` datetime DEFAULT NULL,
   `updateDate` datetime DEFAULT NULL,
-  `content` varchar(255) DEFAULT NULL,
+  `content` text,
   `strExpired` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
@@ -352,7 +355,7 @@ CREATE TABLE `shop_image` (
   PRIMARY KEY (`ID`),
   KEY `FK23D25EB2BF627AED` (`site_id`),
   CONSTRAINT `FK23D25EB2BF627AED` FOREIGN KEY (`site_id`) REFERENCES `shop_site` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=231 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=282 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_image
@@ -579,6 +582,57 @@ INSERT INTO `shop_image` VALUES ('227', 'Lighthouse 52429737000302', '2011-10-09
 INSERT INTO `shop_image` VALUES ('228', 'Penguins 52430482737195', '2011-10-09 00:14:58', '2011-10-09 00:14:58', '1', '/image/Penguins_52430482737195.jpg', '/image/Penguins_52430482737195_690X500.jpg', '/image/Penguins_52430482737195_438X317.jpg', '/image/Penguins_52430482737195.jpg', '/image/Penguins_52430482737195_102X74.jpg', '/image/Penguins_52430482737195_63X46.jpg', '/image/Penguins_52430482737195_265X192.jpg', 'PRODUCT_NORMAL', null, null, null);
 INSERT INTO `shop_image` VALUES ('229', 'Tulips 52431174510094', '2011-10-09 00:14:58', '2011-10-09 00:14:58', '1', '/image/Tulips_52431174510094.jpg', '/image/Tulips_52431174510094_690X500.jpg', '/image/Tulips_52431174510094_438X317.jpg', '/image/Tulips_52431174510094.jpg', '/image/Tulips_52431174510094_102X74.jpg', '/image/Tulips_52431174510094_63X46.jpg', '/image/Tulips_52431174510094_265X192.jpg', 'PRODUCT_NORMAL', null, null, null);
 INSERT INTO `shop_image` VALUES ('230', 'Hydran geas 52431767038470', '2011-10-09 00:14:59', '2011-10-09 00:14:59', '1', '/image/Hydran_geas_52431767038470.jpg', '/image/Hydran_geas_52431767038470_690X500.jpg', '/image/Hydran_geas_52431767038470_438X317.jpg', '/image/Hydran_geas_52431767038470.jpg', '/image/Hydran_geas_52431767038470_102X74.jpg', '/image/Hydran_geas_52431767038470_63X46.jpg', '/image/Hydran_geas_52431767038470_265X192.jpg', 'PRODUCT_NORMAL', null, null, null);
+INSERT INTO `shop_image` VALUES ('231', 'asdasdasdas', '2011-11-14 22:39:16', '2011-11-14 22:39:50', '1', 'asdasdasdas', '/image/15263906929296_690X500.jpg', '/image/15263906929296_438X317.jpg', '/image/15263906929296.jpg', '/image/15263906929296_102X74.jpg', '/image/15263906929296_63X46.jpg', '/image/15263906929296_265X192.jpg', 'PRODUCT_NORMAL', 'INTERNAL', null, null);
+INSERT INTO `shop_image` VALUES ('232', 'asddfasda', '2011-11-15 21:49:03', '2011-11-15 21:50:52', '1', 'asddfasda', '/image/37091215591656_690X500.jpg', '/image/37091215591656_438X317.jpg', '/image/37091215591656.jpg', '/image/37091215591656_102X74.jpg', '/image/37091215591656_63X46.jpg', '/image/37091215591656_265X192.jpg', 'PRODUCT_NORMAL', 'INTERNAL', null, null);
+INSERT INTO `shop_image` VALUES ('233', 'dasdasdas', '2011-11-15 21:51:17', '2011-11-15 21:51:17', '1', 'dasdasdas', '/image/37116502995721_500X500.jpg', '/image/37116502995721_317X317.jpg', '/image/37116502995721.jpg', '/image/37116502995721_74X74.jpg', '/image/37116502995721_46X46.jpg', '/image/37116502995721_192X192.jpg', 'PRODUCT_SQUARE', 'INTERNAL', null, null);
+INSERT INTO `shop_image` VALUES ('234', 'asdasdasd', '2011-11-15 21:51:31', '2011-11-15 21:52:26', '1', 'asdasdasd', '/image/37184991706639_500X500.jpg', '/image/37184991706639_317X317.jpg', '/image/37184991706639.jpg', '/image/37184991706639_74X74.jpg', '/image/37184991706639_46X46.jpg', '/image/37184991706639_192X192.jpg', 'PRODUCT_SQUARE', 'INTERNAL', null, null);
+INSERT INTO `shop_image` VALUES ('235', 'asdasdasd', '2011-11-15 22:11:14', '2011-11-15 22:11:14', '1', 'asdasdasd', '/image/38310546545086_690X500.jpg', '/image/38310546545086_438X317.jpg', '/image/38310546545086.jpg', '/image/38310546545086_102X74.jpg', '/image/38310546545086_63X46.jpg', '/image/38310546545086_265X192.jpg', 'PRODUCT_NORMAL', 'INTERNAL', null, null);
+INSERT INTO `shop_image` VALUES ('236', 'zsdasdasdas', '2011-11-15 22:13:04', '2011-11-15 22:13:04', '1', 'zsdasdasdas', '/image/38420043023058_500X500.jpg', '/image/38420043023058_317X317.jpg', '/image/38420043023058.jpg', '/image/38420043023058_74X74.jpg', '/image/38420043023058_46X46.jpg', '/image/38420043023058_192X192.jpg', 'PRODUCT_SQUARE', 'INTERNAL', null, null);
+INSERT INTO `shop_image` VALUES ('237', 'Chrysanthemum 40073471982823', '2011-11-15 22:40:40', '2011-11-15 22:40:40', '1', '/image/Chrysanthemum_40073471982823.jpg', '/image/Chrysanthemum_40073471982823_690X500.jpg', '/image/Chrysanthemum_40073471982823_438X317.jpg', '/image/Chrysanthemum_40073471982823.jpg', '/image/Chrysanthemum_40073471982823_102X74.jpg', '/image/Chrysanthemum_40073471982823_63X46.jpg', '/image/Chrysanthemum_40073471982823_265X192.jpg', 'PRODUCT_NORMAL', null, null, null);
+INSERT INTO `shop_image` VALUES ('238', 'Desert 40077476898602', '2011-11-15 22:40:44', '2011-11-15 22:40:44', '1', '/image/Desert_40077476898602.jpg', '/image/Desert_40077476898602_690X500.jpg', '/image/Desert_40077476898602_438X317.jpg', '/image/Desert_40077476898602.jpg', '/image/Desert_40077476898602_102X74.jpg', '/image/Desert_40077476898602_63X46.jpg', '/image/Desert_40077476898602_265X192.jpg', 'PRODUCT_NORMAL', null, null, null);
+INSERT INTO `shop_image` VALUES ('239', 'Hydrangeas 40078009950265', '2011-11-15 22:40:45', '2011-11-15 22:40:45', '1', '/image/Hydrangeas_40078009950265.jpg', '/image/Hydrangeas_40078009950265_690X500.jpg', '/image/Hydrangeas_40078009950265_438X317.jpg', '/image/Hydrangeas_40078009950265.jpg', '/image/Hydrangeas_40078009950265_102X74.jpg', '/image/Hydrangeas_40078009950265_63X46.jpg', '/image/Hydrangeas_40078009950265_265X192.jpg', 'PRODUCT_NORMAL', null, null, null);
+INSERT INTO `shop_image` VALUES ('240', 'Jellyfish 40078514868734', '2011-11-15 22:40:45', '2011-11-15 22:40:45', '1', '/image/Jellyfish_40078514868734.jpg', '/image/Jellyfish_40078514868734_690X500.jpg', '/image/Jellyfish_40078514868734_438X317.jpg', '/image/Jellyfish_40078514868734.jpg', '/image/Jellyfish_40078514868734_102X74.jpg', '/image/Jellyfish_40078514868734_63X46.jpg', '/image/Jellyfish_40078514868734_265X192.jpg', 'PRODUCT_NORMAL', null, null, null);
+INSERT INTO `shop_image` VALUES ('241', 'Koala 40079055670933', '2011-11-15 22:40:46', '2011-11-15 22:40:46', '1', '/image/Koala_40079055670933.jpg', '/image/Koala_40079055670933_690X500.jpg', '/image/Koala_40079055670933_438X317.jpg', '/image/Koala_40079055670933.jpg', '/image/Koala_40079055670933_102X74.jpg', '/image/Koala_40079055670933_63X46.jpg', '/image/Koala_40079055670933_265X192.jpg', 'PRODUCT_NORMAL', null, null, null);
+INSERT INTO `shop_image` VALUES ('242', 'Lighthouse 40079583014284', '2011-11-15 22:40:47', '2011-11-15 22:40:47', '1', '/image/Lighthouse_40079583014284.jpg', '/image/Lighthouse_40079583014284_690X500.jpg', '/image/Lighthouse_40079583014284_438X317.jpg', '/image/Lighthouse_40079583014284.jpg', '/image/Lighthouse_40079583014284_102X74.jpg', '/image/Lighthouse_40079583014284_63X46.jpg', '/image/Lighthouse_40079583014284_265X192.jpg', 'PRODUCT_NORMAL', null, null, null);
+INSERT INTO `shop_image` VALUES ('243', 'Penguins 40080028838138', '2011-11-15 22:40:47', '2011-11-15 22:40:47', '1', '/image/Penguins_40080028838138.jpg', '/image/Penguins_40080028838138_690X500.jpg', '/image/Penguins_40080028838138_438X317.jpg', '/image/Penguins_40080028838138.jpg', '/image/Penguins_40080028838138_102X74.jpg', '/image/Penguins_40080028838138_63X46.jpg', '/image/Penguins_40080028838138_265X192.jpg', 'PRODUCT_NORMAL', null, null, null);
+INSERT INTO `shop_image` VALUES ('244', 'Tulips 40080501225103', '2011-11-15 22:40:47', '2011-11-15 22:40:47', '1', '/image/Tulips_40080501225103.jpg', '/image/Tulips_40080501225103_690X500.jpg', '/image/Tulips_40080501225103_438X317.jpg', '/image/Tulips_40080501225103.jpg', '/image/Tulips_40080501225103_102X74.jpg', '/image/Tulips_40080501225103_63X46.jpg', '/image/Tulips_40080501225103_265X192.jpg', 'PRODUCT_NORMAL', null, null, null);
+INSERT INTO `shop_image` VALUES ('245', 'Hydran geas 40080941148562', '2011-11-15 22:40:48', '2011-11-15 22:40:48', '1', '/image/Hydran_geas_40080941148562.jpg', '/image/Hydran_geas_40080941148562_690X500.jpg', '/image/Hydran_geas_40080941148562_438X317.jpg', '/image/Hydran_geas_40080941148562.jpg', '/image/Hydran_geas_40080941148562_102X74.jpg', '/image/Hydran_geas_40080941148562_63X46.jpg', '/image/Hydran_geas_40080941148562_265X192.jpg', 'PRODUCT_NORMAL', null, null, null);
+INSERT INTO `shop_image` VALUES ('246', 'Chrysanthemum 40385026240412', '2011-11-15 22:45:53', '2011-11-15 22:45:53', '1', '/image/Chrysanthemum_40385026240412.jpg', '/image/Chrysanthemum_40385026240412_500X500.jpg', '/image/Chrysanthemum_40385026240412_317X317.jpg', '/image/Chrysanthemum_40385026240412.jpg', '/image/Chrysanthemum_40385026240412_74X74.jpg', '/image/Chrysanthemum_40385026240412_46X46.jpg', '/image/Chrysanthemum_40385026240412_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('247', 'Desert 40386108749518', '2011-11-15 22:45:54', '2011-11-15 22:45:54', '1', '/image/Desert_40386108749518.jpg', '/image/Desert_40386108749518_500X500.jpg', '/image/Desert_40386108749518_317X317.jpg', '/image/Desert_40386108749518.jpg', '/image/Desert_40386108749518_74X74.jpg', '/image/Desert_40386108749518_46X46.jpg', '/image/Desert_40386108749518_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('248', 'Hydrangeas 40386670771857', '2011-11-15 22:45:54', '2011-11-15 22:45:54', '1', '/image/Hydrangeas_40386670771857.jpg', '/image/Hydrangeas_40386670771857_500X500.jpg', '/image/Hydrangeas_40386670771857_317X317.jpg', '/image/Hydrangeas_40386670771857.jpg', '/image/Hydrangeas_40386670771857_74X74.jpg', '/image/Hydrangeas_40386670771857_46X46.jpg', '/image/Hydrangeas_40386670771857_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('249', 'Jellyfish 40387184080112', '2011-11-15 22:45:55', '2011-11-15 22:45:55', '1', '/image/Jellyfish_40387184080112.jpg', '/image/Jellyfish_40387184080112_500X500.jpg', '/image/Jellyfish_40387184080112_317X317.jpg', '/image/Jellyfish_40387184080112.jpg', '/image/Jellyfish_40387184080112_74X74.jpg', '/image/Jellyfish_40387184080112_46X46.jpg', '/image/Jellyfish_40387184080112_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('250', 'Koala 40387651324256', '2011-11-15 22:45:55', '2011-11-15 22:45:55', '1', '/image/Koala_40387651324256.jpg', '/image/Koala_40387651324256_500X500.jpg', '/image/Koala_40387651324256_317X317.jpg', '/image/Koala_40387651324256.jpg', '/image/Koala_40387651324256_74X74.jpg', '/image/Koala_40387651324256_46X46.jpg', '/image/Koala_40387651324256_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('251', 'Lighthouse 40388152089897', '2011-11-15 22:45:56', '2011-11-15 22:45:56', '1', '/image/Lighthouse_40388152089897.jpg', '/image/Lighthouse_40388152089897_500X500.jpg', '/image/Lighthouse_40388152089897_317X317.jpg', '/image/Lighthouse_40388152089897.jpg', '/image/Lighthouse_40388152089897_74X74.jpg', '/image/Lighthouse_40388152089897_46X46.jpg', '/image/Lighthouse_40388152089897_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('252', 'Penguins 40388600435412', '2011-11-15 22:45:56', '2011-11-15 22:45:56', '1', '/image/Penguins_40388600435412.jpg', '/image/Penguins_40388600435412_500X500.jpg', '/image/Penguins_40388600435412_317X317.jpg', '/image/Penguins_40388600435412.jpg', '/image/Penguins_40388600435412_74X74.jpg', '/image/Penguins_40388600435412_46X46.jpg', '/image/Penguins_40388600435412_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('253', 'Tulips 40389097968303', '2011-11-15 22:45:57', '2011-11-15 22:45:57', '1', '/image/Tulips_40389097968303.jpg', '/image/Tulips_40389097968303_500X500.jpg', '/image/Tulips_40389097968303_317X317.jpg', '/image/Tulips_40389097968303.jpg', '/image/Tulips_40389097968303_74X74.jpg', '/image/Tulips_40389097968303_46X46.jpg', '/image/Tulips_40389097968303_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('254', 'Hydran geas 40389556397389', '2011-11-15 22:45:57', '2011-11-15 22:45:57', '1', '/image/Hydran_geas_40389556397389.jpg', '/image/Hydran_geas_40389556397389_500X500.jpg', '/image/Hydran_geas_40389556397389_317X317.jpg', '/image/Hydran_geas_40389556397389.jpg', '/image/Hydran_geas_40389556397389_74X74.jpg', '/image/Hydran_geas_40389556397389_46X46.jpg', '/image/Hydran_geas_40389556397389_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('255', 'Chrysanthemum 40444539940515', '2011-11-15 22:46:52', '2011-11-15 22:46:52', '1', '/image/Chrysanthemum_40444539940515.jpg', '/image/Chrysanthemum_40444539940515_500X500.jpg', '/image/Chrysanthemum_40444539940515_317X317.jpg', '/image/Chrysanthemum_40444539940515.jpg', '/image/Chrysanthemum_40444539940515_74X74.jpg', '/image/Chrysanthemum_40444539940515_46X46.jpg', '/image/Chrysanthemum_40444539940515_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('256', 'Desert 40445128720737', '2011-11-15 22:46:53', '2011-11-15 22:46:53', '1', '/image/Desert_40445128720737.jpg', '/image/Desert_40445128720737_500X500.jpg', '/image/Desert_40445128720737_317X317.jpg', '/image/Desert_40445128720737.jpg', '/image/Desert_40445128720737_74X74.jpg', '/image/Desert_40445128720737_46X46.jpg', '/image/Desert_40445128720737_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('257', 'Hydrangeas 40445628845206', '2011-11-15 22:46:53', '2011-11-15 22:46:53', '1', '/image/Hydrangeas_40445628845206.jpg', '/image/Hydrangeas_40445628845206_500X500.jpg', '/image/Hydrangeas_40445628845206_317X317.jpg', '/image/Hydrangeas_40445628845206.jpg', '/image/Hydrangeas_40445628845206_74X74.jpg', '/image/Hydrangeas_40445628845206_46X46.jpg', '/image/Hydrangeas_40445628845206_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('258', 'Jellyfish 40446191137229', '2011-11-15 22:46:54', '2011-11-15 22:46:54', '1', '/image/Jellyfish_40446191137229.jpg', '/image/Jellyfish_40446191137229_500X500.jpg', '/image/Jellyfish_40446191137229_317X317.jpg', '/image/Jellyfish_40446191137229.jpg', '/image/Jellyfish_40446191137229_74X74.jpg', '/image/Jellyfish_40446191137229_46X46.jpg', '/image/Jellyfish_40446191137229_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('259', 'Koala 40446651163675', '2011-11-15 22:46:54', '2011-11-15 22:46:54', '1', '/image/Koala_40446651163675.jpg', '/image/Koala_40446651163675_500X500.jpg', '/image/Koala_40446651163675_317X317.jpg', '/image/Koala_40446651163675.jpg', '/image/Koala_40446651163675_74X74.jpg', '/image/Koala_40446651163675_46X46.jpg', '/image/Koala_40446651163675_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('260', 'Lighthouse 40447156386402', '2011-11-15 22:46:55', '2011-11-15 22:46:55', '1', '/image/Lighthouse_40447156386402.jpg', '/image/Lighthouse_40447156386402_500X500.jpg', '/image/Lighthouse_40447156386402_317X317.jpg', '/image/Lighthouse_40447156386402.jpg', '/image/Lighthouse_40447156386402_74X74.jpg', '/image/Lighthouse_40447156386402_46X46.jpg', '/image/Lighthouse_40447156386402_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('261', 'Penguins 40447622009369', '2011-11-15 22:46:55', '2011-11-15 22:46:55', '1', '/image/Penguins_40447622009369.jpg', '/image/Penguins_40447622009369_500X500.jpg', '/image/Penguins_40447622009369_317X317.jpg', '/image/Penguins_40447622009369.jpg', '/image/Penguins_40447622009369_74X74.jpg', '/image/Penguins_40447622009369_46X46.jpg', '/image/Penguins_40447622009369_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('262', 'Tulips 40448109086047', '2011-11-15 22:46:56', '2011-11-15 22:46:56', '1', '/image/Tulips_40448109086047.jpg', '/image/Tulips_40448109086047_500X500.jpg', '/image/Tulips_40448109086047_317X317.jpg', '/image/Tulips_40448109086047.jpg', '/image/Tulips_40448109086047_74X74.jpg', '/image/Tulips_40448109086047_46X46.jpg', '/image/Tulips_40448109086047_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('263', 'Hydran geas 40448550764757', '2011-11-15 22:46:56', '2011-11-15 22:46:56', '1', '/image/Hydran_geas_40448550764757.jpg', '/image/Hydran_geas_40448550764757_500X500.jpg', '/image/Hydran_geas_40448550764757_317X317.jpg', '/image/Hydran_geas_40448550764757.jpg', '/image/Hydran_geas_40448550764757_74X74.jpg', '/image/Hydran_geas_40448550764757_46X46.jpg', '/image/Hydran_geas_40448550764757_192X192.jpg', 'PRODUCT_SQUARE', null, null, null);
+INSERT INTO `shop_image` VALUES ('264', 'White', '2011-11-16 19:19:19', '2011-11-16 19:19:19', '1', 'White', '/image/114311390161756_157X157.jpg', '/image/114311390161756_157X157.jpg', '/image/114311390161756.jpg', '/image/114311390161756_157X157.jpg', '/image/114311390161756_36X36.jpg', '/image/114311390161756_157X157.jpg', 'PRODUCT_COLOR', 'INTERNAL', null, null);
+INSERT INTO `shop_image` VALUES ('265', 'BrightRustRed', '2011-11-16 19:33:46', '2011-11-16 19:33:46', '1', 'BrightRustRed', '/image/115176632907370_690X500.jpg', '/image/115176632907370_438X317.jpg', '/image/115176632907370.jpg', '/image/115176632907370_102X74.jpg', '/image/115176632907370_63X46.jpg', '/image/115176632907370_265X192.jpg', 'PRODUCT_NORMAL', 'INTERNAL', null, null);
+INSERT INTO `shop_image` VALUES ('266', 'BudGreen', '2011-11-16 19:33:59', '2011-11-16 19:33:59', '1', 'BudGreen', '/image/115189867912822_690X500.jpg', '/image/115189867912822_438X317.jpg', '/image/115189867912822.jpg', '/image/115189867912822_102X74.jpg', '/image/115189867912822_63X46.jpg', '/image/115189867912822_265X192.jpg', 'PRODUCT_NORMAL', 'INTERNAL', null, null);
+INSERT INTO `shop_image` VALUES ('267', 'Org', '2011-11-16 19:34:13', '2011-11-16 19:34:13', '1', 'Org', '/image/115203334028288_157X157.jpg', '/image/115203334028288_157X157.jpg', '/image/115203334028288.jpg', '/image/115203334028288_157X157.jpg', '/image/115203334028288_36X36.jpg', '/image/115203334028288_157X157.jpg', 'PRODUCT_COLOR', 'INTERNAL', null, null);
+INSERT INTO `shop_image` VALUES ('268', 'BrightRustRed 013 115260533864172', '2011-11-16 19:35:10', '2011-11-16 19:35:10', '1', '/image/BrightRustRed_013_115260533864172.jpg', '/image/BrightRustRed_013_115260533864172_157X157.jpg', '/image/BrightRustRed_013_115260533864172_157X157.jpg', '/image/BrightRustRed_013_115260533864172.jpg', '/image/BrightRustRed_013_115260533864172_157X157.jpg', '/image/BrightRustRed_013_115260533864172_36X36.jpg', '/image/BrightRustRed_013_115260533864172_157X157.jpg', 'PRODUCT_COLOR', null, null, null);
+INSERT INTO `shop_image` VALUES ('269', 'BudGreen 004 115261024330342', '2011-11-16 19:35:11', '2011-11-16 19:35:11', '1', '/image/BudGreen_004_115261024330342.jpg', '/image/BudGreen_004_115261024330342_157X157.jpg', '/image/BudGreen_004_115261024330342_157X157.jpg', '/image/BudGreen_004_115261024330342.jpg', '/image/BudGreen_004_115261024330342_157X157.jpg', '/image/BudGreen_004_115261024330342_36X36.jpg', '/image/BudGreen_004_115261024330342_157X157.jpg', 'PRODUCT_COLOR', null, null, null);
+INSERT INTO `shop_image` VALUES ('270', 'Org 035 115261342704278', '2011-11-16 19:35:11', '2011-11-16 19:35:11', '1', '/image/Org_035_115261342704278.jpg', '/image/Org_035_115261342704278_157X157.jpg', '/image/Org_035_115261342704278_157X157.jpg', '/image/Org_035_115261342704278.jpg', '/image/Org_035_115261342704278_157X157.jpg', '/image/Org_035_115261342704278_36X36.jpg', '/image/Org_035_115261342704278_157X157.jpg', 'PRODUCT_COLOR', null, null, null);
+INSERT INTO `shop_image` VALUES ('271', 'PearlPink 091 115261674165189', '2011-11-16 19:35:11', '2011-11-16 19:35:11', '1', '/image/PearlPink_091_115261674165189.jpg', '/image/PearlPink_091_115261674165189_157X157.jpg', '/image/PearlPink_091_115261674165189_157X157.jpg', '/image/PearlPink_091_115261674165189.jpg', '/image/PearlPink_091_115261674165189_157X157.jpg', '/image/PearlPink_091_115261674165189_36X36.jpg', '/image/PearlPink_091_115261674165189_157X157.jpg', 'PRODUCT_COLOR', null, null, null);
+INSERT INTO `shop_image` VALUES ('272', 'Pink 032 115262344557491', '2011-11-16 19:35:12', '2011-11-16 19:35:12', '1', '/image/Pink_032_115262344557491.jpg', '/image/Pink_032_115262344557491_157X157.jpg', '/image/Pink_032_115262344557491_157X157.jpg', '/image/Pink_032_115262344557491.jpg', '/image/Pink_032_115262344557491_157X157.jpg', '/image/Pink_032_115262344557491_36X36.jpg', '/image/Pink_032_115262344557491_157X157.jpg', 'PRODUCT_COLOR', null, null, null);
+INSERT INTO `shop_image` VALUES ('273', 'Purple 071 115262645352406', '2011-11-16 19:35:12', '2011-11-16 19:35:12', '1', '/image/Purple_071_115262645352406.jpg', '/image/Purple_071_115262645352406_157X157.jpg', '/image/Purple_071_115262645352406_157X157.jpg', '/image/Purple_071_115262645352406.jpg', '/image/Purple_071_115262645352406_157X157.jpg', '/image/Purple_071_115262645352406_36X36.jpg', '/image/Purple_071_115262645352406_157X157.jpg', 'PRODUCT_COLOR', null, null, null);
+INSERT INTO `shop_image` VALUES ('274', 'Red 001 115262859529950', '2011-11-16 19:35:12', '2011-11-16 19:35:12', '1', '/image/Red_001_115262859529950.jpg', '/image/Red_001_115262859529950_157X157.jpg', '/image/Red_001_115262859529950_157X157.jpg', '/image/Red_001_115262859529950.jpg', '/image/Red_001_115262859529950_157X157.jpg', '/image/Red_001_115262859529950_36X36.jpg', '/image/Red_001_115262859529950_157X157.jpg', 'PRODUCT_COLOR', null, null, null);
+INSERT INTO `shop_image` VALUES ('275', 'Regency 086 115263133707203', '2011-11-16 19:35:13', '2011-11-16 19:35:13', '1', '/image/Regency_086_115263133707203.jpg', '/image/Regency_086_115263133707203_157X157.jpg', '/image/Regency_086_115263133707203_157X157.jpg', '/image/Regency_086_115263133707203.jpg', '/image/Regency_086_115263133707203_157X157.jpg', '/image/Regency_086_115263133707203_36X36.jpg', '/image/Regency_086_115263133707203_157X157.jpg', 'PRODUCT_COLOR', null, null, null);
+INSERT INTO `shop_image` VALUES ('276', 'RoyalBlue 053 115263394277703', '2011-11-16 19:35:13', '2011-11-16 19:35:13', '1', '/image/RoyalBlue_053_115263394277703.jpg', '/image/RoyalBlue_053_115263394277703_157X157.jpg', '/image/RoyalBlue_053_115263394277703_157X157.jpg', '/image/RoyalBlue_053_115263394277703.jpg', '/image/RoyalBlue_053_115263394277703_157X157.jpg', '/image/RoyalBlue_053_115263394277703_36X36.jpg', '/image/RoyalBlue_053_115263394277703_157X157.jpg', 'PRODUCT_COLOR', null, null, null);
+INSERT INTO `shop_image` VALUES ('277', 'Sage 021 115263609006525', '2011-11-16 19:35:13', '2011-11-16 19:35:13', '1', '/image/Sage_021_115263609006525.jpg', '/image/Sage_021_115263609006525_157X157.jpg', '/image/Sage_021_115263609006525_157X157.jpg', '/image/Sage_021_115263609006525.jpg', '/image/Sage_021_115263609006525_157X157.jpg', '/image/Sage_021_115263609006525_36X36.jpg', '/image/Sage_021_115263609006525_157X157.jpg', 'PRODUCT_COLOR', null, null, null);
+INSERT INTO `shop_image` VALUES ('278', 'Silver 038 115263864505275', '2011-11-16 19:35:13', '2011-11-16 19:35:13', '1', '/image/Silver_038_115263864505275.jpg', '/image/Silver_038_115263864505275_157X157.jpg', '/image/Silver_038_115263864505275_157X157.jpg', '/image/Silver_038_115263864505275.jpg', '/image/Silver_038_115263864505275_157X157.jpg', '/image/Silver_038_115263864505275_36X36.jpg', '/image/Silver_038_115263864505275_157X157.jpg', 'PRODUCT_COLOR', null, null, null);
+INSERT INTO `shop_image` VALUES ('279', 'SkinPink 068 115264127948949', '2011-11-16 19:35:14', '2011-11-16 19:35:14', '1', '/image/SkinPink_068_115264127948949.jpg', '/image/SkinPink_068_115264127948949_157X157.jpg', '/image/SkinPink_068_115264127948949_157X157.jpg', '/image/SkinPink_068_115264127948949.jpg', '/image/SkinPink_068_115264127948949_157X157.jpg', '/image/SkinPink_068_115264127948949_36X36.jpg', '/image/SkinPink_068_115264127948949_157X157.jpg', 'PRODUCT_COLOR', null, null, null);
+INSERT INTO `shop_image` VALUES ('280', 'WaterMelon 096 115264413211291', '2011-11-16 19:35:14', '2011-11-16 19:35:14', '1', '/image/WaterMelon_096_115264413211291.jpg', '/image/WaterMelon_096_115264413211291_157X157.jpg', '/image/WaterMelon_096_115264413211291_157X157.jpg', '/image/WaterMelon_096_115264413211291.jpg', '/image/WaterMelon_096_115264413211291_157X157.jpg', '/image/WaterMelon_096_115264413211291_36X36.jpg', '/image/WaterMelon_096_115264413211291_157X157.jpg', 'PRODUCT_COLOR', null, null, null);
+INSERT INTO `shop_image` VALUES ('281', 'White 082 115264719555474', '2011-11-16 19:35:14', '2011-11-16 19:35:14', '1', '/image/White_082_115264719555474.jpg', '/image/White_082_115264719555474_157X157.jpg', '/image/White_082_115264719555474_157X157.jpg', '/image/White_082_115264719555474.jpg', '/image/White_082_115264719555474_157X157.jpg', '/image/White_082_115264719555474_36X36.jpg', '/image/White_082_115264719555474_157X157.jpg', 'PRODUCT_COLOR', null, null, null);
 
 -- ----------------------------
 -- Table structure for `shop_markplace`
@@ -639,6 +693,11 @@ CREATE TABLE `shop_order` (
   `totalPrice` float DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
   `order_status` varchar(255) DEFAULT NULL,
+  `orderType` varchar(200) DEFAULT NULL,
+  `addressType` varchar(200) DEFAULT NULL,
+  `city` varchar(200) DEFAULT NULL,
+  `dePrice` float DEFAULT NULL,
+  `currency` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `FK24293CA53972FC6D` (`user_id`),
   KEY `FK24293CA51EE5B775` (`status_id`),
@@ -646,12 +705,31 @@ CREATE TABLE `shop_order` (
   CONSTRAINT `FK24293CA51EE5B775` FOREIGN KEY (`status_id`) REFERENCES `shop_orderstatus` (`ID`),
   CONSTRAINT `FK24293CA53972FC6D` FOREIGN KEY (`user_id`) REFERENCES `shop_user` (`ID`),
   CONSTRAINT `FK24293CA5BF627AED` FOREIGN KEY (`site_id`) REFERENCES `shop_site` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_order
 -- ----------------------------
-INSERT INTO `shop_order` VALUES ('1', null, '2011-09-13 12:20:09', null, null, null, null, null, 'szhu.spark@gmail.com', null, null, null, null, null, null, null, '1998', null, null);
+INSERT INTO `shop_order` VALUES ('6', 'Order500027XMIVQ925308', '2011-10-20 22:43:40', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '13', 'PENDING', null, null, null, null, null);
+INSERT INTO `shop_order` VALUES ('7', 'Order887881KHTJQ972183', '2011-10-20 22:47:03', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '13', 'PENDING', null, null, null, null, null);
+INSERT INTO `shop_order` VALUES ('8', 'Order659902TVTTK829980', '2011-10-20 22:47:31', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '13', 'PENDING', null, null, null, null, null);
+INSERT INTO `shop_order` VALUES ('9', 'Order28066VRDPN74077', '2011-10-20 22:49:21', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', null, 'PENDING', null, null, null, null, null);
+INSERT INTO `shop_order` VALUES ('10', 'Order420445TUBQS517606', '2011-10-20 22:51:15', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '13', 'PENDING', null, null, null, null, null);
+INSERT INTO `shop_order` VALUES ('11', 'Order14823OKQVA909502', '2011-10-31 21:17:32', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '13', 'COMPLETED', null, null, null, null, null);
+INSERT INTO `shop_order` VALUES ('12', 'Order620546IUUIS998694', '2011-10-31 21:17:49', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '13', 'CHECKED', null, null, null, null, null);
+INSERT INTO `shop_order` VALUES ('13', 'Order788160SLTKR426372', '2011-10-31 21:20:13', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '13', 'COMPLETED', null, null, null, null, null);
+INSERT INTO `shop_order` VALUES ('14', 'Order227589WHFJE862879', '2011-11-03 18:17:08', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', null, 'PENDING', null, null, null, null, null);
+INSERT INTO `shop_order` VALUES ('15', 'Order268874FWLMX170858', '2011-11-08 17:55:07', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', null, 'PENDING', null, null, null, null, null);
+INSERT INTO `shop_order` VALUES ('16', null, '2011-11-08 18:02:20', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', null, 'PENDING', null, null, null, null, null);
+INSERT INTO `shop_order` VALUES ('17', 'Order570372EGRDF764308', '2011-11-08 19:02:52', null, null, 'Address ', null, '9', 'Email', 'Last  First ', null, 'Zip', null, null, 'Phone ', null, '0', null, 'PENDING', 'paypal', null, 'City', null, null);
+INSERT INTO `shop_order` VALUES ('18', null, '2011-11-08 20:18:31', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', null, 'PENDING', null, null, null, null, null);
+INSERT INTO `shop_order` VALUES ('19', 'Order212315ELEVB896176', '2011-11-08 20:28:23', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', null, 'PENDING', 'paypal', null, null, null, null);
+INSERT INTO `shop_order` VALUES ('20', 'Order202412BDDVB119890', '2011-11-08 22:11:02', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', null, 'PAYED', 'paypal', null, null, null, null);
+INSERT INTO `shop_order` VALUES ('21', 'Order878307WXWUS979431', '2011-11-08 22:22:56', null, null, null, null, null, null, null, null, null, null, null, null, null, '0', null, 'PAYED', 'paypal', null, null, null, null);
+INSERT INTO `shop_order` VALUES ('22', 'Order722542EEUDF638822', '2011-11-08 22:50:33', null, null, null, null, null, null, null, null, null, null, null, null, null, '111', null, 'PENDING', 'paypal', null, null, null, null);
+INSERT INTO `shop_order` VALUES ('23', 'Order221649HICQI17952', '2011-11-08 22:51:56', null, null, null, null, null, null, null, null, null, null, null, null, null, '126', null, 'PENDING', 'paypal', null, null, null, null);
+INSERT INTO `shop_order` VALUES ('24', 'Order760425JPKQV668838', '2011-11-08 23:14:56', null, null, null, null, null, null, null, null, null, null, null, null, null, '111', null, 'PENDING', 'paypal', null, null, '15', null);
+INSERT INTO `shop_order` VALUES ('25', 'Order113586OTVEF734757', '2011-11-08 23:16:52', null, null, null, null, null, null, null, null, null, null, null, null, null, '111', null, 'PENDING', 'paypal', null, null, '15', null);
 
 -- ----------------------------
 -- Table structure for `shop_orderitem`
@@ -671,12 +749,38 @@ CREATE TABLE `shop_orderitem` (
   KEY `FK3E635158582107E7` (`product_id`),
   CONSTRAINT `FK3E6351584E06B6C7` FOREIGN KEY (`order_id`) REFERENCES `shop_order` (`ID`),
   CONSTRAINT `FK3E635158582107E7` FOREIGN KEY (`product_id`) REFERENCES `shop_product` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_orderitem
 -- ----------------------------
-INSERT INTO `shop_orderitem` VALUES ('1', null, '2011-09-13 12:22:16', null, '1998', '41', '2', '1');
+INSERT INTO `shop_orderitem` VALUES ('8', 'Spark-Test6-sdas-231-1319121820628', '2011-10-20 22:43:40', '2011-10-20 22:43:40', '111', '62', '1', '6');
+INSERT INTO `shop_orderitem` VALUES ('9', 'asdaxzzzzz-1319121834784', '2011-10-20 22:43:54', '2011-10-20 22:43:54', '333', '49', '1', '6');
+INSERT INTO `shop_orderitem` VALUES ('10', 'Hello-spark-1319122023614', '2011-10-20 22:47:03', '2011-10-20 22:47:03', '444', '47', '1', '7');
+INSERT INTO `shop_orderitem` VALUES ('11', 'asdasdaaaa004-1319122034630', '2011-10-20 22:47:14', '2011-10-20 22:47:14', '0', '54', '1', '7');
+INSERT INTO `shop_orderitem` VALUES ('12', 'Polyester-Womens-Gothic-Dress-2-1319122043470', '2011-10-20 22:47:23', '2011-10-20 22:47:23', '0', '30', '1', '7');
+INSERT INTO `shop_orderitem` VALUES ('13', 'Spark-Test6-sdas-231-1319122117329', '2011-10-20 22:48:37', '2011-10-20 22:48:37', '111', '62', '1', '8');
+INSERT INTO `shop_orderitem` VALUES ('14', 'Spark-Test3-1319122136754', '2011-10-20 22:48:56', '2011-10-20 22:48:56', '111', '57', '1', '8');
+INSERT INTO `shop_orderitem` VALUES ('15', 'Spark-Test6-sdas-231-1319122250800', '2011-10-20 22:50:50', '2011-10-20 22:50:50', '111', '62', '1', '9');
+INSERT INTO `shop_orderitem` VALUES ('16', 'xcxcxczczxczxczxczx-1319122585318', '2011-10-20 22:56:25', '2011-10-20 22:56:25', '333', '50', '1', '10');
+INSERT INTO `shop_orderitem` VALUES ('17', 'Spark-Test6-sdas-231-1320067052169', '2011-10-31 21:17:32', '2011-10-31 21:17:32', '111', '62', '1', '11');
+INSERT INTO `shop_orderitem` VALUES ('18', 'Spark-Test6-sdas-232-1320067183050', '2011-10-31 21:19:43', '2011-10-31 21:19:43', '222', '61', '2', '12');
+INSERT INTO `shop_orderitem` VALUES ('19', 'Spark-Test6-sdas-232-1320067256323', '2011-10-31 21:20:56', '2011-10-31 21:20:56', '111', '61', '2', '13');
+INSERT INTO `shop_orderitem` VALUES ('20', 'asdaxzzzzz-1320067263768', '2011-10-31 21:21:03', '2011-10-31 21:21:03', '333', '49', '1', '13');
+INSERT INTO `shop_orderitem` VALUES ('21', 'Spark-Test6-sdas-231-1320315428748', '2011-11-03 18:17:08', '2011-11-03 18:17:08', '111', '62', '1', '14');
+INSERT INTO `shop_orderitem` VALUES ('22', 'Spark-Test6-sdas-231-1320316036179', '2011-11-03 18:27:16', '2011-11-03 18:27:16', '111', '62', '1', '14');
+INSERT INTO `shop_orderitem` VALUES ('23', 'Spark-Test6-sdas-231-1320746107748', '2011-11-08 17:55:07', '2011-11-08 18:01:33', '111', '62', '1', '15');
+INSERT INTO `shop_orderitem` VALUES ('24', 'Spark-Test6-sdas-231-1320746586202', '2011-11-08 18:03:06', '2011-11-08 18:03:46', '222', '62', '2', '16');
+INSERT INTO `shop_orderitem` VALUES ('25', 'Spark-Test6-sdas-231-1320750172447', '2011-11-08 19:02:52', '2011-11-08 19:04:52', '444', '62', '4', '17');
+INSERT INTO `shop_orderitem` VALUES ('26', 'Spark-Test6-sdas-231-1320751945910', '2011-11-08 19:32:25', '2011-11-08 19:32:25', '111', '62', '1', '17');
+INSERT INTO `shop_orderitem` VALUES ('27', 'Spark-Test6-sdas-231-1320755303405', '2011-11-08 20:28:23', '2011-11-08 20:28:23', '111', '62', '1', '19');
+INSERT INTO `shop_orderitem` VALUES ('28', 'Spark-Test6-sdas-231-1320755857293', '2011-11-08 20:37:37', '2011-11-08 20:37:37', '111', '62', '1', '19');
+INSERT INTO `shop_orderitem` VALUES ('29', 'Spark-Test6-sdas-231-1320761462929', '2011-11-08 22:11:02', '2011-11-08 22:11:02', '111', '62', '1', '20');
+INSERT INTO `shop_orderitem` VALUES ('30', 'Spark-Test6-sdas-231-1320762231518', '2011-11-08 22:23:51', '2011-11-08 22:23:51', '111', '62', '1', '21');
+INSERT INTO `shop_orderitem` VALUES ('31', 'Spark-Test6-sdas-231-1320763836947', '2011-11-08 22:50:36', '2011-11-08 22:51:11', '111', '62', '1', '22');
+INSERT INTO `shop_orderitem` VALUES ('32', 'Spark-Test6-1320764061296', '2011-11-08 22:54:21', '2011-11-08 22:54:21', '111', '60', '1', '23');
+INSERT INTO `shop_orderitem` VALUES ('33', 'Spark-Test6-sdas-232-1320765346832', '2011-11-08 23:15:46', '2011-11-08 23:15:46', '111', '61', '1', '24');
+INSERT INTO `shop_orderitem` VALUES ('34', 'Spark-Test6-sdas-231-1320765510036', '2011-11-08 23:18:30', '2011-11-08 23:18:30', '111', '62', '1', '25');
 
 -- ----------------------------
 -- Table structure for `shop_orderstatus`
@@ -726,7 +830,7 @@ CREATE TABLE `shop_product` (
   PRIMARY KEY (`ID`),
   KEY `FKF44D8886BF627AED` (`site_id`),
   CONSTRAINT `FKF44D8886BF627AED` FOREIGN KEY (`site_id`) REFERENCES `shop_site` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_product
@@ -761,7 +865,7 @@ INSERT INTO `shop_product` VALUES ('38', 'Polyester-Womens-Gothic-Dress-10', '20
 INSERT INTO `shop_product` VALUES ('39', 'Men-T-shirt', '2011-08-25 01:24:33', '2011-08-25 17:29:44', '1', null, 'Men T-shirt', '0', '0', null, '0', 'Men\'s T-shirt', null, '0', '0', '0', '0', '0', '0', '0', null, null, null);
 INSERT INTO `shop_product` VALUES ('40', 'DASASDA', '2011-09-05 22:19:27', '2011-09-05 22:24:20', '1', null, 'asdas', '0', '0', null, '0', 'asdas', 'adsasdasdasd', '0', '0', '1', '1', '29', '999', '77', null, null, null);
 INSERT INTO `shop_product` VALUES ('41', '23423423423423', '2011-09-05 22:28:19', '2011-09-05 23:46:23', '1', null, 'daD', '0', '0', null, '0', 'ADA', 'If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.If you are using the XFBML version of the Like button, users will always\n have the option to add a comment. If you are using the Iframe version \nof the button, users will have the option to comments if you are using \nthe \'standard\' layout with a width of at least 400 pixels. If users do \nadd a comment, the story published back to Facebook is given more \nprominence.', '0', '0', '1', '1', '30', '999', '999', null, null, null);
-INSERT INTO `shop_product` VALUES ('42', 'aDA', '2011-09-07 14:49:17', '2011-09-07 21:47:53', '1', null, 'dasdas', '0', '0', null, '0', 'asdas', 'dasdasdasdas<br>', '0', '0', '0', '0', '0', '0', '0', null, null, 'N');
+INSERT INTO `shop_product` VALUES ('42', 'aDA', '2011-09-07 14:49:17', '2011-11-21 21:38:39', '1', null, 'dasdas', '0', '0', null, '0', 'asdas', 'dasdasdasdas<br>', '0', '0', '0', '0', '0', '0', '0', null, null, 'N');
 INSERT INTO `shop_product` VALUES ('43', 'ascfasdazzz', '2011-09-07 23:29:07', '2011-09-08 00:34:07', '1', null, 'dasdas', '0', '0', null, '0', 'asdas', 'asdasd', '0', '0', '1', '1', '17', '2312312', '123121', null, null, 'N');
 INSERT INTO `shop_product` VALUES ('44', 'asdaaaaaaaa', '2011-09-08 17:31:49', '2011-09-08 21:37:45', '1', null, 'asdasd', '0', '0', null, '0', 'asda', 'asdasdasdasd<br>', '0', '0', '1', '1', '17', '0', '0', null, null, 'N');
 INSERT INTO `shop_product` VALUES ('45', 'dddddazzzzzz', '2011-09-08 22:42:35', '2011-09-08 22:42:35', '1', null, 'asdasd', '0', '0', null, '0', 'asda', 'asdasdasdasd<br>', '0', '0', '1', '1', '17', '0', '0', null, null, 'N');
@@ -782,6 +886,9 @@ INSERT INTO `shop_product` VALUES ('59', 'Spark-Test5-asdasdas-dasdasd', '2011-0
 INSERT INTO `shop_product` VALUES ('60', 'Spark-Test6', '2011-09-28 21:55:41', '2011-09-28 21:55:41', '1', null, 'Spark-Test1', '0', '0', null, '0', 'Spark Test1 Spark Test1 Spark Test1', 'sdfsdfsdfasfasfasjfhjkashfddd', '0', '0', '1', '1', '24', '11223', '111', null, null, 'N');
 INSERT INTO `shop_product` VALUES ('61', 'Spark-Test6-sdas-232', '2011-09-28 21:56:08', '2011-09-28 21:56:08', '1', null, 'Spark-Test1', '0', '0', null, '0', 'Spark Test1 Spark Test1 Spark Test1', 'sdfsdfsdfasfasfasjfhjkashfddd', '0', '0', '1', '1', '24', '11223', '111', null, null, 'N');
 INSERT INTO `shop_product` VALUES ('62', 'Spark-Test6-sdas-231', '2011-10-08 21:37:11', '2011-10-09 21:09:30', '1', null, 'Spark-Test1', '0', '0', null, '0', 'Spark Test1 Spark Test1 Spark Test1', 'asdasdasdasd<div>asdas</div><div>das</div><div>das</div><div>d</div><div>as</div><div>das</div><div>d</div><div>asd</div><div>as</div><div>das</div><div>d</div><div>as</div><div>das</div><div>d</div><div>asd</div><div>as</div><div>das</div><div>d</div><div>asd</div><div>as</div><div>das</div><div>d</div><div>asd</div>', '0', '0', '1', '1', '24', '11223', '111', '8,7,6', null, null);
+INSERT INTO `shop_product` VALUES ('63', 'ASDASDASDASDAZXZxAsd', '2011-11-16 20:46:17', '2011-11-16 20:51:52', '1', null, 'asdasdas', '0', '0', null, '0', 'asdasd', null, '0', '0', '0', '0', '0', '0', '0', null, null, null);
+INSERT INTO `shop_product` VALUES ('64', 'asdxccq23423123', '2011-11-16 20:54:55', '2011-11-21 20:02:39', '1', null, '', '0', '0', null, '0', 'asdas', 'asdasdasd', '0', '0', '0', '0', '0', '0', '0', null, null, null);
+INSERT INTO `shop_product` VALUES ('65', 'asdxccq23423123SAASDAXX', '2011-11-16 21:06:02', '2011-11-16 21:06:02', '1', null, '', '0', '0', null, '0', 'asdas', 'asdasdasd', '0', '0', '0', '0', '0', '0', '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `shop_productoption`
@@ -799,7 +906,7 @@ CREATE TABLE `shop_productoption` (
   PRIMARY KEY (`ID`),
   KEY `FK53BA009B582107E7` (`product_id`),
   CONSTRAINT `FK53BA009B582107E7` FOREIGN KEY (`product_id`) REFERENCES `shop_product` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_productoption
@@ -859,6 +966,15 @@ INSERT INTO `shop_productoption` VALUES ('66', 'Qty', null, null, null, null, 'I
 INSERT INTO `shop_productoption` VALUES ('67', 'Color', null, null, null, null, 'COLOR_SINGLE', '62');
 INSERT INTO `shop_productoption` VALUES ('68', 'Size', null, null, 'm', null, 'SINGLE_LIST', '62');
 INSERT INTO `shop_productoption` VALUES ('69', 'Qty', null, null, null, null, 'INPUT_TEXT', '62');
+INSERT INTO `shop_productoption` VALUES ('70', 'Color', null, null, null, null, 'COLOR_SINGLE', '63');
+INSERT INTO `shop_productoption` VALUES ('71', 'Size', null, null, null, null, 'SINGLE_LIST', '63');
+INSERT INTO `shop_productoption` VALUES ('72', 'Qty', null, null, null, null, 'INPUT_TEXT', '63');
+INSERT INTO `shop_productoption` VALUES ('73', 'Color', null, null, null, null, 'COLOR_SINGLE', '64');
+INSERT INTO `shop_productoption` VALUES ('74', 'Size', null, null, null, null, 'SINGLE_LIST', '64');
+INSERT INTO `shop_productoption` VALUES ('75', 'Qty', null, null, null, null, 'INPUT_TEXT', '64');
+INSERT INTO `shop_productoption` VALUES ('76', 'Color', null, null, null, null, 'COLOR_SINGLE', '65');
+INSERT INTO `shop_productoption` VALUES ('77', 'Size', null, null, null, null, 'SINGLE_LIST', '65');
+INSERT INTO `shop_productoption` VALUES ('78', 'Qty', null, null, null, null, 'INPUT_TEXT', '65');
 
 -- ----------------------------
 -- Table structure for `shop_productoptionitem`
@@ -879,7 +995,7 @@ CREATE TABLE `shop_productoptionitem` (
   KEY `FKEF652A4E65CB8FC9` (`icon_id`),
   CONSTRAINT `FKEF652A4E23F866E6` FOREIGN KEY (`product_option_id`) REFERENCES `shop_productoption` (`ID`),
   CONSTRAINT `FKEF652A4E65CB8FC9` FOREIGN KEY (`icon_id`) REFERENCES `shop_image` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=233 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=289 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_productoptionitem
@@ -912,22 +1028,22 @@ INSERT INTO `shop_productoptionitem` VALUES ('41', 'fuchsia', null, null, null, 
 INSERT INTO `shop_productoptionitem` VALUES ('42', 'gold', null, null, null, null, '#DCC181 #C5A272 #C5A272 #DCC181', null, '25');
 INSERT INTO `shop_productoptionitem` VALUES ('43', 'asdas', null, null, null, null, 'asdasd', null, '26');
 INSERT INTO `shop_productoptionitem` VALUES ('44', 'aaaa', null, null, null, null, 'asdasdas', null, '26');
-INSERT INTO `shop_productoptionitem` VALUES ('45', 'champagne', null, null, null, null, '#E7B37A #CA9837 #CA9837 #E7B37A', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('46', 'daffodil', null, null, null, null, '#CFCA68 #C1B141 #C1B141 #CFCA68', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('47', 'silver', null, null, null, null, '#EBEBEB #CFCFCF #CFCFCF #EBEBEB', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('48', 'white', null, null, null, null, '#FFFFFF #D9D9D9 #D9D9D9 #FFFFFF', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('49', 'huntergreen', null, null, null, null, '#266364 #033534 #033534 #266364', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('50', 'darknavy', null, null, null, null, '#647281 #1E2023 #1E2023 #647281', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('51', 'darkgreen', null, null, null, null, '#466025 #162121 #162121 #466025', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('52', 'browncoffee', null, null, null, null, '#BB9A76 #87643F #87643F #BB9A76', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('53', 'chocolate', null, null, null, null, '#946D44 #6B4F37 #6B4F37 #946D44', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('54', 'blue', null, null, null, null, '#4074E7 #2E50A5 #2E50A5 #4074E7', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('55', 'grape', null, null, null, null, '#715380 #563457 #563457 #715380', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('56', 'fuchsia', null, null, null, null, '#F24A78 #C8183F #C8183F #F24A78', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('57', 'ivory', null, null, null, null, '#FFFFFF #F7EED6 #F7EED6 #FFFFFF', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('58', 'gold', null, null, null, null, '#DCC181 #C5A272 #C5A272 #DCC181', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('59', 'black', null, null, null, null, '#4D4C4C #131313 #131313 #4D4C4C', null, '28');
-INSERT INTO `shop_productoptionitem` VALUES ('60', 'burgundy', null, null, null, null, '#A43755 #551B29 #551B29 #A43755', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('45', 'champagne', null, null, null, null, '#E7B37A #CA9837 #CA9837 #E7B37A', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('46', 'daffodil', null, null, null, null, '#CFCA68 #C1B141 #C1B141 #CFCA68', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('47', 'silver', null, null, null, null, '#EBEBEB #CFCFCF #CFCFCF #EBEBEB', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('48', 'white', null, null, null, null, '#FFFFFF #D9D9D9 #D9D9D9 #FFFFFF', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('49', 'huntergreen', null, null, null, null, '#266364 #033534 #033534 #266364', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('50', 'darknavy', null, null, null, null, '#647281 #1E2023 #1E2023 #647281', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('51', 'darkgreen', null, null, null, null, '#466025 #162121 #162121 #466025', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('52', 'browncoffee', null, null, null, null, '#BB9A76 #87643F #87643F #BB9A76', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('53', 'chocolate', null, null, null, null, '#946D44 #6B4F37 #6B4F37 #946D44', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('54', 'blue', null, null, null, null, '#4074E7 #2E50A5 #2E50A5 #4074E7', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('55', 'grape', null, null, null, null, '#715380 #563457 #563457 #715380', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('56', 'fuchsia', null, null, null, null, '#F24A78 #C8183F #C8183F #F24A78', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('57', 'ivory', null, null, null, null, '#FFFFFF #F7EED6 #F7EED6 #FFFFFF', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('58', 'gold', null, null, null, null, '#DCC181 #C5A272 #C5A272 #DCC181', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('59', 'black', null, null, null, null, '#4D4C4C #131313 #131313 #4D4C4C', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('60', 'burgundy', null, null, null, null, '#A43755 #551B29 #551B29 #A43755', null, null);
 INSERT INTO `shop_productoptionitem` VALUES ('61', 'aa', null, null, null, null, 'aaa', null, '29');
 INSERT INTO `shop_productoptionitem` VALUES ('62', 'asdas', null, null, null, null, 'asdasd', null, '29');
 INSERT INTO `shop_productoptionitem` VALUES ('63', 'eeee', null, null, null, null, 'asdasdasd', null, '29');
@@ -1100,6 +1216,62 @@ INSERT INTO `shop_productoptionitem` VALUES ('229', 'black', null, null, null, n
 INSERT INTO `shop_productoptionitem` VALUES ('230', 'burgundy', null, null, null, null, '#A43755 #551B29 #551B29 #A43755', null, '67');
 INSERT INTO `shop_productoptionitem` VALUES ('231', 'L', null, null, null, null, ' L', null, '68');
 INSERT INTO `shop_productoptionitem` VALUES ('232', 'M', null, null, null, null, 'M', null, '68');
+INSERT INTO `shop_productoptionitem` VALUES ('233', 'ASDASDA', null, null, null, null, 'ASDASDAS', null, '71');
+INSERT INTO `shop_productoptionitem` VALUES ('234', 'ASDAS', null, null, null, null, 'ASDASDASD', null, '71');
+INSERT INTO `shop_productoptionitem` VALUES ('235', 'SkinPink 068 115264127948949', null, null, null, null, '/image/SkinPink_068_115264127948949_157X157.jpg', null, '70');
+INSERT INTO `shop_productoptionitem` VALUES ('236', 'WaterMelon 096 115264413211291', null, null, null, null, '/image/WaterMelon_096_115264413211291_157X157.jpg', null, '70');
+INSERT INTO `shop_productoptionitem` VALUES ('237', 'Regency 086 115263133707203', null, null, null, null, '/image/Regency_086_115263133707203_157X157.jpg', null, '70');
+INSERT INTO `shop_productoptionitem` VALUES ('238', 'White 082 115264719555474', null, null, null, null, '/image/White_082_115264719555474_157X157.jpg', null, '70');
+INSERT INTO `shop_productoptionitem` VALUES ('239', 'RoyalBlue 053 115263394277703', null, null, null, null, '/image/RoyalBlue_053_115263394277703_157X157.jpg', null, '70');
+INSERT INTO `shop_productoptionitem` VALUES ('240', 'Sage 021 115263609006525', null, null, null, null, '/image/Sage_021_115263609006525_157X157.jpg', null, '70');
+INSERT INTO `shop_productoptionitem` VALUES ('241', 'Silver 038 115263864505275', null, null, null, null, '/image/Silver_038_115263864505275_157X157.jpg', null, '70');
+INSERT INTO `shop_productoptionitem` VALUES ('242', 'Customized Size', null, null, null, null, 'Customized', null, '74');
+INSERT INTO `shop_productoptionitem` VALUES ('243', 'asdasdas', null, null, null, null, 'asdasdasd', null, '74');
+INSERT INTO `shop_productoptionitem` VALUES ('244', 'asdasd', null, null, null, null, 'asdasdasd', null, '74');
+INSERT INTO `shop_productoptionitem` VALUES ('245', 'SkinPink 068 115264127948949', null, null, null, null, '/image/SkinPink_068_115264127948949_157X157.jpg', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('246', 'WaterMelon 096 115264413211291', null, null, null, null, '/image/WaterMelon_096_115264413211291_157X157.jpg', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('247', 'White 082 115264719555474', null, null, null, null, '/image/White_082_115264719555474_157X157.jpg', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('248', 'RoyalBlue 053 115263394277703', null, null, null, null, '/image/RoyalBlue_053_115263394277703_157X157.jpg', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('249', 'Regency 086 115263133707203', null, null, null, null, '/image/Regency_086_115263133707203_157X157.jpg', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('250', 'Sage 021 115263609006525', null, null, null, null, '/image/Sage_021_115263609006525_157X157.jpg', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('251', 'Silver 038 115263864505275', null, null, null, null, '/image/Silver_038_115263864505275_157X157.jpg', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('252', 'Pink 032 115262344557491', null, null, null, null, '/image/Pink_032_115262344557491_157X157.jpg', null, null);
+INSERT INTO `shop_productoptionitem` VALUES ('253', 'White 082 115264719555474', null, null, null, null, '/image/White_082_115264719555474_157X157.jpg', null, '76');
+INSERT INTO `shop_productoptionitem` VALUES ('254', 'Regency 086 115263133707203', null, null, null, null, '/image/Regency_086_115263133707203_157X157.jpg', null, '76');
+INSERT INTO `shop_productoptionitem` VALUES ('255', 'Silver 038 115263864505275', null, null, null, null, '/image/Silver_038_115263864505275_157X157.jpg', null, '76');
+INSERT INTO `shop_productoptionitem` VALUES ('256', 'Customized Size', null, null, null, null, 'Customized', null, '77');
+INSERT INTO `shop_productoptionitem` VALUES ('257', 'asdasdas', null, null, null, null, 'asdasdasd', null, '77');
+INSERT INTO `shop_productoptionitem` VALUES ('258', 'asdasd', null, null, null, null, 'asdasdasd', null, '77');
+INSERT INTO `shop_productoptionitem` VALUES ('259', 'SkinPink 068 115264127948949', null, null, null, null, '/image/SkinPink_068_115264127948949_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('260', 'WaterMelon 096 115264413211291', null, null, null, null, '/image/WaterMelon_096_115264413211291_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('261', 'White 082 115264719555474', null, null, null, null, '/image/White_082_115264719555474_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('262', 'Regency 086 115263133707203', null, null, null, null, '/image/Regency_086_115263133707203_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('263', 'RoyalBlue 053 115263394277703', null, null, null, null, '/image/RoyalBlue_053_115263394277703_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('264', 'Sage 021 115263609006525', null, null, null, null, '/image/Sage_021_115263609006525_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('265', 'Silver 038 115263864505275', null, null, null, null, '/image/Silver_038_115263864505275_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('266', 'Pink 032 115262344557491', null, null, null, null, '/image/Pink_032_115262344557491_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('267', 'Purple 071 115262645352406', null, null, null, null, '/image/Purple_071_115262645352406_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('268', 'Red 001 115262859529950', null, null, null, null, '/image/Red_001_115262859529950_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('269', 'BudGreen 004 115261024330342', null, null, null, null, '/image/BudGreen_004_115261024330342_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('270', 'Org 035 115261342704278', null, null, null, null, '/image/Org_035_115261342704278_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('271', 'PearlPink 091 115261674165189', null, null, null, null, '/image/PearlPink_091_115261674165189_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('272', 'BrightRustRed 013 115260533864172', null, null, null, null, '/image/BrightRustRed_013_115260533864172_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('273', 'Org', null, null, null, null, '/image/115203334028288_157X157.jpg', null, '73');
+INSERT INTO `shop_productoptionitem` VALUES ('274', 'SkinPink 068 115264127948949', null, null, null, null, '/image/SkinPink_068_115264127948949_157X157.jpg', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('275', 'WaterMelon 096 115264413211291', null, null, null, null, '/image/WaterMelon_096_115264413211291_157X157.jpg', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('276', 'White 082 115264719555474', null, null, null, null, '/image/White_082_115264719555474_157X157.jpg', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('277', 'Regency 086 115263133707203', null, null, null, null, '/image/Regency_086_115263133707203_157X157.jpg', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('278', 'RoyalBlue 053 115263394277703', null, null, null, null, '/image/RoyalBlue_053_115263394277703_157X157.jpg', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('279', 'Sage 021 115263609006525', null, null, null, null, '/image/Sage_021_115263609006525_157X157.jpg', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('280', 'Silver 038 115263864505275', null, null, null, null, '/image/Silver_038_115263864505275_157X157.jpg', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('281', 'Pink 032 115262344557491', null, null, null, null, '/image/Pink_032_115262344557491_157X157.jpg', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('282', 'Purple 071 115262645352406', null, null, null, null, '/image/Purple_071_115262645352406_157X157.jpg', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('283', 'Red 001 115262859529950', null, null, null, null, '/image/Red_001_115262859529950_157X157.jpg', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('284', 'Org 035 115261342704278', null, null, null, null, '/image/Org_035_115261342704278_157X157.jpg', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('285', 'BudGreen 004 115261024330342', null, null, null, null, '/image/BudGreen_004_115261024330342_157X157.jpg', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('286', 'PearlPink 091 115261674165189', null, null, null, null, '/image/PearlPink_091_115261674165189_157X157.jpg', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('287', 'BrightRustRed 013 115260533864172', null, null, null, null, '/image/BrightRustRed_013_115260533864172_157X157.jpg', null, '28');
+INSERT INTO `shop_productoptionitem` VALUES ('288', 'Org', null, null, null, null, '/image/115203334028288_157X157.jpg', null, '28');
 
 -- ----------------------------
 -- Table structure for `shop_productproperty`
@@ -1207,7 +1379,6 @@ INSERT INTO `shop_product_category` VALUES ('34', '3');
 INSERT INTO `shop_product_category` VALUES ('35', '3');
 INSERT INTO `shop_product_category` VALUES ('41', '5');
 INSERT INTO `shop_product_category` VALUES ('40', '8');
-INSERT INTO `shop_product_category` VALUES ('42', '5');
 INSERT INTO `shop_product_category` VALUES ('43', '5');
 INSERT INTO `shop_product_category` VALUES ('44', '7');
 INSERT INTO `shop_product_category` VALUES ('39', '57');
@@ -1233,6 +1404,10 @@ INSERT INTO `shop_product_category` VALUES ('59', '5');
 INSERT INTO `shop_product_category` VALUES ('60', '5');
 INSERT INTO `shop_product_category` VALUES ('61', '5');
 INSERT INTO `shop_product_category` VALUES ('62', '5');
+INSERT INTO `shop_product_category` VALUES ('63', '8');
+INSERT INTO `shop_product_category` VALUES ('65', '5');
+INSERT INTO `shop_product_category` VALUES ('64', '5');
+INSERT INTO `shop_product_category` VALUES ('42', '5');
 
 -- ----------------------------
 -- Table structure for `shop_product_image`
@@ -1287,10 +1462,6 @@ INSERT INTO `shop_product_image` VALUES ('40', '34');
 INSERT INTO `shop_product_image` VALUES ('40', '32');
 INSERT INTO `shop_product_image` VALUES ('40', '31');
 INSERT INTO `shop_product_image` VALUES ('40', '30');
-INSERT INTO `shop_product_image` VALUES ('42', '34');
-INSERT INTO `shop_product_image` VALUES ('42', '33');
-INSERT INTO `shop_product_image` VALUES ('42', '32');
-INSERT INTO `shop_product_image` VALUES ('42', '31');
 INSERT INTO `shop_product_image` VALUES ('43', '34');
 INSERT INTO `shop_product_image` VALUES ('43', '33');
 INSERT INTO `shop_product_image` VALUES ('43', '32');
@@ -1407,6 +1578,19 @@ INSERT INTO `shop_product_image` VALUES ('62', '107');
 INSERT INTO `shop_product_image` VALUES ('62', '108');
 INSERT INTO `shop_product_image` VALUES ('62', '109');
 INSERT INTO `shop_product_image` VALUES ('62', '105');
+INSERT INTO `shop_product_image` VALUES ('63', '262');
+INSERT INTO `shop_product_image` VALUES ('63', '263');
+INSERT INTO `shop_product_image` VALUES ('63', '261');
+INSERT INTO `shop_product_image` VALUES ('63', '260');
+INSERT INTO `shop_product_image` VALUES ('65', '245');
+INSERT INTO `shop_product_image` VALUES ('65', '242');
+INSERT INTO `shop_product_image` VALUES ('65', '243');
+INSERT INTO `shop_product_image` VALUES ('64', '245');
+INSERT INTO `shop_product_image` VALUES ('64', '242');
+INSERT INTO `shop_product_image` VALUES ('64', '243');
+INSERT INTO `shop_product_image` VALUES ('42', '266');
+INSERT INTO `shop_product_image` VALUES ('42', '265');
+INSERT INTO `shop_product_image` VALUES ('42', '245');
 
 -- ----------------------------
 -- Table structure for `shop_promotion`
@@ -1468,6 +1652,7 @@ CREATE TABLE `shop_site` (
   `featuredCat_img_id` int(11) DEFAULT NULL,
   `deliveryURL` varchar(200) DEFAULT NULL,
   `featuredCatURL` varchar(200) DEFAULT NULL,
+  `freeDeliveryPrice` double DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `FK2A76A310C2B5B11E` (`log_id`),
   CONSTRAINT `FK2A76A310C2B5B11E` FOREIGN KEY (`log_id`) REFERENCES `shop_image` (`ID`)
@@ -1476,7 +1661,7 @@ CREATE TABLE `shop_site` (
 -- ----------------------------
 -- Records of shop_site
 -- ----------------------------
-INSERT INTO `shop_site` VALUES ('1', '127.0.0.1:8888', null, '/image', '/', 'www', '17', '<div style=\"display:block;background:black;width:180px;height:400px\"></div>', '<div style=\"display:block;background:black;width:999px;height:80px\"></div>', '19', '18', 'http://tv.sohu.com', 'http://www.google.com');
+INSERT INTO `shop_site` VALUES ('1', '127.0.0.1:8888', null, '/image', '/', 'www', '17', '<div style=\"display:block;background:black;width:180px;height:400px\"></div>', '<div style=\"display:block;background:black;width:999px;height:80px\"></div>', '19', '18', 'http://tv.sohu.com', 'http://www.google.com', '200');
 
 -- ----------------------------
 -- Table structure for `shop_tabproduct`
@@ -1541,15 +1726,18 @@ CREATE TABLE `shop_user` (
   `password` varchar(200) DEFAULT NULL,
   `telephone` varchar(200) DEFAULT NULL,
   `zipcode` varchar(200) DEFAULT NULL,
+  `gender` varchar(50) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `FK2A77AF94BF627AED` (`site_id`),
   CONSTRAINT `FK2A77AF94BF627AED` FOREIGN KEY (`site_id`) REFERENCES `shop_site` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_user
 -- ----------------------------
-INSERT INTO `shop_user` VALUES ('11', 'szhu.spark@gmail.com', '2011-09-13 12:17:32', null, null, null, null, 'szhu.spark@gmail.com', null, null, 'adminadmin', null, null);
+INSERT INTO `shop_user` VALUES ('12', 'szhu.spark@gmail.com', '2011-10-17 21:29:17', null, null, null, null, 'szhu.spark@gmail.com', null, null, 'adminadmin', null, null, null, null);
+INSERT INTO `shop_user` VALUES ('13', 'szhu.spark@hp.com', '2011-10-20 19:40:59', '2011-10-31 21:19:32', null, 'asdasdasd', '9', 'szhu.spark@hp.com', 'Spark', 'Zhu', 'adminadmin', '123456789', '123456', 'female', 'ddd');
 
 -- ----------------------------
 -- Table structure for `shop_useroption`
@@ -1567,15 +1755,56 @@ CREATE TABLE `shop_useroption` (
   PRIMARY KEY (`ID`),
   KEY `FKBA0225293D035A95` (`item_id`),
   CONSTRAINT `FKBA0225293D035A95` FOREIGN KEY (`item_id`) REFERENCES `shop_orderitem` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_useroption
 -- ----------------------------
-INSERT INTO `shop_useroption` VALUES ('1', null, null, null, null, 'Size', 'asdasd', '1');
-INSERT INTO `shop_useroption` VALUES ('2', null, null, null, null, 'price', '999.0', '1');
-INSERT INTO `shop_useroption` VALUES ('3', null, null, null, null, 'Qty', '2', '1');
-INSERT INTO `shop_useroption` VALUES ('4', null, null, null, null, 'Color', '#F24A78 #C8183F #C8183F #F24A78', '1');
+INSERT INTO `shop_useroption` VALUES ('17', 'Size', '2011-10-20 22:43:40', null, 'SINGLE_LIST', 'Size', 'M', '8');
+INSERT INTO `shop_useroption` VALUES ('18', 'Color', '2011-10-20 22:43:40', null, 'COLOR_SINGLE', 'Color', '#E7B37A #CA9837 #CA9837 #E7B37A', '8');
+INSERT INTO `shop_useroption` VALUES ('19', 'Size', '2011-10-20 22:47:03', null, 'SINGLE_LIST', 'Size', 'please', '10');
+INSERT INTO `shop_useroption` VALUES ('20', 'Size', '2011-10-20 22:47:14', null, 'SINGLE_LIST', 'Size', 'please', '11');
+INSERT INTO `shop_useroption` VALUES ('21', 'Size', '2011-10-20 22:48:37', null, 'SINGLE_LIST', 'Size', ' L', '13');
+INSERT INTO `shop_useroption` VALUES ('22', 'Color', '2011-10-20 22:48:37', null, 'COLOR_SINGLE', 'Color', '#EBEBEB #CFCFCF #CFCFCF #EBEBEB', '13');
+INSERT INTO `shop_useroption` VALUES ('23', 'Size', '2011-10-20 22:48:56', null, 'SINGLE_LIST', 'Size', ' L', '14');
+INSERT INTO `shop_useroption` VALUES ('24', 'Color', '2011-10-20 22:48:56', null, 'COLOR_SINGLE', 'Color', '#E7B37A #CA9837 #CA9837 #E7B37A', '14');
+INSERT INTO `shop_useroption` VALUES ('25', 'Size', '2011-10-20 22:50:50', null, 'SINGLE_LIST', 'Size', ' L', '15');
+INSERT INTO `shop_useroption` VALUES ('26', 'Color', '2011-10-20 22:50:50', null, 'COLOR_SINGLE', 'Color', '#FFFFFF #D9D9D9 #D9D9D9 #FFFFFF', '15');
+INSERT INTO `shop_useroption` VALUES ('27', 'Size', '2011-10-20 22:56:25', null, 'SINGLE_LIST', 'Size', 'please', '16');
+INSERT INTO `shop_useroption` VALUES ('28', 'Size', '2011-10-31 21:17:32', null, 'SINGLE_LIST', 'Size', 'M', '17');
+INSERT INTO `shop_useroption` VALUES ('29', 'Color', '2011-10-31 21:17:32', null, 'COLOR_SINGLE', 'Color', '#EBEBEB #CFCFCF #CFCFCF #EBEBEB', '17');
+INSERT INTO `shop_useroption` VALUES ('30', 'Size', '2011-10-31 21:19:43', null, 'SINGLE_LIST', 'Size', 'M', '18');
+INSERT INTO `shop_useroption` VALUES ('31', 'Color', '2011-10-31 21:19:43', null, 'COLOR_SINGLE', 'Color', '#EBEBEB #CFCFCF #CFCFCF #EBEBEB', '18');
+INSERT INTO `shop_useroption` VALUES ('32', 'Size', '2011-10-31 21:20:56', null, 'SINGLE_LIST', 'Size', ' L', '19');
+INSERT INTO `shop_useroption` VALUES ('33', 'Color', '2011-10-31 21:20:56', null, 'COLOR_SINGLE', 'Color', '#EBEBEB #CFCFCF #CFCFCF #EBEBEB', '19');
+INSERT INTO `shop_useroption` VALUES ('34', 'Size', '2011-11-03 18:17:08', null, 'SINGLE_LIST', 'Size', 'M', '21');
+INSERT INTO `shop_useroption` VALUES ('35', 'Color', '2011-11-03 18:17:08', null, 'COLOR_SINGLE', 'Color', '#C6DAC1 #B3BE8E #B3BE8E #C6DAC1', '21');
+INSERT INTO `shop_useroption` VALUES ('36', 'Size', '2011-11-03 18:27:16', null, 'SINGLE_LIST', 'Size', ' L', '22');
+INSERT INTO `shop_useroption` VALUES ('37', 'Color', '2011-11-03 18:27:16', null, 'COLOR_SINGLE', 'Color', '#E7B37A #CA9837 #CA9837 #E7B37A', '22');
+INSERT INTO `shop_useroption` VALUES ('38', 'Size', '2011-11-08 17:55:07', null, 'SINGLE_LIST', 'Size', ' L', '23');
+INSERT INTO `shop_useroption` VALUES ('39', 'Color', '2011-11-08 17:55:07', null, 'COLOR_SINGLE', 'Color', '#CFCA68 #C1B141 #C1B141 #CFCA68', '23');
+INSERT INTO `shop_useroption` VALUES ('40', 'Size', '2011-11-08 18:03:06', null, 'SINGLE_LIST', 'Size', 'M', '24');
+INSERT INTO `shop_useroption` VALUES ('41', 'Color', '2011-11-08 18:03:06', null, 'COLOR_SINGLE', 'Color', '', '24');
+INSERT INTO `shop_useroption` VALUES ('42', 'Size', '2011-11-08 19:02:52', null, 'SINGLE_LIST', 'Size', 'M', '25');
+INSERT INTO `shop_useroption` VALUES ('43', 'Color', '2011-11-08 19:02:52', null, 'COLOR_SINGLE', 'Color', '#EBEBEB #CFCFCF #CFCFCF #EBEBEB', '25');
+INSERT INTO `shop_useroption` VALUES ('44', 'Size', '2011-11-08 19:32:25', null, 'SINGLE_LIST', 'Size', ' L', '26');
+INSERT INTO `shop_useroption` VALUES ('45', 'Color', '2011-11-08 19:32:25', null, 'COLOR_SINGLE', 'Color', '#E7B37A #CA9837 #CA9837 #E7B37A', '26');
+INSERT INTO `shop_useroption` VALUES ('46', 'Size', '2011-11-08 20:28:23', null, 'SINGLE_LIST', 'Size', 'M', '27');
+INSERT INTO `shop_useroption` VALUES ('47', 'Color', '2011-11-08 20:28:23', null, 'COLOR_SINGLE', 'Color', '#CFCA68 #C1B141 #C1B141 #CFCA68', '27');
+INSERT INTO `shop_useroption` VALUES ('48', 'Size', '2011-11-08 20:37:37', null, 'SINGLE_LIST', 'Size', ' L', '28');
+INSERT INTO `shop_useroption` VALUES ('49', 'Color', '2011-11-08 20:37:37', null, 'COLOR_SINGLE', 'Color', '#A43755 #551B29 #551B29 #A43755', '28');
+INSERT INTO `shop_useroption` VALUES ('50', 'Size', '2011-11-08 22:11:02', null, 'SINGLE_LIST', 'Size', 'M', '29');
+INSERT INTO `shop_useroption` VALUES ('51', 'Color', '2011-11-08 22:11:02', null, 'COLOR_SINGLE', 'Color', '#EBEBEB #CFCFCF #CFCFCF #EBEBEB', '29');
+INSERT INTO `shop_useroption` VALUES ('52', 'Size', '2011-11-08 22:23:51', null, 'SINGLE_LIST', 'Size', 'M', '30');
+INSERT INTO `shop_useroption` VALUES ('53', 'Color', '2011-11-08 22:23:51', null, 'COLOR_SINGLE', 'Color', '#EBEBEB #CFCFCF #CFCFCF #EBEBEB', '30');
+INSERT INTO `shop_useroption` VALUES ('54', 'Size', '2011-11-08 22:50:36', null, 'SINGLE_LIST', 'Size', 'M', '31');
+INSERT INTO `shop_useroption` VALUES ('55', 'Color', '2011-11-08 22:50:36', null, 'COLOR_SINGLE', 'Color', '#CFCA68 #C1B141 #C1B141 #CFCA68', '31');
+INSERT INTO `shop_useroption` VALUES ('56', 'Size', '2011-11-08 22:54:21', null, 'SINGLE_LIST', 'Size', 'M', '32');
+INSERT INTO `shop_useroption` VALUES ('57', 'Color', '2011-11-08 22:54:21', null, 'COLOR_SINGLE', 'Color', '#CFCA68 #C1B141 #C1B141 #CFCA68', '32');
+INSERT INTO `shop_useroption` VALUES ('58', 'Size', '2011-11-08 23:15:46', null, 'SINGLE_LIST', 'Size', ' L', '33');
+INSERT INTO `shop_useroption` VALUES ('59', 'Color', '2011-11-08 23:15:46', null, 'COLOR_SINGLE', 'Color', '#FF4D4D #D00000 #D00000 #FF4D4D', '33');
+INSERT INTO `shop_useroption` VALUES ('60', 'Size', '2011-11-08 23:18:30', null, 'SINGLE_LIST', 'Size', ' L', '34');
+INSERT INTO `shop_useroption` VALUES ('61', 'Color', '2011-11-08 23:18:30', null, 'COLOR_SINGLE', 'Color', '#FF4D4D #D00000 #D00000 #FF4D4D', '34');
 
 -- ----------------------------
 -- Table structure for `tab_product`

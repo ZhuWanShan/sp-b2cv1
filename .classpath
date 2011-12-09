@@ -6,7 +6,7 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/activation.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/common-annotations.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-beanutils.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-collections.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-collections.jar" sourcepath="C:/Users/zhuwans/.m2/repository/commons-collections/commons-collections/3.2/commons-collections-3.2-sources.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-dbcp.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-fileupload.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-io.jar"/>
@@ -15,10 +15,7 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-pool.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/connector.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/ehcache-1.5.0.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/ejb-api.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/el-api.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-servlet.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/hibernate-annotations.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/hibernate-commons-annotations.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/hibernate-configuration-3.0.dtd"/>
@@ -30,7 +27,6 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/jaxrpc.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/jms.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/jsf-api.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/jsp-api.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/jstl.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/jta.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/log4j-1.2.15.jar"/>
@@ -38,11 +34,24 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/persistence.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/rowset.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-api-1.5.0.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-log4j12-1.5.0.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/spring.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring.jar" sourcepath="C:/Users/zhuwans/.m2/repository/org/springframework/spring/2.5.6/spring-2.5.6-sources.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/struts.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/mysql-connector-java-5.1.6-bin.jar"/>
-	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER/gwt-2.3.0"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jmagick.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/standard-1.1.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-email-1.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/ehcache-core-2.4.4.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/ehcache-terracotta-2.4.4.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/terracotta-toolkit-1.3-runtime-3.2.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-jdk14-1.6.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jasper-el.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jasper.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/repackaged-appengine-tomcat-juli-6.0.29.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/el-api.jar"/>
+	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

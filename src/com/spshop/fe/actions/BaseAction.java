@@ -96,7 +96,9 @@ public abstract class BaseAction extends Action {
 		populateSiteInfo(request, page);
 		ActionForward forward = null;
 		
-		dealURL(request, response, page.getSite().getDomain());
+		if(dealURL(request, response, page.getSite().getDomain())){
+			return null;
+		};
 		
 		try {
 			forward = processer(mapping, page, request, response);
@@ -139,13 +141,15 @@ public abstract class BaseAction extends Action {
 	    	return uri;
 	 }
 	 
-	 private void dealURL( HttpServletRequest request, HttpServletResponse response, String domain) throws IOException{
+	 private boolean dealURL( HttpServletRequest request, HttpServletResponse response, String domain) throws IOException{
 		 if(request.getRequestURL().toString().equalsIgnoreCase("http://honeybuy.com")
 				 ||request.getRequestURL().toString().equalsIgnoreCase("http://honeybuy.com/")
 				 ||request.getRequestURL().toString().equalsIgnoreCase("honeybuy.com/")
 				 ||request.getRequestURL().toString().equalsIgnoreCase("honeybuy.com")){
 			 response.sendRedirect("http://www.honeybuy.com");
+			 return true;
 		 }
+		 return false;
 		/* String noPrefixDomain = domain.replaceFirst("(?i)(^http://)*(www\\.)*", "");
 		 String url = request.getRequestURL().toString();
 		 if(url.endsWith(noPrefixDomain)){
