@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <project name="Foo" default="build" basedir=".">
   <!-- Configure path to GWT SDK -->
-  <property name="gwt.sdk" location="D:/IDE/gwt-2.3.0/gwt-2.3.0" />
+  <property name="gwt.sdk" location="C:/work/IDE/gwt-2.3.0" />
 
   <path id="project.class.path">
     <pathelement location="war/WEB-INF/classes"/>
