@@ -95,6 +95,22 @@
 						value="${pageForm.pageProperties.productDetail.abstractText}" />
 				</div>
 			</div>
+				<div id="divButtons"></div>
+				<script>
+					// Define UserAction onject
+					var ua = new gigya.services.socialize.UserAction(); 
+					ua.setLinkBack("<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}"); 
+					ua.setTitle("Enjoy Online Shopping For Fashion Dress, Apparel, Suits With Free Shipping - HoneyBuy.com");
+					// Define Share Bar plugin's Parameters	
+					var shareBarParams ={ 
+						userAction:ua,
+						shareButtons: "share,stumbleupon,email,twitter-tweet,google-plusone,facebook-like",
+						containerID: 'divButtons', // location of the Share Bar plugin
+						showCounts: 'top'
+					}
+					// Load Share Bar plugin
+					gigya.services.socialize.showShareBarUI({},shareBarParams);
+				</script>
 		</div>
 
 		<!--custom-->

@@ -1,5 +1,5 @@
 <div class="Mail_subscription">
-	<script src="http://cdn.gigya.com/JS/socialize.js?apiKey=2_1UXpzvtcCUTsgsqVzgFllQgReHnrU1ZScSL7tJAC1ftCy_DMCPUi2iTExpYFaddy"></script>	
+		
 	<h2 style="text-align:left;">Follow Us:</h2>
 	<script>
 		var params1 = {
