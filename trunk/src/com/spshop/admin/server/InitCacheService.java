@@ -3,7 +3,6 @@ package com.spshop.admin.server;
 import static com.spshop.utils.AllConstants.CATEGORY_CACHE;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -14,10 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.ehcache.Element;
 
-import com.spshop.cache.SCache;
 import com.spshop.cache.SCacheFacade;
-import com.spshop.cache.SCacheManager;
-import com.spshop.model.Product;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CategoryService;
 import com.spshop.service.intf.ProductService;
