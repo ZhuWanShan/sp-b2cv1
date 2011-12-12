@@ -73,12 +73,28 @@
 											target="_blank"><strong>${item.product.title}</strong>
 										</a>
 									</span>
+									<%-- 
 									<c:forEach items="${item.userOptions}" var="opt">
 										<c:if test="${opt.name eq 'Color' }">
 											<div style="padding: 3px">
 												<img alt='${fn:split(opt.value,"##")[0] }' src='${fn:split(opt.value,"##")[1] }' title='${fn:split(opt.value,"##")[0] }' width="24" height="24">
 											</div>
 										</c:if>
+									</c:forEach>
+									--%>
+									<c:forEach items="${item.userOptions}" var="opt">
+										<div class="cartOptionsDashboard_Content" style="color: #ff0000;"> 
+											<c:choose>
+											<c:when test="${opt.name eq 'Color' }">
+												<span>${opt.name } :</span>
+												<img alt='${fn:split(opt.value,"##")[0] }' src='${fn:split(opt.value,"##")[1] }' title='${fn:split(opt.value,"##")[0] }' width="18" height="18">
+											</c:when>
+											<c:otherwise>
+												<span>${opt.name } :</span>
+												<span>${opt.value}</span>
+											</c:otherwise>
+											</c:choose>
+										</div>
 									</c:forEach>
 								</div>
 							</td>
@@ -98,24 +114,12 @@
 								</form>
 							</td>
 							<td class="center red">
+								<%-- 
 								<a class="link_remove showCartOptions">Show Detail</a><br>
 								
 								<div style="position: absolute;" class="cartOptionsDashboard">
-									<c:forEach items="${item.userOptions}" var="opt">
-										<div class="cartOptionsDashboard_Content"> 
-											<c:choose>
-											<c:when test="${opt.name eq 'Color' }">
-												<span>${opt.name } :</span>
-												<img alt='${fn:split(opt.value,"##")[0] }' src='${fn:split(opt.value,"##")[1] }' title='${fn:split(opt.value,"##")[0] }' width="18" height="18">
-											</c:when>
-											<c:otherwise>
-												<span>${opt.name } :</span>
-												<span>${opt.value}</span>
-											</c:otherwise>
-											</c:choose>
-										</div>
-									</c:forEach>
-								</div>
+									
+								</div>--%>
 								<c:out value="${item.itemTotalPrice}"/><br> <a
 								href="#" onclick="javascript:return removeItem('${item.name}_remove')"
 								class="link_remove">Remove</a>
