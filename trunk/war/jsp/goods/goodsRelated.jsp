@@ -45,14 +45,15 @@
 <!--     		<H1 style="float: left;">Comments</H1> -->
 <%-- 			<fb:comments href='<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name }' num_posts="15" width="972"></fb:comments> --%>
 			<h3 style="float: left;">Comments</h3>
-			<div id='commentsDiv' style="width: 100%; clear: left;"></div>
+			<div id='commentsDiv' style=" clear: left;"></div>
 			<script type='text/javascript'>
 				var conf = {}
 				var params ={
 				categoryID: 'HoneyBuy',
 				streamID: '',
 				containerID: 'commentsDiv',
-				cid:''
+				cid:'',
+				width: 100%
 				}
 				gigya.services.socialize.showCommentsUI(conf,params)
 			</script>
