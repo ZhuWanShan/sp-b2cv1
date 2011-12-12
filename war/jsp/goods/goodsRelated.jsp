@@ -42,8 +42,20 @@
   </div>
      <div class="pages_box"> 
     	<c:if test="${pageForm.pageProperties.productDetail.showComments}">
-    		<H1 style="float: left;">Comments</H1>
-			<fb:comments href='<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name }' num_posts="15" width="972"></fb:comments>
+<!--     		<H1 style="float: left;">Comments</H1> -->
+<%-- 			<fb:comments href='<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name }' num_posts="15" width="972"></fb:comments> --%>
+			<h3 style="float: left;">Comments</h3>
+			<div id='commentsDiv'></div>
+			<script type='text/javascript'>
+				var conf = {}
+				var params ={
+				categoryID: 'HoneyBuy',
+				streamID: '',
+				containerID: 'commentsDiv',
+				cid:''
+				}
+				gigya.services.socialize.showCommentsUI(conf,params)
+			</script>
 		</c:if>
       </div>
     <div id="writepl" class="item_reviews_bottom_page">
