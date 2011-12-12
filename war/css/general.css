@@ -207,7 +207,7 @@ input,select{font-family:Arial, Helvetica, sans-serif;}
 .hover_cancel:hover{background:url('./Cancel_but2.gif') no-repeat 0 4px;text-decoration:none;}
 .details_l{border:1px solid #FFB548; background:#F9F4E2; padding:10px 5px; }
 /**********商品大图列表*****************/
-.Gallery_pic .goods_list{height:385px;width:226px;margin:10px 8px 30px 14px;}
+.Gallery_pic .goods_list{width:226px;margin:10px 8px 30px 14px;}
 /* .Gallery_pic .goods_picture{height:310px;} */
 /**********商品内容详细列表*****************/
 .Details_list{padding:0 10px;}
