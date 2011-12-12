@@ -13,6 +13,9 @@
 					rel="nofollow" title="Help Center">Help Center</a>
 			</div>
 		</li>
+		<li>
+			<a href="/orders">Order</a>
+		</li>
 		<script type="text/javascript">
 		if(""!="${pageForm.pageProperties.loginError}"){
 			alert("Wrong User ID or Password!");
