@@ -45,7 +45,7 @@
 <!--     		<H1 style="float: left;">Comments</H1> -->
 <%-- 			<fb:comments href='<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name }' num_posts="15" width="972"></fb:comments> --%>
 			<h3 style="float: left;">Comments</h3>
-			<div id='commentsDiv'></div>
+			<div id='commentsDiv' style="width: 100%; clear: left;"></div>
 			<script type='text/javascript'>
 				var conf = {}
 				var params ={
