@@ -6,8 +6,6 @@ import java.util.Properties;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
-import com.spshop.admin.server.LoginService;
-
 public class EmailTools {
     private final static Properties emailProperties = new Properties();
 
