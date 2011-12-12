@@ -53,7 +53,7 @@
 				streamID: '',
 				containerID: 'commentsDiv',
 				cid:'',
-				width: 100%
+				width: '100%'
 				}
 				gigya.services.socialize.showCommentsUI(conf,params)
 			</script>
