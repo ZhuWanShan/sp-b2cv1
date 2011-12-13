@@ -27,6 +27,7 @@ public class CountryCreation extends ObservableComposite<Country, CountryCreatio
 	@UiField Button save;
 	@UiField Button newCountry;
 	@UiField DoubleBox dePrice;
+	@UiField DoubleBox hDPrice;
 	
 	
 	interface CountryCreationUiBinder extends UiBinder<Widget, CountryCreation> {
@@ -53,7 +54,7 @@ public class CountryCreation extends ObservableComposite<Country, CountryCreatio
 		countryName.setText(component.getName());
 		countryAbbr.setText(component.getAbbrCode());
 		dePrice.setValue((double)component.getDePrice());
-		
+		hDPrice.setValue((double)component.getAdDePrice());
 	}
 
 	@UiHandler("countryName")
@@ -88,5 +89,9 @@ public class CountryCreation extends ObservableComposite<Country, CountryCreatio
 	@UiHandler("dePrice")
 	void onDePriceKeyUp(KeyUpEvent event) {
 		getComponet().setDePrice(dePrice.getValue().floatValue());
+	}
+	@UiHandler("hDPrice")
+	void onHDPriceKeyUp(KeyUpEvent event) {
+		getComponet().setAdDePrice(hDPrice.getValue().floatValue());
 	}
 }
