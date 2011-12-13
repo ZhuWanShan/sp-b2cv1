@@ -14,8 +14,7 @@
 			<div class="item_tabContent">
 				<a id="p_more"></a>
 				<style type="text/css">
-&
-lt  ;!-- .kuanjia_box {
+.kuanjia_box {
 	margin: 6px;
 	border: 0px;
 	padding: 0px;
@@ -236,11 +235,6 @@ lt  ;!-- .kuanjia_box {
 		no-repeat 0 4px;
 	padding-left: 23px;
 }
---&
-gt
-
-
-;
 </style>
 				<div class="kuanjia_box">
 

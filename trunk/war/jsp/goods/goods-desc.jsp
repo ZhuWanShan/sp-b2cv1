@@ -2,7 +2,7 @@
  .kuanjia_box {
 	margin: 0px;
 	border: 0px;
-	padding: 0px;
+	padding: 10px;
 }
 
 .notice_box {
