@@ -50,7 +50,7 @@
 				var conf = {}
 				var params ={
 				categoryID: 'HoneyBuy',
-				streamID: '${pageForm.pageProperties.productDetail.name)',
+				streamID: '${pageForm.pageProperties.productDetail.name}',
 				containerID: 'commentsDiv',
 				cid:'',
 				width: '100%'
