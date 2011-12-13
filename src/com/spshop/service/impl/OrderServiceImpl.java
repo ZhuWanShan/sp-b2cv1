@@ -16,9 +16,32 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 
 	@Override
 	public Order getOrderById(String id) {
-		String hql = "From Order as o where o.name = ? ";
+		String hql = "From Order as o where o.name = ? and o.status != 'ONSHOPPING'";
 		@SuppressWarnings("unchecked")
 		List<Object> cs = (List<Object>)getDao().queryByHQL(hql, id);
+		if(null!=cs){
+			for (Object object : cs) {
+				return ((Order)object).clone();
+			}
+		}
+		
+		return null;
+	}
+	
+	@Override
+	public Order getCartById(String id) {
+		
+		long longId = 0;
+		
+		try {
+			longId = Long.parseLong(id);
+		} catch (NumberFormatException e) {
+			return null;
+		}
+		
+		String hql = "From Order as o where o.id = ? and o.status = 'ONSHOPPING'";
+		@SuppressWarnings("unchecked")
+		List<Object> cs = (List<Object>)getDao().queryByHQL(hql, longId);
 		if(null!=cs){
 			for (Object object : cs) {
 				return ((Order)object).clone();
@@ -31,7 +54,7 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Order> getOrdersByUserId(long userId) {
-		String hql = "From Order as o where o.user.id = ? order by o.id desc";
+		String hql = "From Order as o where o.user.id = ? and o.status != 'ONSHOPPING' order by o.id desc";
 		List<Order> orders= new ArrayList<Order>();
 		List<Object> cs = (List<Object>)getDao().queryByHQL(hql, userId);
 		

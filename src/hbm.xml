@@ -193,6 +193,7 @@
 		<property name="city" length="200"></property>
 		<property name="dePrice"></property>
 		<property name="currency" length="200"></property>
+		<property name="customerMsg" ></property>
 		<property name="status" length="255" column="order_status"></property>
 		<bag name="items" cascade="all">
 			<key column="order_id"></key>

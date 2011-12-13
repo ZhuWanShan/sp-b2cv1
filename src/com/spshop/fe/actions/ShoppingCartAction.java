@@ -179,32 +179,32 @@ public class ShoppingCartAction extends BaseAction {
 		Country c = null;
 		if(country > 0){
 			c = ServiceFactory.getService(CountryService.class).getCountryById(country);
-			Order order = getCart(request).getOrder();
+			Order order = getCart(request,response).getOrder();
 			order.setDePrice(c.getDePrice());
 		}
 		
 		List<String> errorStrings = new ArrayList<String>();
 		List<String> msgs = new ArrayList<String>();
 		
-		Order order = getCart(request).getOrder();
+		Order order = getCart(request,response).getOrder();
 		
 		if(ADDITEM.equals(retriveOperation(request))){
 			int qty = retriveQty(request);
 			Product product = SCacheFacade.getProduct(retriveProductId(request));
 			List<UserOption> options = retriveUserOptions(request);
 			
-			getCart(request).addItem(product,options,qty);
+			getCart(request,response).addItem(product,options,qty);
 		}
 		
 		if(UPDATEITEM.equals(retriveOperation(request))){
 			int qty = retriveQty(request);
 			String itemName = retriveItemName(request);
-			getCart(request).update(itemName,qty);
+			getCart(request,response).update(itemName,qty);
 		}
 		
 		if(REMOVEITEM.equals(retriveOperation(request))){
 			String itemName = retriveItemName(request);
-			getCart(request).remove(itemName);
+			getCart(request,response).remove(itemName);
 		}
 		
 		if("pay".equals(retriveOperation(request))){

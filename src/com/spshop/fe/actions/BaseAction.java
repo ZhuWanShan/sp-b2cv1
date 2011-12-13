@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,6 +21,8 @@ import com.spshop.model.Order;
 import com.spshop.model.Site;
 import com.spshop.model.cart.ShoppingCart;
 import com.spshop.model.enums.OrderStatus;
+import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.OrderService;
 
 public abstract class BaseAction extends Action {
 	public static final String SHOPPINGCART = "shoppingcart";
@@ -48,19 +51,34 @@ public abstract class BaseAction extends Action {
         pathNodes.add(category);
     }
 	
-	public ShoppingCart getCart(HttpServletRequest request){
+	public ShoppingCart getCart(HttpServletRequest request, HttpServletResponse response){
+		
 		ShoppingCart shoppingCart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
-		
 		if(null==shoppingCart){
-			Order order = new Order();
-			order.setCreateDate(new Date());
-			shoppingCart = new ShoppingCart(order);
-			order.setStatus(OrderStatus.ONSHOPPING.getValue());
-			order.setName(getOrderId());
-			order.setCurrency("USD");
-			request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
+			Cookie[] cookies = request.getCookies();
+			if(null!=cookies&&cookies.length>0){
+				for (int i = 0; i < cookies.length; i++) {
+					if("cartId".equals(cookies[i].getName())){
+						Order order = ServiceFactory.getService(OrderService.class).getCartById(cookies[i].getValue());
+						if(null==order){
+							order = new Order();
+							order.setCreateDate(new Date());
+							shoppingCart = new ShoppingCart(order);
+							order.setStatus(OrderStatus.ONSHOPPING.getValue());
+							order.setName(getOrderId());
+							order.setCurrency("USD");
+							order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.ONSHOPPING.getValue());
+							shoppingCart.setOrder(order);
+						}
+						shoppingCart = new ShoppingCart(order);
+					}
+				}
+			}
 		}
-		
+		Cookie cookie = new Cookie("cartId", ""+shoppingCart.getOrder().getId());
+		cookie.setMaxAge(99999999);
+		response.addCookie(cookie);
+		request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
 		return shoppingCart;
 	}
 	

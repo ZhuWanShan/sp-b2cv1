@@ -29,6 +29,7 @@ public class Order extends Component{
 	private String city;
 	private float dePrice;
 	private String currency;
+	private String customerMsg;
 	
 	public Order() {
 	}
@@ -215,6 +216,11 @@ public class Order extends Component{
 			obj.addressType = this.addressType;
 		}
 		
+		if (this.customerMsg != null) {
+			/* Does not have a clone() method */
+			obj.customerMsg = this.customerMsg;
+		}
+		
 		obj.dePrice = this.dePrice;
 		
 		if (this.city != null) {
@@ -283,6 +289,14 @@ public class Order extends Component{
 
 	public String getCurrency() {
 		return currency;
+	}
+
+	public void setCustomerMsg(String customerMsg) {
+		this.customerMsg = customerMsg;
+	}
+
+	public String getCustomerMsg() {
+		return customerMsg;
 	}
 	
 	

@@ -31,6 +31,14 @@
 								</g:row>
 								<g:row>
 									<g:customCell>
+										<g:InlineLabel text="HD Price"/>
+									</g:customCell>
+									<g:customCell>
+										<g:DoubleBox ui:field="hDPrice"/>
+									</g:customCell>
+								</g:row>
+								<g:row>
+									<g:customCell>
 									<g:HorizontalPanel>
 										<g:Button text="Save" ui:field="save"/>
 										<g:Button text="New" ui:field="newCountry"/>

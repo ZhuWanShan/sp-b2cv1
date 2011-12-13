@@ -8,6 +8,9 @@ import com.spshop.model.Order;
 import com.spshop.model.OrderItem;
 import com.spshop.model.Product;
 import com.spshop.model.UserOption;
+import com.spshop.model.enums.OrderStatus;
+import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.OrderService;
 
 public class ShoppingCart {
 	private Order order;
@@ -54,7 +57,7 @@ public class ShoppingCart {
 			}
 			
 		}
-		calTotal();
+		updateCat();
 	}
 
 	public void update(String itemName, int qty) {
@@ -66,7 +69,7 @@ public class ShoppingCart {
 				}
 			}
 		}
-		calTotal();
+		updateCat();
 	}
 
 	public void remove(String itemName) {
@@ -81,7 +84,7 @@ public class ShoppingCart {
 				order.getItems().remove(toRemoveItem);
 			}
 		}
-		calTotal();
+		updateCat();
 	}
 	
 	public int getItemCount(){
@@ -91,7 +94,7 @@ public class ShoppingCart {
 		return 0;
 	}
 	
-	private void calTotal(){
+	private void updateCat(){
 		if(null!=order.getItems()||order.getItems().size()>1){
 			float totalPrice = 0;
 			for (OrderItem orderItem : order.getItems()) {
@@ -101,5 +104,6 @@ public class ShoppingCart {
 		}else{
 			order.setTotalPrice(0f);
 		}
+		ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.ONSHOPPING.getValue());
 	}
 }
