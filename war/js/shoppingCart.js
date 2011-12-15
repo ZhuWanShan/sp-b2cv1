@@ -5,17 +5,17 @@
 function removeItem(id){
 	jq("#"+id).submit();
 	
-	return null;
+	return false;
 }
 
 function updateShoppingItem(id){
 	jq("#"+id).submit();
 	
-	return null;
+	return false;
 }
 
 jq(document).ready(function(){
-		jq(".cartOptionsDashboard").hide();	
+	/*	jq(".cartOptionsDashboard").hide();	
 		var showOptionLink = jq(".showCartOptions");
 		showOptionLink.each(function(index, el){
 			jq(el).mouseenter(function(){
@@ -64,5 +64,5 @@ jq(document).ready(function(){
 			}else{
 				jq("#ship_ul").show();
 			}
-		});
+		});*/
 });

@@ -8,14 +8,10 @@
 		<p id="order_title">Let me order now!</p>
 		<div id="check_box">
 			<p>
-				TOTAL: <span><c:out value="${shoppingcart.order.totalPrice}" /></span>
+				TOTAL: <span>${shoppingcart.order.currency } ${shoppingcart.order.totalPrice}</span>
 				<script type="text/javascript">
 					var totalPrice = ${shoppingcart.order.totalPrice};
 				</script>
-			</p>
-			
-			<p>
-				SHIPPING: <span id="cDileveryPrice">${defaultPrice }</span>
 			</p>
 			<form action="/shoppingCart" method="post">
 				<input type="hidden" name="operation" value="goToCheck">

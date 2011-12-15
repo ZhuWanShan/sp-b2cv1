@@ -67,7 +67,6 @@ public abstract class BaseAction extends Action {
 							order.setStatus(OrderStatus.ONSHOPPING.getValue());
 							order.setName(getOrderId());
 							order.setCurrency("USD");
-							order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.ONSHOPPING.getValue());
 							shoppingCart.setOrder(order);
 						}
 						shoppingCart = new ShoppingCart(order);
@@ -75,9 +74,12 @@ public abstract class BaseAction extends Action {
 				}
 			}
 		}
-		Cookie cookie = new Cookie("cartId", ""+shoppingCart.getOrder().getId());
-		cookie.setMaxAge(99999999);
-		response.addCookie(cookie);
+		if(shoppingCart.getOrder().getId()>0){
+			Cookie cookie = new Cookie("cartId", ""+shoppingCart.getOrder().getId());
+			cookie.setMaxAge(99999999);
+			response.addCookie(cookie);
+		}
+		
 		request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
 		return shoppingCart;
 	}
