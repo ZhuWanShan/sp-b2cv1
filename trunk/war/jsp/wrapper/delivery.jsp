@@ -49,33 +49,16 @@
 									<tr>
 										<td><span class="red">*</span>Gender:</td>
 										<td class="W260"><select id="gender" name="gender">
-												<c:choose>
-													<c:when test='${sessionScope.userInfo.gender eq "male"}'>
-														<option selected="selected"
+														<option ${shoppingcart.order.customGender eq 'male' ?'selected="selected"':''} 
 															value="<%=AllConstants.GENDER_MALE%>">Male</option>
-														<option value="<%=AllConstants.GENDER_FEMALE%>">Female</option>
-														<option value="<%=AllConstants.GENDER_OTHERS%>">Unknown</option>
-													</c:when>
-													<c:when test='${sessionScope.userInfo.gender eq "female"}'>
-														<option value="<%=AllConstants.GENDER_MALE%>">Male</option>
-														<option selected="selected"
-															value="<%=AllConstants.GENDER_FEMALE%>">Female</option>
-														<option value="<%=AllConstants.GENDER_OTHERS%>">Unknown</option>
-													</c:when>
-													<c:otherwise>
-														<option value="<%=AllConstants.GENDER_MALE%>">Male</option>
-														<option value="<%=AllConstants.GENDER_FEMALE%>">Female</option>
-														<option selected="selected"
-															value="<%=AllConstants.GENDER_OTHERS%>">Unknown</option>
-													</c:otherwise>
-												</c:choose>
+														<option value="<%=AllConstants.GENDER_FEMALE%>" ${shoppingcart.order.customGender eq 'female' ?'selected="selected"':''} >Female</option>
 										</select></td>
 									</tr>
 									<tr>
 										<td><span class="red">*</span>First Name:</td>
 										<td class="W260"><input type="text"
 											onblur="checkform(this.id);" class="input_1"
-											value="${shoppingcart.order.cFirstName }"
+											value="${shoppingcart.order.cfirstName }"
 											id="MemberContact0_new" name="MemberContact[0]"> <i
 											id="MemberContact0_newInfo"></i></td>
 									</tr>
@@ -83,7 +66,7 @@
 										<td><span class="red">*</span>Last Name:</td>
 										<td class="W260"><input type="text"
 											onblur="checkform(this.id);" class="input_1"
-											value="${shoppingcart.order.cLastName }"
+											value="${shoppingcart.order.clastName }"
 											id="MemberContact1_new" name="MemberContact[1]"> <i
 											id="MemberContact1_newInfo"></i></td>
 									</tr>
@@ -359,7 +342,7 @@
       <h3>Leave a Message</h3>
       <p style="color: #ff0000; padding: 5px 0;">Please don't leave any custom-made message here, we may ignore it. If you want the custom-made service, please go to the size chart page, and select the custom-made size, fill it in the form accordingly. Thank you for your cooperation!</p>
       <div class="OrderRemarks">
-        <textarea maxlength="150" id="Remarks" rows="4" cols="65" name="Remarks"></textarea>
+        <textarea maxlength="150" id="Remarks" rows="4" cols="65" name="Remarks" value="${shoppingCart.order.customerMsg}"></textarea>
         <br>
         <i>Write anything you like to require more on your placed order, such as the shipping and other order related requirements.</i> </div>
     </div>
@@ -382,7 +365,7 @@
         <td style="color:#cc0000;" class="price bold">US$ <span style="color:#cc0000;" id="total">${shoppingcart.order.totalPrice + shoppingcart.order.dePrice}</span></td>
       </tr>
       <tr>
-        <td style="text-align:right;" colspan="3">           <input type="submit" value="CONTINUE" id="paymentsubmit" class="ContinueCheckout_pay" name="input2">
+        <td style="text-align:right;" colspan="3">           <input type="submit" value="CONTINUE" id="paymentsubmit" class="ContinueCheckout_pay" name="operation" onclick="return confirm('I am sure all item correct.')">
            </td>
       </tr>
     </tbody></table>

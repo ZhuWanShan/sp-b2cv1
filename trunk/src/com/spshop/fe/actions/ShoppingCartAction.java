@@ -1,10 +1,12 @@
 package com.spshop.fe.actions;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -181,16 +183,19 @@ public class ShoppingCartAction extends BaseAction {
 		order.setCustomerName(request.getParameter("MemberContact[0]")+","+request.getParameter("MemberContact[1]"));
 		order.setCustomerAddress(request.getParameter("MemberContactAddr[0]"));
 		order.setCustomerAddress2(request.getParameter("MemberContactAddr[1]"));
-		order.setDeliverCode(request.getParameter("MemberZip"));
+		order.setCustomerZipcode(request.getParameter("MemberZip"));
 		order.setDeliverPhone(request.getParameter("MemberContactPhone"));
 		order.setCustomerEmail(request.getParameter("MemberEmail"));
+		order.setbCustomGender(request.getParameter("gender"));
+		order.setCustomerMsg(request.getParameter("Remarks"));
 	}
 	
 	@Override
 	public ActionForward processer(ActionMapping mapping, PageFormBean page,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		
+		List<String> errorStrings = new ArrayList<String>();
+		List<String> msgs = new ArrayList<String>();
 		if(CMD_CHECK.equals(retrieveCMDURL(request))){
 			request.setAttribute("billing_address", "true");
 			request.setAttribute("showCheckOption", true);
@@ -214,11 +219,19 @@ public class ShoppingCartAction extends BaseAction {
 				retriveShippingInfo(request,response,false);
 			} catch (Exception e) {
 			}
+			
+			
+			if("CONTINUE".equals(retriveOperation(request))){
+				retriveShippingInfo(request,response,true);
+				if(PAYMEMT_PAYPAL.equals(retrivePaymentType(request))){
+					paypalPay(request, response, errorStrings, msgs);
+					return null;
+				}
+			}
 			updateCart(request, response);
 		}
 		
-		List<String> errorStrings = new ArrayList<String>();
-		List<String> msgs = new ArrayList<String>();
+		
 		
 		Order order = getCart(request,response).getOrder();
 		
@@ -255,49 +268,6 @@ public class ShoppingCartAction extends BaseAction {
 			}
 			//request.setAttribute("showCheckOption", true);
 		}
-		if(CHECKOUT.equals(retriveOperation(request))){
-			
-			String payment = retrivePaymentType(request);
-			if(PAYMEMT_PAYPAL.equals(payment)){
-				
-				if(null==order.getItems()||order.getItems().size()<1){
-					errorStrings.add("Shopping cart is empty!");
-				}else{
-					order.setOrderType(payment);
-					if(null!=retriveUser(request)){
-						order.setUser(retriveUser(request));
-						order.setAddressType(ADDRESS_LA);
-						User user = retriveUser(request);
-						
-						order.setCustomerAddress(user.getAddress());
-						order.setCustomerCountry(user.getCountry());
-						order.setCustomerEmail(user.getEmail());
-						order.setCustomerName(user.getLastName()+" " + user.getFirstName());
-						order.setCustomerZipcode(user.getZipcode());
-						order.setDeliverPhone(user.getTelephone());
-						order.setCity(user.getCity());
-						
-					}else if(ADDRESS_MA.equals(retriveAddressType(request))){
-						
-						order.setCustomerAddress(retriveAddress(request));
-						order.setCustomerCountry(retriveCountry(request));
-						order.setCustomerEmail(retriveEmail(request));
-						order.setCustomerName(retriveLastName(request) +" " + retriveFirstName(request));
-						order.setCustomerZipcode(retriveZipCode(request));
-						order.setDeliverPhone(retrivePhone(request));
-						
-					}else{
-						order.setAddressType(ADDRESS_PA);
-					}
-					//order.setName(getOrderId());
-					//order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
-					request.setAttribute(AllConstants.DEFAULT_ORDER, order);
-					//clearCart(request);
-					request.getRequestDispatcher("/jsp/pay_payPal.jsp").forward(request, response);
-					return null;
-				}
-			}
-		}
 		
 		request.setAttribute(AllConstants.REQUEST_ERROR, errorStrings);
 		request.setAttribute(AllConstants.REQUEST_MSG, msgs);
@@ -329,5 +299,50 @@ public class ShoppingCartAction extends BaseAction {
 		}
 	}
 	
+	private void paypalPay(HttpServletRequest request,  HttpServletResponse response, List<String> errorStrings, List<String> msg) throws ServletException, IOException{
 
+		
+		String payment = retrivePaymentType(request);
+		if(PAYMEMT_PAYPAL.equals(payment)){
+			Order order = getCart(request, response).getOrder();
+			if(null==order.getItems()||order.getItems().size()<1){
+				errorStrings.add("Shopping cart is empty!");
+			}else{
+				order.setOrderType(payment);
+				if(null!=retriveUser(request)){
+					order.setUser(retriveUser(request));
+					order.setAddressType(ADDRESS_LA);
+					User user = retriveUser(request);
+					
+					order.setCustomerAddress(user.getAddress());
+					order.setCustomerCountry(user.getCountry());
+					order.setCustomerEmail(user.getEmail());
+					order.setCustomerName(user.getLastName()+" " + user.getFirstName());
+					order.setCustomerZipcode(user.getZipcode());
+					order.setDeliverPhone(user.getTelephone());
+					order.setCity(user.getCity());
+					
+				}else if(ADDRESS_MA.equals(retriveAddressType(request))){
+					
+					order.setCustomerAddress(retriveAddress(request));
+					order.setCustomerCountry(retriveCountry(request));
+					order.setCustomerEmail(retriveEmail(request));
+					order.setCustomerName(retriveLastName(request) +" " + retriveFirstName(request));
+					order.setCustomerZipcode(retriveZipCode(request));
+					order.setDeliverPhone(retrivePhone(request));
+					
+				}else{
+					order.setAddressType(ADDRESS_PA);
+				}
+				//order.setName(getOrderId());
+				//order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
+				request.setAttribute(AllConstants.DEFAULT_ORDER, order);
+				clearCart(request);
+				order.setStatus(OrderStatus.PENDING.getValue());
+				request.getRequestDispatcher("/jsp/pay_payPal.jsp").forward(request, response);
+			}
+		}
+		updateCart(request, response);
+	}
+	
 }
