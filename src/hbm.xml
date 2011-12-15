@@ -179,6 +179,7 @@
 		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
 		
 		<property name="customerAddress" length="200"></property>
+		<property name="customerAddress2" length="200"></property>
 		<property name="customerCompany" length="200" ></property>
 		<property name="customerCountry" length="200"></property>
 		<property name="customerEmail" length="200"></property>

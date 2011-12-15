@@ -169,14 +169,14 @@ public class Order extends Component{
 		return totalPrice;
 	}
 	
-	public String getCFirstName(){
-		if(null!=customerName){
+	public String getCfirstName(){
+		if(null!=customerName&&customerName.split(",").length>1){
 			return customerName.split(",")[0];
 		}
 		return null;
 	}
 	
-	public String getCLastName(){
+	public String getClastName(){
 		if(null!=customerName&&customerName.split(",").length>1){
 			return customerName.split(",")[1];
 		}
@@ -184,14 +184,14 @@ public class Order extends Component{
 
 	}
 	
-	public String getBFirstName(){
-		if(null!=bCustomerName){
+	public String getBfirstName(){
+		if(null!=bCustomerName&&bCustomerName.split(",").length>1){
 			return bCustomerName.split(",")[0];
 		}
 		return null;
 	}
 	
-	public String getBLastName(){
+	public String getBlastName(){
 		if(null!=bCustomerName&&bCustomerName.split(",").length>1){
 			return bCustomerName.split(",")[1];
 		}

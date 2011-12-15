@@ -5,6 +5,7 @@ alter table shop_order add column customGender varchar(10);
 alter table shop_order add column bCustomGender varchar(10);
 alter table shop_order add column bCustomerAddress varchar(500);
 alter table shop_order add column bCustomerAddress2 varchar(500);
+alter table shop_order add column customerAddress2 varchar(500);
 alter table shop_order add column bCity varchar(200);
 alter table shop_order add column bCustomerZipcode varchar(200);
 alter table shop_order add column bPhone varchar(200);

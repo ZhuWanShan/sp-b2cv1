@@ -67,13 +67,13 @@
 		<script type="text/javascript">
 			
 				jq("#paypaysubmit").click(function(){
-						jQuery.ajax({
+						/* jQuery.ajax({
 							  url: "shoppingCart?operation=pay",
 							  context: document.body,
-							  success: function(){
+							  success: function(){ */
 								 jq("#paypaysubmitForm").submit();
-							  }
-						});
+					/* 		  }
+						}); */
 				}
 			);
 						
