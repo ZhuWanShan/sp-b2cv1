@@ -36,7 +36,13 @@
 					actionURL: 'http://honeybuy.wordpress.com/feed/',
 					action: 'window',
 					title: 'RSS Feed'
-				}
+				},
+				{  
+                    provider: 'linkedin',  
+                    actionURL: 'http://www.linkedin.com/in/honeybuy/',  
+                    action: 'window',
+                    title: 'LinkedIn'
+                }  
 			]
 		}	
 			
