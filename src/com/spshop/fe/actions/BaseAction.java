@@ -73,6 +73,9 @@ public abstract class BaseAction extends Action {
 					}
 				}
 			}
+			if(null==shoppingCart.getOrder()){
+				shoppingCart.setOrder(new Order());
+			}
 		}
 		if(shoppingCart.getOrder().getId()>0){
 			Cookie cookie = new Cookie("cartId", ""+shoppingCart.getOrder().getId());
