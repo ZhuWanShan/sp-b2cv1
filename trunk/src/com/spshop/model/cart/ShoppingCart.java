@@ -8,9 +8,6 @@ import com.spshop.model.Order;
 import com.spshop.model.OrderItem;
 import com.spshop.model.Product;
 import com.spshop.model.UserOption;
-import com.spshop.model.enums.OrderStatus;
-import com.spshop.service.factory.ServiceFactory;
-import com.spshop.service.intf.OrderService;
 
 public class ShoppingCart {
 	private Order order;
@@ -104,6 +101,5 @@ public class ShoppingCart {
 		}else{
 			order.setTotalPrice(0f);
 		}
-		ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.ONSHOPPING.getValue());
 	}
 }

@@ -12,6 +12,7 @@ public class Order extends Component{
 	private String customerName;
 	private String customerCompany;
 	private String customerAddress;
+	private String customerAddress2;
 	private String customerTelephone;
 	private String customerCountry;
 	private String customerEmail;
@@ -30,6 +31,15 @@ public class Order extends Component{
 	private float dePrice;
 	private String currency;
 	private String customerMsg;
+	
+	private String bCustomerName;
+	private String customGender;
+	private String bCustomGender;
+	private String bCustomerAddress;
+	private String bCustomerAddress2;
+	private String bCity;
+	private String bCustomerZipcode;
+	private String bPhone;
 	
 	public Order() {
 	}
@@ -158,6 +168,36 @@ public class Order extends Component{
 	public float getTotalPrice() {
 		return totalPrice;
 	}
+	
+	public String getCFirstName(){
+		if(null!=customerName){
+			return customerName.split(",")[0];
+		}
+		return null;
+	}
+	
+	public String getCLastName(){
+		if(null!=customerName&&customerName.split(",").length>1){
+			return customerName.split(",")[1];
+		}
+		return null;
+
+	}
+	
+	public String getBFirstName(){
+		if(null!=bCustomerName){
+			return bCustomerName.split(",")[0];
+		}
+		return null;
+	}
+	
+	public String getBLastName(){
+		if(null!=bCustomerName&&bCustomerName.split(",").length>1){
+			return bCustomerName.split(",")[1];
+		}
+		return null;
+
+	}
 
 	public Order clone() {
 		Order obj = null;
@@ -216,6 +256,11 @@ public class Order extends Component{
 			obj.addressType = this.addressType;
 		}
 		
+		if (this.customerAddress2 != null) {
+			/* Does not have a clone() method */
+			obj.customerAddress2 = this.customerAddress2;
+		}
+		
 		if (this.customerMsg != null) {
 			/* Does not have a clone() method */
 			obj.customerMsg = this.customerMsg;
@@ -248,6 +293,40 @@ public class Order extends Component{
 		if (this.status != null) {
 			obj.status = this.status;
 		}
+		
+		
+		if (this.bCustomerName != null) {
+			obj.bCustomerName = this.bCustomerName;
+		}
+		
+		if (this.customGender != null) {
+			obj.customGender = this.customGender;
+		}
+		
+		if (this.bCustomGender != null) {
+			obj.bCustomGender = this.bCustomGender;
+		}
+		
+		if (this.bCustomerAddress2 != null) {
+			obj.bCustomerAddress2 = this.bCustomerAddress2;
+		}
+		
+		if (this.bCustomerAddress != null) {
+			obj.bCustomerAddress = this.bCustomerAddress;
+		}
+		
+		if (this.bCity != null) {
+			obj.bCity = this.bCity;
+		}
+		
+		if (this.bCustomerZipcode != null) {
+			obj.bCustomerZipcode = this.bCustomerZipcode;
+		}
+		
+		if (this.bPhone != null) {
+			obj.bPhone = this.bPhone;
+		}
+		
 		return obj;
 	}
 
@@ -297,6 +376,78 @@ public class Order extends Component{
 
 	public String getCustomerMsg() {
 		return customerMsg;
+	}
+
+	public void setCustomerAddress2(String customerAddress2) {
+		this.customerAddress2 = customerAddress2;
+	}
+
+	public String getCustomerAddress2() {
+		return customerAddress2;
+	}
+
+	public void setbCustomerName(String bCustomerName) {
+		this.bCustomerName = bCustomerName;
+	}
+
+	public String getbCustomerName() {
+		return bCustomerName;
+	}
+
+	public void setCustomGender(String customGender) {
+		this.customGender = customGender;
+	}
+
+	public String getCustomGender() {
+		return customGender;
+	}
+
+	public void setbCustomGender(String bCustomGender) {
+		this.bCustomGender = bCustomGender;
+	}
+
+	public String getbCustomGender() {
+		return bCustomGender;
+	}
+
+	public void setbCustomerAddress(String bCustomerAddress) {
+		this.bCustomerAddress = bCustomerAddress;
+	}
+
+	public String getbCustomerAddress() {
+		return bCustomerAddress;
+	}
+
+	public void setbCustomerAddress2(String bCustomerAddress2) {
+		this.bCustomerAddress2 = bCustomerAddress2;
+	}
+
+	public String getbCustomerAddress2() {
+		return bCustomerAddress2;
+	}
+
+	public void setbCity(String bCity) {
+		this.bCity = bCity;
+	}
+
+	public String getbCity() {
+		return bCity;
+	}
+
+	public void setbCustomerZipcode(String bCustomerZipcode) {
+		this.bCustomerZipcode = bCustomerZipcode;
+	}
+
+	public String getbCustomerZipcode() {
+		return bCustomerZipcode;
+	}
+
+	public void setbPhone(String bPhone) {
+		this.bPhone = bPhone;
+	}
+
+	public String getbPhone() {
+		return bPhone;
 	}
 	
 	

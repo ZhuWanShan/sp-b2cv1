@@ -1,3 +1,11 @@
 alter table shop_order add column customerMsg varchar(800);
 alter table shop_country add column adDePrice float;
+alter table shop_order add column bCustomerName varchar(200);
+alter table shop_order add column customGender varchar(10);
+alter table shop_order add column bCustomGender varchar(10);
+alter table shop_order add column bCustomerAddress varchar(500);
+alter table shop_order add column bCustomerAddress2 varchar(500);
+alter table shop_order add column bCity varchar(200);
+alter table shop_order add column bCustomerZipcode varchar(200);
+alter table shop_order add column bPhone varchar(200);
 update shop_country set adDePrice = 0;

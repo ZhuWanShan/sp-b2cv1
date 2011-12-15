@@ -97,7 +97,7 @@
 		<property name="code" length="100"></property>
 		<property name="abbrCode" length="50"></property>
 		<property name="dePrice"></property>
-		
+		<property name="adDePrice"></property>
 	</class>
 	
 	<class name="Deliver" table="SHOP_Deliver">
@@ -194,7 +194,18 @@
 		<property name="dePrice"></property>
 		<property name="currency" length="200"></property>
 		<property name="customerMsg" ></property>
+		<property name="bCustomerName" ></property>
+		<property name="customGender" ></property>
+		<property name="bCustomGender" ></property>
+		<property name="bCustomerAddress" ></property>
+		<property name="bCustomerAddress2" ></property>
+		<property name="bCity" ></property>
+		<property name="bCustomerZipcode" ></property>
+		<property name="bPhone" ></property>
 		<property name="status" length="255" column="order_status"></property>
+		
+		
+		
 		<bag name="items" cascade="all">
 			<key column="order_id"></key>
 			<one-to-many class="OrderItem"/>

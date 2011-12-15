@@ -161,26 +161,60 @@ public class ShoppingCartAction extends BaseAction {
 		return request.getParameter("MemberEmail");
 	}
 	
+	private String retrieveDeType(ServletRequest request){
+		if("Standard".equals(request.getParameter("shippingMethod"))){
+			return "Standard";
+		}
+		return "Expedited";
+	}
+	
+	private String retrieveBillingAddress(ServletRequest request){
+		if("true".equals(request.getParameter("billing_address"))){
+			return "true";
+		}
+		return "false";
+	}
+	
+	private void retriveShippingInfo(HttpServletRequest request,HttpServletResponse response,boolean check){
+		Order order = getCart(request, response).getOrder();
+		order.setCity(request.getParameter("MemberCtiy"));
+		order.setCustomerName(request.getParameter("MemberContact[0]")+","+request.getParameter("MemberContact[1]"));
+		order.setCustomerAddress(request.getParameter("MemberContactAddr[0]"));
+		order.setCustomerAddress2(request.getParameter("MemberContactAddr[1]"));
+		order.setDeliverCode(request.getParameter("MemberZip"));
+		order.setDeliverPhone(request.getParameter("MemberContactPhone"));
+		order.setCustomerEmail(request.getParameter("MemberEmail"));
+	}
+	
 	@Override
 	public ActionForward processer(ActionMapping mapping, PageFormBean page,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		
 		if(CMD_CHECK.equals(retrieveCMDURL(request))){
+			request.setAttribute("billing_address", "true");
 			request.setAttribute("showCheckOption", true);
-		}
-		
-		int country = 0;
-		
-		try {
-			country = Integer.parseInt(retriveCountry(request));
-		} catch (Exception e) {
-		}
-		Country c = null;
-		if(country > 0){
-			c = ServiceFactory.getService(CountryService.class).getCountryById(country);
-			Order order = getCart(request,response).getOrder();
-			order.setDePrice(c.getDePrice());
+			String country  = retriveCountry(request);
+			try {
+				Country c = ServiceFactory.getService(CountryService.class).getCountryById(Integer.parseInt(country));
+				if("Standard".equals(retrieveDeType(request))){
+					getCart(request, response).getOrder().setDePrice(c.getDePrice());
+					request.setAttribute("shippingMethod", "Standard");
+				}else{
+					getCart(request, response).getOrder().setDePrice(c.getAdDePrice());
+					request.setAttribute("shippingMethod", "Expedited");
+				}
+				getCart(request, response).getOrder().setCustomerCountry(c.getName());
+				if("true".equals(retrieveBillingAddress(request))){
+					request.setAttribute("billing_address", "true");
+				}else{
+					request.setAttribute("billing_address", "false");
+				}
+				request.setAttribute("defaultCountry", c);
+				retriveShippingInfo(request,response,false);
+			} catch (Exception e) {
+			}
+			updateCart(request, response);
 		}
 		
 		List<String> errorStrings = new ArrayList<String>();
@@ -194,17 +228,20 @@ public class ShoppingCartAction extends BaseAction {
 			List<UserOption> options = retriveUserOptions(request);
 			
 			getCart(request,response).addItem(product,options,qty);
+			updateCart(request, response);
 		}
 		
 		if(UPDATEITEM.equals(retriveOperation(request))){
 			int qty = retriveQty(request);
 			String itemName = retriveItemName(request);
 			getCart(request,response).update(itemName,qty);
+			updateCart(request, response);
 		}
 		
 		if(REMOVEITEM.equals(retriveOperation(request))){
 			String itemName = retriveItemName(request);
 			getCart(request,response).remove(itemName);
+			updateCart(request, response);
 		}
 		
 		if("pay".equals(retriveOperation(request))){
@@ -248,9 +285,6 @@ public class ShoppingCartAction extends BaseAction {
 						order.setCustomerName(retriveLastName(request) +" " + retriveFirstName(request));
 						order.setCustomerZipcode(retriveZipCode(request));
 						order.setDeliverPhone(retrivePhone(request));
-						if(null!=c){
-							order.setCity(c.getName());
-						}
 						
 					}else{
 						order.setAddressType(ADDRESS_PA);
@@ -287,6 +321,13 @@ public class ShoppingCartAction extends BaseAction {
 		request.getSession().setAttribute(AllConstants.DEFAULT_ORDER, null);
 	}
 	
+	private void updateCart(HttpServletRequest request,  HttpServletResponse response){
+		if(null!=getCart(request,response).getOrder().getItems()&&getCart(request,response).getOrder().getItems().size()>0){
+			getCart(request,response).setOrder(ServiceFactory.getService(OrderService.class).saveOrder(getCart(request,response).getOrder(), OrderStatus.ONSHOPPING.getValue()));
+		}else{
+			getCart(request,response).setOrder(new Order());
+		}
+	}
 	
 
 }
