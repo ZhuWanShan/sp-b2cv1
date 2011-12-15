@@ -55,6 +55,7 @@ public abstract class BaseAction extends Action {
 		
 		ShoppingCart shoppingCart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
 		if(null==shoppingCart){
+			shoppingCart = new ShoppingCart(new Order());
 			Cookie[] cookies = request.getCookies();
 			if(null!=cookies&&cookies.length>0){
 				for (int i = 0; i < cookies.length; i++) {
@@ -72,9 +73,6 @@ public abstract class BaseAction extends Action {
 						shoppingCart = new ShoppingCart(order);
 					}
 				}
-			}
-			if(null==shoppingCart.getOrder()){
-				shoppingCart.setOrder(new Order());
 			}
 		}
 		if(shoppingCart.getOrder().getId()>0){
