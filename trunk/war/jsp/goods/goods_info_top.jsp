@@ -104,7 +104,7 @@
 					// Define Share Bar plugin's Parameters	
 					var shareBarParams ={ 
 						userAction:ua,
-						shareButtons: "share,stumbleupon,email,twitter-tweet,google-plusone,facebook-like",
+						shareButtons: "facebook-like,share,stumbleupon,email,twitter-tweet,google-plusone",
 						containerID: 'divButtons', // location of the Share Bar plugin
 						showCounts: 'top'
 					}
