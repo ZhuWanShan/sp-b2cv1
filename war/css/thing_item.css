@@ -41,7 +41,7 @@
 .item_high_socllbar,.item_normal_socllbar{ overflow:hidden; zoom:1;}
 .item_high_socllbar li,.item_normal_socllbar li{ border:1px solid #E0E0E0; float:left; margin-right:5px; width:46px; height:63px; text-align:center; margin-bottom:5px;cursor:pointer;}
 li.sel{border:1px solid #f90;}
-.item_shopping_fun{ width:456px; float:left; overflow:hidden; padding:0 15px; border-right:1px dotted #B1B1B1;}
+.item_shopping_fun{ width:456px; float:left; padding:0 15px; border-right:1px dotted #B1B1B1;}
 .item_shopping_fun h1{ font-size:18px; line-height:28px; margin-bottom:10px; font-weight:bold;}
 .item_shopping_fun_high{width:354px; float:left; overflow:hidden; padding:0 15px; border-right:1px dotted #B1B1B1;}
 .item_shopping_fun_high h1{ font-size:18px; line-height:28px; margin-bottom:10px; font-weight:bold;}
