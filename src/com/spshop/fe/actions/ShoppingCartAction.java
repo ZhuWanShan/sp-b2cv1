@@ -190,6 +190,16 @@ public class ShoppingCartAction extends BaseAction {
 		order.setCustomerMsg(request.getParameter("Remarks"));
 	}
 	
+	private void retriveBShippingInfo(HttpServletRequest request,HttpServletResponse response,boolean check){
+		Order order = getCart(request, response).getOrder();
+		order.setbCity(request.getParameter("MemberCtiy"));
+		order.setbCustomerName(request.getParameter("MemberContact[0]")+","+request.getParameter("MemberContact[1]"));
+		order.setbCustomerAddress(request.getParameter("MemberContactAddr[0]"));
+		order.setbCustomerAddress2(request.getParameter("MemberContactAddr[1]"));
+		order.setbCustomerZipcode(request.getParameter("MemberZip"));
+		order.setbCustomGender(request.getParameter("gender"));
+	}
+	
 	@Override
 	public ActionForward processer(ActionMapping mapping, PageFormBean page,
 			HttpServletRequest request, HttpServletResponse response)
