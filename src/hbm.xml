@@ -195,14 +195,14 @@
 		<property name="dePrice"></property>
 		<property name="currency" length="200"></property>
 		<property name="customerMsg" ></property>
-		<property name="bCustomerName" ></property>
+		<property name="bcustomerName" ></property>
 		<property name="customGender" ></property>
-		<property name="bCustomGender" ></property>
-		<property name="bCustomerAddress" ></property>
-		<property name="bCustomerAddress2" ></property>
-		<property name="bCity" ></property>
-		<property name="bCustomerZipcode" ></property>
-		<property name="bPhone" ></property>
+		<property name="bcustomGender" ></property>
+		<property name="bcustomerAddress" ></property>
+		<property name="bcustomerAddress2" ></property>
+		<property name="bcity" ></property>
+		<property name="bcustomerZipcode" ></property>
+		<property name="bphone" ></property>
 		<property name="status" length="255" column="order_status"></property>
 		
 		

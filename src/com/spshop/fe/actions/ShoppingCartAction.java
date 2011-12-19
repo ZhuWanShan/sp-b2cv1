@@ -186,18 +186,19 @@ public class ShoppingCartAction extends BaseAction {
 		order.setCustomerZipcode(request.getParameter("MemberZip"));
 		order.setDeliverPhone(request.getParameter("MemberContactPhone"));
 		order.setCustomerEmail(request.getParameter("MemberEmail"));
-		order.setbCustomGender(request.getParameter("gender"));
+		order.setCustomGender(request.getParameter("gender"));
 		order.setCustomerMsg(request.getParameter("Remarks"));
 	}
 	
 	private void retriveBShippingInfo(HttpServletRequest request,HttpServletResponse response,boolean check){
 		Order order = getCart(request, response).getOrder();
-		order.setbCity(request.getParameter("MemberCtiy"));
-		order.setbCustomerName(request.getParameter("MemberContact[0]")+","+request.getParameter("MemberContact[1]"));
-		order.setbCustomerAddress(request.getParameter("MemberContactAddr[0]"));
-		order.setbCustomerAddress2(request.getParameter("MemberContactAddr[1]"));
-		order.setbCustomerZipcode(request.getParameter("MemberZip"));
-		order.setbCustomGender(request.getParameter("gender"));
+		order.setBcity(request.getParameter("MemberCtiy_b"));
+		order.setBcustomerName(request.getParameter("MemberContact_b[0]")+","+request.getParameter("MemberContact_b[1]"));
+		order.setBcustomerAddress(request.getParameter("MemberContactAddr_b[0]"));
+		order.setBcustomerAddress2(request.getParameter("MemberContactAddr_b[1]"));
+		order.setBcustomerZipcode(request.getParameter("MemberZip_b"));
+		order.setBcustomGender(request.getParameter("ConsigneeGender_b"));
+		order.setBphone(request.getParameter("MemberContactPhone_b"));
 	}
 	
 	@Override
@@ -227,12 +228,14 @@ public class ShoppingCartAction extends BaseAction {
 				}
 				request.setAttribute("defaultCountry", c);
 				retriveShippingInfo(request,response,false);
+				retriveBShippingInfo(request,response,false);
 			} catch (Exception e) {
 			}
 			
 			
 			if("CONTINUE".equals(retriveOperation(request))){
 				retriveShippingInfo(request,response,true);
+				retriveBShippingInfo(request,response,true);
 				if(PAYMEMT_PAYPAL.equals(retrivePaymentType(request))){
 					paypalPay(request, response, errorStrings, msgs);
 					return null;
@@ -285,7 +288,7 @@ public class ShoppingCartAction extends BaseAction {
 				 order2.setCustomerZipcode(user.getZipcode());
 				 order2.setDeliverPhone(user.getTelephone());
 				 order2.setCustomerEmail(user.getEmail());
-				 order2.setbCustomGender(user.getGender());
+				 order2.setBcustomGender(user.getGender());
 				 response.sendRedirect("/shopping/cmd/check");
 				 return null;
 			}

@@ -17,6 +17,7 @@ public class ShoppingCart {
 		if(null==order.getItems()){
 			order.setItems(new ArrayList<OrderItem>());
 		}
+		updateCat();
 	}
 
 	public void setOrder(Order order) {
@@ -28,6 +29,9 @@ public class ShoppingCart {
 	}
 
 	public void addItem(Product product, List<UserOption> options, int qty) {
+		if(null==order.getItems()){
+			order.setItems(new ArrayList<OrderItem>());
+		}
 		if(null!=order.getItems()){
 			boolean existItem = false;
 			for (OrderItem item : order.getItems()) {
@@ -92,7 +96,7 @@ public class ShoppingCart {
 	}
 	
 	private void updateCat(){
-		if(null!=order&&null==order.getItems()&&order.getItems().size()>1){
+		if(null!=order&&null!=order.getItems()&&order.getItems().size()>1){
 			float totalPrice = 0;
 			for (OrderItem orderItem : order.getItems()) {
 				totalPrice = totalPrice + orderItem.getFinalPrice()*orderItem.getQuantity();

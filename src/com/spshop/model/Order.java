@@ -173,14 +173,14 @@ public class Order extends Component{
 		if(null!=customerName&&customerName.split(",").length>1){
 			return customerName.split(",")[0];
 		}
-		return null;
+		return "";
 	}
 	
 	public String getClastName(){
 		if(null!=customerName&&customerName.split(",").length>1){
 			return customerName.split(",")[1];
 		}
-		return null;
+		return "";
 
 	}
 	
@@ -188,14 +188,14 @@ public class Order extends Component{
 		if(null!=bCustomerName&&bCustomerName.split(",").length>1){
 			return bCustomerName.split(",")[0];
 		}
-		return null;
+		return "";
 	}
 	
 	public String getBlastName(){
 		if(null!=bCustomerName&&bCustomerName.split(",").length>1){
 			return bCustomerName.split(",")[1];
 		}
-		return null;
+		return "";
 
 	}
 
@@ -386,11 +386,11 @@ public class Order extends Component{
 		return customerAddress2;
 	}
 
-	public void setbCustomerName(String bCustomerName) {
+	public void setBcustomerName(String bCustomerName) {
 		this.bCustomerName = bCustomerName;
 	}
 
-	public String getbCustomerName() {
+	public String getBcustomerName() {
 		return bCustomerName;
 	}
 
@@ -402,51 +402,51 @@ public class Order extends Component{
 		return customGender;
 	}
 
-	public void setbCustomGender(String bCustomGender) {
+	public void setBcustomGender(String bCustomGender) {
 		this.bCustomGender = bCustomGender;
 	}
 
-	public String getbCustomGender() {
+	public String getBcustomGender() {
 		return bCustomGender;
 	}
 
-	public void setbCustomerAddress(String bCustomerAddress) {
+	public void setBcustomerAddress(String bCustomerAddress) {
 		this.bCustomerAddress = bCustomerAddress;
 	}
 
-	public String getbCustomerAddress() {
+	public String getBcustomerAddress() {
 		return bCustomerAddress;
 	}
 
-	public void setbCustomerAddress2(String bCustomerAddress2) {
+	public void setBcustomerAddress2(String bCustomerAddress2) {
 		this.bCustomerAddress2 = bCustomerAddress2;
 	}
 
-	public String getbCustomerAddress2() {
+	public String getBcustomerAddress2() {
 		return bCustomerAddress2;
 	}
 
-	public void setbCity(String bCity) {
+	public void setBcity(String bCity) {
 		this.bCity = bCity;
 	}
 
-	public String getbCity() {
+	public String getBcity() {
 		return bCity;
 	}
 
-	public void setbCustomerZipcode(String bCustomerZipcode) {
+	public void setBcustomerZipcode(String bCustomerZipcode) {
 		this.bCustomerZipcode = bCustomerZipcode;
 	}
 
-	public String getbCustomerZipcode() {
+	public String getBcustomerZipcode() {
 		return bCustomerZipcode;
 	}
 
-	public void setbPhone(String bPhone) {
+	public void setBphone(String bPhone) {
 		this.bPhone = bPhone;
 	}
 
-	public String getbPhone() {
+	public String getBphone() {
 		return bPhone;
 	}
 	
