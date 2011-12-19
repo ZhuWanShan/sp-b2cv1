@@ -25,6 +25,7 @@ public class ShoppingCart {
 	}
 
 	public Order getOrder() {
+		updateCat();
 		return order;
 	}
 
@@ -58,7 +59,6 @@ public class ShoppingCart {
 			}
 			
 		}
-		updateCat();
 	}
 
 	public void update(String itemName, int qty) {
@@ -70,7 +70,6 @@ public class ShoppingCart {
 				}
 			}
 		}
-		updateCat();
 	}
 
 	public void remove(String itemName) {
@@ -85,7 +84,6 @@ public class ShoppingCart {
 				order.getItems().remove(toRemoveItem);
 			}
 		}
-		updateCat();
 	}
 	
 	public int getItemCount(){
@@ -96,7 +94,7 @@ public class ShoppingCart {
 	}
 	
 	private void updateCat(){
-		if(null!=order&&null!=order.getItems()&&order.getItems().size()>1){
+		if(null!=order&&null!=order.getItems()&&order.getItems().size()>0){
 			float totalPrice = 0;
 			for (OrderItem orderItem : order.getItems()) {
 				totalPrice = totalPrice + orderItem.getFinalPrice()*orderItem.getQuantity();
