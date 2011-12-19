@@ -265,6 +265,19 @@ public class ShoppingCartAction extends BaseAction {
 			if(null == request.getSession().getAttribute(AllConstants.USER_INFO)){
 				response.sendRedirect("/login/cmd/goto_check");
 				return null;
+			}else{
+				 User user = (User)request.getSession().getAttribute(AllConstants.USER_INFO);
+				 Order order2 = getCart(request, response).getOrder();
+				 order2.setUser(user);
+				 order2.setCity(user.getCity());
+				 order2.setCustomerName(user.getFirstName()+","+user.getLastName());
+				 order2.setCustomerAddress(user.getAddress());
+				 order2.setCustomerZipcode(user.getZipcode());
+				 order2.setDeliverPhone(user.getTelephone());
+				 order2.setCustomerEmail(user.getEmail());
+				 order2.setbCustomGender(user.getGender());
+				 response.sendRedirect("/shopping/cmd/check");
+				 return null;
 			}
 			//request.setAttribute("showCheckOption", true);
 		}
@@ -337,12 +350,13 @@ public class ShoppingCartAction extends BaseAction {
 				//order.setName(getOrderId());
 				//order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
 				request.setAttribute(AllConstants.DEFAULT_ORDER, order);
-				clearCart(request);
 				order.setStatus(OrderStatus.PENDING.getValue());
+				updateCart(request, response);
+				clearCart(request);
 				request.getRequestDispatcher("/jsp/pay_payPal.jsp").forward(request, response);
 			}
 		}
-		updateCart(request, response);
+		
 	}
 	
 }

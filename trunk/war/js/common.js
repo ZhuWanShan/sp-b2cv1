@@ -2045,8 +2045,8 @@ jQuery( document ).ready(function() {
 	
 	jQuery( '.jq_default_value' ).defaultValue();
 	
-	jQuery( "select[name='text@Size']" ).change(function(){
-		if("Customized"==jQuery( "select[name='text@Size']" ).val()){
+	jQuery( "select[name^='text@']" ).change(function(){
+		if("Customized"==jQuery( "select[name^='text@']" ).val()){
 			jQuery("#alert_thing_box_customizedsize").show("normal");
 		}else{
 			jQuery("#CustomizedSizeDesp").html("");
