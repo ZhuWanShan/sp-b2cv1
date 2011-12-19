@@ -235,17 +235,17 @@
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>First Name: </td>
-	                <td class="W260"><input type="text" onblur="checkform(this.id);" class="input_1" value="" id="MemberContact0_b" name="MemberContact_b[0]">
+	                <td class="W260"><input type="text" onblur="checkform(this.id);" class="input_1" value="${shoppingcart.order.bfirstName}" id="MemberContact0_b" name="MemberContact_b[0]">
 	                  <i id="MemberContact0_bInfo"></i></td>
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>Last Name: </td>
-	                <td class="W260"><input type="text" onblur="checkform(this.id);" class="input_1" value="" id="MemberContact1_b" name="MemberContact_b[1]">
+	                <td class="W260"><input type="text" onblur="checkform(this.id);" class="input_1" value="$${shoppingcart.order.blastName}" id="MemberContact1_b" name="MemberContact_b[1]">
 	                  <i id="MemberContact1_bInfo"></i></td>
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>Address Line 1: </td>
-	                <td class="W260"><input type="text" onblur="checkform(this.id);" class="input_1" size="35" value="" id="MemberContactAddr_b" name="MemberContactAddr_b[0]">
+	                <td class="W260"><input type="text" class="input_1" size="35" value="${shoppingcart.order.bcustomerAddress}" id="MemberContactAddr_b" name="MemberContactAddr_b[0]">
 	                  <i id="MemberContactAddr_bInfo"></i></td>
 	              </tr>
 	              <tr>
@@ -254,22 +254,22 @@
 	                  </tr>
 	              <tr>
 	                <td>Address Line 2: </td>
-	                <td class="W260"><input type="text" class="input_1" size="35" value="" name="MemberContactAddr_b[1]">
+	                <td class="W260"><input type="text" class="input_1" size="35" value="${shoppingcart.order.bcustomerAddress2}" name="MemberContactAddr_b[1]">
 	                  <i>optional</i></td>
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>City: </td>
-	                <td class="W260"><div class="divr divr2"><input type="text" onblur="checkform(this.id);" class="input_1" value="" id="MemberCtiy_b" autocomplete="off" name="MemberCtiy_b"><div style="display: none;" class="ep_qsearch"><i style="padding: 4px 10px;">Loading...</i></div>
+	                <td class="W260"><div class="divr divr2"><input type="text"  class="input_1" value="${shoppingcart.order.bcity}" id="MemberCtiy_b" autocomplete="off" name="MemberCtiy_b"><div style="display: none;" class="ep_qsearch"><i style="padding: 4px 10px;">Loading...</i></div>
 	                  <i id="MemberCtiy_bInfo"></i></div></td>
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>Zip/Postal Code: </td>
-	                <td class="W260"><input type="text" onblur="checkform(this.id);" class="input_1" value="" id="MemberZip_b" name="MemberZip_b">
+	                <td class="W260"><input type="text"  class="input_1" value="${shoppingcart.order.bcustomerZipcode}" id="MemberZip_b" name="MemberZip_b">
 	                  <i id="MemberZip_bInfo"></i></td>
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>Phone Number: </td>
-	                <td class="W260"><input type="text" onblur="checkform(this.id);" class="input_1" maxlength="30" value="" id="MemberContactPhone_b" name="MemberContactPhone_b">
+	                <td class="W260"><input type="text" class="input_1" maxlength="30" value="${shoppingcart.order.bphone}" id="MemberContactPhone_b" name="MemberContactPhone_b">
 	                  <i id="MemberContactPhone_bInfo"></i></td>
 	              </tr>
 	              <tr>
