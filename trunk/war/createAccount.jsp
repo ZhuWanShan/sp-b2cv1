@@ -80,8 +80,7 @@
 							<li>You can purchase from Honeybuy.com without an account. You can register one next time.</li>
 						</ul>
 						<div class="putIn_box2">
-								<input type="hidden" name="asGeust" value="true"></input>
-								<input type="submit" class="submit_blue1" value="As Guset" />
+								<input type="submit" class="submit_blue1" name="asGeust" value="As Guset" />
 						</div>
 					</c:if>
 				</form>

@@ -241,7 +241,7 @@ public class ShoppingCartAction extends BaseAction {
 					return null;
 				}
 			}
-			updateCart(request, response);
+			updateCart(request, response, OrderStatus.ONSHOPPING);
 		}
 		
 		
@@ -254,20 +254,20 @@ public class ShoppingCartAction extends BaseAction {
 			List<UserOption> options = retriveUserOptions(request);
 			
 			getCart(request,response).addItem(product,options,qty);
-			updateCart(request, response);
+			updateCart(request, response,OrderStatus.ONSHOPPING);
 		}
 		
 		if(UPDATEITEM.equals(retriveOperation(request))){
 			int qty = retriveQty(request);
 			String itemName = retriveItemName(request);
 			getCart(request,response).update(itemName,qty);
-			updateCart(request, response);
+			updateCart(request, response,OrderStatus.ONSHOPPING);
 		}
 		
 		if(REMOVEITEM.equals(retriveOperation(request))){
 			String itemName = retriveItemName(request);
 			getCart(request,response).remove(itemName);
-			updateCart(request, response);
+			updateCart(request, response,OrderStatus.ONSHOPPING);
 		}
 		
 		if("pay".equals(retriveOperation(request))){
@@ -317,11 +317,19 @@ public class ShoppingCartAction extends BaseAction {
 		request.getSession().setAttribute(AllConstants.DEFAULT_ORDER, null);
 	}
 	
-	private void updateCart(HttpServletRequest request,  HttpServletResponse response){
+	private void updateCart(HttpServletRequest request,  HttpServletResponse response, OrderStatus status){
+		if(null == request.getSession().getAttribute(AllConstants.USER_INFO)){
+			getCart(request,response).getOrder().setUser(null);
+		}
 		if(null!=getCart(request,response).getOrder().getItems()&&getCart(request,response).getOrder().getItems().size()>0){
-			getCart(request,response).setOrder(ServiceFactory.getService(OrderService.class).saveOrder(getCart(request,response).getOrder(), OrderStatus.ONSHOPPING.getValue()));
+			getCart(request,response).setOrder(ServiceFactory.getService(OrderService.class).saveOrder(getCart(request,response).getOrder(), status.getValue()));
 		}else{
-			getCart(request,response).setOrder(new Order());
+			Order order = new Order();
+			order.setCreateDate(new Date());
+			order.setStatus(OrderStatus.ONSHOPPING.getValue());
+			order.setName(getOrderId());
+			order.setCurrency("USD");
+			getCart(request,response).setOrder(order);
 		}
 	}
 	
@@ -363,8 +371,7 @@ public class ShoppingCartAction extends BaseAction {
 				//order.setName(getOrderId());
 				//order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
 				request.setAttribute(AllConstants.DEFAULT_ORDER, order);
-				order.setStatus(OrderStatus.PENDING.getValue());
-				updateCart(request, response);
+				updateCart(request, response,OrderStatus.PENDING);
 				clearCart(request);
 				request.getRequestDispatcher("/jsp/pay_payPal.jsp").forward(request, response);
 			}
