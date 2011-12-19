@@ -46,6 +46,7 @@
 	<!-- Main box start -->
 	<div class="main_box"></div>
 	<div class="main_box">
+		<h1>Page will redirect to Paypal after 5 seconds</h1>
 		<h2>Order: ${defaultOrder.name }</h2>
 		<h2>Price: ${defaultOrder.totalPrice } + ${defaultOrder.dePrice }</h2>
 		<form action="https://sandbox.paypal.com/cgi-bin/webscr" method="post" id="paypaysubmitForm">
@@ -58,25 +59,20 @@
 			<ss:site var="siteDefault">
 				<input type="hidden" name="return" value="${siteDefault.domain }">
 			</ss:site>
+			<%-- 
 			<input type="button" id="paypaysubmit" style="background-image: url(https://www.paypal.com/en_US/i/btn/x-click-but23.gif);width: 72px;height: 27px"
-			border="0" alt="Make payments with PayPal - it's fast, free and secure!" >
+			border="0" alt="Make payments with PayPal - it's fast, free and secure!" >--%>
 		</form>
 	</div>
 
 	<!-- Main box end -->
 		<script type="text/javascript">
-			
-				jq("#paypaysubmit").click(function(){
-						/* jQuery.ajax({
-							  url: "shoppingCart?operation=pay",
-							  context: document.body,
-							  success: function(){ */
-								 jq("#paypaysubmitForm").submit();
-					/* 		  }
-						}); */
-				}
-			);
-						
+			jq(document).ready(function(){
+				setTimeout(function(){
+					jq("#paypaysubmitForm").submit();
+				},5000);
+			});
+									
 	</script>
 	<!-- Bottom start -->
 	<jsp:include page="bottom/bottom_box.jsp"></jsp:include>
