@@ -84,11 +84,18 @@
 										</a>
 									</span>
 									<c:forEach items="${item.userOptions}" var="opt">
-										<c:if test="${opt.name eq 'Color' }">
-											<div style="padding: 3px">
-												<span style="border-color:${opt.value};display:inline-block;border-style: solid;border-width: 9px;" class="select_daffodil"></span>
-											</div>
-										</c:if>
+										<div class="cartOptionsDashboard_Content" style="color: #ff0000;"> 
+											<c:choose>
+											<c:when test="${opt.name eq 'Color' }">
+												<span>${opt.name } :</span>
+												<img alt='${fn:split(opt.value,"##")[0] }' src='${fn:split(opt.value,"##")[1] }' title='${fn:split(opt.value,"##")[0] }' width="18" height="18">
+											</c:when>
+											<c:otherwise>
+												<span>${opt.name } :</span>
+												<span>${opt.value}</span>
+											</c:otherwise>
+											</c:choose>
+										</div>
 									</c:forEach>
 								</div>
 							</td>
@@ -98,9 +105,10 @@
 								<span>${item.quantity}</span>
 							</td>
 							<td class="center red">
+							<%--
 								<a class="link_remove showCartOptions">Show Detail</a><br>
 								
-								<div style="position: absolute;" class="cartOptionsDashboard">
+								<div style="position: absolute;" class="cartOptionsDashboard"> 
 									<c:forEach items="${item.userOptions}" var="opt">
 										<div class="cartOptionsDashboard_Content"> 
 											<c:choose>
@@ -115,7 +123,7 @@
 											</c:choose>
 										</div>
 									</c:forEach>
-								</div>
+								</div>--%>
 								<c:out value="${item.itemTotalPrice}"/>
 							</td>
 						</tr>
