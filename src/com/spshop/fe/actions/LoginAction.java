@@ -26,7 +26,7 @@ public class LoginAction extends BaseAction {
     		request.setAttribute("processCheckWithoutLogin", true);
     	}
     	
-    	if("true".equals(request.getParameter("asGeust"))){
+    	if("As Guset".equals(request.getParameter("asGeust"))){
     		return mapping.findForward(AllConstants.SUCCESS_VALUE);
     	}
     	
@@ -43,6 +43,7 @@ public class LoginAction extends BaseAction {
                     session.setAttribute(AllConstants.USER_INFO, user);
                 } else {
                     page.addPageProperty("loginError", AllConstants.LOGIN_FAILURE);
+                    return mapping.findForward(AllConstants.fAILURE_VALUE);
                 }
 
                 return mapping.findForward(AllConstants.SUCCESS_VALUE);
