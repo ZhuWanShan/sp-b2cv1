@@ -1,16 +1,28 @@
 package com.spshop.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.spshop.dao.intf.OrderDAO;
 import com.spshop.model.Order;
+import com.spshop.model.User;
 import com.spshop.service.AbstractService;
+import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.OrderService;
+import com.spshop.service.intf.UserService;
 
 public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> implements OrderService{
 	public Order saveOrder(Order order, String status){
+		if(null!=order.getUser()){
+			User usr = ServiceFactory.getService(UserService.class).queryUserByEmail(order.getUser().getEmail());
+			order.setUser(usr);
+		}
 		order.setStatus(status);
+		order.setUpdateDate(new Date());
+		if(null==order.getCreateDate()){
+			order.setCreateDate(new Date());
+		}
 		return getDao().save(order).clone();
 	}
 
