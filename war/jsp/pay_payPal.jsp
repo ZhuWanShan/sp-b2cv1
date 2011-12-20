@@ -58,10 +58,6 @@
 			<input type="hidden" name="lc" value="US">
 			<input type="hidden" name="notify_url" value="http://www.honeybuy.com/checkorder">
 			<input type="hidden" name="return" value="http://www.honeybuy.com/">
-			<input type="hidden" name="return_url" value="http://www.honeybuy.com/">
-			<ss:site var="siteDefault">
-				<input type="hidden" name="return" value="${siteDefault.domain }">
-			</ss:site>
 			<%-- 
 			<input type="button" id="paypaysubmit" style="background-image: url(https://www.paypal.com/en_US/i/btn/x-click-but23.gif);width: 72px;height: 27px"
 			border="0" alt="Make payments with PayPal - it's fast, free and secure!" >--%>
