@@ -2,17 +2,19 @@ package com.spshop.admin.client.businessui;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.AdminWorkspace;
 import com.spshop.admin.client.CommandFactory;
 import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.model.Order;
-import com.google.gwt.user.client.ui.FlexTable;
 
 public class OrderInfo extends Composite {
 
@@ -24,7 +26,63 @@ public class OrderInfo extends Composite {
     @UiField OrderStatusSelection orderStatus;
     @UiField FlexTable orderTable;
     @UiField FlexTable orderHeader;
-
+    @UiField Label customerCompany;
+    @UiField Label customerName;
+    @UiField Label customerAddr1;
+    @UiField Label customerAddr2;
+    @UiField Label orderId;
+    @UiField Label orderType;
+    @UiField Label totalPrice;
+    @UiField Label city;
+    @UiField Label dePrice;
+    @UiField Label currency;
+    @UiField Label createDate;
+    @UiField Label customerTel;
+    @UiField Label customerCountry;
+    @UiField Label customerEmail;
+    @UiField Label customerZIP;
+    @UiField Label customerMsg;
+    @UiField Label customerGender;
+    @UiField Label deliverCode;
+    @UiField Label deliverCompany;
+    @UiField Label deliverPhone;
+    @UiField Label bName;
+    @UiField Label bGender;
+    @UiField Label bAddr1;
+    @UiField Label bAddr2;
+    @UiField Label bCity;
+    @UiField Label bZIP;
+    @UiField Label bPhone;
+    private void populateOrderInfo(){
+        DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
+        this.customerName.setText(this.order.getCustomerName());
+        this.customerCompany.setText(this.order.getCustomerCompany());
+        this.customerAddr1.setText(this.order.getCustomerAddress());
+        this.customerAddr2.setText(this.order.getCustomerAddress2());
+        this.orderId.setText(this.order.getName());
+        this.orderType.setText(this.order.getOrderType());
+        this.totalPrice.setText(String.valueOf(this.order.getTotalPrice()));
+        this.city.setText(this.order.getCity());
+        this.dePrice.setText(String.valueOf(this.order.getDePrice()));
+        this.currency.setText(this.order.getCurrency());
+        this.createDate.setText(dateTimeFormat.format(this.order.getCreateDate()));
+        this.customerTel.setText(this.order.getCustomerTelephone());
+        this.customerCountry.setText(this.order.getCustomerCountry());
+        this.customerEmail.setText(this.order.getCustomerEmail());
+        this.customerZIP.setText(this.order.getCustomerZipcode());
+        this.customerMsg.setText(this.order.getCustomerMsg());
+        this.customerGender.setText(this.order.getCustomGender());
+        this.deliverCode.setText(this.order.getDeliverCode());
+        this.deliverCompany.setText(this.order.getDeliverCompany());
+        this.deliverPhone.setText(this.order.getDeliverPhone());
+        this.bName.setText(this.order.getBfirstName() + " " + this.order.getBlastName());
+        this.bGender.setText(this.order.getBcustomGender());
+        this.bAddr1.setText(this.order.getBcustomerAddress());
+        this.bAddr2.setText(this.order.getBcustomerAddress2());
+        this.bCity.setText(this.order.getBcity());
+        this.bPhone.setText(this.order.getBphone());
+        this.bZIP.setText(this.order.getBcustomerZipcode());
+    }
     interface OrderInfoUiBinder extends UiBinder<Widget, OrderInfo> {
     }
 
@@ -32,6 +90,7 @@ public class OrderInfo extends Composite {
         initWidget(uiBinder.createAndBindUi(this));
         this.order = order;
         this.orderStatus.setSelectedValue(order.getStatus());
+        populateOrderInfo();
         initOrderInfoHeader();
         if (this.order != null && this.order.getItems() != null && this.order.getItems().size() != 0) {
             for (int i = 0; i < this.order.getItems().size(); i++) {
@@ -63,7 +122,7 @@ public class OrderInfo extends Composite {
         this.orderTable.getColumnFormatter().setWidth(3, "30px");
         this.orderTable.getColumnFormatter().setWidth(4, "40px");
     }
-
+    
     public void setOrder(Order order) {
         this.order = order;
         this.orderStatus.setSelectedValue(order.getStatus());
