@@ -53,7 +53,7 @@
 			<input type="hidden" name="cmd" value="_xclick">
 			<input type="hidden" name="business" value="s1@hp.com">
 			<input type="hidden" name="item_name" value="${defaultOrder.name }">
-			<input type="hidden" name="amount" value="${defaultOrder.totalPrice + defaultOrder.dePrice }">
+			<input type="hidden" name="amount" value="<fmt:formatNumber currencyCode="USD" maxFractionDigits="2" value="${defaultOrder.totalPrice + defaultOrder.dePrice }"></fmt:formatNumber>">
 			<input type="hidden" name="currency_code" value="USD">
 			<input type="hidden" name="lc" value="US">
 			<input type="hidden" name="notify_url" value="http://www.honeybuy.com/checkorder">

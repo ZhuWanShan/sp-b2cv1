@@ -240,7 +240,7 @@
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>Last Name: </td>
-	                <td class="W260"><input type="text" onblur="checkform(this.id);" class="input_1" value="$${shoppingcart.order.blastName}" id="MemberContact1_b" name="MemberContact_b[1]">
+	                <td class="W260"><input type="text" onblur="checkform(this.id);" class="input_1" value="${shoppingcart.order.blastName}" id="MemberContact1_b" name="MemberContact_b[1]">
 	                  <i id="MemberContact1_bInfo"></i></td>
 	              </tr>
 	              <tr>
@@ -287,6 +287,9 @@
 								checked="checked"> <a class="helplink" target="_blank"
 								href="#"><img border="0" src="/css/paypal.gif"> </a><i>The
 								safer, easier way to pay.</i>
+								<p/>
+								<%-- 
+							<input type="radio" value="creditCard" name="payment">Credit Card--%>
 						</div>
 				</div>
 			</div>
@@ -326,7 +329,9 @@
 	            </td>
 	          <td align="center">${item.finalPrice} </td>
 	          <td align="center"> ${item.quantity}</td>
-	          <td>${item.finalPrice * item.quantity}</td>
+	          <td>
+	          <fmt:formatNumber currencyCode="USD" maxFractionDigits="2" value="${item.finalPrice * item.quantity}"></fmt:formatNumber>
+	          </td>
 	        </tr>
         </c:forEach>    
         <tr>
@@ -350,7 +355,9 @@
 	  	         	
       <tbody><tr>
         <td width="60%">Subtotal:</td>
-        <td style="color:#cc0000;" class="price">US$ <span style="color:#cc0000;" id="subtotal">${shoppingcart.order.totalPrice }</span></td>
+        <td style="color:#cc0000;" class="price"><span style="color:#cc0000;" id="subtotal">
+        <fmt:formatNumber currencyCode="USD" maxFractionDigits="2" value="${shoppingcart.order.totalPrice }"></fmt:formatNumber>
+        </span></td>
       </tr>
       <tr>
         <td class="border">Shipping Charges:</td>
@@ -362,7 +369,9 @@
       </tr>
       <tr>
         <td class="total">Grand Total:</td>
-        <td style="color:#cc0000;" class="price bold">US$ <span style="color:#cc0000;" id="total">${shoppingcart.order.totalPrice + shoppingcart.order.dePrice}</span></td>
+        <td style="color:#cc0000;" class="price bold">US$ <span style="color:#cc0000;" id="total">
+        <fmt:formatNumber currencyCode="USD" maxFractionDigits="2" value=" ${shoppingcart.order.totalPrice + shoppingcart.order.dePrice}"></fmt:formatNumber>
+       </span></td>
       </tr>
       <tr>
         <td style="text-align:right;" colspan="3">           <input type="submit" value="CONTINUE" id="paymentsubmit" class="ContinueCheckout_pay" name="operation" onclick="return confirm('I am sure all item correct.')">

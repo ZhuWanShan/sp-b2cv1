@@ -1,8 +1,10 @@
 package com.spshop.fe.actions;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -54,7 +56,7 @@ public class CheckOrder extends BaseAction {
 			logger.info("######################################");
 			logger.info("str: " + str);
 			logger.info("######################################");
-			URL u = new URL("https://www.sandbox.paypal.com/c2/cgi-bin/webscr");
+			URL u = new URL("http://www.sandbox.paypal.com/c2/cgi-bin/webscr");
 			// URL u = new URL("http://www.paypal.com/cgi-bin/webscr");
 			URLConnection uc = u.openConnection();
 			uc.setDoOutput(true);
@@ -149,5 +151,27 @@ public class CheckOrder extends BaseAction {
 		 return null;
 	}
 	
+	public static void main(String[] args) {
+		String cmd = "cmd=_notify-validate&last_name=User&test_ipn=1&address_name=Test+User&txn_type=web_accept&receiver_email=S1%40HP.COM&residence_country=US&address_city=San+Jose&payment_gross=184.00&payment_date=21%3A58%3A16+Dec+19%2C+2011+PST&address_zip=95131&payment_status=Pending&address_street=1+Main+St&first_name=Test&payer_email=buyer1_1317304411_per%40hp.com&protection_eligibility=Ineligible&payer_id=ANJ33V369TW8U&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AALeaE7Cd4suR39f7Jb1gzRUXKsK&payment_type=instant&business=S1%40HP.COM&address_country_code=US&mc_fee=7.48&address_status=confirmed&transaction_subject=Order268549SCOBE141072&quantity=1&notify_version=3.4&mc_currency=USD&custom=&address_state=CA&payment_fee=7.48&handling_amount=0.00&payer_status=verified&shipping=0.00&item_name=Order268549SCOBE141072&tax=0.00&charset=gb2312&pending_reason=paymentreview&item_number=&ipn_track_id=DGhRld19cLHZisXmIg2UDQ&mc_gross=184.00&txn_id=0UB78234N8562484T&receiver_id=3WJ2MJ36TT9T4&address_country=United+States";
+		
+		try {
+			URL u = new URL("https://www.sandbox.paypal.com/c2/cgi-bin/webscr");
+			// URL u = new URL("http://www.paypal.com/cgi-bin/webscr");
+			URLConnection uc = u.openConnection();
+			uc.setDoOutput(true);
+
+			uc.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded");
+			PrintWriter pw = new PrintWriter(uc.getOutputStream());
+			pw.println(cmd);
+			pw.close();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }
