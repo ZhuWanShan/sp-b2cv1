@@ -56,6 +56,9 @@
 			<input type="hidden" name="amount" value="${defaultOrder.totalPrice + defaultOrder.dePrice }">
 			<input type="hidden" name="currency_code" value="USD">
 			<input type="hidden" name="lc" value="US">
+			<input type="hidden" name="notify_url" value="http://www.honeybuy.com/checkorder">
+			<input type="hidden" name="return" value="http://www.honeybuy.com/">
+			<input type="hidden" name="return_url" value="http://www.honeybuy.com/">
 			<ss:site var="siteDefault">
 				<input type="hidden" name="return" value="${siteDefault.domain }">
 			</ss:site>
