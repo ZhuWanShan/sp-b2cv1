@@ -49,7 +49,7 @@
 		<h1>Page will redirect to Paypal after 5 seconds</h1>
 		<h2>Order: ${defaultOrder.name }</h2>
 		<h2>Price: ${defaultOrder.totalPrice } + ${defaultOrder.dePrice }</h2>
-		<form action="https://sandbox.paypal.com/cgi-bin/webscr" method="post" id="paypaysubmitForm">
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypaysubmitForm">
 			<input type="hidden" name="cmd" value="_xclick">
 			<input type="hidden" name="business" value="paypal@honeybuy.com">
 			<input type="hidden" name="item_name" value="${defaultOrder.name }">
