@@ -27,7 +27,7 @@ import com.spshop.service.intf.OrderService;
 
 public class CheckOrder extends BaseAction {
 	
-	private static final String ACCOUNT = "s1@hp.com";
+	private static final String ACCOUNT = "paypal@honeybuy.com";
 	
 	private static Logger logger = Logger.getLogger(CheckOrder.class);
 	
@@ -56,8 +56,8 @@ public class CheckOrder extends BaseAction {
 			logger.info("######################################");
 			logger.info("str: " + str);
 			logger.info("######################################");
-			URL u = new URL("http://www.sandbox.paypal.com/c2/cgi-bin/webscr");
-			// URL u = new URL("http://www.paypal.com/cgi-bin/webscr");
+//			URL u = new URL("http://www.sandbox.paypal.com/c2/cgi-bin/webscr");
+			 URL u = new URL("http://www.paypal.com/cgi-bin/webscr");
 			URLConnection uc = u.openConnection();
 			uc.setDoOutput(true);
 

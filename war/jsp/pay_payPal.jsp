@@ -51,7 +51,7 @@
 		<h2>Price: ${defaultOrder.totalPrice } + ${defaultOrder.dePrice }</h2>
 		<form action="https://sandbox.paypal.com/cgi-bin/webscr" method="post" id="paypaysubmitForm">
 			<input type="hidden" name="cmd" value="_xclick">
-			<input type="hidden" name="business" value="s1@hp.com">
+			<input type="hidden" name="business" value="paypal@honeybuy.com">
 			<input type="hidden" name="item_name" value="${defaultOrder.name }">
 			<input type="hidden" name="amount" value="<fmt:formatNumber currencyCode="USD" maxFractionDigits="2" value="${defaultOrder.totalPrice + defaultOrder.dePrice }"></fmt:formatNumber>">
 			<input type="hidden" name="currency_code" value="USD">
