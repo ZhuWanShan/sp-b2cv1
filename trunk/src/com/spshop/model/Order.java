@@ -2,6 +2,7 @@ package com.spshop.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Order extends Component{
 
@@ -42,10 +43,16 @@ public class Order extends Component{
 	private String bPhone;
 	
 	public Order() {
+		if(null!=getName()){
+			setName(getOrderId());
+		}
 	}
 	
 	public Order(Order order) {
 		super(order);
+		if(null!=getName()){
+			setName(getOrderId());
+		}
 	}
 
 	public String getCustomerName() {
@@ -450,6 +457,17 @@ public class Order extends Component{
 		return bPhone;
 	}
 	
-	
+	protected String getOrderId(){
+		String id = "Order";
+		id = id + new Random().nextInt(999999);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + (char)(new Random().nextInt(24)+65);
+		id = id + new Random().nextInt(999999);
+		
+		return id;
+	}
 	
 }
