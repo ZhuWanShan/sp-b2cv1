@@ -1,5 +1,7 @@
 package com.spshop.admin.client.businessui;
 
+import java.util.List;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.i18n.client.DateTimeFormat;
@@ -15,6 +17,8 @@ import com.spshop.admin.client.AdminWorkspace;
 import com.spshop.admin.client.CommandFactory;
 import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.model.Order;
+import com.spshop.model.UserOption;
+import com.google.gwt.event.dom.client.DoubleClickEvent;
 
 public class OrderInfo extends Composite {
 
@@ -99,28 +103,33 @@ public class OrderInfo extends Composite {
                 this.orderTable.setText(i, 2, this.order.getItems().get(i).getProduct().getTitle());
                 this.orderTable.setText(i, 3, String.valueOf(this.order.getItems().get(i).getQuantity()));
                 this.orderTable.setText(i, 4, String.valueOf(this.order.getItems().get(i).getFinalPrice()));
+                ShowOrderItemDetails details = new ShowOrderItemDetails(this.order.getItems().get(i).getUserOptions());
+                this.orderTable.setWidget(i, 5, details);
             }
         }
     }
     
     private void initOrderInfoHeader(){
-        this.orderHeader.getColumnFormatter().setWidth(0, "200px");
+        this.orderHeader.getColumnFormatter().setWidth(0, "150px");
         this.orderHeader.getColumnFormatter().setWidth(1, "120px");
         this.orderHeader.getColumnFormatter().setWidth(2, "170px");
         this.orderHeader.getColumnFormatter().setWidth(3, "30px");
         this.orderHeader.getColumnFormatter().setWidth(4, "40px");
+        this.orderHeader.getColumnFormatter().setWidth(5, "50px");
         
         this.orderHeader.setText(0, 0, "Serial NO.");
         this.orderHeader.setText(0, 1, "Creation Date");
         this.orderHeader.setText(0, 2, "Product Name");
         this.orderHeader.setText(0, 3, "Qty.");
         this.orderHeader.setText(0, 4, "Price");
+        this.orderHeader.setText(0, 5, "Details");
         
-        this.orderTable.getColumnFormatter().setWidth(0, "200px");
+        this.orderTable.getColumnFormatter().setWidth(0, "150px");
         this.orderTable.getColumnFormatter().setWidth(1, "120px");
         this.orderTable.getColumnFormatter().setWidth(2, "170px");
         this.orderTable.getColumnFormatter().setWidth(3, "30px");
         this.orderTable.getColumnFormatter().setWidth(4, "40px");
+        this.orderTable.getColumnFormatter().setWidth(5, "50px");
     }
     
     public void setOrder(Order order) {

@@ -29,6 +29,7 @@ import com.spshop.model.Product;
 import com.spshop.model.TabProduct;
 import com.spshop.model.TabSelling;
 import com.spshop.model.User;
+import com.spshop.model.UserOption;
 import com.spshop.model.enums.ImageSizeType;
 import com.spshop.model.enums.ImageType;
 
@@ -123,6 +124,47 @@ public class CommandFactory {
 	        }
 	    };
 	}
+	
+	public static Command popUpShowDetails(final boolean multiSelect, final List<UserOption> userOptions) {
+        return new CommandAdapter(){
+            @Override
+            public void execute() {
+                HTMLPanel content = new HTMLPanel("<div>"+populateDetailsHtml()+"</div>");
+                content.setSize("800px", "500px");
+                content.clear();
+                
+                final PopWindow popWindow = new PopWindow("Order Item Details", content, true, true);
+                popWindow.center();
+            }
+            
+            private String populateDetailsHtml(){
+                StringBuilder html = new StringBuilder("<h3>Color:</h3>");
+                html.append(getOption("Color"));
+                html.append("<br><h3>Size:</h3>");
+                String size = getOption("Size");
+                if ("Customized".equals(size)) {
+                    html.append(getOption("Customized Size"));
+                } else {
+                    html.append(size);
+                }
+                
+                return html.toString();
+            }
+            
+            private String getOption(String optionName) {
+                String value = "";
+                if (userOptions != null) {
+                    for (UserOption userOption : userOptions) {
+                        if (optionName.equals(userOption.getOptionName())) {
+                            value = userOption.getValue();
+                            break;
+                        }
+                    }
+                }
+                return value;
+            }
+        };
+    }
 	
 	public static Command popUpImageQuery(final boolean multiSelect,final SelectedCallBack callBack) {
 		return new CommandAdapter() {
