@@ -50,7 +50,7 @@ public class Order extends Component{
 	
 	public Order(Order order) {
 		super(order);
-		if(null!=getName()){
+		if(null==getName()){
 			setName(getOrderId());
 		}
 	}
