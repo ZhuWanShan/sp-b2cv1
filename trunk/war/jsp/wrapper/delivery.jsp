@@ -177,14 +177,6 @@
           </label>
         </li>
         </ul>
-<p style="padding-left:30px;">
-	Processing Time: 20 Days
-	<br>
-	Total:
-	<span id="mind">23</span>
-	<span id="maxd">-25</span>
-	Days
-</p>
 </div>
 						<%--<div style="display: block" id="debit_card" class="debit_card" >
 							<div class="payHidd_div">
