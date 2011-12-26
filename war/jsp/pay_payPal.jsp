@@ -42,7 +42,7 @@
 	<jsp:include page="top/top_box.jsp"></jsp:include>
 	<script type="text/javascript" src="../js/header.js"></script>
 	<!-- Top box end -->
-	
+	<c:if test="${defaultOrder }">
 	<!-- Main box start -->
 	<div class="main_box"></div>
 	<div class="main_box">
@@ -73,6 +73,7 @@
 			});
 									
 	</script>
+	</c:if>
 	<!-- Bottom start -->
 	<jsp:include page="bottom/bottom_box.jsp"></jsp:include>
 	<!-- Bottom end -->
