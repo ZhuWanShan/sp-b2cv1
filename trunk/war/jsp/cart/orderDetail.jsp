@@ -14,7 +14,7 @@
 				</select>
 			</c:if>
 			<c:if test="${empty sessionScope.userInfo}">
-				<input type="text" name="id" >
+				<input type="text" name="id" style="width: 300px;height: 22px">
 			</c:if>
 				<button class="button_orange" type="submit"
 				onclick="location.href='<%= AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}'">GO</button>
@@ -32,6 +32,7 @@
 				</c:forEach>
 		</ss:orders>
 	</c:if>
+	<c:if test="${not empty defaultOrder.items}">
 	<div id="right_column">
 		<p id="order_title">Total Price</p>
 		<div id="check_box">
@@ -132,4 +133,11 @@
 				</table>
 			</div>
 	</div>
+	</c:if>
+	
+	<c:if test="${empty defaultOrder.items}">
+		<div>
+			No Results.		
+		</div>
+	</c:if>
 </div>
