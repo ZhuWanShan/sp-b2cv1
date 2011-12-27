@@ -607,3 +607,9 @@ input.list_search_button{height:20px; width:23px;background:url('./arrow_ICON.gi
 .bankIcon{width:50px;height:50px; float:left ; margin-left:30px;}
 .bankList{list-style:none; width:140px;}
 .bankList li{float:left; width:120px;margin-top:20px}
+
+.custItem{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #F90;
+}

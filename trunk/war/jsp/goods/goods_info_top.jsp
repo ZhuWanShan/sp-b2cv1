@@ -2,7 +2,22 @@
 <%@page import="com.spshop.utils.AllConstants"%>
 <div class="item_goods_info_box_top">
 	<div class="item_box_left_normal">
-		<jsp:include page="customsize.jsp"></jsp:include>
+	<ss:ancestorCat ancester="ancester" categories="${pageForm.pageProperties.productDetail.categories}">
+		<c:if test="${pageForm.pageProperties.productDetail.categories[0].name ne 'Wedding-Accessories' && 
+						(ancester eq 'Wedding-Apparel' || ancester eq 'Special-Occasion-Dresses')}">
+		<jsp:include page="customize_dress.jsp"></jsp:include>
+		</c:if>
+		<c:if test="${(pageForm.pageProperties.productDetail.categories[0].name eq 'Business-Pants') || 
+					  (pageForm.pageProperties.productDetail.categories[0].name eq 'Groom-Pants') ||
+					  (pageForm.pageProperties.productDetail.categories[0].name eq 'Tuxedos-Pants')}">
+		<jsp:include page="customize_pants.jsp"></jsp:include>
+		</c:if>
+		<c:if test="${(pageForm.pageProperties.productDetail.categories[0].name eq 'Business-Vests') || 
+					  (pageForm.pageProperties.productDetail.categories[0].name eq 'Groom-Vests') ||
+					  (pageForm.pageProperties.productDetail.categories[0].name eq 'Tuxedos-Vests')}">
+		<jsp:include page="customize_suit.jsp"></jsp:include>
+		</c:if>
+	</ss:ancestorCat>
 		<!-- class="item_box_left" to high -->
 		<div class="no_float">
 

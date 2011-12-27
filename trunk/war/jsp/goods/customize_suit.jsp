@@ -35,8 +35,8 @@
 			</script>
 			<div id="custom2">
 				<div class="left_img">
-					<img
-						src="http://www.mlo.me/image/default/TemplateGoods/custom-options.jpg" />
+					<img style="height:350px;"
+						src="../css/custom_suit.png" />
 				</div>
 				<div class="right_box">
 					<table>
@@ -49,52 +49,46 @@
 							</td>
 						</tr>
 						<tr>
-							<td>A Shoulder Width:</td>
-							<td><input id="Customszie1" name="Shoulder Width"
+							<td class="custItem">A Chest Width:</td>
+							<td><input id="Customszie1" name="Chest Width"
 								type="text" size="8"><span id="unit1">cm</span><span
 								id="cussize1" style="display: none;"><img
-									src="http://www.mlo.me/image/endefault/check_error.gif" />
+									src="../css/unchecked.gif" />
 							</span>
 							</td>
-
 						</tr>
+						<tr><td colspan="2">This measurement should be taken just under the arms, closely around the body.
+						</td></tr>
 						<tr>
-							<td>B Bust Size:</td>
-							<td><input id="Customszie2" name="Bust Size"
+							<td class="custItem">B Sleeve Size:</td>
+							<td><input id="Customszie2" name="Sleeve Size"
 								type="text" size="8"><span id="unit2">cm</span><span
 								id="cussize2" style="display: none;"><img
-									src="http://www.mlo.me/image/endefault/check_error.gif" />
+									src="../css/unchecked.gif" />
 							</span>
 							</td>
 						</tr>
+						<tr><td colspan="2">With arm relaxed at side and elbow slightly bent, measure from center back of neck, over point of shoulder, and down outside of arm past elbow to wrist.</td></tr>
 						<tr>
-							<td>C Waist Size:</td>
-							<td><input id="Customszie3" name="Waist Size"
+							<td class="custItem">C Shoulder Size:</td>
+							<td><input id="Customszie3" name="Shoulder Size"
 								type="text" size="8"><span id="unit3">cm</span><span
 								id="cussize3" style="display: none;"><img
-									src="http://www.mlo.me/image/endefault/check_error.gif" />
+									src="../css/unchecked.gif" />
 							</span>
 							</td>
 						</tr>
+						<tr><td colspan="2">Measure down the back from the base of the collar to the length required.</td></tr>
 						<tr>
-							<td>D Hip Size:</td>
-							<td><input id="Customszie4" name="Hip Size"
+							<td class="custItem">D Jacket Length:</td>
+							<td><input id="Customszie4" name="Jacket Length"
 								type="text" size="8"><span id="unit4">cm</span><span
 								id="cussize4" style="display: none;"><img
-									src="http://www.mlo.me/image/endefault/check_error.gif" />
-							</span>
-							</td>
-
-						</tr>
-						<tr>
-							<td>E Hollow to floor (for floor length dress):</td>
-							<td><input id="Customszie5" name="Hollow2floor"
-								type="text" size="8"><span id="unit5">cm</span><span
-								id="cussize5" style="display: none;"><img
-									src="http://www.mlo.me/image/endefault/check_error.gif" />
+									src="../css/unchecked.gif" />
 							</span>
 							</td>
 						</tr>
+						<tr><td colspan="2">With both arms down by your side, measurement is taken from the tip of the left shoulder point, along the top of the shoulder just below the base of the collar, to the tip of the right shoulder.</td></tr>
 						<tr>
 							<td>Special Requirements:</td>
 							<td>
@@ -102,13 +96,6 @@
 							</td>
 						</tr>
 					</table>
-					<br /> Please provide detailed measurement information for
-					customization base on "How to Measure". <br />
-					<br /> For customer who likes to choose customized service, the
-					correct size measured by professional tailor with your underwear on
-					is strongly recommended. <br />
-					<br /> Please measure with shoes on when you measure "Hollow to
-					floor".
 				</div>
 			</div>
 			

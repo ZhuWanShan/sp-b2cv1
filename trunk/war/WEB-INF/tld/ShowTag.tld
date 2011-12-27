@@ -271,4 +271,20 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 	</tag>
+	<tag>
+		<description>Get the ancestor category</description>
+		<name>ancestorCat</name>
+		<tag-class>com.spshop.taglib.AncestorCategory</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>categories</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>ancester</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
 </taglib>
