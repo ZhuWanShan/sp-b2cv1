@@ -125,7 +125,7 @@
 									<tr>
 										<td><span class="red">*</span>Email:</td>
 										<td class="W260"><input type="text"
-											onblur="checkform(this.id);" class="input_1" maxlength="30"
+											onblur="checkform(this.id);" class="input_1" maxlength="200"
 											value="${shoppingcart.order.customerEmail}" id="MemberEmail_new"
 											name="MemberEmail"> <i id="MemberMemberEmail_newInfo"></i>
 										</td>
@@ -339,7 +339,7 @@
       <h3>Leave a Message</h3>
       <p style="color: #ff0000; padding: 5px 0;">Please don't leave any custom-made message here, we may ignore it. If you want the custom-made service, please go to the size chart page, and select the custom-made size, fill it in the form accordingly. Thank you for your cooperation!</p>
       <div class="OrderRemarks">
-        <textarea maxlength="150" id="Remarks" rows="4" cols="65" name="Remarks" value="${shoppingCart.order.customerMsg}"></textarea>
+        <textarea maxlength="800" id="Remarks" rows="4" cols="65" name="Remarks" value="${shoppingCart.order.customerMsg}"></textarea>
         <br>
         <i>Write anything you like to require more on your placed order, such as the shipping and other order related requirements.</i> </div>
     </div>
