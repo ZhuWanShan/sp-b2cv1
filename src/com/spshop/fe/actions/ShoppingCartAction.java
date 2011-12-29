@@ -279,16 +279,6 @@ public class ShoppingCartAction extends BaseAction {
 				response.sendRedirect("/login/cmd/goto_check");
 				return null;
 			}else{
-				 User user = (User)request.getSession().getAttribute(AllConstants.USER_INFO);
-				 Order order2 = getCart(request, response).getOrder();
-				 order2.setUser(user);
-				 order2.setCity(user.getCity());
-				 order2.setCustomerName(user.getFirstName()+","+user.getLastName());
-				 order2.setCustomerAddress(user.getAddress());
-				 order2.setCustomerZipcode(user.getZipcode());
-				 order2.setDeliverPhone(user.getTelephone());
-				 order2.setCustomerEmail(user.getEmail());
-				 order2.setBcustomGender(user.getGender());
 				 response.sendRedirect("/shopping/cmd/check");
 				 return null;
 			}

@@ -19,10 +19,12 @@ import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Category;
 import com.spshop.model.Order;
 import com.spshop.model.Site;
+import com.spshop.model.User;
 import com.spshop.model.cart.ShoppingCart;
 import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.OrderService;
+import com.spshop.utils.AllConstants;
 
 public abstract class BaseAction extends Action {
 	public static final String SHOPPINGCART = "shoppingcart";
@@ -80,6 +82,20 @@ public abstract class BaseAction extends Action {
 			cookie.setMaxAge(99999999);
 			response.addCookie(cookie);
 		}
+		
+		 User user = (User)request.getSession().getAttribute(AllConstants.USER_INFO);
+		
+		 if(null != user){
+			 Order order2 = shoppingCart.getOrder();
+			 order2.setUser(user);
+			 order2.setCity(user.getCity());
+			 order2.setCustomerName(user.getFirstName()+","+user.getLastName());
+			 order2.setCustomerAddress(user.getAddress());
+			 order2.setCustomerZipcode(user.getZipcode());
+			 order2.setDeliverPhone(user.getTelephone());
+			 order2.setCustomerEmail(user.getEmail());
+			 order2.setBcustomGender(user.getGender());
+		 }
 		
 		request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
 		return shoppingCart;
