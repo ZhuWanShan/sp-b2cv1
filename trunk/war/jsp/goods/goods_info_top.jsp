@@ -151,57 +151,9 @@
 						<a rel="nofollow" class="link_now" href="#">CHF</a> 
 					</div>
 				</div>
-			
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
 					var="option" varStatus="idx">
-						<c:if test='${option.strSelectType eq "INPUT_TEXT"}'>
-							<c:if test='${!(option.name eq "Qty")}'>
-								<div class="noFlow">
-								<input type="text" name="text@${option.name}" id="<c:out value="${option.id}" />"
-										value="<c:out value="${option.defaultValue}" />" size="5"
-										maxlength="4" class="input_1">
-								<div class="item_funTotal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-								</div>
-							</c:if>
-					</c:if>
-					<c:if test='${option.strSelectType eq "SINGLE_LIST"}'>
-						<div class="item_sizeBox">
-							<div class="item_ProBox_title">
-								<span><c:out value="${option.name}" />:</span>
-							</div>
-							<select
-								name="text@${option.name}"
-								id="Size0">
-								<option value="please">Please select</option>
-								<c:forEach items="${option.items}" var="item" varStatus="indx"
-									step="1">
-									<option value="${item.value}"
-										<c:if test="${item.value eq option.defaultValue}">selected="selected"</c:if>>${item.name}</option>
-								</c:forEach>
-							</select>
-						</div>
-					</c:if>
-					<c:if test='${option.strSelectType eq "MULTI_LIST"}'>
-						<div class="item_sizeBox">
-							<div class="item_ProBox_title">
-								<span><c:out value="${option.name}" />:</span><a
-									onclick="tab_click(2);"
-									href="javascript:jq.goDiv('#tab_middle');"
-									class="item_funLink size_chart">Size Chart</a>
-							</div>
-							<select name="texts@${option.name}"
-								id="Size0" MULTIPLE>
-								<option value="please">Please select</option>
-								<c:forEach items="${option.items}" var="item" varStatus="indx"
-									step="1">
-									<option value="${item.value}"
-										<c:if test="${fn:contains(option.defaultValue, item.value)}">selected="selected"</c:if>>${item.value}</option>
-								</c:forEach>
-							</select>
-						</div>
-					</c:if>
-					
-					<c:if test='${(option.strSelectType eq "COLOR_SINGLE") and (!empty option.items) }'>
+						<c:if test='${(option.strSelectType eq "COLOR_SINGLE") and (!empty option.items) }'>
 						<div class="item_colorBox">
 							<div class="item_ProBox_title">
 								<span><c:out value="${option.name}" />:</span><br>
@@ -297,24 +249,75 @@
 							--%>
 						</div>
 					</c:if>
+			</c:forEach>
+				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
+					var="option" varStatus="idx">
+						<c:if test='${option.strSelectType eq "INPUT_TEXT"}'>
+							<c:if test='${!(option.name eq "Qty")}'>
+								<div class="noFlow">
+								<input type="text" name="text@${option.name}" id="<c:out value="${option.id}" />"
+										value="<c:out value="${option.defaultValue}" />" size="5"
+										maxlength="4" class="input_1">
+								<div class="item_funTotal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+								</div>
+							</c:if>
+					</c:if>
+					<c:if test='${option.strSelectType eq "SINGLE_LIST"}'>
+						<div class="item_sizeBox">
+							<div class="item_ProBox_title">
+								<span><c:out value="${option.name}" />:</span>
+							</div>
+							<select
+								name="text@${option.name}"
+								id="Size0">
+								<option value="please">Please select</option>
+								<c:forEach items="${option.items}" var="item" varStatus="indx"
+									step="1">
+									<option value="${item.value}"
+										<c:if test="${item.value eq option.defaultValue}">selected="selected"</c:if>>${item.name}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</c:if>
+					<c:if test='${option.strSelectType eq "MULTI_LIST"}'>
+						<div class="item_sizeBox">
+							<div class="item_ProBox_title">
+								<span><c:out value="${option.name}" />:</span><a
+									onclick="tab_click(2);"
+									href="javascript:jq.goDiv('#tab_middle');"
+									class="item_funLink size_chart">Size Chart</a>
+							</div>
+							<select name="texts@${option.name}"
+								id="Size0" MULTIPLE>
+								<option value="please">Please select</option>
+								<c:forEach items="${option.items}" var="item" varStatus="indx"
+									step="1">
+									<option value="${item.value}"
+										<c:if test="${fn:contains(option.defaultValue, item.value)}">selected="selected"</c:if>>${item.value}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</c:if>
 				</c:forEach>
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
 					var="option" varStatus="idx">
-						<div class="noFlow">
+						
 							<c:if test='${option.name eq "Qty"}'>
-								<c:out value="${option.name}" />: 
-								<c:if test="${option.defaultValue eq null}">
-									<input type="text" name="qty" id="num"
-										value="1" size="5" maxlength="4" class="input_1"
-										onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value>9999)this.value=9999;"
-										onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
-								</c:if>
-								<div class="item_funTotal" href="javascript:void(0);">
-									<input type="hidden" id="product_inputText_price" name="qty" value="${pageForm.pageProperties.productDetail.actualPrice}" />
-									<label id="AmountPrice3">Total: <span>US$ <span>${pageForm.pageProperties.productDetail.actualPrice}</span></span></label>
-								</div>
+								<div class="noFlow">
+									<c:out value="${option.name}" />: 
+									<c:if test="${option.defaultValue eq null}">
+										<input type="text" name="qty" id="num"
+											value="1" size="5" maxlength="4" class="input_1"
+											onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value>9999)this.value=9999;"
+											onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
+									</c:if>
+									<div class="item_funTotal" href="javascript:void(0);">
+										<input type="hidden" id="product_inputText_price" name="qty" value="${pageForm.pageProperties.productDetail.actualPrice}" />
+										<label id="AmountPrice3">Total: <span>US$ <span>${pageForm.pageProperties.productDetail.actualPrice}</span></span></label>
+									</div>
+									</div>
 							</c:if>
-						</div>
+						
 					</c:forEach>
 				<input type="hidden"
 						value="${pageForm.pageProperties.productDetail.name}"
