@@ -42,7 +42,7 @@
 	<jsp:include page="top/top_box.jsp"></jsp:include>
 	<script type="text/javascript" src="../js/header.js"></script>
 	<!-- Top box end -->
-	<c:if test="${defaultOrder }">
+	<c:if test="${not empty defaultOrder}">
 	<!-- Main box start -->
 	<div class="main_box"></div>
 	<div class="main_box">
