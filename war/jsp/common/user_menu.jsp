@@ -2,7 +2,7 @@
 <%@ include file="../include.jsp"%>
 <div class="user_menu" id="user_menu">
 	<ul>
-		<li>Help
+		<!-- <li>Help
 			<div
 				style="width: 150px; display: none; cursor: default; padding-top: 10px;"
 				class="user_menu_hidd currency ">
@@ -12,7 +12,7 @@
 					href="#"
 					rel="nofollow" title="Help Center">Help Center</a>
 			</div>
-		</li>
+		</li> -->
 		<li>
 			<a href="/orders">Order</a>
 		</li>
@@ -76,12 +76,13 @@
 							<dd class="dashborder">
 								<a href="/editProfile" rel="nofollow" title="Account Settings">Account Settings</a>
 							</dd>
+							<!-- 
 							<dd class="dashborder">
 								<a href="#" rel="nofollow" title="My Favorites">My Favorites</a>
-							</dd>
+							</dd> 
 							<dd class="dashborder">
 								<a href="#" rel="nofollow" title="Manage Address Book">Manage Address Book</a>
-							</dd>
+							</dd>-->
 						</dl>
 					</div>
 				</div>
