@@ -1,6 +1,6 @@
 <div class="Mail_subscription">
 		
-	<h2 style="text-align:left;">Follow Us:</h2>
+	<img src="../css/followUs_banner.png" style="height: 57px;"></img>
 	<script>
 		var params1 = {
 			containerID: 'bar1',
@@ -49,8 +49,10 @@
         gigya.services.socialize.showFollowBarUI({}, params1);
 	
 	</script>
-	<br><br>
+	<br>
 	<div id="bar1" style="text-align:center;"></div>
+	<br>
 	<div class="hei10"></div>
+	<br>
 	<jsp:include page="news_letter.jsp"></jsp:include>
 </div>
