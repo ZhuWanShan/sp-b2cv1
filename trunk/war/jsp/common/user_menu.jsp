@@ -71,7 +71,7 @@
 					<div class="indexlogin">
 						<dl>
 							<dd class="dashborder">
-								<a href="#" title="View Orders">View Orders</a>
+								<a href="/orders" title="View Orders">View Orders</a>
 							</dd>
 							<dd class="dashborder">
 								<a href="/editProfile" rel="nofollow" title="Account Settings">Account Settings</a>
