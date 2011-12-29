@@ -300,8 +300,8 @@
 				</c:forEach>
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
 					var="option" varStatus="idx">
-							<c:out value="${option.name}" />: 
 							<c:if test='${option.name eq "Qty"}'>
+								<c:out value="${option.name}" />: 
 								<c:if test="${option.defaultValue eq null}">
 									<input type="text" name="qty" id="num"
 										value="1" size="5" maxlength="4" class="input_1"
