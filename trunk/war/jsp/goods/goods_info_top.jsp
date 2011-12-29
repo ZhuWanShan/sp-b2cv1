@@ -273,8 +273,17 @@
 								<option value="please">Please select</option>
 								<c:forEach items="${option.items}" var="item" varStatus="indx"
 									step="1">
-									<option value="${item.value}"
-										<c:if test="${item.value eq option.defaultValue}">selected="selected"</c:if>>${item.name}</option>
+									<c:if test="${not option.name eq 'Customized Size'}">
+										<option value="${item.value}"
+											<c:if test="${item.value eq option.defaultValue}">selected="selected"</c:if>>${item.name}</option>
+									</c:if>
+								</c:forEach>
+								<c:forEach items="${option.items}" var="item" varStatus="indx"
+									step="1">
+									<c:if test="${option.name eq 'Customized Size'}">
+										<option value="${item.value}"
+											<c:if test="${item.value eq option.defaultValue}">selected="selected"</c:if>>${item.name}</option>
+									</c:if>
 								</c:forEach>
 							</select>
 						</div>
