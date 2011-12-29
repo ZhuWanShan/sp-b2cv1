@@ -155,14 +155,14 @@
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
 					var="option" varStatus="idx">
 						<c:if test='${option.strSelectType eq "INPUT_TEXT"}'>
-						<div class="noFlow">
 							<c:if test='${!(option.name eq "Qty")}'>
+								<div class="noFlow">
 								<input type="text" name="text@${option.name}" id="<c:out value="${option.id}" />"
 										value="<c:out value="${option.defaultValue}" />" size="5"
 										maxlength="4" class="input_1">
 								<div class="item_funTotal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+								</div>
 							</c:if>
-						</div>
 					</c:if>
 					<c:if test='${option.strSelectType eq "SINGLE_LIST"}'>
 						<div class="item_sizeBox">
@@ -300,6 +300,7 @@
 				</c:forEach>
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
 					var="option" varStatus="idx">
+						<div class="noFlow">
 							<c:if test='${option.name eq "Qty"}'>
 								<c:out value="${option.name}" />: 
 								<c:if test="${option.defaultValue eq null}">
@@ -313,6 +314,7 @@
 									<label id="AmountPrice3">Total: <span>US$ <span>${pageForm.pageProperties.productDetail.actualPrice}</span></span></label>
 								</div>
 							</c:if>
+						</div>
 					</c:forEach>
 				<input type="hidden"
 						value="${pageForm.pageProperties.productDetail.name}"
