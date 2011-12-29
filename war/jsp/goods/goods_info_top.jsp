@@ -153,22 +153,9 @@
 				</div>
 			
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
-					var="option" varStatus="idx" step="1">
+					var="option" varStatus="idx">
 						<c:if test='${option.strSelectType eq "INPUT_TEXT"}'>
 						<div class="noFlow">
-							<c:out value="${option.name}" />: 
-							<c:if test='${option.name eq "Qty"}'>
-								<c:if test="${option.defaultValue eq null}">
-									<input type="text" name="qty" id="num"
-										value="1" size="5" maxlength="4" class="input_1"
-										onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value>9999)this.value=9999;"
-										onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
-								</c:if>
-								<div class="item_funTotal" href="javascript:void(0);">
-									<input type="hidden" id="product_inputText_price" name="qty" value="${pageForm.pageProperties.productDetail.actualPrice}" />
-									<label id="AmountPrice3">Total: <span>US$ <span>${pageForm.pageProperties.productDetail.actualPrice}</span></span></label>
-								</div>
-							</c:if>
 							<c:if test='${!(option.name eq "Qty")}'>
 								<input type="text" name="text@${option.name}" id="<c:out value="${option.id}" />"
 										value="<c:out value="${option.defaultValue}" />" size="5"
@@ -311,6 +298,22 @@
 						</div>
 					</c:if>
 				</c:forEach>
+				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
+					var="option" varStatus="idx">
+							<c:out value="${option.name}" />: 
+							<c:if test='${option.name eq "Qty"}'>
+								<c:if test="${option.defaultValue eq null}">
+									<input type="text" name="qty" id="num"
+										value="1" size="5" maxlength="4" class="input_1"
+										onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value>9999)this.value=9999;"
+										onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
+								</c:if>
+								<div class="item_funTotal" href="javascript:void(0);">
+									<input type="hidden" id="product_inputText_price" name="qty" value="${pageForm.pageProperties.productDetail.actualPrice}" />
+									<label id="AmountPrice3">Total: <span>US$ <span>${pageForm.pageProperties.productDetail.actualPrice}</span></span></label>
+								</div>
+							</c:if>
+					</c:forEach>
 				<input type="hidden"
 						value="${pageForm.pageProperties.productDetail.name}"
 						name="ProductId">
