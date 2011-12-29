@@ -245,7 +245,7 @@
 									
 									<div class="colorWindow-list">
 									
-										<c:forEach items="${option.items}" begin="1" var="item">
+										<c:forEach items="${option.items}" var="item">
 											<c:if test="${fn:endsWith(item.value, '.jpg')}">
 												<img alt="${item.name}" src="${item.value}" title="${item.name}">
 											</c:if>
