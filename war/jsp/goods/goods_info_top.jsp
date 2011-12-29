@@ -196,7 +196,7 @@
 											if(jq("#productColorSelector").val()=="other"){
 												jq(".colorSelectWindow").show();
 											}else{
-												var templete = "<table><tr><td>Color: "+name+"</td></tr><tr><td>As First Picture</td></tr></table>";
+												var templete = "<table><tr><td>Color: "+name+"</td></tr><tr><td>The Same As Picture</td></tr></table>";
 												jq("#CustomizedColorDesp").html(templete);
 												jq("#CustomizedColorDesp").show();
 											}
