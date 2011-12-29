@@ -2,17 +2,17 @@
 <%@ include file="../include.jsp"%>
 <div class="user_menu" id="user_menu">
 	<ul>
-		<!-- <li>Help
+		<li>Help
 			<div
 				style="width: 150px; display: none; cursor: default; padding-top: 10px;"
 				class="user_menu_hidd currency ">
-				<a
+				<!-- <a
 					href="#"
-					rel="nofollow" title="Submit a question">Submit a question </a> <a
-					href="#"
+					rel="nofollow" title="Submit a question">Submit a question </a> --> <a
+					href="http://www.honeybuy.com/c/Help-Center"
 					rel="nofollow" title="Help Center">Help Center</a>
 			</div>
-		</li> -->
+		</li>
 		<li>
 			<a href="/orders">Order</a>
 		</li>
