@@ -57,6 +57,7 @@ public class ProdOptionItemCreation extends Composite implements ChangeObservabl
 			}
 		}else{
 			final TextBox tb = new TextBox();
+			tb.setValue(optionItem.getValue());
 			tb.addKeyUpHandler(new KeyUpHandler() {
 				@Override
 				public void onKeyUp(KeyUpEvent event) {
