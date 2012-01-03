@@ -204,7 +204,7 @@ public abstract class BaseAction extends Action {
 		if(dealURL(request, response, page.getSite().getDomain())){
 			return null;
 		};
-		if(currency.isEmpty()){
+		if(null ==getCurrencies(request) ||getCurrencies(request).isEmpty()){
 			initCurrency(request);
 		}
 		handleCurrency(request);
