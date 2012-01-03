@@ -52,10 +52,7 @@ public abstract class BaseAction extends Action {
 		if(null == currency.get("USD")){
 			currency.put("USD", 1.0f);
 		}
-		request.getSession().setAttribute("currencies", currency);
-		if(null == request.getSession().getAttribute("currency") || ((Float)request.getSession().getAttribute("currency"))<1){
-			request.getSession().setAttribute("currency", "USD");
-		}
+		request.getSession().getServletContext().setAttribute("currencies", currency);
 	}
 	
 	
@@ -70,7 +67,7 @@ public abstract class BaseAction extends Action {
 	}
 	
 	protected Map<String,Float> getCurrencies(HttpServletRequest request){
-		return (Map<String, Float>) request.getSession().getAttribute("currencies");
+		return (Map<String, Float>) request.getSession().getServletContext().getAttribute("currencies");
 	}
 	
 	protected void setCurrencyName(String name, HttpServletRequest request){
@@ -90,6 +87,9 @@ public abstract class BaseAction extends Action {
 		String currency = request.getParameter("currency");
 		if(null != currency){
 			setCurrencyName(currency, request);
+		}
+		if(null == request.getSession().getAttribute("currency") || ((Float)request.getSession().getAttribute("currency"))<1){
+			request.getSession().setAttribute("currency", "USD");
 		}
 	}
 	
