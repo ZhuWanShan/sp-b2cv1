@@ -302,7 +302,7 @@ public class ShoppingCartAction extends BaseAction {
 		ShoppingCart shoppingCart= new ShoppingCart(order);
 		order.setStatus(OrderStatus.ONSHOPPING.getValue());
 		order.setName(getOrderId());
-		order.setCurrency("USD");
+		order.setCurrency(getCurrencyName(request));
 		request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
 		request.getSession().setAttribute(AllConstants.DEFAULT_ORDER, null);
 	}
@@ -318,7 +318,7 @@ public class ShoppingCartAction extends BaseAction {
 			order.setCreateDate(new Date());
 			order.setStatus(OrderStatus.ONSHOPPING.getValue());
 			order.setName(getOrderId());
-			order.setCurrency("USD");
+			order.setCurrency(getCurrencyName(request));
 			getCart(request,response).setOrder(order);
 		}
 	}

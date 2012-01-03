@@ -2,7 +2,11 @@ package com.spshop.fe.actions;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 import java.util.Random;
 
 import javax.servlet.http.Cookie;
@@ -28,6 +32,67 @@ import com.spshop.utils.AllConstants;
 
 public abstract class BaseAction extends Action {
 	public static final String SHOPPINGCART = "shoppingcart";
+	protected Map<String, Float> currency = new HashMap<String, Float>();
+	private void initCurrency(HttpServletRequest request){
+		Properties cp = new Properties();
+		try {
+			cp.load(this.getClass().getResourceAsStream("/currency.properties"));
+			for (Object currencyName : cp.keySet()) {
+				try {
+					float rate = Float.parseFloat(cp.get(currencyName).toString());
+					currency.put(currencyName.toString(), rate);
+				} catch (NumberFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		if(null == currency.get("USD")){
+			currency.put("USD", 1.0f);
+		}
+		request.getSession().setAttribute("currencies", currency);
+		if(null == request.getSession().getAttribute("currency")){
+			request.getSession().setAttribute("currency", "USD");
+		}
+	}
+	
+	
+	protected String getCurrencyName(HttpServletRequest request){
+		String name = null;
+		name = (String) request.getSession().getAttribute("currency");
+		
+		if(null == name){
+			name = "USD";
+		}
+		return name;
+	}
+	
+	protected Map<String,Float> getCurrencies(HttpServletRequest request){
+		return (Map<String, Float>) request.getSession().getAttribute("currencies");
+	}
+	
+	protected void setCurrencyName(String name, HttpServletRequest request){
+		
+		if(null != getCurrencies(request).get(name)){
+			request.getSession().setAttribute("currency", name);
+		}else{
+			request.getSession().setAttribute("currency", "USD");
+		}
+		ShoppingCart shoppingCart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
+		if(null!=shoppingCart && null!=shoppingCart.getOrder()){
+			shoppingCart.getOrder().setCurrency(name);
+		}
+	}
+	
+	protected void handleCurrency(HttpServletRequest request){
+		String currency = request.getParameter("currency");
+		if(null != currency){
+			setCurrencyName(currency, request);
+		}
+	}
+	
 	/**
 	 * Populate Site Informations for page
 	 * 
@@ -52,6 +117,7 @@ public abstract class BaseAction extends Action {
         }
         pathNodes.add(category);
     }
+    
 	
 	public ShoppingCart getCart(HttpServletRequest request, HttpServletResponse response){
 		
@@ -69,7 +135,7 @@ public abstract class BaseAction extends Action {
 							shoppingCart = new ShoppingCart(order);
 							order.setStatus(OrderStatus.ONSHOPPING.getValue());
 							order.setName(getOrderId());
-							order.setCurrency("USD");
+							order.setCurrency(getCurrencyName(request));
 							shoppingCart.setOrder(order);
 						}
 						shoppingCart = new ShoppingCart(order);
@@ -96,7 +162,9 @@ public abstract class BaseAction extends Action {
 			 order2.setCustomerEmail(user.getEmail());
 			 order2.setBcustomGender(user.getGender());
 		 }
-		
+		 
+		 setCurrencyName(shoppingCart.getOrder().getCurrency(), request);
+		 
 		request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
 		return shoppingCart;
 	}
@@ -136,7 +204,10 @@ public abstract class BaseAction extends Action {
 		if(dealURL(request, response, page.getSite().getDomain())){
 			return null;
 		};
-		
+		if(currency.isEmpty()){
+			initCurrency(request);
+		}
+		handleCurrency(request);
 		try {
 			forward = processer(mapping, page, request, response);
 		} catch (Exception e) {

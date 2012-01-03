@@ -8,9 +8,11 @@
 		<p id="order_title">Let me order now!</p>
 		<div id="check_box">
 			<p>
-				TOTAL: <span>${shoppingcart.order.currency } ${shoppingcart.order.totalPrice}</span>
+				TOTAL: <span>${shoppingcart.order.currency } 
+					<fmt:formatNumber value="${shoppingcart.order.totalPrice * currencies[currency] }" maxFractionDigits="2" currencyCode="${currency }"></fmt:formatNumber>					
+				</span>
 				<script type="text/javascript">
-					var totalPrice = ${shoppingcart.order.totalPrice};
+					var totalPrice = ${shoppingcart.order.totalPrice * currencies[currency] };
 				</script>
 			</p>
 			<form action="/shoppingCart" method="post">
@@ -95,7 +97,10 @@
 								</div>
 							</td>
 						</c:forEach>
-							<td class="center red"><c:out value="${item.finalPrice}"/></td>
+							<td class="center red">
+							${currency }
+								<fmt:formatNumber value="${item.finalPrice*currencies[currency]}" maxFractionDigits="2" currencyCode="${currency }"></fmt:formatNumber>
+							</td>
 							<td class="center">
 								<form action="/shoppingCart" method="post" id="${item.name}">
 									<input name="ProductsId[2]" type="hidden"
@@ -116,7 +121,8 @@
 								<div style="position: absolute;" class="cartOptionsDashboard">
 									
 								</div>--%>
-								<c:out value="${item.itemTotalPrice}"/><br> <a
+								<fmt:formatNumber value="${item.itemTotalPrice*currencies[currency]}" maxFractionDigits="2" currencyCode="${currency }"></fmt:formatNumber>
+								<br> <a
 								href="#" onclick="javascript:return removeItem('${item.name}_remove')"
 								class="link_remove">Remove</a>
 								<div style="display: none;">

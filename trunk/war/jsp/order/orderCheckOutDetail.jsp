@@ -7,8 +7,9 @@
 		<p id="order_title">Let me pay it now!</p>
 		<div id="check_box">
 			<p>
-				TOTAL: <span><c:out
-						value="${pageForm.pageProperties.orderDetail.totalPrice}" />
+				TOTAL: <span>
+						
+							${currency }<fmt:formatNumber value="${pageForm.pageProperties.orderDetail.totalPrice * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
 				</span>
 			</p>
 
@@ -69,10 +70,13 @@
 								</span> </c:if>
 						</c:forEach>
 						</td>
-						<td class="center red"><c:out value="${item.product.price}" />
+						<td class="center red"><c:out value="" />
+						
+						${currency }<fmt:formatNumber value="${item.product.price * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
+						
 						</td>
 						<td class="center"><c:out value="${item.quantity}" /></td>
-						<td class="center red"><c:out value="${item.finalPrice}" /><br>
+						<td class="center red">	${currency }<fmt:formatNumber value="${item.product.finalPrice * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber><br>
 						</td>
 						<td class="center red"><c:out value="${pageForm.pageProperties.orderDetail.status.status}" /><br>
 						</tr>

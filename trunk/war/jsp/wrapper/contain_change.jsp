@@ -49,8 +49,10 @@
 					</a>
 				</strong>
 				<span class="Reference_Price"> 
-					$<del> ${product.price}</del> 
-					$<span class="red fontbold"> ${product.actualPrice} </span> 
+					${currency }<del>
+					<fmt:formatNumber value="${product.price * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
+					</del> 
+					<span class="red fontbold"><fmt:formatNumber value="${product.actualPrice * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber></span> 
 				</span>
 				<div class="list_stars">
 					<span class="Reference_Price"> 

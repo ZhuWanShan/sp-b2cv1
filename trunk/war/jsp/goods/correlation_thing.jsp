@@ -9,8 +9,9 @@
 				<a class=""
 					href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${product.name}"><img
 					alt="${product.title }"
-					src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}"><b>US$
-						${product.actualPrice}</b>
+					src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}"><b>
+					${currency} <fmt:formatNumber value=" ${product.actualPrice * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
+						</b>
 				</a> 
 			</c:forEach>
 		</ss:categoryProductNames>
