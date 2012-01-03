@@ -20,7 +20,10 @@
 				      		<img style="width: 80px; height: 105;" border="0" alt="${product.title }" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}">
 				      		</c:if>
 				      	</a>
-				        <div>US$ ${product.actualPrice}</div>
+				        <div>
+				        
+				        ${currency} <fmt:formatNumber value=" ${product.actualPrice * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
+				       </div>
 				      </li>
 		      </ss:product>
 		     </c:forEach>

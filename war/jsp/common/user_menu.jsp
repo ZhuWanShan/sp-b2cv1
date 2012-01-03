@@ -13,6 +13,15 @@
 					rel="nofollow" title="Help Center">Help Center</a>
 			</div>
 		</li>
+		<li>Currency
+			<div
+				style="width: 150px; display: none; cursor: default; padding-top: 10px;"
+				class="user_menu_hidd currency ">
+					<c:forEach items="${currencies }" var="currency">
+							<a href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=${currency.key }'" rel="nofollow" title="${currency.key }">${currency.key }</a>
+					</c:forEach>
+			</div>
+		</li>
 		<li>
 			<a href="/orders">Order</a>
 		</li>

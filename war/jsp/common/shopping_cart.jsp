@@ -26,7 +26,10 @@
 												${item.product.title }					                                                                             
 					                      </td> 
 					                      <td align="center" class="red">${item.quantity }</td>                     
-					                      <td align="center" class="price">${item.finalPrice }</td>
+					                      <td align="center" class="price">
+					                      ${currency }
+					                      <fmt:formatNumber value=" ${item.finalPrice * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
+					                     </td>
 					                      <td class="edit">&nbsp;</td>
 					                   </tr>
 				                  </c:forEach>

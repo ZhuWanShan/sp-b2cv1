@@ -154,7 +154,8 @@
             Expedited
 			</span>
 			<span class="right bold red">
-											${defaultCountry.adDePrice }
+			
+					${currency }<fmt:formatNumber value="${defaultCountry.adDePrice  * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
 							</span>
             <p class="shippingway_dotted"></p>
           </div>
@@ -169,7 +170,7 @@
             Standard
 			</span>
 			<span class="right bold red">
-												${defaultCountry.dePrice }
+				${currency }<fmt:formatNumber value="${defaultCountry.dePrice  * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
 							</span>
             <p class="shippingway_dotted"></p>
           </div>
@@ -319,10 +320,12 @@
 										</div>
 					</c:forEach>
 	            </td>
-	          <td align="center">${item.finalPrice} </td>
+	          <td align="center">
+	            ${currency} <fmt:formatNumber currencyCode="${currency }" maxFractionDigits="2" value="${item.finalPrice* currencies[currency]}"></fmt:formatNumber>
+	           </td>
 	          <td align="center"> ${item.quantity}</td>
 	          <td>
-	          <fmt:formatNumber currencyCode="USD" maxFractionDigits="2" value="${item.finalPrice * item.quantity}"></fmt:formatNumber>
+	           ${currency} <fmt:formatNumber currencyCode="${currency }" maxFractionDigits="2" value="${item.finalPrice * item.quantity * currencies[currency]}"></fmt:formatNumber>
 	          </td>
 	        </tr>
         </c:forEach>    
@@ -348,12 +351,13 @@
       <tbody><tr>
         <td width="60%">Subtotal:</td>
         <td style="color:#cc0000;" class="price"><span style="color:#cc0000;" id="subtotal">
-        <fmt:formatNumber currencyCode="USD" maxFractionDigits="2" value="${shoppingcart.order.totalPrice }"></fmt:formatNumber>
+          ${currency} <fmt:formatNumber currencyCode="${currency }" maxFractionDigits="2" value="${shoppingcart.order.totalPrice* currencies[currency]}"></fmt:formatNumber>
         </span></td>
       </tr>
       <tr>
         <td class="border">Shipping Charges:</td>
-        <td style="color:#3333333;" class="price border">US$ <span style="color:#3333333;" id="shippingcharge">${shoppingcart.order.dePrice }</span></td>
+        <td style="color:#3333333;" class="price border"><span style="color:#3333333;" id="shippingcharge">
+          ${currency} <fmt:formatNumber currencyCode="${currency }" maxFractionDigits="2" value="${shoppingcart.order.dePrice* currencies[currency]}"></fmt:formatNumber></span></td>
       </tr>
       <tr id="dis_div" style="display:none">
         <td id="dis_name"></td>
@@ -361,8 +365,8 @@
       </tr>
       <tr>
         <td class="total">Grand Total:</td>
-        <td style="color:#cc0000;" class="price bold">US$ <span style="color:#cc0000;" id="total">
-        <fmt:formatNumber currencyCode="USD" maxFractionDigits="2" value=" ${shoppingcart.order.totalPrice + shoppingcart.order.dePrice}"></fmt:formatNumber>
+        <td style="color:#cc0000;" class="price bold"> <span style="color:#cc0000;" id="total">
+          ${currency} <fmt:formatNumber currencyCode="${currency }" maxFractionDigits="2" value="${(shoppingcart.order.totalPrice + shoppingcart.order.dePrice)* currencies[currency]}"></fmt:formatNumber>
        </span></td>
       </tr>
       <tr>

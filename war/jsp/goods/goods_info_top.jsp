@@ -135,20 +135,23 @@
 			<div class="item_property">
 				<!-- item_property_show is alert-->
 				<div class="item_goods_price_older">
-					<s>US$ ${pageForm.pageProperties.productDetail.price}</s>
+					<s>
+					${currency }
+					 <fmt:formatNumber value="${pageForm.pageProperties.productDetail.price * currencies[currency]}" maxFractionDigits="2" currencyCode="${currency}"></fmt:formatNumber>
+					</s>
 				</div>
 				<div style="z-index: 2;" class="item_price">
-					<span class="item_price_currency">US$ <a id="currencyAll"
+					<span class="item_price_currency">${currency }<a id="currencyAll"
 						href="javascript:void(0);"><img src="/css/arrow-select.gif">
-					</a> </span><span class="item_price_num"> <span id="money">${pageForm.pageProperties.productDetail.actualPrice}</span>
+					</a> </span><span class="item_price_num"> <span id="money">
+					
+					<fmt:formatNumber value="${pageForm.pageProperties.productDetail.actualPrice * currencies[currency]}" maxFractionDigits="2" currencyCode="${currency}"></fmt:formatNumber></span>
 					</span>
+					
 					<div class="currencyAll">
-						<a rel="nofollow" class="link_now" href="#">$</a>
-						<a rel="nofollow" class="link_now" href="#">&#8364;</a> 
-						<a rel="nofollow" class="link_now" href="#">&#8356;</a> 
-						<a rel="nofollow" class="link_now" href="#">CA$</a>
-						<a rel="nofollow" class="link_now" href="#">AU$</a>
-						<a rel="nofollow" class="link_now" href="#">CHF</a> 
+						<c:forEach items="${currencies }" var="currency">
+							<a rel="nofollow" class="link_now" href="/${pageForm.pageProperties.productDetail.name}?currency=${currency.key}">${currency.key }</a>
+						</c:forEach>
 					</div>
 				</div>
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
@@ -321,8 +324,10 @@
 											onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
 									</c:if>
 									<div class="item_funTotal" href="javascript:void(0);">
-										<input type="hidden" id="product_inputText_price" name="qty" value="${pageForm.pageProperties.productDetail.actualPrice}" />
-										<label id="AmountPrice3">Total: <span>US$ <span>${pageForm.pageProperties.productDetail.actualPrice}</span></span></label>
+										<input type="hidden" id="product_inputText_price" name="qty" value="${pageForm.pageProperties.productDetail.actualPrice * currencies[currency]}" />
+										<label id="AmountPrice3">Total: <span>${currency}
+										<fmt:formatNumber value="${pageForm.pageProperties.productDetail.actualPrice * currencies[currency]}" maxFractionDigits="2" currencyCode="${currency }"></fmt:formatNumber>
+										</span></label>
 									</div>
 									</div>
 							</c:if>

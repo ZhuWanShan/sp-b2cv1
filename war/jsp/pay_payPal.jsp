@@ -48,13 +48,18 @@
 	<div class="main_box">
 		<h1>Page will redirect to Paypal after 5 seconds</h1>
 		<h2>Order: ${defaultOrder.name }</h2>
-		<h2>Price: ${defaultOrder.totalPrice } + ${defaultOrder.dePrice }</h2>
+		<h2>Price: 
+		${currency }
+					 <fmt:formatNumber value="${defaultOrder.totalPrice * currencies[currency]}" maxFractionDigits="2" currencyCode="${currency}"></fmt:formatNumber>
+		 + 
+		  <fmt:formatNumber value="${defaultOrder.dePrice  * currencies[currency]}" maxFractionDigits="2" currencyCode="${currency}"></fmt:formatNumber>
+		</h2>
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypaysubmitForm">
 			<input type="hidden" name="cmd" value="_xclick">
 			<input type="hidden" name="business" value="paypal@honeybuy.com">
 			<input type="hidden" name="item_name" value="${defaultOrder.name }">
-			<input type="hidden" name="amount" value="<fmt:formatNumber currencyCode="USD" maxFractionDigits="2" value="${defaultOrder.totalPrice + defaultOrder.dePrice }"></fmt:formatNumber>">
-			<input type="hidden" name="currency_code" value="USD">
+			<input type="hidden" name="amount" value="<fmt:formatNumber currencyCode="${currency}" maxFractionDigits="2" value="${(defaultOrder.totalPrice + defaultOrder.dePrice) * currencies[currency]}"></fmt:formatNumber>">
+			<input type="hidden" name="currency_code" value="${currency}">
 			<input type="hidden" name="lc" value="US">
 			<input type="hidden" name="notify_url" value="http://www.honeybuy.com/checkorder">
 			<input type="hidden" name="return" value="http://www.honeybuy.com/orders?id=${defaultOrder.name }">

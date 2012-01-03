@@ -37,7 +37,9 @@
 		<p id="order_title">Total Price</p>
 		<div id="check_box">
 			<p>
-				TOTAL: <span><c:out value="${defaultOrder.totalPrice}" /></span>
+				TOTAL: <c:out value="${currency }" /><span>
+				<fmt:formatNumber value="${defaultOrder.totalPrice*currencies[currency]}" maxFractionDigits="2" currencyCode="${currency }"></fmt:formatNumber>
+				</span>
 			</p>
 		</div>
 		<div id="check_box">
@@ -101,7 +103,9 @@
 								</div>
 							</td>
 						</c:forEach>
-							<td class="center red"><c:out value="${item.finalPrice}"/></td>
+							<td class="center red">
+							<c:out value="${currency }"/><fmt:formatNumber value="${item.finalPrice * currencies[currency]}" maxFractionDigits="2" currencyCode="${currency }"></fmt:formatNumber>
+							</td>
 							<td class="center">
 								<span>${item.quantity}</span>
 							</td>
@@ -125,7 +129,7 @@
 										</div>
 									</c:forEach>
 								</div>--%>
-								<c:out value="${item.itemTotalPrice}"/>
+								<c:out value="${currency }"/><fmt:formatNumber value="${item.itemTotalPrice*currencies[currency]}" maxFractionDigits="2" currencyCode="${currency }"></fmt:formatNumber>
 							</td>
 						</tr>
 						</c:forEach>

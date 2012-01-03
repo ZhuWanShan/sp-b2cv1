@@ -115,12 +115,16 @@
 						<c:if test="${tabProduct.actualPrice ne tabProduct.price }">
 						<p class="save_title">Save</p>
 						<p class="save_num">
-							<fmt:formatNumber type="number" value="${(1 - tabProduct.actualPrice / tabProduct.price) * 100}" maxFractionDigits="0"/>%
+							<fmt:formatNumber type="number" value="${(1 - tabProduct.actualPrice / tabProduct.price) * 100 * currencies[currency]}" maxFractionDigits="2"/>%
 						</p>
 						</c:if>
 					</div>
-					<del>${tabProduct.price}</del>
-					<p class="dilyMadness_priceTip">US$ ${tabProduct.actualPrice}</p>
+					<del>
+						${currency }<fmt:formatNumber value="${tabProduct.price  * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
+					</del>
+					<p class="dilyMadness_priceTip">
+					${currency }<fmt:formatNumber value="${tabProduct.actualPrice  * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
+					</p>
 				</li>
 			</c:forEach>
 			</ul>
@@ -159,8 +163,11 @@
 								Save:<fmt:formatNumber type="number" value="${(1 - tabProduct.actualPrice / tabProduct.price) * 100}" maxFractionDigits="0"/>%
 							</c:if>
 							</p>
-							<del>${tabProduct.price}</del>
-							<p class="goods_price">US$ ${tabProduct.actualPrice}</p>
+							<del>
+							 ${currency} <fmt:formatNumber currencyCode="${currency }" maxFractionDigits="2" value="${tabProduct.price * currencies[currency]}"></fmt:formatNumber></td>
+							</del>
+							<p class="goods_price">
+							 ${currency} <fmt:formatNumber currencyCode="${currency }" maxFractionDigits="2" value="${tabProduct.actualPrice * currencies[currency]}"></fmt:formatNumber></p>
 						</dd>
 					</dl>
 				</c:forEach>
