@@ -88,7 +88,7 @@ public abstract class BaseAction extends Action {
 		if(null != currency){
 			setCurrencyName(currency, request);
 		}
-		if(null == request.getSession().getAttribute("currency") || ((Float)request.getSession().getAttribute("currency"))<1){
+		if(null == request.getSession().getAttribute("currency")){
 			request.getSession().setAttribute("currency", "USD");
 		}
 	}
