@@ -53,7 +53,7 @@ public abstract class BaseAction extends Action {
 			currency.put("USD", 1.0f);
 		}
 		request.getSession().setAttribute("currencies", currency);
-		if(null == request.getSession().getAttribute("currency")){
+		if(null == request.getSession().getAttribute("currency") || ((Float)request.getSession().getAttribute("currency"))<1){
 			request.getSession().setAttribute("currency", "USD");
 		}
 	}
