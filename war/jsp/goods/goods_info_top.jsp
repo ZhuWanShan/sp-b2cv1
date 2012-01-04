@@ -182,7 +182,7 @@
 											</tr>
 											
 										</table>
-										<button type="button">OK</button>
+										<button type="button" style="background: url('css/Image_mosaic.png') no-repeat scroll 0 -374px transparent;">OK</button>
 									</div>
 									
 									<div class="colorWindow-list">
