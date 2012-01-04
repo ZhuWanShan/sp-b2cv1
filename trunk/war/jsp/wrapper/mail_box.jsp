@@ -1,6 +1,6 @@
 <div class="Mail_subscription">
 		
-	<img src="../css/followUs_banner.png" style="height: 57px;"></img>
+	<img src="../css/followUs_banner.png" style="height: 51px;"></img>
 	<script>
 		var params1 = {
 			containerID: 'bar1',
@@ -20,7 +20,7 @@
 				},
 				{
 					provider: 'googleplus',
-					actionURL: 'https://plus.google.com/111058949532759647909/posts', 
+					actionURL: 'https://plus.google.com/109978880912693970020/posts', 
 					action: 'dialog',
 					title: 'Google+'
 				},

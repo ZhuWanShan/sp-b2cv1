@@ -114,7 +114,7 @@
 						<li>
 							<input name="Conditions" type="checkbox" id="Conditions" value="1" onClick="checkConditions();"> 
 							<i> 
-								<a href="lisence.jsp">I agree to the license.</a> 
+								<a href="/c/Terms-Of-Use">I agree to the license.</a> 
 							</i>
 							<div id="Conditionsinfo" style="float: left;"></div>
 						</li>

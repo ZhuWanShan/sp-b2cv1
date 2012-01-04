@@ -77,7 +77,7 @@
 
 						</tr>
 						<tr>
-							<td class="custItem">D Hollow to floor (for floor length dress):</td>
+							<td class="custItem">D Hollow to floor:</td>
 							<td><input id="Customszie5" name="Hollow2floor"
 								type="text" size="8"><span id="unit5">cm</span><span
 								id="cussize5" style="display: none;"><img
@@ -86,7 +86,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td colspan="2"><p>Usually we call this date Hollow to hem. Stand straight and measure from the hollow of your neck to the place where you want the hem of the dress to be. Record the length as your hollow to hem measurement. If your dress comes to the knee, your hollo w to hem would be from the neck to your knee. If you are creating a floor length gown, your hollow to hem would be measured from your neck to the floor. Please add your shoes if you will wear high heels on the dress.</p></td>
+							<td colspan="2"><p>Usually we call this data Hollow to hem. Stand straight and measure from the hollow of your neck to the place where you want the hem of the dress to be. Record the length as your hollow to hem measurement. If your dress comes to the knee, your hollow to hem would be from the neck to your knee. If you are creating a floor length gown, your hollow to hem would be measured from your neck to the floor. Please add your shoes if you will wear high heels on the dress.</p></td>
 						</tr>
 						<tr>
 							<td>Special Requirements:</td>
