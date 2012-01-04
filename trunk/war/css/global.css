@@ -93,7 +93,7 @@
 	width: 160px;
 }
 .colorWindow-large button{
-	margin: 10px;
+	margin: 10px 32px;
 	background: url("Image_mosaic.png") no-repeat scroll 0 -374px transparent;
     border-style: none;
     border-width: 0;
@@ -108,14 +108,14 @@
 }
 	
 .colorWindow-list{
-	margin: 10px;
+	margin: 0 10px;
 	float: left;
 	width: 270px;
 }
 
 .colorWindow-list img{
 	margin: 2px;
-	width: 34px;
+	width: 43px;
 	border: 2px dotted #FFFFFF;
 }
 
