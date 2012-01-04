@@ -170,7 +170,7 @@
 								</select>
 								
 								<div class="colorSelectWindow" style="display: none;">
-									
+									<img alt="" src="/css/Image_mosaic.png" style="width: 0px; height: 0px">
 									<div class="colorWindow-large">
 										<c:forEach items="${option.items}" begin="0" end="0" var="item">
 											<img alt="${item.name}" src="${fn:endsWith(item.value, '.jpg')?item.value:''}">
@@ -182,7 +182,7 @@
 											</tr>
 											
 										</table>
-										<button type="button" style="background: url('css/Image_mosaic.png') no-repeat scroll 0 -374px transparent;">OK</button>
+										<button type="button" style="background: url('/css/Image_mosaic.png') no-repeat scroll 0 -374px transparent;">OK</button>
 									</div>
 									
 									<div class="colorWindow-list">
