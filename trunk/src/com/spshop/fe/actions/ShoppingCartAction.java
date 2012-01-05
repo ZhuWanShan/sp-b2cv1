@@ -213,7 +213,7 @@ public class ShoppingCartAction extends BaseAction {
 			String country  = retriveCountry(request);
 			try {
 				Country c = ServiceFactory.getService(CountryService.class).getCountryById(Integer.parseInt(country));
-				if("Standard".equals(retrieveDeType(request))){
+				if(!"Standard".equals(retrieveDeType(request))){
 					getCart(request, response).getOrder().setDePrice(c.getDePrice());
 					request.setAttribute("shippingMethod", "Standard");
 				}else{

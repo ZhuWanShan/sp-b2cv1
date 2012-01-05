@@ -78,7 +78,7 @@ public abstract class BaseAction extends Action {
 			request.getSession().setAttribute("currency", "USD");
 		}
 		ShoppingCart shoppingCart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
-		if(null!=shoppingCart && null!=shoppingCart.getOrder()){
+		if(null!=shoppingCart && null!=shoppingCart.getOrder() && "USD".equals(getCurrencyName(request))){
 			shoppingCart.getOrder().setCurrency(name);
 		}
 	}

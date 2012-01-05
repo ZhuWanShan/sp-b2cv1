@@ -377,7 +377,7 @@
 						ProductsPrice =parseFloat(ProductsPrice)+parseFloat(toutaoPrice);
 								
 						$('money').innerHTML=(parseFloat(ProductsPrice)).toFixed(xiaoshu);
-						$('AmountPrice3').innerHTML="Total: <span>US$ <span>"+((parseFloat(ProductsPrice)).toFixed(xiaoshu)*$('num').value).toFixed(xiaoshu)+"</span></span>";
+						$('AmountPrice3').innerHTML="Total: <span>${currency} <span>"+((parseFloat(ProductsPrice)).toFixed(xiaoshu)*$('num').value).toFixed(xiaoshu)+"</span></span>";
 					}	
 				}
 		</script>
