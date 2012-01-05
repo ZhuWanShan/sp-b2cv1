@@ -77,7 +77,7 @@
 
 						</tr>
 						<tr>
-							<td class="custItem">D Hollow to floor:</td>
+							<td class="custItem">D Hollow to Hem:</td>
 							<td><input id="Customszie5" name="Hollow2floor"
 								type="text" size="8"><span id="unit5">cm</span><span
 								id="cussize5" style="display: none;"><img
