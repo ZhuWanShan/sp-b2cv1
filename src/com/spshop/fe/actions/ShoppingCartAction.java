@@ -178,6 +178,7 @@ public class ShoppingCartAction extends BaseAction {
 	}
 	
 	private void retriveShippingInfo(HttpServletRequest request,HttpServletResponse response,boolean check){
+		
 		Order order = getCart(request, response).getOrder();
 		order.setCity(request.getParameter("MemberCtiy"));
 		order.setCustomerName(request.getParameter("MemberContact[0]")+","+request.getParameter("MemberContact[1]"));
@@ -188,6 +189,46 @@ public class ShoppingCartAction extends BaseAction {
 		order.setCustomerEmail(request.getParameter("MemberEmail"));
 		order.setCustomGender(request.getParameter("gender"));
 		order.setCustomerMsg(request.getParameter("Remarks"));
+		order.setState(request.getParameter("MemberProvince"));
+		
+		if(check){
+			if(null == order.getCity() || !order.getCity().matches("\\w{1,50}")){
+				addError("city", "Not a valid city", request);
+			}
+			
+			if(null == order.getCfirstName() || !order.getCfirstName() .matches("\\w{1,255}")){
+				addError("firstName", "Not a valid Name", request);
+			}
+			
+			if(null == order.getClastName() || !order.getClastName().matches("\\w{1,255}")){
+				addError("lastName", "Not a valid Name", request);
+			}
+			
+			if(null == order.getCustomerAddress() || !order.getCustomerAddress().matches(".{1,400}")){
+				addError("address", "Not a valid Address", request);
+			}
+			
+			if(null == order.getState() || !order.getState().matches(".{1,200}")){
+				addError("state", "Not a valid State", request);
+			}
+			
+			if(null == order.getCustomerCountry() || !order.getCustomerCountry().matches(".{1,255}")){
+				addError("country", "Not a valid Country", request);
+			}
+			
+			if(null == order.getCustomerZipcode() || !order.getCustomerZipcode().matches("\\w{1,255}")){
+				addError("zipCode", "Not a valid ZipCode", request);
+			}
+			
+			if(null == order.getDeliverPhone() || !order.getDeliverPhone().matches("\\w{1,255}")){
+				addError("phone", "Not a valid Phone", request);
+			}
+			
+			if(null == order.getCustomerEmail() || !order.getCustomerEmail().matches("\\w{1,255}")){
+				addError("email", "Not a valid Email", request);
+			}
+		}
+		
 	}
 	
 	private void retriveBShippingInfo(HttpServletRequest request,HttpServletResponse response,boolean check){
@@ -199,6 +240,42 @@ public class ShoppingCartAction extends BaseAction {
 		order.setBcustomerZipcode(request.getParameter("MemberZip_b"));
 		order.setBcustomGender(request.getParameter("ConsigneeGender_b"));
 		order.setBphone(request.getParameter("MemberContactPhone_b"));
+		order.setBstate(request.getParameter("MemberProvince"));
+		//bMemberProvince
+		
+		if(check){
+			if(null == order.getBcity() || !order.getBcity().matches("\\w{1,50}")){
+				addError("bcity", "Not a valid city", request);
+			}
+			
+			if(null == order.getBfirstName() || !order.getBfirstName().matches("\\w{1,255}")){
+				addError("bfirstName", "Not a valid Name", request);
+			}
+			
+			if(null == order.getBlastName() || !order.getBlastName().matches("\\w{1,255}")){
+				addError("blastName", "Not a valid Name", request);
+			}
+			
+			if(null == order.getBcustomerAddress() || !order.getBcustomerAddress().matches(".{1,400}")){
+				addError("baddress", "Not a valid Address", request);
+			}
+			
+			if(null == order.getBstate() || !order.getBstate().matches(".{1,200}")){
+				addError("bstate", "Not a valid State", request);
+			}
+			
+			if(null == order.getBcustomerZipcode() || !order.getBcustomerZipcode().matches("\\w{1,255}")){
+				addError("bzipCode", "Not a valid ZipCode", request);
+			}
+			
+			if(null == order.getBphone() || !order.getBphone() .matches("\\w{1,255}")){
+				addError("bphone", "Not a valid Phone", request);
+			}
+			
+			if(null == order.getCustomerEmail() || !order.getCustomerEmail().matches("\\w{1,255}")){
+				addError("email", "Not a valid Email", request);
+			}
+		}
 	}
 	
 	@Override
@@ -212,8 +289,23 @@ public class ShoppingCartAction extends BaseAction {
 			request.setAttribute("showCheckOption", true);
 			String country  = retriveCountry(request);
 			try {
-				Country c = ServiceFactory.getService(CountryService.class).getCountryById(Integer.parseInt(country));
-				if(!"Standard".equals(retrieveDeType(request))){
+				int countryID = -1;
+				
+				try {
+					countryID = Integer.parseInt(country);
+				} catch (Exception e) {
+				}
+				
+				Country c = null;
+				
+				if(countryID < 0){
+					List<Country> cd = SCacheFacade.getCounties();
+					c = cd.get(0);
+				}else{
+					c = ServiceFactory.getService(CountryService.class).getCountryById(countryID);
+				}
+				
+				if("Standard".equals(retrieveDeType(request))){
 					getCart(request, response).getOrder().setDePrice(c.getDePrice());
 					request.setAttribute("shippingMethod", "Standard");
 				}else{
@@ -221,10 +313,10 @@ public class ShoppingCartAction extends BaseAction {
 					request.setAttribute("shippingMethod", "Expedited");
 				}
 				getCart(request, response).getOrder().setCustomerCountry(c.getName());
-				if("true".equals(retrieveBillingAddress(request))){
-					request.setAttribute("billing_address", "true");
-				}else{
+				if(!"true".equals(retrieveBillingAddress(request))){
 					request.setAttribute("billing_address", "false");
+				}else{
+					request.setAttribute("billing_address", "true");
 				}
 				request.setAttribute("defaultCountry", c);
 				retriveShippingInfo(request,response,false);
@@ -235,10 +327,14 @@ public class ShoppingCartAction extends BaseAction {
 			
 			if("CONTINUE".equals(retriveOperation(request))){
 				retriveShippingInfo(request,response,true);
-				retriveBShippingInfo(request,response,true);
-				if(PAYMEMT_PAYPAL.equals(retrivePaymentType(request))){
-					paypalPay(request, response, errorStrings, msgs);
-					return null;
+				if(!"true".equals(retrieveBillingAddress(request))){
+					retriveBShippingInfo(request,response,true);
+				}
+				if(getError(request).isEmpty()){
+					if(PAYMEMT_PAYPAL.equals(retrivePaymentType(request))){
+						paypalPay(request, response, errorStrings, msgs);
+						return null;
+					}
 				}
 			}
 			updateCart(request, response, OrderStatus.ONSHOPPING);

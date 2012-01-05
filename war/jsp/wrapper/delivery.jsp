@@ -60,7 +60,7 @@
 											onblur="checkform(this.id);" class="input_1"
 											value="${shoppingcart.order.cfirstName }"
 											id="MemberContact0_new" name="MemberContact[0]"> <i
-											id="MemberContact0_newInfo"></i></td>
+											id="MemberContact0_newInfo" class="red">${error['firstName'] }</i></td>
 									</tr>
 									<tr>
 										<td><span class="red">*</span>Last Name:</td>
@@ -68,7 +68,7 @@
 											onblur="checkform(this.id);" class="input_1"
 											value="${shoppingcart.order.clastName }"
 											id="MemberContact1_new" name="MemberContact[1]"> <i
-											id="MemberContact1_newInfo"></i></td>
+											id="MemberContact1_newInfo" class="red">${error['lastName'] }</i></td>
 									</tr>
 									<tr>
 										<td><span class="red">*</span>Address Line:</td>
@@ -76,7 +76,7 @@
 											onblur="checkform(this.id);" class="input_1" size="35"
 											value="${shoppingcart.order.customerAddress }"
 											id="MemberContactAddr_new" name="MemberContactAddr[0]">
-											<i id="MemberContactAddr_newInfo"></i></td>
+											<i id="MemberContactAddr_newInfo" class="red">${error['address'] }</i></td>
 									</tr>
 									<tr>
 										<td>&nbsp;</td>
@@ -102,22 +102,24 @@
 									</tr>
 									<tr>
 					                <td><span class="red">*</span>Province/State: </td>
-					                <td class="W260"><div class="divr divr2"><input type="text"  class="input_1" value="${shoppingcart.order.bcity}" id="MemberCtiy_b" autocomplete="off" name="MemberCtiy_b"><div style="display: none;" class="ep_qsearch"><i style="padding: 4px 10px;">Loading...</i></div>
-					                  <i id="MemberProvince"></i></div></td>
+					                <td class="W260"><div class="divr divr2"><input type="text"  class="input_1" value="${shoppingcart.order.state}" id="MemberProvince" autocomplete="off" name="MemberProvince"><div style="display: none;" class="ep_qsearch"><i style="padding: 4px 10px;">Loading...</i></div>
+					                  <i id="MemberProvince" class="red">
+					                  	${error['state'] }
+					                  </i></div></td>
 					              </tr>
 									<tr>
 										<td><span class="red">*</span>City:</td>
 										<td class="W260"><input type="text"
 											onblur="checkform(this.id);" class="input_1"
 											value="${shoppingcart.order.city}" id="MemberCtiy_new"
-											name="MemberCtiy"> <i id="MemberCtiy_newInfo"></i></td>
+											name="MemberCtiy"> <i id="MemberCtiy_newInfo" class="red">${error['city'] }</i></td>
 									</tr>
 									<tr>
 										<td><span class="red">*</span>Zip/Postal Code:</td>
 										<td class="W260"><input type="text"
 											onblur="checkform(this.id);" class="input_1"
 											value="${shoppingcart.order.customerZipcode}" id="MemberZip_new"
-											name="MemberZip"> <i id="MemberZip_newInfo"></i></td>
+											name="MemberZip"> <i id="MemberZip_newInfo" class="red">${error['zipCode'] }</i></td>
 									</tr>
 									<tr>
 										<td><span class="red">*</span>Phone Number:</td>
@@ -125,14 +127,14 @@
 											onblur="checkform(this.id);" class="input_1" maxlength="30"
 											value="${shoppingcart.order.city}"
 											id="MemberContactPhone_new" name="MemberContactPhone">
-											<i id="MemberContactPhone_newInfo"></i></td>
+											<i id="MemberContactPhone_newInfo" class="red">${error['phone'] }</i></td>
 									</tr>
 									<tr>
 										<td><span class="red">*</span>Email:</td>
 										<td class="W260"><input type="text"
 											onblur="checkform(this.id);" class="input_1" maxlength="200"
 											value="${shoppingcart.order.customerEmail}" id="MemberEmail_new"
-											name="MemberEmail"> <i id="MemberMemberEmail_newInfo"></i>
+											name="MemberEmail"> <i id="MemberMemberEmail_newInfo" class="red">${error['email'] }</i>
 										</td>
 									</tr>
 									<tr>
@@ -234,17 +236,17 @@
 	              <tr>
 	                <td><span class="red">*</span>First Name: </td>
 	                <td class="W260"><input type="text" onblur="checkform(this.id);" class="input_1" value="${shoppingcart.order.bfirstName}" id="MemberContact0_b" name="MemberContact_b[0]">
-	                  <i id="MemberContact0_bInfo"></i></td>
+	                  <i id="MemberContact0_bInfo"  class="red">${error['bfirstName'] }</i></td>
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>Last Name: </td>
 	                <td class="W260"><input type="text" onblur="checkform(this.id);" class="input_1" value="${shoppingcart.order.blastName}" id="MemberContact1_b" name="MemberContact_b[1]">
-	                  <i id="MemberContact1_bInfo"></i></td>
+	                  <i id="MemberContact1_bInfo"  class="red">${error['blastName'] }</i></td>
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>Address Line 1: </td>
 	                <td class="W260"><input type="text" class="input_1" size="35" value="${shoppingcart.order.bcustomerAddress}" id="MemberContactAddr_b" name="MemberContactAddr_b[0]">
-	                  <i id="MemberContactAddr_bInfo"></i></td>
+	                  <i id="MemberContactAddr_bInfo"  class="red">${error['baddress'] }</i></td>
 	              </tr>
 	              <tr>
 	                    <td>&nbsp;</td>
@@ -258,22 +260,22 @@
 	              <tr>
 	                <td><span class="red">*</span>City: </td>
 	                <td class="W260"><div class="divr divr2"><input type="text"  class="input_1" value="${shoppingcart.order.bcity}" id="MemberCtiy_b" autocomplete="off" name="MemberCtiy_b"><div style="display: none;" class="ep_qsearch"><i style="padding: 4px 10px;">Loading...</i></div>
-	                  <i id="MemberCtiy_bInfo"></i></div></td>
+	                  <i id="MemberCtiy_bInfo" class="red">${error['bcity'] }</i></div></td>
 	              </tr>
 	               <tr>
 	                <td><span class="red">*</span>Province/State: </td>
-	                <td class="W260"><div class="divr divr2"><input type="text"  class="input_1" value="${shoppingcart.order.bcity}" id="MemberCtiy_b" autocomplete="off" name="MemberCtiy_b"><div style="display: none;" class="ep_qsearch"><i style="padding: 4px 10px;">Loading...</i></div>
-	                  <i id="bMemberProvince"></i></div></td>
+	                <td class="W260"><div class="divr divr2"><input type="text"  class="input_1" value="${shoppingcart.order.bstate}" id="bMemberProvince" autocomplete="off" name="bMemberProvince"><div style="display: none;" class="ep_qsearch"><i style="padding: 4px 10px;">Loading...</i></div>
+	                  <i id="bMemberProvince" class="red">${error['bstate'] }</i></div></td>
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>Zip/Postal Code: </td>
 	                <td class="W260"><input type="text"  class="input_1" value="${shoppingcart.order.bcustomerZipcode}" id="MemberZip_b" name="MemberZip_b">
-	                  <i id="MemberZip_bInfo"></i></td>
+	                  <i id="MemberZip_bInfo" class="red">${error['bzipCode'] }</i></td>
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>Phone Number: </td>
 	                <td class="W260"><input type="text" class="input_1" maxlength="30" value="${shoppingcart.order.bphone}" id="MemberContactPhone_b" name="MemberContactPhone_b">
-	                  <i id="MemberContactPhone_bInfo"></i></td>
+	                  <i id="MemberContactPhone_bInfo" class="red">${error['bphone'] }</i></td>
 	              </tr>
 	              <tr>
 	                    <td>&nbsp;</td>

@@ -55,6 +55,39 @@ public abstract class BaseAction extends Action {
 		request.getSession().getServletContext().setAttribute("currencies", currency);
 	}
 	
+	protected void addMsg(String key, String value,HttpServletRequest request){
+		getMsg(request).put(key, value);
+	}
+	
+	protected void addError(String key, String value,HttpServletRequest request){
+		getError(request).put(key, value);
+	}
+	
+	protected void clearMsg(HttpServletRequest request){
+		getMsg(request).clear();
+	}
+	
+	protected void clearError(HttpServletRequest request){
+		getError(request).clear();
+	}
+	
+	protected Map<String,String> getError(HttpServletRequest request){
+		Map<String,String> err = (Map<String, String>) request.getAttribute("error");
+		if(null == err){
+			err = new HashMap<String,String>();
+			request.setAttribute("error", err);
+		}
+		return err;
+	}
+	
+	protected Map<String,String> getMsg(HttpServletRequest request){
+		Map<String,String> msg = (Map<String, String>) request.getAttribute("msg");
+		if(null == msg){
+			msg = new HashMap<String,String>();
+			request.setAttribute("msg", msg);
+		}
+		return msg;
+	}
 	
 	protected String getCurrencyName(HttpServletRequest request){
 		String name = null;
