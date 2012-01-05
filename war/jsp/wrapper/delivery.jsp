@@ -101,6 +101,11 @@
 												shipment is unavailable to Canary Islands</span></td>
 									</tr>
 									<tr>
+					                <td><span class="red">*</span>Province/State: </td>
+					                <td class="W260"><div class="divr divr2"><input type="text"  class="input_1" value="${shoppingcart.order.bcity}" id="MemberCtiy_b" autocomplete="off" name="MemberCtiy_b"><div style="display: none;" class="ep_qsearch"><i style="padding: 4px 10px;">Loading...</i></div>
+					                  <i id="MemberProvince"></i></div></td>
+					              </tr>
+									<tr>
 										<td><span class="red">*</span>City:</td>
 										<td class="W260"><input type="text"
 											onblur="checkform(this.id);" class="input_1"
@@ -254,6 +259,11 @@
 	                <td><span class="red">*</span>City: </td>
 	                <td class="W260"><div class="divr divr2"><input type="text"  class="input_1" value="${shoppingcart.order.bcity}" id="MemberCtiy_b" autocomplete="off" name="MemberCtiy_b"><div style="display: none;" class="ep_qsearch"><i style="padding: 4px 10px;">Loading...</i></div>
 	                  <i id="MemberCtiy_bInfo"></i></div></td>
+	              </tr>
+	               <tr>
+	                <td><span class="red">*</span>Province/State: </td>
+	                <td class="W260"><div class="divr divr2"><input type="text"  class="input_1" value="${shoppingcart.order.bcity}" id="MemberCtiy_b" autocomplete="off" name="MemberCtiy_b"><div style="display: none;" class="ep_qsearch"><i style="padding: 4px 10px;">Loading...</i></div>
+	                  <i id="bMemberProvince"></i></div></td>
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>Zip/Postal Code: </td>
