@@ -32,6 +32,7 @@ public class Order extends Component{
 	private float dePrice;
 	private String currency;
 	private String customerMsg;
+	private String state;
 	
 	private String bCustomerName;
 	private String customGender;
@@ -40,6 +41,7 @@ public class Order extends Component{
 	private String bCustomerAddress2;
 	private String bCity;
 	private String bCustomerZipcode;
+	private String bstate;
 	private String bPhone;
 	
 	public Order() {
@@ -334,6 +336,14 @@ public class Order extends Component{
 			obj.bPhone = this.bPhone;
 		}
 		
+		if (this.state != null) {
+			obj.state = this.state;
+		}
+		
+		if (this.bstate != null) {
+			obj.bstate = this.bstate;
+		}
+		
 		return obj;
 	}
 
@@ -468,6 +478,22 @@ public class Order extends Component{
 		id = id + new Random().nextInt(999999);
 		
 		return id;
+	}
+
+	public void setBstate(String bstate) {
+		this.bstate = bstate;
+	}
+
+	public String getBstate() {
+		return bstate;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getState() {
+		return state;
 	}
 	
 }

@@ -201,6 +201,8 @@
 		<property name="bcustomerAddress" ></property>
 		<property name="bcustomerAddress2" ></property>
 		<property name="bcity" ></property>
+		<property name="state" ></property>
+		<property name="bstate" ></property>
 		<property name="bcustomerZipcode" ></property>
 		<property name="bphone" ></property>
 		<property name="status" length="255" column="order_status"></property>

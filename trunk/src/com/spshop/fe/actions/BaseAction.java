@@ -163,7 +163,7 @@ public abstract class BaseAction extends Action {
 			 order2.setBcustomGender(user.getGender());
 		 }
 		 
-		 setCurrencyName(shoppingCart.getOrder().getCurrency(), request);
+		 shoppingCart.getOrder().setCurrency(getCurrencyName(request));
 		 
 		request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
 		return shoppingCart;
