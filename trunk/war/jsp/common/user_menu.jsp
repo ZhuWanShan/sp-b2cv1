@@ -13,14 +13,19 @@
 					rel="nofollow" title="Help Center">Help Center</a>
 			</div>
 		</li>
-		<li>Currency
-			<div
-				style="width: 150px; display: none; cursor: default; padding-top: 10px;"
-				class="user_menu_hidd currency ">
-					<c:forEach items="${currencies }" var="currency">
-							<a href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=${currency.key }'" rel="nofollow" title="${currency.key }">${currency.key }</a>
-					</c:forEach>
-			</div>
+		<li class="icon_${currency}" id="currency">
+			<a href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=${currency }'" rel="nofollow" title="${currency }"
+				>
+				Currency(${currency })
+			</a>
+			<dl style="width: 150px;cursor: default;display: none;"
+				class="user_menu_hidd">
+					<c:forEach items="${currencies }" var="c">
+							<dd currency="${c.key }"  class="current_language ">
+								<a href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=${c.key }'" rel="nofollow" title="${c.key }" class="${c.key }">${cd[c.key] }</a>
+							</dd>
+				</c:forEach>
+			</dl>
 		</li>
 		<li>
 			<a href="/orders">Order</a>
