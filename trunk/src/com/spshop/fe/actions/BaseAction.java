@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
+import java.util.TreeMap;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +33,7 @@ import com.spshop.utils.AllConstants;
 
 public abstract class BaseAction extends Action {
 	public static final String SHOPPINGCART = "shoppingcart";
-	protected Map<String, Float> currency = new HashMap<String, Float>();
+	protected Map<String, Float> currency = new TreeMap<String, Float>();
 	private void initCurrency(HttpServletRequest request){
 		Properties cp = new Properties();
 		try {
@@ -52,6 +53,22 @@ public abstract class BaseAction extends Action {
 		if(null == currency.get("USD")){
 			currency.put("USD", 1.0f);
 		}
+		
+		Map<String, String> cd = new HashMap<String, String>();
+		
+		cd.put("USD", "US Dollar");
+		cd.put("EUR", "Euro");
+		cd.put("JPY", "Japanese Yen");
+		cd.put("CAD", "Canadian Dollar");
+		cd.put("AUD", "Australian Dollar");
+		cd.put("CHF", "Switzerland Francs");
+		cd.put("HKD", "Hong Kong Dollars");
+		cd.put("RUB", "Rouble");
+		cd.put("GBP", "GB Pound");
+		//cd.put("HKD", "Hong Kong Dollars");
+		
+		request.getSession().getServletContext().setAttribute("cd", cd);
+		
 		request.getSession().getServletContext().setAttribute("currencies", currency);
 	}
 	
