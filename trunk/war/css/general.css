@@ -613,3 +613,87 @@ input.list_search_button{height:20px; width:23px;background:url('./arrow_ICON.gi
 	font-size: 14px;
 	color: #F90;
 }
+
+.USD {
+    background: url("pagebg.png") no-repeat scroll -195px -685px transparent;
+     padding-left: 18px;
+      margin-left: 10px;
+}
+
+.EUR{
+    background: url("pagebg.png") no-repeat scroll -195px -563px transparent;
+     padding-left: 18px;
+       margin-left: 10px;
+}
+.JPY {
+    background: url("pagebg.png") no-repeat scroll -195px -707px transparent;
+     padding-left: 18px;
+       margin-left: 10px;
+}
+.GBP {
+    background: url("pagebg.png") no-repeat scroll -195px -585px transparent;
+     padding-left: 18px;
+       margin-left: 10px;
+}
+.CAD {
+    background: url("pagebg.png") no-repeat scroll -195px -729px transparent;
+     padding-left: 18px;
+      margin-left: 10px;
+}
+.AUD {
+    background: url("pagebg.png") no-repeat scroll -195px -607px transparent;
+     padding-left: 18px;
+       margin-left: 10px;
+}
+.CHF {
+    background: url("pagebg.png") no-repeat scroll -195px -766px transparent;
+     padding-left: 18px;
+      margin-left: 10px;
+}
+.HKD {
+    background: url("pagebg.png") no-repeat scroll -195px -790px transparent;
+     padding-left: 18px;
+        margin-left: 10px;
+}
+.RUB {
+    background: url("pagebg.png") no-repeat scroll -195px -814px transparent;
+     padding-left: 18px;
+      margin-left: 10px;
+}
+.mx_c {
+    background: url("pagebg.png") no-repeat scroll -195px -839px transparent;
+}
+.icon_USD > a, .icon_EUR > a, .icon_JPY > a, .icon_GBP > a, .icon_CAD > a, .icon_AUD > a, .icon_CHF > a, .icon_HKD > a, .icon_RUB > a, .icon_MXN > a {
+    background: url("pagebg.png") no-repeat scroll 0 0 transparent;
+    padding-left: 18px;
+}
+.icon_USD > a {
+    background-position: -195px -684px;
+}
+.icon_EUR > a {
+    background-position: -195px -563px;
+}
+.icon_JPY > a {
+    background-position: -195px -706px;
+}
+.icon_GBP > a {
+    background-position: -195px -584px;
+}
+.icon_CAD > a {
+    background-position: -195px -728px;
+}
+.icon_AUD > a {
+    background-position: -195px -606px;
+}
+.icon_CHF > a {
+    background-position: -195px -766px;
+}
+.icon_HKD > a {
+    background-position: -195px -789px;
+}
+.icon_RUB > a {
+    background-position: -195px -814px;
+}
+.icon_MXN > a {
+    background-position: -195px -837px;
+}
