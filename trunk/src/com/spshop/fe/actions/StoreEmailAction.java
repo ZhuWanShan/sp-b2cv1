@@ -1,5 +1,7 @@
 package com.spshop.fe.actions;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,6 +29,7 @@ public class StoreEmailAction extends BaseAction {
             Email e = new Email();
             e.setName(email);
             e.setEmailAddress(email);
+            e.setCreateDate(new Date());
             ServiceFactory.getService(EmailService.class).saveEmail(e);
         }
         
