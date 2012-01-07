@@ -224,7 +224,7 @@ public class ShoppingCartAction extends BaseAction {
 				addError("phone", "Not a valid Phone", request);
 			}
 			
-			if(null == order.getCustomerEmail() || !order.getCustomerEmail().matches("\\w{1,255}")){
+			if(null == order.getCustomerEmail() || !order.getCustomerEmail().matches(".{1,255}")){
 				addError("email", "Not a valid Email", request);
 			}
 		}
@@ -272,7 +272,7 @@ public class ShoppingCartAction extends BaseAction {
 				addError("bphone", "Not a valid Phone", request);
 			}
 			
-			if(null == order.getCustomerEmail() || !order.getCustomerEmail().matches("\\w{1,255}")){
+			if(null == order.getCustomerEmail() || !order.getCustomerEmail().matches(".{1,255}")){
 				addError("email", "Not a valid Email", request);
 			}
 		}
