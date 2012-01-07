@@ -132,7 +132,7 @@
 		
 		<action path="/storeEmail" type="com.spshop.fe.actions.StoreEmailAction"
 			name="pageForm" scope="request">
-			<forward name="Success" path="/"></forward>
+			<forward name="Success" path="/jsp/subscribeEmail.jsp"></forward>
 		</action>
 		
 <!-- 		<action  -->
