@@ -1,8 +1,10 @@
 <%@ include file="../include.jsp"%>
 <%@page import="com.spshop.utils.AllConstants"%>
+<ss:ancestorCat ancester="ancester" categories="${pageForm.pageProperties.productDetail.categories}">
+<c:set var="crossSaleImg">${ancester}.image</c:set>
+<c:set var="crossSaleLink">${ancester}.link</c:set>
 <div class="item_goods_info_box_top">
 	<div class="item_box_left_normal">
-	<ss:ancestorCat ancester="ancester" categories="${pageForm.pageProperties.productDetail.categories}">
 		<c:if test="${pageForm.pageProperties.productDetail.categories[0].name ne 'Wedding-Accessories' && 
 						(ancester eq 'Wedding-Apparel' || ancester eq 'Special-Occasion-Dresses')}">
 		<jsp:include page="customize_dress.jsp"></jsp:include>
@@ -23,7 +25,6 @@
 					  (pageForm.pageProperties.productDetail.categories[0].name eq 'Womens-Suits')}">
 		<jsp:include page="customize_suits.jsp"></jsp:include>
 		</c:if>
-	</ss:ancestorCat>
 		<!-- class="item_box_left" to high -->
 		<div class="no_float">
 
@@ -132,6 +133,10 @@
 					// Load Share Bar plugin
 					gigya.services.socialize.showShareBarUI({},shareBarParams);
 				</script>
+				<div class="hei10"></div>
+				<a href="${crossSales[crossSaleLink]}"> 
+					<img style="width: 100%;" alt="Click and buy the this!" src="${crossSales[crossSaleImg]}">
+				</a>
 		</div>
 
 		<!--custom-->
@@ -430,3 +435,4 @@
 	<script type="text/javascript" src="../js/thing_item.js"></script>
 
 </div>
+</ss:ancestorCat>

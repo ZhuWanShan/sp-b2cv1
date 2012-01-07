@@ -34,8 +34,10 @@ import com.spshop.utils.AllConstants;
 public abstract class BaseAction extends Action {
 	public static final String SHOPPINGCART = "shoppingcart";
 	protected Map<String, Float> currency = new TreeMap<String, Float>();
+	protected Map<String, String> crossSales = new TreeMap<String, String>();
 	private void initCurrency(HttpServletRequest request){
 		Properties cp = new Properties();
+		Properties crossSale = new Properties();
 		try {
 			cp.load(this.getClass().getResourceAsStream("/currency.properties"));
 			for (Object currencyName : cp.keySet()) {
@@ -47,6 +49,12 @@ public abstract class BaseAction extends Action {
 					e.printStackTrace();
 				}
 			}
+			
+			crossSale.load(this.getClass().getResourceAsStream("/crossSales.properties"));
+			for (Object crossSaleKey : crossSale.keySet()) {
+                String res = new String(crossSale.getProperty(String.valueOf(crossSaleKey)));
+                crossSales.put(crossSaleKey.toString(), res);
+            }
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -70,6 +78,8 @@ public abstract class BaseAction extends Action {
 		request.getSession().getServletContext().setAttribute("cd", cd);
 		
 		request.getSession().getServletContext().setAttribute("currencies", currency);
+		
+		request.getSession().getServletContext().setAttribute("crossSales", crossSales);
 	}
 	
 	protected void addMsg(String key, String value,HttpServletRequest request){
