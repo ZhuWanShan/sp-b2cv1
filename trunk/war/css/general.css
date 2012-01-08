@@ -707,6 +707,6 @@ input.list_search_button{height:20px; width:23px;background:url('./arrow_ICON.gi
     top: 31px;
     width: 500px;
 }
-.ep_qsearch  a{
+.ep_qsearch  li{
 	margin-top: 5px;
 }
