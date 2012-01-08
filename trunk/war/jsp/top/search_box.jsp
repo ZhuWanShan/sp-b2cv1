@@ -19,7 +19,7 @@
 			if(data.length>0){
 				var li = "";
 				for(i=0; i< data.length; i++){
-					li += "<li><a href='" + "/"+data[i][1] +"'>" + data[i][0]+"</a></li>" 
+					li += "<li style='margin-top:3px'><a href='" + "/"+data[i][1] +"'>" + data[i][0]+"</a></li>" 
 				}
 				jq("#top_search_box_rs").html(li);
 				jq("#top_search_box_rs_div").show();
