@@ -31,7 +31,7 @@ public class SearchAction extends BaseAction {
 					while(iter.hasNext()){
 						out.print("[");
 						String k = iter.next();
-						out.print("'" + k.replace("'", "").replace(key, "<b  class='red fontbold'>"+key+"</b>") +"'" +" ,");
+						out.print("'" + k.replace("'", "").replace(key, "<b  class=\"red fontbold\">"+key+"</b>") +"'" +" ,");
 						out.print("'"+rs.get(k)+"'");
 						if(iter.hasNext()){
 							out.print("],");
