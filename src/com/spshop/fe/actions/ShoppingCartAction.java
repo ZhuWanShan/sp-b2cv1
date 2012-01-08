@@ -271,10 +271,6 @@ public class ShoppingCartAction extends BaseAction {
 			if(null == order.getBphone() || !order.getBphone() .matches("\\w{1,255}")){
 				addError("bphone", "Not a valid Phone", request);
 			}
-			
-			if(null == order.getCustomerEmail() || !order.getCustomerEmail().matches(".{1,255}")){
-				addError("email", "Not a valid Email", request);
-			}
 		}
 	}
 	
