@@ -1,7 +1,7 @@
 package com.spshop.service.impl;
 
-import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import com.spshop.cache.SCache;
 import com.spshop.cache.SCacheFacade;
@@ -100,6 +100,11 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 			product=product.clone();
 			sCache.put(product.getName(), product);
 		}
+	}
+
+	@Override
+	public Map<String,String> search(String keyword, int start, int end) {
+		return getDao().search(keyword, start, end);
 	}
 	
 	

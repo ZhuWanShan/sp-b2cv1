@@ -1,6 +1,7 @@
 package com.spshop.service.intf;
 
 import java.util.List;
+import java.util.Map;
 
 import com.spshop.dao.intf.ProductDAO;
 import com.spshop.model.Category;
@@ -22,4 +23,6 @@ public interface ProductService extends BaseService<Product,ProductDAO, Long>{
 	Product getProductByName(String name);
 	
 	void loadAllProduct();
+	
+	Map<String,String> search(String keyword, int start, int end);
 }
