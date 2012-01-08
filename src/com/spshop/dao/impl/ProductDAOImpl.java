@@ -26,7 +26,7 @@ public class ProductDAOImpl extends AbstractBaseDAO<Product, Long>  implements P
 
 	@Override
 	public Map<String, String> search(String keyword, int start, int end) {
- 		String hql = "select title, name from Product where keywords like ? order by name asc";
+ 		String hql = "select title, name from Product where title like ? order by name asc";
 		
 		
 		 Map<String, String> re = new TreeMap<String, String>();
