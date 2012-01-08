@@ -30,6 +30,14 @@
 			<forward name="Special" path="/jsp/market.jsp"></forward>
 		</action>
 		
+		<action 
+			path="/q/cmd/search" 
+			type="com.spshop.fe.actions.SearchAction" 
+			name="pageForm"
+			scope="request">
+			<forward name="Success" path="/jsp/categories.jsp"></forward>
+			<forward name="Special" path="/jsp/market.jsp"></forward>
+		</action>
 
 		
 		<action 
