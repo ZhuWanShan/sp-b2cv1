@@ -697,3 +697,13 @@ input.list_search_button{height:20px; width:23px;background:url('./arrow_ICON.gi
 .icon_MXN > a {
     background-position: -195px -837px;
 }
+
+.ep_qsearch {
+    background: none repeat scroll 0 0 #FAFAFA;
+    border: 1px solid #B1B1B1;
+    left: 0;
+    padding: 0 0 8px;
+    position: absolute;
+    top: 31px;
+    width: 305px;
+}
