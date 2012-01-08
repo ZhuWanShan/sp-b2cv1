@@ -705,5 +705,8 @@ input.list_search_button{height:20px; width:23px;background:url('./arrow_ICON.gi
     padding: 0 0 8px;
     position: absolute;
     top: 31px;
-    width: 305px;
+    width: 500px;
+}
+.ep_qsearch  a{
+	margin-top: 5px;
 }
