@@ -181,7 +181,7 @@
 								</select>
 								
 								<div class="colorSelectWindow" style="display: none;">
-									<img alt="" src="/css/Image_mosaic.png" style="width: 0px; height: 0px">
+									<img alt="" src="/css/button.png" style="width: 0px; height: 0px">
 									<div class="colorWindow-large">
 										<c:forEach items="${option.items}" begin="0" end="0" var="item">
 											<img alt="${item.name}" src="${fn:endsWith(item.value, '.jpg')?item.value:''}">
