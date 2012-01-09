@@ -191,9 +191,13 @@
 											<tr align="center">
 												<td align="center"><span id="colorWindow-largeDESC" style="height: 20px"></span><br></td>
 											</tr>
-											
+											<tr align="center">
+												<td>
+													<button type="button" op="ok" style="background: url('/css/button.png') no-repeat scroll 0 0 transparent;" title="OK">OK</button>
+													<button type="button" op="close" style="background: url('/css/button.png') no-repeat scroll 0 0 transparent;" title="Close">Close</button>
+												</td>
+											</tr>
 										</table>
-										<button type="button" style="background: url('/css/Image_mosaic.png') no-repeat scroll 0 -374px transparent;">OK</button>
 									</div>
 									
 									<div class="colorWindow-list">
@@ -228,7 +232,7 @@
 											});
 										});
 										
-										jq(".colorSelectWindow .colorWindow-large button").click(function(){
+										jq(".colorSelectWindow .colorWindow-large button[op='ok']").click(function(){
 											
 											var selectedImg = jq(".colorSelectWindow .colorWindow-list .color-selected");
 											
@@ -244,6 +248,10 @@
 												window.alert("Please choose a color!");
 											}
 											
+											jq(".colorSelectWindow").hide();
+										});
+										
+										jq(".colorSelectWindow .colorWindow-large button[op='close']").click(function(){
 											jq(".colorSelectWindow").hide();
 										});
 									</script>
