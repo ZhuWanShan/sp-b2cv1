@@ -20,9 +20,14 @@ public class RecoveryPasswordAction extends BaseAction {
 			throws Exception {
 
 		String email = request.getParameter("recoveryEmail");
-		User user = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
-		if (user != null) {
-            EmailTools.sendRecoveryEmail(email);
+		
+		if (email != null) {
+		    User user = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
+		    if (user != null) {
+		        EmailTools.sendRecoveryEmail(email);
+		    }
+        } else {
+            return mapping.findForward(AllConstants.fAILURE_VALUE);
         }
 		return mapping.findForward(AllConstants.SUCCESS_VALUE);
 	}
