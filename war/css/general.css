@@ -710,3 +710,14 @@ input.list_search_button{height:20px; width:23px;background:url('./arrow_ICON.gi
 .ep_qsearch  li{
 	margin-top: 5px;
 }
+
+.linkHead{
+	text-align:left;
+	height: 20px;
+	padding: 0 0 0 25px;
+	font-family: Arial;
+	font-size: 14px;
+	background-repeat: no-repeat;
+	background-size:20px;
+	margin-top: 5px;
+}
