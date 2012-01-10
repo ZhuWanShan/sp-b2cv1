@@ -52,7 +52,7 @@
 								</dd>
 								<dd class="Question_mark">
 									Forgot your password?<br> <a
-										href="recoveryPassword.jsp"
+										href="/recoveryPassword"
 										class="underline" rel="nofollow">Click here</a>
 								</dd>
 								<dd>

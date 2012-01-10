@@ -73,6 +73,7 @@
 			name="pageForm"
 			scope="request">
 			<forward name="Success" path="/"></forward>
+			<forward name="Failure" path="/jsp/recoveryPassword.jsp"></forward>
 		</action>
 		
 		<action 

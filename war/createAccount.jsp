@@ -65,7 +65,7 @@
 						<li><span>Password: </span><input name="loginPassword" type="password" id="loginPassword" size="35" maxlength="20" />
 						</li>
 						<li>
-							<a href="recoveryPassword.jsp">Forgot your password? Click here</a>
+							<a href="/recoveryPassword">Forgot your password? Click here</a>
 						</li>
 						<c:if test="${pageForm.pageProperties.loginError}">
 							<li>${pageForm.pageProperties.loginError}</li>
