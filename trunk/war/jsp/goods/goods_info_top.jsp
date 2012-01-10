@@ -436,6 +436,13 @@
 							target="_blank"
 							style="color: #000000; text-decoration: none; font: bold 7px verdana, sans-serif; letter-spacing: .5px; text-align: center; margin: 0px; padding: 0px;">
 				<img alt="Click to Verify - This site chose VeriSign SSL for secure e-commerce and confidential communications." src="/css/getseal.gif"></a>
+				
+				<h3 style="background-image: url('/css/guarantee-seal.png');" class="linkHead">
+					<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/c/Guarantee"><em>QUALITY GUARANTEE</em></a>
+				</h3>
+				<h3 style="background-image: url('/css/returnPolicy.png');" class="linkHead">
+					<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/c/Return-Exchange"><em>RETURN POLICY</em></a>
+				</h3>
 			</div>
 		</div>
 	</form>
