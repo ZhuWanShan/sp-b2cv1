@@ -134,6 +134,7 @@
 					gigya.services.socialize.showShareBarUI({},shareBarParams);
 				</script>
 				<div class="hei10"></div>
+				<span class="linkHead" style="background-image: url('/css/shipping.jpg');"><label><b>Shipping Time: </b>3-5 Calendar Days. <a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/c/Shipping-Information">See Details...</a></label></span>
 				<a href="${crossSales[crossSaleLink]}"> 
 					<img style="width: 100%;" alt="Click and buy the this!" src="${crossSales[crossSaleImg]}">
 				</a>
