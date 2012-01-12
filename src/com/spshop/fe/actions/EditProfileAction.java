@@ -46,6 +46,7 @@ public class EditProfileAction extends BaseAction {
         String zipcode = request.getParameter("zipcode");
         String country = request.getParameter("country");
         String city = request.getParameter("city");
+        String state = request.getParameter("state");
 
         user.setFirstName(firstName);
         user.setLastName(lastName);
@@ -56,6 +57,7 @@ public class EditProfileAction extends BaseAction {
         user.setCountry(country);
         user.setCity(city);
         user.setUpdateDate(new Date());
+        user.setState(state);
     }
 
 }
