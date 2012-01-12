@@ -435,6 +435,7 @@
 		<property name="zipcode" length="200"></property>
 		<property name="gender" length="50"></property>
 		<property name="city" length="100"></property>
+		<property name="state" length="100"></property>
 	</class>
 	
 	<class name="UserOption" table="SHOP_UserOption">

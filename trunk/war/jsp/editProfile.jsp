@@ -103,6 +103,9 @@
 							</ss:countries>
 						</select>
 					</li>
+					<li><i>State:</i>
+						<input name="state" id="state" size="32" maxlength="100" value="${sessionScope.userInfo.state }" />
+					</li>
 					<li><i>City:</i>
 						<input name="city" id="city" size="32" maxlength="100" value="${sessionScope.userInfo.city }" />
 					</li>
