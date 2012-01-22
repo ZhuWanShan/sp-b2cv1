@@ -19,9 +19,9 @@
 		maxElementsOnDisk="500" />
 		
 	<cache name="product" eternal="false"
-		timeToLiveSeconds="12000" maxElementsInMemory="15000"
+		timeToLiveSeconds="12000" maxElementsInMemory="3000"
 		memoryStoreEvictionPolicy="LRU" overflowToDisk="true"
-		maxElementsOnDisk="500" />
+		maxElementsOnDisk="12000" />
 	
 	<cache name="tabProductNames" eternal="false"
 		timeToLiveSeconds="600" maxElementsInMemory="1000"
