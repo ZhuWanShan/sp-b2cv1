@@ -125,7 +125,7 @@
 										<td><span class="red">*</span>Phone Number:</td>
 										<td class="W260"><input type="text"
 											onblur="checkform(this.id);" class="input_1" maxlength="30"
-											value="${shoppingcart.order.city}"
+											value="${shoppingcart.order.deliverPhone}"
 											id="MemberContactPhone_new" name="MemberContactPhone">
 											<i id="MemberContactPhone_newInfo" class="red">${error['phone'] }</i></td>
 									</tr>
