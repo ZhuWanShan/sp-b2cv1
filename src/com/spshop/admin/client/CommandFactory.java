@@ -25,7 +25,9 @@ import com.spshop.admin.client.businessui.callback.SelectedCallBack;
 import com.spshop.model.Country;
 import com.spshop.model.Image;
 import com.spshop.model.Order;
+import com.spshop.model.OrderItem;
 import com.spshop.model.Product;
+import com.spshop.model.Site;
 import com.spshop.model.TabProduct;
 import com.spshop.model.TabSelling;
 import com.spshop.model.User;
@@ -125,7 +127,7 @@ public class CommandFactory {
 	    };
 	}
 	
-	public static Command popUpShowDetails(final boolean multiSelect, final List<UserOption> userOptions) {
+	public static Command popUpShowDetails(final boolean multiSelect, final OrderItem item) {
         return new CommandAdapter(){
             @Override
             public void execute() {
@@ -138,7 +140,9 @@ public class CommandFactory {
             }
             
             private String populateDetailsHtml(){
-                StringBuilder html = new StringBuilder("<h3>Color:</h3>");
+                Site site = AdminWorkspace.loginInfo.getSite();
+                StringBuilder html = new StringBuilder("<a target='blank' href='"+ "http://" + site.getDomain() + "/" + item.getProduct().getName() + "'><h2>" + item.getProduct().getTitle() + "</h2></a>");
+                html.append("<h3>Color:</h3>");
                 html.append(getOption("Color"));
                 html.append("<br><h3>Size:</h3>");
                 String size = getOption("Size");
@@ -153,6 +157,7 @@ public class CommandFactory {
             
             private String getOption(String optionName) {
                 String value = "";
+                List<UserOption> userOptions = item.getUserOptions();
                 if (userOptions != null) {
                     for (UserOption userOption : userOptions) {
                         if (optionName.equals(userOption.getOptionName())) {

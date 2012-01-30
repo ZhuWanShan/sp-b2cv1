@@ -1,6 +1,5 @@
 package com.spshop.admin.client.businessui;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gwt.core.client.GWT;
@@ -8,17 +7,17 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.CommandFactory;
+import com.spshop.model.OrderItem;
 import com.spshop.model.UserOption;
 
 public class ShowOrderItemDetails extends ObservableComposite<List<com.spshop.model.UserOption>, ShowOrderItemDetails> {
 
     private static ShowOrderItemDetailsUiBinder uiBinder = GWT.create(ShowOrderItemDetailsUiBinder.class);
     
-    private final List<UserOption> userOptions = new ArrayList<UserOption>();
+    private OrderItem item = new OrderItem();
 
     interface ShowOrderItemDetailsUiBinder extends UiBinder<Widget, ShowOrderItemDetails> {
     }
@@ -30,14 +29,14 @@ public class ShowOrderItemDetails extends ObservableComposite<List<com.spshop.mo
     @UiField
     Button showDetails;
 
-    public ShowOrderItemDetails(List<UserOption> userOptions) {
+    public ShowOrderItemDetails(OrderItem item) {
         initWidget(uiBinder.createAndBindUi(this));
-        this.userOptions.addAll(userOptions);
+        this.item = item;
     }
 
     @UiHandler("showDetails")
     void onClick(ClickEvent e) {
-        CommandFactory.popUpShowDetails(false, userOptions).execute();
+        CommandFactory.popUpShowDetails(false, item).execute();
     }
 
     public void setText(String text) {
