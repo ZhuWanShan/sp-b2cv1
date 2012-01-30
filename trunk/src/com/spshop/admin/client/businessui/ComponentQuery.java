@@ -16,6 +16,7 @@ import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.ResizeComposite;
 import com.google.gwt.user.client.ui.ScrollPanel;
+import com.google.gwt.user.client.ui.SplitLayoutPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.AdminWorkspace;
 import com.spshop.admin.client.CommandFactory;
@@ -32,7 +33,6 @@ import com.spshop.model.User;
 import com.spshop.model.enums.ImageSizeType;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
-import com.google.gwt.user.client.ui.SplitLayoutPanel;
 @SuppressWarnings("rawtypes")
 public class ComponentQuery extends ResizeComposite {
 
