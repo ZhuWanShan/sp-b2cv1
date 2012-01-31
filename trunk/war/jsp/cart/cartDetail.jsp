@@ -21,18 +21,19 @@
 			</form>
 		</div>
 		<div id="safe_box">
-		<%-- 
-			<p id="descript">Security of shopping on honeybuy is guaranteed!</p>
-			<p>
-				<a href="javascript:void(0);" target="_blank"><img
-				src="#">
-					src="http://www.mlo.me/image/default/shoppingOrder/PaypalVerify.gif">
-					height="60">
-				</a> <a href="javascript:void(0);" target="_blank"><img
-					src="../../css/vers.jpg">
-				</a>
-			</p>
-			--%>
+			<table width="135" border="0" cellpadding="2" cellspacing="0"
+				title="Click to Verify - This site chose VeriSign Trust Seal to promote trust online with consumers.">
+				<tr>
+					<td width="135" align="center" valign="top"><script
+							type="text/javascript"
+							src="https://seal.verisign.com/getseal?host_name=www.honeybuy.com&amp;size=L&amp;use_flash=YES&amp;use_transparent=YES&amp;lang=en"></script><br />
+						<a href="http://www.verisign.com/verisign-trust-seal"
+						target="_blank"
+						style="color: #000000; text-decoration: none; font: bold 7px verdana, sans-serif; letter-spacing: .5px; text-align: center; margin: 0px; padding: 0px;">ABOUT
+							TRUST ONLINE</a>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</div>
 	<div id="left_column">
