@@ -433,6 +433,7 @@
 				<div id="favorite" style="display: none;" class="details_l"></div>
 			</div>
 			<div style="text-align: center;">
+				<div style="margin-left:25px">
 					<table width="135" border="0" cellpadding="2" cellspacing="0"
 						title="Click to Verify - This site chose VeriSign Trust Seal to promote trust online with consumers.">
 						<tr>
@@ -446,7 +447,7 @@
 							</td>
 						</tr>
 					</table>
-
+				</div>
 					<h3 style="background-image: url('/css/guarantee-seal.png');" class="linkHead">
 					<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/c/Guarantee"><em>QUALITY GUARANTEE</em></a>
 				</h3>
