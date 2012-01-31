@@ -721,3 +721,7 @@ input.list_search_button{height:20px; width:23px;background:url('./arrow_ICON.gi
 	background-size:20px;
 	margin-top: 5px;
 }
+
+#commentsDiv-commentTextarea{
+	width:100%;
+}
