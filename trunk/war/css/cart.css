@@ -41,7 +41,7 @@
 #check_box span{color:#980000;font-size:16px}
 #check_box input{padding-left:20px;height:34px;padding-right:4px;background:url(check-bt.png) 0 0 no-repeat;border:none;color:#980000;width:130px;cursor:pointer;font-size:14px;font-weight:bold;text-shadow:0 1px 1px white;margin-bottom:18px}
 #check_box input:hover{background:url(./check-bt.png) 0 -33px no-repeat}
-#safe_box{margin-bottom:10px;text-align:center;safe_box;}
+#safe_box{margin-bottom:10px;text-align:center;padding-left:30px;}
 #safe_box #descript{text-align:left;padding-left:10px}
 #paypal{padding:18px 0 30px 0;display:block;border-top:1px solid #ccc;margin:0 5px;position:relative}
 #paypal span#or{position:absolute;top:-9px;margin:0;padding:0;height:auto;font-weight:normal;font-size:12px;background:#F6F6F6;color:black;left:90px}
