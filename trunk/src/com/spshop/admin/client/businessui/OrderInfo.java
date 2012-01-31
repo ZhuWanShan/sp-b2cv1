@@ -26,7 +26,7 @@ public class OrderInfo extends Composite {
     @UiField OrderStatusSelection orderStatus;
     @UiField FlexTable orderTable;
     @UiField FlexTable orderHeader;
-    @UiField Label customerCompany;
+    @UiField Label state;
     @UiField Label customerName;
     @UiField Label customerAddr1;
     @UiField Label customerAddr2;
@@ -56,7 +56,7 @@ public class OrderInfo extends Composite {
     private void populateOrderInfo(){
         DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
         this.customerName.setText(this.order.getCustomerName());
-        this.customerCompany.setText(this.order.getCustomerCompany());
+        this.state.setText(this.order.getState());
         this.customerAddr1.setText(this.order.getCustomerAddress());
         this.customerAddr2.setText(this.order.getCustomerAddress2());
         this.orderId.setText(this.order.getName());
