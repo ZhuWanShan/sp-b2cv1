@@ -32,7 +32,7 @@
 <script language="javascript" src="js/common.js"></script>
 <script type="text/javascript" defer="defer" charset="UTF-8"
 	src="js/validation.js"></script>
-
+<script src="../js/ga.js" type="text/javascript"></script>
 </head>
 <body>
 	<!-- Header start -->

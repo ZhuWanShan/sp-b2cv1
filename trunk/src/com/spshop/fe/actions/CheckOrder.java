@@ -66,13 +66,13 @@ public class CheckOrder extends BaseAction {
 			PrintWriter pw = new PrintWriter(uc.getOutputStream());
 			pw.println(str);
 			pw.close();
-			// 接受 PayPal 对 IPN 回发的回复信息
+			// æŽ¥å�— PayPal å¯¹ IPN å›žå�‘çš„å›žå¤�ä¿¡æ�¯
 			BufferedReader in = new BufferedReader(new InputStreamReader(
 					uc.getInputStream()));
 			String res = in.readLine();
 			in.close();
-			// 将 POST 信息分配给本地变量，可以根据您的需要添加
-			// 该付款明细所有变量可参考：
+			// å°† POST ä¿¡æ�¯åˆ†é…�ç»™æœ¬åœ°å�˜é‡�ï¼Œå�¯ä»¥æ ¹æ�®æ‚¨çš„éœ€è¦�æ·»åŠ 
+			// è¯¥ä»˜æ¬¾æ˜Žç»†æ‰€æœ‰å�˜é‡�å�¯å�‚è€ƒï¼š
 			// https://www.paypal.com/IntegrationCenter/ic_ipn-pdt-variable-reference.html
 			String itemName = request.getParameter("item_name");
 			String quantity = request.getParameter("quantity");
@@ -91,14 +91,14 @@ public class CheckOrder extends BaseAction {
 			String first_name = request.getParameter("first_name");
 			String last_name = request.getParameter("last_name");
 			Enumeration els = request.getParameterNames();
-			// …
-			// 获取 PayPal 对回发信息的回复信息，判断刚才的通知是否为 PayPal 发出的
+			// â€¦
+			// èŽ·å�– PayPal å¯¹å›žå�‘ä¿¡æ�¯çš„å›žå¤�ä¿¡æ�¯ï¼Œåˆ¤æ–­åˆšæ‰�çš„é€šçŸ¥æ˜¯å�¦ä¸º PayPal å�‘å‡ºçš„
 			if ("VERIFIED".equals(res)) {
-				// 检查付款状态
-				// 检查 txn_id 是否已经处理过
-				// 检查 receiver_email 是否是您的 PayPal 账户中的 EMAIL 地址
-				// 检查付款金额和货币单位是否正确
-				// 处理其他数据，包括写数据库
+				// æ£€æŸ¥ä»˜æ¬¾çŠ¶æ€�
+				// æ£€æŸ¥ txn_id æ˜¯å�¦å·²ç»�å¤„ç�†è¿‡
+				// æ£€æŸ¥ receiver_email æ˜¯å�¦æ˜¯æ‚¨çš„ PayPal è´¦æˆ·ä¸­çš„ EMAIL åœ°å�€
+				// æ£€æŸ¥ä»˜æ¬¾é‡‘é¢�å’Œè´§å¸�å�•ä½�æ˜¯å�¦æ­£ç¡®
+				// å¤„ç�†å…¶ä»–æ•°æ�®ï¼ŒåŒ…æ‹¬å†™æ•°æ�®åº“
 				Order order = ServiceFactory.getService(OrderService.class).getOrderById(itemName);
 				logger.info(">>>>>>>>>>>>>>>>>>>VERIFIED>>>>>>>>>>>>>>>>>>>>>>");
 				if(null!=order){
@@ -118,7 +118,7 @@ public class CheckOrder extends BaseAction {
 							&&order.getCurrency().equals(paymentCurrency)
 							&&receiverEmail.equalsIgnoreCase(ACCOUNT)
 							&&quantity.equals("1")){
-						order.setStatus(OrderStatus.PAYED.getValue());
+						order.setStatus(OrderStatus.PAID.getValue());
 					}else{
 						logger.info(">>>>>>>>>>>>>>>>>>>NOT enough mony>>>>>>>>>>>>>>>>>>>>>>");
 					}
@@ -133,15 +133,15 @@ public class CheckOrder extends BaseAction {
 						logger.info("Pay>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 					}
 					
-					ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAYED.getValue());
+					ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.getValue());
 				}
 				
 				
 			} else if ("INVALID".equals(res)) {
-				// 非法信息，可以将此记录到您的日志文件中以备调查
+				// é�žæ³•ä¿¡æ�¯ï¼Œå�¯ä»¥å°†æ­¤è®°å½•åˆ°æ‚¨çš„æ—¥å¿—æ–‡ä»¶ä¸­ä»¥å¤‡è°ƒæŸ¥
 				logger.info("##############INVALID########################");
 			} else {
-				// 处理其他错误
+				// å¤„ç�†å…¶ä»–é”™è¯¯
 				logger.info("##############ORTHER########################");
 			}
 		} catch (Exception e) {
