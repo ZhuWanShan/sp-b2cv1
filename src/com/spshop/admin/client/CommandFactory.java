@@ -111,7 +111,7 @@ public class CommandFactory {
 	        @Override
 	        public void execute() {
                 final ComponentQuery componentQuery = new ComponentQuery("My Order", Order.class);
-                String hql = "select o from Order as o join o.user as ou where ou.id = " + user.getId() + " order by o.id desc";
+                String hql = "select o from Order as o join o.user as ou where ou.id = " + user.getId() + " and o.status <> 'ONSHOPPING' order by o.id desc";
                 componentQuery.getQueryCondition().setAsc(false);
                 componentQuery.setEnableMultiSelect(multiSelect);
                 componentQuery.getQueryCondition().setOrderBy("createDate");
