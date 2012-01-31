@@ -221,6 +221,7 @@ public abstract class BaseAction extends Action {
 			 order2.setDeliverPhone(user.getTelephone());
 			 order2.setCustomerEmail(user.getEmail());
 			 order2.setBcustomGender(user.getGender());
+			 order2.setState(user.getState());
 		 }
 		 
 		 shoppingCart.getOrder().setCurrency(getCurrencyName(request));
