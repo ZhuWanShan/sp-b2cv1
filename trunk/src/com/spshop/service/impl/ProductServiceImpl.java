@@ -93,7 +93,7 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 	@Override
 	public void loadAllProduct() {
 		String hql = "from Product";
-		List products = getDao().queryByHQL(hql, 0, 10000);
+		List products = getDao().queryByHQL(hql, 0, 3000);
 		SCache sCache = SCacheFacade.getProductCache();
 		for (Object object : products) {
 			Product product = (Product) object;
