@@ -434,20 +434,20 @@
 			</div>
 			<div style="text-align: center;">
 				<div style="margin-left:25px">
-					<table width="135" border="0" cellpadding="2" cellspacing="0"
-						title="Click to Verify - This site chose VeriSign Trust Seal to promote trust online with consumers.">
-						<tr>
-							<td width="135" align="center" valign="top"><script
-									type="text/javascript"
-									src="https://seal.verisign.com/getseal?host_name=www.honeybuy.com&amp;size=L&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script><br />
-								<a href="http://www.verisign.com/verisign-trust-seal"
-								target="_blank"
-								style="color: #000000; text-decoration: none; font: bold 7px verdana, sans-serif; letter-spacing: .5px; text-align: center; margin: 0px; padding: 0px;">ABOUT
-									TRUST ONLINE</a>
-							</td>
-						</tr>
-					</table>
-				</div>
+						<table width="135" border="0" cellpadding="2" cellspacing="0"
+							title="Click to Verify - This site chose VeriSign Trust Seal to promote trust online with consumers.">
+							<tr>
+								<td width="135" align="center" valign="top"><script
+										type="text/javascript"
+										src="https://seal.verisign.com/getseal?host_name=www.honeybuy.com&amp;size=L&amp;use_flash=YES&amp;use_transparent=YES&amp;lang=en"></script><br />
+									<a href="http://www.verisign.com/verisign-trust-seal"
+									target="_blank"
+									style="color: #000000; text-decoration: none; font: bold 7px verdana, sans-serif; letter-spacing: .5px; text-align: center; margin: 0px; padding: 0px;">ABOUT
+										TRUST ONLINE</a>
+								</td>
+							</tr>
+						</table>
+					</div>
 					<h3 style="background-image: url('/css/guarantee-seal.png');" class="linkHead">
 					<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/c/Guarantee"><em>QUALITY GUARANTEE</em></a>
 				</h3>
