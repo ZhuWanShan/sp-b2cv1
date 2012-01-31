@@ -33,6 +33,7 @@
 <script src="../js/common.js" type="text/javascript"></script>
 <script src="../js/ajax.js" type="text/javascript"></script>
 <script src="../js/shoppingCart.js" type="text/javascript"></script>
+<script src="../js/ga.js" type="text/javascript"></script>
 
 </head>
 <body>

@@ -5,7 +5,7 @@ public enum OrderStatus{
 		PENDING("PENDING","Pending"),
 		ORDERING("ORDERING","Ordering"),
 		CHECKED("CHECKED","Checked"),
-		PAYED("PAYED","Payed"),
+		PAID("PAID","Paid"),
 		SHIPPING("SHIPPING","Shipping"),
 		COMPLETED("COMPLETED","Completed");
 		
