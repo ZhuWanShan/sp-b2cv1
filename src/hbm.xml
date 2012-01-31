@@ -221,7 +221,7 @@
 		<id name="id" column="ID">
 			<generator class="identity"></generator>
 		</id>
-		<property name="name" length="100"></property>
+		<property name="name" length="999"></property>
 		<property name="createDate"></property>
 		<property name="updateDate"></property>
 		

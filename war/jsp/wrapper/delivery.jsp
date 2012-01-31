@@ -56,19 +56,35 @@
 									</tr>
 									<tr>
 										<td><span class="red">*</span>First Name:</td>
-										<td class="W260"><input type="text"
+										<td class="W260">
+										<c:if test="${shoppingcart.order.cfirstName ne 'null'}">
+										<input type="text"
 											onblur="checkform(this.id);" class="input_1"
 											value="${shoppingcart.order.cfirstName }"
-											id="MemberContact0_new" name="MemberContact[0]"> <i
-											id="MemberContact0_newInfo" class="red">${error['firstName'] }</i></td>
+											id="MemberContact0_new" name="MemberContact[0]">
+										</c:if>
+										<c:if test="${shoppingcart.order.cfirstName eq 'null'}">
+										<input type="text"
+											onblur="checkform(this.id);" class="input_1" 
+											id="MemberContact0_new" name="MemberContact[0]">
+										</c:if>
+											<i id="MemberContact0_newInfo" class="red">${error['firstName'] }</i></td>
 									</tr>
 									<tr>
 										<td><span class="red">*</span>Last Name:</td>
-										<td class="W260"><input type="text"
+										<td class="W260">
+										<c:if test="${shoppingcart.order.clastName ne 'null'}">
+										<input type="text"
 											onblur="checkform(this.id);" class="input_1"
 											value="${shoppingcart.order.clastName }"
-											id="MemberContact1_new" name="MemberContact[1]"> <i
-											id="MemberContact1_newInfo" class="red">${error['lastName'] }</i></td>
+											id="MemberContact1_new" name="MemberContact[1]">
+										</c:if>
+										<c:if test="${shoppingcart.order.clastName eq 'null'}">
+										<input type="text"
+											onblur="checkform(this.id);" class="input_1" 
+											id="MemberContact1_new" name="MemberContact[1]">
+										</c:if>
+										<i id="MemberContact1_newInfo" class="red">${error['lastName'] }</i></td>
 									</tr>
 									<tr>
 										<td><span class="red">*</span>Address Line:</td>
@@ -235,13 +251,25 @@
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>First Name: </td>
-	                <td class="W260"><input type="text" onblur="checkform(this.id);" class="input_1" value="${shoppingcart.order.bfirstName}" id="MemberContact0_b" name="MemberContact_b[0]">
-	                  <i id="MemberContact0_bInfo"  class="red">${error['bfirstName'] }</i></td>
+	                <td class="W260">
+	                <c:if test="${shoppingcart.order.bfirstName ne 'null'}">
+	                	<input type="text" onblur="checkform(this.id);" class="input_1" value="${shoppingcart.order.bfirstName}" id="MemberContact0_b" name="MemberContact_b[0]">
+	                </c:if>
+	                <c:if test="${shoppingcart.order.bfirstName eq 'null'}">
+	                	<input type="text" onblur="checkform(this.id);" class="input_1" id="MemberContact0_b" name="MemberContact_b[0]">
+	                </c:if>
+	                <i id="MemberContact0_bInfo"  class="red">${error['bfirstName'] }</i></td>
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>Last Name: </td>
-	                <td class="W260"><input type="text" onblur="checkform(this.id);" class="input_1" value="${shoppingcart.order.blastName}" id="MemberContact1_b" name="MemberContact_b[1]">
-	                  <i id="MemberContact1_bInfo"  class="red">${error['blastName'] }</i></td>
+	                <td class="W260">
+	                <c:if test="${shoppingcart.order.blastName ne 'null'}">
+	                	<input type="text" onblur="checkform(this.id);" class="input_1" value="${shoppingcart.order.blastName}" id="MemberContact1_b" name="MemberContact_b[1]">
+	                </c:if>
+	                <c:if test="${shoppingcart.order.blastName eq 'null'}">
+	                	<input type="text" onblur="checkform(this.id);" class="input_1" id="MemberContact1_b" name="MemberContact_b[1]">
+	                </c:if>
+	                <i id="MemberContact1_bInfo"  class="red">${error['blastName'] }</i></td>
 	              </tr>
 	              <tr>
 	                <td><span class="red">*</span>Address Line 1: </td>
