@@ -425,7 +425,7 @@ public class ShoppingCartAction extends BaseAction {
 				errorStrings.add("Shopping cart is empty!");
 			}else{
 				order.setOrderType(payment);
-				if(null!=retriveUser(request)){
+				/*if(null!=retriveUser(request)){
 					order.setUser(retriveUser(request));
 					order.setAddressType(ADDRESS_LA);
 					User user = retriveUser(request);
@@ -438,7 +438,7 @@ public class ShoppingCartAction extends BaseAction {
 					order.setDeliverPhone(user.getTelephone());
 					order.setCity(user.getCity());
 					
-				}else if(ADDRESS_MA.equals(retriveAddressType(request))){
+				}*//*else if(ADDRESS_MA.equals(retriveAddressType(request))){
 					
 					order.setCustomerAddress(retriveAddress(request));
 					order.setCustomerCountry(retriveCountry(request));
@@ -447,9 +447,9 @@ public class ShoppingCartAction extends BaseAction {
 					order.setCustomerZipcode(retriveZipCode(request));
 					order.setDeliverPhone(retrivePhone(request));
 					
-				}else{
+				}else{*/
 					order.setAddressType(ADDRESS_PA);
-				}
+//				}
 				//order.setName(getOrderId());
 				//order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
 				request.setAttribute(AllConstants.DEFAULT_ORDER, order);
