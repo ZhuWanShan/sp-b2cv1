@@ -123,6 +123,7 @@
 					var ua = new gigya.services.socialize.UserAction(); 
 					ua.setLinkBack("<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}"); 
 					ua.setTitle("Enjoy Online Shopping For Fashion Dress, Apparel, Suits With Free Shipping - HoneyBuy.com");
+					ua.addMediaItem( { type: 'image', src: '${pageForm.pageProperties.productDetail.images[0].largerUrl}', href: '<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}' });
 					// Define Share Bar plugin's Parameters	
 					var shareBarParams ={ 
 						userAction:ua,
