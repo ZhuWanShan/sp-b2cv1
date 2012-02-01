@@ -123,7 +123,7 @@ public class CheckOrder extends BaseAction {
 						logger.info(">>>>>>>>>>>>>>>>>>>NOT enough mony>>>>>>>>>>>>>>>>>>>>>>");
 					}
 					logger.info("order.getAddressType():"+order.getAddressType());
-					if("PA".equals(order.getAddressType())){
+					/*if("PA".equals(order.getAddressType())){
 						order.setCity(address_city);
 						order.setCustomerCountry(address_country);
 						order.setCustomerName(last_name+" " + first_name);
@@ -132,7 +132,7 @@ public class CheckOrder extends BaseAction {
 						order.setCustomerAddress(address_street);
 						logger.info("Pay>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 					}
-					
+					*/
 					ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.getValue());
 				}
 				
