@@ -123,12 +123,13 @@
 					var ua = new gigya.services.socialize.UserAction(); 
 					ua.setLinkBack("<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}"); 
 					ua.setTitle("Enjoy Online Shopping For Fashion Dress, Apparel, Suits With Free Shipping - HoneyBuy.com");
-					ua.addMediaItem( { type: 'image', src: '<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${pageForm.pageProperties.productDetail.images[0].largerUrl}', href: '<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}' });
+					ua.addMediaItem( { type: "image", src: "<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${pageForm.pageProperties.productDetail.images[0].largerUrl}", href: "<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}" });
 					// Define Share Bar plugin's Parameters	
 					var shareBarParams ={ 
 						userAction:ua,
 						shareButtons: "facebook-like,share,stumbleupon,twitter-tweet,google-plusone,email",
 						containerID: 'divButtons', // location of the Share Bar plugin
+						operationMode:'multiSelect',
 						showCounts: 'top'
 					}
 					// Load Share Bar plugin
