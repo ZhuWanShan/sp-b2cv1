@@ -97,9 +97,9 @@ function menuShow(tabid) {
 	}
 }
 
-//结束
+//ç»“æ�Ÿ
 
-function isUndefined(variable) {//判断变量是否存在
+function isUndefined(variable) {//åˆ¤æ–­å�˜é‡�æ˜¯å�¦å­˜åœ¨
 	return typeof variable == 'undefined' ? true : false;
 }
 
@@ -107,7 +107,7 @@ function redirect(url) {
 	window.location.replace(url);
 }
 
-function setMenuPosition(showid, offset ,w,y,menuobj) {//层定位
+function setMenuPosition(showid, offset ,w,y,menuobj) {//å±‚å®šä½�
 	var showobj = $(showid);
 	if(isUndefined(menuobj)) {
 		menuobj = $(showid + '_menu');
@@ -144,7 +144,7 @@ function fetchOffset(obj) {
 	};
 }
 
-function setMenuPosition2(showid, offset ,w,y,menuobj) {//层定位
+function setMenuPosition2(showid, offset ,w,y,menuobj) {//å±‚å®šä½�
 	var showobj = $(showid);
 	if(isUndefined(menuobj)) {
 		menuobj = $(showid + '_menu');
@@ -186,11 +186,11 @@ function fetchOffset2(obj) {
 	};
 }
 
-/*ajax开始*/
+/*ajaxå¼€å§‹*/
 var iswarning='';
 var Charges='';
 var check_img='';
-function ajaxresponse(objname, data ,http,jsname,Charges,css,succ) {//ajax取值并判断
+function ajaxresponse(objname, data ,http,jsname,Charges,css,succ) {//ajaxå�–å€¼å¹¶åˆ¤æ–­
 	var x = new Ajax('XML', objname);
 	if(isUndefined(http))
 		http = '';
@@ -219,7 +219,7 @@ function ajaxresponse(objname, data ,http,jsname,Charges,css,succ) {//ajax取值
 	});
 }
 
-function warning(obj, msg ,css) {//返回值错误提示
+function warning(obj, msg ,css) {//è¿”å›žå€¼é”™è¯¯æ��ç¤º
 	if( msg.substr(0, 1) == '0') {
 		check_img='check_error.gif';
 		if(css) {
@@ -241,7 +241,7 @@ function warning(obj, msg ,css) {//返回值错误提示
 	obj.style.display = '';
 }
 
-function ajax_js(iswarning, jsname,Charges) {//数组包括判断
+function ajax_js(iswarning, jsname,Charges) {//æ•°ç»„åŒ…æ‹¬åˆ¤æ–­
 	switch ( jsname ) {
 		case 'gm':
 			if(iswarning==0)
@@ -259,13 +259,13 @@ function ajax_js(iswarning, jsname,Charges) {//数组包括判断
 	}
 }
 
-/*ajax结束*/
-function arraypush(a, value) {//设置一个新值到指定数组的最后一位。数组长度自动加一。
+/*ajaxç»“æ�Ÿ*/
+function arraypush(a, value) {//è®¾ç½®ä¸€ä¸ªæ–°å€¼åˆ°æŒ‡å®šæ•°ç»„çš„æœ€å�Žä¸€ä½�ã€‚æ•°ç»„é•¿åº¦è‡ªåŠ¨åŠ ä¸€ã€‚
 	a[a.length] = value;
 	return a.length;
 }
 
-function in_array(needle, haystack) {//数组包括判断
+function in_array(needle, haystack) {//æ•°ç»„åŒ…æ‹¬åˆ¤æ–­
 	if(typeof needle == 'string') {
 		for(var i in haystack) {
 			if(haystack[i] == needle) {
@@ -276,13 +276,13 @@ function in_array(needle, haystack) {//数组包括判断
 	return false;
 }
 
-function getcook(name) {//cookie读取
+function getcook(name) {//cookieè¯»å�–
 	var cookie_start = document.cookie.indexOf(name);
 	var cookie_end = document.cookie.indexOf(";", cookie_start);
 	return cookie_start == -1 ? '' : unescape(document.cookie.substring(cookie_start + name.length + 1, (cookie_end > cookie_start ? cookie_end : document.cookie.length)));
 }
 
-function setcook(cookieName, cookieValue, seconds, path, domain, secure) {//cookie写入
+function setcook(cookieName, cookieValue, seconds, path, domain, secure) {//cookieå†™å…¥
 	var expires = new Date();
 	expires.setTime(expires.getTime() + seconds);
 	document.cookie = escape(cookieName) + '=' + escape(cookieValue)
@@ -395,7 +395,7 @@ function HeadMenu(id) {
 	};
 }
 
-//DIV定位函数
+//DIVå®šä½�å‡½æ•°
 function getAbsolutePosition(obj) {
 	position = new Object();
 	position.x = 0;
@@ -416,13 +416,13 @@ function getAbsolutePosition(obj) {
 }
 
 function get_request(reqURL,process,oid,obj) {
-	var xmlHttp = false;//开始初始化XMLHttpRequest对象
-	if(window.XMLHttpRequest) { //Mozilla 浏览器
+	var xmlHttp = false;//å¼€å§‹åˆ�å§‹åŒ–XMLHttpRequestå¯¹è±¡
+	if(window.XMLHttpRequest) { //Mozilla æµ�è§ˆå™¨
 		xmlHttp = new XMLHttpRequest();
-		if(xmlHttp.overrideMimeType) {//设置MiME类别
+		if(xmlHttp.overrideMimeType) {//è®¾ç½®MiMEç±»åˆ«
 			xmlHttp.overrideMimeType('text/xml');
 		}
-	} else if (window.ActiveXObject) { // IE浏览器
+	} else if (window.ActiveXObject) { // IEæµ�è§ˆå™¨
 		try {
 			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
 		} catch (e) {
@@ -432,8 +432,8 @@ function get_request(reqURL,process,oid,obj) {
 			}
 		}
 	}
-	if(!xmlHttp) { // 异常，创建对象实例失败
-		alert("不能创建XMLHttpRequest对象实例.");
+	if(!xmlHttp) { // å¼‚å¸¸ï¼Œåˆ›å»ºå¯¹è±¡å®žä¾‹å¤±è´¥
+		alert("ä¸�èƒ½åˆ›å»ºXMLHttpRequestå¯¹è±¡å®žä¾‹.");
 		return false;
 	}
 	xmlHttp.open('GET',reqURL+"&rand="+Math.random(),true);
@@ -543,7 +543,7 @@ function startmarquee(lh,speed,delay,index) {
 	setTimeout(start,delay);
 }
 
-//将带html特殊符号标记的转换为正常文本
+//å°†å¸¦htmlç‰¹æ®Šç¬¦å�·æ ‡è®°çš„è½¬æ�¢ä¸ºæ­£å¸¸æ–‡æœ¬
 String.prototype.htmlToStr= function() {
 	var str=this.replace('&#039;',"'");
 	return str;
@@ -1179,7 +1179,7 @@ if(typeof(jQuery)!='undefined') {
 			this.html(footer_inner);
 		};
 		$.fn.footer_c_jp= function() {
-			var footer_inner="<ul><li><dl><dt>当サイトの特徴</dt><dd><a title=\"不具合品はすべて無料でお取替えいたします\" href=\"http://www.milanoo.com/jp/help/index-id-71.html\" rel=\"nofollow\" target=\"_blank\">不具合品はすべて無料でお取替えいたします</a></dd><dd><a title=\"クレジットカードでのお支払いも可能です\" href=\"http://www.milanoo.com/jp/help/index-id-69.html\" rel=\"nofollow\" target=\"_blank\">クレジットカードでのお支払いも可能です</a></dd><dd><a title=\"Pay　Palによるお支払いにも対応\" href=\"http://www.milanoo.com/jp/help/index-id-69.html\" rel=\"nofollow\" target=\"_blank\">Pay　Palによるお支払いにも対応</a></dd></dl></li><li><dl><dt>商品ラインナップ</dt><dd><a title=\"ウェディングドレス\" href=\"http://www.milanoo.com/c391\" rel=\"nofollow\" target=\"_blank\">ウェディングドレス</a></dd><dd><a title=\"コスチューム\" href=\"http://www.milanoo.com/c934\" rel=\"nofollow\" target=\"_blank\">コスチューム</a></dd><dd><a title=\"セクシーランジェリー\" href=\"http://www.milanoo.com/jp/c322\" rel=\"nofollow\" target=\"_blank\">セクシーランジェリー</a></dd><dd><a title=\"レディース、婦人服\" href=\"http://www.milanoo.com/c535\" rel=\"nofollow\" target=\"_blank\">レディース、婦人服</a></dd><dd><a title=\"キーワード\" href=\"http://www.milanoo.com/jp/producttags\" rel=\"nofollow\" target=\"_blank\">キーワード</a></dd></dl></li><li><dl><dt>当サイトのサービス</dt><dd><a title=\"初めてのご注文\" href=\"http://www.milanoo.com/jp/help/index-id-104.html\" rel=\"nofollow\" target=\"_blank\">初めてのご注文</a></dd><dd><a title=\"ヘルプセンタ\" href=\"http://www.milanoo.com/jp/help/index-id-85.html\" rel=\"nofollow\" target=\"_blank\">ヘルプセンタ</a></dd><dd><a title=\"お問合せ\" href=\"http://www.milanoo.com/jp/help/index-id-1.html\" rel=\"nofollow\" target=\"_blank\">お問合せ</a></dd><dd><a title=\"マイアカウント\" href=\"https://www.milanoo.com/jp/member/\" rel=\"nofollow\" target=\"_blank\">マイアカウント</a></dd></dl></li><li><dl><dt>当サイト詳細</dt><dd><a title=\"プライバシーポリシー\" href=\"http://www.milanoo.com/jp/help/index-id-52.html\" rel=\"nofollow\" target=\"_blank\">プライバシーポリシー</a></dd><dd><a title=\"特定商取引法表示\" href=\"http://www.milanoo.com/jp/help/index-id-93.html\" rel=\"nofollow\" target=\"_blank\">特定商取引法表示</a></dd></dl></li></ul><div class=\"hei10\"></div>";
+			var footer_inner="<ul><li><dl><dt>å½“ã‚µã‚¤ãƒˆã�®ç‰¹å¾´</dt><dd><a title=\"ä¸�å…·å�ˆå“�ã�¯ã�™ã�¹ã�¦ç„¡æ–™ã�§ã�Šå�–æ›¿ã�ˆã�„ã�Ÿã�—ã�¾ã�™\" href=\"http://www.milanoo.com/jp/help/index-id-71.html\" rel=\"nofollow\" target=\"_blank\">ä¸�å…·å�ˆå“�ã�¯ã�™ã�¹ã�¦ç„¡æ–™ã�§ã�Šå�–æ›¿ã�ˆã�„ã�Ÿã�—ã�¾ã�™</a></dd><dd><a title=\"ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆã‚«ãƒ¼ãƒ‰ã�§ã�®ã�Šæ”¯æ‰•ã�„ã‚‚å�¯èƒ½ã�§ã�™\" href=\"http://www.milanoo.com/jp/help/index-id-69.html\" rel=\"nofollow\" target=\"_blank\">ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆã‚«ãƒ¼ãƒ‰ã�§ã�®ã�Šæ”¯æ‰•ã�„ã‚‚å�¯èƒ½ã�§ã�™</a></dd><dd><a title=\"Payã€€Palã�«ã‚ˆã‚‹ã�Šæ”¯æ‰•ã�„ã�«ã‚‚å¯¾å¿œ\" href=\"http://www.milanoo.com/jp/help/index-id-69.html\" rel=\"nofollow\" target=\"_blank\">Payã€€Palã�«ã‚ˆã‚‹ã�Šæ”¯æ‰•ã�„ã�«ã‚‚å¯¾å¿œ</a></dd></dl></li><li><dl><dt>å•†å“�ãƒ©ã‚¤ãƒ³ãƒŠãƒƒãƒ—</dt><dd><a title=\"ã‚¦ã‚§ãƒ‡ã‚£ãƒ³ã‚°ãƒ‰ãƒ¬ã‚¹\" href=\"http://www.milanoo.com/c391\" rel=\"nofollow\" target=\"_blank\">ã‚¦ã‚§ãƒ‡ã‚£ãƒ³ã‚°ãƒ‰ãƒ¬ã‚¹</a></dd><dd><a title=\"ã‚³ã‚¹ãƒ�ãƒ¥ãƒ¼ãƒ \" href=\"http://www.milanoo.com/c934\" rel=\"nofollow\" target=\"_blank\">ã‚³ã‚¹ãƒ�ãƒ¥ãƒ¼ãƒ </a></dd><dd><a title=\"ã‚»ã‚¯ã‚·ãƒ¼ãƒ©ãƒ³ã‚¸ã‚§ãƒªãƒ¼\" href=\"http://www.milanoo.com/jp/c322\" rel=\"nofollow\" target=\"_blank\">ã‚»ã‚¯ã‚·ãƒ¼ãƒ©ãƒ³ã‚¸ã‚§ãƒªãƒ¼</a></dd><dd><a title=\"ãƒ¬ãƒ‡ã‚£ãƒ¼ã‚¹ã€�å©¦äººæœ�\" href=\"http://www.milanoo.com/c535\" rel=\"nofollow\" target=\"_blank\">ãƒ¬ãƒ‡ã‚£ãƒ¼ã‚¹ã€�å©¦äººæœ�</a></dd><dd><a title=\"ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰\" href=\"http://www.milanoo.com/jp/producttags\" rel=\"nofollow\" target=\"_blank\">ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰</a></dd></dl></li><li><dl><dt>å½“ã‚µã‚¤ãƒˆã�®ã‚µãƒ¼ãƒ“ã‚¹</dt><dd><a title=\"åˆ�ã‚�ã�¦ã�®ã�”æ³¨æ–‡\" href=\"http://www.milanoo.com/jp/help/index-id-104.html\" rel=\"nofollow\" target=\"_blank\">åˆ�ã‚�ã�¦ã�®ã�”æ³¨æ–‡</a></dd><dd><a title=\"ãƒ˜ãƒ«ãƒ—ã‚»ãƒ³ã‚¿\" href=\"http://www.milanoo.com/jp/help/index-id-85.html\" rel=\"nofollow\" target=\"_blank\">ãƒ˜ãƒ«ãƒ—ã‚»ãƒ³ã‚¿</a></dd><dd><a title=\"ã�Šå•�å�ˆã�›\" href=\"http://www.milanoo.com/jp/help/index-id-1.html\" rel=\"nofollow\" target=\"_blank\">ã�Šå•�å�ˆã�›</a></dd><dd><a title=\"ãƒžã‚¤ã‚¢ã‚«ã‚¦ãƒ³ãƒˆ\" href=\"https://www.milanoo.com/jp/member/\" rel=\"nofollow\" target=\"_blank\">ãƒžã‚¤ã‚¢ã‚«ã‚¦ãƒ³ãƒˆ</a></dd></dl></li><li><dl><dt>å½“ã‚µã‚¤ãƒˆè©³ç´°</dt><dd><a title=\"ãƒ—ãƒ©ã‚¤ãƒ�ã‚·ãƒ¼ãƒ�ãƒªã‚·ãƒ¼\" href=\"http://www.milanoo.com/jp/help/index-id-52.html\" rel=\"nofollow\" target=\"_blank\">ãƒ—ãƒ©ã‚¤ãƒ�ã‚·ãƒ¼ãƒ�ãƒªã‚·ãƒ¼</a></dd><dd><a title=\"ç‰¹å®šå•†å�–å¼•æ³•è¡¨ç¤º\" href=\"http://www.milanoo.com/jp/help/index-id-93.html\" rel=\"nofollow\" target=\"_blank\">ç‰¹å®šå•†å�–å¼•æ³•è¡¨ç¤º</a></dd></dl></li></ul><div class=\"hei10\"></div>";
 			this.html(footer_inner);
 		};
 		$.fn.timedown= function(a) {
@@ -1215,10 +1215,10 @@ if(typeof(jQuery)!='undefined') {
 			sec:0
 		};
 		/**
-		 * @param 当为String时表示某个动作命令,目前支持open,close; 当为Object时表示初始化参数({container:document.body,mode:modal}),支持的参数如下:\n
-		 *        container: 作为位置参照的容易,默认为document.body \n
-		 *        mode: 对话框类型,默认为模式对话(modal)
-		 *        autoOpen: 是否自动显示弹出层. 默认为true.		        
+		 * @param å½“ä¸ºStringæ—¶è¡¨ç¤ºæŸ�ä¸ªåŠ¨ä½œå‘½ä»¤,ç›®å‰�æ”¯æŒ�open,close; å½“ä¸ºObjectæ—¶è¡¨ç¤ºåˆ�å§‹åŒ–å�‚æ•°({container:document.body,mode:modal}),æ”¯æŒ�çš„å�‚æ•°å¦‚ä¸‹:\n
+		 *        container: ä½œä¸ºä½�ç½®å�‚ç…§çš„å®¹æ˜“,é»˜è®¤ä¸ºdocument.body \n
+		 *        mode: å¯¹è¯�æ¡†ç±»åž‹,é»˜è®¤ä¸ºæ¨¡å¼�å¯¹è¯�(modal)
+		 *        autoOpen: æ˜¯å�¦è‡ªåŠ¨æ˜¾ç¤ºå¼¹å‡ºå±‚. é»˜è®¤ä¸ºtrue.		        
 		 */
 		$.fn.simpleModal=function(param){
 		    var overlayName='ml-simpleModal-overlay';	
@@ -1226,7 +1226,7 @@ if(typeof(jQuery)!='undefined') {
             
 		    if(param.constructor === Object)
 		    {
-                //参数不存在则使用默认参数
+                //å�‚æ•°ä¸�å­˜åœ¨åˆ™ä½¿ç”¨é»˜è®¤å�‚æ•°
                 for(var i in defaultParam)
                 {
                     if(param[i] === undefined)
@@ -1240,7 +1240,7 @@ if(typeof(jQuery)!='undefined') {
                 }              		        
 		        if($('#'+overlayName).length < 1)
 		        {
-		            //生成遮罩层           	            		          
+		            //ç”Ÿæˆ�é�®ç½©å±‚           	            		          
 		            $('<div id="'+overlayName+'" style="background-color:#000000;opacity:0.4;filter:alpha(opacity=40);position:absolute;top:'+$(param.container).offset().top+'px;left:'+$(param.container).offset().left+'px;z-index:20000;display:none;"></div>').appendTo(document.body);                    		            	                     		        		           	                   		            	                             
 		        }  
                                    
@@ -1250,9 +1250,9 @@ if(typeof(jQuery)!='undefined') {
 		    {		    
 		        var storedParam = this.data('param');
 		        if(storedParam === undefined)
-		        {//元素的未被simpleModal 初始化过则使用默认参数进行初始化
+		        {//å…ƒç´ çš„æœªè¢«simpleModal åˆ�å§‹åŒ–è¿‡åˆ™ä½¿ç”¨é»˜è®¤å�‚æ•°è¿›è¡Œåˆ�å§‹åŒ–
 		            this.simpleModal({});
-		            //重新执行命令
+		            //é‡�æ–°æ‰§è¡Œå‘½ä»¤
 		            this.simpleModal(param);
 		            return;
 		        }
@@ -1284,13 +1284,13 @@ if(typeof(jQuery)!='undefined') {
 		   
 		};
 		/**
-		 * 左右滚动容器中的li元素.html结构如:<div>
+		 * å·¦å�³æ»šåŠ¨å®¹å™¨ä¸­çš„liå…ƒç´ .htmlç»“æž„å¦‚:<div>
 		 *                         <ul>
 		 *                            <li></li>
 		 *                            <li></li>
 		 *                         </ul>
 		 *                       </div>
-		 * @param config Object配置对象{btnPrev:'向左的按钮ID',btnNext:'向右的按钮ID',speed:'移动间隔时间(毫秒)','step':'每次移动的距离(px)','auto':'是否自动滚动(boolean),'autoSlipTime':'自动滚动的时间间隔(毫秒),'autoSlipDir':'自动滚动时的方向,默认向右',默认5000','count':'每行显示个数,默认4个','domArch':'列表文档结构,默认为"ul>li"'}
+		 * @param config Objecté…�ç½®å¯¹è±¡{btnPrev:'å�‘å·¦çš„æŒ‰é’®ID',btnNext:'å�‘å�³çš„æŒ‰é’®ID',speed:'ç§»åŠ¨é—´éš”æ—¶é—´(æ¯«ç§’)','step':'æ¯�æ¬¡ç§»åŠ¨çš„è·�ç¦»(px)','auto':'æ˜¯å�¦è‡ªåŠ¨æ»šåŠ¨(boolean),'autoSlipTime':'è‡ªåŠ¨æ»šåŠ¨çš„æ—¶é—´é—´éš”(æ¯«ç§’),'autoSlipDir':'è‡ªåŠ¨æ»šåŠ¨æ—¶çš„æ–¹å�‘,é»˜è®¤å�‘å�³',é»˜è®¤5000','count':'æ¯�è¡Œæ˜¾ç¤ºä¸ªæ•°,é»˜è®¤4ä¸ª','domArch':'åˆ—è¡¨æ–‡æ¡£ç»“æž„,é»˜è®¤ä¸º"ul>li"'}
 		 */
 		$.fn.liSlip=function(config){    
 		    var container=this;
@@ -1298,11 +1298,11 @@ if(typeof(jQuery)!='undefined') {
 		    var domArch = config.domArch ? config.domArch : 'ul>li';
 		    var domArchList = domArch.split('>');
 		     /**
-             * 容器节点元素
+             * å®¹å™¨èŠ‚ç‚¹å…ƒç´ 
              */
 		    var domArchWrapper = domArchList.shift();
             /**
-             * 容器列表节点元素
+             * å®¹å™¨åˆ—è¡¨èŠ‚ç‚¹å…ƒç´ 
              */		    
 		    var domArchListElement = domArchList.pop();  
             var items = this.find('>'+domArch);
@@ -1475,10 +1475,10 @@ if(typeof(jQuery)!='undefined') {
             return this;
         };
         /**
-         * 将一个属性添加至对象属性序列的头部并覆盖原属性.
-         * 依赖: jq.jsonToStr
-         * @param name String 属性名称
-         * @param value Mixed 属性的值
+         * å°†ä¸€ä¸ªå±žæ€§æ·»åŠ è‡³å¯¹è±¡å±žæ€§åº�åˆ—çš„å¤´éƒ¨å¹¶è¦†ç›–åŽŸå±žæ€§.
+         * ä¾�èµ–: jq.jsonToStr
+         * @param name String å±žæ€§å��ç§°
+         * @param value Mixed å±žæ€§çš„å€¼
          * @return Object
          */		
 		$.extend({unshift:function(o,name,value){		   
@@ -1590,7 +1590,7 @@ if(typeof(jQuery)!='undefined') {
 					display:'none'
 				});
 				if(this.options.clickhide)
-					this.uishade.attr('title','单击关闭').click( function() {
+					this.uishade.attr('title','å�•å‡»å…³é—­').click( function() {
 						self.close()
 					})
 			},
@@ -1955,7 +1955,7 @@ if(typeof(jQuery)!='undefined') {
 	})(jQuery);
 }
 
-function trim(str) {//字符过滤
+function trim(str) {//å­—ç¬¦è¿‡æ»¤
 	return (str + '').replace(/(\s+)$/g, '').replace(/^\s+/g, '');
 }
 
@@ -2112,3 +2112,25 @@ function createCustomized(sizes, unit){
 	
 	return template;
 }
+
+function checkItem(){
+	
+	var count = jQuery( "select[name^='text@']" ).length;
+	
+	if(count > 0){
+		for(var i = 0 ;i < count ; i++){
+			var name = jQuery(jQuery( "select[name^='text@']" )[i]).attr("name");
+			var value = jQuery(jQuery( "select[name^='text@']" )[i]).val();
+			if(name.split("@").length > 1){
+				name = name.split("@")[1];
+			}
+			if(null==value || value.length < 1){
+				alert("Please select an item from " + name);
+				return false;
+			}
+		}
+	}
+	
+	return true;
+}
+

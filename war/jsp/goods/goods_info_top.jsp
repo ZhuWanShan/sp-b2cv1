@@ -88,7 +88,7 @@
 		</div>
 	</div>
 	<!-- shopping function -->
-	<form name="cusform" method="post" action="/shoppingCart">
+	<form name="cusform" method="post" action="/shoppingCart" onsubmit="return checkItem()">
 		<div class=" item_shopping_fun">
 			<div class="noFlow">
 				<h1>
