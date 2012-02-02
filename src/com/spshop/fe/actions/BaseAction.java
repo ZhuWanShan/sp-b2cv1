@@ -209,21 +209,6 @@ public abstract class BaseAction extends Action {
 			response.addCookie(cookie);
 		}
 		
-		 User user = (User)request.getSession().getAttribute(AllConstants.USER_INFO);
-		
-		 if(null != user){
-			 Order order2 = shoppingCart.getOrder();
-			 order2.setUser(user);
-			 order2.setCity(user.getCity());
-			 order2.setCustomerName(user.getFirstName()+","+user.getLastName());
-			 order2.setCustomerAddress(user.getAddress());
-			 order2.setCustomerZipcode(user.getZipcode());
-			 order2.setDeliverPhone(user.getTelephone());
-			 order2.setCustomerEmail(user.getEmail());
-			 order2.setBcustomGender(user.getGender());
-			 order2.setState(user.getState());
-		 }
-		 
 		 shoppingCart.getOrder().setCurrency(getCurrencyName(request));
 		 
 		request.getSession().setAttribute(SHOPPINGCART, shoppingCart);

@@ -281,6 +281,21 @@ public class ShoppingCartAction extends BaseAction {
 		List<String> errorStrings = new ArrayList<String>();
 		List<String> msgs = new ArrayList<String>();
 		if(CMD_CHECK.equals(retrieveCMDURL(request))){
+			
+			
+			 User user = (User)request.getSession().getAttribute(AllConstants.USER_INFO);
+			 Order order2 = getCart(request, response).getOrder();
+			 if(null != user && null!=order2.getUser()){
+				 order2.setUser(user);
+				 order2.setCity(user.getCity());
+				 order2.setCustomerName(user.getFirstName()+","+user.getLastName());
+				 order2.setCustomerAddress(user.getAddress());
+				 order2.setCustomerZipcode(user.getZipcode());
+				 order2.setDeliverPhone(user.getTelephone());
+				 order2.setCustomerEmail(user.getEmail());
+				 order2.setBcustomGender(user.getGender());
+			 }
+			
 			request.setAttribute("billing_address", "true");
 			request.setAttribute("showCheckOption", true);
 			String country  = retriveCountry(request);
