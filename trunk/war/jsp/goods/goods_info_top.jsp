@@ -179,7 +179,7 @@
 								name="color@${option.name}"
 								id="goodColor" value="">
 								<select id="productColorSelector">
-									<option value="asp">The Same As Picture</option>
+									<option value="The Same As Picture##asp">The Same As Picture</option>
 									<option value="other">Select other color</option>
 								</select>
 								
@@ -212,7 +212,7 @@
 										</c:forEach>
 									</div>
 									<script type="text/javascript">
-									
+										jq("#goodColor").val("The Same As Picture##ASP");
 										jq("#productColorSelector").change(function(){
 											if(jq("#productColorSelector").val()=="other"){
 												jq(".colorSelectWindow").show();
@@ -220,6 +220,7 @@
 												var templete = "<table><tr><td>Color: "+name+"</td></tr><tr><td>The Same As Picture</td></tr></table>";
 												jq("#CustomizedColorDesp").html(templete);
 												jq("#CustomizedColorDesp").show();
+												jq("#goodColor").val("The Same As Picture##ASP");
 											}
 										});
 									
@@ -295,7 +296,7 @@
 							<select
 								name="text@${option.name}"
 								id="Size0">
-								<option value="please">Please select</option>
+								<option value="">Please select</option>
 								<c:forEach items="${option.items}" var="item" varStatus="indx"
 									step="1">
 									<c:if test="${!(item.value eq 'Customized')}">
