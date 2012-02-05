@@ -32,7 +32,7 @@ public class InitCacheService extends HttpServlet {
 		System.out.println("init product Cache............");
 		ServiceFactory.getService(ProductService.class).loadAllProduct();
 		System.out.println("end product Cache............");
-		TimerTask timerTask = new TimerTask() {
+		/*TimerTask timerTask = new TimerTask() {
 			
 			@Override
 			public void run() {
@@ -42,7 +42,7 @@ public class InitCacheService extends HttpServlet {
 		};
 		
 		Timer timer = new Timer("reFreshProductCache", true);
-		timer.schedule(timerTask, 500000, 1200000);
+		timer.schedule(timerTask, 500000, 1200000);*/
 	}
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
