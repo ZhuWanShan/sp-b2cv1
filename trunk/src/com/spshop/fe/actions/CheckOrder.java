@@ -145,7 +145,8 @@ public class CheckOrder extends BaseAction {
 				logger.info("##############ORTHER########################");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
+			//e.printStackTrace();
 		}
 
 		 return null;
@@ -167,10 +168,12 @@ public class CheckOrder extends BaseAction {
 			pw.close();
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		}
 	}
 	

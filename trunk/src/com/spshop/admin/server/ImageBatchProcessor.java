@@ -72,7 +72,7 @@ public class ImageBatchProcessor extends RemoteHttp {
 				int count = unzipAndCreateImage(zipFileName,unZipDir,loginInfo,sizeType);
 				resp.getWriter().print(count);
 			} catch (Exception e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 				throw new IOException(e);
 			}
 		}

@@ -5,15 +5,17 @@ import java.util.Properties;
 
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
+import org.apache.log4j.Logger;
 
 public class EmailTools {
     private final static Properties emailProperties = new Properties();
-
+    private static Logger logger = Logger.getLogger(EmailTools.class);
     static {
         try {
             emailProperties.load(EmailTools.class.getResourceAsStream("/emailConfig.properties"));
         } catch (IOException e) {
-            e.printStackTrace();
+        	logger.error(e.getMessage(), e);
+            //e.printStackTrace();
         }
     }
 
@@ -24,7 +26,8 @@ public class EmailTools {
             email.setCharset(AllConstants.DEFAULT_MAIL_CHARSET);
             email.send();
         } catch (EmailException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+        	logger.error(e.getMessage(), e);
         }
     }
     
@@ -35,7 +38,8 @@ public class EmailTools {
             email.setCharset(AllConstants.DEFAULT_MAIL_CHARSET);
             email.send();
         } catch (EmailException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+        	logger.error(e.getMessage(), e);
         }
     }
 
@@ -66,7 +70,8 @@ public class EmailTools {
                 email.setMsg(AllConstants.DEFAULT_REGISTER_MAIL_CONTENT);
             }
         } catch (EmailException e) {
-            e.printStackTrace();
+        	logger.error(e.getMessage(), e);
+           // e.printStackTrace();
         }
 
         email.setTLS(true);
@@ -100,7 +105,8 @@ public class EmailTools {
                 email.setMsg(AllConstants.DEFAULT_RECOVERY_MAIL_CONTENT);
             }
         } catch (EmailException e) {
-            e.printStackTrace();
+        	logger.error(e.getMessage(), e);
+        	// e.printStackTrace();
         }
 
         email.setTLS(true);

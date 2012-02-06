@@ -8,13 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.spshop.admin.shared.LoginInfo;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.SiteService;
 import com.spshop.utils.AllConstants;
 
 public class LoginService extends HttpServlet{
-	
+	private static Logger logger = Logger.getLogger(LoginService.class);
 	private final String SUCCESS="ShopAdmin.jsp";
 	private final String SUCCESS_DEBUG="ShopAdmin.jsp?gwt.codesvr=127.0.0.1:9997";
 	private final String FAILURE="Admin.jsp";
@@ -25,6 +27,7 @@ public class LoginService extends HttpServlet{
 		try {
 			users.load(LoginService.class.getResourceAsStream("/adminUser.properties"));
 		} catch (IOException e) {
+			logger.error(e.getMessage(), e);
 			e.printStackTrace();
 		}
 	}
