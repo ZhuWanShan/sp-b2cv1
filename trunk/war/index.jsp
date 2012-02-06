@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
 
-<meta property="fb:page_id" content="181834808501125" /><head>
+<meta property="fb:page_id" content="181834808501125" />
 
 <title>${pageForm.category.pageTitle}</title>
 <meta name="description" content="${pageForm.category.description}">
