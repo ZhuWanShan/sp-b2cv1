@@ -18,6 +18,7 @@ public class Site extends Component{
 	private Image featuredCat;
 	private Image delivery;
 	private float freeDeliveryPrice;
+	private String imgDomain;
 	
 	public Image getFeaturedCat() {
 		return featuredCat;
@@ -181,6 +182,11 @@ public class Site extends Component{
 			obj.deliveryURL = this.deliveryURL;
 		}
 		
+		if (this.imgDomain != null) {
+			/* Does not have a clone() method */
+			obj.imgDomain = this.imgDomain;
+		}
+		
 		obj.freeDeliveryPrice = this.freeDeliveryPrice;
 		
 		return obj;
@@ -192,6 +198,14 @@ public class Site extends Component{
 
 	public float getFreeDeliveryPrice() {
 		return freeDeliveryPrice;
+	}
+
+	public String getImgDomain() {
+		return imgDomain;
+	}
+
+	public void setImgDomain(String imgDomain) {
+		this.imgDomain = imgDomain;
 	}
 
 }

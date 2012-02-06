@@ -14,6 +14,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -32,6 +33,9 @@ import com.spshop.service.intf.OrderService;
 import com.spshop.utils.AllConstants;
 
 public abstract class BaseAction extends Action {
+	
+	private static Logger logger = Logger.getLogger(BaseAction.class);
+	
 	public static final String SHOPPINGCART = "shoppingcart";
 	protected Map<String, Float> currency = new TreeMap<String, Float>();
 	protected Map<String, String> crossSales = new TreeMap<String, String>();
@@ -46,7 +50,8 @@ public abstract class BaseAction extends Action {
 					currency.put(currencyName.toString(), rate);
 				} catch (NumberFormatException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					//e.printStackTrace();
+					logger.error(e.getMessage(), e);
 				}
 			}
 			
@@ -56,7 +61,8 @@ public abstract class BaseAction extends Action {
                 crossSales.put(crossSaleKey.toString(), res);
             }
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
+			//e.printStackTrace();
 		}
 		if(null == currency.get("USD")){
 			currency.put("USD", 1.0f);
@@ -258,7 +264,8 @@ public abstract class BaseAction extends Action {
 			forward = processer(mapping, page, request, response);
 		} catch (Exception e) {
 			response.sendError(HttpServletResponse.SC_NOT_FOUND);
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
+			//e.printStackTrace();
 		}
 		return forward;
 	}
