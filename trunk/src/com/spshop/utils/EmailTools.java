@@ -1,6 +1,7 @@
 package com.spshop.utils;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Properties;
 
 import org.apache.commons.mail.EmailException;
@@ -111,5 +112,16 @@ public class EmailTools {
 
         email.setTLS(true);
         return email;
+    }
+    
+    /**
+     * 
+     * @param mailType email type from configuration prop
+     * @param subject email subject
+     * @param variable variable for freeMarker to format mail content
+     */
+    public static void sendMail(String mailType, String subject, Map<String,Object> variable){
+    	String templateType = "";
+    	String mailContent = TempleteParser.parseMailContent(templateType, variable);
     }
 }

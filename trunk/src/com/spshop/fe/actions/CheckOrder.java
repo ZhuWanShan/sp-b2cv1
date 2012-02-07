@@ -114,7 +114,7 @@ public class CheckOrder extends BaseAction {
 					logger.info(">>>>>>>>>>>>>>>>>>>order.getCurrency().equals(paymentCurrency):"+order.getCurrency().equals(paymentCurrency)+">>>>>>>>>>>>>>>>>>>>>>");
 					logger.info(">>>>>>>>>>>>>>>>>>>receiverEmail.equalsIgnoreCase(ACCOUNT):"+receiverEmail.equalsIgnoreCase(ACCOUNT)+">>>>>>>>>>>>>>>>>>>>>>");
 					logger.info(">>>>>>>>>>>>>>>>>>>order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount):"+((order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount))+">>>>>>>>>>>>>>>>>>>>>>");
-					if((order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount)
+					if((order.getTotalPrice()+order.getDePrice()- 1) <= Float.parseFloat(paymentAmount)
 							&&order.getCurrency().equals(paymentCurrency)
 							&&receiverEmail.equalsIgnoreCase(ACCOUNT)
 							&&quantity.equals("1")){
