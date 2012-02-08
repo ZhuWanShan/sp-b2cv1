@@ -1,6 +1,9 @@
 package com.spshop.utils;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -10,10 +13,12 @@ import org.apache.log4j.Logger;
 
 public class EmailTools {
     private final static Properties emailProperties = new Properties();
+    private final static Properties commonEmailProperties = new Properties();
     private static Logger logger = Logger.getLogger(EmailTools.class);
     static {
         try {
             emailProperties.load(EmailTools.class.getResourceAsStream("/emailConfig.properties"));
+            commonEmailProperties.load(EmailTools.class.getResourceAsStream("/mailConf.properties"));
         } catch (IOException e) {
         	logger.error(e.getMessage(), e);
             //e.printStackTrace();
@@ -120,8 +125,45 @@ public class EmailTools {
      * @param subject email subject
      * @param variable variable for freeMarker to format mail content
      */
-    public static void sendMail(String mailType, String subject, Map<String,Object> variable){
-    	String templateType = "";
+    public static void sendMail(String mailType, String subject, Map<String,Object> variable, String sendTo){
+    	String templateType = commonEmailProperties.getProperty(mailType + ".template.type", "");
     	String mailContent = TempleteParser.parseMailContent(templateType, variable);
+    	if (mailContent != null) {
+    	    SimpleEmail email = new SimpleEmail();
+    	    try {
+    	        if (commonEmailProperties.containsKey(mailType + AllConstants.MAIL_HOST_NAME)) {
+    	            email.setHostName(commonEmailProperties.getProperty(mailType + AllConstants.MAIL_HOST_NAME));
+    	        } else {
+    	            email.setHostName(AllConstants.DEFAULT_MAIL_HOST_NAME);
+    	        }
+    	        if (commonEmailProperties.containsKey(mailType + AllConstants.MAIL_FROM_ACCOUNT)
+    	                && commonEmailProperties.containsKey(mailType + AllConstants.MAIL_FROM_PASSWORD)) {
+    	            email.setAuthentication(commonEmailProperties.getProperty(mailType + AllConstants.MAIL_FROM_ACCOUNT),
+    	                                    commonEmailProperties.getProperty(mailType + AllConstants.MAIL_FROM_PASSWORD));
+    	            email.setFrom(commonEmailProperties.getProperty(mailType + AllConstants.MAIL_FROM_ACCOUNT));
+    	        } else {
+    	            email.setAuthentication(AllConstants.DEFAULT_MAIL_FROM_ACCOUNT, mailType + AllConstants.DEFAULT_MAIL_FROM_PASSWORD);
+    	        }
+    	        email.setMsg(mailContent);
+    	        email.setTLS(true);
+    	        email.addTo(sendTo);
+    	        email.setCharset(AllConstants.DEFAULT_MAIL_CHARSET);
+    	        email.send();
+    	    } catch (EmailException e) {
+    	        logger.error(e.getMessage(), e);
+    	    }
+        } else {
+            logger.error("cannot parse email template");
+        }
+    }
+    
+    public static void main(String[] args) {
+        List<String> mailList = new ArrayList<String>();
+        for (int i = 0; i < 50; i++) {
+            mailList.add("realliam@gmail.com");
+        }
+        for (String email : mailList) {
+            EmailTools.sendMail("paid", "paid successful", new HashMap<String, Object>(), email);
+        }
     }
 }

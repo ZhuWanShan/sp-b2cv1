@@ -65,14 +65,19 @@ public class AllConstants {
 	public static final String RECOVERY_MAIL_TITLE = "recovery.email.title";
 	public static final String RECOVERY_MAIL_CONTENT = "recovery.email.content";
 	
+	public static final String DEFAULT_REGISTER_MAIL_TITLE = "Your account, in Honey-Buy, is created!";
+	public static final String DEFAULT_REGISTER_MAIL_CONTENT = "Congratulations! You r the registered user of Honey-Buy!";
+	public static final String DEFAULT_RECOVERY_MAIL_TITLE = "Your account, in Honey-Buy, is recoveried!";
+	public static final String DEFAULT_RECOVERY_MAIL_CONTENT = "Congratulations! Your password is ...";
+	
 	public static final String DEFAULT_MAIL_CHARSET = "UTF-8";
-    public static final String DEFAULT_MAIL_HOST_NAME = "smtp.gmail.com";
-    public static final String DEFAULT_MAIL_FROM_ACCOUNT = "honeybuymaster@gmail.com";
-    public static final String DEFAULT_MAIL_FROM_PASSWORD = "=-0987654321`";
-    public static final String DEFAULT_REGISTER_MAIL_TITLE = "Your account, in Honey-Buy, is created!";
-    public static final String DEFAULT_REGISTER_MAIL_CONTENT = "Congratulations! You r the registered user of Honey-Buy!";
-    public static final String DEFAULT_RECOVERY_MAIL_TITLE = "Your account, in Honey-Buy, is recoveried!";
-    public static final String DEFAULT_RECOVERY_MAIL_CONTENT = "Congratulations! Your password is ...";
+    public static final String DEFAULT_MAIL_HOST_NAME = "smtpout.secureserver.net";
+    public static final String DEFAULT_MAIL_FROM_ACCOUNT = "no-reply@honeybuy.com";
+    public static final String DEFAULT_MAIL_FROM_PASSWORD = "20091125!@#A";
+    
+    public static final String MAIL_HOST_NAME = ".host.name";
+    public static final String MAIL_FROM_ACCOUNT = ".from.account";
+    public static final String MAIL_FROM_PASSWORD = ".from.password";
     
     //Gender
     public static final String GENDER_MALE = "male";
