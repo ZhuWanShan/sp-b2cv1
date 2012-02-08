@@ -160,7 +160,7 @@ public class EmailTools {
     public static void main(String[] args) {
         List<String> mailList = new ArrayList<String>();
         for (int i = 0; i < 50; i++) {
-            mailList.add("realliam@gmail.com");
+            mailList.add("kabist@gmail.com");
         }
         for (String email : mailList) {
             EmailTools.sendMail("paid", "paid successful", new HashMap<String, Object>(), email);
