@@ -10,7 +10,9 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +26,7 @@ import com.spshop.model.Order;
 import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.OrderService;
+import com.spshop.utils.EmailTools;
 
 public class CheckOrder extends BaseAction {
 	
@@ -113,7 +116,7 @@ public class CheckOrder extends BaseAction {
 					logger.info(">>>>>>>>>>>>>>>>>>>itemNumber.equals('1'):"+quantity.equals("1")+">>>>>>>>>>>>>>>>>>>>>>");
 					logger.info(">>>>>>>>>>>>>>>>>>>order.getCurrency().equals(paymentCurrency):"+order.getCurrency().equals(paymentCurrency)+">>>>>>>>>>>>>>>>>>>>>>");
 					logger.info(">>>>>>>>>>>>>>>>>>>receiverEmail.equalsIgnoreCase(ACCOUNT):"+receiverEmail.equalsIgnoreCase(ACCOUNT)+">>>>>>>>>>>>>>>>>>>>>>");
-					logger.info(">>>>>>>>>>>>>>>>>>>order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount):"+((order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount))+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>((order.getTotalPrice()+order.getDePrice())*rate- 1) <= Float.parseFloat(paymentAmount):"+((order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount))+">>>>>>>>>>>>>>>>>>>>>>");
 					
 					float rate = getCurrencies(request).get(order.getCurrency());
 					
@@ -122,6 +125,9 @@ public class CheckOrder extends BaseAction {
 							&&receiverEmail.equalsIgnoreCase(ACCOUNT)
 							&&quantity.equals("1")){
 						order.setStatus(OrderStatus.PAID.getValue());
+						Map<String,Object> root = new HashMap<String,Object>(); 
+						root.put("order", order);
+						EmailTools.sendMail("", "", root,order.getCustomerEmail());
 					}else{
 						logger.info(">>>>>>>>>>>>>>>>>>>NOT enough mony>>>>>>>>>>>>>>>>>>>>>>");
 					}
@@ -137,6 +143,19 @@ public class CheckOrder extends BaseAction {
 					}
 					*/
 					ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.getValue());
+					final Map<String,Object> root = new HashMap<String,Object>(); 
+					final Order o = order;
+					root.put("order", order);
+					root.put("currencyRate", getCurrencies(request).get(order.getCurrency()));
+					new Thread(){
+						public void run() {
+							try{
+								EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,o.getCustomerEmail());
+							}catch(Exception e){
+								
+							}
+						};
+					}.start();
 				}
 				
 				

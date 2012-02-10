@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -28,6 +30,7 @@ import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.OrderService;
 import com.spshop.utils.AllConstants;
+import com.spshop.utils.EmailTools;
 
 public class ShoppingCartAction extends BaseAction {
 	
@@ -318,10 +321,12 @@ public class ShoppingCartAction extends BaseAction {
 				
 				if("Standard".equals(retrieveDeType(request))){
 					getCart(request, response).getOrder().setDePrice(c.getDePrice());
+					getCart(request, response).getOrder().setShippingMethod("Standard");
 					request.setAttribute("shippingMethod", "Standard");
 				}else{
 					getCart(request, response).getOrder().setDePrice(c.getAdDePrice());
 					request.setAttribute("shippingMethod", "Expedited");
+					getCart(request, response).getOrder().setShippingMethod("Expedited");
 				}
 				getCart(request, response).getOrder().setCustomerCountry(c.getName());
 				if(!"true".equals(retrieveBillingAddress(request))){
@@ -378,6 +383,10 @@ public class ShoppingCartAction extends BaseAction {
 		}
 		
 		if("pay".equals(retriveOperation(request))){
+			Map<String,Object> root = new HashMap<String,Object>(); 
+			root.put("order", order);
+			root.put("currencyRate", getCurrencies(request).get(order.getCurrency()));
+			EmailTools.sendMail("paid", "Order Received, Awaiting Payment Confirmation", root,order.getCustomerEmail());
 			order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
 			clearCart(request);
 		}
@@ -469,6 +478,19 @@ public class ShoppingCartAction extends BaseAction {
 				//order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
 				request.setAttribute(AllConstants.DEFAULT_ORDER, order);
 				updateCart(request, response,OrderStatus.PENDING);
+				final Map<String,Object> root = new HashMap<String,Object>(); 
+				final Order o = order;
+				root.put("order", order);
+				root.put("currencyRate", getCurrencies(request).get(order.getCurrency()));
+				new Thread(){
+					public void run() {
+						try{
+							EmailTools.sendMail("paid", "Order Received, Awaiting Payment Confirmation", root,o.getCustomerEmail());
+						}catch(Exception e){
+							
+						}
+					};
+				}.start();
 				clearCart(request);
 				request.getRequestDispatcher("/jsp/pay_payPal.jsp").forward(request, response);
 			}

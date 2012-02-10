@@ -205,6 +205,7 @@
 		<property name="bstate" ></property>
 		<property name="bcustomerZipcode" ></property>
 		<property name="bphone" ></property>
+		<property name="shippingMethod" ></property>
 		<property name="status" length="255" column="order_status"></property>
 		
 		

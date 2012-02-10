@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.HtmlEmail;
 import org.apache.commons.mail.SimpleEmail;
 import org.apache.log4j.Logger;
 
@@ -128,8 +129,9 @@ public class EmailTools {
     public static void sendMail(String mailType, String subject, Map<String,Object> variable, String sendTo){
     	String templateType = commonEmailProperties.getProperty(mailType + ".template.type", "");
     	String mailContent = TempleteParser.parseMailContent(templateType, variable);
+    	logger.info("send mail to :" + sendTo);
     	if (mailContent != null) {
-    	    SimpleEmail email = new SimpleEmail();
+    		HtmlEmail   email = new HtmlEmail();
     	    try {
     	        if (commonEmailProperties.containsKey(mailType + AllConstants.MAIL_HOST_NAME)) {
     	            email.setHostName(commonEmailProperties.getProperty(mailType + AllConstants.MAIL_HOST_NAME));
@@ -144,7 +146,8 @@ public class EmailTools {
     	        } else {
     	            email.setAuthentication(AllConstants.DEFAULT_MAIL_FROM_ACCOUNT, mailType + AllConstants.DEFAULT_MAIL_FROM_PASSWORD);
     	        }
-    	        email.setMsg(mailContent);
+    	        email.setSubject(subject);
+    	        email.setHtmlMsg(mailContent);
     	        email.setTLS(true);
     	        email.addTo(sendTo);
     	        email.setCharset(AllConstants.DEFAULT_MAIL_CHARSET);
