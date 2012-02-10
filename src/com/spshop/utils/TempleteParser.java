@@ -89,7 +89,7 @@ public class TempleteParser {
 
 		root.put("title", "Welcome to HoneyBuy");
 
-		String content = TempleteParser.parseMailContent("order.tpl", root);
+		String content = TempleteParser.parseMailContent("2.tpl", root);
 
 		System.out.println(content);
 	}

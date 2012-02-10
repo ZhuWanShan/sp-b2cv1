@@ -43,6 +43,7 @@ public class Order extends Component{
 	private String bCustomerZipcode;
 	private String bstate;
 	private String bPhone;
+	private String shippingMethod;
 	
 	public Order() {
 		if(null!=getName()){
@@ -344,6 +345,11 @@ public class Order extends Component{
 			obj.bstate = this.bstate;
 		}
 		
+		
+		if (this.shippingMethod != null) {
+			obj.shippingMethod = this.shippingMethod;
+		}
+		
 		return obj;
 	}
 
@@ -494,6 +500,14 @@ public class Order extends Component{
 
 	public String getState() {
 		return state;
+	}
+
+	public String getShippingMethod() {
+		return shippingMethod;
+	}
+
+	public void setShippingMethod(String shippingMethod) {
+		this.shippingMethod = shippingMethod;
 	}
 	
 }
