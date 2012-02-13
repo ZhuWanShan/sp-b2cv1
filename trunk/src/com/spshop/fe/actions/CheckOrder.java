@@ -127,7 +127,8 @@ public class CheckOrder extends BaseAction {
 						order.setStatus(OrderStatus.PAID.getValue());
 						Map<String,Object> root = new HashMap<String,Object>(); 
 						root.put("order", order);
-						EmailTools.sendMail("", "", root,order.getCustomerEmail());
+						root.put("currencyRate", getCurrencies(request).get(order.getCurrency()));
+						EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,order.getCustomerEmail());
 					}else{
 						logger.info(">>>>>>>>>>>>>>>>>>>NOT enough mony>>>>>>>>>>>>>>>>>>>>>>");
 					}
