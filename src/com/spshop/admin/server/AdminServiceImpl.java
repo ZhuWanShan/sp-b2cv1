@@ -1,7 +1,9 @@
 package com.spshop.admin.server;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.spshop.admin.client.businessui.service.AdminService;
 import com.spshop.admin.shared.LoginInfo;
@@ -29,6 +31,7 @@ import com.spshop.service.intf.SiteService;
 import com.spshop.service.intf.TabProductService;
 import com.spshop.service.intf.TabSellingService;
 import com.spshop.utils.AllConstants;
+import com.spshop.utils.EmailTools;
 public class AdminServiceImpl extends RemoteService implements AdminService{
 	/**
 	 * 
@@ -145,6 +148,10 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 
     @Override
     public Order updateOrderStatus(Order order) {
+		Map<String,Object> root = new HashMap<String,Object>(); 
+		root.put("order", order);
+		root.put("currencyRate", ((Map<String, Float>) getServletContext().getAttribute("currencies")).get(order.getCurrency()));
+		EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,order.getCustomerEmail());
         return ServiceFactory.getService(OrderService.class).saveOrder(order, order.getStatus());
     }
 
