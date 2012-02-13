@@ -1,6 +1,7 @@
 package com.spshop.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -474,14 +475,38 @@ public class Order extends Component{
 	}
 	
 	protected String getOrderId(){
-		String id = "Order";
-		id = id + new Random().nextInt(999999);
-		id = id + (char)(new Random().nextInt(24)+65);
-		id = id + (char)(new Random().nextInt(24)+65);
-		id = id + (char)(new Random().nextInt(24)+65);
-		id = id + (char)(new Random().nextInt(24)+65);
-		id = id + (char)(new Random().nextInt(24)+65);
-		id = id + new Random().nextInt(999999);
+		String id = "";
+		Date today = new Date();
+		int y= today.getYear()%100;
+		int m = today.getMonth();
+		int d = today.getDate();
+		String sy = "";
+		String sm = "";
+		String sd = "";
+		
+		if(y<10){
+			sy = "0"+y;
+		}else{
+			sy = ""+ y;
+		}
+		
+		if(m<10){
+			sm = "0"+m;
+		}else{
+			sm = ""+ m;
+		}
+		
+		if(d<10){
+			sd = "0"+d;
+		}else{
+			sd = ""+ d;
+		}
+		id = id + sy+ sm + sd +"-";
+		id = id + (char)(new Random().nextInt(26)+65);
+		id = id + (char)(new Random().nextInt(26)+65);
+		id = id + (char)(new Random().nextInt(26)+65);
+		id = id + (char)(new Random().nextInt(26)+65);
+		id = id + (new Random().nextInt(99)+100);
 		
 		return id;
 	}
