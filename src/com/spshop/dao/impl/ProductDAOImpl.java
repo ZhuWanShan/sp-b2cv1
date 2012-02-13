@@ -26,12 +26,18 @@ public class ProductDAOImpl extends AbstractBaseDAO<Product, Long>  implements P
 
 	@Override
 	public Map<String, String> search(String keyword, int start, int end) {
- 		String hql = "select title, name from Product where title like ? order by name asc";
+ 		String hql = "select title, name from Product where title like ? or id = ? order by name asc";
 		
+ 		long id = -1;
+ 		try{
+ 			id = Long.parseLong(keyword);
+ 		}catch(Exception e){
+ 			
+ 		}
 		
 		 Map<String, String> re = new TreeMap<String, String>();
 		
-		List rs = getSession().createQuery(hql).setParameter(0, "%"+keyword+"%").setMaxResults(20).list();
+		List rs = getSession().createQuery(hql).setParameter(0, "%"+keyword+"%").setParameter(1, id).setMaxResults(20).list();
 		
 		if(null!=rs){
 			for (Object object : rs) {
