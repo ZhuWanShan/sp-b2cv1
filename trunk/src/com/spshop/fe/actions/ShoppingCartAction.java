@@ -195,15 +195,15 @@ public class ShoppingCartAction extends BaseAction {
 		order.setState(request.getParameter("MemberProvince"));
 		
 		if(check){
-			if(null == order.getCity() || !order.getCity().matches("\\w{1,50}")){
+			if(null == order.getCity() || !order.getCity().matches(".{1,50}")){
 				addError("city", "Not a valid city", request);
 			}
 			
-			if(null == order.getCfirstName() || !order.getCfirstName() .matches("\\w{1,255}")){
+			if(null == order.getCfirstName() || !order.getCfirstName() .matches(".{1,255}")){
 				addError("firstName", "Not a valid Name", request);
 			}
 			
-			if(null == order.getClastName() || !order.getClastName().matches("\\w{1,255}")){
+			if(null == order.getClastName() || !order.getClastName().matches(".{1,255}")){
 				addError("lastName", "Not a valid Name", request);
 			}
 			
@@ -219,11 +219,11 @@ public class ShoppingCartAction extends BaseAction {
 				addError("country", "Not a valid Country", request);
 			}
 			
-			if(null == order.getCustomerZipcode() || !order.getCustomerZipcode().matches("\\w{1,255}")){
+			if(null == order.getCustomerZipcode() || !order.getCustomerZipcode().matches(".{1,255}")){
 				addError("zipCode", "Not a valid ZipCode", request);
 			}
 			
-			if(null == order.getDeliverPhone() || !order.getDeliverPhone().matches("\\w{1,255}")){
+			if(null == order.getDeliverPhone() || !order.getDeliverPhone().matches(".{1,255}")){
 				addError("phone", "Not a valid Phone", request);
 			}
 			
@@ -247,15 +247,15 @@ public class ShoppingCartAction extends BaseAction {
 		//bMemberProvince
 		
 		if(check){
-			if(null == order.getBcity() || !order.getBcity().matches("\\w{1,50}")){
+			if(null == order.getBcity() || !order.getBcity().matches(".{1,50}")){
 				addError("bcity", "Not a valid city", request);
 			}
 			
-			if(null == order.getBfirstName() || !order.getBfirstName().matches("\\w{1,255}")){
+			if(null == order.getBfirstName() || !order.getBfirstName().matches(".{1,255}")){
 				addError("bfirstName", "Not a valid Name", request);
 			}
 			
-			if(null == order.getBlastName() || !order.getBlastName().matches("\\w{1,255}")){
+			if(null == order.getBlastName() || !order.getBlastName().matches(".{1,255}")){
 				addError("blastName", "Not a valid Name", request);
 			}
 			
@@ -267,11 +267,11 @@ public class ShoppingCartAction extends BaseAction {
 				addError("bstate", "Not a valid State", request);
 			}
 			
-			if(null == order.getBcustomerZipcode() || !order.getBcustomerZipcode().matches("\\w{1,255}")){
+			if(null == order.getBcustomerZipcode() || !order.getBcustomerZipcode().matches(".{1,255}")){
 				addError("bzipCode", "Not a valid ZipCode", request);
 			}
 			
-			if(null == order.getBphone() || !order.getBphone() .matches("\\w{1,255}")){
+			if(null == order.getBphone() || !order.getBphone() .matches(".{1,255}")){
 				addError("bphone", "Not a valid Phone", request);
 			}
 		}
