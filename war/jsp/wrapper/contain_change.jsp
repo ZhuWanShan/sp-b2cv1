@@ -12,6 +12,9 @@
 				<c:if test="${requestScope.endIndex < requestScope.productsCount}">
 					<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%=AllConstants.CATEGORY_URL %>/${pageForm.category.name}?<%=AllConstants.PAGE_NUM %>=${requestScope.pageNum + 1}">Next</a>
 				</c:if>
+				<c:forEach items="${requestScope.pageIndex}" var="pageIdx">
+					<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%=AllConstants.CATEGORY_URL %>/${pageForm.category.name}?pageNum=${pageIdx}">${pageIdx}</a>
+				</c:forEach>
 				<input type="text" name="<%=AllConstants.PAGE_NUM %>" class="page_input" value="${requestScope.pageNum}">
 				<input type="hidden" name="<%=AllConstants.START_INDEX %>" value="${requestScope.startIndex}">
 				<input type="hidden" name="<%=AllConstants.END_INDEX %>" value="${requestScope.endIndex}">
@@ -74,6 +77,9 @@
 				<c:if test="${requestScope.endIndex < requestScope.productsCount}">
 					<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%=AllConstants.CATEGORY_URL %>/${pageForm.category.name}?<%=AllConstants.PAGE_NUM %>=${requestScope.pageNum + 1}">Next</a>
 				</c:if>
+				<c:forEach items="${requestScope.pageIndex}" var="pageIdx">
+					<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%=AllConstants.CATEGORY_URL %>/${pageForm.category.name}?pageNum=${pageIdx}">${pageIdx}</a>
+				</c:forEach>
 				<input type="text" name="<%=AllConstants.PAGE_NUM %>" class="page_input" value="${requestScope.pageNum}">
 				<input type="hidden" name="<%=AllConstants.START_INDEX %>" value="${requestScope.startIndex}">
 				<input type="hidden" name="<%=AllConstants.END_INDEX %>" value="${requestScope.endIndex}">
