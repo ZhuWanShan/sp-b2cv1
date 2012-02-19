@@ -134,5 +134,6 @@
 	<!-- Bottom end -->
 
 	<script type="text/javascript" src="js/footer.js"></script>
+	<jsp:include page="googleconversion.html" />
 </body>
 </html>
