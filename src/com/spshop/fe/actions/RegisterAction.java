@@ -1,6 +1,8 @@
 package com.spshop.fe.actions;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +33,18 @@ public class RegisterAction extends BaseAction {
             user.setPassword(password);
             createUser(user);
             
-            EmailTools.sendRegisterEmail(email);
+            final Map<String,Object> root = new HashMap<String,Object>(); 
+            final User u = user;
+            root.put("user", u);
+            new Thread(){
+                public void run() {
+                    try{
+                        EmailTools.sendMail("register", "Register successfully!", root, u.getName());
+                    }catch(Exception e){
+                        
+                    }
+                };
+            }.start();
             
             request.getSession(true).setAttribute(AllConstants.USER_INFO, user);
             return mapping.findForward(AllConstants.SUCCESS_VALUE);
