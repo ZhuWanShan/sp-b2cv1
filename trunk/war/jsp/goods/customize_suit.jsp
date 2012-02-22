@@ -68,9 +68,9 @@
 							</span>
 							</td>
 						</tr>
-						<tr><td colspan="2">With arm relaxed at side and elbow slightly bent, measure from center back of neck, over point of shoulder, and down outside of arm past elbow to wrist.</td></tr>
+						<tr><td colspan="2">Measure from your shoulder point to the wrist.</td></tr>
 						<tr>
-							<td class="custItem">C Shoulder Size:</td>
+							<td class="custItem">C Shoulder Length:</td>
 							<td><input id="Customszie3" name="Shoulder Size"
 								type="text" size="8"><span id="unit3">cm</span><span
 								id="cussize3" style="display: none;"><img
@@ -78,7 +78,7 @@
 							</span>
 							</td>
 						</tr>
-						<tr><td colspan="2">Measure down the back from the base of the collar to the length required.</td></tr>
+						<tr><td colspan="2">With both arms down by your side, measurement is taken from the tip of the left shoulder point, to the tip of the right shoulder.</td></tr>
 						<tr>
 							<td class="custItem">D Jacket Length:</td>
 							<td><input id="Customszie4" name="Jacket Length"
@@ -88,7 +88,7 @@
 							</span>
 							</td>
 						</tr>
-						<tr><td colspan="2">With both arms down by your side, measurement is taken from the tip of the left shoulder point, along the top of the shoulder just below the base of the collar, to the tip of the right shoulder.</td></tr>
+						<tr><td colspan="2">Measure down the back from the base of the collar to the length required.</td></tr>
 						<tr>
 							<td>Special Requirements:</td>
 							<td>
