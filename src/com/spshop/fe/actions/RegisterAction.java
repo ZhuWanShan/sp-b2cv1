@@ -33,13 +33,15 @@ public class RegisterAction extends BaseAction {
             user.setPassword(password);
             createUser(user);
             
+            String psw = user.getPassword().substring(0, user.getPassword().length()-2)+"**";
+            user.setPassword(psw);
             final Map<String,Object> root = new HashMap<String,Object>(); 
             final User u = user;
             root.put("user", u);
             new Thread(){
                 public void run() {
                     try{
-                        EmailTools.sendMail("register", "Register successfully!", root, u.getName());
+                        EmailTools.sendMail("register", "Welcome to Honeybuy.com, New Member Registration", root, u.getName());
                     }catch(Exception e){
                         
                     }
