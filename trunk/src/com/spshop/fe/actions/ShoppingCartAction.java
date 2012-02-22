@@ -174,10 +174,10 @@ public class ShoppingCartAction extends BaseAction {
 	}
 	
 	private String retrieveBillingAddress(ServletRequest request){
-		if("true".equals(request.getParameter("billing_address"))){
-			return "true";
+		if("false".equals(request.getParameter("billing_address"))){
+			return "false";
 		}
-		return "false";
+		return "true";
 	}
 	
 	private void retriveShippingInfo(HttpServletRequest request,HttpServletResponse response,boolean check){
