@@ -70,8 +70,8 @@
 			<div class="box_item_content">
 				<c:if test="${not empty defaultOrder}">
 					<pre>
-					Order #: 	${defaultOrder.name }
-					Total: 	  	${currency } <fmt:formatNumber
+					Order #: ${defaultOrder.name }
+					Total  : ${currency } <fmt:formatNumber
 							value="${defaultOrder.totalPrice * currencies[currency]}"
 							maxFractionDigits="2" currencyCode="${currency}"></fmt:formatNumber>+<fmt:formatNumber
 							value="${defaultOrder.dePrice  * currencies[currency]}"
