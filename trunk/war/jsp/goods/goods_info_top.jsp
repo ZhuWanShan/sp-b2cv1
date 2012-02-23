@@ -95,7 +95,7 @@
 					<c:out value="${pageForm.pageProperties.productDetail.title}" />
 				</h1>
 			</div>
-			<div class="item_showWords"></div>
+			<div id="shareButton"></div>
 			<div class="item_shopping_code">Item
 				Code:${pageForm.pageProperties.productDetail.id}</div>
 			<div style="position: relative;" class="item_shopping_funbox">
@@ -123,6 +123,15 @@
 					var ua = new gigya.services.socialize.UserAction(); 
 					ua.setLinkBack("<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}"); 
 					ua.setTitle("Enjoy Online Shopping For Fashion Dress, Apparel, Suits With Free Shipping - HoneyBuy.com");
+					var shareBtnParams ={ 
+							userAction:ua,
+							shareButtons: "share",
+							containerID: 'shareButton', // location of the Share Bar plugin
+							operationMode:'multiSelect',
+							showCounts: 'top'
+					}
+					gigya.services.socialize.showShareBarUI({},shareBtnParams);
+					
 					ua.addMediaItem( { type: "image", src: "<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${pageForm.pageProperties.productDetail.images[0].largerUrl}", href: "<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}" });
 					// Define Share Bar plugin's Parameters	
 					var shareBarParams ={ 
