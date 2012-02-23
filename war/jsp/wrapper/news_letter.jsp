@@ -40,12 +40,12 @@
 .col {
 	float: left;
 	vertical-align: top;
-	height: 220px;
+	height: 160px;
 }
 
 fieldset {
 	padding: 10px;
-	height: 197px;
+	height: 130px;
 }
 -->
 </style>
@@ -57,14 +57,6 @@ fieldset {
 				<em>$50,000 GIVEAWAY</em>Newsletter
 			</h3>
 			<br />
-			<p>Get updates, discounts, and special offers to win free stuff
-				and cash prizes!</p>
-			<!-- 			<p> -->
-			<!-- 				<a -->
-			<!-- 					href="#" -->
-			<!-- 					target="_top">Find out more&gt;&gt;</a> -->
-			<!-- 			</p> -->
-			<br /> 
 			
 			<input type="text" value="Your Email Address" size="20"
 				id="subscribeEmail" name="subscribeEmail">
