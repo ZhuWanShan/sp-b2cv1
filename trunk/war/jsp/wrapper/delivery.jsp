@@ -315,15 +315,20 @@
 				</div>
 
 				<div class="content_right">
-						<div class="pay_div">
+						<%-- <div class="pay_div">
 							<input type="radio" value="paypal" name="payment"
 								checked="checked"> <a class="helplink" target="_blank"
 								href="#"><img border="0" src="/css/paypal.gif"> </a><i>The
 								safer, easier way to pay.</i>
 								<p/>
-								<%-- 
-							<input type="radio" value="creditCard" name="payment">Credit Card--%>
-						</div>
+								
+							<input type="radio" value="creditCard" name="payment">Credit Card
+						</div>--%>
+						
+						<div class="pay_div"> 
+						<input type="radio" checked="checked" name="payment" value="paypal"> <a href="https://www.paypal.com/cgi-bin/webscr?cmd=xpt/Marketing/general/what-is-paypal-outside" target="_blank" class="helplink"><img border="0" src="/css/paypal.gif"> </a><i>The world's most loved way to pay and get paid. Safer, Easier, Faster </i>
+						<p> </p></div>
+						
 						<div style="padding:30px">
 						<table width="135" border="0" cellpadding="2" cellspacing="0"
 							title="Click to Verify - This site chose VeriSign Trust Seal to promote trust online with consumers.">
@@ -420,8 +425,7 @@
         <td class="price bold" style="color:#cc0000;">
             <input name="couponCode" id="couponCode" />
              
-             <span  id="Submit_msg" style="color:#cc0000;"></span>
-             <br>
+             <span style="color:#cc0000;display:block;width:150px" id="Submit_msg">Cannot not apply in order which less than USD 100.0</span>
              <span style="cursor: pointer;" id="Submit_Coupon">Submit Coupon</span>
             
             <script type="text/javascript">

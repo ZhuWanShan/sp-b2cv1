@@ -262,6 +262,7 @@
 		<property name="usedCount"></property>
 		<property name="startDate"></property>
 		<property name="endTime"></property>
+		<property name="minexpend" ></property>
 	</class>
 	
 	<class name="Product" table="SHOP_Product">

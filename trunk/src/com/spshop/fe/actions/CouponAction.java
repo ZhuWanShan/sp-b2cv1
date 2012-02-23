@@ -33,15 +33,18 @@ public class CouponAction extends BaseAction{
 		}
 		
 		StringBuffer rs = new StringBuffer("d={");
+		NumberFormat f = NumberFormat.getInstance();
+		f.setMaximumFractionDigits(2);
 		
 		ShoppingCart cart = getCart(request, response);
 		if(null==coupon){
 			rs.append("errorString:'invalid coupon'");
+		}if(coupon.getMinexpend() > cart.getOrder().getTotalPrice()){
+			rs.append("errorString:'Cannot not apply in order less than USD " +  coupon.getMinexpend() +"'" );
 		}else{
-			NumberFormat f = NumberFormat.getInstance();
-			f.setMaximumFractionDigits(2);
 			float cutOff = 0f;
 			cart.getOrder().setCouponCode(coupon.getCode());
+			
 			if(!coupon.isCutOff()){
 				cutOff = coupon.getValue();
 				cart.getOrder().setCouponCutOff(cutOff);
