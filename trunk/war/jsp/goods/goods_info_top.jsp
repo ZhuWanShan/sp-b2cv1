@@ -120,11 +120,11 @@
 				<div id="divButtons"></div>
 				<script>
 					// Define UserAction onject
-					var ua = new gigya.services.socialize.UserAction(); 
-					ua.setLinkBack("<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}"); 
-					ua.setTitle("Enjoy Online Shopping For Fashion Dress, Apparel, Suits With Free Shipping - HoneyBuy.com");
+					var ua1 = new gigya.services.socialize.UserAction(); 
+					ua1.setLinkBack("<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}"); 
+					ua1.setTitle("Enjoy Online Shopping For Fashion Dress, Apparel, Suits With Free Shipping - HoneyBuy.com");
 					var shareBtnParams ={ 
-							userAction:ua,
+							userAction:ua1,
 							shareButtons: "share",
 							containerID: 'shareButton', // location of the Share Bar plugin
 							operationMode:'multiSelect',
@@ -132,10 +132,13 @@
 					}
 					gigya.services.socialize.showShareBarUI({},shareBtnParams);
 					
-					ua.addMediaItem( { type: "image", src: "<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${pageForm.pageProperties.productDetail.images[0].largerUrl}", href: "<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}" });
+					var ua2 = new gigya.services.socialize.UserAction(); 
+					ua2.setLinkBack("<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}"); 
+					ua2.setTitle("Enjoy Online Shopping For Fashion Dress, Apparel, Suits With Free Shipping - HoneyBuy.com");
+					ua2.addMediaItem( { type: "image", src: "<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${pageForm.pageProperties.productDetail.images[0].largerUrl}", href: "<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}" });
 					// Define Share Bar plugin's Parameters	
 					var shareBarParams ={ 
-						userAction:ua,
+						userAction:ua2,
 						shareButtons: "facebook-like,share,stumbleupon,twitter-tweet,google-plusone,email",
 						containerID: 'divButtons', // location of the Share Bar plugin
 						operationMode:'multiSelect',
