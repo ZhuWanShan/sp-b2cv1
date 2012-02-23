@@ -425,7 +425,7 @@
         <td class="price bold" style="color:#cc0000;">
             <input name="couponCode" id="couponCode" />
              
-             <span style="color:#cc0000;display:block;width:150px" id="Submit_msg">Cannot not apply in order which less than USD 100.0</span>
+             <span style="color:#cc0000;display:block;width:150px" id="Submit_msg"></span>
              <span style="cursor: pointer;" id="Submit_Coupon">Submit Coupon</span>
             
             <script type="text/javascript">
