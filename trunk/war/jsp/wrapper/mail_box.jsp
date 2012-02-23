@@ -56,7 +56,7 @@
 <!-- 	<br> -->
 <!-- 	<div class="hei10"></div> -->
 <!-- 	<br> -->
-<%-- 	<jsp:include page="news_letter.jsp"></jsp:include> --%>
+	<jsp:include page="news_letter.jsp"></jsp:include>
 
 
 </div>
