@@ -16,6 +16,7 @@ public class Coupon extends Component{
 	private long usedCount;
 	private Date startDate;
 	private Date endTime;
+	private float minexpend;
 	
 	public Coupon() {
 		// TODO Auto-generated constructor stub
@@ -55,6 +56,8 @@ public class Coupon extends Component{
 		obj.usedCount = this.usedCount;
 		
 		obj.onetime = this.onetime;
+		
+		obj.minexpend = this.minexpend;
 		
 		obj.cutOff = this.cutOff;
 		
@@ -109,6 +112,14 @@ public class Coupon extends Component{
 
 	public void setUsedCount(long usedCount) {
 		this.usedCount = usedCount;
+	}
+
+	public float getMinexpend() {
+		return minexpend;
+	}
+
+	public void setMinexpend(float minexpend) {
+		this.minexpend = minexpend;
 	}
 
 }
