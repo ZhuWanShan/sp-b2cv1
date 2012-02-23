@@ -1,6 +1,8 @@
 package com.spshop.model;
 
-public class Coupon extends Promotion{
+import java.util.Date;
+
+public class Coupon extends Component{
 
 	/**
 	 * 
@@ -9,9 +11,18 @@ public class Coupon extends Promotion{
 
 	private String code;
 	private float value;
+	private boolean cutOff;
+	private boolean onetime;
+	private long usedCount;
+	private Date startDate;
+	private Date endTime;
 	
 	public Coupon() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	public Coupon(Coupon coupon) {
+		super(coupon);
 	}
 	
 	public String getCode() {
@@ -34,13 +45,70 @@ public class Coupon extends Promotion{
 	 */
 	public Coupon clone() {
 		Coupon obj = null;
-		obj = new Coupon();
+		obj = new Coupon(this);
 		if (this.code != null) {
 			/* Does not have a clone() method */
 			obj.code = this.code;
 		}
 		obj.value = this.value;
+		
+		obj.usedCount = this.usedCount;
+		
+		obj.onetime = this.onetime;
+		
+		obj.cutOff = this.cutOff;
+		
+		if (this.startDate != null) {
+			/* Does not have a clone() method */
+			obj.startDate = this.startDate;
+		}
+		
+		if (this.endTime != null) {
+			/* Does not have a clone() method */
+			obj.endTime = this.endTime;
+		}
+		
 		return obj;
+	}
+
+	public boolean isCutOff() {
+		return cutOff;
+	}
+
+	public void setCutOff(boolean cutOff) {
+		this.cutOff = cutOff;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
+	}
+
+	public boolean isOnetime() {
+		return onetime;
+	}
+
+	public void setOnetime(boolean onetime) {
+		this.onetime = onetime;
+	}
+
+	public long getUsedCount() {
+		return usedCount;
+	}
+
+	public void setUsedCount(long usedCount) {
+		this.usedCount = usedCount;
 	}
 
 }

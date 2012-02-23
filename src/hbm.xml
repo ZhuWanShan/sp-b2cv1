@@ -245,6 +245,23 @@
 		<property name="content"></property>
 	</class>
 	
+	<class name="Coupon" table="SHOP_Coupon_01">
+		<id name="id" column="ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" length="100"></property>
+		<property name="createDate"></property>
+		<property name="updateDate"></property>
+		<property name="componentStatus"></property>
+		<property name="code"></property>
+		<property name="value"></property>
+		<property name="cutOff"></property>
+		<property name="onetime"></property>
+		<property name="usedCount"></property>
+		<property name="startDate"></property>
+		<property name="endTime"></property>
+	</class>
+	
 	<class name="Product" table="SHOP_Product">
 		<id name="id" column="ID">
 			<generator class="identity"></generator>
@@ -358,44 +375,6 @@
 			<key column="selling_id"></key>
 			<many-to-many class="TabProduct" column="t_product_id" />
 		</bag>
-	</class>
-	
-	
-	<class name="Promotion" table="SHOP_Promotion" discriminator-value="Promotion">
-		<id name="id" column="ID">
-			<generator class="identity"></generator>
-		</id>
-		<discriminator column="TypeString" type="string"></discriminator>
-		<property name="name" length="100"></property>
-		<property name="createDate"></property>
-		<property name="updateDate"></property>
-		<many-to-one name="site" class="Site" column="site_id"></many-to-one>
-		
-		<property name="startDate"></property>
-		<property name="endDate"></property>
-		<property name="strStatus" length="50"></property>
-		
-		<subclass discriminator-value="Coupon" name="Coupon">
-			<property name="code"></property>
-			<property name="value"></property>
-			<join table="SHOP_Coupon" >
-				<key column="Promotion_id"></key>
-			</join>
-		</subclass>
-		
-		<subclass discriminator-value="CutOff" name="CutOff">
-			<property name="percent"></property>
-			<join table="SHOP_CutOff" >
-				<key column="Promotion_id"></key>
-			</join>
-		</subclass>
-		
-		<subclass discriminator-value="MarkPlace" name="MarkPlace">
-			<property name="html" length="8000"></property>
-			<join table="SHOP_MarkPlace" >
-				<key column="Promotion_id"></key>
-			</join>
-		</subclass>
 	</class>
 	
 	<class name="Site" table="SHOP_Site">
