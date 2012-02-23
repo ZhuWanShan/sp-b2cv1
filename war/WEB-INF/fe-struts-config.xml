@@ -144,6 +144,14 @@
 			<forward name="Success" path="/jsp/subscribeEmail.jsp"></forward>
 		</action>
 		
+		
+		<action 
+			path="/couponAction_12343445324564564521223" 
+			type="com.spshop.fe.actions.CouponAction" 
+			name="pageForm"
+			scope="request">
+		</action>
+		
 <!-- 		<action  -->
 <!-- 			path="/keywords/*"  -->
 <!-- 			type="com.spshop.fe.actions.PageAction"  -->

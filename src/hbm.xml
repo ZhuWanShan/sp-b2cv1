@@ -202,6 +202,8 @@
 		<property name="bcustomerAddress2" ></property>
 		<property name="bcity" ></property>
 		<property name="state" ></property>
+		<property name="couponCode" ></property>
+		<property name="couponCutOff" ></property>
 		<property name="bstate" ></property>
 		<property name="bcustomerZipcode" ></property>
 		<property name="bphone" ></property>
