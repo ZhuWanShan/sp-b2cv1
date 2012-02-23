@@ -142,7 +142,7 @@ public class EmailTools {
     	                && commonEmailProperties.containsKey(mailType + AllConstants.MAIL_FROM_PASSWORD)) {
     	            email.setAuthentication(commonEmailProperties.getProperty(mailType + AllConstants.MAIL_FROM_ACCOUNT),
     	                                    commonEmailProperties.getProperty(mailType + AllConstants.MAIL_FROM_PASSWORD));
-    	            email.setFrom(commonEmailProperties.getProperty(mailType + AllConstants.MAIL_FROM_ACCOUNT));
+    	            email.setFrom(commonEmailProperties.getProperty(mailType + AllConstants.MAIL_FROM_ACCOUNT), AllConstants.MAIL_FROM_NAME);
     	        } else {
     	            email.setAuthentication(AllConstants.DEFAULT_MAIL_FROM_ACCOUNT, mailType + AllConstants.DEFAULT_MAIL_FROM_PASSWORD);
     	        }
