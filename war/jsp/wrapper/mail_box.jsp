@@ -54,7 +54,7 @@
 <!-- 	<br> -->
 <!-- 	<div id="bar1" style="text-align:center;"></div> -->
 <!-- 	<br> -->
-<!-- 	<div class="hei10"></div> -->
+	<div class="hei10"></div>
 <!-- 	<br> -->
 	<jsp:include page="news_letter.jsp"></jsp:include>
 
