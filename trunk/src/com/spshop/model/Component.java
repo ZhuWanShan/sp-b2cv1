@@ -17,6 +17,7 @@ public  abstract class Component implements Serializable,Cloneable{
 	private Date updateDate;
 	private boolean expired;
 	private String strExpired;
+	private int componentStatus;
 	
 	public Component() {
 	}
@@ -35,6 +36,7 @@ public  abstract class Component implements Serializable,Cloneable{
 		setName(component.getName());
 		setCreateDate(component.getCreateDate());
 		setUpdateDate(component.getUpdateDate());
+		setComponentStatus(getComponentStatus());
 	}
 
 	public long getId() {
@@ -138,5 +140,14 @@ public  abstract class Component implements Serializable,Cloneable{
 			return false;
 		return true;
 	}
+
+	public int getComponentStatus() {
+		return componentStatus;
+	}
+
+	public void setComponentStatus(int componentStatus) {
+		this.componentStatus = componentStatus;
+	}
+
 
 }

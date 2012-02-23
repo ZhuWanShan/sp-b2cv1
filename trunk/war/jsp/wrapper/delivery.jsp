@@ -414,14 +414,60 @@
         <td id="dis_name"></td>
         <td>-US$ <span id="dis"></span></td>
       </tr>
+      
+	<tr>
+        <td class="total">Enter a Coupon:</td>
+        <td class="price bold" style="color:#cc0000;">
+            <input name="couponCode" id="couponCode" />
+             
+             <span  id="Submit_msg" style="color:#cc0000;"></span>
+             <br>
+             <span style="cursor: pointer;" id="Submit_Coupon">Submit Coupon</span>
+            
+            <script type="text/javascript">
+				    jq("#Submit_Coupon").click(function(){
+				    	var couponCode = jq("#couponCode").val();
+				    	jq.ajax({
+				    		url: '/couponAction_12343445324564564521223',
+				    		data:"couponCode="+couponCode,
+				    		beforeSend: function(){
+				    			jq("#Submit_msg").html("<img src='/image/loading-animation.gif'> ");
+				    		},
+				    		success: function(data){
+				    			var r = eval(data);
+				    			if(r.errorString){
+				    				jq("#Submit_msg").html(r.errorString);
+				    			}else{
+				    				jq("#Coupon_cut_off").html("- " + r.cut);
+				    				jq("#total").html( r.total);
+				    				jq("#Submit_msg").html("Success");
+				    			}
+				    			
+				    		},
+				    		error :  function(a,b,c){
+				    			jq("#Submit_msg").html("Failed");
+				    		}
+				    	});
+				    });     	
+            </script>
+        </td>
+      </tr>
+
+	<tr>
+        <td class="total">Coupon cut off:</td>
+        <td class="price bold" style="color:#cc0000;" id="Coupon_cut_off">
+           - ${currency} <fmt:formatNumber currencyCode="${currency }" maxFractionDigits="2" value="${(shoppingcart.order.couponCutOff)* currencies[currency]}"></fmt:formatNumber>
+        </td>
+      </tr>
       <tr>
         <td class="total">Grand Total:</td>
         <td style="color:#cc0000;" class="price bold"> <span style="color:#cc0000;" id="total">
-          ${currency} <fmt:formatNumber currencyCode="${currency }" maxFractionDigits="2" value="${(shoppingcart.order.totalPrice + shoppingcart.order.dePrice)* currencies[currency]}"></fmt:formatNumber>
+          ${currency} <fmt:formatNumber currencyCode="${currency }" maxFractionDigits="2" value="${(shoppingcart.order.totalPrice + shoppingcart.order.dePrice - shoppingcart.order.couponCutOff)* currencies[currency]}"></fmt:formatNumber>
        </span></td>
       </tr>
+      
       <tr>
-        <td style="text-align:right;" colspan="3">           <input type="submit" value="CONTINUE" id="paymentsubmit" class="ContinueCheckout_pay" name="operation" onclick="return confirm('I am sure all item correct.')">
+        <td style="text-align:right;" colspan="3"> <input type="submit" value="CONTINUE" id="paymentsubmit" class="ContinueCheckout_pay" name="operation" onclick="return confirm('I am sure all item correct.')">
            </td>
       </tr>
     </tbody></table>

@@ -46,6 +46,10 @@ public class Order extends Component{
 	private String bPhone;
 	private String shippingMethod;
 	
+	private float couponCutOff;
+	
+	private String couponCode;
+	
 	public Order() {
 		if(null!=getName()){
 			setName(getOrderId());
@@ -278,6 +282,8 @@ public class Order extends Component{
 		}
 		
 		obj.dePrice = this.dePrice;
+		obj.couponCutOff = this.couponCutOff;
+		
 		
 		if (this.city != null) {
 			/* Does not have a clone() method */
@@ -287,6 +293,12 @@ public class Order extends Component{
 		if (this.currency != null) {
 			/* Does not have a clone() method */
 			obj.currency = this.currency;
+		}
+		
+
+		if (this.couponCode != null) {
+			/* Does not have a clone() method */
+			obj.couponCode = this.couponCode;
 		}
 		
 		if (this.items != null) {
@@ -533,6 +545,22 @@ public class Order extends Component{
 
 	public void setShippingMethod(String shippingMethod) {
 		this.shippingMethod = shippingMethod;
+	}
+
+	public float getCouponCutOff() {
+		return couponCutOff;
+	}
+
+	public void setCouponCutOff(float couponCutOff) {
+		this.couponCutOff = couponCutOff;
+	}
+
+	public String getCouponCode() {
+		return couponCode;
+	}
+
+	public void setCouponCode(String couponCode) {
+		this.couponCode = couponCode;
 	}
 	
 }

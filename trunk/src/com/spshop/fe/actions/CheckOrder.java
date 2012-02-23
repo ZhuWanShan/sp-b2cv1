@@ -22,9 +22,11 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.spshop.fe.formbeans.PageFormBean;
+import com.spshop.model.Coupon;
 import com.spshop.model.Order;
 import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.CouponService;
 import com.spshop.service.intf.OrderService;
 import com.spshop.utils.EmailTools;
 
@@ -110,17 +112,17 @@ public class CheckOrder extends BaseAction {
 					logger.info(">>>>>>>>>>>>>>>>>>>paymentCurrency:"+paymentCurrency+">>>>>>>>>>>>>>>>>>>>>>");
 					logger.info(">>>>>>>>>>>>>>>>>>>receiverEmail:"+receiverEmail+">>>>>>>>>>>>>>>>>>>>>>");
 					logger.info(">>>>>>>>>>>>>>>>>>>itemNumber:"+quantity+">>>>>>>>>>>>>>>>>>>>>>");
-					logger.info(">>>>>>>>>>>>>>>>>>>(order.getTotalPrice()+order.getDePrice()):"+(order.getTotalPrice()+order.getDePrice())+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>(order.getTotalPrice()+order.getDePrice() - order.getCouponCutOff()):"+(order.getTotalPrice()+order.getDePrice() - order.getCouponCutOff())+">>>>>>>>>>>>>>>>>>>>>>");
 					
 					logger.info(">>>>>>>>>>>>>>>>>>>receiverEmail.equalsIgnoreCase(ACCOUNT):"+receiverEmail.equalsIgnoreCase(ACCOUNT)+">>>>>>>>>>>>>>>>>>>>>>");
 					logger.info(">>>>>>>>>>>>>>>>>>>itemNumber.equals('1'):"+quantity.equals("1")+">>>>>>>>>>>>>>>>>>>>>>");
 					logger.info(">>>>>>>>>>>>>>>>>>>order.getCurrency().equals(paymentCurrency):"+order.getCurrency().equals(paymentCurrency)+">>>>>>>>>>>>>>>>>>>>>>");
 					logger.info(">>>>>>>>>>>>>>>>>>>receiverEmail.equalsIgnoreCase(ACCOUNT):"+receiverEmail.equalsIgnoreCase(ACCOUNT)+">>>>>>>>>>>>>>>>>>>>>>");
-					logger.info(">>>>>>>>>>>>>>>>>>>((order.getTotalPrice()+order.getDePrice())*rate- 1) <= Float.parseFloat(paymentAmount):"+((order.getTotalPrice()+order.getDePrice()-.5) <= Float.parseFloat(paymentAmount))+">>>>>>>>>>>>>>>>>>>>>>");
+					
 					
 					float rate = getCurrencies(request).get(order.getCurrency());
-					
-					if(((order.getTotalPrice()+order.getDePrice())*rate- 1) <= Float.parseFloat(paymentAmount)
+					logger.info(">>>>>>>>>>>>>>>>>>>((order.getTotalPrice()+order.getDePrice() - order.getCouponCutOff())*rate- 1) <= Float.parseFloat(paymentAmount):"+(((order.getTotalPrice()+order.getDePrice() - order.getCouponCutOff())*rate- 1)  <= Float.parseFloat(paymentAmount))+">>>>>>>>>>>>>>>>>>>>>>");
+					if(((order.getTotalPrice()+order.getDePrice() - order.getCouponCutOff())*rate- 1) <= Float.parseFloat(paymentAmount)
 							&&order.getCurrency().equals(paymentCurrency)
 							&&receiverEmail.equalsIgnoreCase(ACCOUNT)
 							&&quantity.equals("1")){
@@ -129,6 +131,13 @@ public class CheckOrder extends BaseAction {
 						root.put("order", order);
 						root.put("currencyRate", getCurrencies(request).get(order.getCurrency()));
 						EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,order.getCustomerEmail());
+						try{
+							Coupon coupon = ServiceFactory.getService(CouponService.class).getCouponByCode(order.getCouponCode());
+							coupon.setUsedCount(coupon.getUsedCount()+1);
+							ServiceFactory.getService(CouponService.class).saveCoupon(coupon);
+						}catch(Exception e){
+							logger.info(e.getMessage(),e);
+						}
 					}else{
 						logger.info(">>>>>>>>>>>>>>>>>>>NOT enough mony>>>>>>>>>>>>>>>>>>>>>>");
 					}
