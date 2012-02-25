@@ -94,7 +94,7 @@
 						<tr>
 							<td class="custItem">E Waist:</td>
 							<td><input id="Customszie5" name="Waist Size"
-								type="text" size="8"><span id="unit1">cm</span><span
+								type="text" size="8"><span id="unit5">cm</span><span
 								id="cussize1" style="display: none;"><img
 									src="../css/unchecked.gif" />
 							</span>
@@ -106,7 +106,7 @@
 						<tr>
 							<td class="custItem">F Hip:</td>
 							<td><input id="Customszie6" name="Hip Size"
-								type="text" size="8"><span id="unit2">cm</span><span
+								type="text" size="8"><span id="unit6">cm</span><span
 								id="cussize2" style="display: none;"><img
 									src="../css/unchecked.gif" />
 							</span>
@@ -118,7 +118,7 @@
 						<tr>
 							<td class="custItem">G Outseam:</td>
 							<td><input id="Customszie7" name="Outseam Length"
-								type="text" size="8"><span id="unit3">cm</span><span
+								type="text" size="8"><span id="unit7">cm</span><span
 								id="cussize3" style="display: none;"><img
 									src="../css/unchecked.gif" />
 							</span>
@@ -128,7 +128,7 @@
 						<tr>
 							<td class="custItem">H Inseam:</td>
 							<td><input id="Customszie8" name="Inseam Length"
-								type="text" size="8"><span id="unit4">cm</span><span
+								type="text" size="8"><span id="unit8">cm</span><span
 								id="cussize4" style="display: none;"><img
 									src="../css/unchecked.gif" />
 							</span>
