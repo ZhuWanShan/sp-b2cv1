@@ -86,7 +86,7 @@ public class OrderInfo extends Composite {
         this.bPhone.setText(this.order.getBphone());
         this.bZIP.setText(this.order.getBcustomerZipcode());
         Site site = AdminWorkspace.loginInfo.getSite();
-        this.orderURL.setHTML("<a href='" + "http://" + site.getDomain() + "/orders?id=" + order.getName() + "' target='blank' style='color:red;'>Order Details</a>");
+        this.orderURL.setHTML("<a href='" + "http://" + site.getDomain() + "/orders?id=" + order.getName() + "' target='_blank' style='color:red;'>Order Details</a>");
     }
     interface OrderInfoUiBinder extends UiBinder<Widget, OrderInfo> {
     }
