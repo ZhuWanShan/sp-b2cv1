@@ -50,9 +50,9 @@
         <div style="font-size: 24px">
         	 Your order is almost complete, please click OK button!
         </div>
-       <div style="font-size:24px" class="s14">
-        	UP TO <b style="font-size: 36px" class="red fontbold">80% OFF</b> on Selected ITEMS + <b style="font-size: 36px" class="red fontbold">FREE SHIPPING</b> ON ALL DRESSES 
-        </div>
+<!--        <div style="font-size:24px" class="s14"> -->
+<!--         	UP TO <b style="font-size: 36px" class="red fontbold">80% OFF</b> on Selected ITEMS + <b style="font-size: 36px" class="red fontbold">FREE SHIPPING</b> ON ALL DRESSES  -->
+<!--         </div> -->
       </div>
 	</div>
 	<div class="main_box">
@@ -69,17 +69,17 @@
 			<div class="box_title">Order Infomation</div>
 			<div class="box_item_content">
 				<c:if test="${not empty defaultOrder}">
-					<pre>
-					Order #: ${defaultOrder.name }
-					Total  : ${currency } <fmt:formatNumber
-							value="${defaultOrder.totalPrice * currencies[currency]}"
-							maxFractionDigits="2" currencyCode="${currency}"></fmt:formatNumber>+<fmt:formatNumber
-							value="${defaultOrder.dePrice  * currencies[currency]}"
-							maxFractionDigits="2" currencyCode="${currency}"></fmt:formatNumber> - <fmt:formatNumber
-							value="${defaultOrder.couponCutOff  * currencies[currency]}"
-							maxFractionDigits="2" currencyCode="${currency}"></fmt:formatNumber> = <fmt:formatNumber
-							value="${(defaultOrder.totalPrice + defaultOrder.dePrice - defaultOrder.couponCutOff) * currencies[currency]}"
-							maxFractionDigits="2" currencyCode="${currency}"></fmt:formatNumber>
+				<pre style="font-size: 15px;">
+				Order NO.: ${defaultOrder.name }
+				Total  : ${currency } <fmt:formatNumber
+						value="${defaultOrder.totalPrice * currencies[currency]}"
+						maxFractionDigits="2" currencyCode="${currency}"></fmt:formatNumber>+<fmt:formatNumber
+						value="${defaultOrder.dePrice  * currencies[currency]}"
+						maxFractionDigits="2" currencyCode="${currency}"></fmt:formatNumber> - <fmt:formatNumber
+						value="${defaultOrder.couponCutOff  * currencies[currency]}"
+						maxFractionDigits="2" currencyCode="${currency}"></fmt:formatNumber> = <fmt:formatNumber
+						value="${(defaultOrder.totalPrice + defaultOrder.dePrice - defaultOrder.couponCutOff) * currencies[currency]}"
+						maxFractionDigits="2" currencyCode="${currency}"></fmt:formatNumber>
 				</pre>
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post"
 						id="paypaysubmitForm">
