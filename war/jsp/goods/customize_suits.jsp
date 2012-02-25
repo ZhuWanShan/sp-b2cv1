@@ -31,7 +31,7 @@
 		<div class="alert_thing_main">
 			<div id="custom1" style="display: none;"></div>
 			<script language="javascript">
-				var customnum = 8;
+				var customnum = 9;
 			</script>
 			<div id="custom2">
 				<div class="left_img">
