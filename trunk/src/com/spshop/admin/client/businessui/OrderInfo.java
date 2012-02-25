@@ -9,12 +9,14 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.spshop.admin.client.AdminWorkspace;
 import com.spshop.admin.client.CommandFactory;
 import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.model.Order;
+import com.spshop.model.Site;
 
 public class OrderInfo extends Composite {
 
@@ -53,6 +55,7 @@ public class OrderInfo extends Composite {
     @UiField Label bCity;
     @UiField Label bZIP;
     @UiField Label bPhone;
+    @UiField HTML orderURL;
     private void populateOrderInfo(){
         DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
         this.customerName.setText(this.order.getCustomerName());
@@ -82,6 +85,8 @@ public class OrderInfo extends Composite {
         this.bCity.setText(this.order.getBcity());
         this.bPhone.setText(this.order.getBphone());
         this.bZIP.setText(this.order.getBcustomerZipcode());
+        Site site = AdminWorkspace.loginInfo.getSite();
+        this.orderURL.setHTML("<a href='" + "http://" + site.getDomain() + "/orders?id=" + order.getName() + "' target='blank' style='color:red;'>Order Details</a>");
     }
     interface OrderInfoUiBinder extends UiBinder<Widget, OrderInfo> {
     }
