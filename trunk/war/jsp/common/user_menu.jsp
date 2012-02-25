@@ -36,7 +36,7 @@
 		}
 		</script>
 		<c:if test="${sessionScope.userInfo eq null}">
-			<li id="base_unlogin_li" class="">Login
+			<li id="base_unlogin_li" class="">Login or Register
 				<div style="width: 200px; cursor: default; display: none;"
 					class="user_menu_hidd">
 					<form method="post" action="/login">
