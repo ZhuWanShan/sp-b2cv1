@@ -268,6 +268,9 @@
 							<g:Label ui:field="bPhone" styleName="{style.value}"/>
 						</g:customCell>
 						<g:customCell>
+							<g:HTML wordWrap="true" ui:field="orderURL">orderURL</g:HTML>
+						</g:customCell>
+						<g:customCell>
 							<g:Label styleName="{style.items}"/>
 						</g:customCell>
 						<g:customCell>
