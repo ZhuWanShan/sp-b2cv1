@@ -23,7 +23,9 @@ public class CouponServiceImpl extends AbstractService<Coupon,CouponDAO, Long> i
 			coupon.setCreateDate(new Date());
 		}
 		coupon.setUpdateDate(new Date());
-		coupon.setCode(generateCouponCode());
+		if(null == coupon.getCode()){
+			coupon.setCode(generateCouponCode());
+		}
 		getDao().save(coupon);
 	}
 
