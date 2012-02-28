@@ -13,6 +13,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
@@ -57,6 +58,8 @@ public class ShoppingCartAction extends BaseAction {
 	private static final String ADDRESS_LA="LA";
 	
 	public static final String CMD_CHECK = "check";
+	
+	private static Logger logger = Logger.getLogger(ShoppingCartAction.class);
 	
 	@SuppressWarnings("unchecked")
 	private List<UserOption> retriveUserOptions(ServletRequest request){
@@ -391,6 +394,15 @@ public class ShoppingCartAction extends BaseAction {
 			clearCart(request);
 		}
 		if("goToCheck".equals(retriveOperation(request))){
+			if("repay".equals(request.getParameter("operation_Type"))){
+				try{
+					Order order2 = ServiceFactory.getService(OrderService.class).getOrderById(request.getParameter("orderId"));
+					//order2.setStatus(OrderStatus.ONSHOPPING.getValue());
+					getCart(request, response).setOrder(order2);
+				}catch(Exception exception){
+					logger.warn(exception.getMessage(), exception);
+				}
+			}
 			if(null == request.getSession().getAttribute(AllConstants.USER_INFO)){
 				response.sendRedirect("/login/cmd/goto_check");
 				return null;
