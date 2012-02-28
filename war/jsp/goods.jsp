@@ -30,6 +30,7 @@
 	<script src="../js/ajax.js" type="text/javascript"></script>
 	<script src="http://cdn.gigya.com/js/socialize.js?apiKey=2_1UXpzvtcCUTsgsqVzgFllQgReHnrU1ZScSL7tJAC1ftCy_DMCPUi2iTExpYFaddy"></script>
 	<script src="../js/ga.js" type="text/javascript"></script>
+	<link href="https://plus.google.com/109978880912693970020" rel="publisher" />
 </head>
 <body>
 	<!-- Header start -->
