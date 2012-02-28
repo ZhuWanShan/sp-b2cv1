@@ -11,9 +11,9 @@
 	padding: 10px;
 }
 
-.w-b,.w-bp {
-	border: 1px solid #DDDDDD;
-}
+/* .w-b,.w-bp { */
+/* 	border: 1px solid #DDDDDD; */
+/* } */
 
 .w-bp-a,.w-bp,.w-b,.w-p,.widget,.clearfix,.section {
 	clear: both;
