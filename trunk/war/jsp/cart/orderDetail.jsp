@@ -33,7 +33,7 @@
 		</ss:orders>
 	</c:if>
 	<c:if test="${not empty defaultOrder.items}">
-	<div id="right_column">
+	<div id="right_column" style="margin-top: 0px">
 		<p id="order_title">Total Price</p>
 		<div id="check_box">
 			<p>
@@ -46,8 +46,17 @@
 			<p>
 				Status: <span><c:out value="${defaultOrder.status}" /></span>
 			</p>
+			<c:if test="${defaultOrder.status eq 'PENDING'}">
+				<form method="post" action="/shoppingCart">
+					<input type="hidden" value="goToCheck" name="operation">
+					<input type="hidden" value="repay" name="operation_Type">
+					<input type="hidden" value="${defaultOrder.name}" name="orderId">
+					<input type="submit" value="Pay">
+				</form>
+			</c:if>
 		</div>
 		<div id="safe_box">
+			
 		</div>
 	</div>
 	<div id="left_column">
@@ -133,6 +142,7 @@
 							</td>
 						</tr>
 						</c:forEach>
+						
 					</tbody>
 				</table>
 			</div>
