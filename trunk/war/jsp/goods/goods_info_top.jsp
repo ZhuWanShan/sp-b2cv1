@@ -425,7 +425,12 @@
 
 					<input type="submit" style="display: none;" id="sub"
 						value="ADD TO MY BAG" class="item_addBag"> <input
-						type="submit" id="nosub" value="ADD TO MY BAG" class="item_addBag">
+						type="submit" id="nosubitem_addBag" value="ADD TO MY BAG" class="item_addBag">
+						<script type="text/javascript">
+							jq("#nosubitem_addBag").click(function(){
+								jq("#nosubitem_addBag").attr("disabled","disabled");
+							});
+						</script>
 					<%--<div class="sub_outDiv_normal" style="display: none;"
 						id="sub_outDiv">
 						<div id="notselect_tips" class="notselect_tips">
