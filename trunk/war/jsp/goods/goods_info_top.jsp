@@ -428,7 +428,7 @@
 						type="submit" id="nosubitem_addBag" value="ADD TO MY BAG" class="item_addBag">
 						<script type="text/javascript">
 							jq("#nosubitem_addBag").click(function(){
-								jq("#nosubitem_addBag").attr("disabled","disabled");
+								//jq("#nosubitem_addBag").attr("disabled","disabled");
 								jq("#cusform").submit();
 								
 							});
