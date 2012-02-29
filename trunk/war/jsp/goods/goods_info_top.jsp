@@ -429,6 +429,8 @@
 						<script type="text/javascript">
 							jq("#nosubitem_addBag").click(function(){
 								jq("#nosubitem_addBag").attr("disabled","disabled");
+								jq("#cusform").submit();
+								
 							});
 						</script>
 					<%--<div class="sub_outDiv_normal" style="display: none;"
