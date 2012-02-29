@@ -41,7 +41,7 @@ public class ShoppingCart {
 						existItem = true;
 						item.setQuantity(item.getQuantity()+qty);
 						item.setUpdateDate(new Date());
-						item.setFinalPrice((float)(item.getQuantity()*product.getActualPrice()));
+						item.setFinalPrice((float)product.getActualPrice());
 					}
 				}
 			}
