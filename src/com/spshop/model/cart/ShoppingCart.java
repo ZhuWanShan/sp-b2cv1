@@ -24,12 +24,12 @@ public class ShoppingCart {
 		this.order = order;
 	}
 
-	public Order getOrder() {
+	public synchronized Order getOrder() {
 		updateCat();
 		return order;
 	}
 
-	public void addItem(Product product, List<UserOption> options, int qty) {
+	public synchronized void addItem(Product product, List<UserOption> options, int qty) {
 		if(null==order.getItems()){
 			order.setItems(new ArrayList<OrderItem>());
 		}
@@ -61,7 +61,7 @@ public class ShoppingCart {
 		}
 	}
 
-	public void update(String itemName, int qty) {
+	public synchronized void update(String itemName, int qty) {
 		if(null!=order.getItems()){
 			for (OrderItem item : order.getItems()) {
 				if(item.getName().equals(itemName)){
@@ -72,7 +72,7 @@ public class ShoppingCart {
 		}
 	}
 
-	public void remove(String itemName) {
+	public synchronized void remove(String itemName) {
 		if(null!=order.getItems()){
 			OrderItem toRemoveItem = null;
 			for (OrderItem item : order.getItems()) {
@@ -86,14 +86,14 @@ public class ShoppingCart {
 		}
 	}
 	
-	public int getItemCount(){
+	public synchronized int getItemCount(){
 		if(null!=order&&order.getItems()!=null){
 			return order.getItems().size();
 		}
 		return 0;
 	}
 	
-	private void updateCat(){
+	private synchronized void updateCat(){
 		if(null!=order&&null!=order.getItems()&&order.getItems().size()>0){
 			float totalPrice = 0;
 			for (OrderItem orderItem : order.getItems()) {
