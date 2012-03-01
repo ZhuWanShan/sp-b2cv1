@@ -2045,7 +2045,7 @@ jQuery( document ).ready(function() {
 	
 	jQuery( '.jq_default_value' ).defaultValue();
 	
-	jQuery( "select[name^='text@']" ).change(function(){
+	jQuery( "select[name^='text@Size']" ).change(function(){
 		if("Customized"==jQuery(this).val()){
 			jQuery("#alert_thing_box_customizedsize").show("normal");
 		}else{
