@@ -1,6 +1,6 @@
 package com.spshop.cache;
 
-import static com.spshop.utils.AllConstants.CATEGORY_CACHE;
+import static com.spshop.utils.Constants.CATEGORY_CACHE;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ import com.spshop.service.intf.ProductService;
 import com.spshop.service.intf.SiteService;
 import com.spshop.service.intf.TabProductService;
 import com.spshop.service.intf.TabSellingService;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 @SuppressWarnings("unchecked")
 public class SCacheFacade{
 	private static SCacheManager cacheManager;
@@ -117,11 +117,11 @@ public class SCacheFacade{
 		SiteService ss = ServiceFactory.getService(SiteService.class);
 		Site site = null;
 		
-		if(!faceUpdate&&null!=getGlobalCache().get(AllConstants.DEFAULT_SITE_CACHE)){
-			site = (Site) getGlobalCache().get(AllConstants.DEFAULT_SITE_CACHE).getValue();
+		if(!faceUpdate&&null!=getGlobalCache().get(Constants.DEFAULT_SITE_CACHE)){
+			site = (Site) getGlobalCache().get(Constants.DEFAULT_SITE_CACHE).getValue();
 		}else{
-			site = ss.getSiteById(AllConstants.DEFAULT_SITE_ID);
-			getGlobalCache().put(new Element(AllConstants.DEFAULT_SITE_CACHE, site));
+			site = ss.getSiteById(Constants.DEFAULT_SITE_ID);
+			getGlobalCache().put(new Element(Constants.DEFAULT_SITE_CACHE, site));
 		}
 		
 		return site;
@@ -170,11 +170,11 @@ public class SCacheFacade{
 		TabSellingService ss = ServiceFactory.getService(TabSellingService.class);
 		TabSelling tabSelling = null;
 		
-		if(!faceUpdate&&null!=getGlobalCache().get(AllConstants.DEFAULT_TABSELLING_CACHE)){
-			tabSelling = (TabSelling) getGlobalCache().get(AllConstants.DEFAULT_TABSELLING_CACHE).getValue();
+		if(!faceUpdate&&null!=getGlobalCache().get(Constants.DEFAULT_TABSELLING_CACHE)){
+			tabSelling = (TabSelling) getGlobalCache().get(Constants.DEFAULT_TABSELLING_CACHE).getValue();
 		}else{
 			tabSelling = ss.getDefaulTabSelling();
-			getGlobalCache().put(new Element(AllConstants.DEFAULT_TABSELLING_CACHE, tabSelling));
+			getGlobalCache().put(new Element(Constants.DEFAULT_TABSELLING_CACHE, tabSelling));
 		}
 		
 		return tabSelling;

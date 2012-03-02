@@ -30,7 +30,7 @@ import com.spshop.model.cart.ShoppingCart;
 import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.OrderService;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 
 public abstract class BaseAction extends Action {
 	

@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<%@page import="com.spshop.utils.AllConstants"%>
+<%@page import="com.spshop.utils.Constants"%>
 <%@ include file="jsp/include.jsp"%>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -72,7 +72,7 @@
 						</c:if>
 					</ul>
 					<div class="putIn_box2">
-						<input type="hidden" name="<%=AllConstants.ACTION %>" value="<%=AllConstants.LOGIN_ACTION %>" />
+						<input type="hidden" name="<%=Constants.ACTION %>" value="<%=Constants.LOGIN_ACTION %>" />
 						<input type="submit" class="submit_blue1" value="Login" />
 					</div>
 					<c:if test="${processCheckWithoutLogin }">

@@ -14,7 +14,7 @@ import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.User;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.UserService;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 import com.spshop.utils.EmailTools;
 
 public class RegisterAction extends BaseAction {
@@ -48,10 +48,10 @@ public class RegisterAction extends BaseAction {
                 };
             }.start();
             
-            request.getSession(true).setAttribute(AllConstants.USER_INFO, user);
-            return mapping.findForward(AllConstants.SUCCESS_VALUE);
+            request.getSession(true).setAttribute(Constants.USER_INFO, user);
+            return mapping.findForward(Constants.SUCCESS_VALUE);
         } else {
-            return mapping.findForward(AllConstants.fAILURE_VALUE);
+            return mapping.findForward(Constants.fAILURE_VALUE);
         }
     }
 

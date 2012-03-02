@@ -11,7 +11,7 @@ import com.spshop.cache.SCacheFacade;
 import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Order;
 import com.spshop.model.OrderItem;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 
 public class RemoveItemAction extends BaseAction {
 	@Override
@@ -33,7 +33,7 @@ public class RemoveItemAction extends BaseAction {
 		session.setAttribute("orderItemLength", String.valueOf(order.getItems().size()));
 		session.setAttribute("userOrder", order);
 		
-		return mapping.findForward(AllConstants.SUCCESS_VALUE);
+		return mapping.findForward(Constants.SUCCESS_VALUE);
 	}
 
 }

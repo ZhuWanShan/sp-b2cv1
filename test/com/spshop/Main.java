@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.web.servlet.DispatcherServlet;
+
 import magick.MagickException;
 
 import com.spshop.model.Coupon;
@@ -74,7 +76,6 @@ public class Main {
 		coupon.setUpdateDate(new Date());
 		coupon.setUsedCount(11);
 		coupon.setValue(.90f);
-		
 		ServiceFactory.getService(CouponService.class).save(coupon);
 	}
 }

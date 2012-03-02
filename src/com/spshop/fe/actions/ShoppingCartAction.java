@@ -30,7 +30,7 @@ import com.spshop.model.enums.SelectType;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.OrderService;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 import com.spshop.utils.EmailTools;
 
 public class ShoppingCartAction extends BaseAction {
@@ -289,7 +289,7 @@ public class ShoppingCartAction extends BaseAction {
 		if(CMD_CHECK.equals(retrieveCMDURL(request))){
 			
 			
-			 User user = (User)request.getSession().getAttribute(AllConstants.USER_INFO);
+			 User user = (User)request.getSession().getAttribute(Constants.USER_INFO);
 			 Order order2 = getCart(request, response).getOrder();
 			 if(null != user && null!=order2.getUser()){
 				 order2.setUser(user);
@@ -407,7 +407,7 @@ public class ShoppingCartAction extends BaseAction {
 					logger.warn(exception.getMessage(), exception);
 				}
 			}
-			if(null == request.getSession().getAttribute(AllConstants.USER_INFO)){
+			if(null == request.getSession().getAttribute(Constants.USER_INFO)){
 				response.sendRedirect("/login/cmd/goto_check");
 				return null;
 			}else{
@@ -417,14 +417,14 @@ public class ShoppingCartAction extends BaseAction {
 			//request.setAttribute("showCheckOption", true);
 		}
 		
-		request.setAttribute(AllConstants.REQUEST_ERROR, errorStrings);
-		request.setAttribute(AllConstants.REQUEST_MSG, msgs);
-		return mapping.findForward(AllConstants.SUCCESS_VALUE);
+		request.setAttribute(Constants.REQUEST_ERROR, errorStrings);
+		request.setAttribute(Constants.REQUEST_MSG, msgs);
+		return mapping.findForward(Constants.SUCCESS_VALUE);
 
 	}
 	
 	private User retriveUser(HttpServletRequest request){
-		return (User) request.getSession().getAttribute(AllConstants.USER_INFO);
+		return (User) request.getSession().getAttribute(Constants.USER_INFO);
 	}
 	
 	
@@ -436,11 +436,11 @@ public class ShoppingCartAction extends BaseAction {
 		order.setName(getOrderId());
 		order.setCurrency(getCurrencyName(request));
 		request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
-		request.getSession().setAttribute(AllConstants.DEFAULT_ORDER, null);
+		request.getSession().setAttribute(Constants.DEFAULT_ORDER, null);
 	}
 	
 	private void updateCart(HttpServletRequest request,  HttpServletResponse response, OrderStatus status){
-		if(null == request.getSession().getAttribute(AllConstants.USER_INFO)){
+		if(null == request.getSession().getAttribute(Constants.USER_INFO)){
 			getCart(request,response).getOrder().setUser(null);
 		}
 		if(null!=getCart(request,response).getOrder().getItems()&&getCart(request,response).getOrder().getItems().size()>0){
@@ -492,7 +492,7 @@ public class ShoppingCartAction extends BaseAction {
 //				}
 				//order.setName(getOrderId());
 				//order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
-				request.setAttribute(AllConstants.DEFAULT_ORDER, order);
+				request.setAttribute(Constants.DEFAULT_ORDER, order);
 				updateCart(request, response,OrderStatus.PENDING);
 				final Map<String,Object> root = new HashMap<String,Object>(); 
 				final Order o = order;

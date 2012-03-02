@@ -1,6 +1,6 @@
 package com.spshop.admin.server;
 
-import static com.spshop.utils.AllConstants.CATEGORY_CACHE;
+import static com.spshop.utils.Constants.CATEGORY_CACHE;
 
 import java.io.IOException;
 import java.util.Timer;

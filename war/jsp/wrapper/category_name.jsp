@@ -1,4 +1,4 @@
-<%@page import="com.spshop.utils.AllConstants"%>
+<%@page import="com.spshop.utils.Constants"%>
 <%@include file="../include.jsp" %>
 <div class="Categories_name">
 	<h2 style="font-weight: normal" class="dark font_size12">
@@ -10,7 +10,7 @@
 	<c:forEach items="${pageForm.category.subCategories}" var="subCategory">
 		<li>
 		<c:if test="${empty subCategory.url}">
-			<a href="<%= AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%= AllConstants.CATEGORY_URL %>/${subCategory.name}"
+			<a href="<%= Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%= Constants.CATEGORY_URL %>/${subCategory.name}"
 				   title="${subCategory.displayName}" class="cg">
 				   ${subCategory.displayName}
 				   <img src="/css/thing_hot.gif"
@@ -18,7 +18,7 @@
 			</a>
 		</c:if>
 		<c:if test="${!empty subCategory.url}">
-			<a href="<%=AllConstants.HTTP_PROTOCOL%>${pageForm.category.url}"
+			<a href="<%=Constants.HTTP_PROTOCOL%>${pageForm.category.url}"
 			   title="${subCategory.displayName}" class="cg">
 			   ${subCategory.displayName} 
 			   <img src="/css/thing_hot.gif"

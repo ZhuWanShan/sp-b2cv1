@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.spshop.admin.shared.ExceptionType;
 import com.spshop.admin.shared.LoginInfo;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 public class RemoteService extends RemoteServiceServlet {
 	/**
 	 * 
@@ -18,7 +18,7 @@ public class RemoteService extends RemoteServiceServlet {
 
 	protected void validate(HttpServletRequest request) {
 		LoginInfo loginInfo = (LoginInfo) request.getSession().getAttribute(
-				AllConstants.ADMIN_LOGIN_INFO);
+				Constants.ADMIN_LOGIN_INFO);
 		if (null == loginInfo) {
 			throw new RuntimeException(ExceptionType.NO_SIGN_IN.getValue());
 		}
@@ -32,6 +32,6 @@ public class RemoteService extends RemoteServiceServlet {
 	
 	public LoginInfo getLoginInfo(){
 			return (LoginInfo) getThreadLocalRequest().getSession()
-			.getAttribute(AllConstants.ADMIN_LOGIN_INFO);
+			.getAttribute(Constants.ADMIN_LOGIN_INFO);
 	}	
 }

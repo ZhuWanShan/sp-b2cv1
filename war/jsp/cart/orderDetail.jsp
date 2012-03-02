@@ -1,5 +1,5 @@
 <%@ include file="../include.jsp" %>
-<%@page import="com.spshop.utils.AllConstants"%>
+<%@page import="com.spshop.utils.Constants"%>
 <div id="container">
 
 	<form action="/orders" method="post">
@@ -17,7 +17,7 @@
 				<input type="text" name="id" style="width: 300px;height: 22px">
 			</c:if>
 				<button class="button_orange" type="submit"
-				onclick="location.href='<%= AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}'">GO</button>
+				onclick="location.href='<%= Constants.HTTP_PROTOCOL %>${pageForm.site.domain}'">GO</button>
 		</c:if>
 	</form>
 	<c:if test="${(not empty param.id)}">

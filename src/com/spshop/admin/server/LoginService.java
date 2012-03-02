@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
 import com.spshop.admin.shared.LoginInfo;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.SiteService;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 
 public class LoginService extends HttpServlet{
 	private static Logger logger = Logger.getLogger(LoginService.class);
@@ -52,9 +52,9 @@ public class LoginService extends HttpServlet{
 		if(null!=username){
 			if(users.containsKey(username)&&users.get(username).equals(pwd)){
 				LoginInfo info = new LoginInfo();
-				info.setSite(ServiceFactory.getService(SiteService.class).getSiteById(AllConstants.DEFAULT_SITE_ID));
+				info.setSite(ServiceFactory.getService(SiteService.class).getSiteById(Constants.DEFAULT_SITE_ID));
 				info.setUserID(username);
-				req.getSession().setAttribute(AllConstants.ADMIN_LOGIN_INFO, info);
+				req.getSession().setAttribute(Constants.ADMIN_LOGIN_INFO, info);
 				//req.getRequestDispatcher(SUCCESS).forward(req, resp);
 				if(null!=debug){
 					resp.sendRedirect(SUCCESS_DEBUG);

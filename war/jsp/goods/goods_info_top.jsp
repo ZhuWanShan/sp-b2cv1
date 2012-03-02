@@ -1,5 +1,5 @@
 <%@ include file="../include.jsp"%>
-<%@page import="com.spshop.utils.AllConstants"%>
+<%@page import="com.spshop.utils.Constants"%>
 <ss:ancestorCat ancester="ancester" categories="${pageForm.pageProperties.productDetail.categories}">
 <c:set var="crossSaleImg">${ancester}.image</c:set>
 <c:set var="crossSaleLink">${ancester}.link</c:set>
@@ -121,7 +121,7 @@
 				<script>
 					// Define UserAction onject
 					var ua = new gigya.services.socialize.UserAction(); 
-					ua.setLinkBack("<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}"); 
+					ua.setLinkBack("<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}"); 
 					ua.setTitle("Enjoy Online Shopping For Fashion Dress, Apparel, Suits With Free Shipping - HoneyBuy.com");
 					var shareBtnParams ={ 
 							userAction:ua,
@@ -131,7 +131,7 @@
 					}
 					gigya.services.socialize.showShareBarUI({},shareBtnParams);
 					
-					ua.addMediaItem( { type: "image", src: "<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${pageForm.pageProperties.productDetail.images[0].largerUrl}", href: "<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}" });
+					ua.addMediaItem( { type: "image", src: "<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${pageForm.pageProperties.productDetail.images[0].largerUrl}", href: "<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name}" });
 					// Define Share Bar plugin's Parameters	
 					var shareBarParams ={ 
 						userAction:ua,
@@ -144,7 +144,7 @@
 					gigya.services.socialize.showShareBarUI({},shareBarParams);
 				</script>
 				<div class="hei10"></div>
-				<span class="linkHead" style="background-image: url('/css/shipping.jpg');"><label><b>Shipping Time: </b>3-5 Calendar Days. <a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/c/Shipping-Information">See Details...</a></label></span>
+				<span class="linkHead" style="background-image: url('/css/shipping.jpg');"><label><b>Shipping Time: </b>3-5 Calendar Days. <a href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/c/Shipping-Information">See Details...</a></label></span>
 				<a href="${crossSales[crossSaleLink]}"> 
 					<img style="width: 100%;" alt="Click and buy the this!" src="${crossSales[crossSaleImg]}">
 				</a>
@@ -463,10 +463,10 @@
 						</table>
 					</div>
 					<h3 style="background-image: url('/css/guarantee-seal.png');" class="linkHead">
-					<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/c/Guarantee"><em>QUALITY GUARANTEE</em></a>
+					<a href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/c/Guarantee"><em>QUALITY GUARANTEE</em></a>
 				</h3>
 				<h3 style="background-image: url('/css/returnPolicy.png');" class="linkHead">
-					<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}/c/Return-Exchange"><em>RETURN POLICY</em></a>
+					<a href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/c/Return-Exchange"><em>RETURN POLICY</em></a>
 				</h3>
 			</div>
 		</div>

@@ -13,7 +13,7 @@ import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Email;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.EmailService;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 
 public class StoreEmailAction extends BaseAction {
 
@@ -23,7 +23,7 @@ public class StoreEmailAction extends BaseAction {
                                    HttpServletRequest request,
                                    HttpServletResponse response) throws Exception {
         
-        String email = request.getParameter(AllConstants.SUBSCRIBE_EMAL);
+        String email = request.getParameter(Constants.SUBSCRIBE_EMAL);
         
         if (StringUtils.isNotBlank(email)) {
             Email e = new Email();
@@ -33,7 +33,7 @@ public class StoreEmailAction extends BaseAction {
             ServiceFactory.getService(EmailService.class).saveEmail(e);
         }
         
-        return mapping.findForward(AllConstants.SUCCESS_VALUE);
+        return mapping.findForward(Constants.SUCCESS_VALUE);
     }
 
 }

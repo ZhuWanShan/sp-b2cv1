@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@include file="include.jsp" %>
-<%@page import="com.spshop.utils.AllConstants"%>
+<%@page import="com.spshop.utils.Constants"%>
 <html>
 <head>
 	<base href="http://${pageForm.site.domain }/" />
@@ -67,7 +67,7 @@
 	<!-- Bottom end -->
 	<div class="content_box">
 		<c:if test="${pageForm.pageProperties.productDetail.showComments}">
-			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:comments href='<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name }' num_posts="15" width="971"></fb:comments>
+			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:comments href='<%=Constants.HTTP_PROTOCOL%>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name }' num_posts="15" width="971"></fb:comments>
 		</c:if>
 	</div>
 		<!-- Bottom start -->

@@ -12,7 +12,7 @@ import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.User;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.UserService;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 
 public class EditProfileAction extends BaseAction {
 
@@ -21,7 +21,7 @@ public class EditProfileAction extends BaseAction {
                                    PageFormBean page,
                                    HttpServletRequest request,
                                    HttpServletResponse response) throws Exception {
-        User user = (User)request.getSession().getAttribute(AllConstants.USER_INFO);
+        User user = (User)request.getSession().getAttribute(Constants.USER_INFO);
         Boolean isModify = Boolean.valueOf(request.getParameter("isModify"));
         if (user != null) {
             if (isModify) {
@@ -30,8 +30,8 @@ public class EditProfileAction extends BaseAction {
                 ServiceFactory.getService(UserService.class).merge(user);
                 user.setPassword("");
             }
-            request.getSession().setAttribute(AllConstants.USER_INFO, user);
-            return mapping.findForward(AllConstants.SUCCESS_VALUE);
+            request.getSession().setAttribute(Constants.USER_INFO, user);
+            return mapping.findForward(Constants.SUCCESS_VALUE);
         } else {
             throw new IllegalStateException("This session timed out!!");
         }

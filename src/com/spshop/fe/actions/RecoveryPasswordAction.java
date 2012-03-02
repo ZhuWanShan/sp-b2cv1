@@ -10,7 +10,7 @@ import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.User;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.UserService;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 import com.spshop.utils.EmailTools;
 
 public class RecoveryPasswordAction extends BaseAction {
@@ -27,9 +27,9 @@ public class RecoveryPasswordAction extends BaseAction {
 		        EmailTools.sendRecoveryEmail(email);
 		    }
         } else {
-            return mapping.findForward(AllConstants.fAILURE_VALUE);
+            return mapping.findForward(Constants.fAILURE_VALUE);
         }
-		return mapping.findForward(AllConstants.SUCCESS_VALUE);
+		return mapping.findForward(Constants.SUCCESS_VALUE);
 	}
 
 }

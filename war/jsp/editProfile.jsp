@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@page import="com.spshop.utils.AllConstants"%>
+<%@page import="com.spshop.utils.Constants"%>
 <%@include file="include.jsp" %>
 <html>
 <head>
@@ -74,19 +74,19 @@
 						<select id="gender" name="gender">
 						<c:choose>
 							<c:when test='${sessionScope.userInfo.gender eq "male"}'>
-								<option selected="selected" value="<%= AllConstants.GENDER_MALE%>">Male</option>
-								<option value="<%= AllConstants.GENDER_FEMALE%>">Female</option>
-								<option value="<%= AllConstants.GENDER_OTHERS%>">Unknown</option>
+								<option selected="selected" value="<%= Constants.GENDER_MALE%>">Male</option>
+								<option value="<%= Constants.GENDER_FEMALE%>">Female</option>
+								<option value="<%= Constants.GENDER_OTHERS%>">Unknown</option>
 							</c:when>
 							<c:when test='${sessionScope.userInfo.gender eq "female"}'>
-								<option value="<%= AllConstants.GENDER_MALE%>">Male</option>
-								<option selected="selected" value="<%= AllConstants.GENDER_FEMALE%>">Female</option>
-								<option value="<%= AllConstants.GENDER_OTHERS%>">Unknown</option>
+								<option value="<%= Constants.GENDER_MALE%>">Male</option>
+								<option selected="selected" value="<%= Constants.GENDER_FEMALE%>">Female</option>
+								<option value="<%= Constants.GENDER_OTHERS%>">Unknown</option>
 							</c:when>
 							<c:otherwise>
-								<option value="<%= AllConstants.GENDER_MALE%>">Male</option>
-								<option value="<%= AllConstants.GENDER_FEMALE%>">Female</option>
-								<option selected="selected" value="<%= AllConstants.GENDER_OTHERS%>">Unknown</option>
+								<option value="<%= Constants.GENDER_MALE%>">Male</option>
+								<option value="<%= Constants.GENDER_FEMALE%>">Female</option>
+								<option selected="selected" value="<%= Constants.GENDER_OTHERS%>">Unknown</option>
 							</c:otherwise>
 						</c:choose>
 						</select>

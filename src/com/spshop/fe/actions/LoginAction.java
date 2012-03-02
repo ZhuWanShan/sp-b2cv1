@@ -12,7 +12,7 @@ import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.User;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.UserService;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 
 public class LoginAction extends BaseAction {
 	public static final String CMD_GOTO_CHECK_WITHOUT_LOGIN ="goto_check";
@@ -27,12 +27,12 @@ public class LoginAction extends BaseAction {
     	}
     	
     	if("As Guset".equals(request.getParameter("asGeust"))){
-    		return mapping.findForward(AllConstants.SUCCESS_VALUE);
+    		return mapping.findForward(Constants.SUCCESS_VALUE);
     	}
     	
-        String action = request.getParameter(AllConstants.ACTION);
+        String action = request.getParameter(Constants.ACTION);
         HttpSession session = request.getSession();
-        if (AllConstants.LOGIN_ACTION.equals(action)) {
+        if (Constants.LOGIN_ACTION.equals(action)) {
             User user = new User();
             populateLoginInfo(request, user);
 
@@ -40,21 +40,21 @@ public class LoginAction extends BaseAction {
                 user = ServiceFactory.getService(UserService.class).validateUser(user);
                 if (user != null) {
                     user.setPassword(null);
-                    session.setAttribute(AllConstants.USER_INFO, user);
+                    session.setAttribute(Constants.USER_INFO, user);
                 } else {
-                    page.addPageProperty("loginError", AllConstants.LOGIN_FAILURE);
-                    return mapping.findForward(AllConstants.fAILURE_VALUE);
+                    page.addPageProperty("loginError", Constants.LOGIN_FAILURE);
+                    return mapping.findForward(Constants.fAILURE_VALUE);
                 }
 
-                return mapping.findForward(AllConstants.SUCCESS_VALUE);
+                return mapping.findForward(Constants.SUCCESS_VALUE);
             } else {
-                return mapping.findForward(AllConstants.fAILURE_VALUE);
+                return mapping.findForward(Constants.fAILURE_VALUE);
             }
-        } else if (AllConstants.LOGOUT_ACTION.equals(action)) {
-            session.removeAttribute(AllConstants.USER_INFO);
-            return mapping.findForward(AllConstants.SUCCESS_VALUE);
+        } else if (Constants.LOGOUT_ACTION.equals(action)) {
+            session.removeAttribute(Constants.USER_INFO);
+            return mapping.findForward(Constants.SUCCESS_VALUE);
         } else {
-            return mapping.findForward(AllConstants.fAILURE_VALUE);
+            return mapping.findForward(Constants.fAILURE_VALUE);
         }
     }
     

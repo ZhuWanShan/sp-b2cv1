@@ -30,7 +30,7 @@ import com.spshop.service.intf.ProductService;
 import com.spshop.service.intf.SiteService;
 import com.spshop.service.intf.TabProductService;
 import com.spshop.service.intf.TabSellingService;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 import com.spshop.utils.EmailTools;
 public class AdminServiceImpl extends RemoteService implements AdminService{
 	/**
@@ -86,7 +86,7 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 		LoginInfo loginInfo = getLoginInfo();
 		loginInfo.setSite(site);
 		getThreadLocalRequest().getSession().setAttribute(
-				AllConstants.ADMIN_LOGIN_INFO, loginInfo);
+				Constants.ADMIN_LOGIN_INFO, loginInfo);
 		return site;
 	}
 
