@@ -9,7 +9,7 @@ import org.apache.struts.action.ActionMapping;
 import com.spshop.cache.SCacheFacade;
 import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Product;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 
 public class ProductAction extends BaseAction {
 
@@ -51,6 +51,6 @@ public class ProductAction extends BaseAction {
 					page.getPathNodes());
 //		}
 
-		return mapping.findForward(AllConstants.SUCCESS_VALUE);
+		return mapping.findForward(Constants.SUCCESS_VALUE);
 	}
 }

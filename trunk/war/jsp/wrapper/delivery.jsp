@@ -1,5 +1,5 @@
 <%@include file="../include.jsp"%>
-<%@page import="com.spshop.utils.AllConstants"%>
+<%@page import="com.spshop.utils.Constants"%>
 <c:if test="${showCheckOption }">
 <form action="/shopping/cmd/check" method="post" id="cartCheckOut">
 	<div class="box_item">
@@ -50,8 +50,8 @@
 										<td><span class="red">*</span>Gender:</td>
 										<td class="W260"><select id="gender" name="gender">
 														<option ${shoppingcart.order.customGender eq 'male' ?'selected="selected"':''} 
-															value="<%=AllConstants.GENDER_MALE%>">Male</option>
-														<option value="<%=AllConstants.GENDER_FEMALE%>" ${shoppingcart.order.customGender eq 'female' ?'selected="selected"':''} >Female</option>
+															value="<%=Constants.GENDER_MALE%>">Male</option>
+														<option value="<%=Constants.GENDER_FEMALE%>" ${shoppingcart.order.customGender eq 'female' ?'selected="selected"':''} >Female</option>
 										</select></td>
 									</tr>
 									<tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@include file="include.jsp" %>
-<%@page import="com.spshop.utils.AllConstants"%>
+<%@page import="com.spshop.utils.Constants"%>
 <html>
 <head>
 	<base href="http://${pageForm.site.domain }/" />
@@ -75,6 +75,6 @@
 	<jsp:include page="bottom/bottom_box.jsp"></jsp:include>
 	<script type="text/javascript" src="js/footer.js"></script>
 	<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-	<img style="display:none;" alt="" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${pageForm.pageProperties.productDetail.images[0].thumbnailUrl}">
+	<img style="display:none;" alt="" src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${pageForm.pageProperties.productDetail.images[0].thumbnailUrl}">
 </body>
 </html>

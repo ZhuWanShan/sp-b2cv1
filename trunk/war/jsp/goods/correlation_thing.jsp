@@ -1,5 +1,5 @@
 <%@include file="../include.jsp" %>
-<%@page import="com.spshop.utils.AllConstants"%>
+<%@page import="com.spshop.utils.Constants"%>
 <div id="P_list" class="correlationThing" style="">
 	<div class="mainThing">
 		
@@ -7,9 +7,9 @@
 			<c:forEach items="${names}" var="name">
 				<ss:product var="product" productName="${name }"></ss:product>
 				<a class=""
-					href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${product.name}"><img
+					href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=Constants.URL_SEPERATOR %>${product.name}"><img
 					alt="${product.title }"
-					src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}"><b>
+					src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}"><b>
 					${currency} <fmt:formatNumber value=" ${product.actualPrice * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
 						</b>
 				</a> 

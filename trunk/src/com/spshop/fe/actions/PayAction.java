@@ -12,7 +12,7 @@ import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Order;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.OrderService;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 
 public class PayAction extends BaseAction {
 	@Override
@@ -20,7 +20,7 @@ public class PayAction extends BaseAction {
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		
-		return mapping.findForward(AllConstants.SUCCESS_VALUE);
+		return mapping.findForward(Constants.SUCCESS_VALUE);
 	}
 
 }

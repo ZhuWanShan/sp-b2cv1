@@ -30,7 +30,7 @@ public class EmailTools {
         SimpleEmail email = parseRegisterEmail();
         try {
             email.addTo(sendTo);
-            email.setCharset(AllConstants.DEFAULT_MAIL_CHARSET);
+            email.setCharset(Constants.DEFAULT_MAIL_CHARSET);
             email.send();
         } catch (EmailException e) {
             //e.printStackTrace();
@@ -42,7 +42,7 @@ public class EmailTools {
         SimpleEmail email = parseRecoveryEmail();
         try {
             email.addTo(sendTo);
-            email.setCharset(AllConstants.DEFAULT_MAIL_CHARSET);
+            email.setCharset(Constants.DEFAULT_MAIL_CHARSET);
             email.send();
         } catch (EmailException e) {
             //e.printStackTrace();
@@ -53,28 +53,28 @@ public class EmailTools {
     private static SimpleEmail parseRegisterEmail() {
         SimpleEmail email = new SimpleEmail();
         try {
-            if (emailProperties.containsKey(AllConstants.REGISTER_MAIL_HOST_NAME)) {
-                email.setHostName(emailProperties.getProperty(AllConstants.REGISTER_MAIL_HOST_NAME));
+            if (emailProperties.containsKey(Constants.REGISTER_MAIL_HOST_NAME)) {
+                email.setHostName(emailProperties.getProperty(Constants.REGISTER_MAIL_HOST_NAME));
             } else {
-                email.setHostName(AllConstants.DEFAULT_MAIL_HOST_NAME);
+                email.setHostName(Constants.DEFAULT_MAIL_HOST_NAME);
             }
-            if (emailProperties.containsKey(AllConstants.REGISTER_MAIL_FROM_ACCOUNT)
-                && emailProperties.containsKey(AllConstants.REGISTER_MAIL_FROM_PASSWORD)) {
-                email.setAuthentication(emailProperties.getProperty(AllConstants.REGISTER_MAIL_FROM_ACCOUNT),
-                                        emailProperties.getProperty(AllConstants.REGISTER_MAIL_FROM_PASSWORD));
-                email.setFrom(emailProperties.getProperty(AllConstants.REGISTER_MAIL_FROM_ACCOUNT));
+            if (emailProperties.containsKey(Constants.REGISTER_MAIL_FROM_ACCOUNT)
+                && emailProperties.containsKey(Constants.REGISTER_MAIL_FROM_PASSWORD)) {
+                email.setAuthentication(emailProperties.getProperty(Constants.REGISTER_MAIL_FROM_ACCOUNT),
+                                        emailProperties.getProperty(Constants.REGISTER_MAIL_FROM_PASSWORD));
+                email.setFrom(emailProperties.getProperty(Constants.REGISTER_MAIL_FROM_ACCOUNT));
             } else {
-                email.setAuthentication(AllConstants.DEFAULT_MAIL_FROM_ACCOUNT, AllConstants.DEFAULT_MAIL_FROM_PASSWORD);
+                email.setAuthentication(Constants.DEFAULT_MAIL_FROM_ACCOUNT, Constants.DEFAULT_MAIL_FROM_PASSWORD);
             }
-            if (emailProperties.containsKey(AllConstants.REGISTER_MAIL_TITLE)) {
-                email.setSubject(emailProperties.getProperty(AllConstants.REGISTER_MAIL_TITLE));
+            if (emailProperties.containsKey(Constants.REGISTER_MAIL_TITLE)) {
+                email.setSubject(emailProperties.getProperty(Constants.REGISTER_MAIL_TITLE));
             } else {
-                email.setSubject(AllConstants.DEFAULT_REGISTER_MAIL_TITLE);
+                email.setSubject(Constants.DEFAULT_REGISTER_MAIL_TITLE);
             }
-            if (emailProperties.containsKey(AllConstants.REGISTER_MAIL_CONTENT)) {
-                email.setMsg(emailProperties.getProperty(AllConstants.REGISTER_MAIL_CONTENT));
+            if (emailProperties.containsKey(Constants.REGISTER_MAIL_CONTENT)) {
+                email.setMsg(emailProperties.getProperty(Constants.REGISTER_MAIL_CONTENT));
             } else {
-                email.setMsg(AllConstants.DEFAULT_REGISTER_MAIL_CONTENT);
+                email.setMsg(Constants.DEFAULT_REGISTER_MAIL_CONTENT);
             }
         } catch (EmailException e) {
         	logger.error(e.getMessage(), e);
@@ -88,28 +88,28 @@ public class EmailTools {
     private static SimpleEmail parseRecoveryEmail() {
         SimpleEmail email = new SimpleEmail();
         try {
-            if (emailProperties.containsKey(AllConstants.RECOVERY_MAIL_HOST_NAME)) {
-                email.setHostName(emailProperties.getProperty(AllConstants.RECOVERY_MAIL_HOST_NAME));
+            if (emailProperties.containsKey(Constants.RECOVERY_MAIL_HOST_NAME)) {
+                email.setHostName(emailProperties.getProperty(Constants.RECOVERY_MAIL_HOST_NAME));
             } else {
-                email.setHostName(AllConstants.DEFAULT_MAIL_HOST_NAME);
+                email.setHostName(Constants.DEFAULT_MAIL_HOST_NAME);
             }
-            if (emailProperties.containsKey(AllConstants.RECOVERY_MAIL_FROM_ACCOUNT)
-                && emailProperties.containsKey(AllConstants.RECOVERY_MAIL_FROM_PASSWORD)) {
-                email.setAuthentication(emailProperties.getProperty(AllConstants.RECOVERY_MAIL_FROM_ACCOUNT),
-                                        emailProperties.getProperty(AllConstants.RECOVERY_MAIL_FROM_PASSWORD));
-                email.setFrom(emailProperties.getProperty(AllConstants.RECOVERY_MAIL_FROM_ACCOUNT));
+            if (emailProperties.containsKey(Constants.RECOVERY_MAIL_FROM_ACCOUNT)
+                && emailProperties.containsKey(Constants.RECOVERY_MAIL_FROM_PASSWORD)) {
+                email.setAuthentication(emailProperties.getProperty(Constants.RECOVERY_MAIL_FROM_ACCOUNT),
+                                        emailProperties.getProperty(Constants.RECOVERY_MAIL_FROM_PASSWORD));
+                email.setFrom(emailProperties.getProperty(Constants.RECOVERY_MAIL_FROM_ACCOUNT));
             } else {
-                email.setAuthentication(AllConstants.DEFAULT_MAIL_FROM_ACCOUNT, AllConstants.DEFAULT_MAIL_FROM_PASSWORD);
+                email.setAuthentication(Constants.DEFAULT_MAIL_FROM_ACCOUNT, Constants.DEFAULT_MAIL_FROM_PASSWORD);
             }
-            if (emailProperties.containsKey(AllConstants.RECOVERY_MAIL_TITLE)) {
-                email.setSubject(emailProperties.getProperty(AllConstants.RECOVERY_MAIL_TITLE));
+            if (emailProperties.containsKey(Constants.RECOVERY_MAIL_TITLE)) {
+                email.setSubject(emailProperties.getProperty(Constants.RECOVERY_MAIL_TITLE));
             } else {
-                email.setSubject(AllConstants.DEFAULT_RECOVERY_MAIL_TITLE);
+                email.setSubject(Constants.DEFAULT_RECOVERY_MAIL_TITLE);
             }
-            if (emailProperties.containsKey(AllConstants.RECOVERY_MAIL_CONTENT)) {
-                email.setMsg(emailProperties.getProperty(AllConstants.RECOVERY_MAIL_CONTENT));
+            if (emailProperties.containsKey(Constants.RECOVERY_MAIL_CONTENT)) {
+                email.setMsg(emailProperties.getProperty(Constants.RECOVERY_MAIL_CONTENT));
             } else {
-                email.setMsg(AllConstants.DEFAULT_RECOVERY_MAIL_CONTENT);
+                email.setMsg(Constants.DEFAULT_RECOVERY_MAIL_CONTENT);
             }
         } catch (EmailException e) {
         	logger.error(e.getMessage(), e);
@@ -133,24 +133,24 @@ public class EmailTools {
     	if (mailContent != null) {
     		HtmlEmail   email = new HtmlEmail();
     	    try {
-    	        if (commonEmailProperties.containsKey(mailType + AllConstants.MAIL_HOST_NAME)) {
-    	            email.setHostName(commonEmailProperties.getProperty(mailType + AllConstants.MAIL_HOST_NAME));
+    	        if (commonEmailProperties.containsKey(mailType + Constants.MAIL_HOST_NAME)) {
+    	            email.setHostName(commonEmailProperties.getProperty(mailType + Constants.MAIL_HOST_NAME));
     	        } else {
-    	            email.setHostName(AllConstants.DEFAULT_MAIL_HOST_NAME);
+    	            email.setHostName(Constants.DEFAULT_MAIL_HOST_NAME);
     	        }
-    	        if (commonEmailProperties.containsKey(mailType + AllConstants.MAIL_FROM_ACCOUNT)
-    	                && commonEmailProperties.containsKey(mailType + AllConstants.MAIL_FROM_PASSWORD)) {
-    	            email.setAuthentication(commonEmailProperties.getProperty(mailType + AllConstants.MAIL_FROM_ACCOUNT),
-    	                                    commonEmailProperties.getProperty(mailType + AllConstants.MAIL_FROM_PASSWORD));
-    	            email.setFrom(commonEmailProperties.getProperty(mailType + AllConstants.MAIL_FROM_ACCOUNT), AllConstants.MAIL_FROM_NAME);
+    	        if (commonEmailProperties.containsKey(mailType + Constants.MAIL_FROM_ACCOUNT)
+    	                && commonEmailProperties.containsKey(mailType + Constants.MAIL_FROM_PASSWORD)) {
+    	            email.setAuthentication(commonEmailProperties.getProperty(mailType + Constants.MAIL_FROM_ACCOUNT),
+    	                                    commonEmailProperties.getProperty(mailType + Constants.MAIL_FROM_PASSWORD));
+    	            email.setFrom(commonEmailProperties.getProperty(mailType + Constants.MAIL_FROM_ACCOUNT), Constants.MAIL_FROM_NAME);
     	        } else {
-    	            email.setAuthentication(AllConstants.DEFAULT_MAIL_FROM_ACCOUNT, mailType + AllConstants.DEFAULT_MAIL_FROM_PASSWORD);
+    	            email.setAuthentication(Constants.DEFAULT_MAIL_FROM_ACCOUNT, mailType + Constants.DEFAULT_MAIL_FROM_PASSWORD);
     	        }
     	        email.setSubject(subject);
     	        email.setHtmlMsg(mailContent);
     	        email.setTLS(true);
     	        email.addTo(sendTo);
-    	        email.setCharset(AllConstants.DEFAULT_MAIL_CHARSET);
+    	        email.setCharset(Constants.DEFAULT_MAIL_CHARSET);
     	        email.send();
     	    } catch (EmailException e) {
     	        logger.error(e.getMessage(), e);

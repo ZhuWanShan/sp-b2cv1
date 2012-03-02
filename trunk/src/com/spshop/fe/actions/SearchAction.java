@@ -13,7 +13,7 @@ import org.apache.struts.action.ActionMapping;
 import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.ProductService;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 
 public class SearchAction extends BaseAction {
 	@Override
@@ -46,7 +46,7 @@ public class SearchAction extends BaseAction {
 			return null;
 		}
 		
-		return mapping.findForward(AllConstants.SUCCESS_VALUE);
+		return mapping.findForward(Constants.SUCCESS_VALUE);
 	}
 
 }

@@ -1,8 +1,8 @@
 <%@ include file="../include.jsp" %>
-<%@page import="com.spshop.utils.AllConstants"%>
+<%@page import="com.spshop.utils.Constants"%>
 <div id="container">
 	<button class="button_orange left" type="button"
-		onclick="location.href='<%= AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}'">Continue
+		onclick="location.href='<%= Constants.HTTP_PROTOCOL %>${pageForm.site.domain}'">Continue
 		Shopping</button>
 	<div id="right_column">
 		<p id="order_title">Let me order now!</p>

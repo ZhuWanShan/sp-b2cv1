@@ -1,4 +1,4 @@
-<%@page import="com.spshop.utils.AllConstants"%>
+<%@page import="com.spshop.utils.Constants"%>
 <%@include file="../include.jsp" %>
 <ss:menubar items="menuItems" specialOffers="specialOfferItems">
 <div class="main_menu" id="main_menu">
@@ -8,18 +8,18 @@
 			<span>
 			<c:if test='${category.name != "home"}'>
 				<c:if test="${empty category.url}">
-					<a title="${category.displayName}" href="<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/<%= AllConstants.CATEGORY_URL %>/${category.name}">
+					<a title="${category.displayName}" href="<%=Constants.HTTP_PROTOCOL%>${pageForm.site.domain}/<%= Constants.CATEGORY_URL %>/${category.name}">
 						${category.displayName}
 					</a>
 				</c:if>
 				<c:if test="${!empty category.url}">
-					<a title="${category.displayName}" href="<%=AllConstants.HTTP_PROTOCOL%>${category.url}">
+					<a title="${category.displayName}" href="<%=Constants.HTTP_PROTOCOL%>${category.url}">
 						${category.displayName}
 					</a>
 				</c:if>
 			</c:if>
 			<c:if test='${category.name == "home"}'>
-				<a title="${category.displayName}" href="<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/">
+				<a title="${category.displayName}" href="<%=Constants.HTTP_PROTOCOL%>${pageForm.site.domain}/">
 						${category.displayName}
 				</a>
 			</c:if>
@@ -31,12 +31,12 @@
 					<dl class="inner_list">
 						<dt>
 						<c:if test="${empty subCategory.url}">
-							<a title="${subCategory.displayName}" href="<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/<%= AllConstants.CATEGORY_URL %>/${subCategory.name}">
+							<a title="${subCategory.displayName}" href="<%=Constants.HTTP_PROTOCOL%>${pageForm.site.domain}/<%= Constants.CATEGORY_URL %>/${subCategory.name}">
 								${subCategory.displayName}
 							</a>
 						</c:if>
 						<c:if test="${!empty subCategory.url}">
-							<a title="${subCategory.displayName}" href="<%=AllConstants.HTTP_PROTOCOL%>${subCategory.url}">
+							<a title="${subCategory.displayName}" href="<%=Constants.HTTP_PROTOCOL%>${subCategory.url}">
 								${subCategory.displayName}
 							</a>
 						</c:if>
@@ -45,12 +45,12 @@
 						<c:if test="${!childCategory.specialOffer}">
 						<dd>
 						<c:if test="${empty childCategory.url}">
-							<a title="${childCategory.displayName}" href="<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/<%= AllConstants.CATEGORY_URL %>/${childCategory.name}"> 
+							<a title="${childCategory.displayName}" href="<%=Constants.HTTP_PROTOCOL%>${pageForm.site.domain}/<%= Constants.CATEGORY_URL %>/${childCategory.name}"> 
 								${childCategory.displayName}
 							</a>
 						</c:if>
 						<c:if test="${!empty childCategory.url}">
-							<a title="${childCategory.displayName}" href="<%=AllConstants.HTTP_PROTOCOL%>${childCategory.url}"> 
+							<a title="${childCategory.displayName}" href="<%=Constants.HTTP_PROTOCOL%>${childCategory.url}"> 
 								${childCategory.displayName}
 							</a>
 						</c:if>
@@ -61,13 +61,13 @@
 						<dd class="end_more">
 							<c:if test="${empty subCategory.url}">
 								<a title="${subCategory.displayName}"
-									href="<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/<%= AllConstants.CATEGORY_URL %>/${subCategory.name}">
+									href="<%=Constants.HTTP_PROTOCOL%>${pageForm.site.domain}/<%= Constants.CATEGORY_URL %>/${subCategory.name}">
 									View All
 								</a>
 							</c:if>
 							<c:if test="${!empty subCategory.url}">
 								<a title="${subCategory.displayName}"
-									href="<%=AllConstants.HTTP_PROTOCOL%>${subCategory.url}">
+									href="<%=Constants.HTTP_PROTOCOL%>${subCategory.url}">
 									View All
 								</a>
 							</c:if>
@@ -86,13 +86,13 @@
 							<dt>
 							<c:if test="${empty special.url}">
 								<a title="${special.displayName}"
-									href="<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/<%= AllConstants.CATEGORY_URL %>/${special.name}">
+									href="<%=Constants.HTTP_PROTOCOL%>${pageForm.site.domain}/<%= Constants.CATEGORY_URL %>/${special.name}">
 									${special.displayName}
 								</a>
 							</c:if>
 							<c:if test="${!empty special.url}">
 								<a title="${special.displayName}"
-									href="<%=AllConstants.HTTP_PROTOCOL%>${special.url}">
+									href="<%=Constants.HTTP_PROTOCOL%>${special.url}">
 									${special.displayName}
 								</a>
 							</c:if>
@@ -108,13 +108,13 @@
 							<li>
 							<c:if test="${empty specialOffer.value[0].url}">
 								<a title="${specialOffer.value[0].displayName}"
-									href="<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/<%= AllConstants.CATEGORY_URL %>/${specialOffer.value[0].name}">
+									href="<%=Constants.HTTP_PROTOCOL%>${pageForm.site.domain}/<%= Constants.CATEGORY_URL %>/${specialOffer.value[0].name}">
 									<img width="174" height="84" border="0" src="${specialOffer.value[0].specialOfferImage.noChangeUrl}">
 								</a>
 							</c:if>
 							<c:if test="${!empty specialOffer.value[0].url}">
 								<a title="${specialOffer.value[0].displayName}"
-									href="<%=AllConstants.HTTP_PROTOCOL%>${specialOffer.value[0].url}">
+									href="<%=Constants.HTTP_PROTOCOL%>${specialOffer.value[0].url}">
 									<img width="174" height="84" border="0" src="${specialOffer.value[0].specialOfferImage.noChangeUrl}">
 								</a>
 							</c:if>

@@ -1,4 +1,4 @@
-<%@page import="com.spshop.utils.AllConstants"%>
+<%@page import="com.spshop.utils.Constants"%>
 <%@ include file="../include.jsp"%>
 <div class="user_menu" id="user_menu">
 	<ul>
@@ -56,7 +56,7 @@
 										class="underline" rel="nofollow">Click here</a>
 								</dd>
 								<dd>
-									<input type="hidden" name="<%=AllConstants.ACTION %>" value="<%=AllConstants.LOGIN_ACTION %>">
+									<input type="hidden" name="<%=Constants.ACTION %>" value="<%=Constants.LOGIN_ACTION %>">
 									<input type="submit" value="Login"
 										class="button_01"><span id="warn_login_span"></span>
 								</dd>
@@ -77,7 +77,7 @@
 				<span id="hide_login_span">
 					${sessionScope.userInfo.email}
 				</span>.
-				(<a href="/login?<%=AllConstants.ACTION %>=<%=AllConstants.LOGOUT_ACTION %>" title="Sign out">Sign out</a>)
+				(<a href="/login?<%=Constants.ACTION %>=<%=Constants.LOGOUT_ACTION %>" title="Sign out">Sign out</a>)
 				<div style="width: 100%; display: none; cursor: default;"
 					class="user_menu_hidd">
 					<div class="indexlogin">

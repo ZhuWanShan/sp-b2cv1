@@ -1,5 +1,5 @@
 <%@include file="../include.jsp" %>
-<%@page import="com.spshop.utils.AllConstants"%>
+<%@page import="com.spshop.utils.Constants"%>
 <ss:tabSelling var="tabData">
 <div class="right_box borderstyle_01 index_tab">
 	<div class="Promotions_tab" id="Promotions_tab">
@@ -96,18 +96,18 @@
 			<c:forEach items="${tabContent.products}" var="tabProduct">
 				<li class="goods_list box_shadow">
 					<div class="goods_picture">
-						<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${tabProduct.name}" 
+						<a href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=Constants.URL_SEPERATOR %>${tabProduct.name}" 
 						   title="${tabProduct.title}">
 							<c:if test='${tabProduct.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
-							<img style="width:164px; padding-top:${dmPaddingSize}px;padding-bottom:${dmPaddingSize}px;" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}" alt="${tabProduct.title}" />
+							<img style="width:164px; padding-top:${dmPaddingSize}px;padding-bottom:${dmPaddingSize}px;" src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}" alt="${tabProduct.title}" />
 							</c:if>
 							<c:if test='${tabProduct.images[0].strSizeType eq "PRODUCT_NORMAL"}'>
-							<img style="width:164px;" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}" alt="${tabProduct.title}" />
+							<img style="width:164px;" src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}" alt="${tabProduct.title}" />
 							</c:if>
 						</a>
 					</div>
 					<strong class="goods_name">
-						<a href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${tabProduct.name}" title="${tabProduct.title}">
+						<a href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=Constants.URL_SEPERATOR %>${tabProduct.name}" title="${tabProduct.title}">
 							${tabProduct.title}
 						</a>
 					</strong>
@@ -140,21 +140,21 @@
 					<dl>
 						<dt>
 							<a title="${tabProduct.name}"
-								href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${tabProduct.name}">
+								href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=Constants.URL_SEPERATOR %>${tabProduct.name}">
 								<c:if test='${tabProduct.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
 								<img style="padding-top:${slPaddingSize}px;padding-bottom:${slPaddingSize}px;" alt="${tabProduct.name}"
-								     src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}">
+								     src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}">
 								</c:if>
 								<c:if test='${tabProduct.images[0].strSizeType eq "PRODUCT_NORMAL"}'>
 								<img alt="${tabProduct.name}"
-								     src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}">
+								     src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${tabProduct.images[0].thumbnailUrl}">
 								</c:if>
 							</a>
 						</dt>
 						<dd>
 							<p class="goods_name">
 								<a title="${tabProduct.name}"
-								   href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${tabProduct.name}">
+								   href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=Constants.URL_SEPERATOR %>${tabProduct.name}">
 								   ${tabProduct.title}
 								</a>
 							</p>

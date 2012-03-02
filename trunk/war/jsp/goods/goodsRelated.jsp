@@ -1,5 +1,5 @@
 <%@include file="../include.jsp" %>
-<%@page import="com.spshop.utils.AllConstants"%>
+<%@page import="com.spshop.utils.Constants"%>
 <div id="tab_middle" class="item_goods_info_box_bottom">
 
 <div class="item_bottom_right">
@@ -12,12 +12,12 @@
 		     <c:forEach items="${names}" var="name">
 		     	<ss:product var="product" productName="${name}">
 				      <li> 
-				      	<a title="${product.title }" href="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=AllConstants.URL_SEPERATOR %>${product.name}">
+				      	<a title="${product.title }" href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=Constants.URL_SEPERATOR %>${product.name}">
 				      		<c:if test='${product.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
-				      		<img style="width: 80px; height: 105; padding-top: ${(105-80)/2}px;" border="0" alt="${product.title }" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}">
+				      		<img style="width: 80px; height: 105; padding-top: ${(105-80)/2}px;" border="0" alt="${product.title }" src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}">
 				      		</c:if>
 				      		<c:if test='${product.images[0].strSizeType eq "PRODUCT_NORMAL"}'>
-				      		<img style="width: 80px; height: 105;" border="0" alt="${product.title }" src="<%=AllConstants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}">
+				      		<img style="width: 80px; height: 105;" border="0" alt="${product.title }" src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}">
 				      		</c:if>
 				      	</a>
 				        <div>
@@ -46,7 +46,7 @@
      <div class="pages_box"> 
     	<c:if test="${pageForm.pageProperties.productDetail.showComments}">
 <!--     		<H1 style="float: left;">Comments</H1> -->
-<%-- 			<fb:comments href='<%=AllConstants.HTTP_PROTOCOL%>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name }' num_posts="15" width="972"></fb:comments> --%>
+<%-- 			<fb:comments href='<%=Constants.HTTP_PROTOCOL%>${pageForm.site.domain}/${pageForm.pageProperties.productDetail.name }' num_posts="15" width="972"></fb:comments> --%>
 			<h3 style="float: left;">Comments</h3>
 			<div id='commentsDiv' style=" clear: left;"></div>
 			<script type='text/javascript'>

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.spshop.admin.shared.ExceptionType;
 import com.spshop.admin.shared.LoginInfo;
-import com.spshop.utils.AllConstants;
+import com.spshop.utils.Constants;
 
 public abstract class RemoteHttp extends HttpServlet{
 	/**
@@ -19,7 +19,7 @@ public abstract class RemoteHttp extends HttpServlet{
 
 	public LoginInfo getLoginInfo(HttpServletRequest request){
 		
-		LoginInfo loginInfo = (LoginInfo) request.getSession().getAttribute(AllConstants.ADMIN_LOGIN_INFO);
+		LoginInfo loginInfo = (LoginInfo) request.getSession().getAttribute(Constants.ADMIN_LOGIN_INFO);
 		if((null==loginInfo)||(null==loginInfo.getUserID())){
 			throw new RuntimeException(ExceptionType.NO_SIGN_IN.getValue());
 		}
