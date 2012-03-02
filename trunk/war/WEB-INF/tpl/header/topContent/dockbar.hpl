@@ -1,0 +1,150 @@
+<div id="header_top" class="header_top" style="box-shadow: none;">
+	<div class="top_center">
+		<div id="user_menu" class="user_menu">
+			<ul>
+				<li>Help
+					<div style="width: 150px;" class="user_menu_hidd">
+						<a class="menuNav" href="http://www.honeybuy.com/c/Help-Center"
+							rel="nofollow" title="Help Center">Help Center</a>
+					</div>
+				</li>
+				<li><a title="USD" rel="nofollow"
+					href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=USD'">
+						<span class="icon_USD"></span>Currency(USD)
+				</a>
+					<dl class="user_menu_hidd"
+						style="width: 180px; cursor: default; display: none;">
+
+						<dd>
+							<a class="menuNav" title="AUD" rel="nofollow"
+								href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=AUD'"><span
+								class="icon_AUD"></span>Australian Dollar</a>
+						</dd>
+
+						<dd>
+							<a class="menuNav" title="CAD" rel="nofollow"
+								href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=CAD'"><span
+								class="icon_CAD"></span>Canadian Dollar</a>
+						</dd>
+
+						<dd>
+							<a class="menuNav" title="CHF" rel="nofollow"
+								href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=CHF'"><span
+								class="icon_CHF"></span>Switzerland Francs</a>
+						</dd>
+
+						<dd>
+							<a class="menuNav" title="EUR" rel="nofollow"
+								href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=EUR'"><span
+								class="icon_EUR"></span>Euro</a>
+						</dd>
+
+						<dd>
+							<a class="menuNav" title="GBP" rel="nofollow"
+								href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=GBP'"><span
+								class="icon_GBP"></span>GB Pound</a>
+						</dd>
+
+						<dd>
+							<a class="menuNav" title="HKD" rel="nofollow"
+								href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=HKD'"><span
+								class="icon_HKD"></span>Hong Kong Dollars</a>
+						</dd>
+
+						<dd>
+							<a class="menuNav" title="JPY" rel="nofollow"
+								href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=JPY'"><span
+								class="icon_JPY"></span>Japanese Yen</a>
+						</dd>
+
+						<dd>
+							<a class="menuNav" title="RUB" rel="nofollow"
+								href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=RUB'"><span
+								class="icon_RUB"></span>Rouble</a>
+						</dd>
+
+						<dd>
+							<a class="menuNav" title="USD" rel="nofollow"
+								href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=USD'"><span
+								class="icon_USD"></span>US Dollar</a>
+						</dd>
+
+					</dl></li>
+				<li>User Center
+					<div class="user_menu_hidd" style="width: 200px;">
+						<dl>
+							<dd>
+								<a class="menuNav">Item1</a>
+							</dd>
+							<dd>
+								<a class="menuNav">Item2</a>
+							</dd>
+							<dd>
+								<a class="menuNav">Item3</a>
+							</dd>
+							<dd>
+								<a class="menuNav">Item4</a>
+							</dd>
+						</dl>
+					</div>
+				</li>
+				<li class="" id="base_unlogin_li">Login or Register
+					<div class="user_menu_hidd" style="width: 200px; cursor: default;">
+						<div class="user_menu_content">
+							<form action="/login" method="post">
+								<div class="border_bot indexlogin">
+									<dl>
+										<dd>
+											Username<br> <input type="text" class="loginuserpass"
+												id="loginEmail" name="loginEmail" autocomplete="off">
+										</dd>
+										<dd>
+											Password<br> <input type="password"
+												class="loginuserpass" name="loginPassword">
+										</dd>
+										<dd class="Question_mark">
+											Forgot your password?<br> <a rel="nofollow"
+												class="underline" href="/recoveryPassword">Click here</a>
+										</dd>
+										<dd>
+											<input type="hidden" value="login" name="action"> <input
+												type="submit" class="button_01" value="Login"><span
+												id="warn_login_span"></span>
+										</dd>
+									</dl>
+								</div>
+							</form>
+							<div class="indexlogin">
+								<p class="lineheight15 font_size11">Register Now for $5 in
+									HoneyBuy.com!</p>
+								<div class="hei5"></div>
+								<input type="button"
+									onclick="window.location.href='/createAccount';"
+									class="button_01" value="CREATE AN ACCOUNT">
+							</div>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+
+		<div id="top_Cart" class="shopping_cart">
+			<a class="cart_icon wihte_D_shadow Dark_gray" href="/shoppingCart"
+				rel="nofollow">My bag <span class="items_num"> (0)</span>
+			</a>
+			<div id="universalCart">
+				<div class="box_top"></div>
+				<div class="box_body">
+					<div id="universalCartContent">
+						<div class="information_cart">
+							<span><a id="closeUniversalCart"></a> </span> Item(s) in the
+							Shopping Bag
+						</div>
+					</div>
+				</div>
+				<div class="box_bottom"></div>
+			</div>
+		</div>
+	</div>
+</div>
