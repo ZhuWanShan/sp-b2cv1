@@ -42,10 +42,18 @@
 										<#list catlog.subCategories as subcatlog>
 											<#if subcatlog.specialOffer>
 												<dt>
-													<a href="http://www.honeybuy.com/c/Designer-Wedding-Dresses"
-														title="Designer Wedding Dresses"> Designer Wedding Dresses </a>
+													<a href="http://www.honeybuy.com/c/${subcatlog.name}"
+														title="${subcatlog.displayName}">${subcatlog.displayName}</a>
 												</dt>
-											</#if>											
+											</#if>	
+											<#list subcatlog.subCategories as subsubcatlog>
+												<#if subsubcatlog.specialOffer>
+												<dt>
+													<a href="http://www.honeybuy.com/c/${subsubcatlog.name}"
+														title="${subsubcatlog.displayName}">${subsubcatlog.displayName}</a>
+												</dt>
+											</#if>	
+											</#list>										
 										</#list>
 									</dl>
 									<div style="clear: both;"></div>
@@ -56,12 +64,12 @@
 										</div>
 										<ul class="topNavClassAd">
 											<#list catlog.subCategories as subcatlog>
-												<li><a
-													href="http://www.honeybuy.com/c/Designer-Wedding-Dresses"
-													title="Designer Wedding Dresses"> <img width="174"
-														border="0" height="84"
-														src="http://www.honeybuy.com/image/17760190179278.jpg">
-												</a></li>
+													<li><a
+														href="http://www.honeybuy.com/c/Designer-Wedding-Dresses"
+														title="Designer Wedding Dresses"> <img width="174"
+															border="0" height="84"
+															src="http://www.honeybuy.com/image/17760190179278.jpg">
+													</a></li>
 												<#break>
 											</#list>
 										</ul>
