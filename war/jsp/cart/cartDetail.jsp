@@ -83,7 +83,7 @@
 											<c:when test="${opt.name eq 'Color' }">
 												<span>${opt.name } :</span>
 												<c:choose>
-													<c:when test='${opt.value eq "The Same As Picture" || fn:split(opt.value,"##")[1] eq "The Same As Picture"}'>
+													<c:when test='${opt.value eq "The Same As Picture" || fn:split(opt.value,"##")[1] eq "ASP"}'>
 														The Same As Picture
 													</c:when>
 													<c:otherwise>
