@@ -100,7 +100,14 @@
 											<c:choose>
 											<c:when test="${opt.name eq 'Color' }">
 												<span>${opt.name } :</span>
-												<img alt='${fn:split(opt.value,"##")[0] }' src='${fn:split(opt.value,"##")[1] }' title='${fn:split(opt.value,"##")[0] }' width="18" height="18">
+												<c:choose>
+													<c:when test='${opt.value eq "The Same As Picture" || fn:split(opt.value,"##")[1] eq "ASP"}'>
+														The Same As Picture
+													</c:when>
+													<c:otherwise>
+														<img alt='${fn:split(opt.value,"##")[0] }' src='${fn:split(opt.value,"##")[1] }' title='${fn:split(opt.value,"##")[0] }' width="18" height="18">
+													</c:otherwise>
+												</c:choose>
 											</c:when>
 											<c:otherwise>
 												<span>${opt.name } :</span>
