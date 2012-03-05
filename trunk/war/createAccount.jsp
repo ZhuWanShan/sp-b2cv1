@@ -31,6 +31,7 @@
 	<script type="text/javascript" src="../dwr/interface/AjaxService.js"></script>
 	<script src="js/header.js" type="text/javascript"></script>
 	<script language="javascript" src="js/common.js"></script>
+	<script src="http://cdn.gigya.com/js/socialize.js?apiKey=2_1UXpzvtcCUTsgsqVzgFllQgReHnrU1ZScSL7tJAC1ftCy_DMCPUi2iTExpYFaddy"></script>
 	<script type="text/javascript" defer="defer" charset="UTF-8" src="js/validation.js"></script>
 </head>
 <body>
