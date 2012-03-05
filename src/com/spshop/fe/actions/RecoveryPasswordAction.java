@@ -1,5 +1,8 @@
 package com.spshop.fe.actions;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,7 +27,18 @@ public class RecoveryPasswordAction extends BaseAction {
 		if (email != null) {
 		    User user = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
 		    if (user != null) {
-		        EmailTools.sendRecoveryEmail(email);
+		        final Map<String,Object> root = new HashMap<String,Object>(); 
+	            final User u = user;
+	            root.put("user", u);
+	            new Thread(){
+	                public void run() {
+	                    try{
+	                        EmailTools.sendMail("recovery", "Congratulations! Your password is found", root, u.getName());
+	                    }catch(Exception e){
+	                        
+	                    }
+	                };
+	            }.start();
 		    }
         } else {
             return mapping.findForward(Constants.fAILURE_VALUE);
