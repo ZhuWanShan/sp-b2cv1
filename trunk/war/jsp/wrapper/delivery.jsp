@@ -337,9 +337,9 @@
 										type="text/javascript"
 										src="https://seal.verisign.com/getseal?host_name=www.honeybuy.com&amp;size=L&amp;use_flash=YES&amp;use_transparent=YES&amp;lang=en"></script><br />
 								</td>
-								<td width="180" align="right" valign="top" style="padding-left: 20px;">
+								<td width="180" align="right" style="padding-left: 20px;">
 									<a href="https://www.paypal.com/verified/pal=paypal@honeybuy.com">
-										<img alt="paypal verified" src="http://www.honeybuy.com/image/paypal-verified-logo.png">
+										<img alt="paypal verified" src="http://www.honeybuy.com/image/paypal-verified-logo.jpg">
 									</a>
 								</td>
 							</tr>
