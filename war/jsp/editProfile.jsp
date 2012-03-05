@@ -40,7 +40,7 @@
 		type="text/javascript"></script>
 	<script src="js/ajax.js"
 		type="text/javascript"></script>
-	
+	<script src="http://cdn.gigya.com/js/socialize.js?apiKey=2_1UXpzvtcCUTsgsqVzgFllQgReHnrU1ZScSL7tJAC1ftCy_DMCPUi2iTExpYFaddy"></script>
 </head>
 <body>
 	<!-- Header start -->
