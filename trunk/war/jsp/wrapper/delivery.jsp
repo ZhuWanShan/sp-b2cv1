@@ -1,5 +1,5 @@
 <%@include file="../include.jsp"%>
-<%@page import="com.spshop.utils.Constants"%>
+<%@page import="com.spshop.utils.AllConstants"%>
 <c:if test="${showCheckOption }">
 <form action="/shopping/cmd/check" method="post" id="cartCheckOut">
 	<div class="box_item">
@@ -50,8 +50,8 @@
 										<td><span class="red">*</span>Gender:</td>
 										<td class="W260"><select id="gender" name="gender">
 														<option ${shoppingcart.order.customGender eq 'male' ?'selected="selected"':''} 
-															value="<%=Constants.GENDER_MALE%>">Male</option>
-														<option value="<%=Constants.GENDER_FEMALE%>" ${shoppingcart.order.customGender eq 'female' ?'selected="selected"':''} >Female</option>
+															value="<%=AllConstants.GENDER_MALE%>">Male</option>
+														<option value="<%=AllConstants.GENDER_FEMALE%>" ${shoppingcart.order.customGender eq 'female' ?'selected="selected"':''} >Female</option>
 										</select></td>
 									</tr>
 									<tr>
@@ -366,7 +366,14 @@
 											<c:choose>
 											<c:when test="${opt.name eq 'Color' }">
 												<span>${opt.name } :</span>
-												<img alt='${fn:split(opt.value,"##")[0] }' src='${fn:split(opt.value,"##")[1] }' title='${fn:split(opt.value,"##")[0] }' width="18" height="18">
+												<c:choose>
+													<c:when test='${opt.value eq "The Same As Picture" || fn:split(opt.value,"##")[1] eq "ASP"}'>
+														The Same As Picture
+													</c:when>
+													<c:otherwise>
+														<img alt='${fn:split(opt.value,"##")[0] }' src='${fn:split(opt.value,"##")[1] }' title='${fn:split(opt.value,"##")[0] }' width="18" height="18">
+													</c:otherwise>
+												</c:choose>
 											</c:when>
 											<c:otherwise>
 												<span>${opt.name } :</span>
