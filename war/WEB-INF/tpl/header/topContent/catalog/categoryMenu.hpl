@@ -80,55 +80,5 @@
 				</li>
 			</#if>
 		</#list>
-		<!--  
-		<li><span> <a
-				href="http://www.honeybuy.com/c/Wedding-Apparel"
-				title="Wedding Apparel"> Wedding Apparel </a>
-		</span>
-			<div class="sub_menu">
-				<div class="inner_boxA">
-					<dl>
-						<dt>
-							<a href="http://www.honeybuy.com/c/Wedding-Dresses"
-								title="Wedding Dresses"> Wedding Dresses </a>
-						</dt>
-						<dd>
-
-							<a href="http://www.honeybuy.com/c/Ball-Gown-Wedding-Dresses"
-								title="Ball Gown Wedding Dresses"> Ball Gown Wedding Dresses
-							</a>
-						</dd>
-						<dd>
-
-							<a href="http://www.honeybuy.com/c/Maternity-Wedding-Dresses"
-								title="Maternity Wedding Dresses"> View all </a>
-						</dd>
-					</dl>
-
-				</div>
-				<div class="inner_box_along">
-					<dl>
-						<dt>
-							<a href="http://www.honeybuy.com/c/Designer-Wedding-Dresses"
-								title="Designer Wedding Dresses"> Designer Wedding Dresses </a>
-						</dt>
-					</dl>
-					<div style="clear: both;"></div>
-					<div class="topNavClassAdWrapper">
-						<div class=" SpecialboxShadow topNavAdSpecialOffer">
-							<span class="topNavAdSpecialOffertxt Specialtextshadow ">Special
-								offer</span>
-						</div>
-						<ul class="topNavClassAd">
-							<li><a
-								href="http://www.honeybuy.com/c/Designer-Wedding-Dresses"
-								title="Designer Wedding Dresses"> <img width="174"
-									border="0" height="84"
-									src="http://www.honeybuy.com/image/17760190179278.jpg">
-							</a></li>
-						</ul>
-					</div>
-				</div>
-			</div></li>-->
 	</ul>
 </div>
