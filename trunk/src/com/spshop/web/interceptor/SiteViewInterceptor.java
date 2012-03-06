@@ -54,9 +54,9 @@ public class SiteViewInterceptor extends HandlerInterceptorAdapter{
 		
 		if(handler instanceof BaseController){
 			BaseController controller = (BaseController) handler;
-			if(null != controller.getSiteView()){
-				controller.setSiteView(siteView);
-			}
+			
+			//Site View
+			controller.setSiteView(siteView);
 			//User View
 			controller.setUserView(userView);
 		}
