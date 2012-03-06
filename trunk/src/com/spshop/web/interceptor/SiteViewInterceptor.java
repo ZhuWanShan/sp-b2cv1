@@ -17,6 +17,7 @@ import com.spshop.model.Category;
 import com.spshop.model.Site;
 import com.spshop.web.BaseController;
 import com.spshop.web.view.SiteView;
+import com.spshop.web.view.UserView;
 
 public class SiteViewInterceptor extends HandlerInterceptorAdapter{
 	
@@ -48,10 +49,16 @@ public class SiteViewInterceptor extends HandlerInterceptorAdapter{
 			HttpServletResponse response, Object handler) throws Exception {
 		
 		SiteView siteView = initSiteView();
+		UserView userView = new UserView();
+		//TODO retrieve userView
 		
 		if(handler instanceof BaseController){
 			BaseController controller = (BaseController) handler;
-			controller.setSiteView(siteView);
+			if(null != controller.getSiteView()){
+				controller.setSiteView(siteView);
+			}
+			//User View
+			controller.setUserView(userView);
 		}
 		
 		return true;

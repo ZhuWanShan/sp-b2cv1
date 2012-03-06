@@ -26,7 +26,8 @@ public class ModelAttributeInjecter {
 					Model model = (Model) param;
 					BaseController controller = (BaseController) target;
 					model.addAttribute(Constants.SITE_VIEW, controller.getSiteView());
-					logger.debug("set Site view");
+					model.addAttribute(Constants.USER_VIEW, controller.getUserView());
+					logger.debug("set Site view and User View");
 				}
 			}
 		}

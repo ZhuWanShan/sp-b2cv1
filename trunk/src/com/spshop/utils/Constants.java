@@ -91,4 +91,5 @@ public class Constants {
     public static final String DEFAULT_ORDER = "defaultOrder";
     
     public static final String SITE_VIEW = "siteView";
+    public static final String USER_VIEW = "userView";
 }

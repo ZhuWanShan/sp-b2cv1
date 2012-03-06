@@ -6,6 +6,7 @@ import java.io.Serializable;
 /**
  * author Delgado
  */
+@Deprecated
 public class AllConstants {
 
 	public static String JMAGICK_SYSTEM_PROPERTY = "jmagick.systemclassloader";
