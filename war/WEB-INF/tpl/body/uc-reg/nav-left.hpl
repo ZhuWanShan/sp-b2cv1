@@ -1,4 +1,22 @@
-<div class="">
+<div class="nav-left-box">
+	
+	<div class="box_title">User Center</div>
 
-
+	<div class="nav-left-catalog">
+		<dl class="nav-left-item">
+			<dt>My Shopping</dt>
+			<dd>
+				<a href="###">My Order</a>
+			</dd>
+		</dl>
+		<dl class="nav-left-item">
+			<dt>Settings</dt>
+			<dd>
+				<a href="###">My Profile</a>
+			</dd>
+			<dd>
+				<a href="###" class="nav-left-item_current">Change Password</a>
+			</dd>
+		</dl>
+	</div>
 </div>
