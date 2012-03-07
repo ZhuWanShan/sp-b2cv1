@@ -576,9 +576,10 @@ span.icon_RUB {
 
 .nav-right-box {
 	position: relative;
-	width: 782px;
+	width: 762px;
 	float: left;
 	overflow: hidden;
+	padding: 10px;
 }
 
 .box_title {
@@ -617,5 +618,34 @@ span.icon_RUB {
     line-height: 20px;
     padding-left: 24px;
 }
+
+.box_sub_item_title{
+	background: url("/style/image/tu.png") no-repeat scroll 5px 50% transparent;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 18px;
+}
+
+/******************************************************************uc****************************************************************************/
+
+.form_table{
+	padding: 4px;
+}
+
+.form_table td{
+	padding: 4px;
+}
+
+
+.txt_input {
+	margin-left: 5px;
+	width: 208px;
+	height: 22px;
+	border: solid 1px #CCC;
+	background: none;
+}
+
+
+
 
 /******************************************************************uc****************************************************************************/
