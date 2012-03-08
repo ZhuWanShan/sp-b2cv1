@@ -1,0 +1,4 @@
+<#include "/header/top.hpl">
+<#include "/body/body-uc-userProfile.hpl">	
+<#include "/footer/ucf1.hpl">
+<#include "/footer/bottom.hpl">

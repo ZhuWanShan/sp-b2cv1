@@ -1,0 +1,187 @@
+<div class="nav-right-box">
+	<div class="box_title">User Profile</div>
+
+	<div class="box_sub_item_title">User Account</div>
+	<div class="nav-right-box_content">
+		<table id="userProfile_form_table" class="form_table">
+			<tbody>
+				<tr>
+					<td width="161" height="30" align="right"><input id="hfid"
+						type="hidden">Fist Name<span>*</span></td>
+					<td><input name="username" id="username" type="text"
+						class="txt_input"> <span id="sp_name" style="color: Red;">Full
+							name can not be empty!</span></td>
+				</tr>
+				
+				<tr>
+					<td align="right"><input id="hfid"
+						type="hidden">Last Name<span>*</span></td>
+					<td><input name="username" id="username" type="text"
+						class="txt_input"> <span id="sp_name" style="color: Red;">Full
+							name can not be empty!</span></td>
+				</tr>
+				
+				<tr>
+					<td align="right"><input id="hfid"
+						type="hidden">Middle Name<span>*</span></td>
+					<td><input name="username" id="username" type="text"
+						class="txt_input"> <span id="sp_name" style="color: Red;">Full
+							name can not be empty!</span></td>
+				</tr>
+				
+				
+				<tr>
+					<td align="right"><input id="hfid"
+						type="hidden">Email<span>*</span></td>
+					<td><input name="username" id="username" type="text"
+						class="txt_input" readonly="readonly"> <span id="sp_name" style="color: Red;">Full
+							name can not be empty!</span></td>
+				</tr>
+					<tr>
+					<td align="right">&nbsp;</td>
+					<td><input name="" type="button" class="button_01"
+						value="Save"><span id="sp_msg"
+						style="color: Red; font-weight: bold;"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="box_sub_item_title">User Primary Address</div>
+	<div class="nav-right-box_content">
+		<table id="userProfile_form_table" class="form_table">
+			<tbody>
+				<tr>
+					<td width="161" height="30" align="right"><input id="hfid"
+						type="hidden">Full name<span>*</span></td>
+					<td><input name="username" id="username" type="text"
+						class="txt_input"> <span id="sp_name" style="color: Red;">Full
+							name can not be empty!</span></td>
+				</tr>
+				<tr>
+					<td height="50" align="right" valign="top">Address 1<span>*</span>
+					</td>
+					<td><textarea name="address1" id="address1" cols="" rows=""
+							class="txt_area"></textarea> <span id="sp_address1"
+						style="color: Red;">Consignee address can not be empty!</span></td>
+				</tr>
+				<tr>
+					<td height="45" align="right" valign="top">Address 2</td>
+					<td><textarea name="address2" id="address2" cols="" rows=""
+							class="txt_area"></textarea><span id="sp_address2"
+						style="color: Red;"></span></td>
+				</tr>
+				<tr>
+					<td height="30" align="right">City<span>*</span>
+					</td>
+					<td><input name="City" id="City" type="text" class="txt_input"><span
+						id="sp_city" style="color: Red;">City can not be empty!</span></td>
+				</tr>
+				<tr>
+					<td height="30" align="right">State / Province / Region</td>
+					<td><input name="province" id="province" type="text"
+						class="txt_input"><span id="sp_province"
+						style="color: Red; display: none;"></span></td>
+				</tr>
+				<tr>
+					<td height="30" align="right">Country / Region <span>*</span>
+					</td>
+					<td><select id="ddl_country" name="ddl_country"
+						style="width: 224px;" class="txt_select">
+							<option value="1">Afghanistan</option>
+
+							<option value="2">Albania</option>
+					</select> <span id="sp_country" style="color: Red;">Please select a
+							country!</span></td>
+				</tr>
+				<tr>
+					<td height="36" align="right">Postal Code<span>*</span></td>
+					<td><input name="code" id="code" type="text" class="txt_input"><span
+						id="sp_code" style="color: Red;">Zip can not be empty!</span></td>
+				</tr>
+				<tr>
+					<td height="40" align="right" valign="top">Phone Number<span>*</span></td>
+					<td valign="top"><input name="telNum" id="telNum" type="text"
+						class="txt_input " style="color: rgb(170, 170, 170);"><span
+						id="sp_tel" style="color: Red;">Phone can not be empty! </span>
+						<p>Your phone number is needed so we or the shipping company
+							can contact you in case of problems.</p></td>
+				</tr>
+				<tr>
+					<td align="right">&nbsp;</td>
+					<td><input name="" type="button" class="button_01"
+						value="Save"><span id="sp_msg"
+						style="color: Red; font-weight: bold;"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="box_sub_item_title">User Billing Address</div>
+	<div class="nav-right-box_content">
+		<table id="userProfile_form_table" class="form_table">
+			<tbody>
+				<tr>
+					<td width="161" height="30" align="right"><input id="hfid"
+						type="hidden">Full name<span>*</span></td>
+					<td><input name="username" id="username" type="text"
+						class="txt_input"> <span id="sp_name" style="color: Red;">Full
+							name can not be empty!</span></td>
+				</tr>
+				<tr>
+					<td height="50" align="right" valign="top">Address 1<span>*</span>
+					</td>
+					<td><textarea name="address1" id="address1" cols="" rows=""
+							class="txt_area"></textarea> <span id="sp_address1"
+						style="color: Red;">Consignee address can not be empty!</span></td>
+				</tr>
+				<tr>
+					<td height="45" align="right" valign="top">Address 2</td>
+					<td><textarea name="address2" id="address2" cols="" rows=""
+							class="txt_area"></textarea><span id="sp_address2"
+						style="color: Red;"></span></td>
+				</tr>
+				<tr>
+					<td height="30" align="right">City<span>*</span>
+					</td>
+					<td><input name="City" id="City" type="text" class="txt_input"><span
+						id="sp_city" style="color: Red;">City can not be empty!</span></td>
+				</tr>
+				<tr>
+					<td height="30" align="right">State / Province / Region</td>
+					<td><input name="province" id="province" type="text"
+						class="txt_input"><span id="sp_province"
+						style="color: Red; display: none;"></span></td>
+				</tr>
+				<tr>
+					<td height="30" align="right">Country / Region <span>*</span>
+					</td>
+					<td><select id="ddl_country" name="ddl_country"
+						style="width: 224px;" class="txt_select">
+							<option value="1">Afghanistan</option>
+
+							<option value="2">Albania</option>
+					</select> <span id="sp_country" style="color: Red;">Please select a
+							country!</span></td>
+				</tr>
+				<tr>
+					<td height="36" align="right">Postal Code<span>*</span></td>
+					<td><input name="code" id="code" type="text" class="txt_input"><span
+						id="sp_code" style="color: Red;">Zip can not be empty!</span></td>
+				</tr>
+				<tr>
+					<td height="40" align="right" valign="top">Phone Number<span>*</span></td>
+					<td valign="top"><input name="telNum" id="telNum" type="text"
+						class="txt_input " style="color: rgb(170, 170, 170);"><span
+						id="sp_tel" style="color: Red;">Phone can not be empty! </span>
+						<p>Your phone number is needed so we or the shipping company
+							can contact you in case of problems.</p></td>
+				</tr>
+				<tr>
+					<td align="right">&nbsp;</td>
+					<td><input name="" type="button" class="button_01"
+						value="Save"><span id="sp_msg"
+						style="color: Red; font-weight: bold;"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

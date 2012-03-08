@@ -53,6 +53,11 @@ a.underline {
 	text-decoration: underline;
 }
 
+textarea {
+	font-family: Tahoma;
+	font-size: 12px;
+}
+
 .clearBoth {
 	clear: both;
 }
@@ -634,6 +639,7 @@ span.icon_RUB {
 
 .form_table td{
 	padding: 4px;
+	text-align: left;
 }
 
 
@@ -645,7 +651,23 @@ span.icon_RUB {
 	background: none;
 }
 
+.nav-right-box_content{
+	
+}
 
+.txt_area{
+	margin-left: 5px;
+	width: 320px;
+	height: 36px;
+	border: solid 1px #CCC;
+}
+
+.txt_select{
+	margin-left: 5px;
+	width: 320px;
+	height: 22px;
+	border: solid 1px #CCC;
+}
 
 
 /******************************************************************uc****************************************************************************/
