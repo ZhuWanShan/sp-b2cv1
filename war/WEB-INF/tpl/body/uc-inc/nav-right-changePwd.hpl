@@ -1,7 +1,7 @@
 <div class="nav-right-box">
 	<div class="box_title">Change Password</div>
 	<div class="box_sub_item_title">Change Password</div>
-	<div class="mallp cpword">
+	<div class="nav-right-box_content">
 		<table class="form_table">
 			<tbody>
 				<tr>

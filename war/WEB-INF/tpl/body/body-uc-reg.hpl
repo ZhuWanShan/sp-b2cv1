@@ -1,5 +1,0 @@
-<div class="main_box" id="main_box">
-	<#include "uc-reg/nav-left.hpl">
-	<#include "uc-reg/nav-right.hpl">
-	<p class="clearBoth"></p>
-</div>

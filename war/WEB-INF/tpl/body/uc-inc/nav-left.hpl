@@ -12,10 +12,17 @@
 		<dl class="nav-left-item">
 			<dt>Settings</dt>
 			<dd>
-				<a href="###">My Profile</a>
+				<a href="/uc/userProfile" <#if  uc_current_page= "userProfile">
+					class="nav-left-item_current"
+				</#if>
+				>My Profile</a>
 			</dd>
 			<dd>
-				<a href="###" class="nav-left-item_current">Change Password</a>
+				<a href="/uc/changePwd"
+				<#if  uc_current_page= "changePwd">
+					class="nav-left-item_current"
+				</#if>
+				>Change Password</a>
 			</dd>
 		</dl>
 	</div>
