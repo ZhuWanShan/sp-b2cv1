@@ -74,16 +74,13 @@
 					<div class="user_menu_hidd" style="width: 200px;">
 						<dl>
 							<dd>
-								<a class="menuNav">Item1</a>
+								<a class="menuNav" href="/uc/changePwd">Change Password</a>
 							</dd>
 							<dd>
-								<a class="menuNav">Item2</a>
+								<a class="menuNav" href="/uc/userProfile">My Profile</a>
 							</dd>
 							<dd>
-								<a class="menuNav">Item3</a>
-							</dd>
-							<dd>
-								<a class="menuNav">Item4</a>
+								<a class="menuNav" href="/uc/myOrder">My Order</a>
 							</dd>
 						</dl>
 					</div>
@@ -130,7 +127,7 @@
 		</div>
 
 		<div id="top_Cart" class="shopping_cart">
-			<a class="cart_icon wihte_D_shadow Dark_gray" href="/shoppingCart"
+			<a class="cart_icon wihte_D_shadow Dark_gray" href="/sp/shoppingCart"
 				rel="nofollow">My bag <span class="items_num"> (0)</span>
 			</a>
 			<div id="universalCart">
