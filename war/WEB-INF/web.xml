@@ -156,7 +156,7 @@
 	</servlet-mapping>
 	
 	
-	<!--<servlet>
+	<servlet>
 		<servlet-name>SpringMVCMain</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
@@ -171,7 +171,21 @@
 		<url-pattern>/uc/*</url-pattern>
 	</servlet-mapping>
 	
- <error-page> -->
+		<servlet>
+		<servlet-name>SpringMVCMain2</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/context/webContext.xml</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>SpringMVCMain2</servlet-name>
+		<url-pattern>/sp/*</url-pattern>
+	</servlet-mapping>
+<!--<error-page> -->
 <!-- 		<exception-type>java.lang.Throwable</exception-type> -->
 <!-- 		<location>/500.jsp</location> -->
 <!-- 	</error-page> -->
