@@ -1,0 +1,147 @@
+<div class="scart_con">
+	<ul class="scart_c scart_order_header">
+		<li class="scart_order_header_title">Order Number:<span
+			class="red">1213123</span>
+		</li>
+		<li class="scart_order_header_w1">&nbsp;</li>
+		<li class="scart_order_header_w2">Item(s)</li>
+		<li class="scart_order_header_w3">Item Price</li>
+		<li class="scart_order_header_w4">Quantity</li>
+		<li class="scart_order_header_w5">Amount</li>
+	</ul>
+
+	<ul class="scart_c">
+		<li class="scart_thumbnail"><a target="_blank"
+			href="http://www.tidebuy.com/product/Fabulous-A-Line-Straps-Sweetheart-Floor-Length-Sweeping-Train-Wedding-Dresses-1753577.html"><img
+				src="https://s2.tidebuy.com/images/product/1/1753/1753577_1_s.jpg"></a>
+		</li>
+		<li class="scart_desc2">
+			<dl>
+				<dt>
+					<a target="_blank"
+						href="http://www.tidebuy.com/product/Fabulous-A-Line-Straps-Sweetheart-Floor-Length-Sweeping-Train-Wedding-Dresses-1753577.html">Fabulous
+						A-line Straps Sweetheart Floor-length Sweeping Train Wedding
+						Dresses</a>
+				</dt>
+				<dd class="scart_opt">
+					<ul>
+						<li>Size : US 6</li>
+						<li>Color : Champagne</li>
+					</ul>
+					<p class="clearBoth"></p>
+				</dd>
+			</dl>
+		</li>
+		<li class="scart_item_w2"><span class="red">US$</span> <span>156.69</span></li>
+		<li class="scart_item_2_w3">1</li>
+		<li class="scart_item_w4"><span class="red">US$</span> <span>156.69</span><input
+			type="hidden" value="156.69"></li>
+		<li class="scart_item_w6">Processing Time : The item(s) will be
+			ready for shipment within 24-30 calendar days after payment is
+			received.</li>
+	</ul>
+
+	<ul class="scart_c">
+		<li class="scart_thumbnail"><a target="_blank"
+			href="http://www.tidebuy.com/product/Fabulous-A-Line-Straps-Sweetheart-Floor-Length-Sweeping-Train-Wedding-Dresses-1753577.html"><img
+				src="https://s2.tidebuy.com/images/product/1/1753/1753577_1_s.jpg"></a>
+		</li>
+		<li class="scart_desc2">
+			<dl>
+				<dt>
+					<a target="_blank"
+						href="http://www.tidebuy.com/product/Fabulous-A-Line-Straps-Sweetheart-Floor-Length-Sweeping-Train-Wedding-Dresses-1753577.html">Fabulous
+						A-line Straps Sweetheart Floor-length Sweeping Train Wedding
+						Dresses</a>
+				</dt>
+				<dd class="scart_opt">
+					<ul>
+						<li>Size : US 6</li>
+						<li>Color : Champagne</li>
+					</ul>
+					<p class="clearBoth"></p>
+				</dd>
+			</dl>
+		</li>
+		<li class="scart_item_w2"><span class="red">US$</span> <span>156.69</span></li>
+		<li class="scart_item_2_w3">1</li>
+		<li class="scart_item_w4"><span class="red">US$</span> <span>156.69</span><input
+			type="hidden" value="156.69"></li>
+		<li class="scart_item_w6">Processing Time : The item(s) will be
+			ready for shipment within 24-30 calendar days after payment is
+			received.</li>
+	</ul>
+	<p class="clearBoth"></p>
+
+	<div class="scart_summary">
+		<div class="scart_status_list">
+			<table class="scart_status_list_table">
+				<tbody>
+					<tr>
+						<td class="scart_status_list_table_w1">ORDER NUMBER:</td>
+						<td class="scart_status_list_table_w2">1202270302347055</td><tr>
+					
+					<td cl ass="scart_status_list_table_w1">ORDER DATE:</td>
+						<td class="scart_status_list_table_w2">February 27, 2012</td>
+					
+					<tr>
+					
+					<tr>
+						<td class="scart_status_list_table_w1">STATUS:</td>
+						<td class="scart_status_list_table_w2"><b class="red">Pending</b></td>
+					
+					<tr>
+					
+					<tr>
+						<td class="scart_status_list_table_w1">PAYMENT METHOD:</td>
+						<td class="scart_status_list_table_w2">PayPal</td>
+					
+					<tr>
+					
+					<tr>
+						<td class="scart_status_list_table_w1">SHIPPING METHOD:</td>
+						<td class="scart_status_list_table_w2">Expedited</td>
+					
+					<tr>
+					
+					
+					<tr>
+						<td class="scart_status_list_table_w1">SHIPPED TO:</td>
+						<td class="scart_status_list_table_w2">kabist zheng (2626 Ocean Ave Mystic Garden Florist San Francisco, CA, California 21023 United States)</td>
+					
+					<tr>
+					
+					
+					
+					<tr>
+						<td class="scart_status_list_table_w1">BILLED TO:</td>
+						<td class="scart_status_list_table_w2">kabist zheng (2626 Ocean Ave Mystic Garden Florist San Francisco, CA, California 21023 United States) Phone:1-(415) 647-5469</td>
+					
+					<tr>
+				
+					</tbody>
+			</table>
+		</div>
+		
+		<dl class="scart_summary_list">
+			<dd>Item Sub total:<span class="red">USD 199.99</span>
+			</dd>
+			<dd>Coupon:<span class="red">USD 199.99</span>
+			</dd>
+			<dd class="separator">
+			<dd>
+			
+			<dd class="red">
+				<b>Grand Total:<span id="GrabdTotal">USD 896.91</span></b>
+			</dd>
+			<dd class="red">
+			<span>
+				<a href="/uc/myOrder">Back>> </a>
+				<input type="button" class="button_01" value="Processed to Pay">
+				</span>
+			</dd>
+		</dl>
+
+	</div>
+	<p class="clearBoth"></p>
+</div>

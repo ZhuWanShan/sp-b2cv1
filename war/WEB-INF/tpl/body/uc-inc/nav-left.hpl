@@ -6,7 +6,11 @@
 		<dl class="nav-left-item">
 			<dt>My Shopping</dt>
 			<dd>
-				<a href="###">My Order</a>
+				<a href="/uc/myOrder"  
+				<#if  uc_current_page= "myOrder">
+					class="nav-left-item_current"
+				</#if> 
+				>My Order</a>
 			</dd>
 		</dl>
 		<dl class="nav-left-item">

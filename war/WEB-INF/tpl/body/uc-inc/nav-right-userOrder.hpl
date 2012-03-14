@@ -1,0 +1,49 @@
+<div class="nav-right-box">
+	<div class="box_title">My Orders</div>
+
+	<div class="nav-right-box_content">
+		<div class="right-box_order_con">
+			<ul class="right-box_order_header">
+				<li class="order_header_w1">ORDER DATE</li>
+				<li class="order_header_w2">ORDER NUMBER</li>
+				<li class="order_header_w3">ORDER TOTAL</li>
+				<li class="order_header_w4">ORDER STATUS</li>
+				<li class="order_header_w5">&nbsp;</li>
+			</ul>
+			<ul class="right-box_order_item">
+				<li class="order_item_w1">February 27, 2012</li>
+				<li class="order_item_w2"><a href="/uc/orderDetails">1202270302347055</a></li>
+				<li class="order_item_w3">US$ 202.98</li>
+				<li class="order_item_w4">Pending</li>
+				<li class="order_item_w5"><a href="/uc/orderDetails">View Details</a></li>
+			</ul>
+			<ul class="right-box_order_item">
+				<li class="order_item_w1">February 27, 2012</li>
+				<li class="order_item_w2"><a href="/uc/orderDetails">1202270302347055</a></li>
+				<li class="order_item_w3">US$ 202.98</li>
+				<li class="order_item_w4">Pending</li>
+				<li class="order_item_w5"><a href="/uc/orderDetails">View Details</a></li>
+			</ul>
+			<ul class="right-box_order_item">
+				<li class="order_item_w1">February 27, 2012</li>
+				<li class="order_item_w2"><a href="/uc/orderDetails">1202270302347055</a></li>
+				<li class="order_item_w3">US$ 202.98</li>
+				<li class="order_item_w4">Pending</li>
+				<li class="order_item_w5"><a href="/uc/orderDetails">View Details</a></li>
+			</ul>
+		</div>
+		<div>
+			<ul class="right-box_order_footer">
+				<li><a href="">Prev</a></li>
+				<li>
+					<form>
+						<input type="text" class="pagination_input">
+						<input type="submit" value="GO">
+					</form>
+				</li>
+				<li><a href="">Next</a></li>
+				<li><a href="">Last(9)</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
