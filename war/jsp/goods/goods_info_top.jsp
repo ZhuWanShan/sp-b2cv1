@@ -182,13 +182,16 @@
 						<div class="item_colorBox">
 							<div class="item_ProBox_title">
 								<span><c:out value="${option.name}" />:</span><br>
+								<p style="color: #999">If more than one color style,
+Please DO NOT use "the same as picture" option.</p>
 							</div>
 							<input type="hidden"
 								name="color@${option.name}"
 								id="goodColor" value="">
 								<select id="productColorSelector">
+									<option value="">Please select...</option>
 									<option value="The Same As Picture##asp">The Same As Picture</option>
-									<option value="other">Select other color</option>
+									<option value="other">Select Other</option>
 								</select>
 								
 								<div class="colorSelectWindow" style="display: none;">
@@ -220,7 +223,7 @@
 										</c:forEach>
 									</div>
 									<script type="text/javascript">
-										jq("#goodColor").val("The Same As Picture##ASP");
+										jq("#goodColor").val("");
 										jq("#productColorSelector").change(function(){
 											if(jq("#productColorSelector").val()=="other"){
 												jq(".colorSelectWindow").show();
