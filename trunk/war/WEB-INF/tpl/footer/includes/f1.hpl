@@ -1,3 +1,146 @@
-<div class="main_box" id="main_box" style="height: 100px;background-color: #bbbbbb">
-	<h1>common footer</h1>
+<div class="main_box" >
+	<link rel="stylesheet" type="text/css" href="/css/followBar.css">
+	
+	<div class="w-bp w-joinOurCommunity" id="joinOurCommunity">
+		<h2 class="commH2">Join Our Community for Coupons, Gifts and Happiness:</h2>
+		<div id="followBarButtons"></div>
+		<script>
+			var params = {
+				containerID : 'followBarButtons',
+				buttons : [ {
+					provider : 'facebook',
+					actionURL : 'http://www.facebook.com/HoneyBuy',
+					action : 'dialog'
+				}, {
+					provider : 'twitter',
+					followUsers : 'honeybuy',
+					actionURL : 'http://www.twitter.com/HoneyBuy',
+					action : 'dialog'
+				}, {
+					provider : 'email',
+					confirmationText : 'Thank you for following us',
+					action : 'dialog'
+				}, {
+					provider : 'rss',
+					actionURL : 'http://honeybuy.wordpress.com/feed/',
+					action : 'window'
+				}, {
+					provider : 'linkedin',
+					actionURL : 'http://www.linkedin.com/in/honeybuy/',
+					action : 'redirect'
+				} ]
+			};
+			gigya.services.socialize.showFollowBarUI(params);
+		</script>
+		<a href="https://plus.google.com/109978880912693970020?prsrc=3"	style="text-decoration: none; margin-left: 10px" target="_blank">
+		   <img src="https://ssl.gstatic.com/images/icons/gplus-32.png" 
+		     alt="Google Plus" title="Plus HoneyBuy on Google+" style="border: 0; width: 30px; height: 30px"></a> 
+		<a href="http://pinterest.com/HoneyBuy/" style="text-decoration: none; margin-left: 10px" target="_blank">
+		   <img src="http://passets-cdn.pinterest.com/images/big-p-button.png"
+			 alt="Follow Me on Pinterest" title="Follow HoneyBuy on Pinterest" style="border: 0; width: 31px; height: 31px"></a> 
+		<a href="http://honeybuy.blogspot.com" style="margin-left: 10px" target="_blank">
+		  <img src="https://www.blogger.com/img/start/icon.png" 
+			 title="Honeybuy Blogger" alt="HoneyBuy Blogger" style="border: 0; width: 31px; height: 31px"></a>
+	</div>
+
+	<div style="padding-top:2px; border-top: 1px solid #CCCCCC">
+		<style>
+		   
+			.foot_ul{
+			width: 20%;
+			float: left;
+			Padding: 1px 0; 
+		
+			}
+			.foot_header{
+			    line-height: 25px;
+			    padding: 0 20px; 
+				text-align: left;
+				font-weight: bold;
+			}
+			.foot_item{
+			    line-height: 20px;
+				padding: 0 22px;    
+				text-align: left;
+			}
+			
+			.foot_ul  a:hover 
+			{
+			color: #FF5A00;
+			text-decoration: underline;
+			}
+			.foot_ul a 
+			{cursor: pointer;
+			}			
+		</style>
+		
+		
+
+		<ul class="foot_ul">
+			<li class="foot_header">HoneyBuy Stores</li>
+			<li class="foot_item"><a  href="http://www.honeybuy.com/c/Wedding-Dresses">Wedding Dresses</a></li>
+			<li class="foot_item"><a  href="http://www.honeybuy.com/c/Prom-Dresses">Prom Dresses</a></li>
+			<li class="foot_item"><a  href="http://www.honeybuy.com/c/Suits">Custom Suits</a></li>
+			<li class="foot_item"><a  href="http://www.honeybuy.com/c/Shoes">Shoes</a></li>
+			<li class="foot_item"><a  href="http://www.honeybuy.com/c/Handbags">Handbags</a></li>
+			<li class="foot_item"><a  href="http://www.honeybuy.com/c/Jewelry">Jewelry</a></li>
+			
+		</ul>
+		<ul class="foot_ul">
+			<li class="foot_header">Customer Service</li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/Placing-Ordrs">Placing Orders</a></li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/Track-Order">Track Order</a></li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/Payment-Method">Payment Methods</a></li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/Shipping-Information">Shipping Guide</a></li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/Return-Exchange">Return & Exchange</a></li>
+		    <li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/FAQ">Faqs</a></li>
+						
+		</ul>
+		<ul class="foot_ul">
+			<li class="foot_header">Company Info</li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/About-Us">About Us</a></li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/Contact-Us">Contact Us</a></li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/Guarantee">Guarantee</a></li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/Why-Custom">Why Custom</a></li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/How-We-Works">How We Works</a></li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/Testimonials">Testimonials</a></li>		
+		</ul>
+		<ul class="foot_ul">
+			<li class="foot_header">Ways To Save</li>
+			<li class="foot_item"><a href="http://www.honeybuy.com/c/Coupons">Coupons</a></li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/Promotions-News">Promotions News</a></li>
+			<li class="foot_item"><a href="http://www.honeybuy.com/c/Wholesaler">Wholesale</a></li>		
+		</ul>
+		</ul>
+		<ul class="foot_ul">
+			<li class="foot_header">Company Policy</li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/Security-Shopping">Secure Shopping</a></li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/Privacy-Policy">Privacy Policy</a></li>
+			<li class="foot_item"><a rel="nofollow" href="http://www.honeybuy.com/c/Terms-Of-Use">Terms Of Use</a></li>
+		</ul>
+
+	<p class="clearBoth"></p>
+	</div>
+	
+<div style="padding:5px; border-top: 1px solid #CCCCCC; text-align:center">
+<a target="_blank" rel="nofollow" href="https://www.paypal.com/verified/pal=paypal@honeybuy.com">
+<img src="http://www.honeybuy.com/image/6197576203911273.jpg" style="float:left; border:0; margin-left:20px">
+</a>
+<img rel="nofollow" src="http://www.honeybuy.com/image/84995201997600.jpg" style="float:left; border:0; margin-top: 20px">
+<img rel="nofollow"src="http://www.honeybuy.com/image/6199016674013598.jpg" style="float:left; border:0; margin-top: 20px">
+<a target="_blank" rel="nofollow" href="https://www.paypal.com/verified/pal=paypal@honeybuy.com">
+<img src="http://www.honeybuy.com/image/6197576203911273.jpg" style="float:left; border:0">
+</a><p class="clearBoth"></p>
+<div style="padding-top:5px">Shop the <a href="http://www.honeybuy.com"><span style="color: #0088CC">
+HonyBuy.com Online Store</span></a> (86-592-2911525), visit a <a href="http://www.honeybuy.com/c/Wedding-Dresses"><span style="color: #0088CC">Dress Retail Store</span></a>, or find a 
+<a href="http://www.honeybuy.com/c/wholesaler">
+<span style="color: #0088CC">Wholesaler</span></a>.
+</div>
+</div>
+<div style="padding:10px; border-top: 1px solid #999999; text-align:center">
+<span>Copyright © 2012 HoneyBuy.com Inc. All rights reserved. | <a rel="nofollow" href="http://www.honeybuy.com/c/Terms-of-Use">
+<span style="color: #0088CC">Terms of Use</span></a>
+ | <a rel="nofollow" href="http://www.honeybuy.com/c/Privacy-Policy">
+<span style="color: #0088CC">Privacy Policy</span></a></span>
+</div>
 </div>
