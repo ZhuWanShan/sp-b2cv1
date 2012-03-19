@@ -209,6 +209,8 @@ public abstract class BaseAction extends Action {
 				}
 			}
 		}
+		User user = (User) request.getSession().getAttribute(
+				Constants.USER_INFO);
 		if(shoppingCart.getOrder().getId()>0){
 			Cookie cookie = new Cookie("cartId", ""+shoppingCart.getOrder().getId());
 			cookie.setMaxAge(99999999);
@@ -216,7 +218,9 @@ public abstract class BaseAction extends Action {
 		}
 		
 		 shoppingCart.getOrder().setCurrency(getCurrencyName(request));
-		 
+		 if(null!=user){
+			 shoppingCart.getOrder().setUser(user);
+		 }
 		request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
 		return shoppingCart;
 	}
