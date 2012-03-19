@@ -362,31 +362,27 @@ public class ShoppingCartAction extends BaseAction {
 		
 		
 		Order order = getCart(request,response).getOrder();
-		synchronized(this){
-			if(ADDITEM.equals(retriveOperation(request))){
-				int qty = retriveQty(request);
-				Product product = SCacheFacade.getProduct(retriveProductId(request));
-				List<UserOption> options = retriveUserOptions(request);
-				
-				getCart(request,response).addItem(product,options,qty);
-				updateCart(request, response,OrderStatus.ONSHOPPING);
-			}
-		}
-		synchronized(this){
-			if(UPDATEITEM.equals(retriveOperation(request))){
-				int qty = retriveQty(request);
-				String itemName = retriveItemName(request);
-				getCart(request,response).update(itemName,qty);
-				updateCart(request, response,OrderStatus.ONSHOPPING);
-			}
-		}
 		
-		synchronized(this){
-			if(REMOVEITEM.equals(retriveOperation(request))){
-				String itemName = retriveItemName(request);
-				getCart(request,response).remove(itemName);
-				updateCart(request, response,OrderStatus.ONSHOPPING);
-			}
+		if(ADDITEM.equals(retriveOperation(request))){
+			int qty = retriveQty(request);
+			Product product = SCacheFacade.getProduct(retriveProductId(request));
+			List<UserOption> options = retriveUserOptions(request);
+			
+			getCart(request,response).addItem(product,options,qty);
+			updateCart(request, response,OrderStatus.ONSHOPPING);
+		}
+	
+		if(UPDATEITEM.equals(retriveOperation(request))){
+			int qty = retriveQty(request);
+			String itemName = retriveItemName(request);
+			getCart(request,response).update(itemName,qty);
+			updateCart(request, response,OrderStatus.ONSHOPPING);
+		}
+	
+		if(REMOVEITEM.equals(retriveOperation(request))){
+			String itemName = retriveItemName(request);
+			getCart(request,response).remove(itemName);
+			updateCart(request, response,OrderStatus.ONSHOPPING);
 		}
 		
 		if("pay".equals(retriveOperation(request))){
