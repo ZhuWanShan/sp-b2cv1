@@ -2117,7 +2117,7 @@ function checkItem(){
 	
 	var color = jQuery("input[name^='color@Color']").val();
 	
-	if((null==color || color.length < 1)&&jQuery("#productColorSelector")){
+	if((null==color || color.length < 1)&&jQuery("#productColorSelector").length>0){
 		alert("Please select a Color");
 		return false;
 	}
