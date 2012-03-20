@@ -62,18 +62,22 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		User user = retrieveUser(request);
 		userView.setLoginUser(user);
 		
-		
-		String url = request.getRequestURL().toString();
-		if(url.endsWith(LOGIN_PAGE)){
-			url = null;
-		}
-		String queryString = request.getQueryString();
-		if(null != queryString && null != url){
-			url = url + "?" + queryString;
-			
-		}
-		if(null!=url){
-			userView.setRequestPage(URLEncoder.encode(url,"UTF-8"));
+		String lanagPage = request.getParameter(LOGIN_LANDING_PAGE_PARAM);
+		if(lanagPage == null){
+			String url = request.getRequestURL().toString();
+			if(url.endsWith(LOGIN_PAGE)){
+				url = null;
+			}
+			String queryString = request.getQueryString();
+			if(null != queryString && null != url){
+				url = url + "?" + queryString;
+				
+			}
+			if(null!=url){
+				userView.setRequestPage(URLEncoder.encode(url,"UTF-8"));
+			}
+		}else{
+			userView.setRequestPage(lanagPage);
 		}
 		
 		if(handler instanceof BaseController){
