@@ -17,6 +17,7 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 	public Order saveOrder(Order order, String status){
 		if(null!=order.getUser()&&order.getStatus().equals(OrderStatus.PAID)){
 			User usr = ServiceFactory.getService(UserService.class).queryUserByEmail(order.getUser().getEmail());
+			usr = getDao().getUserById(usr.getId());
 			order.setUser(usr);
 		}
 		order.setStatus(status);
