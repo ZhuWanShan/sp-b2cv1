@@ -9,6 +9,7 @@ public class UserView {
 	private String currencyCode;
 	private ShoppingCart shoppingCart;
 	private User loginUser;
+	private String requestPage;
 
 	public float getCurrencyRate() {
 		return currencyRate;
@@ -40,5 +41,13 @@ public class UserView {
 
 	public void setLoginUser(User loginUser) {
 		this.loginUser = loginUser;
+	}
+
+	public String getRequestPage() {
+		return requestPage;
+	}
+
+	public void setRequestPage(String requestPage) {
+		this.requestPage = requestPage;
 	}
 }
