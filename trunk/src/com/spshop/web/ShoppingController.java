@@ -49,6 +49,17 @@ public class ShoppingController extends BaseController{
         return null;
     }
 	
+
+	@RequestMapping(value="/recoverPwd", method = RequestMethod.GET)
+    public String recoverPwd2(Model model, HttpServletResponse response) {
+        return "recoverPassword";
+    }
+	
+	@RequestMapping(value="/recoverPwd", method = RequestMethod.POST)
+    public String recoverPwd(Model model, HttpServletResponse response) {
+        return "recoverPassword";
+    }
+	
 	@RequestMapping(value="/logout")
 	public String logout(Model model,HttpServletRequest request,HttpServletResponse response){
 		request.getSession().removeAttribute(USER_INFO);

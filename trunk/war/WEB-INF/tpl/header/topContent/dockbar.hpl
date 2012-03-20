@@ -108,7 +108,7 @@
 										</dd>
 										<dd class="Question_mark">
 											Forgot your password?<br> <a rel="nofollow"
-												class="underline" href="/recoveryPassword">Click here</a>
+												class="underline" href="/uc/recoverPwd">Click here</a>
 										</dd>
 										<dd>
 											<input type="hidden" value="login" name="action"> <input
@@ -123,7 +123,7 @@
 									HoneyBuy.com!</p>
 								<div class="hei5"></div>
 								<input type="button"
-									onclick="window.location.href='/createAccount';"
+									onclick="window.location.href='/uc/login';"
 									class="button_01" value="CREATE AN ACCOUNT">
 							</div>
 						</div>
