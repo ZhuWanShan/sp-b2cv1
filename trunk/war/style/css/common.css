@@ -49,6 +49,11 @@ a {
 	text-decoration: none;
 }
 
+a:hover {
+	color: #FF5A00;
+	text-decoration: underline;
+}
+
 a.underline {
 	text-decoration: underline;
 }
@@ -75,10 +80,24 @@ textarea {
 	height: 10px;
 }
 
-.pagination_input{
+.pagination_input {
 	width: 20px;
 }
 
+input:-webkit-autofill {
+	background-color: #FAFFBD;
+	background-image: none;
+	color: black;
+}
+
+.cursor_point_and_underline{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.gray{
+	color:#666;
+}
 /***********************************************************top*****************************************************************************/
 .header_top {
 	background: url("/style/image/headertop_bg.gif") repeat-x scroll 0 0
@@ -476,8 +495,8 @@ span.icon_RUB {
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
-.main_menu ul li span:nth-of-type(1){
-padding:0 14px 2px;
+.main_menu ul li span:nth-of-type (1){
+	padding: 0 14px 2px;
 }
 
 .main_menu ul li span {
@@ -667,7 +686,7 @@ padding:0 14px 2px;
 	width: 208px;
 	height: 22px;
 	border: solid 1px #CCC;
-	background: none;
+	background: #FFF;
 }
 
 .nav-right-box_content {
@@ -722,13 +741,14 @@ li.order_header_w4 {
 }
 
 li.order_header_w5 {
+	
 }
 
 .right-box_order_item {
 	height: 30px;
 }
 
-.right-box_order_item:hover{
+.right-box_order_item:hover {
 	background-color: #EFEFEF;
 }
 
@@ -739,11 +759,11 @@ li.order_header_w5 {
 	text-align: left;
 }
 
-.right-box_order_item a{
+.right-box_order_item a {
 	text-decoration: underline;
 }
 
-.right-box_order_item a:hover{
+.right-box_order_item a:hover {
 	text-decoration: underline;
 	color: #FF5A00;
 }
@@ -765,9 +785,10 @@ li.order_item_w4 {
 }
 
 li.order_item_w5 {
+	
 }
 
-.right-box_order_footer{
+.right-box_order_footer {
 	height: 30px;
 }
 
@@ -778,11 +799,11 @@ li.order_item_w5 {
 	text-align: left;
 }
 
-.right-box_order_footer a{
+.right-box_order_footer a {
 	text-decoration: underline;
 }
 
-.right-box_order_footer a:hover{
+.right-box_order_footer a:hover {
 	text-decoration: underline;
 	color: #FF5A00;
 }
@@ -1035,12 +1056,12 @@ li.scart_c_w_r {
 	font-weight: bolder;
 }
 
-.scart_order_header{
+.scart_order_header {
 	height: 40px;
 	background-color: #FAA003;
 }
 
-.scart_order_header li.scart_order_header_title{
+.scart_order_header li.scart_order_header_title {
 	width: 952px;
 	height: 20px;
 	line-height: 20px;
@@ -1048,44 +1069,71 @@ li.scart_c_w_r {
 	padding: 0px 10px;
 }
 
-.scart_order_header li{
+.scart_order_header li {
 	float: left;
 	background: #EFEFEF;
 	height: 20px;
 	line-height: 20px;
 }
-.scart_order_header li.scart_order_header_w1{
+
+.scart_order_header li.scart_order_header_w1 {
 	padding: 0px 10px;
 	width: 96px;
 	text-align: center;
 }
-.scart_order_header li.scart_order_header_w2{
+
+.scart_order_header li.scart_order_header_w2 {
 	padding: 0px 10px;
 	width: 470px;
 	text-align: center;
 }
-.scart_order_header li.scart_order_header_w3{
+
+.scart_order_header li.scart_order_header_w3 {
 	padding: 0px 10px;
 	width: 100px;
 	text-align: center;
 }
-.scart_order_header li.scart_order_header_w4{
-	padding: 0px 10px;
-	width: 103px;
-	text-align: center;
-}
-.scart_order_header li.scart_order_header_w5{
+
+.scart_order_header li.scart_order_header_w4 {
 	padding: 0px 10px;
 	width: 103px;
 	text-align: center;
 }
 
-.scart_status_list{
+.scart_order_header li.scart_order_header_w5 {
+	padding: 0px 10px;
+	width: 103px;
+	text-align: center;
+}
+
+.scart_status_list {
 	width: 500px;
 	float: left;
 }
 
-.scart_status_list table.scart_status_list_table .scart_status_list_table_w1{
+.scart_status_list table.scart_status_list_table .scart_status_list_table_w1
+	{
 	width: 130px;
 }
 
+/******************************************************************login****************************************************************************/
+.login_left {
+	width: 400px;
+	float: left;
+	padding: 25px 10px 10px 60px;
+}
+
+.form_label {
+	color: black;
+	padding: 10px 10px 5px 10px;
+}
+.form_error{
+	padding: 5px 10px 5px 10px
+}
+
+.login_right{
+	width: 400px;
+	float: right;
+	padding: 25px 60px 10px 10px;
+	background-color: #efefef;
+}
