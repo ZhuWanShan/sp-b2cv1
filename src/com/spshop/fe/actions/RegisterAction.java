@@ -32,7 +32,7 @@ public class RegisterAction extends BaseAction {
             user.setEmail(email);
             user.setPassword(password);
             createUser(user);
-            
+            user = ServiceFactory.getService(UserService.class).validateUser(user);
             String psw = user.getPassword().substring(0, user.getPassword().length()-2)+"**";
             user.setPassword(psw);
             final Map<String,Object> root = new HashMap<String,Object>(); 
