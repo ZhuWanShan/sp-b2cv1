@@ -1,8 +1,6 @@
 package com.spshop.web.interceptor;
 
-import static com.spshop.utils.Constants.COOKIE_ACCOUNT;
-import static com.spshop.utils.Constants.LOGIN_PAGE;
-import static com.spshop.utils.Constants.USER_INFO;
+import static com.spshop.utils.Constants.*;
 
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -72,6 +70,9 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		String queryString = request.getQueryString();
 		if(null != queryString && null != url){
 			url = url + "?" + queryString;
+			
+		}
+		if(null!=url){
 			userView.setRequestPage(URLEncoder.encode(url,"UTF-8"));
 		}
 		
@@ -92,6 +93,7 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		User user = (User) request.getSession().getAttribute(USER_INFO);
 		if(null==user){
 			user = retrieveUserFromCookies(request.getCookies());
+			 request.getSession().setAttribute(USER_INFO, user);
 		}
 		return user;
 	}
@@ -117,8 +119,8 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 			if(null!=cookies){
 				for (Cookie  cookie: cookies) {
 					if(COOKIE_ACCOUNT.equals(cookie.getName())){
-						String value = Utils.decrypt(cookie.getValue());
-						String[] mixUser = value.split("vvvvvxxxooovvvvvvv");
+						String value = Utils.OBJ.getDecry(cookie.getValue());
+						String[] mixUser = value.split(USER_NAME_PWD_SPLIT);
 						User user = new User();
 						user.setEmail(mixUser[0]);
 						user.setPassword(mixUser[1]);

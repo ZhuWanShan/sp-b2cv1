@@ -1,182 +1,111 @@
 package com.spshop.utils;
 
-import static com.spshop.utils.Constants.ENCRYPTION_TYPE;
-
-import java.security.InvalidKeyException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.Security;
 
-import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.log4j.Logger;
 
-
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 public class Utils {
 
-		private static Logger logger = Logger.getLogger(Utils.class);
-		private static SecretKeySpec skeySpec = null;
-
-	    static {
-	        // Get the KeyGenerator
-	        KeyGenerator kgen = null;
-	        try {
-	            kgen = KeyGenerator.getInstance(ENCRYPTION_TYPE);
-	        } catch (NoSuchAlgorithmException e) {
-	            logger.error("No suck Algorithm Exception", e);
-	        }
-	        kgen.init(128); // 192 and 256 bits may not be available
-
-	        // Generate the secret key specs.
-	        SecretKey skey = kgen.generateKey();
-	        byte[] raw = skey.getEncoded();
-
-	        skeySpec = new SecretKeySpec(raw, ENCRYPTION_TYPE);
-
-	    }
+	private static Logger log = Logger.getLogger(Utils.class);
+	private static final String ALGORITHM = "DES";
+	private KeyGenerator keyGen;
+	private SecretKey desKey;
+	private Cipher cip;
+	private byte[] cipherByte;
 	
-	    public static String encrypt(String originalString) {
-	        if (null == originalString) {
-	            logger.debug("originalString is null, return...");
-	            return null;
-	        }
+	public static Utils OBJ = new Utils();
 
-	        // convert String to byte[]
-	        byte[] byteString = originalString.getBytes();
+	private Utils() {
+		init("X");
+	}
+	
+	public void init(String str) {
+		Security.addProvider(new com.sun.crypto.provider.SunJCE());
+		try {
+			keyGen = KeyGenerator.getInstance(ALGORITHM);
+			keyGen.init(new SecureRandom(str.getBytes()));
+			desKey = keyGen.generateKey();
+			cip = Cipher.getInstance(ALGORITHM);
+		} catch (NoSuchAlgorithmException ex) {
+			log.error(ex.getMessage());
 
-	        // Instantiate the cipher
-	        Cipher cipher = null;
-	        try {
-	            cipher = Cipher.getInstance(ENCRYPTION_TYPE);
-	        } catch (NoSuchAlgorithmException e) {
-	            // exception caught, return original string
-	            logger.error(e.toString());
-	            return originalString;
-	        } catch (NoSuchPaddingException e) {
-	            // exception caught, return original string
-	            logger.error(e.toString());
-	            return originalString;
-	        }
-	        try {
-	            cipher.init(Cipher.ENCRYPT_MODE, skeySpec);
-	        } catch (InvalidKeyException e) {
-	            // exception caught, return original string
-	            logger.error(e.toString());
-	            return originalString;
-	        }
+		} catch (NoSuchPaddingException ex) {
+			log.error(ex.getMessage());
 
-	        byte[] encrypted = null;
-	        try {
-	            encrypted = cipher.doFinal(byteString);
-	        } catch (IllegalBlockSizeException e) {
-	            // exception caught, return original string
-	            logger.error(e.toString());
-	            return originalString;
-	        } catch (BadPaddingException e) {
-	            // exception caught, return original string
-	            logger.error(e.toString());
-	            return originalString;
-	        }
-	        String encryptedString = parseByteToHexString(encrypted);
+		}
+	}
 
-	        return encryptedString;
-	    }
+	public String getEncryString(String expreStr) {
+		byte[] cipByte = null;
+		byte[] expreByte = null;
+		String cipStr = "";
+		BASE64Encoder base64en = new BASE64Encoder();
+		try {
+			expreByte = expreStr.getBytes("UTF8");
+			cipByte = dataEncryptor(expreByte);
+			cipStr = base64en.encode(cipByte);
+		} catch (UnsupportedEncodingException e) {
+			log.error(e.getMessage());
+			throw new RuntimeException("des", e);
+		} finally {
+			cipByte = null;
+			expreByte = null;
+			base64en = null;
+		}
+		return cipStr;
+	}
 
-	    /**
-	     * This method decrypts the given string by designated algorithm and global secret key.
-	     * 
-	     * @param encryptedString
-	     *            String
-	     * @return originalString String
-	     */
-	    public static String decrypt(String encryptedString) {
-	        if (null == encryptedString) {
-	            logger.error("encryptedString is null, return...");
-	            return null;
-	        }
+	public String getDecry(String cipStr) {
+		byte[] cipByte = null;
+		byte[] expreByte = null;
+		String expreStr = "";
+		BASE64Decoder base64De = new BASE64Decoder();
+		try {
+			cipByte = base64De.decodeBuffer(cipStr);
+			expreByte = dataDecryptor(cipByte);
+			expreStr = new String(expreByte, "UTF8");
+		} catch (IOException e) {
+			log.error(e.getMessage());
+			throw new RuntimeException("des!", e);
+		} finally {
+			cipByte = null;
+			expreByte = null;
+			base64De = null;
+		}
+		return expreStr;
+	}
 
-	        // convert String to byte[]
-	        byte[] byteString = parseHexStringToByte(encryptedString);
+	public byte[] dataEncryptor(byte[] expreByte) {
+		try {
+			cip.init(Cipher.ENCRYPT_MODE, desKey);
+			cipherByte = cip.doFinal(expreByte);
+		} catch (Exception ex) {
+			log.error(ex.getMessage());
+		}
+		return cipherByte;
+	}
 
-	        Cipher cipher = null;
-	        try {
-	            cipher = Cipher.getInstance(ENCRYPTION_TYPE);
-	        } catch (NoSuchAlgorithmException e) {
-	            // exception caught, return encrypted string
-	            logger.error(e.toString());
-	            return encryptedString;
-	        } catch (NoSuchPaddingException e) {
-	            // exception caught, return encrypted string
-	            logger.error(e.toString());
-	            return encryptedString;
-	        }
+	public byte[] dataDecryptor(byte[] buff) {
+		try {
+			cip.init(Cipher.DECRYPT_MODE, desKey);
+			cipherByte = cip.doFinal(buff);
+		} catch (Exception ex) {
+			log.error(ex.getMessage());
+		}
+		return cipherByte;
 
-	        try {
-	            cipher.init(Cipher.DECRYPT_MODE, skeySpec);
-	        } catch (InvalidKeyException e) {
-	            // exception caught, return encrypted string
-	            logger.error(e.toString());
-	            return encryptedString;
-	        }
+	}
 
-	        byte[] original = null;
-	        try {
-	            original = cipher.doFinal(byteString);
-	        } catch (IllegalBlockSizeException e) {
-	            // exception caught, return encrypted string
-	            logger.error(e.toString());
-	            return encryptedString;
-	        } catch (BadPaddingException e) {
-	            // exception caught, return encrypted string
-	            logger.error(e.toString());
-	            return encryptedString;
-	        }
-	        String originalString = new String(original);
-
-	        return originalString;
-	    }
-	    
-	    /**
-	     * Convert byte to Hex
-	     * 
-	     * @param buf
-	     * @return hexString String
-	     */
-	    private static String parseByteToHexString(byte buf[]) {
-	        StringBuffer sb = new StringBuffer();
-	        for (int i = 0; i < buf.length; i++) {
-	            String hex = Integer.toHexString(buf[i] & 0xFF);
-	            if (hex.length() == 1) {
-	                hex = '0' + hex;
-	            }
-	            sb.append(hex.toUpperCase());
-	        }
-
-	        String hexString = sb.toString();
-	        return hexString;
-	    }
-
-	    /**
-	     * Convert Hex to byte
-	     * 
-	     * @param hexString
-	     * @return
-	     */
-	    private static byte[] parseHexStringToByte(String hexString) {
-	        if (hexString.length() < 1) {
-	            return null;
-	        }
-	        byte[] result = new byte[hexString.length() / 2];
-	        for (int i = 0; i < hexString.length() / 2; i++) {
-	            int high = Integer.parseInt(hexString.substring(i * 2, i * 2 + 1), 16);
-	            int low = Integer.parseInt(hexString.substring(i * 2 + 1, i * 2 + 2), 16);
-	            result[i] = (byte)(high * 16 + low);
-	        }
-	        return result;
-	    }
 }
