@@ -59,6 +59,7 @@ public class RegisterAction extends BaseAction {
         user.setCreateDate(new Date());
         user.setName(user.getEmail());
         user = ServiceFactory.getService(UserService.class).merge(user);
+        user = ServiceFactory.getService(UserService.class).save(user);
     }
 
 }
