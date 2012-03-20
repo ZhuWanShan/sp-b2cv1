@@ -60,7 +60,7 @@ public class FeedTools {
             sheet.addCell(tlabel10);
             
             for (int i = 0; i < products.size(); i++) {
-                Label label1 = new Label(0, i+1, validateIfNull(String.valueOf(products.get(i).getId())));
+                Label label1 = new Label(0, i+1, validateIfNull(String.valueOf(products.get(i).getId()))+"-us");
                 Label label2 = new Label(1, i+1, validateIfNull(products.get(i).getTitle()));
                 Label label3 = new Label(2, i+1, validateIfNull(products.get(i).getKeywords()));
                 Label label4 = new Label(3, i+1, products.get(i).getCategories().get(0).getDisplayName());
