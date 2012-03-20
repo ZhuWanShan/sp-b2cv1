@@ -1,9 +1,18 @@
 package com.spshop.web;
 
-import static com.spshop.utils.Constants.*;
+import static com.spshop.utils.Constants.COOKIE_ACCOUNT;
+import static com.spshop.utils.Constants.LOGIN_LANDING_PAGE_PARAM;
+import static com.spshop.utils.Constants.LOGIN_PAGE;
+import static com.spshop.utils.Constants.LOGIN_PWD;
+import static com.spshop.utils.Constants.LOGIN_USER_NAME;
+import static com.spshop.utils.Constants.REMEMBER_ID;
+import static com.spshop.utils.Constants.SITE_VIEW;
+import static com.spshop.utils.Constants.TRUE;
+import static com.spshop.utils.Constants.USER_INFO;
 
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +22,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.support.BindingAwareModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -54,6 +64,9 @@ public class ShoppingController extends BaseController{
 	@RequestMapping(value="/logout")
 	public String logout(Model model,HttpServletRequest request,HttpServletResponse response){
 		request.getSession().removeAttribute(USER_INFO);
+		Model newModel = new BindingAwareModelMap();
+		Map<String,Object> m = model.asMap();
+		newModel.addAttribute(SITE_VIEW, m.get(SITE_VIEW));
 		Cookie[] cookies = request.getCookies();
 		if(null!=cookies){
 			for (Cookie  cookie: cookies) {
@@ -70,45 +83,7 @@ public class ShoppingController extends BaseController{
 	
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login2(Model model,HttpServletRequest request,HttpServletResponse response){
-		String landingpage = "";
-		try {
-			landingpage = URLDecoder.decode(request.getParameter(LOGIN_LANDING_PAGE_PARAM),"utf-8");
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-		}
-		
-		if(StringUtils.isBlank(landingpage)){
-			landingpage = getSiteView().getHost();
-		}
-		
-		User loginUser = retrieveUserFromCookies(request.getCookies());
-		
-		if(null!=loginUser){
-			return "redirect:"+landingpage;
-		}
-		
 		return "login";
-		
-	}
-	
-	private User retrieveUserFromCookies(Cookie cookies[]){
-		try {
-			if(null!=cookies){
-				for (Cookie  cookie: cookies) {
-					if(COOKIE_ACCOUNT.equals(cookie.getName())){
-						String value = Utils.decrypt(cookie.getValue());
-						String[] mixUser = value.split("vvvvvxxxooovvvvvvv");
-						User user = new User();
-						user.setEmail(mixUser[0]);
-						user.setPassword(mixUser[1]);
-						return ServiceFactory.getService(UserService.class).validateUser(user);
-					}
-				}
-			}
-		} catch (Exception e) {
-			logger.info(e.getMessage());
-		}
-		return null;
 	}
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
@@ -156,10 +131,10 @@ public class ShoppingController extends BaseController{
 			try {
 				landingpage = URLEncoder.encode(landingpage,"utf-8");
 			} catch (Exception e) {
-				logger.error(e.getMessage());
+				logger.info(e.getMessage());
 			}
 		
-		return "redirect:/uc/login?"+LOGIN_LANDING_PAGE_PARAM + "=" + landingpage;
+		return "redirect:"+LOGIN_PAGE+"?"+LOGIN_LANDING_PAGE_PARAM + "=" + landingpage;
 	}
 	
 	

@@ -1,10 +1,16 @@
 package com.spshop.web.interceptor;
 
+import static com.spshop.utils.Constants.COOKIE_ACCOUNT;
+import static com.spshop.utils.Constants.LOGIN_PAGE;
+import static com.spshop.utils.Constants.USER_INFO;
+
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,10 +22,12 @@ import com.spshop.cache.SCacheFacade;
 import com.spshop.model.Category;
 import com.spshop.model.Site;
 import com.spshop.model.User;
+import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.UserService;
+import com.spshop.utils.Utils;
 import com.spshop.web.BaseController;
 import com.spshop.web.view.SiteView;
 import com.spshop.web.view.UserView;
-import static com.spshop.utils.Constants.*;
 
 public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 	
@@ -53,8 +61,19 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		SiteView siteView = initSiteView();
 		UserView userView = new UserView();
 		//TODO retrieve userView
-		User user = (User) request.getSession().getAttribute(USER_INFO);
+		User user = retrieveUser(request);
 		userView.setLoginUser(user);
+		
+		
+		String url = request.getRequestURL().toString();
+		if(url.endsWith(LOGIN_PAGE)){
+			url = null;
+		}
+		String queryString = request.getQueryString();
+		if(null != queryString && null != url){
+			url = url + "?" + queryString;
+			userView.setRequestPage(URLEncoder.encode(url,"UTF-8"));
+		}
 		
 		if(handler instanceof BaseController){
 			BaseController controller = (BaseController) handler;
@@ -66,6 +85,15 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		}
 		
 		return true;
+	}
+	
+	
+	private User retrieveUser(HttpServletRequest request){
+		User user = (User) request.getSession().getAttribute(USER_INFO);
+		if(null==user){
+			user = retrieveUserFromCookies(request.getCookies());
+		}
+		return user;
 	}
 	
 	private SiteView initSiteView() {
@@ -84,6 +112,25 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		return siteView;
 	}
 
+	private User retrieveUserFromCookies(Cookie cookies[]){
+		try {
+			if(null!=cookies){
+				for (Cookie  cookie: cookies) {
+					if(COOKIE_ACCOUNT.equals(cookie.getName())){
+						String value = Utils.decrypt(cookie.getValue());
+						String[] mixUser = value.split("vvvvvxxxooovvvvvvv");
+						User user = new User();
+						user.setEmail(mixUser[0]);
+						user.setPassword(mixUser[1]);
+						return ServiceFactory.getService(UserService.class).validateUser(user);
+					}
+				}
+			}
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+		}
+		return null;
+	}
 
 	@Override
 	public void postHandle(HttpServletRequest request,

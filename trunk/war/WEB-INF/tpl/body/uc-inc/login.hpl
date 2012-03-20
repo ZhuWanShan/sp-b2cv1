@@ -16,6 +16,7 @@
 			<p class="form_label">
 				<span class="cursor_point_and_underline">Forget Password?</span>
 			</p>
+			<input type="hidden" name="landing_page" value="${userView.requestPage!''}">
 			<p class="form_label">
 				<input name="" type="submit" class="button_01" value="Login">
 			</p>

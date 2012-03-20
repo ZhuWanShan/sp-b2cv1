@@ -111,4 +111,6 @@ public class Constants {
     
     public static final String TRUE = "true";
     
+    public static final String LOGIN_PAGE = "/uc/login";
+    
 }
