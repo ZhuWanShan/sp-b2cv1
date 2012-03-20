@@ -4,14 +4,13 @@
 		<div>
 			<p class="form_label">E-mail Address</p>
 			<input type="text" name="LoginEmail" class="txt_input" value="">
-			<div class="form_error red">asdasdasdasd</div>
+			<div class="form_error red"></div>
 			<p class="form_label">Password</p>
 			<input type="password" name="LoginPwd" id="LoginPwd"
 				class="txt_input">
 			<p class="form_label">
 				<input type="checkbox" name="rememberID" id="LoginRember" value="true" checked="checked">
-				<span>&nbsp;&nbsp;Remember my E-mail Address for this
-					computer</span>
+				<span>Login using this account next time</span>
 			</p>
 			<p class="form_label">
 				<span class="cursor_point_and_underline">Forget Password?</span>
