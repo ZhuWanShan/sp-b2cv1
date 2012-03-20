@@ -24,7 +24,20 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 		if(null==order.getCreateDate()){
 			order.setCreateDate(new Date());
 		}
-		return getDao().save(order).clone();
+		
+		try {
+			getDao().evict(order);
+		} catch (Exception e) {
+			log.info(e);
+		}
+		
+		try {
+			order = getDao().save(order);
+		} catch (Exception e) {
+			log.info(e);
+		}
+		
+		return order;
 	}
 
 	@Override
