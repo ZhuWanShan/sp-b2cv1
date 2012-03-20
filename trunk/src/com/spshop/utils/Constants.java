@@ -101,7 +101,7 @@ public class Constants {
     
     public static final String REMEMBER_ID = "rememberID";
     
-    public static final String ENCRYPTION_TYPE = "AES";
+    public static final String ENCRYPTION_TYPE = "PBEWithMD5AndDES";
     
     public static final String COOKIE_ACCOUNT = "cooikeAccount";
     
@@ -112,5 +112,7 @@ public class Constants {
     public static final String TRUE = "true";
     
     public static final String LOGIN_PAGE = "/uc/login";
+    
+    public static final String USER_NAME_PWD_SPLIT = "vvvvvxxxooovvvvvvv";
     
 }
