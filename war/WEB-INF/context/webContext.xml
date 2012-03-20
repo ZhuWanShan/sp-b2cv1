@@ -25,10 +25,10 @@
 
 	<bean id="handlerMapping"
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
-		<property name="interceptors" ref="siteViewInterceptor"></property>
+		<property name="interceptors" ref="viewDataInterceptor"></property>
 	</bean>
 
-	<bean id="siteViewInterceptor" class="com.spshop.web.interceptor.SiteViewInterceptor"></bean>
+	<bean id="viewDataInterceptor" class="com.spshop.web.interceptor.ViewDataInterceptor"></bean>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">

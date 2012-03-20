@@ -92,4 +92,23 @@ public class Constants {
     
     public static final String SITE_VIEW = "siteView";
     public static final String USER_VIEW = "userView";
+    
+    public static final String LOGIN_LANDING_PAGE_PARAM = "landing_page";
+    
+    public static final String USER_ID_PARAM = "user_id";
+    
+    public static final String USER_PWD_PARAM = "user_pwd";
+    
+    public static final String REMEMBER_ID = "rememberID";
+    
+    public static final String ENCRYPTION_TYPE = "AES";
+    
+    public static final String COOKIE_ACCOUNT = "cooikeAccount";
+    
+    public static final String LOGIN_USER_NAME = "LoginEmail";
+    
+    public static final String LOGIN_PWD = "LoginPwd";
+    
+    public static final String TRUE = "true";
+    
 }

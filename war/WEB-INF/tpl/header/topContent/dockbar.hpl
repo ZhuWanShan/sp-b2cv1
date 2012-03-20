@@ -85,10 +85,17 @@
 						</dl>
 					</div>
 				</li>
-				<li class="" id="base_unlogin_li">Login or Register
+				<li class="" id="base_unlogin_li">
+				<#assign loginUser = userView.loginUser!"0">
+				<#if userView.loginUser ??>
+					${userView.loginUser.email}<a href="/uc/logout">(Logout)</a>
+				</#if>
+				<#if loginUser=="0">
+					<a href="/uc/login">Login or Register</a>
+				</#if>
 					<div class="user_menu_hidd" style="width: 200px; cursor: default;">
 						<div class="user_menu_content">
-							<form action="/login" method="post">
+							<form action="/uc/login" method="post">
 								<div class="border_bot indexlogin">
 									<dl>
 										<dd>
