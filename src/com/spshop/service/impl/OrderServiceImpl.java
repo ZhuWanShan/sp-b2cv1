@@ -8,13 +8,12 @@ import java.util.Random;
 import com.spshop.dao.intf.OrderDAO;
 import com.spshop.model.Order;
 import com.spshop.model.User;
-import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.AbstractService;
 import com.spshop.service.intf.OrderService;
 
 public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> implements OrderService{
 	public Order saveOrder(Order order, String status){
-		if(null!=order.getUser()&&order.getStatus().equals(OrderStatus.PAID)){
+		if(null!=order.getUser()){
 			User usr = getDao().getUserById(order.getUser().getId());
 			if(null!=usr){
 				order.setUser(usr);

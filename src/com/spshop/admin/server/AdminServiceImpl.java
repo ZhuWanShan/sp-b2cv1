@@ -18,6 +18,7 @@ import com.spshop.model.Product;
 import com.spshop.model.Site;
 import com.spshop.model.TabProduct;
 import com.spshop.model.TabSelling;
+import com.spshop.model.enums.OrderStatus;
 import com.spshop.model.query.QueryCriteria;
 import com.spshop.model.query.QueryResult;
 import com.spshop.service.factory.ServiceFactory;
@@ -148,10 +149,12 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 
     @Override
     public Order updateOrderStatus(Order order) {
-		Map<String,Object> root = new HashMap<String,Object>(); 
-		root.put("order", order);
-		root.put("currencyRate", ((Map<String, Float>) getServletContext().getAttribute("currencies")).get(order.getCurrency()));
-		EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,order.getCustomerEmail());
+		if(order.getStatus().equals(OrderStatus.PAID.toString())){
+			Map<String,Object> root = new HashMap<String,Object>(); 
+			root.put("order", order);
+			root.put("currencyRate", ((Map<String, Float>) getServletContext().getAttribute("currencies")).get(order.getCurrency()));
+			EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,order.getCustomerEmail());
+		}
         return ServiceFactory.getService(OrderService.class).saveOrder(order, order.getStatus());
     }
 
