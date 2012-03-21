@@ -166,26 +166,11 @@
 		</init-param>
 	</servlet>
 	
-<!--	<servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>SpringMVCMain</servlet-name>
 		<url-pattern>/uc/*</url-pattern>
 	</servlet-mapping>
-	
-		<servlet>
-		<servlet-name>SpringMVCMain2</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/context/webContext.xml</param-value>
-		</init-param>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>SpringMVCMain2</servlet-name>
-		<url-pattern>/sp/*</url-pattern>
-	</servlet-mapping>
-<error-page> -->
+<!--<error-page> -->
 <!-- 		<exception-type>java.lang.Throwable</exception-type> -->
 <!-- 		<location>/500.jsp</location> -->
 <!-- 	</error-page> -->
