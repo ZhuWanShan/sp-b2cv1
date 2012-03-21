@@ -9,16 +9,15 @@ import com.spshop.model.Order;
 import com.spshop.model.User;
 import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.AbstractService;
-import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.OrderService;
-import com.spshop.service.intf.UserService;
 
 public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> implements OrderService{
 	public Order saveOrder(Order order, String status){
 		if(null!=order.getUser()&&order.getStatus().equals(OrderStatus.PAID)){
-			User usr = ServiceFactory.getService(UserService.class).queryUserByEmail(order.getUser().getEmail());
-			usr = getDao().getUserById(usr.getId());
-			order.setUser(usr);
+			User usr = getDao().getUserById(order.getUser().getId());
+			if(null!=usr){
+				order.setUser(usr);
+			}
 		}
 		order.setStatus(status);
 		order.setUpdateDate(new Date());
@@ -26,12 +25,8 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 			order.setCreateDate(new Date());
 		}
 		
-		try {
-			order = getDao().save(order);
-			order = order.clone();
-		} catch (Exception e) {
-			log.info(e);
-		}
+		order = getDao().save(order);
+		order = order.clone();
 		
 		return order;
 	}
