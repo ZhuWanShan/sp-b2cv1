@@ -27,13 +27,8 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 		}
 		
 		try {
-			getDao().evict(order);
-		} catch (Exception e) {
-			log.info(e);
-		}
-		
-		try {
 			order = getDao().save(order);
+			order = order.clone();
 		} catch (Exception e) {
 			log.info(e);
 		}
