@@ -4,8 +4,8 @@
 		<div>
 			<p class="form_label">E-mail Address</p>
 			<input type="text" name="LoginEmail" class="txt_input" value="">
-			<div class="form_error red">${userView.err.userAccountErr!''}</div>
-			<div class="form_error blue">${userView.msg.recoverSuccess!''}</div>
+			<div class="form_error red">${(userView.err.userAccountErr)!''}</div>
+			<div class="form_error blue">${(userView.msg.recoverSuccess)!''}</div>
 			<p class="form_label">
 				<a class="cursor_point_and_underline" href="/uc/login">Go Login?</a>
 			</p>

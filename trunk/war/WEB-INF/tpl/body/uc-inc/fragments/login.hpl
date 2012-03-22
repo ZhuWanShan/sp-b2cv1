@@ -4,7 +4,7 @@
 		<div>
 			<p class="form_label">E-mail Address</p>
 			<input type="text" name="LoginEmail" class="txt_input" value="${LoginEmail!''}">
-			<div class="form_error red">${userView.err.userAccountErr!''}</div>
+			<div class="form_error red">${(userView.err.userAccountErr)!''}</div>
 			<p class="form_label">Password</p>
 			<input type="password" name="LoginPwd" id="LoginPwd"
 				class="txt_input" value="${LoginPwd!''}">

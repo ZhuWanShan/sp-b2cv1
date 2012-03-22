@@ -293,6 +293,8 @@ public class ShoppingController extends BaseController{
 			}
 			
 			getUserView().setRequestPage(landingpage);
+			
+			model.addAttribute(LOGIN_USER_NAME, userID);
 		
 		return "login";
 	}
