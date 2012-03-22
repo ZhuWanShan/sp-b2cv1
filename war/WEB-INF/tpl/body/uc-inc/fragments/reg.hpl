@@ -34,6 +34,7 @@
 					target="_blank" class="cursor_point_and_underline">Terms of
 					Usage</a>
 			</p>
+			<input type="hidden" name="landing_page" value="${userView.requestPage!''}">
 			<p class="form_label">
 				<input name="input" type="submit" 
 					class="button_01" value="Create a new account">
