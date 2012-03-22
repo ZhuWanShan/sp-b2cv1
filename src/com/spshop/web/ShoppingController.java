@@ -72,6 +72,10 @@ public class ShoppingController extends BaseController{
 		String pwd1 = request.getParameter(REG_PWD);
 		String pwd2 = request.getParameter(REG_PWD_RE);
 		
+		if(null!=email){
+			email = email.trim();
+		}
+		
 		String acceptLicense = request.getParameter(ACCEPT_LICENSE);
 		
 		User user = new User();
@@ -85,15 +89,13 @@ public class ShoppingController extends BaseController{
 			getUserView().getErr().put(ACCEPT_LICENSE_ERR, "Please accept license");
 		}
 		
-		String landingpage = "";
+		String landingpage = null;
 		try {
 			landingpage = URLDecoder.decode(request.getParameter(LOGIN_LANDING_PAGE_PARAM),"utf-8");
 		} catch (Exception e) {
 			logger.debug(e.getMessage());
 		}
 			
-		getUserView().setRequestPage(landingpage);
-		
 		if(null==email || !(email.contains("@"))){
 				getUserView().getErr().put(REG_USER_NAME_ERR, "Invalid user account");
 		}else{
@@ -138,11 +140,12 @@ public class ShoppingController extends BaseController{
 		                };
 		            }.start();
 				
-				return "userProfile";
 			}
 		}
 		
-		
+		if(StringUtils.isNotBlank(landingpage)){
+			getUserView().setRequestPage(landingpage);
+		}
 		model.addAttribute(REG_USER, user);
 		
         return "login";
@@ -243,7 +246,7 @@ public class ShoppingController extends BaseController{
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public String login(Model model,HttpServletRequest request,HttpServletResponse response){
 		
-		String landingpage = "";
+		String landingpage = null;
 			try {
 				landingpage = URLDecoder.decode(request.getParameter(LOGIN_LANDING_PAGE_PARAM),"utf-8");
 			} catch (Exception e) {
@@ -292,7 +295,9 @@ public class ShoppingController extends BaseController{
 				logger.debug(e.getMessage());
 			}
 			
-			getUserView().setRequestPage(landingpage);
+			if(StringUtils.isNotBlank(landingpage)){
+				getUserView().setRequestPage(landingpage);
+			}
 			
 			model.addAttribute(LOGIN_USER_NAME, userID);
 		

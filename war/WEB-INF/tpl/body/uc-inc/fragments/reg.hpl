@@ -2,7 +2,13 @@
 		<div class="box_title">
 			<p class="reg">New user registration</p>
 		</div>
-		<div class="form_error blue">${userView.msg.accountSuc!''}</div>
+		<#if userView.msg.accountSuc??>
+			<div class="form_error blue">${userView.msg.accountSuc}</div>
+			<div class="form_error blue">
+				<a class="blue" onclick="window.location.href=decodeURI('${userView.requestPage!siteView.host}');">>>Continue</a><br>
+				<a class="blue" href="/uc/userProfile">>>Complete my profile</a><br>
+			</div>
+		</#if>
 		<form action="/uc/createAccount" method="post">
 			<p class="form_label">
 				E-mail Address <span class="red">*</span>
@@ -36,7 +42,7 @@
 					Usage</a>
 			</p>
 			<div class="form_error red">${userView.err.acceptLicenseErr!''}</div>
-			<input type="hidden" name="landing_page" value="${userView.requestPage!''}">
+			<input type="hidden" name="landing_page" value="${userView.requestPage!siteView.host}">
 			<p class="form_label">
 				<input name="input" type="submit" 
 					class="button_01" value="Create a new account">
