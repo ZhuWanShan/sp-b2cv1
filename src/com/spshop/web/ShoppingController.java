@@ -21,6 +21,7 @@ import static com.spshop.utils.Constants.USER_NAME_PWD_SPLIT;
 
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -121,6 +122,8 @@ public class ShoppingController extends BaseController{
 			user.setName(email);
 			user.setEmail(email);
 			user.setPassword(pwd1);
+			user.setCreateDate(new Date());
+			user.setUpdateDate(new Date());
 			final User u = ServiceFactory.getService(UserService.class).saveUser(user);
 			if(null!=u){
 				getUserView().getMsg().put(REG_USER_NAME_SUC, "Create Account successfully");
@@ -130,6 +133,7 @@ public class ShoppingController extends BaseController{
 		            
 		            model.addAttribute(USER_INFO, u);
 					request.getSession().setAttribute(USER_INFO,u);
+					getUserView().setLoginUser(u);
 					Cookie cookie = new Cookie(COOKIE_ACCOUNT, Utils.OBJ.getEncryString(u.getEmail()+USER_NAME_PWD_SPLIT+u.getPassword()));
 					cookie.setMaxAge(99999999);
 					cookie.setPath("/");
