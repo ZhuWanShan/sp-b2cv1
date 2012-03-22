@@ -1,23 +1,6 @@
 package com.spshop.web;
 
-import static com.spshop.utils.Constants.COOKIE_ACCOUNT;
-import static com.spshop.utils.Constants.EMPTY_STR;
-import static com.spshop.utils.Constants.LOGIN_LANDING_PAGE_PARAM;
-import static com.spshop.utils.Constants.LOGIN_PWD;
-import static com.spshop.utils.Constants.LOGIN_USER_NAME;
-import static com.spshop.utils.Constants.RECOVER_SUCCESS;
-import static com.spshop.utils.Constants.REG_PWD;
-import static com.spshop.utils.Constants.REG_PWD_ERR;
-import static com.spshop.utils.Constants.REG_PWD_RE;
-import static com.spshop.utils.Constants.REG_PWD_RE_ERR;
-import static com.spshop.utils.Constants.REG_USER_NAME;
-import static com.spshop.utils.Constants.REG_USER_NAME_ERR;
-import static com.spshop.utils.Constants.REG_USER_NAME_SUC;
-import static com.spshop.utils.Constants.REMEMBER_ID;
-import static com.spshop.utils.Constants.TRUE;
-import static com.spshop.utils.Constants.USER_ACCOUNT_ERROR;
-import static com.spshop.utils.Constants.USER_INFO;
-import static com.spshop.utils.Constants.USER_NAME_PWD_SPLIT;
+import static com.spshop.utils.Constants.*;
 
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -89,8 +72,12 @@ public class ShoppingController extends BaseController{
 		String pwd1 = request.getParameter(REG_PWD);
 		String pwd2 = request.getParameter(REG_PWD_RE);
 		
+		String acceptLicense = request.getParameter(ACCEPT_LICENSE);
 		
-
+		if(!TRUE.equals(acceptLicense)){
+			getUserView().getErr().put(ACCEPT_LICENSE_ERR, "Please accept license");
+		}
+		
 		String landingpage = "";
 		try {
 			landingpage = URLDecoder.decode(request.getParameter(LOGIN_LANDING_PAGE_PARAM),"utf-8");
@@ -117,6 +104,7 @@ public class ShoppingController extends BaseController{
 			}
 		}
 		
+		
 		if(getUserView().getErr().isEmpty()){
 			User user = new User();
 			user.setName(email);
@@ -129,7 +117,7 @@ public class ShoppingController extends BaseController{
 				getUserView().getMsg().put(REG_USER_NAME_SUC, "Create Account successfully");
 				   final Map<String,Object> root = new HashMap<String,Object>(); 
 		            root.put("user", u);
-		            user.setPassword(u.getPassword().substring(0,u.getPassword().length()-2)+"**");
+		            u.setPassword(u.getPassword().substring(0,u.getPassword().length()-2)+"**");
 		            
 		            model.addAttribute(USER_INFO, u);
 					request.getSession().setAttribute(USER_INFO,u);

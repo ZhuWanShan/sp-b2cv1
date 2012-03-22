@@ -133,4 +133,8 @@ public class Constants {
     
     public static final String REG_USER_NAME_SUC ="accountSuc";
     
+    public static final String ACCEPT_LICENSE = "acceptLicense";
+    
+    public static final String ACCEPT_LICENSE_ERR = "acceptLicenseErr";
+    
 }
