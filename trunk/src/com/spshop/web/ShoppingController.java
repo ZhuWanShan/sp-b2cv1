@@ -88,6 +88,17 @@ public class ShoppingController extends BaseController{
 		String pwd1 = request.getParameter(REG_PWD);
 		String pwd2 = request.getParameter(REG_PWD_RE);
 		
+		
+
+		String landingpage = "";
+		try {
+			landingpage = URLDecoder.decode(request.getParameter(LOGIN_LANDING_PAGE_PARAM),"utf-8");
+		} catch (Exception e) {
+			logger.debug(e.getMessage());
+		}
+			
+		getUserView().setRequestPage(landingpage);
+		
 		if(null==email || !(email.contains("@"))){
 				getUserView().getErr().put(REG_USER_NAME_ERR, "Invalid user account");
 		}else{
@@ -113,10 +124,17 @@ public class ShoppingController extends BaseController{
 			final User u = ServiceFactory.getService(UserService.class).saveUser(user);
 			if(null!=u){
 				getUserView().getMsg().put(REG_USER_NAME_SUC, "Create Account successfully");
-				
 				   final Map<String,Object> root = new HashMap<String,Object>(); 
 		            root.put("user", u);
 		            user.setPassword(u.getPassword().substring(0,u.getPassword().length()-2)+"**");
+		            
+		            model.addAttribute(USER_INFO, u);
+					request.getSession().setAttribute(USER_INFO,u);
+					Cookie cookie = new Cookie(COOKIE_ACCOUNT, Utils.OBJ.getEncryString(u.getEmail()+USER_NAME_PWD_SPLIT+u.getPassword()));
+					cookie.setMaxAge(99999999);
+					cookie.setPath("/");
+					response.addCookie(cookie);
+		            
 		            new Thread(){
 		                public void run() {
 		                    try{
