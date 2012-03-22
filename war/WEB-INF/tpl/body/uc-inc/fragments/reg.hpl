@@ -2,7 +2,7 @@
 		<div class="box_title">
 			<p class="reg">New user registration</p>
 		</div>
-		<form >
+		<form action="/uc/createAccount" method="post">
 			<p class="form_label">
 				E-mail Address <span class="red">*</span>
 			</p>

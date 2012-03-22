@@ -1,5 +1,8 @@
 package com.spshop.web.view;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.spshop.model.User;
 import com.spshop.model.cart.ShoppingCart;
 
@@ -10,6 +13,8 @@ public class UserView {
 	private ShoppingCart shoppingCart;
 	private User loginUser;
 	private String requestPage;
+	private Map<String, String> msg = new HashMap<String, String>();
+	private Map<String, String> err = new HashMap<String, String>();
 
 	public float getCurrencyRate() {
 		return currencyRate;
@@ -49,5 +54,21 @@ public class UserView {
 
 	public void setRequestPage(String requestPage) {
 		this.requestPage = requestPage;
+	}
+
+	public Map<String, String> getMsg() {
+		return msg;
+	}
+
+	public void setMsg(Map<String, String> msg) {
+		this.msg = msg;
+	}
+
+	public Map<String, String> getErr() {
+		return err;
+	}
+
+	public void setErr(Map<String, String> err) {
+		this.err = err;
 	}
 }

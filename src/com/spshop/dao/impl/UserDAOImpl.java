@@ -70,23 +70,16 @@ public class UserDAOImpl extends AbstractBaseDAO<User, Long> implements UserDAO 
 
 	@Override
 	public User queryUserByName(String email) {
-		List<Criterion> list = new ArrayList<Criterion>();
-		if (!StringUtils.isEmpty(email)) {
-			Criterion criterion1 = Restrictions.eq("email", email);
-			list.add(criterion1);
+		
+		String hql = "from User where email = ?";
+
+		User u = null;
+		try{
+			u = (User) getSession().createQuery(hql).setParameter(0, email).list().get(0);
+		}catch(Exception e){
+			log.info(e);
 		}
-		Criterion[] criterions = {};
-		if (list != null && list.size() > 0) {
-			criterions = new Criterion[list.size()];
-			for (int i = 0; i < list.size(); i++) {
-				criterions[i] = list.get(i);
-			}
-		}
-		List<User> users = findByCriteria(criterions);
-		if (users != null && users.size()>0) {
-			return users.get(0);
-		}
-		return null;
+		return u;
 	}
 
 }

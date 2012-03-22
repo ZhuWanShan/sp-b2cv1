@@ -4,6 +4,8 @@ import static com.spshop.utils.Constants.*;
 
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.spshop.model.User;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.UserService;
+import com.spshop.utils.EmailTools;
 import com.spshop.utils.FeedTools;
 import com.spshop.utils.Utils;
 
@@ -55,8 +58,39 @@ public class ShoppingController extends BaseController{
         return "recoverPassword";
     }
 	
+	@RequestMapping(value="/createAccount", method = RequestMethod.GET)
+    public String createAccount2(Model model, HttpServletResponse response) {
+        return "login";
+    }
+	
 	@RequestMapping(value="/recoverPwd", method = RequestMethod.POST)
-    public String recoverPwd(Model model, HttpServletResponse response) {
+    public String recoverPwd(Model model,HttpServletRequest request, HttpServletResponse response) {
+		
+		String userID = request.getParameter(LOGIN_USER_NAME);
+		
+		User user = ServiceFactory.getService(UserService.class).queryUserByEmail(userID);
+		
+		if(null == user){
+			getUserView().getErr().put(USER_ACCOUNT_ERROR, "Account is not exist!");
+		}else{
+			getUserView().getMsg().put(RECOVER_SUCCESS, "recover success, send password to your email");
+			
+			final Map<String, Object> root = new HashMap<String, Object>();
+			root.put("user", user);
+			
+			final String username = user.getName();
+			
+			if(null!=user.getPassword() && user.getPassword().length()>2){
+				user.setPassword(user.getPassword().substring(0,user.getPassword().length()-2)+"**");
+			}
+			new Thread(){
+				@Override
+				public void run() {
+					EmailTools.sendMail("recovery", "Congratulations! Your password is found", root, username);
+				}
+			}.start();
+		}
+		
         return "recoverPassword";
     }
 	
@@ -118,7 +152,7 @@ public class ShoppingController extends BaseController{
 			try {
 				landingpage = URLDecoder.decode(request.getParameter(LOGIN_LANDING_PAGE_PARAM),"utf-8");
 			} catch (Exception e) {
-				logger.error(e.getMessage());
+				logger.debug(e.getMessage());
 			}
 			
 			String userID = request.getParameter(LOGIN_USER_NAME);
@@ -140,7 +174,7 @@ public class ShoppingController extends BaseController{
 				}
 				
 			} catch (Exception e) {
-				logger.info(e.getMessage());
+				logger.error(e.getMessage());
 			}
 			
 			if(null!=loginUser){
@@ -153,15 +187,19 @@ public class ShoppingController extends BaseController{
 					response.addCookie(cookie);
 				}
 				return "redirect:"+landingpage;
+			}else{
+				getUserView().getErr().put(USER_ACCOUNT_ERROR, "User account/password invalid!");
 			}
 			
 			try {
 				landingpage = URLEncoder.encode(landingpage,"utf-8");
 			} catch (Exception e) {
-				logger.error(e.getMessage());
+				logger.debug(e.getMessage());
 			}
+			
+			getUserView().setRequestPage(landingpage);
 		
-		return "redirect:/uc/login?"+LOGIN_LANDING_PAGE_PARAM + "=" + landingpage;
+		return "login";
 	}
 	
 	
