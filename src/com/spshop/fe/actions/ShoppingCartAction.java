@@ -486,8 +486,8 @@ public class ShoppingCartAction extends BaseAction {
 				}else{*/
 					order.setAddressType(ADDRESS_PA);
 //				}
-				//order.setName(getOrderId());
-				//order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
+				order.setName(getOrderId());
+				order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
 				request.setAttribute(Constants.DEFAULT_ORDER, order);
 				updateCart(request, response,OrderStatus.PENDING);
 				final Map<String,Object> root = new HashMap<String,Object>(); 
