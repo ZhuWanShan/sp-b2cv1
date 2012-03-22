@@ -74,6 +74,13 @@ public class ShoppingController extends BaseController{
 		
 		String acceptLicense = request.getParameter(ACCEPT_LICENSE);
 		
+		User user = new User();
+		user.setName(email);
+		user.setEmail(email);
+		user.setPassword(pwd1);
+		user.setCreateDate(new Date());
+		user.setUpdateDate(new Date());
+		
 		if(!TRUE.equals(acceptLicense)){
 			getUserView().getErr().put(ACCEPT_LICENSE_ERR, "Please accept license");
 		}
@@ -106,12 +113,6 @@ public class ShoppingController extends BaseController{
 		
 		
 		if(getUserView().getErr().isEmpty()){
-			User user = new User();
-			user.setName(email);
-			user.setEmail(email);
-			user.setPassword(pwd1);
-			user.setCreateDate(new Date());
-			user.setUpdateDate(new Date());
 			final User u = ServiceFactory.getService(UserService.class).saveUser(user);
 			if(null!=u){
 				getUserView().getMsg().put(REG_USER_NAME_SUC, "Create Account successfully");
@@ -140,6 +141,9 @@ public class ShoppingController extends BaseController{
 				return "userProfile";
 			}
 		}
+		
+		
+		model.addAttribute(REG_USER, user);
 		
         return "login";
     }
