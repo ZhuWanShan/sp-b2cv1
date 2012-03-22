@@ -2,6 +2,7 @@
 		<div class="box_title">
 			<p class="reg">New user registration</p>
 		</div>
+		<div class="form_error blue">${userView.msg.accountSuc!''}</div>
 		<form action="/uc/createAccount" method="post">
 			<p class="form_label">
 				E-mail Address <span class="red">*</span>
@@ -9,18 +10,21 @@
 			<p>
 				<input type="text" name="RegEmail" id="RegEmail" class="txt_input">
 			</p>
+			<div class="form_error red">${userView.err.RegEmailErr!''}</div>
 			<p class="form_label gray">Please fill in a true and valid Email address,
 				which will be a very important way for us to contact you.</p>
 			<p class="form_label">
 				Password <span  class="red">*</span>
 			</p>
 			<input type="password" name="RegPwd" id="RegPwd"  class="txt_input">
+			<div class="form_error red">${userView.err.RegPwdErr!''}</div>
 			<p class="gray form_label">Must have 6 to 30 characters and no spaces.</p>
 			<span id="sp_pwd"></span>
 			<p class="form_label">
 				Re-type Password <span class="red">*</span>
 			</p>
 			<input type="password" name="RegPwdRe" id="RegPwdRe"  class="txt_input">
+			<div class="form_error red">${userView.err.RegPwdReErr!''}</div>
 			<p>&nbsp;</p>
 			<p>
 				<input type="checkbox" name="checkbox" id="cbx_agree"
@@ -31,7 +35,7 @@
 					Usage</a>
 			</p>
 			<p class="form_label">
-				<input name="input" type="button" 
+				<input name="input" type="submit" 
 					class="button_01" value="Create a new account">
 			</p>
 		</form>
