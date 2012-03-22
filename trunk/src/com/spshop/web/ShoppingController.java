@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spshop.model.User;
 import com.spshop.service.factory.ServiceFactory;
@@ -62,6 +63,19 @@ public class ShoppingController extends BaseController{
     public String createAccount2(Model model, HttpServletResponse response) {
         return "login";
     }
+	
+	@RequestMapping(value="/createAccount", method = RequestMethod.POST)
+    public String createAccount(Model model, HttpServletResponse response) {
+        return "login";
+    }
+	
+	@RequestMapping(value="/checkUserEmail")
+	public String checkUserEmail(@RequestParam("RegEmail") String email, HttpServletResponse response){
+		
+		
+		
+		return null;
+	}
 	
 	@RequestMapping(value="/recoverPwd", method = RequestMethod.POST)
     public String recoverPwd(Model model,HttpServletRequest request, HttpServletResponse response) {
