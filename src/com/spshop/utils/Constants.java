@@ -137,4 +137,6 @@ public class Constants {
     
     public static final String ACCEPT_LICENSE_ERR = "acceptLicenseErr";
     
+    public static final String REG_USER = "regUser";
+    
 }
