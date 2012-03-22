@@ -31,4 +31,13 @@ public class UserServiceImpl extends AbstractService<User, UserDAO, Long>
 	public User queryUserByEmail(String email){
 		return getDao().queryUserByName(email);
 	}
+	
+	public User saveUser(User user){
+		user = getDao().save(user);
+		if(null!=user){
+			return user.clone();
+		}
+		
+		return null;
+	}
 }

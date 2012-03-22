@@ -1,6 +1,23 @@
 package com.spshop.web;
 
-import static com.spshop.utils.Constants.*;
+import static com.spshop.utils.Constants.COOKIE_ACCOUNT;
+import static com.spshop.utils.Constants.EMPTY_STR;
+import static com.spshop.utils.Constants.LOGIN_LANDING_PAGE_PARAM;
+import static com.spshop.utils.Constants.LOGIN_PWD;
+import static com.spshop.utils.Constants.LOGIN_USER_NAME;
+import static com.spshop.utils.Constants.RECOVER_SUCCESS;
+import static com.spshop.utils.Constants.REG_PWD;
+import static com.spshop.utils.Constants.REG_PWD_ERR;
+import static com.spshop.utils.Constants.REG_PWD_RE;
+import static com.spshop.utils.Constants.REG_PWD_RE_ERR;
+import static com.spshop.utils.Constants.REG_USER_NAME;
+import static com.spshop.utils.Constants.REG_USER_NAME_ERR;
+import static com.spshop.utils.Constants.REG_USER_NAME_SUC;
+import static com.spshop.utils.Constants.REMEMBER_ID;
+import static com.spshop.utils.Constants.TRUE;
+import static com.spshop.utils.Constants.USER_ACCOUNT_ERROR;
+import static com.spshop.utils.Constants.USER_INFO;
+import static com.spshop.utils.Constants.USER_NAME_PWD_SPLIT;
 
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -65,14 +82,63 @@ public class ShoppingController extends BaseController{
     }
 	
 	@RequestMapping(value="/createAccount", method = RequestMethod.POST)
-    public String createAccount(Model model, HttpServletResponse response) {
+    public String createAccount(Model model,HttpServletRequest request,HttpServletResponse response) {
+		
+		String email = request.getParameter(REG_USER_NAME);
+		String pwd1 = request.getParameter(REG_PWD);
+		String pwd2 = request.getParameter(REG_PWD_RE);
+		
+		if(null==email || !(email.contains("@"))){
+			
+				getUserView().getErr().put(REG_USER_NAME_ERR, "Invalid user account");
+		}else{
+			User u = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
+			if(u != null){
+				getUserView().getErr().put(REG_USER_NAME_ERR, "account already exist");
+			}
+		}
+		
+		if(pwd1==null || pwd1.length()<5){
+			getUserView().getErr().put(REG_PWD_ERR, "Invalid password");
+		}else{
+			if(pwd2==null || !pwd1.equals(pwd2)){
+				getUserView().getErr().put(REG_PWD_RE_ERR, "Two passwords are not same");
+			}
+		}
+		
+		if(getUserView().getErr().isEmpty()){
+			User user = new User();
+			user.setName(email);
+			user.setPassword(pwd1);
+			final User u = ServiceFactory.getService(UserService.class).saveUser(user);
+			if(null!=u){
+				getUserView().getMsg().put(REG_USER_NAME_SUC, "Create Account successfully");
+				
+				   final Map<String,Object> root = new HashMap<String,Object>(); 
+		            root.put("user", u);
+		            new Thread(){
+		                public void run() {
+		                    try{
+		                        EmailTools.sendMail("register", "Welcome to Honeybuy.com, New Member Registration", root, u.getName());
+		                    }catch(Exception e){
+		                        
+		                    }
+		                };
+		            }.start();
+				
+				return "userProfile";
+			}
+		}
+		
         return "login";
     }
 	
 	@RequestMapping(value="/checkUserEmail")
 	public String checkUserEmail(@RequestParam("RegEmail") String email, HttpServletResponse response){
 		
-		
+		/*if(nu){
+			
+		}*/
 		
 		return null;
 	}
