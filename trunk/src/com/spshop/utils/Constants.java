@@ -109,6 +109,18 @@ public class Constants {
     
     public static final String LOGIN_PWD = "LoginPwd";
     
+    public static final String REG_USER_NAME = "RegEmail";
+    
+    public static final String REG_PWD = "RegPwd";
+    
+    public static final String REG_PWD_RE = "RegPwdRe";
+    
+   public static final String REG_USER_NAME_ERR = "RegEmailErr";
+    
+    public static final String REG_PWD_ERR = "RegPwdErr";
+    
+    public static final String REG_PWD_RE_ERR = "RegPwdReErr";
+    
     public static final String TRUE = "true";
     
     public static final String LOGIN_PAGE = "/uc/login";
@@ -118,5 +130,7 @@ public class Constants {
     public static final String USER_ACCOUNT_ERROR = "userAccountErr";
     
     public static final String RECOVER_SUCCESS = "recoverSuccess";
+    
+    public static final String REG_USER_NAME_SUC ="accountSuc";
     
 }

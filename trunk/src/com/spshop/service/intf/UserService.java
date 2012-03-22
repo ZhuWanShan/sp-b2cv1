@@ -10,5 +10,7 @@ public interface UserService extends BaseService<User, UserDAO, Long>{
 	User validateUser(User user);
 
 	User queryUserByEmail(String email);
+	
+	public User saveUser(User user);
 
 }
