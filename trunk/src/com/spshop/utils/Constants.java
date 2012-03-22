@@ -125,6 +125,8 @@ public class Constants {
     
     public static final String LOGIN_PAGE = "/uc/login";
     
+    public static final String REG_PAGE = "/uc/createAccount";
+    
     public static final String USER_NAME_PWD_SPLIT = "vvvvvxxxooovvvvvvv";
     
     public static final String USER_ACCOUNT_ERROR = "userAccountErr";

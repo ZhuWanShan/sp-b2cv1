@@ -12,6 +12,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -62,10 +63,10 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		User user = retrieveUser(request);
 		userView.setLoginUser(user);
 		
-		String lanagPage = request.getParameter(LOGIN_LANDING_PAGE_PARAM);
-		if(lanagPage == null){
+		String landingPage = request.getParameter(LOGIN_LANDING_PAGE_PARAM);
+		if(StringUtils.isBlank(landingPage)){
 			String url = request.getRequestURL().toString();
-			if(url.endsWith(LOGIN_PAGE)){
+			if(url.endsWith(LOGIN_PAGE)||url.endsWith(REG_PAGE)){
 				url = null;
 			}
 			String queryString = request.getQueryString();
@@ -77,7 +78,7 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 				userView.setRequestPage(URLEncoder.encode(url,"UTF-8"));
 			}
 		}else{
-			userView.setRequestPage(lanagPage);
+			userView.setRequestPage(landingPage);
 		}
 		
 		if(handler instanceof BaseController){
