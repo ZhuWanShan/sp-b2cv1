@@ -3,11 +3,11 @@
 	<form id="FormLogin" method="post" action="/uc/login">
 		<div>
 			<p class="form_label">E-mail Address</p>
-			<input type="text" name="LoginEmail" class="txt_input" value="">
-			<div class="form_error red"></div>
+			<input type="text" name="LoginEmail" class="txt_input" value="${LoginEmail!''}">
+			<div class="form_error red">${userView.err.userAccountErr!''}</div>
 			<p class="form_label">Password</p>
 			<input type="password" name="LoginPwd" id="LoginPwd"
-				class="txt_input">
+				class="txt_input" value="${LoginPwd!''}">
 			<p class="form_label">
 				<input type="checkbox" name="rememberID" id="LoginRember" value="true" checked="checked">
 				<span>Login automatically next time</span>

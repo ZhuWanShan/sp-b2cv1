@@ -28,7 +28,7 @@ public class Utils {
 	public static Utils OBJ = new Utils();
 
 	private Utils() {
-		init("X");
+		init("XAdadajkxsfdfskldfhsdfhhhasfasfaasdaqwerqweqwasasdazxczxczxcfvhdfghdf");
 	}
 	
 	public void init(String str) {

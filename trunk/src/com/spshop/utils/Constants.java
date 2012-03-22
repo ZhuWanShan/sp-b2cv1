@@ -115,4 +115,8 @@ public class Constants {
     
     public static final String USER_NAME_PWD_SPLIT = "vvvvvxxxooovvvvvvv";
     
+    public static final String USER_ACCOUNT_ERROR = "userAccountErr";
+    
+    public static final String RECOVER_SUCCESS = "recoverSuccess";
+    
 }

@@ -71,6 +71,10 @@ textarea {
 	color: #FF0000;
 }
 
+.blue {
+	color: #0000FF;
+}
+
 .separator {
 	border-top: 1px dashed #7E7F7F;
 	margin: 4px 0px;

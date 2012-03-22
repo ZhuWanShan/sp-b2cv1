@@ -123,7 +123,7 @@
 									HoneyBuy.com!</p>
 								<div class="hei5"></div>
 								<input type="button"
-									onclick="window.location.href='/uc/login';"
+									onclick="window.location.href='/uc/createAccount';"
 									class="button_01" value="CREATE AN ACCOUNT">
 							</div>
 						</div>
