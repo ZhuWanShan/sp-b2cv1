@@ -89,7 +89,6 @@ public class ShoppingController extends BaseController{
 		String pwd2 = request.getParameter(REG_PWD_RE);
 		
 		if(null==email || !(email.contains("@"))){
-			
 				getUserView().getErr().put(REG_USER_NAME_ERR, "Invalid user account");
 		}else{
 			User u = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
@@ -109,6 +108,7 @@ public class ShoppingController extends BaseController{
 		if(getUserView().getErr().isEmpty()){
 			User user = new User();
 			user.setName(email);
+			user.setEmail(email);
 			user.setPassword(pwd1);
 			final User u = ServiceFactory.getService(UserService.class).saveUser(user);
 			if(null!=u){
@@ -116,6 +116,7 @@ public class ShoppingController extends BaseController{
 				
 				   final Map<String,Object> root = new HashMap<String,Object>(); 
 		            root.put("user", u);
+		            user.setPassword(u.getPassword().substring(0,u.getPassword().length()-2)+"**");
 		            new Thread(){
 		                public void run() {
 		                    try{
