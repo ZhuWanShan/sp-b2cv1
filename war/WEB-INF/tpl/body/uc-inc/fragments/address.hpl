@@ -1,66 +1,63 @@
 <table class="form_table">
 	<tbody>
 		<tr>
-			<td width="161" height="30" align="right"><input id="hfid"
-				type="hidden">Full name<span>*</span></td>
-			<td><input name="username" id="username" type="text"
-				class="txt_input"> <span id="sp_name" style="color: Red;">Full
-					name can not be empty!</span></td>
+			<td width="161" height="30" align="right">Full name<span class="red">*</span></td>
+			<td><input name="${(addType)!''}username" id="${(addType)!''}username" type="text"
+				class="txt_input" value="${(address.fullName)!''}"> <span class="red">${(userView.err[((addType)!'')+'usernameErr'])!''}</span></td>
 		</tr>
 		<tr>
-			<td height="50" align="right" valign="top">Address 1<span>*</span>
+			<td height="50" align="right" valign="top">Address 1<span class="red">*</span>
 			</td>
-			<td><textarea name="address1" id="address1" cols="" rows=""
-					class="txt_area"></textarea> <span id="sp_address1"
-				style="color: Red;">Consignee address can not be empty!</span></td>
+			<td><textarea name="${(addType)!''}address1" id="${(addType)!''}address1"
+					class="txt_area" >${(address.address1)!''}</textarea> <span class="red">${(userView.err[((addType)!'')+'address1Err'])!''}</span></td>
 		</tr>
 		<tr>
 			<td height="45" align="right" valign="top">Address 2</td>
-			<td><textarea name="address2" id="address2" cols="" rows=""
-					class="txt_area"></textarea><span id="sp_address2"
-				style="color: Red;"></span></td>
+			<td><textarea name="${(addType)!''}address2" id="${(addType)!''}address2"
+					class="txt_area">${(address.address2)!''}</textarea><span class="red">${(userView.err[((addType)!'')+'address2Err'])!''}</span></td>
 		</tr>
 		<tr>
-			<td height="30" align="right">City<span>*</span>
+			<td height="30" align="right">City<span class="red">*</span>
 			</td>
-			<td><input name="City" id="City" type="text" class="txt_input"><span
-				id="sp_city" style="color: Red;">City can not be empty!</span></td>
+			<td><input name="${(addType)!''}city" id="${(addType)!''}city" type="text" class="txt_input" value="${(address.city)!''}"><span
+				class="red">${(userView.err[((addType)!'')+'cityErr'])!''}</span></td>
 		</tr>
 		<tr>
-			<td height="30" align="right">State / Province / Region</td>
-			<td><input name="province" id="province" type="text"
-				class="txt_input"><span id="sp_province"
-				style="color: Red; display: none;"></span></td>
+			<td height="30" align="right">State / Province / Region <span class="red">*</span> </td>
+			<td><input name="${(addType)!''}stateProvince" id="${(addType)!''}stateProvince" type="text" value="${(address.stateProvince)!''}"
+				class="txt_input"><span class="red">${(userView.err[((addType)!'')+'stateProvinceErr'])!''}</span></td>
 		</tr>
 		<tr>
-			<td height="30" align="right">Country / Region <span>*</span>
+			<td height="30" align="right">Country / Region <span class="red">*</span>
 			</td>
-			<td><select id="ddl_country" name="ddl_country"
+			<td><select id="${(addType)!''}country" name="${(addType)!''}country"
 				style="width: 224px;" class="txt_select">
-					<option value="1">Afghanistan</option>
-
-					<option value="2">Albania</option>
-			</select> <span id="sp_country" style="color: Red;">Please select a
-					country!</span></td>
+				<option value="0">Please Select</option>
+				<#list siteView.countries as country>
+					<option value="${country.id}" 
+						<#if ((address.country)!0) ==country.id > selected="selected" </#if>
+					>${country.name}</option>
+				</#list>
+			</select> <span class="red">${(userView.err[((addType)!'')+'countryErr'])!''}</span></td>
 		</tr>
 		<tr>
-			<td height="36" align="right">Postal Code<span>*</span></td>
-			<td><input name="code" id="code" type="text" class="txt_input"><span
-				id="sp_code" style="color: Red;">Zip can not be empty!</span></td>
+			<td height="36" align="right">Postal Code<span class="red">*</span></td>
+			<td><input name="${(addType)!''}postalCode" id="${(addType)!''}postalCode" type="text" class="txt_input" value="${(address.postalCode)!''}"><span
+				class="red">${(userView.err[((addType)!'')+'postalCodeErr'])!''}</span></td>
 		</tr>
 		<tr>
-			<td height="40" align="right" valign="top">Phone Number<span>*</span></td>
-			<td valign="top"><input name="telNum" id="telNum" type="text"
-				class="txt_input " style="color: rgb(170, 170, 170);"><span
-				id="sp_tel" style="color: Red;">Phone can not be empty! </span>
-				<p>Your phone number is needed so we or the shipping company can
+			<td height="40" align="right" valign="top" >Phone Number<span class="red">*</span></td>
+			<td valign="top"><input name="${(addType)!''}telNum" id="${(addType)!''}telNum" type="text" value="${(address.phone)!''}"
+				class="txt_input "><span
+				class="red">${(userView.err[((addType)!'') +'telNumErr'])!''}</span>
+				<p class="gray">Your phone number is needed so we or the shipping company can
 					contact you in case of problems.</p></td>
 		</tr>
 		<#if showSubmitBtn>
 			<#if SubmitBtnTxt ??>
 			<tr>
 				<td align="right">&nbsp;</td>
-				<td><input name="" type="button" class="button_01" value="${SubmitBtnTxt}"><span
+				<td><input name="" type="submit" class="button_01" value="${SubmitBtnTxt}"><span
 					id="sp_msg" style="color: Red; font-weight: bold;"></span></td>
 			</tr>
 			</#if>

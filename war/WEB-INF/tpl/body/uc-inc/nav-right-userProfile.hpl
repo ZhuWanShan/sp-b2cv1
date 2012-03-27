@@ -1,58 +1,65 @@
 <div class="nav-right-box">
 	<div class="box_title">User Profile</div>
 	<div class="box_sub_item_title">User Account</div>
+	<form action="/uc/userProfile" method="post">
+	<input type="hidden" name="action" value="updateAccount">
+	<div class="form_error blue">${(userView.msg.updateAccountSuc)!''}</div>
 	<div class="nav-right-box_content">
-		<table id="userProfile_form_table" class="form_table">
+		<table class="form_table">
 			<tbody>
 				<tr>
-					<td width="161" height="30" align="right"><input id="hfid"
-						type="hidden">Fist Name<span>*</span></td>
-					<td><input name="username" id="username" type="text"
-						class="txt_input"> <span id="sp_name" style="color: Red;">Full
-							name can not be empty!</span></td>
+					<td width="161" height="30" align="right">Fist Name<span class="red">*</span></td>
+					<td><input name="c_user_first_name" id="c_user_first_name" type="text"
+						class="txt_input" value="${(userView.loginUser.firstName)!''}"> 
+						<span class="red">
+						${(userView.err.firstNameErr)!''}
+						</span></td>
 				</tr>
 				
 				<tr>
-					<td align="right"><input id="hfid"
-						type="hidden">Last Name<span>*</span></td>
-					<td><input name="username" id="username" type="text"
-						class="txt_input"> <span id="sp_name" style="color: Red;">Full
-							name can not be empty!</span></td>
+					<td align="right">Last Name<span class="red">*</span></td>
+					<td><input name="c_user_last_name" id="c_user_last_name" type="text"
+						class="txt_input" value="${(userView.loginUser.lastName)!''}"> <span class="red">
+						${(userView.err.lastNameErr)!''}
+						</span></td>
 				</tr>
 				
 				<tr>
-					<td align="right"><input id="hfid"
-						type="hidden">Middle Name<span>*</span></td>
-					<td><input name="username" id="username" type="text"
-						class="txt_input"> <span id="sp_name" style="color: Red;">Full
-							name can not be empty!</span></td>
-				</tr>
-				
-				
-				<tr>
-					<td align="right"><input id="hfid"
-						type="hidden">Email<span>*</span></td>
-					<td><input name="username" id="username" type="text"
-						class="txt_input" readonly="readonly"> <span id="sp_name" style="color: Red;">Full
-							name can not be empty!</span></td>
+					<td align="right">Email<span class="red">*</span></td>
+					<td>
+						${userView.loginUser.email}
+					</td>
 				</tr>
 					<tr>
 					<td align="right">&nbsp;</td>
-					<td><input name="" type="button" class="button_01"
-						value="Save"><span id="sp_msg"
-						style="color: Red; font-weight: bold;"></span></td>
+					<td><input type="submit" class="button_01" value="Save"><span class="red"></span></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-	<div class="box_sub_item_title">User Primary Address</div>
-	<#assign "showSubmitBtn"=true >
-	<#assign "SubmitBtnTxt"='Save' >
-	<div class="nav-right-box_content">
-		<#include "fragments/address.hpl">
-	</div>
-	<div class="box_sub_item_title">User Billing Address</div>
-	<div class="nav-right-box_content">
-		<#include "fragments/address.hpl">
-	</div>
+	</form>
+	<#assign "addType"='primary' >
+	<#assign "address"= userView.loginUser.primaryAddress >
+	<form action="/uc/userProfile" method="post">
+		<input type="hidden" name="addType" value="${(addType)!''}">
+		<input type="hidden" value="updateAddress1" name="action">
+		<div class="box_sub_item_title">User Primary Address</div>
+		<div class="form_error blue">${(userView.msg.updateAddress1SUC)!''}</div>
+		<#assign "showSubmitBtn"=true >
+		<#assign "SubmitBtnTxt"='Save' >
+		<div class="nav-right-box_content">
+			<#include "fragments/address.hpl">
+		</div>
+	</form>
+	<#assign "addType"='billing' >
+	<#assign "address"= userView.loginUser.billingAddress >
+	<form action="/uc/userProfile" method="post">
+		<input type="hidden" name="addType" value="${(addType)!''}">
+		<input type="hidden" value="updateAddress2" name="action">
+		<div class="box_sub_item_title">User Billing Address</div>
+		<div class="form_error blue">${(userView.msg.updateAddress2SUC)!''}</div>
+		<div class="nav-right-box_content">
+			<#include "fragments/address.hpl">
+		</div>
+	</form>
 </div>

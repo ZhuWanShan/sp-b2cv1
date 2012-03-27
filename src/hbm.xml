@@ -208,6 +208,7 @@
 		<property name="bcustomerZipcode" ></property>
 		<property name="bphone" ></property>
 		<property name="shippingMethod" ></property>
+		
 		<property name="status" length="255" column="order_status"></property>
 		
 		
@@ -419,6 +420,31 @@
 		<property name="gender" length="50"></property>
 		<property name="city" length="100"></property>
 		<property name="state" length="100"></property>
+		
+		<property name="fullNameP" ></property>
+		<property name="fullNameB" ></property>
+		
+		<property name="address1P" ></property>
+		<property name="address1B" ></property>
+		
+		<property name="address2P"></property>
+		<property name="address2B" ></property>
+		
+		<property name="cityP" ></property>
+		<property name="cityB" ></property>
+		
+		<property name="stateProvinceP" ></property>
+		<property name="stateProvinceB" ></property>
+		
+		<property name="countryP" ></property>
+		<property name="countryB" ></property>
+		
+		<property name="postalCodeP" ></property>
+		<property name="postalCodeB" ></property>
+		
+		<property name="phoneP" ></property>
+		<property name="phoneB" ></property>
+		
 	</class>
 	
 	<class name="UserOption" table="SHOP_UserOption">

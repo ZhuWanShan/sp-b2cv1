@@ -1,8 +1,24 @@
 package com.spshop.web;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.spshop.model.Address;
+import com.spshop.model.User;
+import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.CountryService;
+import com.spshop.service.intf.UserService;
+
+import static com.spshop.utils.Constants.*;
 
 @Controller
 public class UserCenterController extends BaseController{
@@ -16,6 +32,75 @@ public class UserCenterController extends BaseController{
 		return "userProfile";
 	}
 	
+	@RequestMapping(value="/userProfile", params={"action=updateAccount"},method=RequestMethod.POST)
+    public String updateAccount(Model model, HttpServletRequest request, HttpServletResponse response) {
+		
+		String firstName = request.getParameter(C_USER_FIRST_NAME);
+		String lastName = request.getParameter(C_USER_LAST_NAME);
+		
+		if(StringUtils.isBlank(firstName)||firstName.length()>50){
+			getUserView().getErr().put(FIRST_NAME_ERR, "invalid first name");
+		}
+		
+		if(StringUtils.isBlank(lastName)||lastName.length()>50){
+			getUserView().getErr().put(LAST_NAME_ERR, "invalid last name");
+		}
+		
+		if(getUserView().getErr().isEmpty()){
+			User user = getUserView().getLoginUser();
+			
+			user.setFirstName(firstName);
+			user.setLastName(lastName);
+			
+			ServiceFactory.getService(UserService.class).saveUser(user);
+			
+			getUserView().getMsg().put(UPDATE_ACC_SUC, "Update successfully");
+			
+		}
+		
+        return "userProfile";
+    }
+	
+	@RequestMapping(value="/userProfile", params={"action=updateAddress1"},method=RequestMethod.POST)
+    public String updateAddress1(Model model,HttpServletRequest request, HttpServletResponse response) {
+		
+		String type = request.getParameter(ADD_TYPE);
+		
+		Address address = retrieveAddress(request);
+		
+		getUserView().getErr().putAll(validateAddress(address, type));
+		
+		if(getUserView().getErr().isEmpty()){
+			User user = getUserView().getLoginUser();
+			user.setPrimaryAddress(address);
+			user = ServiceFactory.getService(UserService.class).saveUser(user);
+			getUserView().getMsg().put(UPDATE_ADDRESS_1_SUC, "Update successfully");
+		}
+		
+        return "userProfile";
+    }
+	
+	@RequestMapping(value="/userProfile", params={"action=updateAddress2"},method=RequestMethod.POST)
+    public String updateAddress2(Model model, HttpServletRequest request, HttpServletResponse response) {
+		
+		
+		String type = request.getParameter(ADD_TYPE);
+		
+		Address address = retrieveAddress(request);
+		
+		getUserView().getErr().putAll(validateAddress(address, type));
+		
+		if(getUserView().getErr().isEmpty()){
+			User user = getUserView().getLoginUser();
+			user.setBillingAddress(address);
+			user = ServiceFactory.getService(UserService.class).saveUser(user);
+			getUserView().getMsg().put(UPDATE_ADDRESS_2_SUC, "Update successfully");
+		}
+		
+		
+        return "userProfile";
+    }
+	
 	@RequestMapping("/myOrder")
 	public String myOrder(Model model) {
 		return "userOrder";
@@ -24,5 +109,65 @@ public class UserCenterController extends BaseController{
 	@RequestMapping("/orderDetails")
 	public String orderDetails(Model model) {
 		return "orderDetails";
+	}
+	
+	
+	private Address retrieveAddress(HttpServletRequest request){
+		String type = request.getParameter(ADD_TYPE);
+		String userName = request.getParameter(type+USERNAME);
+		String add1 = request.getParameter(type+ADDRESS1);
+		String add2 = request.getParameter(type+ADDRESS2);
+		String city = request.getParameter(type+CITY);
+		String stateP = request.getParameter(type+STATE_PROVINCE);
+		String c = request.getParameter(type+COUNTRY);
+		String postalCode = request.getParameter(type+POASTAL_CODE);
+		String telNum = request.getParameter(type+TEL_NUM);
+		
+		int intC = 0;
+		
+		try {
+			intC =  Integer.parseInt(c);
+		} catch (NumberFormatException e) {
+		}
+		
+		return new Address(userName, add1, add2, city, stateP, intC, postalCode, telNum);
+	}
+	
+	private Map<String,String> validateAddress(Address address,String type){
+		Map<String, String> err = new HashMap<String,String>();
+		
+		if(StringUtils.isBlank(address.getFullName())||address.getFullName().length()>100){
+			err.put(type+USERNAME_ERR, "Invalid username");
+		}
+		
+		if(StringUtils.isBlank(address.getAddress1())||address.getAddress1().length()>200){
+			err.put(type+ADDRESS1_ERR, "Invalid address");
+		}
+		
+		if(StringUtils.isNotBlank(address.getAddress2())&&address.getAddress2().length()>200){
+			err.put(type+ADDRESS2_ERR, "Invalid address");
+		}
+		
+		if(StringUtils.isBlank(address.getCity())||address.getCity().length()>100){
+			err.put(type+CITY_ERR, "Invalid city");
+		}
+		
+		if(null == ServiceFactory.getService(CountryService.class).getCountryById(address.getCountry())){
+			err.put(type+COUNTRY_ERR, "Invalid country");
+		}
+		
+		if(StringUtils.isBlank(address.getStateProvince())||address.getStateProvince().length()>100){
+			err.put(type+STATE_PROVINCE_ERR, "Invalid state");
+		}
+		
+		if(StringUtils.isBlank(address.getPostalCode())||address.getPostalCode().length()>100){
+			err.put(type+POSTAL_CODE_ERR, "Invalid postal code");
+		}
+		
+		if(StringUtils.isBlank(address.getPhone())||address.getPhone().length()>100){
+			err.put(type+TEL_NUM_ERR, "Invalid phone number");
+		}
+		
+		return err;
 	}
 }

@@ -1,3 +1,25 @@
+/*(function(jq){
+		jq.fn.ajLoad = function(){
+			var el = $(this);
+			if(el && el.length > 0 ){
+				el.next(".ajax_load").remove();
+				el.after("<img src='/style/image/ajax_loader.gif' class='ajax_load'>");
+			}
+		};
+	}
+)(jq)
+
+(
+	function(jq){
+		jq.fn.ajUnload = function(){
+			var el = $(this);
+			if(el && el.length > 0 ){
+				el.next(".ajax_load").remove();
+			}
+		};
+	}
+)(jq)*/
+
 jq("#header_top").ready(function() {
 	jq(".user_menu>ul>li").mouseenter(function(){
 		jq(this).removeClass("current");
@@ -38,3 +60,10 @@ jq("#main_menu").ready(function() {
 		jq(this).children(".sub_menu").hide();
 	});
 });
+
+
+
+
+
+
+
