@@ -1,10 +1,12 @@
 package com.spshop.web.view;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import com.spshop.model.Category;
+import com.spshop.model.Country;
 import com.spshop.model.Site;
 
 public class SiteView {
@@ -14,6 +16,7 @@ public class SiteView {
 	private String imageHost;
 	private String currency;
 	private Map<String,Float> currencies;
+	private List<Country> countries = new ArrayList<Country>();
 	
 	public Site getSite() {
 		return site;
@@ -50,6 +53,12 @@ public class SiteView {
 	}
 	public void setCurrencies(Map<String,Float> currencies) {
 		this.currencies = currencies;
+	}
+	public List<Country> getCountries() {
+		return countries;
+	}
+	public void setCountries(List<Country> countries) {
+		this.countries = countries;
 	}
 	
 }

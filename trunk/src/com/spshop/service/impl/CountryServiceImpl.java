@@ -30,6 +30,12 @@ public class CountryServiceImpl extends AbstractService<Country,CountryDAO, Long
 
 	@Override
 	public Country getCountryById(long id) throws ServiceValidateException {
-		return getDao().fetchById(id).clone();
+		Country country = getDao().fetchById(id);
+		
+		if(null == country){
+			return null;
+		}
+		
+		return country.clone();
 	}
 }

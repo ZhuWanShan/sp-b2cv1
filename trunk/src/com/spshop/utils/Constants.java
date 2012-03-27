@@ -141,4 +141,42 @@ public class Constants {
     
     public static final String REG_USER = "regUser";
     
+    public static final String C_USER_FIRST_NAME = "c_user_first_name";
+    
+    public static final String C_USER_LAST_NAME = "c_user_last_name";
+    
+    public static final String FIRST_NAME_ERR = "firstNameErr";
+    
+    public static final String LAST_NAME_ERR = "lastNameErr";
+    
+    public static final String UPDATE_ACC_SUC = "updateAccountSuc";
+    
+    public static final String ADD_TYPE = "addType";
+    
+    public static final String ADD_TYPE_P = "primary";
+    
+    public static final String ADD_TYPE_B = "billing";
+    
+    public static final String USERNAME_ERR = "usernameErr";
+    public static final String ADDRESS1_ERR = "address1Err";
+    public static final String ADDRESS2_ERR = "address2Err";
+    public static final String CITY_ERR = "cityErr";
+    public static final String STATE_PROVINCE_ERR = "stateProvinceErr";
+    public static final String COUNTRY_ERR = "countryErr";
+    public static final String POSTAL_CODE_ERR = "postalCodeErr";
+    public static final String TEL_NUM_ERR = "telNumErr";
+    
+    public static final String USERNAME = "username";
+    public static final String ADDRESS1 = "address1";
+    public static final String ADDRESS2 = "address2";
+    public static final String CITY = "city";
+    public static final String STATE_PROVINCE = "stateProvince";
+    public static final String COUNTRY = "country";
+    public static final String POASTAL_CODE = "postalCode";
+    public static final String TEL_NUM = "telNum";
+    
+    
+    public static final String UPDATE_ADDRESS_1_SUC = "updateAddress1SUC";
+    public static final String UPDATE_ADDRESS_2_SUC = "updateAddress2SUC";
+    
 }

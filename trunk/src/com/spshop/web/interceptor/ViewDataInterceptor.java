@@ -19,9 +19,11 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.spshop.cache.SCacheFacade;
 import com.spshop.model.Category;
+import com.spshop.model.Country;
 import com.spshop.model.Site;
 import com.spshop.model.User;
 import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.UserService;
 import com.spshop.utils.Utils;
 import com.spshop.web.BaseController;
@@ -115,6 +117,9 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		siteView.setCurrencies(this.currencies);
 		siteView.setCategories(categories);
 		
+		List<Country> countries = ServiceFactory.getService(CountryService.class).getAllCountries();
+		
+		siteView.setCountries(countries);
 		
 		return siteView;
 	}
