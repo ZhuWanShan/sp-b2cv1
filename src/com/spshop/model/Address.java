@@ -20,7 +20,9 @@ public class Address {
 	public String getFullName() {
 		return fullName;
 	}
-
+	
+	public Address() {
+	}
 	
 	public Address(String fullName, String address1, String address2,
 			String city, String stateProvince, int country, String postalCode,
