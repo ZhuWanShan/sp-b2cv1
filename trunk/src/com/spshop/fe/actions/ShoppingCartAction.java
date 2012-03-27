@@ -389,7 +389,7 @@ public class ShoppingCartAction extends BaseAction {
 			Map<String,Object> root = new HashMap<String,Object>(); 
 			root.put("order", order);
 			root.put("currencyRate", getCurrencies(request).get(order.getCurrency()));
-			EmailTools.sendMail("paid", "Order Received, Awaiting Payment Confirmation", root,order.getCustomerEmail());
+			//EmailTools.sendMail("paid", "Order Received, Awaiting Payment Confirmation", root,order.getCustomerEmail());
 			order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.getValue());
 			clearCart(request);
 		}
