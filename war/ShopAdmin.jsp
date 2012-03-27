@@ -21,7 +21,7 @@
     <!-- If you add any GWT meta tags, they must   -->
     <!-- be added before this line.                -->
     <!--                                           -->
-    <script type="text/javascript" language="javascript" src="workspace/workspace.nocache.js"></script>
+    <script type="text/javascript" language="javascript" src="workspace/workspace.nocache.js?v=99999999999"></script>
   </head>
 
   <!--                                           -->
