@@ -130,7 +130,7 @@ public class CheckOrder extends BaseAction {
 						Map<String,Object> root = new HashMap<String,Object>(); 
 						root.put("order", order);
 						root.put("currencyRate", getCurrencies(request).get(order.getCurrency()));
-						EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,order.getCustomerEmail());
+						//EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,order.getCustomerEmail());
 						try{
 							Coupon coupon = ServiceFactory.getService(CouponService.class).getCouponByCode(order.getCouponCode());
 							coupon.setUsedCount(coupon.getUsedCount()+1);

@@ -102,30 +102,31 @@ public class ImageBatchProcessor extends RemoteHttp {
 		String fileName = "";
 		int counter = 0;
 		while (e.hasMoreElements()) {
-			entry = (ZipEntry) e.nextElement();
-			is = new BufferedInputStream(zipfile.getInputStream(entry));
-			int count;
-			fos = new FileOutputStream(unZipDir + "/" + entry.getName());
-			dest = new BufferedOutputStream(fos, BUFFER);
-			while ((count = is.read(data, 0, BUFFER)) != -1) {
-				dest.write(data, 0, count);
-			}
-			fileName = entry.getName();
-			fileName = redefineFileName(fileName.replaceAll("[^a-zA-Z0-9\\.]", "_"));
-			tempFile = new File(unZipDir + "/" + entry.getName());
-			realFile = new File(getServletContext().getRealPath(
-					loginInfo.getSite().getImagePath())
-					+ "/" + fileName);
-			dest.flush();
-			dest.close();
-			is.close();
-			FileUtils.copyFile(tempFile, realFile);
-			tempFile.delete();
-			tempFile = null;
-			// ProcessImage processImage = new ProcessImage();
-			// new Thread(processImage,
-			// fileName+"__"+realFile.getAbsolutePath()).start();
 			try {
+				entry = (ZipEntry) e.nextElement();
+				is = new BufferedInputStream(zipfile.getInputStream(entry));
+				int count;
+				fos = new FileOutputStream(unZipDir + "/" + entry.getName());
+				dest = new BufferedOutputStream(fos, BUFFER);
+				while ((count = is.read(data, 0, BUFFER)) != -1) {
+					dest.write(data, 0, count);
+				}
+				fileName = entry.getName();
+				fileName = redefineFileName(fileName.replaceAll("[^a-zA-Z0-9\\.]", "_"));
+				tempFile = new File(unZipDir + "/" + entry.getName());
+				realFile = new File(getServletContext().getRealPath(
+						loginInfo.getSite().getImagePath())
+						+ "/" + fileName);
+				dest.flush();
+				dest.close();
+				is.close();
+				FileUtils.copyFile(tempFile, realFile);
+				tempFile.delete();
+				tempFile = null;
+				// ProcessImage processImage = new ProcessImage();
+				// new Thread(processImage,
+				// fileName+"__"+realFile.getAbsolutePath()).start();
+			
 				processImage(fileName,loginInfo,sizeType);
 				counter++;
 			} catch (Exception e1) {
