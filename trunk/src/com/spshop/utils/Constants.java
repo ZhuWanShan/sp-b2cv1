@@ -179,4 +179,25 @@ public class Constants {
     public static final String UPDATE_ADDRESS_1_SUC = "updateAddress1SUC";
     public static final String UPDATE_ADDRESS_2_SUC = "updateAddress2SUC";
     
+    
+    public static final String PRIMARY_ADDRESS = "primaryAddress";
+    public static final String BILLING_ADDRESS = "billingAddress";
+    
+    public static final String WRONG_PWD = "wrongPWD"; 
+    
+    public static final String TXT_PWD = "txtPwd"; 
+    
+    public static final String TXT_NEW_PWD1 = "txtNewPwd1"; 
+    
+    public static final String TXT_NEW_PWD2 = "txtNewPwd2"; 
+    
+    public static final String SHOPPINGCART = "shoppingcart";
+    
+    public static final String SPLITER_AT = "@";
+    
+    public static final String COLOR_PARAM_PRE = "color";
+    public static final String QTY_PARAM = "qty";
+    public static final String TEXT_PARAM_PRE = "text";
+    public static final String TEXTS_PARAM_PRE = "texts";
+    public static final String PRODUCT_ID_PARAM = "ProductId";
 }

@@ -20,8 +20,10 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.spshop.cache.SCacheFacade;
 import com.spshop.model.Category;
 import com.spshop.model.Country;
+import com.spshop.model.Order;
 import com.spshop.model.Site;
 import com.spshop.model.User;
+import com.spshop.model.cart.ShoppingCart;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.UserService;
@@ -63,7 +65,10 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		UserView userView = new UserView();
 		//TODO retrieve userView
 		User user = retrieveUser(request);
+		ShoppingCart shoppingCart = retrieveShoppingCart(request, user);
+		
 		userView.setLoginUser(user);
+		userView.setCart(shoppingCart);
 		
 		String landingPage = request.getParameter(LOGIN_LANDING_PAGE_PARAM);
 		if(StringUtils.isBlank(landingPage)){
@@ -96,6 +101,25 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 	}
 	
 	
+	private ShoppingCart retrieveShoppingCart(HttpServletRequest request, User user) {
+		
+		ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
+		
+		if(null == cart){
+			cart = new ShoppingCart(new Order());
+			if(null != user){
+				cart.getOrder().setUser(user);
+			}
+			request.getSession().setAttribute(SHOPPINGCART, cart);
+			
+			
+			
+			return cart;
+		}
+		
+		return cart;
+	}
+
 	private User retrieveUser(HttpServletRequest request){
 		User user = (User) request.getSession().getAttribute(USER_INFO);
 		if(null==user){
@@ -148,7 +172,9 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		super.postHandle(request, response, handler, modelAndView);
+		UserView userView = (UserView) modelAndView.getModel().get(USER_VIEW);
+		
+		request.getSession().setAttribute(SHOPPINGCART, userView.getCart());
 	}
 	
 	@Override

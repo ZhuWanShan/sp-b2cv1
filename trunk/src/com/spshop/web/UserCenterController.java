@@ -27,6 +27,31 @@ public class UserCenterController extends BaseController{
 		return "changePwd";
 	}
 	
+	@RequestMapping(value = "/changePwd", method=RequestMethod.POST)
+	public String changePwd2(Model model, HttpServletRequest request) {
+		String oldPWD = request.getParameter(TXT_PWD);
+		String pwd1 = request.getParameter(TXT_NEW_PWD1);
+		String pwd2 = request.getParameter(TXT_NEW_PWD2);
+		User user = ServiceFactory.getService(UserService.class).queryUserByEmail(getUserView().getLoginUser().getEmail());
+		if(null!=user && !user.getPassword().equals(oldPWD)){
+			getUserView().getErr().put(WRONG_PWD, "Original password is wrong");
+		}
+		
+		if(pwd1 == null || pwd1.length()<6){
+			getUserView().getErr().put(REG_PWD_RE_ERR, "Invalid password");
+		}else if(!pwd1.equals(pwd2)){
+			getUserView().getErr().put(REG_PWD_RE_ERR, "Two new passwords are not same");
+		}
+		
+		if(getUserView().getErr().isEmpty() && null!=user){
+			user.setPassword(pwd1);
+			user = ServiceFactory.getService(UserService.class).save(user);
+			getUserView().getMsg().put(REG_USER_NAME_SUC, "Update successfully");
+		}
+		
+		return "changePwd";
+	}
+	
 	@RequestMapping("/userProfile")
 	public String userProfile(Model model) {
 		return "userProfile";
@@ -77,6 +102,8 @@ public class UserCenterController extends BaseController{
 			getUserView().getMsg().put(UPDATE_ADDRESS_1_SUC, "Update successfully");
 		}
 		
+		model.addAttribute(PRIMARY_ADDRESS, address);
+		
         return "userProfile";
     }
 	
@@ -97,6 +124,7 @@ public class UserCenterController extends BaseController{
 			getUserView().getMsg().put(UPDATE_ADDRESS_2_SUC, "Update successfully");
 		}
 		
+		model.addAttribute(BILLING_ADDRESS, address);
 		
         return "userProfile";
     }

@@ -134,8 +134,8 @@
 		</div>
 
 		<div id="top_Cart" class="shopping_cart">
-			<a class="cart_icon wihte_D_shadow Dark_gray" href="/sp/shoppingCart"
-				rel="nofollow">My bag <span class="items_num"> (0)</span>
+			<a class="cart_icon wihte_D_shadow Dark_gray" href="/uc/shoppingCart"
+				rel="nofollow">My bag <span class="items_num"> (${userView.cart.itemCount})</span>
 			</a>
 			<div id="universalCart">
 				<div class="box_top"></div>
