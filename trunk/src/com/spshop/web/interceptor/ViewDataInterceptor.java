@@ -72,6 +72,8 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		userView.setLoginUser(user);
 		userView.setCart(shoppingCart);
 		
+		setCurrency(request,userView,siteView.getCurrencies());
+		
 		String landingPage = request.getParameter(LOGIN_LANDING_PAGE_PARAM);
 		if(StringUtils.isBlank(landingPage)){
 			String url = request.getRequestURL().toString();
@@ -103,6 +105,21 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 	}
 	
 	
+	private void setCurrency(HttpServletRequest request, UserView userView, Map<String, Float> currencies) {
+		String cCode = request.getParameter(CURRENCY);
+		if(null == cCode || !currencies.containsKey(cCode)){
+			cCode = DEFAULT_CURRENCY;
+		}
+		
+		userView.setCurrencyCode(cCode);
+		userView.getCart().getOrder().setCurrency(cCode);
+		
+		userView.setCurrencyRate(1);
+		
+		request.getSession().setAttribute(CURRENCY, cCode);
+		
+	}
+
 	private ShoppingCart retrieveShoppingCart(HttpServletRequest request, User user) {
 		
 		ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
@@ -152,6 +169,7 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		siteView.setSite(site);
 		siteView.setCurrencies(this.currencies);
 		siteView.setCategories(categories);
+		siteView.setImageHost("http://www.honeybuy.com");
 		
 		List<Country> countries = ServiceFactory.getService(CountryService.class).getAllCountries();
 		
@@ -184,9 +202,11 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		UserView userView = (UserView) modelAndView.getModel().get(USER_VIEW);
-		
-		request.getSession().setAttribute(SHOPPINGCART, userView.getCart());
+		if(null!=modelAndView){
+			UserView userView = (UserView) modelAndView.getModel().get(USER_VIEW);
+			
+			request.getSession().setAttribute(SHOPPINGCART, userView.getCart());
+		}
 	}
 	
 	@Override
