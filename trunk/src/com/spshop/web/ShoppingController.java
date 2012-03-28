@@ -290,6 +290,7 @@ public class ShoppingController extends BaseController{
 			for (Cookie  cookie: cookies) {
 				if(COOKIE_ACCOUNT.equals(cookie.getName())){
 					cookie = new Cookie(COOKIE_ACCOUNT, EMPTY_STR);
+					cookie.setPath("/");
 					cookie.setMaxAge(99999999);
 					response.addCookie(cookie);
 				}
