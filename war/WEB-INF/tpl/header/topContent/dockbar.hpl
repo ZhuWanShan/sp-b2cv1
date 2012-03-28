@@ -8,9 +8,9 @@
 							rel="nofollow" title="Help Center">Help Center</a>
 					</div>
 				</li>
-				<li><a title="USD" rel="nofollow"
-					href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=USD'">
-						<span class="icon_USD"></span>Currency(USD)
+				<li><a title="${userView.currencyCode}" rel="nofollow"
+					href="javascript:window.location=window.location.toString().split('?')[0]+'?currency=${userView.currencyCode}'">
+						<span class="icon_${userView.currencyCode}"></span>Currency(${userView.currencyCode})
 				</a>
 					<dl class="user_menu_hidd"
 						style="width: 180px; cursor: default; display: none;">

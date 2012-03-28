@@ -200,4 +200,8 @@ public class Constants {
     public static final String TEXT_PARAM_PRE = "text";
     public static final String TEXTS_PARAM_PRE = "texts";
     public static final String PRODUCT_ID_PARAM = "ProductId";
+    
+    public static final String CURRENCY = "currency";
+    public static final String CURRENT_ORDER = "currentOrder";
+    public static final String DEFAULT_CURRENCY = "USD";
 }
