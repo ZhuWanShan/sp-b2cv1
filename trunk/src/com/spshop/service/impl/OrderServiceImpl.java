@@ -124,4 +124,19 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 		
 		return id;
 	}
+
+	@Override
+	public Order getUserCart(long userId) {
+		
+		String hql = "From Order as o where o.user.id = ? and o.status = 'ONSHOPPING'";
+		@SuppressWarnings("unchecked")
+		List<Object> cs = (List<Object>)getDao().queryByHQL(hql, userId);
+		if(null!=cs){
+			for (Object object : cs) {
+				return ((Order)object).clone();
+			}
+		}
+		
+		return null;
+	}
 }

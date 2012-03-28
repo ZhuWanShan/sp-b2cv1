@@ -29,8 +29,10 @@ import com.spshop.cache.SCacheFacade;
 import com.spshop.model.Product;
 import com.spshop.model.User;
 import com.spshop.model.UserOption;
+import com.spshop.model.enums.OrderStatus;
 import com.spshop.model.enums.SelectType;
 import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.UserService;
 import com.spshop.utils.EmailTools;
 import com.spshop.utils.FeedTools;
@@ -59,6 +61,7 @@ public class ShoppingController extends BaseController{
 		List<UserOption> options = retriveUserOptions(request);
 		if(null!=product){
 			getUserView().getCart().addItem(product, options, qty);
+			ServiceFactory.getService(OrderService.class).saveOrder(getUserView().getCart().getOrder(), OrderStatus.ONSHOPPING.toString());
 		}
 		
 		return "shoppingCart";
