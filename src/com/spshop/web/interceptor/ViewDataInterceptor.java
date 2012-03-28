@@ -24,8 +24,10 @@ import com.spshop.model.Order;
 import com.spshop.model.Site;
 import com.spshop.model.User;
 import com.spshop.model.cart.ShoppingCart;
+import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CountryService;
+import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.UserService;
 import com.spshop.utils.Utils;
 import com.spshop.web.BaseController;
@@ -106,15 +108,25 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
 		
 		if(null == cart){
-			cart = new ShoppingCart(new Order());
-			if(null != user){
-				cart.getOrder().setUser(user);
+			Order order = null;
+			if(null!=user){
+				order = ServiceFactory.getService(OrderService.class).getUserCart(user.getId());
 			}
+			
+			if(null == order){
+				order = new Order();
+			}
+			
+			cart = new ShoppingCart(order);
+			
 			request.getSession().setAttribute(SHOPPINGCART, cart);
 			
-			
-			
-			return cart;
+		}
+		
+		if(null!=user && cart.getOrder().getUser()==null){
+			cart.getOrder().setUser(user);
+			Order order = ServiceFactory.getService(OrderService.class).saveOrder(cart.getOrder(), OrderStatus.ONSHOPPING.toString());
+			cart.setOrder(order);
 		}
 		
 		return cart;
