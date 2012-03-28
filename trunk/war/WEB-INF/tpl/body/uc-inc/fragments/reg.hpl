@@ -4,7 +4,7 @@
 		</div>
 		<#assign regSucInfo = (userView.msg.accountSuc)!'no'>
 		<#if regSucInfo!='no'>
-			<div class="form_error blue" style="font-size: 20">${userView.msg.accountSuc}</div>
+			<div class="form_error blue">${userView.msg.accountSuc}</div>
 			<div class="form_error blue">
 				<a class="blue" onclick="window.location.href=decodeURI('${userView.requestPage!siteView.host}');">>>Continue</a><br>
 				<a class="blue" href="/uc/userProfile">>>Complete my profile</a><br>
