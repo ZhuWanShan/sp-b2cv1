@@ -291,7 +291,7 @@ public class ShoppingController extends BaseController{
 				if(COOKIE_ACCOUNT.equals(cookie.getName())){
 					cookie = new Cookie(COOKIE_ACCOUNT, EMPTY_STR);
 					cookie.setPath("/");
-					cookie.setMaxAge(99999999);
+					cookie.setMaxAge(30*24*60*60);
 					response.addCookie(cookie);
 				}
 			}
@@ -371,7 +371,7 @@ public class ShoppingController extends BaseController{
 				request.getSession().setAttribute(USER_INFO,loginUser);
 				if(TRUE.equals(rememberAccount)){
 					Cookie cookie = new Cookie(COOKIE_ACCOUNT, Utils.OBJ.getEncryString(loginUser.getEmail()+USER_NAME_PWD_SPLIT+loginUser.getPassword()));
-					cookie.setMaxAge(99999999);
+					cookie.setMaxAge(30*24*60*60);
 					cookie.setPath("/");
 					response.addCookie(cookie);
 				}

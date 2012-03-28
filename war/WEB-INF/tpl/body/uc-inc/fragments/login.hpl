@@ -10,7 +10,7 @@
 				class="txt_input" value="${LoginPwd!''}">
 			<p class="form_label">
 				<input type="checkbox" name="rememberID" id="LoginRember" value="true" checked="checked">
-				<span>Login automatically next time</span>
+				<span>Login automatically in next month</span>
 			</p>
 			<p class="form_label">
 				<a class="cursor_point_and_underline" href="/uc/recoverPwd">Forget Password?</a>
