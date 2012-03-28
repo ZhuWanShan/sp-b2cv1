@@ -1,4 +1,4 @@
-/*(function(jq){
+(function(jq){
 		jq.fn.ajLoad = function(){
 			var el = $(this);
 			if(el && el.length > 0 ){
@@ -7,7 +7,7 @@
 			}
 		};
 	}
-)(jq)
+)(jq);
 
 (
 	function(jq){
@@ -18,7 +18,7 @@
 			}
 		};
 	}
-)(jq)*/
+)(jq);
 
 jq("#header_top").ready(function() {
 	jq(".user_menu>ul>li").mouseenter(function(){
@@ -61,6 +61,58 @@ jq("#main_menu").ready(function() {
 	});
 });
 
+
+
+jq("#main_box").ready(function() {
+	jq(this).find("input,select,textarea").each(function(idx,el){
+		var target = jq(el);
+		target.focus(function(){
+			var name = target.attr("name");
+			if(name){
+				jq("#"+name+"_noti").html("");
+			}
+		});
+		
+		target.blur(function(){
+			var name = target.attr("name");
+			var validation = target.attr("validation");
+			
+			var value = target.val();
+			
+			if(value){
+				value = (value + "").trim();
+				 target.val(value);
+			}
+			
+			if(name && validation){
+				
+				if(!value || value.length <1){
+					jq("#"+name+"_noti").html("Missing required field");
+				}
+				
+				if(!value || value.length > 200){
+					jq("#"+name+"_noti").html("Missing required field");
+				}
+				
+				if("is_email_exist" == validation){
+					if(!(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/).test(value)){
+						jq("#"+name+"_noti").html("Invalid email");
+					}else{
+						jq.ajax({
+							 url: "/uc/checkUserEmail?RegEmail="+value+"&v="+ Math.random(),
+							 dataType:"text",
+							  success: function(data){
+								  if("1"==data){
+									  jq("#"+name+"_noti").html("Account exist");
+								  }
+							  }
+						});
+					}
+				}
+			}
+		});
+	});
+});
 
 
 

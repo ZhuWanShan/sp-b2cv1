@@ -2,12 +2,17 @@ package com.spshop.web;
 
 import static com.spshop.utils.Constants.*;
 
+import java.io.IOException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +25,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.spshop.cache.SCacheFacade;
+import com.spshop.model.Product;
 import com.spshop.model.User;
+import com.spshop.model.UserOption;
+import com.spshop.model.enums.SelectType;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.UserService;
 import com.spshop.utils.EmailTools;
@@ -30,6 +39,12 @@ import com.spshop.utils.Utils;
 @Controller
 public class ShoppingController extends BaseController{
 	
+	private static final String COLOR = COLOR_PARAM_PRE;
+	private static final String QTY = QTY_PARAM;
+	private static final String TEXT = TEXT_PARAM_PRE;
+	private static final String TEXTS = TEXTS_PARAM_PRE;
+	private static final String PRODUCT_ID = PRODUCT_ID_PARAM;
+	
 	private Logger logger = Logger.getLogger(ShoppingController.class);
 	
 	@RequestMapping("/shoppingCart")
@@ -37,6 +52,77 @@ public class ShoppingController extends BaseController{
 		return "shoppingCart";
 	}
 	
+	@RequestMapping(value="/shoppingCart", method = RequestMethod.POST,params="operation=addItem")
+	public String shoppingCart2(Model model,HttpServletRequest request,HttpServletResponse response) {
+		int qty = retriveQty(request);
+		Product product = SCacheFacade.getProduct(retriveProductId(request));
+		List<UserOption> options = retriveUserOptions(request);
+		if(null!=product){
+			getUserView().getCart().addItem(product, options, qty);
+		}
+		
+		return "shoppingCart";
+	}
+	
+	
+	private int retriveQty(ServletRequest request){
+		int quantity = 1;
+
+		try {
+			quantity = Integer.parseInt(request.getParameter(QTY));
+		} catch (NumberFormatException e) {
+			//e.printStackTrace();
+		}
+		
+		if(quantity<1){
+			quantity = 1;
+		}
+		
+		return quantity;
+	}
+	
+	private String retriveProductId(ServletRequest request){
+		String productId = null;
+		
+		try {
+			productId = request.getParameter(PRODUCT_ID);
+		} catch (NumberFormatException e) {
+			//e.printStackTrace();
+		}
+		
+		return productId;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private List<UserOption> retriveUserOptions(ServletRequest request){
+		List<UserOption> options = new ArrayList<UserOption>();
+		Enumeration<String> params = request.getParameterNames();
+		while(params.hasMoreElements()){
+			String param = params.nextElement();
+			String[] ps = param.split(SPLITER_AT);
+			if(ps.length>1){
+				UserOption option = new UserOption();
+				option.setCreateDate(new Date());
+				option.setOptionName(ps[1]);
+				if(COLOR.equals(ps[0])){
+					option.setValue(request.getParameter(param));
+					option.setOptionType(SelectType.COLOR_SINGLE);
+					options.add(option);
+				}
+				
+				if(TEXT.equals(ps[0])){
+					option.setValue(request.getParameter(param));
+					option.setOptionType(SelectType.SINGLE_LIST);
+					options.add(option);
+				}
+				
+				if(TEXTS.equals(ps[0])){
+					
+				}
+			}
+		}
+		return options;
+	}
 	
 	@RequestMapping("/shoppingCart_address")
 	public String shoppingCartAdress(Model model) {
@@ -152,11 +238,15 @@ public class ShoppingController extends BaseController{
     }
 	
 	@RequestMapping(value="/checkUserEmail")
-	public String checkUserEmail(@RequestParam("RegEmail") String email, HttpServletResponse response){
+	public String checkUserEmail(@RequestParam("RegEmail") String email, HttpServletResponse response) throws IOException{
 		
-		/*if(nu){
-			
-		}*/
+		User user = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
+		
+		if(null == user){
+			response.getWriter().print("0");
+		}else{
+			response.getWriter().print("1");
+		}
 		
 		return null;
 	}

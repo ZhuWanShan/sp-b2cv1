@@ -14,10 +14,10 @@
 				E-mail Address <span class="red">*</span>
 			</p>
 			<p>
-				<input type="text" name="RegEmail" id="RegEmail" class="txt_input" value="${(regUser.email)!''}">
+				<input type="text" name="RegEmail" id="RegEmail" class="txt_input" value="${(regUser.email)!''}" validation="is_email_exist">
 			</p>
 			<h1>${(book?if_exists)?string}</h1>
-			<div class="form_error red">${userView.err.RegEmailErr!''}</div>
+			<div class="form_error red" id="RegEmail_noti">${userView.err.RegEmailErr!''}</div>
 			<p class="form_label gray">Please fill in a true and valid Email address,
 				which will be a very important way for us to contact you.</p>
 			<p class="form_label">

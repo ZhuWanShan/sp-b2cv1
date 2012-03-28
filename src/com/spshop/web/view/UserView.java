@@ -15,6 +15,7 @@ public class UserView {
 	private String requestPage;
 	private Map<String, String> msg = new HashMap<String, String>();
 	private Map<String, String> err = new HashMap<String, String>();
+	private ShoppingCart cart = null;
 
 	public float getCurrencyRate() {
 		return currencyRate;
@@ -70,5 +71,13 @@ public class UserView {
 
 	public void setErr(Map<String, String> err) {
 		this.err = err;
+	}
+
+	public ShoppingCart getCart() {
+		return cart;
+	}
+
+	public void setCart(ShoppingCart cart) {
+		this.cart = cart;
 	}
 }
