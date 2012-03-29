@@ -154,7 +154,7 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		if(null!=modelAndView && !modelAndView.getModel().containsKey(LOGIN_ACTION)){
+		if(null!=modelAndView && !Boolean.TRUE.toString().equals(modelAndView.getModel().get(LOGOUT_ACTION))){
 			UserView userView = (UserView) modelAndView.getModel().get(USER_VIEW);
 			request.getSession().setAttribute(SHOPPINGCART, userView.getCart());
 			request.getSession().setAttribute(CURRENCY, userView.getCurrencyCode());
