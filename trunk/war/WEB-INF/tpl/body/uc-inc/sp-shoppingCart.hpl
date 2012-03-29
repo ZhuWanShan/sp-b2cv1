@@ -12,8 +12,9 @@
 			<li class="scart_item_w5">Operation
 			</li>
 	</ul>
-	<#list currentOrder!userView.cart.order.items as item>
-		<ul class="scart_c">
+	<#assign order = currentOrder!userView.cart.order>
+	<#list order.items as item>
+		<ul class="scart_c" id="${item.name}">
 			<li class="scart_thumbnail"><a target="_blank"
 				href="${siteView.host}/${item.product.name}"><img
 					src="${siteView.imageHost}${item.product.images[0].smallUrl}"></a>
@@ -55,16 +56,15 @@
 			</li>
 			<li class="scart_item_w2"><span class="red">${(userView.cart.order.currency)}</span> <span>${(userView.currencyRate*item.finalPrice)?string(",##0.##")}</span></li>
 			<li class="scart_item_w3">
-				<div class="increase">
+				<div class="increase" onclick="SP.increaseCartItem('${item.name}')">
 				</div> <input type="text"
-				class="increase_input" value="1" size="4">
-				<div class="decrease"></div>
+				class="increase_input item_qty" value="${item.quantity}" size="4">
+				<div class="decrease" onclick="SP.decreaseCartItem('${item.name}')"></div>
 			</li>
-			<li class="scart_item_w4"><span class="red">${(userView.cart.order.currency)}</span> <span>${(userView.currencyRate*item.finalPrice*item.quantity)?string(",##0.##")}</span><input
-				type="hidden" value="156.69"></li>
+			<li class="scart_item_w4"><span class="red">${(userView.cart.order.currency)}</span> <span class="item_amount">${(userView.currencyRate*item.finalPrice*item.quantity)?string(",##0.##")}</span></li>
 			<li class="scart_item_w5">
 				<div class="sp_cart_remove">
-					<a href="javascript:Remove(722115)">Remove</a>
+					<a href="javascript:SP.removeCartItem('${item.name}')">Remove</a>
 				</div>
 			</li>
 			<li class="scart_item_w6">&nbsp;</li>
@@ -92,11 +92,11 @@
 		</div>
 
 		<dl class="scart_summary_list">
-			<dd >Item Sub total:<span class="red">USD 199.99</span></dd>
-			<dd >Coupon:<span class="red">USD 199.99</span></dd>
+			<dd >Item Sub total:<span class="red">${(userView.cart.order.currency)} &nbsp;<span class="order_sub_total">${(userView.currencyRate*order.totalPrice)?string(",##0.##")}</span></span></dd>
+			<dd >Coupon:<span class="red">${(userView.cart.order.currency)} &nbsp;<span class="order_coupon_total">${(userView.currencyRate*order.couponCutOff)?string(",##0.##")}</span></span></dd>
 			<dd class="separator"><dd>
 			<dd class="red">
-				<b>Grand Total:<span id="GrabdTotal">USD 896.91</span></b>
+				<b>Grand Total:<span id="GrabdTotal">${(userView.cart.order.currency)} &nbsp;<span class="order_grand_total">${(userView.currencyRate*(order.couponCutOff+order.totalPrice))?string(",##0.##")}</span></span></b>
 			</dd>
 			<dd class="red">
 			<span>

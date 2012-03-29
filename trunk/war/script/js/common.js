@@ -1,3 +1,83 @@
+var SP = new Object();
+
+(
+	function(shop,jq){
+		
+		function updateHTML(item,data){
+			 var rs = data;
+			  if(rs.itemQTY){
+				  jq("#"+item+" .item_qty").val(rs.itemQTY);
+			  }
+			  
+			  if(rs.itemAmount){
+				  jq("#"+item+" .item_amount").html(rs.itemAmount);
+			  }
+			  
+			  if(rs.subTotal){
+				  jq(".order_sub_total").html(rs.subTotal);
+			  }
+			  
+			  if(rs.coupon){
+				  jq(".order_coupon_total").html(rs.coupon);
+			  }
+			  
+			  if(rs.grandTotal){
+				  jq(".order_grand_total").html(rs.grandTotal);
+			  }
+			  
+			  if(rs.itemID){
+				  jq("#"+rs.itemID).hide("normal");
+				  jq("#"+rs.itemID).remove();
+			  }
+			  
+			  if(rs.itemCount && "0"!=rs.itemCount){
+				  jq("span.items_num").html("(" + rs.itemCount+")");
+			  }else{
+				  window.location=window.location.toString();
+			  }
+		}
+		
+		shop.increaseCartItem = function(item){
+			if(item){
+				jq.ajax({
+					 url: "/uc/updateShoppingCart?action=increaseItemToCart&item="+item+"&v="+ Math.random(),
+					 dataType:"json",
+					  success: function(data){
+						  updateHTML(item,data);
+					  }
+				});
+			}
+		};
+		
+		
+		shop.decreaseCartItem = function(item){
+			if(item){
+				jq.ajax({
+					 url: "/uc/updateShoppingCart?action=decreaseItemToCart&item="+item+"&v="+ Math.random(),
+					 dataType:"json",
+					  success: function(data){
+						  updateHTML(item,data);
+					  }
+				});
+			}
+		};
+		
+		shop.removeCartItem = function(item){
+			if(item){
+				jq.ajax({
+					 url: "/uc/updateShoppingCart?action=removeItemToCart&item="+item+"&v="+ Math.random(),
+					 dataType:"json",
+					  success: function(data){
+						  updateHTML(item,data);
+					  }
+				});
+			}
+		};
+	}		
+
+)(SP,jq);
+
+
 (function(jq){
 		jq.fn.ajLoad = function(){
 			var el = $(this);
@@ -125,6 +205,7 @@ jq("#main_box").ready(function() {
 		}
 	});
 });
+
 
 
 

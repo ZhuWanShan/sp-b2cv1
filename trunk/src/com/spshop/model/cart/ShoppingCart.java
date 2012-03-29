@@ -11,6 +11,10 @@ import com.spshop.model.UserOption;
 
 public class ShoppingCart {
 	private Order order;
+	
+	public ShoppingCart() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public ShoppingCart(Order order) {
 		this.setOrder(order);
@@ -59,8 +63,11 @@ public class ShoppingCart {
 			}
 			
 		}
+		
+		updateCat();
 	}
 
+	@Deprecated
 	public void update(String itemName, int qty) {
 		if(null!=order.getItems()){
 			for (OrderItem item : order.getItems()) {
@@ -70,8 +77,25 @@ public class ShoppingCart {
 				}
 			}
 		}
+		updateCat();
 	}
-
+	
+	public void updateCart(String itemName, int qty) {
+		if(null!=order.getItems()){
+			for (OrderItem item : order.getItems()) {
+				if(item.getName().equals(itemName)){
+					int count = qty+item.getQuantity();
+					if(count < 1){
+						count = 1;
+					}
+					item.setQuantity(count);
+					item.setFinalPrice((float)(item.getProduct().getActualPrice()));
+				}
+			}
+		}
+		updateCat();
+	}
+	
 	public void remove(String itemName) {
 		if(null!=order.getItems()){
 			OrderItem toRemoveItem = null;
@@ -84,6 +108,7 @@ public class ShoppingCart {
 				order.getItems().remove(toRemoveItem);
 			}
 		}
+		updateCat();
 	}
 	
 	public int getItemCount(){
