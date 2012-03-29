@@ -10,6 +10,8 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.Security;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -186,6 +188,11 @@ public class Utils {
 			log.info(e.getMessage());
 		}
 		return null;
+	}
+	
+	public static String toNumber(double number){
+		NumberFormat format = new DecimalFormat(",##0.##");
+		return format.format(number);
 	}
 
 }

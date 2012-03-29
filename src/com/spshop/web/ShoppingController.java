@@ -17,6 +17,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSONObject;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -26,9 +28,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spshop.cache.SCacheFacade;
+import com.spshop.model.Order;
+import com.spshop.model.OrderItem;
 import com.spshop.model.Product;
 import com.spshop.model.User;
 import com.spshop.model.UserOption;
+import com.spshop.model.cart.ShoppingCart;
 import com.spshop.model.enums.OrderStatus;
 import com.spshop.model.enums.SelectType;
 import com.spshop.service.factory.ServiceFactory;
@@ -61,12 +66,18 @@ public class ShoppingController extends BaseController{
 		List<UserOption> options = retriveUserOptions(request);
 		if(null!=product){
 			getUserView().getCart().addItem(product, options, qty);
-			ServiceFactory.getService(OrderService.class).saveOrder(getUserView().getCart().getOrder(), OrderStatus.ONSHOPPING.toString());
+			persistantCart();
 		}
 		
 		return "shoppingCart";
 	}
 	
+	private void persistantCart(){
+		Order order = getUserView().getCart().getOrder();
+		if(OrderStatus.ONSHOPPING.toString().equals(order.getStatus())){
+			order = ServiceFactory.getService(OrderService.class).saveOrder(getUserView().getCart().getOrder(), OrderStatus.ONSHOPPING.toString());
+		}
+	}
 	
 	private int retriveQty(ServletRequest request){
 		int quantity = 1;
@@ -397,6 +408,70 @@ public class ShoppingController extends BaseController{
 			model.addAttribute(LOGIN_USER_NAME, userID);
 		
 		return "login";
+	}
+	
+	@RequestMapping(value="/updateShoppingCart", params="action=increaseItemToCart")
+	public String updateShoppingCart1(HttpServletResponse response,@RequestParam("item") String itemID) throws IOException{
+		
+		Map<String, String> rs = updateCart(itemID,1,false);
+		
+		JSONObject jsonObject = JSONObject.fromObject(rs);
+		
+		response.getWriter().print(jsonObject);
+		persistantCart();
+		return null;
+	}
+	
+	@RequestMapping(value="/updateShoppingCart", params="action=decreaseItemToCart")
+	public String updateShoppingCart2(HttpServletResponse response,@RequestParam("item") String itemID) throws IOException{
+		
+		Map<String, String> rs = updateCart(itemID,-1,false);
+		
+		JSONObject jsonObject = JSONObject.fromObject(rs);
+		
+		response.getWriter().print(jsonObject);
+		persistantCart();
+		return null;
+	}
+	
+	@RequestMapping(value="/updateShoppingCart", params="action=removeItemToCart")
+	public String updateShoppingCart3(HttpServletResponse response,@RequestParam("item") String itemID) throws IOException{
+		
+		Map<String, String> rs = updateCart(itemID,0,true);
+		
+		JSONObject jsonObject = JSONObject.fromObject(rs);
+		
+		response.getWriter().print(jsonObject);
+		persistantCart();
+		return null;
+	}
+	
+	private Map<String,String> updateCart(String itemID,int amount,boolean isRemove){
+		ShoppingCart cart = getUserView().getCart();
+		Map<String, String> rs = new HashMap<String, String>();
+		
+		if(isRemove){
+			cart.remove(itemID);
+			rs.put("itemID", itemID);
+		}else{
+			cart.updateCart(itemID, amount);
+			for(OrderItem item : cart.getOrder().getItems()){
+				if(item.getName().equals(itemID)){
+					rs.put("itemQTY", Utils.toNumber(item.getQuantity()));
+					rs.put("itemAmount", Utils.toNumber(item.getFinalPrice() * item.getQuantity()*getUserView().getCurrencyRate()));
+				}
+			}
+		}
+		
+		rs.put("subTotal", Utils.toNumber(cart.getOrder().getTotalPrice()*getUserView().getCurrencyRate()));
+		
+		rs.put("coupon", Utils.toNumber(cart.getOrder().getCouponCutOff()*getUserView().getCurrencyRate()));
+		
+		rs.put("grandTotal", Utils.toNumber((cart.getOrder().getCouponCutOff()+cart.getOrder().getTotalPrice())*getUserView().getCurrencyRate()));
+		
+		rs.put("itemCount", cart.getItemCount()+"");
+		
+		return rs;
 	}
 	
 	
