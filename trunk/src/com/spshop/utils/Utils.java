@@ -1,5 +1,10 @@
 package com.spshop.utils;
 
+import static com.spshop.utils.Constants.COOKIE_ACCOUNT;
+import static com.spshop.utils.Constants.SHOPPINGCART;
+import static com.spshop.utils.Constants.USER_INFO;
+import static com.spshop.utils.Constants.USER_NAME_PWD_SPLIT;
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -10,8 +15,18 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
+
+import com.spshop.model.Order;
+import com.spshop.model.User;
+import com.spshop.model.cart.ShoppingCart;
+import com.spshop.model.enums.OrderStatus;
+import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.OrderService;
+import com.spshop.service.intf.UserService;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
@@ -106,6 +121,71 @@ public class Utils {
 		}
 		return cipherByte;
 
+	}
+	
+	public static ShoppingCart retrieveShoppingCart(HttpServletRequest request, User user) {
+		
+		ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
+		
+		if(null == cart){
+			Order order = null;
+			if(null!=user){
+				order = ServiceFactory.getService(OrderService.class).getUserCart(user.getId());
+			}
+			
+			if(null == order){
+				order = new Order();
+			}
+			
+			cart = new ShoppingCart(order);
+			
+			request.getSession().setAttribute(SHOPPINGCART, cart);
+			
+		}
+		
+		if(null!=user && cart.getOrder().getUser()==null){
+			Order userOrder = ServiceFactory.getService(OrderService.class).getUserCart(user.getId());
+			if(null == userOrder){
+				cart.getOrder().setUser(user);
+				Order order = ServiceFactory.getService(OrderService.class).saveOrder(cart.getOrder(), OrderStatus.ONSHOPPING.toString());
+				cart.setOrder(order);
+			}else{
+				cart = new ShoppingCart(userOrder);
+			}
+		}
+		
+		return cart;
+	}
+	
+	
+	public static User retrieveUser(HttpServletRequest request){
+		User user = (User) request.getSession().getAttribute(USER_INFO);
+		if(null==user){
+			user = retrieveUserFromCookies(request.getCookies());
+			 request.getSession().setAttribute(USER_INFO, user);
+		}
+		return user;
+	}
+	
+	
+	public static User retrieveUserFromCookies(Cookie cookies[]){
+		try {
+			if(null!=cookies){
+				for (Cookie  cookie: cookies) {
+					if(COOKIE_ACCOUNT.equals(cookie.getName())){
+						String value = Utils.OBJ.getDecry(cookie.getValue());
+						String[] mixUser = value.split(USER_NAME_PWD_SPLIT);
+						User user = new User();
+						user.setEmail(mixUser[0]);
+						user.setPassword(mixUser[1]);
+						return ServiceFactory.getService(UserService.class).validateUser(user);
+					}
+				}
+			}
+		} catch (Exception e) {
+			log.info(e.getMessage());
+		}
+		return null;
 	}
 
 }

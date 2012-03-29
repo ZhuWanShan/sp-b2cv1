@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,15 +19,11 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.spshop.cache.SCacheFacade;
 import com.spshop.model.Category;
 import com.spshop.model.Country;
-import com.spshop.model.Order;
 import com.spshop.model.Site;
 import com.spshop.model.User;
 import com.spshop.model.cart.ShoppingCart;
-import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CountryService;
-import com.spshop.service.intf.OrderService;
-import com.spshop.service.intf.UserService;
 import com.spshop.utils.Utils;
 import com.spshop.web.BaseController;
 import com.spshop.web.view.SiteView;
@@ -66,8 +61,8 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		SiteView siteView = initSiteView();
 		UserView userView = new UserView();
 		//TODO retrieve userView
-		User user = retrieveUser(request);
-		ShoppingCart shoppingCart = retrieveShoppingCart(request, user);
+		User user = Utils.retrieveUser(request);
+		ShoppingCart shoppingCart = Utils.retrieveShoppingCart(request, user);
 		
 		userView.setLoginUser(user);
 		userView.setCart(shoppingCart);
@@ -106,7 +101,13 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 	
 	
 	private void setCurrency(HttpServletRequest request, UserView userView, Map<String, Float> currencies) {
+		
 		String cCode = request.getParameter(CURRENCY);
+		
+		if(null == cCode){
+			cCode = (String) request.getSession().getAttribute(CURRENCY);
+		}
+		 
 		if(null == cCode || !currencies.containsKey(cCode)){
 			cCode = DEFAULT_CURRENCY;
 		}
@@ -114,49 +115,18 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		userView.setCurrencyCode(cCode);
 		userView.getCart().getOrder().setCurrency(cCode);
 		
-		userView.setCurrencyRate(1);
+		float rate = 1;
+		
+		if(!DEFAULT_CURRENCY.equals(cCode)){
+			rate = currencies.get(cCode);
+		}
+		
+		userView.setCurrencyRate(rate);
 		
 		request.getSession().setAttribute(CURRENCY, cCode);
 		
 	}
 
-	private ShoppingCart retrieveShoppingCart(HttpServletRequest request, User user) {
-		
-		ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
-		
-		if(null == cart){
-			Order order = null;
-			if(null!=user){
-				order = ServiceFactory.getService(OrderService.class).getUserCart(user.getId());
-			}
-			
-			if(null == order){
-				order = new Order();
-			}
-			
-			cart = new ShoppingCart(order);
-			
-			request.getSession().setAttribute(SHOPPINGCART, cart);
-			
-		}
-		
-		if(null!=user && cart.getOrder().getUser()==null){
-			cart.getOrder().setUser(user);
-			Order order = ServiceFactory.getService(OrderService.class).saveOrder(cart.getOrder(), OrderStatus.ONSHOPPING.toString());
-			cart.setOrder(order);
-		}
-		
-		return cart;
-	}
-
-	private User retrieveUser(HttpServletRequest request){
-		User user = (User) request.getSession().getAttribute(USER_INFO);
-		if(null==user){
-			user = retrieveUserFromCookies(request.getCookies());
-			 request.getSession().setAttribute(USER_INFO, user);
-		}
-		return user;
-	}
 	
 	private SiteView initSiteView() {
 		SiteView siteView = new SiteView();
@@ -178,34 +148,16 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		return siteView;
 	}
 
-	private User retrieveUserFromCookies(Cookie cookies[]){
-		try {
-			if(null!=cookies){
-				for (Cookie  cookie: cookies) {
-					if(COOKIE_ACCOUNT.equals(cookie.getName())){
-						String value = Utils.OBJ.getDecry(cookie.getValue());
-						String[] mixUser = value.split(USER_NAME_PWD_SPLIT);
-						User user = new User();
-						user.setEmail(mixUser[0]);
-						user.setPassword(mixUser[1]);
-						return ServiceFactory.getService(UserService.class).validateUser(user);
-					}
-				}
-			}
-		} catch (Exception e) {
-			logger.info(e.getMessage());
-		}
-		return null;
-	}
+	
 
 	@Override
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		if(null!=modelAndView){
+		if(null!=modelAndView && !modelAndView.getModel().containsKey(LOGIN_ACTION)){
 			UserView userView = (UserView) modelAndView.getModel().get(USER_VIEW);
-			
 			request.getSession().setAttribute(SHOPPINGCART, userView.getCart());
+			request.getSession().setAttribute(CURRENCY, userView.getCurrencyCode());
 		}
 	}
 	
