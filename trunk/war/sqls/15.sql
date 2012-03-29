@@ -1,1 +1,0 @@
-ALTER TABLE `sshop`.`shop_user` ADD COLUMN `state` VARCHAR(100) NULL  AFTER `city` ;

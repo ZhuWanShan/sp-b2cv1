@@ -58,8 +58,17 @@
 		<input type="hidden" value="updateAddress2" name="action">
 		<div class="box_sub_item_title">User Billing Address</div>
 		<div class="form_error blue">${(userView.msg.updateAddress2SUC)!''}</div>
-		<div class="nav-right-box_content">
-			<#include "fragments/address.hpl">
+		<div class="nav-right-box_content" >
+			<div class="conditon_to_show_box">
+				<input id="billingAddress_check_box" type="checkbox" name="billingSameAsPrimary" ${userView.loginUser.billingSameAsPrimary?string('checked="checked"','')} value="true" ><span>Same as Primary Address</span>
+			</div>
+			<div class="${userView.loginUser.billingSameAsPrimary?string('hidden','')}" id="billingAddress_content">
+				<#include "fragments/address.hpl">
+			</div>
+			<div class="conditon_to_show_box ${userView.loginUser.billingSameAsPrimary?string('','hidden')}" id="billingAddress_content_2">
+				<input type="submit" class="button_01" value="${SubmitBtnTxt}"><span
+					id="sp_msg" style="color: Red; font-weight: bold;">
+			</div>
 		</div>
 	</form>
 </div>

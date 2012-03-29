@@ -102,6 +102,10 @@ input:-webkit-autofill {
 .gray{
 	color:#666;
 }
+
+.hidden{
+	display: none;
+}
 /***********************************************************top*****************************************************************************/
 .header_top {
 	background: url("/style/image/headertop_bg.gif") repeat-x scroll 0 0
@@ -673,6 +677,15 @@ span.icon_RUB {
 	height: 50px;
 	line-height: 50px;
 	padding-left: 18px;
+}
+
+.conditon_to_show_box{
+	margin: 2px 2px 10px 10px;
+}
+
+.conditon_to_show_box span{
+	margin-left: 5px;
+	font-weight: bold;
 }
 
 /******************************************************************uc****************************************************************************/
