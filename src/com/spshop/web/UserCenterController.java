@@ -112,15 +112,24 @@ public class UserCenterController extends BaseController{
 		
 		
 		String type = request.getParameter(ADD_TYPE);
-		
+		String sameAsPrimary = request.getParameter(BILLING_SAME_AS_PRIMARY);
 		Address address = retrieveAddress(request);
-		
-		getUserView().getErr().putAll(validateAddress(address, type));
-		
-		if(getUserView().getErr().isEmpty()){
+		if(!StringUtils.isNotBlank(sameAsPrimary)){
+			getUserView().getErr().putAll(validateAddress(address, type));
+			
+			if(getUserView().getErr().isEmpty()){
+				User user = getUserView().getLoginUser();
+				user.setBillingAddress(address);
+				user.setBillingSameAsPrimary(false);
+				user = ServiceFactory.getService(UserService.class).saveUser(user);
+				getUserView().setLoginUser(user);
+				getUserView().getMsg().put(UPDATE_ADDRESS_2_SUC, "Update successfully");
+			}
+		}else{
 			User user = getUserView().getLoginUser();
-			user.setBillingAddress(address);
+			user.setBillingSameAsPrimary(true);
 			user = ServiceFactory.getService(UserService.class).saveUser(user);
+			getUserView().setLoginUser(user);
 			getUserView().getMsg().put(UPDATE_ADDRESS_2_SUC, "Update successfully");
 		}
 		

@@ -43,6 +43,8 @@ public class User extends Component{
 	private String phoneP;
 	private String phoneB;
 	
+	private boolean billingSameAsPrimary;
+	
 	public User() {
 	}
 
@@ -362,6 +364,7 @@ public class User extends Component{
 		}
 		obj.countryP = this.countryP;
 		obj.countryB = this.countryB;
+		obj.billingSameAsPrimary = this.billingSameAsPrimary;
 		if (this.postalCodeP != null) {
 			/* Does not have a clone() method */
 			obj.postalCodeP = this.postalCodeP;
@@ -409,6 +412,14 @@ public class User extends Component{
 		this.countryB = billingAddress.getCountry();
 		this.postalCodeB = billingAddress.getPostalCode();
 		this.phoneB = billingAddress.getPhone();
+	}
+
+	public boolean isBillingSameAsPrimary() {
+		return billingSameAsPrimary;
+	}
+
+	public void setBillingSameAsPrimary(boolean billingSameAsPrimary) {
+		this.billingSameAsPrimary = billingSameAsPrimary;
 	}
 
 }

@@ -112,6 +112,18 @@ jq("#main_box").ready(function() {
 			}
 		});
 	});
+	
+	
+	jq("#billingAddress_check_box").click(function(){
+		var value = jq(this).attr('checked');
+		if("checked" == value){
+			jq("#billingAddress_content").hide();
+			jq("#billingAddress_content_2").show();
+		}else{
+			jq("#billingAddress_content, #billingAddress_content_2").show();
+			jq("#billingAddress_content_2").hide();
+		}
+	});
 });
 
 

@@ -1,1 +1,0 @@
-ALTER TABLE `sshop`.`shop_order` ADD COLUMN `shippingMethod` VARCHAR(100) NULL;
