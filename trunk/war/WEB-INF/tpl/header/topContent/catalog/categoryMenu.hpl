@@ -6,7 +6,7 @@
 		<#list siteView.categories as catlog>
 			<#if catlog.name!='home'>
 				<li>
-					<span><a href="http://www.honeybuy.com/c/${catlog.name}" title="${catlog.displayName}">${catlog.displayName}</a></span>
+					<span><a href="${siteView.host}/c/${catlog.name}" title="${catlog.displayName}">${catlog.displayName}</a></span>
 						<#if catlog.subCategories??>
 							<div class="sub_menu">
 								<div class="inner_boxA">
@@ -14,13 +14,13 @@
 											<#if !subcatlog.specialOffer>
 												<dl>
 													<dt>
-														<a href="http://www.honeybuy.com/c/${catlog.name}"
+														<a href="${siteView.host}/c/${catlog.name}"
 															title="${catlog.displayName}">${subcatlog.displayName} </a>
 													</dt>
 													<#if subcatlog.subCategories??>	
 														<#list subcatlog.subCategories as subsubcatlog>
 															<dd>
-																<a href="http://www.honeybuy.com/c/${subsubcatlog.name}"
+																<a href="${siteView.host}/c/${subsubcatlog.name}"
 																	title="${subsubcatlog.displayName}"> ${subsubcatlog.displayName}
 																</a>
 															</dd>
@@ -29,7 +29,7 @@
 															</#if>
 														</#list>
 															<dd>
-																<a href="http://www.honeybuy.com/c/${subcatlog.name}"
+																<a href="${siteView.host}/c/${subcatlog.name}"
 																	title="${subcatlog.displayName}"> View all </a>
 															</dd>
 													</#if>
@@ -42,14 +42,14 @@
 										<#list catlog.subCategories as subcatlog>
 											<#if subcatlog.specialOffer>
 												<dt>
-													<a href="http://www.honeybuy.com/c/${subcatlog.name}"
+													<a href="${siteView.host}/c/${subcatlog.name}"
 														title="${subcatlog.displayName}">${subcatlog.displayName}</a>
 												</dt>
 											</#if>	
 											<#list subcatlog.subCategories as subsubcatlog>
 												<#if subsubcatlog.specialOffer>
 												<dt>
-													<a href="http://www.honeybuy.com/c/${subsubcatlog.name}"
+													<a href="${siteView.host}/c/${subsubcatlog.name}"
 														title="${subsubcatlog.displayName}">${subsubcatlog.displayName}</a>
 												</dt>
 											</#if>	
@@ -65,7 +65,7 @@
 										<ul class="topNavClassAd">
 											<#list catlog.subCategories as subcatlog>
 													<li><a
-														href="http://www.honeybuy.com/c/Designer-Wedding-Dresses"
+														href="${siteView.host}/c/Designer-Wedding-Dresses"
 														title="Designer Wedding Dresses"> <img width="174"
 															border="0" height="84"
 															src="http://www.honeybuy.com/image/17760190179278.jpg">
