@@ -445,6 +445,8 @@
 		<property name="phoneP" ></property>
 		<property name="phoneB" ></property>
 		
+		<property name="billingSameAsPrimary" ></property>
+		
 	</class>
 	
 	<class name="UserOption" table="SHOP_UserOption">
