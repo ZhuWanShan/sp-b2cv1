@@ -287,7 +287,8 @@ public class ShoppingController extends BaseController{
 	
 	@RequestMapping(value="/logout")
 	public String logout(Model model,HttpServletRequest request,HttpServletResponse response){
-		request.getSession().removeAttribute(USER_INFO);
+		request.getSession().invalidate();
+		model.addAttribute(LOGOUT_ACTION,Boolean.TRUE.toString());
 		Cookie[] cookies = request.getCookies();
 		if(null!=cookies){
 			for (Cookie  cookie: cookies) {
