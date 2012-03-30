@@ -130,14 +130,7 @@ public class Utils {
 		ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
 		
 		if(null == cart){
-			Order order = null;
-			if(null!=user){
-				order = ServiceFactory.getService(OrderService.class).getUserCart(user.getId());
-			}
-			
-			if(null == order){
-				order = new Order();
-			}
+			Order order =  retrieveUserCarOrder(user);
 			
 			cart = new ShoppingCart(order);
 			
@@ -155,12 +148,25 @@ public class Utils {
 				cart = new ShoppingCart(userOrder);
 			}
 		}else if(null!=user && cart.getOrder().getUser().getId()!=user.getId()){
-			Order order = new Order();
+			Order order =retrieveUserCarOrder(user);
 			cart = new ShoppingCart(order);
 			order = ServiceFactory.getService(OrderService.class).saveOrder(cart.getOrder(), OrderStatus.ONSHOPPING.toString());
 		}
 		
 		return cart;
+	}
+	
+	private static Order retrieveUserCarOrder(User user){
+		Order order = null;
+		if(null != user){
+			order = ServiceFactory.getService(OrderService.class).getUserCart(user.getId());
+		}
+		
+		if(null == order){
+			order = new Order();
+		}
+		
+		return order;
 	}
 	
 	

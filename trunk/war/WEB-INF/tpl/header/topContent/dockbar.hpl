@@ -100,17 +100,21 @@
 									<dl>
 										<dd>
 											Username<br> <input type="text" class="loginuserpass"
-												id="loginEmail" name="loginEmail" autocomplete="off">
+												id="loginEmail" name="LoginEmail" autocomplete="off">
 										</dd>
 										<dd>
 											Password<br> <input type="password"
-												class="loginuserpass" name="loginPassword">
+												class="loginuserpass" name="LoginPwd">
+										</dd>
+										<dd>
+											Remember me<br> <input type="checkbox" name="rememberID" id="LoginRember" value="true" checked="checked">
 										</dd>
 										<dd class="Question_mark">
 											Forgot your password?<br> <a rel="nofollow"
 												class="underline" href="/uc/recoverPwd">Click here</a>
 										</dd>
 										<dd>
+											<input type="hidden" name="landing_page" value="${userView.requestPage!''}">
 											<input type="hidden" value="login" name="action"> <input
 												type="submit" class="button_01" value="Login"><span
 												id="warn_login_span"></span>

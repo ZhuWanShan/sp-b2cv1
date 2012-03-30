@@ -97,6 +97,26 @@ var SP = new Object();
 				});
 			}
 		};
+		
+		shop.applyMsg = function(item){
+			if(item){
+				jq.ajax({
+					 url: "/uc/updateShoppingCart?action=updateCustomerMsg&v="+ Math.random(),
+					 dataType:"json",
+					 type:'post',
+					 data: "order_msg="+item,
+					  success: function(rs){
+						  jq("#GO_TO_Fill_Address").ajLoad();
+						  
+						  if(rs.orderMsg){
+							  jq("#order_msg_noti").html(rs.orderMsg);
+						  }
+						  
+						  jq("#GO_TO_Fill_Address").ajUnload();
+					  }
+				});
+			}
+		};
 	}		
 
 )(SP,jq);
