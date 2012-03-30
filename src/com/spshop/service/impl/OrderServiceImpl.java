@@ -85,7 +85,8 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 			return null;
 		}
 		
-		String hql = "From Order as o where o.id = ? and o.status = 'ONSHOPPING'";
+		String hql = "From Order as o where o.id = ? and o.status = 'ONSHOPPING' order by o.id desc";
+		
 		@SuppressWarnings("unchecked")
 		List<Object> cs = (List<Object>)getDao().queryByHQL(hql, longId);
 		if(null!=cs){
@@ -152,7 +153,7 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 	@Override
 	public Order getUserCart(long userId) {
 		
-		String hql = "From Order as o where o.user.id = ? and o.status = 'ONSHOPPING'";
+		String hql = "From Order as o where o.user.id = ? and o.status = 'ONSHOPPING' order by o.id desc";
 		@SuppressWarnings("unchecked")
 		List<Object> cs = (List<Object>)getDao().queryByHQL(hql, userId);
 		if(null!=cs){

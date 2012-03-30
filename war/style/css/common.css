@@ -106,6 +106,12 @@ input:-webkit-autofill {
 .hidden{
 	display: none;
 }
+
+
+
+.model_mask_content{
+}
+
 /***********************************************************top*****************************************************************************/
 .header_top {
 	background: url("/style/image/headertop_bg.gif") repeat-x scroll 0 0

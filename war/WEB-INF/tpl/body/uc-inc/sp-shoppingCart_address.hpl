@@ -44,7 +44,7 @@
 			</dd>
 			<dd class="red">
 			<span>
-				<a href="###">Back >> </a>
+				<a href="/uc/shoppingCart">Back >> </a>
 				<input	type="button" class="button_01" value="Processed to Pay" ></span>
 			</dd>
 		</dl>
