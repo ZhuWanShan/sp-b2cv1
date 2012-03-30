@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spshop.cache.SCacheFacade;
+import com.spshop.model.Coupon;
 import com.spshop.model.Order;
 import com.spshop.model.OrderItem;
 import com.spshop.model.Product;
@@ -37,6 +38,7 @@ import com.spshop.model.cart.ShoppingCart;
 import com.spshop.model.enums.OrderStatus;
 import com.spshop.model.enums.SelectType;
 import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.CouponService;
 import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.UserService;
 import com.spshop.utils.EmailTools;
@@ -418,7 +420,6 @@ public class ShoppingController extends BaseController{
 		JSONObject jsonObject = JSONObject.fromObject(rs);
 		
 		response.getWriter().print(jsonObject);
-		persistantCart();
 		return null;
 	}
 	
@@ -430,7 +431,7 @@ public class ShoppingController extends BaseController{
 		JSONObject jsonObject = JSONObject.fromObject(rs);
 		
 		response.getWriter().print(jsonObject);
-		persistantCart();
+		
 		return null;
 	}
 	
@@ -438,36 +439,81 @@ public class ShoppingController extends BaseController{
 	public String updateShoppingCart3(HttpServletResponse response,@RequestParam("item") String itemID) throws IOException{
 		
 		Map<String, String> rs = updateCart(itemID,0,true);
+
+		JSONObject jsonObject = JSONObject.fromObject(rs);
+		
+		response.getWriter().print(jsonObject);
+		
+		return null;
+	}
+	
+	@RequestMapping(value="/updateShoppingCart", params="action=applyCoupon")
+	public String updateShoppingCart4(HttpServletResponse response,@RequestParam("couponID") String couponID) throws IOException{
+		
+		getUserView().getCart().getOrder().setCouponCode(couponID);
+		
+		Map<String, String> rs = updateCart(null,0,false);
+		
+		Order order = getUserView().getCart().getOrder();
+		
+		couponID = couponID.trim();
+		
+		Coupon coupon = ServiceFactory.getService(CouponService.class).getCouponByCode(couponID);
+		
+		if(null!=coupon){
+			if(coupon.getMinexpend() > order.getTotalPrice()){
+				rs.put("couponFeedbackErr", "Cannot not apply in order less than USD " +  coupon.getMinexpend() +"'" );
+			}else if((coupon.isOnetime()&&coupon.getUsedCount()<1)||!coupon.isOnetime()){
+				float cutOff = 0f;
+				order.setCouponCode(coupon.getCode());
+				
+				if(!coupon.isCutOff()){
+					cutOff = coupon.getValue();
+					order.setCouponCutOff(cutOff);
+				}else{
+					cutOff = coupon.getValue() * order.getTotalPrice();
+					order.setCouponCutOff(cutOff);
+				}
+				rs.put("couponFeedbackSuc", "Apply successfully");
+			}
+		}else{
+			rs.put("couponFeedbackErr", "Invalid coupon");
+		}
 		
 		JSONObject jsonObject = JSONObject.fromObject(rs);
 		
 		response.getWriter().print(jsonObject);
-		persistantCart();
+		
 		return null;
 	}
 	
 	private Map<String,String> updateCart(String itemID,int amount,boolean isRemove){
 		ShoppingCart cart = getUserView().getCart();
 		Map<String, String> rs = new HashMap<String, String>();
-		
-		if(isRemove){
-			cart.remove(itemID);
-			rs.put("itemID", itemID);
-		}else{
-			cart.updateCart(itemID, amount);
-			for(OrderItem item : cart.getOrder().getItems()){
-				if(item.getName().equals(itemID)){
-					rs.put("itemQTY", Utils.toNumber(item.getQuantity()));
-					rs.put("itemAmount", Utils.toNumber(item.getFinalPrice() * item.getQuantity()*getUserView().getCurrencyRate()));
+		if(null!=itemID){
+			if(isRemove){
+				cart.remove(itemID);
+				persistantCart();
+				rs.put("itemID", itemID);
+			}else{
+				cart.updateCart(itemID, amount);
+				persistantCart();
+				for(OrderItem item : cart.getOrder().getItems()){
+					if(item.getName().equals(itemID)){
+						rs.put("itemQTY", Utils.toNumber(item.getQuantity()));
+						rs.put("itemAmount", Utils.toNumber(item.getFinalPrice() * item.getQuantity()*getUserView().getCurrencyRate()));
+					}
 				}
 			}
+		}else{
+			persistantCart();
 		}
 		
 		rs.put("subTotal", Utils.toNumber(cart.getOrder().getTotalPrice()*getUserView().getCurrencyRate()));
 		
-		rs.put("coupon", Utils.toNumber(cart.getOrder().getCouponCutOff()*getUserView().getCurrencyRate()));
+		rs.put("coupon", "-"+Utils.toNumber(cart.getOrder().getCouponCutOff()*getUserView().getCurrencyRate()));
 		
-		rs.put("grandTotal", Utils.toNumber((cart.getOrder().getCouponCutOff()+cart.getOrder().getTotalPrice())*getUserView().getCurrencyRate()));
+		rs.put("grandTotal", Utils.toNumber((cart.getOrder().getTotalPrice()-cart.getOrder().getCouponCutOff())*getUserView().getCurrencyRate()));
 		
 		rs.put("itemCount", cart.getItemCount()+"");
 		
