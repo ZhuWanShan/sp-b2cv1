@@ -154,6 +154,10 @@ public class Utils {
 			}else{
 				cart = new ShoppingCart(userOrder);
 			}
+		}else if(null!=user && cart.getOrder().getUser().getId()!=user.getId()){
+			Order order = new Order();
+			cart = new ShoppingCart(order);
+			order = ServiceFactory.getService(OrderService.class).saveOrder(cart.getOrder(), OrderStatus.ONSHOPPING.toString());
 		}
 		
 		return cart;

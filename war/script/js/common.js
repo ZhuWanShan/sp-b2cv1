@@ -25,6 +25,15 @@ var SP = new Object();
 				  jq(".order_grand_total").html(rs.grandTotal);
 			  }
 			  
+			  if(rs.couponFeedbackSuc){
+				  jq("#coupon_code_noti").html(rs.couponFeedbackSuc);
+			  }
+			  
+			  
+			  if(rs.couponFeedbackErr){
+				  jq("#coupon_code_noti").html(rs.couponFeedbackErr);
+			  }
+			  
 			  if(rs.itemID){
 				  jq("#"+rs.itemID).hide("normal");
 				  jq("#"+rs.itemID).remove();
@@ -73,6 +82,21 @@ var SP = new Object();
 				});
 			}
 		};
+		
+
+		shop.applyCoupon = function(item){
+			if(item){
+				jq.ajax({
+					 url: "/uc/updateShoppingCart?action=applyCoupon&couponID="+item+"&v="+ Math.random(),
+					 dataType:"json",
+					  success: function(data){
+						  jq("#submit_coupon").ajLoad();
+						  updateHTML(item,data);
+						  jq("#submit_coupon").ajUnload();
+					  }
+				});
+			}
+		};
 	}		
 
 )(SP,jq);
@@ -80,7 +104,7 @@ var SP = new Object();
 
 (function(jq){
 		jq.fn.ajLoad = function(){
-			var el = $(this);
+			var el = jq(this);
 			if(el && el.length > 0 ){
 				el.next(".ajax_load").remove();
 				el.after("<img src='/style/image/ajax_loader.gif' class='ajax_load'>");
@@ -92,7 +116,7 @@ var SP = new Object();
 (
 	function(jq){
 		jq.fn.ajUnload = function(){
-			var el = $(this);
+			var el = jq(this);
 			if(el && el.length > 0 ){
 				el.next(".ajax_load").remove();
 			}

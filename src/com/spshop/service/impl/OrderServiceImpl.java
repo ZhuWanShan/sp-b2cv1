@@ -5,10 +5,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.spshop.dao.intf.OrderDAO;
+import com.spshop.model.Coupon;
 import com.spshop.model.Order;
 import com.spshop.model.User;
 import com.spshop.service.AbstractService;
+import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.CouponService;
 import com.spshop.service.intf.OrderService;
 
 public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> implements OrderService{
@@ -28,6 +33,25 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 		order.setUpdateDate(new Date());
 		if(null==order.getCreateDate()){
 			order.setCreateDate(new Date());
+		}
+		
+		String couponCode = order.getCouponCode();
+		if(StringUtils.isNotBlank(couponCode)){
+			Coupon coupon = ServiceFactory.getService(CouponService.class).getCouponByCode(couponCode);
+			if(null!=coupon && ((coupon.isOnetime()&&coupon.getUsedCount()<1)||!coupon.isOnetime())&&coupon.getMinexpend() <= order.getTotalPrice()){
+				float cutOff = 0f;
+				order.setCouponCode(coupon.getCode());
+				if(!coupon.isCutOff()){
+					cutOff = coupon.getValue();
+					order.setCouponCutOff(cutOff);
+				}else{
+					cutOff = coupon.getValue() * order.getTotalPrice();
+					order.setCouponCutOff(cutOff);
+				}
+			}else{
+				order.setCouponCutOff(0);
+				order.setCouponCode(null);
+			}
 		}
 		
 		order = getDao().save(order);
