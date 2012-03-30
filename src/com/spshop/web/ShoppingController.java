@@ -487,6 +487,28 @@ public class ShoppingController extends BaseController{
 		return null;
 	}
 	
+	
+	@RequestMapping(value="/updateShoppingCart", params="action=updateCustomerMsg")
+	public String updateShoppingCart5(HttpServletResponse response,@RequestParam("order_msg") String msg) throws IOException{
+		
+		msg = msg.trim();
+		
+		Map<String, String> rs = new HashMap<String, String>();
+		
+		if(msg.length() > 500){
+			rs.put("orderMsg", "No more than 500 charactors");
+		}else{
+			getUserView().getCart().getOrder().setCustomerMsg(msg);
+			persistantCart();
+		}
+		
+		JSONObject jsonObject = JSONObject.fromObject(rs);
+		
+		response.getWriter().print(jsonObject);
+		
+		return null;
+	}
+	
 	private Map<String,String> updateCart(String itemID,int amount,boolean isRemove){
 		ShoppingCart cart = getUserView().getCart();
 		Map<String, String> rs = new HashMap<String, String>();

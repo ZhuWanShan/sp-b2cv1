@@ -88,7 +88,7 @@
 				<div>
 					<p>Leave your special requirements here:</p>
 					<div class="form_error red" id="order_msg_noti"></div>
-					<textarea maxlength="800" rows="4" class="order_msg" name="order_msg">${(userView.cart.order.customerMsg)!''}</textarea>
+					<textarea maxlength="800" rows="4" class="order_msg" name="order_msg" id="order_msg">${(userView.cart.order.customerMsg)!''}</textarea>
 				</div>
 			
 		</div>
@@ -103,7 +103,7 @@
 			<dd class="red">
 			<span>
 				<a href="${siteView.host}">Continue shopping>> </a>
-				<input	type="button" class="button_01" value="Processed to Pay"></span>
+				<input	type="button" class="button_01" value="Processed to Pay" id="GO_TO_Fill_Address" onclick="SP.applyMsg(jq('#order_msg').val())"></span>
 			</dd>
 		</dl>
 
