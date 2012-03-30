@@ -140,16 +140,6 @@ public class ShoppingController extends BaseController{
 		return options;
 	}
 	
-	@RequestMapping("/shoppingCart_address")
-	public String shoppingCartAdress(Model model) {
-		return "shoppingCart_address";
-	}
-	
-	@RequestMapping("/shoppingCart_payment")
-	public String shoppingCartPayment(Model model) {
-		return "shoppingCart_payment";
-	}
-	
 	@RequestMapping("/ProductFeed")
     public String ProductFeed(Model model, HttpServletResponse response) {
 	    FeedTools.generateProductsExcel();
@@ -450,35 +440,10 @@ public class ShoppingController extends BaseController{
 	@RequestMapping(value="/updateShoppingCart", params="action=applyCoupon")
 	public String updateShoppingCart4(HttpServletResponse response,@RequestParam("couponID") String couponID) throws IOException{
 		
+		couponID = couponID.trim();
 		getUserView().getCart().getOrder().setCouponCode(couponID);
 		
 		Map<String, String> rs = updateCart(null,0,false);
-		
-		Order order = getUserView().getCart().getOrder();
-		
-		couponID = couponID.trim();
-		
-		Coupon coupon = ServiceFactory.getService(CouponService.class).getCouponByCode(couponID);
-		
-		if(null!=coupon){
-			if(coupon.getMinexpend() > order.getTotalPrice()){
-				rs.put("couponFeedbackErr", "Cannot not apply in order less than USD " +  coupon.getMinexpend() +"'" );
-			}else if((coupon.isOnetime()&&coupon.getUsedCount()<1)||!coupon.isOnetime()){
-				float cutOff = 0f;
-				order.setCouponCode(coupon.getCode());
-				
-				if(!coupon.isCutOff()){
-					cutOff = coupon.getValue();
-					order.setCouponCutOff(cutOff);
-				}else{
-					cutOff = coupon.getValue() * order.getTotalPrice();
-					order.setCouponCutOff(cutOff);
-				}
-				rs.put("couponFeedbackSuc", "Apply successfully");
-			}
-		}else{
-			rs.put("couponFeedbackErr", "Invalid coupon");
-		}
 		
 		JSONObject jsonObject = JSONObject.fromObject(rs);
 		
@@ -512,6 +477,32 @@ public class ShoppingController extends BaseController{
 	private Map<String,String> updateCart(String itemID,int amount,boolean isRemove){
 		ShoppingCart cart = getUserView().getCart();
 		Map<String, String> rs = new HashMap<String, String>();
+		
+		Order order = cart.getOrder();
+		
+		Coupon coupon = ServiceFactory.getService(CouponService.class).getCouponByCode(order.getCouponCode());
+		
+		if(null!=coupon){
+			if(coupon.getMinexpend() > order.getTotalPrice()){
+				rs.put("couponFeedbackErr", "Cannot not apply in order less than USD " +  coupon.getMinexpend() +"'" );
+			}else if((coupon.isOnetime()&&coupon.getUsedCount()<1)||!coupon.isOnetime()){
+				float cutOff = 0f;
+				order.setCouponCode(coupon.getCode());
+				
+				if(!coupon.isCutOff()){
+					cutOff = coupon.getValue();
+					order.setCouponCutOff(cutOff);
+				}else{
+					cutOff = coupon.getValue() * order.getTotalPrice();
+					order.setCouponCutOff(cutOff);
+				}
+				rs.put("couponFeedbackSuc", "Apply successfully");
+			}
+		}else{
+			rs.put("couponFeedbackErr", "Invalid coupon");
+		}
+		
+		
 		if(null!=itemID){
 			if(isRemove){
 				cart.remove(itemID);

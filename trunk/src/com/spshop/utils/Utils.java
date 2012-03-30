@@ -139,15 +139,15 @@ public class Utils {
 		}
 		
 		if(null!=user && cart.getOrder().getUser()==null){
-			Order userOrder = ServiceFactory.getService(OrderService.class).getUserCart(user.getId());
-			if(null == userOrder){
-				cart.getOrder().setUser(user);
-				Order order = ServiceFactory.getService(OrderService.class).saveOrder(cart.getOrder(), OrderStatus.ONSHOPPING.toString());
-				cart.setOrder(order);
-			}else{
-				cart = new ShoppingCart(userOrder);
-			}
+				if(cart.getItemCount() > 0){
+					cart.getOrder().setUser(user);
+					Order order = ServiceFactory.getService(OrderService.class).saveOrder(cart.getOrder(), OrderStatus.ONSHOPPING.toString());
+					cart.setOrder(order);
+				}else{
+					cart = new ShoppingCart(retrieveUserCarOrder(user));
+				}
 		}else if(null!=user && cart.getOrder().getUser().getId()!=user.getId()){
+			
 			Order order =retrieveUserCarOrder(user);
 			cart = new ShoppingCart(order);
 			order = ServiceFactory.getService(OrderService.class).saveOrder(cart.getOrder(), OrderStatus.ONSHOPPING.toString());

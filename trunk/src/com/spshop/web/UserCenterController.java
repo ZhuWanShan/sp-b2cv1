@@ -57,6 +57,16 @@ public class UserCenterController extends BaseController{
 		return "userProfile";
 	}
 	
+	@RequestMapping("/shoppingCart_address")
+	public String shoppingCartAdress(Model model) {
+		return "shoppingCart_address";
+	}
+	
+	@RequestMapping("/shoppingCart_payment")
+	public String shoppingCartPayment(Model model) {
+		return "shoppingCart_payment";
+	}
+	
 	@RequestMapping(value="/userProfile", params={"action=updateAccount"},method=RequestMethod.POST)
     public String updateAccount(Model model, HttpServletRequest request, HttpServletResponse response) {
 		

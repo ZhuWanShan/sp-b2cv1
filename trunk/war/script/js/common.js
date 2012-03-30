@@ -110,19 +110,23 @@ var SP = new Object();
 						  
 						  if(rs.orderMsg){
 							  jq("#order_msg_noti").html(rs.orderMsg);
+						  }else{
+							  window.location="/uc/shoppingCart_address";
 						  }
-						  
 						  jq("#GO_TO_Fill_Address").ajUnload();
+						  
 					  }
 				});
 			}
 		};
+		
 	}		
 
 )(SP,jq);
 
 
 (function(jq){
+	
 		jq.fn.ajLoad = function(){
 			var el = jq(this);
 			if(el && el.length > 0 ){
@@ -130,17 +134,64 @@ var SP = new Object();
 				el.after("<img src='/style/image/ajax_loader.gif' class='ajax_load'>");
 			}
 		};
-	}
-)(jq);
-
-(
-	function(jq){
+		
 		jq.fn.ajUnload = function(){
 			var el = jq(this);
 			if(el && el.length > 0 ){
 				el.next(".ajax_load").remove();
 			}
 		};
+		
+		function createMaskElment(){
+			
+			var masker = jq("#mask_content");
+			
+			if(masker.length < 1){
+				var content = "<div id=\"mask_content\" style=\"position:absolute;background:#000;filter:alpha(opacity=10);opacity:0.2;width:100%;left:0;top:0;z-index:400;border:none;cursor: wait;\"></div>"
+				jq(content).appendTo("body");
+				masker = jq("#mask_content");
+			}
+			
+			var el = jq(masker);
+			el.position(0,0);
+			el.css({
+				"position":"absolute",
+				"background":"#000"
+			});
+			el.width(jq(document).width());
+			el.height(jq(document).height());
+			return masker;
+		}
+		
+		jq.fn.mask = function(){
+			var mask = createMaskElment();
+			var el = jq(this);
+			el.css({"position":"absolute"});
+			el.css({"z-index":"411"});
+			el.css({"float":"left"});
+			el.position(0,0);
+			el.show();
+		};
+		
+		jq.fn.unmask = function(){
+			jq("#mask_content").remove();
+			var el = jq(this);
+			el.hide();
+		};
+
+		/*jq.extend(jq.fn,{
+            mask: function(msg,maskDivClass){},
+            
+            unmask: function(){
+                     var original=jq(document.body);
+                         if(this[0] && this[0]!==window.document){
+                            original=jq(this[0]);
+                      }
+                      original.find("> div.maskdivgen").fadeOut('slow',0,function(){
+                          $(this).remove();
+                      });
+            }
+        });*/
 	}
 )(jq);
 
@@ -248,6 +299,7 @@ jq("#main_box").ready(function() {
 			jq("#billingAddress_content_2").hide();
 		}
 	});
+	
 });
 
 
