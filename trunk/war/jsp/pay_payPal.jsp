@@ -89,7 +89,7 @@
 						<input type="hidden" name="item_name"
 							value="${defaultOrder.name }"> <input type="hidden"
 							name="amount"
-							value="<fmt:formatNumber currencyCode="${currency}" maxFractionDigits="2" value="${(defaultOrder.totalPrice + defaultOrder.dePrice - defaultOrder.couponCutOff) * currencies[currency]}"></fmt:formatNumber>">
+							value="<fmt:formatNumber currencyCode='${currency}' maxFractionDigits='2' value='${(defaultOrder.totalPrice + defaultOrder.dePrice - defaultOrder.couponCutOff) * currencies[currency]}'></fmt:formatNumber>">
 						<input type="hidden" name="currency_code" value="${currency}">
 						<input type="hidden" name="lc" value="US"> <input
 							type="hidden" name="notify_url"
