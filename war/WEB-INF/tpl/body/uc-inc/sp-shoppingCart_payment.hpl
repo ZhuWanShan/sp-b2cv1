@@ -1,4 +1,5 @@
 <div class="scart_con">
+	<form action="/uc/shoppingCart_payment_2_pay" method="post">
 	<#assign order = currentOrder!userView.cart.order>
 	<div class="scart_step3"></div>
 	<div class="sc_order">
@@ -26,7 +27,7 @@
 		</dd>
 		<dd class="red">
 			<span> <a href="/uc/shoppingCart_address">Back >> </a> <input
-				type="button" class="button_01" value="Processed to Pay">
+				type="submit" class="button_01" value="Processed to Pay">
 			</span>
 		</dd>
 	</dl>
@@ -48,7 +49,7 @@
 				<img src="${siteView.host}/style/image/horizontal_solution_PP.gif">
 				<img src="${siteView.host}/style/image/PaypalVerify.gif">
 				<br/>
-				<input type="button" class="button_01" value="Processed to Pay">
+				<input type="submit" class="button_01" value="Processed to Pay">
 			</div>
 		</li>
 		<li>
@@ -70,9 +71,38 @@
 					purchase protection. Please do not block any pop-up windows when
 					going through the paying process.</p>
 				<br/>
-				<input type="button" class="button_01" value="Processed to Pay">
+				<input type="submit" class="button_01" value="Processed to Pay">
 			</div>
 		</li>
 	</ul>
+	<#assign order = currentOrder!userView.cart.order>
+	<#assign "address"= primary!order.primaryAddress >
+	<div class="scart_header2">Address Details</div>
+	<ul class="address_l">
+        <li class="l1">Shipping to this address:</li>
+        <li class="l2">${address.fullName}</li>
+        <li>${address.address1!''}</li>
+        <li>${address.address2!''}</li>
+        <li>
+        ${address.city!''}, ${address.stateProvince!''}, ${order.customerCountry!''}</li>
+        <li>Postal code: ${address.postalCode!''}</li>
+        <li>Phone Number: ${address.phone!''}</li>
+     </ul>
+     <#if order.billingSameAsPrimary>
+		<#assign "address"= billing!userView.cart.order.primaryAddress >
+	<#else>
+		<#assign "address"= billing!userView.cart.order.billingAddress >
+	</#if>
+     <ul class="address_r">
+        <li class="l1">Billing to this address:</li>
+        <li class="l2">${address.fullName}</li>
+        <li>${address.address1!''}</li>
+        <li>${address.address2!''}</li>
+        <li>
+        ${address.city!''}, ${address.stateProvince!''}, ${order.customerBCountry!''}</li>
+        <li>Postal code: ${address.postalCode!''}</li>
+        <li>Phone Number: ${address.phone!''}</li>
+     </ul>
 	<p class="clearBoth"></p>
+	</form>
 </div>

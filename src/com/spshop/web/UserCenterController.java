@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spshop.model.Address;
 import com.spshop.model.Country;
+import com.spshop.model.Order;
 import com.spshop.model.User;
 import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
@@ -138,6 +139,21 @@ public class UserCenterController extends BaseController{
 		return "shoppingCart_payment";
 	}
 	
+	
+	@RequestMapping(value = "/shoppingCart_payment_2_pay" , method = RequestMethod.POST)
+	public String shoppingCartPayment2Pay(Model model) {
+		
+		Order order = getUserView().getCart().getOrder();
+		
+		getUserView().getCart().setOrder(new Order());
+		
+		order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.toString());
+		
+		model.addAttribute(CURRENT_ORDER,order);
+		
+		return "paypal";
+	}
+	
 	@RequestMapping(value="/shoppingCart_address",method=RequestMethod.POST)
 	public String submitAddressInfo(Model model, HttpServletRequest request, HttpServletResponse response) {
 		
@@ -174,6 +190,12 @@ public class UserCenterController extends BaseController{
 		
 		Country country = ServiceFactory.getService(CountryService.class).getCountryById(getUserView().getCart().getOrder().getPrimaryAddress().getCountry());
 		
+		getUserView().getCart().getOrder().setCustomerCountry(country.getName());
+		
+		if(!getUserView().getCart().getOrder().isBillingSameAsPrimary()){
+			Country country1 = ServiceFactory.getService(CountryService.class).getCountryById(getUserView().getCart().getOrder().getBillingAddress().getCountry());
+			getUserView().getCart().getOrder().setCustomerBCountry(country1.getName());
+		}
 		
 		if(SHIPPING_STANDARD.equals(getUserView().getCart().getOrder().getShippingMethod())){
 			getUserView().getCart().getOrder().setDePrice(country.getDePrice());

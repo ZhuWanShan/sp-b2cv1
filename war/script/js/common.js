@@ -122,6 +122,14 @@ var SP = new Object();
 			}
 		};
 		
+		shop.changePayType = function(){
+			jq(".shipping_desc").hide();
+			
+			var el = jq(".shipping_title input[checked=checked]");
+			
+			el.parent(".shipping_title").next(".shipping_desc").show();
+		};
+		
 		shop.getShippingPrice = function(item,type){
 			var el = jq(item);
 			if(el.length>0){
@@ -355,6 +363,14 @@ jq("#main_box").ready(function() {
 			jq("#billingAddress_content, #billingAddress_content_2").show();
 			jq("#billingAddress_content_2").hide();
 		}
+	});
+	
+	
+	SP.changePayType();
+	
+	jq(".shipping_title input").click(function(){
+		jq(".shipping_desc").hide();
+		jq(this).parent(".shipping_title").next(".shipping_desc").show();
 	});
 	
 });
