@@ -211,4 +211,11 @@ public class Constants {
     public static final String ACTION_DECREASE_ITEM_TO_CART = "decreaseItemToCart";
     public static final String ACTION_REMOVE_ITEM_TO_CART = "removeItemToCart";
     public static final String ACTION_UPDATE_SHIPPING = "updateShipping";
+    public static final String ORDER_ID = "orderID";
+    public static final String EMPTY_ORDER = "emptyOrder";
+    
+    public static final String SHIPPING_STANDARD  = "standard";
+    public static final String SHIPPING_EXPEDITED  = "expedited";
+    
+    public static final String SHIPPING_METHOD = "shippingMethod";
 }

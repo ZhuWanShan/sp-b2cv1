@@ -1,22 +1,32 @@
 package com.spshop.web;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSONObject;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spshop.model.Address;
+import com.spshop.model.Country;
 import com.spshop.model.User;
+import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CountryService;
+import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.UserService;
+import com.spshop.utils.Utils;
 
 import static com.spshop.utils.Constants.*;
 
@@ -57,14 +67,123 @@ public class UserCenterController extends BaseController{
 		return "userProfile";
 	}
 	
-	@RequestMapping("/shoppingCart_address")
+	@RequestMapping("/retrieveShippingPrice")
+	public String retrieveShippingPrice(Model model, HttpServletRequest request,HttpServletResponse response, @RequestParam("cc") int cc) throws IOException {
+		
+		Country country = ServiceFactory.getService(CountryService.class).getCountryById(cc);
+		
+		Map<String, String> rs = new HashMap<String, String>();
+		
+		String shippingMethod = request.getParameter(SHIPPING_METHOD);
+		
+		if(null!=country){
+		
+			if(SHIPPING_EXPEDITED.equals(shippingMethod)){
+				rs.put("grandTotal", Utils.toNumber((getUserView().getCart().getOrder().getTotalPrice()+country.getAdDePrice()-getUserView().getCart().getOrder().getCouponCutOff())*getUserView().getCurrencyRate()));
+				rs.put("shippingCost", Utils.toNumber(country.getAdDePrice()*getUserView().getCurrencyRate()));
+			}else{
+				rs.put("grandTotal", Utils.toNumber((getUserView().getCart().getOrder().getTotalPrice()+country.getDePrice()-getUserView().getCart().getOrder().getCouponCutOff())*getUserView().getCurrencyRate()));
+				rs.put("shippingCost", Utils.toNumber(country.getDePrice()*getUserView().getCurrencyRate()));
+			}
+			
+			if(null!=country){
+				rs.put(SHIPPING_STANDARD, Utils.toNumber(country.getDePrice()*getUserView().getCurrencyRate()));
+				rs.put(SHIPPING_EXPEDITED, Utils.toNumber(country.getAdDePrice()*getUserView().getCurrencyRate()));
+				
+			}
+		}
+		
+		JSONObject jsonObject = JSONObject.fromObject(rs);
+		
+		response.getWriter().print(jsonObject);
+		
+		return null;
+	}
+	
+	@RequestMapping(value="/shoppingCart_address",method=RequestMethod.GET)
 	public String shoppingCartAdress(Model model) {
+		if(getUserView().getCart().getItemCount() < 1){
+			getUserView().getErr().put(EMPTY_ORDER, "Shopping cart is empty");
+			return "shoppingCart";
+		}
+		
+		Address primary = null;
+		Address billing = null;
+		
+		
+		getUserView().getCart().getOrder().setCustomerEmail(getUserView().getLoginUser().getEmail());
+		
+		if(StringUtils.isNotBlank(getUserView().getCart().getOrder().getCustomerName())){
+			primary = getUserView().getCart().getOrder().getPrimaryAddress();
+		}else{
+			primary = getUserView().getLoginUser().getPrimaryAddress();
+		}
+		
+
+		if(StringUtils.isNotBlank(getUserView().getCart().getOrder().getBcustomerName())){
+			billing = getUserView().getCart().getOrder().getBillingAddress();
+		}else{
+			billing = getUserView().getLoginUser().getBillingAddress();
+		}
+		
+		model.addAttribute(ADD_TYPE_P, primary);
+		model.addAttribute(ADD_TYPE_B, billing);
+		
+		
 		return "shoppingCart_address";
 	}
 	
 	@RequestMapping("/shoppingCart_payment")
 	public String shoppingCartPayment(Model model) {
 		return "shoppingCart_payment";
+	}
+	
+	@RequestMapping(value="/shoppingCart_address",method=RequestMethod.POST)
+	public String submitAddressInfo(Model model, HttpServletRequest request, HttpServletResponse response) {
+		
+		Address primary = retrieveAddress(request,ADD_TYPE_P);
+		Address billing = retrieveAddress(request,ADD_TYPE_B);
+		String billingAsPrimary = request.getParameter(BILLING_SAME_AS_PRIMARY);
+		String shippingMethod = request.getParameter(SHIPPING_METHOD);
+		
+		getUserView().getCart().getOrder().setPrimaryAddress(primary);
+		getUserView().getCart().getOrder().setBillingAddress(billing);
+		
+		Map<String,String> vs = validateAddress(getUserView().getCart().getOrder().getPrimaryAddress(), ADD_TYPE_P);
+		
+		
+		if(null == billingAsPrimary){
+			vs.putAll(validateAddress(getUserView().getCart().getOrder().getBillingAddress(), ADD_TYPE_B));
+			getUserView().getCart().getOrder().setBillingSameAsPrimary(false);
+		}else{
+			getUserView().getCart().getOrder().setBillingSameAsPrimary(true);
+		}
+		
+		if(SHIPPING_STANDARD.equals(shippingMethod)){
+			getUserView().getCart().getOrder().setShippingMethod(SHIPPING_STANDARD);
+		}else{
+			getUserView().getCart().getOrder().setShippingMethod(SHIPPING_EXPEDITED);
+		}
+		
+		getUserView().setErr(vs);
+		
+		if(MapUtils.isNotEmpty(getUserView().getErr())){
+			return "shoppingCart_address";
+		}
+		
+		
+		Country country = ServiceFactory.getService(CountryService.class).getCountryById(getUserView().getCart().getOrder().getPrimaryAddress().getCountry());
+		
+		
+		if(SHIPPING_STANDARD.equals(getUserView().getCart().getOrder().getShippingMethod())){
+			getUserView().getCart().getOrder().setDePrice(country.getDePrice());
+		}else{
+			getUserView().getCart().getOrder().setDePrice(country.getAdDePrice());
+		}
+		
+		ServiceFactory.getService(OrderService.class).saveOrder(getUserView().getCart().getOrder(), OrderStatus.ONSHOPPING.toString());
+		
+		return "redirect:/uc/shoppingCart_payment";
 	}
 	
 	@RequestMapping(value="/userProfile", params={"action=updateAccount"},method=RequestMethod.POST)
@@ -161,6 +280,10 @@ public class UserCenterController extends BaseController{
 	
 	private Address retrieveAddress(HttpServletRequest request){
 		String type = request.getParameter(ADD_TYPE);
+		return retrieveAddress(request,type);
+	}
+	
+	private Address retrieveAddress(HttpServletRequest request,String type){
 		String userName = request.getParameter(type+USERNAME);
 		String add1 = request.getParameter(type+ADDRESS1);
 		String add2 = request.getParameter(type+ADDRESS2);

@@ -207,6 +207,10 @@
 		<property name="bstate" ></property>
 		<property name="bcustomerZipcode" ></property>
 		<property name="bphone" ></property>
+		<property name="billingSameAsPrimary" ></property>
+		<property name="country" ></property>
+		<property name="bcountry" ></property>
+		<property name="customerBCountry" ></property>
 		<property name="shippingMethod" ></property>
 		
 		<property name="status" length="255" column="order_status"></property>

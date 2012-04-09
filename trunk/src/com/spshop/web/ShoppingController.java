@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -58,6 +59,12 @@ public class ShoppingController extends BaseController{
 	
 	@RequestMapping("/shoppingCart")
 	public String shoppingCart(Model model) {
+		if(getUserView().getCart().getItemCount() < 1){
+			getUserView().getErr().put(EMPTY_ORDER, "Shopping cart is empty");
+		}
+		
+		
+		
 		return "shoppingCart";
 	}
 	
@@ -376,6 +383,7 @@ public class ShoppingController extends BaseController{
 			if(null!=loginUser){
 				model.addAttribute(USER_INFO, loginUser);
 				request.getSession().setAttribute(USER_INFO,loginUser);
+				
 				if(TRUE.equals(rememberAccount)){
 					Cookie cookie = new Cookie(COOKIE_ACCOUNT, Utils.OBJ.getEncryString(loginUser.getEmail()+USER_NAME_PWD_SPLIT+loginUser.getPassword()));
 					cookie.setMaxAge(30*24*60*60);
@@ -506,6 +514,9 @@ public class ShoppingController extends BaseController{
 		if(null!=itemID){
 			if(isRemove){
 				cart.remove(itemID);
+				if(CollectionUtils.isEmpty(cart.getOrder().getItems())){
+					cart.getOrder().setCustomerMsg("");
+				}
 				persistantCart();
 				rs.put("itemID", itemID);
 			}else{
@@ -521,6 +532,7 @@ public class ShoppingController extends BaseController{
 		}else{
 			persistantCart();
 		}
+		
 		
 		rs.put("subTotal", Utils.toNumber(cart.getOrder().getTotalPrice()*getUserView().getCurrencyRate()));
 		

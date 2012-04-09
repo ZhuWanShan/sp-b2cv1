@@ -13,6 +13,12 @@
 			</li>
 	</ul>
 	<#assign order = currentOrder!userView.cart.order>
+	<#assign isCartEmpty=((userView.err.emptyOrder)!'')>
+	<#if isCartEmpty !=''>
+		<ul class="scart_c">
+			<li class="red"><b>${userView.err.emptyOrder}</b></li>
+		</ul>
+	</#if>
 	<#list order.items as item>
 		<ul class="scart_c" id="${item.name}">
 			<li class="scart_thumbnail"><a target="_blank"
@@ -71,7 +77,7 @@
 		</ul>
 	</#list>
 	<p class="clearBoth"></p>
-	
+	<#if isCartEmpty == ''>
 	<div class="scart_summary">
 		<div class="scart_summary_coupon_code">
 				<div class="box_sub_item_title">Have a Coupon Code? Add it here</div>
@@ -103,10 +109,11 @@
 			<dd class="red">
 			<span>
 				<a href="${siteView.host}">Continue shopping>> </a>
-				<input	type="button" class="button_01" value="Processed to Pay" id="GO_TO_Fill_Address" onclick="SP.applyMsg(jq('#order_msg').val())"></span>
+				<input	type="button" class="button_01" value="Processed to Pay" id="GO_TO_Fill_Address" onclick="SP.goToAddress(jq('#order_msg').val())"></span>
 			</dd>
 		</dl>
 
 	</div>
 	<p class="clearBoth"></p>
+	</#if>
 </div>
