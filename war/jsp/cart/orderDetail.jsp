@@ -42,6 +42,11 @@
 				</span>
 			</p>
 		</div>
+		<div id="check_box">
+			<p>
+				Status: <span><c:out value="${defaultOrder.status}" /></span>
+			</p>
+		</div>
 		<div id="safe_box">
 			
 		</div>
