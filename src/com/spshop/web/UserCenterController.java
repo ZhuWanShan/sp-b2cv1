@@ -113,7 +113,7 @@ public class UserCenterController extends BaseController{
 		
 		getUserView().getCart().getOrder().setCustomerEmail(getUserView().getLoginUser().getEmail());
 		
-		if(StringUtils.isNotBlank(getUserView().getCart().getOrder().getCustomerName())){
+		if(StringUtils.isNotBlank(getUserView().getCart().getOrder().getCustomerName())&&StringUtils.isNotBlank(getUserView().getCart().getOrder().getPrimaryAddress().getPhone())){
 			primary = getUserView().getCart().getOrder().getPrimaryAddress();
 		}else{
 			primary = getUserView().getLoginUser().getPrimaryAddress();

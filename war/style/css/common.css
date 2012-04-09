@@ -1165,8 +1165,14 @@ li.scart_c_w_r {
 	 line-height: 36px;
 }
 
-.shipping_title a{
+.shipping_title img{
 	vertical-align: middle;
-	 line-height: 36px;
+	margin-left: 6px;
 }
+
+.shipping_title span{
+	vertical-align: middle;
+	line-height: 36px;
+}
+
 
