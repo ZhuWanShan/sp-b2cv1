@@ -1,28 +1,32 @@
 <div class="scart_con">
+	<#assign order = currentOrder!userView.cart.order>
 	<div class="scart_step3"></div>
 	<div class="sc_order">
 		Your order has been placed successfully. <span class="red">Order
-			NO. 181691 </span><br> Now, you can make the payment for your order.
+			NO. ${order.name} </span><br> Now, you can make the payment for your
+		order.
 	</div>
 	<div class="separator"></div>
 	<dl class="scart_summary_list">
 		<dd>
-			Item Sub total:<span class="red">USD 199.99</span>
+			Item Sub total:<span class="red">${(order.currency)}&nbsp;${(userView.currencyRate*order.totalPrice)?string(",##0.##")}</span>
 		</dd>
 		<dd>
-			Coupon:<span class="red">USD 199.99</span>
+			Coupon:<span class="red">${(order.currency)}&nbsp;-${(userView.currencyRate*order.couponCutOff)?string(",##0.##")}</span>
 		</dd>
 		<dd>
-			Shipping Cost:<span class="red">USD 199.99</span>
+			Shipping Cost:<span class="red">${(order.currency)}&nbsp;<span
+				class="order_shipping_total">${(userView.currencyRate*order.dePrice)?string(",##0.##")}</span>
 		</dd>
 		<dd class="separator">
 		<dd>
 		<dd class="red">
-			<b>Grand Total:<span id="GrabdTotal">USD 896.91</span></b>
+			<b>Grand Total:<span id="GrabdTotal">${(order.currency)}&nbsp;<span
+					class="order_grand_total">${(userView.currencyRate*(order.totalPrice-order.couponCutOff+order.dePrice))?string(",##0.##")}</span></span></b>
 		</dd>
 		<dd class="red">
-			<span> <a href="###">Back >> </a> <input type="button"
-				class="button_01" value="Processed to Pay">
+			<span> <a href="/uc/shoppingCart_address">Back >> </a> <input
+				type="button" class="button_01" value="Processed to Pay">
 			</span>
 		</dd>
 	</dl>
@@ -30,146 +34,49 @@
 	<div class="separator_margin"></div>
 	<div class="scart_header2">Make payment via</div>
 	<ul class="scart_m">
-		<li class="s_paypal">
-			<div class="d1">
+		<li>
+			<div class="shipping_title">
 				<input name="payType" type="radio" value="2" id="R1"
 					checked="checked" onclick="setTab1('one',1,4)"> <a
 					href="javascript:setTab1('one',1,4);">Paypal<img width="44"
-					height="20" alt="" src="https://s2.tidebuy.com/images/home_97.gif"
-					class="p1"> The safer, easier way to pay.
-				</a>
+					height="20" alt="" src="${siteView.host}/style/image/home_97.gif"
+					class="p1">
+				</a>The safer, easier way to pay.
 			</div>
-			<div class="d2" id="div1" style="display: none;">
-				<p class="pt">How to pay by PayPal?</p>
-				<p class="pt2">If you have PayPal account, please pay your order
-					by PayPal account directly. If you do not have PayPal account, it
-					does not matter. You can make the payment via PayPal with your
-					credit card or your debit card. TideBuy’s PayPal account is:
-					pay@tidebuy.com</p>
-				<img src="https://s2.tidebuy.com/images/horizontal_solution_PP.gif">
-				<img src="https://s2.tidebuy.com/images/PaypalVerify.gif"><input
-					id="paybtn2" type="button" class="scart_ptc"
-					onclick="CreateOrder(this)">
+			<div class="shipping_desc">
+				<p>How to pay by PayPal?</p>
+				<p>If you have PayPal account, please pay your order by PayPal
+					account directly. If you do not have PayPal account, it does not
+					matter. You can make the payment via PayPal with your credit card
+					or your debit card. TideBuy’s PayPal account is: pay@tidebuy.com</p>
+				<img src="${siteView.host}/style/image/horizontal_solution_PP.gif">
+				<img src="${siteView.host}/style/image/PaypalVerify.gif">
+				<br/>
+				<input type="button" class="button_01" value="Processed to Pay">
 			</div>
 		</li>
-		<li class="s_c_card">
-			<div class="d1">
+		<li>
+			<div class="shipping_title">
 				<input name="payType" type="radio" value="1" id="R2"
 					onclick="setTab1('one',2,4)"> <a
 					href="javascript:setTab1('one',2,4);">Credit Card <img
 					width="30" height="20"
-					src="https://s2.tidebuy.com/images/home_103.gif" class="p1">
+					src="${siteView.host}/style/image/home_103.gif" class="p1">
 					<img width="29" height="20"
-					src="https://s2.tidebuy.com/images/--.jpg"> <img width="31"
-					height="20" src="https://s2.tidebuy.com/images/amex.jpg"> <img
-					width="33" height="20" src="https://s2.tidebuy.com/images/dse.jpg"></a>
+					src="${siteView.host}/style/image/--.jpg"> <img width="31"
+					height="20" src="${siteView.host}/style/image/amex.jpg"> <img
+					width="33" height="20" src="${siteView.host}/style/image/dse.jpg"></a>
 			</div>
-			<div class="d2" id="div2" style="">
-				<p class="pt">How to pay by a Credit Card.</p>
+			<div class="shipping_desc">
+				<p>How to pay by a Credit Card.</p>
 				<p>You can pay via paypal with your credit card or debit card.
 					Payment with this way is traceable, immediate and convenient, and
 					the payment is deposited directly into Tidebuy’s account. Moreover,
 					credit card companies typically provide some level of identity and
 					purchase protection. Please do not block any pop-up windows when
 					going through the paying process.</p>
-				<input id="paybtn2" type="button" class="scart_ptc"
-					onclick="CreateOrder(this)">
-			</div>
-		</li>
-		<li class="s_b_transfer">
-			<div class="d1">
-				<input name="payType" type="radio" value="4" id="R3"
-					onclick="setTab1('one',3,4)"> <a
-					href="javascript:setTab1('one',3,4);">Bank Transfer <img
-					width="125" height="20"
-					src="https://s2.tidebuy.com/images/banktransfer.jpg" class="p1"></a><a
-					href="http://help.tidebuy.com/How-To-Pay-by-Western-Union-107.html#detail7"
-					target="_blank" class="htp">How to pay?</a>
-			</div>
-			<div class="d2" id="div3" style="display: none;">
-				<p class="p_s">
-					Tips: When using Bank Transfer, please submit your payment
-					information to us within one month after placing an order;
-					otherwise your order will be automatically cancelled. Please ensure
-					your <strong>order No</strong>. and <strong>detailed
-						contact information</strong> are quoted when making the bank transfer.<font
-						style="color: red">Be sure to fill in the order number,
-						otherwise the payment confirmation may fail or delayed.</font>
-				</p>
-				<ul>
-					<li><b>Beneficiary Name:</b> TIDEBUY INTERNATIONAL LIMITED</li>
-					<li><b>Beneficiary Account Number (IBAN):</b> 400-844304-838</li>
-					<li><b>Beneficiary Bank:</b> HSBC Hong Kong Des Voeux Road
-						Central Branch</li>
-					<li><b>SWIFT Code:</b> HSBCHKHHHKH</li>
-					<li><b>Bank Address:</b> Rm Units803-806, 8/F, Low Block,
-						Grand Millennium Plaza, 181 Queen's Road Central, Hong Kong</li>
-					<li><b>Beneficiary's Country and City:</b> HONGKONG</li>
-					<li style="color: red"><b style="color: red">Order NO.：</b>
-						181691</li>
-
-					<li style="color: red">Order Fee: Grand Total US$ 881.24 +
-						Bank Transfer Fee US$ 5 = US$ 886.24</li>
-				</ul>
-				<p class="pt">
-					<b>Notice:</b>
-				</p>
-				<p>You will be responsible for all local handling fees and
-					intermediary bank handling fees. Therefore, please confirm the
-					total payment amount with the bank before you transfer the money.</p>
-				<input id="paybtn2" type="button" class="scart_ptc"
-					onclick="CreateOrder(this)">
-			</div>
-		</li>
-		<li class="s_w_union">
-			<div class="d1">
-				<input name="payType" type="radio" value="3" id="R4"
-					onclick="setTab1('one',4,4)"> <a
-					href="javascript:setTab1('one',4,4);">Western Union<img
-					width="96" height="24"
-					src="https://s2.tidebuy.com/images/westernunion.jpg" class="p1"></a><a
-					href="http://help.tidebuy.com/How-To-Pay-by-Western-Union-107.html#detail5"
-					target="_blank" class="htp">How to pay?</a>
-			</div>
-			<div class="d2" id="div4" style="display: none;">
-
-				<p class="p_s">
-					Tips: When using Western Union, please submit your payment
-					information to Tidebuy within one month of placing an order,
-					otherwise your order will be automatically canceled.<font
-						style="color: red">Be sure to fill in the order number,
-						otherwise the payment confirmation may fail or delayed.</font>
-				</p>
-				<ul>
-					<li><b>Beneficiary:</b> Jian Zhang</li>
-					<li><b>First Name:</b> Jian</li>
-					<li><b>Last Name:</b> Zhang</li>
-					<li><b>Country:</b> CHINA</li>
-					<li><b>Address:</b>Floor 2, Jingtaijuhe Business
-						Multi-functional Building, Qinghe Yongtaizhuang North 40, Haidian
-						District, Beijing 100085</li>
-					<li><b>Place of Birth:</b>Beijing</li>
-					<li><b>Place of residence:</b>Beijing</li>
-					<li style="color: red"><b style="color: red">Order NO.：</b>
-						181691</li>
-				</ul>
-				<p class="pt">
-					<b>Notice:</b>
-				</p>
-				<p>Please make sure all the information above is filled
-					correctly and completely in your WestUnion payment form,for the
-					WestUnion Custumers Service will identify all the information of
-					the payee,thanks a lot.</p>
-				<p>You will be responsible for all Western Union handling fees.
-					Therefore, please confirm the total payment amount with the local
-					Western Union before you transfer the money.</p>
-				<p>
-					<img src="https://s2.tidebuy.com/images/waitPage.gif"
-						id="waitPage2"
-						style="display: none; margin-top: 10px; float: right;"><input
-						id="paybtn2" type="button" class="scart_ptc"
-						onclick="CreateOrder(this)">
-				</p>
+				<br/>
+				<input type="button" class="button_01" value="Processed to Pay">
 			</div>
 		</li>
 	</ul>

@@ -31,6 +31,7 @@ import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.OrderService;
 import com.spshop.utils.Constants;
+import com.spshop.utils.Utils;
 
 public abstract class BaseAction extends Action {
 	
@@ -188,7 +189,7 @@ public abstract class BaseAction extends Action {
 	public ShoppingCart getCart(HttpServletRequest request, HttpServletResponse response){
 		
 		ShoppingCart shoppingCart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
-		if(null==shoppingCart){
+		/*if(null==shoppingCart){
 			shoppingCart = new ShoppingCart(new Order());
 			Cookie[] cookies = request.getCookies();
 			if(null!=cookies&&cookies.length>0){
@@ -220,7 +221,7 @@ public abstract class BaseAction extends Action {
 		 shoppingCart.getOrder().setCurrency(getCurrencyName(request));
 		 if(null!=user){
 			 shoppingCart.getOrder().setUser(user);
-		 }
+		 }*/
 		request.getSession().setAttribute(SHOPPINGCART, shoppingCart);
 		return shoppingCart;
 	}
@@ -263,6 +264,15 @@ public abstract class BaseAction extends Action {
 		if(null ==getCurrencies(request) ||getCurrencies(request).isEmpty()){
 			initCurrency(request);
 		}
+		
+		Utils.retrieveUser(request);
+		
+		ShoppingCart cart = Utils.retrieveShoppingCart(request, (User)request.getSession().getAttribute(Constants.USER_INFO));
+		
+		request.getSession().setAttribute(Constants.SHOPPINGCART, cart);
+		
+		
+		
 		handleCurrency(request);
 		try {
 			forward = processer(mapping, page, request, response);

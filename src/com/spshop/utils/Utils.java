@@ -1,9 +1,6 @@
 package com.spshop.utils;
 
-import static com.spshop.utils.Constants.COOKIE_ACCOUNT;
-import static com.spshop.utils.Constants.SHOPPINGCART;
-import static com.spshop.utils.Constants.USER_INFO;
-import static com.spshop.utils.Constants.USER_NAME_PWD_SPLIT;
+import static com.spshop.utils.Constants.*;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -20,7 +17,9 @@ import javax.crypto.SecretKey;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spshop.model.Order;
 import com.spshop.model.User;
@@ -128,6 +127,10 @@ public class Utils {
 	public static ShoppingCart retrieveShoppingCart(HttpServletRequest request, User user) {
 		
 		ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
+		String currency = (String) request.getAttribute(CURRENCY);
+		if(StringUtils.isEmpty(currency)){
+			currency = DEFAULT_CURRENCY;
+		}
 		
 		if(null == cart){
 			Order order =  retrieveUserCarOrder(user);
@@ -151,6 +154,12 @@ public class Utils {
 			Order order =retrieveUserCarOrder(user);
 			cart = new ShoppingCart(order);
 			order = ServiceFactory.getService(OrderService.class).saveOrder(cart.getOrder(), OrderStatus.ONSHOPPING.toString());
+		}
+		
+		if(StringUtils.isBlank(cart.getOrder().getCurrency())){
+			cart.getOrder().setCurrency(currency);
+		}else if(StringUtils.isEmpty(request.getParameter(CURRENCY))){
+			request.getSession().setAttribute(CURRENCY, cart.getOrder().getCurrency());
 		}
 		
 		return cart;

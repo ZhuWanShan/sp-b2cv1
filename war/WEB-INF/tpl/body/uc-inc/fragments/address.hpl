@@ -31,7 +31,7 @@
 			<td height="30" align="right">Country / Region <span class="red">*</span>
 			</td>
 			<td><select id="${(addType)!''}country" name="${(addType)!''}country"
-				style="width: 224px;" class="txt_select">
+				style="width: 224px;" class="txt_select" validation="country">
 				<option value="0">Please Select</option>
 				<#list siteView.countries as country>
 					<option value="${country.id}" 

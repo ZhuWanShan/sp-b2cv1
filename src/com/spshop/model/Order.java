@@ -34,6 +34,8 @@ public class Order extends Component{
 	private String currency;
 	private String customerMsg;
 	private String state;
+	private long country;
+	
 	
 	private String bCustomerName;
 	private String customGender;
@@ -44,11 +46,16 @@ public class Order extends Component{
 	private String bCustomerZipcode;
 	private String bstate;
 	private String bPhone;
+	private long bcountry;
+	private String customerBCountry;
+	
 	private String shippingMethod;
 	
 	private float couponCutOff;
 	
 	private String couponCode;
+	
+	private boolean billingSameAsPrimary = true;
 	
 	public Order() {
 		if(null!=getName()){
@@ -213,7 +220,37 @@ public class Order extends Component{
 		return "";
 
 	}
-
+	
+	public Address getPrimaryAddress(){
+		return new Address(customerName,customerAddress,customerAddress2,city,state,(int)country,customerZipcode,customerTelephone);
+	}
+	
+	public void setPrimaryAddress(Address address){
+		 setCustomerName(address.getFullName());
+		 setCustomerAddress(address.getAddress1());
+		 setCustomerAddress2(address.getAddress2());
+		 setCity(address.getCity());
+		 setState(address.getStateProvince());
+		 setCountry(address.getCountry());
+		 setCustomerZipcode(address.getPostalCode());
+		 setCustomerTelephone(address.getPhone());
+	}
+	
+	public void setBillingAddress(Address address){
+		 setBcustomerName(address.getFullName());
+		 setBcustomerAddress(address.getAddress1());
+		 setBcustomerAddress2(address.getAddress2());
+		 setBcity(address.getCity());
+		 setBstate(address.getStateProvince());
+		 setBcountry(address.getCountry());
+		 setBcustomerZipcode(address.getPostalCode());
+		 setBphone(address.getPhone());
+	}
+	
+	public Address getBillingAddress(){
+		return new Address(bCustomerName,bCustomerAddress,bCustomerAddress2,bCity,bstate,(int)bcountry,bCustomerZipcode,bPhone);
+	}
+	
 	public Order clone() {
 		Order obj = null;
 		obj = new Order(this);
@@ -282,12 +319,20 @@ public class Order extends Component{
 		}
 		
 		obj.dePrice = this.dePrice;
+		obj.country = this.country;
+		obj.bcountry = this.bcountry;
+		obj.billingSameAsPrimary = this.billingSameAsPrimary;
 		obj.couponCutOff = this.couponCutOff;
 		
 		
 		if (this.city != null) {
 			/* Does not have a clone() method */
 			obj.city = this.city;
+		}
+		
+		if (this.customerBCountry != null) {
+			/* Does not have a clone() method */
+			obj.customerBCountry = this.customerBCountry;
 		}
 		
 		if (this.currency != null) {
@@ -561,6 +606,38 @@ public class Order extends Component{
 
 	public void setCouponCode(String couponCode) {
 		this.couponCode = couponCode;
+	}
+
+	public long getCountry() {
+		return country;
+	}
+
+	public void setCountry(long country) {
+		this.country = country;
+	}
+
+	public long getBcountry() {
+		return bcountry;
+	}
+
+	public void setBcountry(long bcountry) {
+		this.bcountry = bcountry;
+	}
+
+	public String getCustomerBCountry() {
+		return customerBCountry;
+	}
+
+	public void setCustomerBCountry(String customerBCountry) {
+		this.customerBCountry = customerBCountry;
+	}
+
+	public boolean isBillingSameAsPrimary() {
+		return billingSameAsPrimary;
+	}
+
+	public void setBillingSameAsPrimary(boolean billingSameAsPrimary) {
+		this.billingSameAsPrimary = billingSameAsPrimary;
 	}
 	
 }

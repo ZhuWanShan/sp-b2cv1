@@ -86,11 +86,11 @@ var SP = new Object();
 
 		shop.applyCoupon = function(item){
 			if(item){
+				jq("#submit_coupon").ajLoad();
 				jq.ajax({
 					 url: "/uc/updateShoppingCart?action=applyCoupon&couponID="+item+"&v="+ Math.random(),
 					 dataType:"json",
 					  success: function(data){
-						  jq("#submit_coupon").ajLoad();
 						  updateHTML(item,data);
 						  jq("#submit_coupon").ajUnload();
 					  }
@@ -98,7 +98,7 @@ var SP = new Object();
 			}
 		};
 		
-		shop.applyMsg = function(item){
+		shop.goToAddress = function(item){
 			if(item){
 				jq.ajax({
 					 url: "/uc/updateShoppingCart?action=updateCustomerMsg&v="+ Math.random(),
@@ -117,8 +117,49 @@ var SP = new Object();
 						  
 					  }
 				});
+			}else{
+				  window.location="/uc/shoppingCart_address";
 			}
 		};
+		
+		shop.getShippingPrice = function(item,type){
+			var el = jq(item);
+			if(el.length>0){
+				jq(el).ajLoad();
+				var tp = 'standard';
+				
+				if(type && jq(type).length>0){
+					tp = jq(type).val();
+				}
+				
+				jq.ajax({
+					 url: "/uc/retrieveShippingPrice?cc="+el.val()+"&shippingMethod="+tp+"&v="+ Math.random(),
+					 dataType:"json",
+					 type:'post',
+					 data: "order_msg="+item,
+					  success: function(rs){
+						  if(rs.grandTotal){
+							  jq(".order_grand_total").html(rs.grandTotal);
+						  }
+						  
+						  if(rs.standard){
+							  jq(".order_shipping_standard").html(rs.standard);
+						  }
+						  
+						  if(rs.expedited){
+							  jq(".order_shipping_expedited").html(rs.expedited);
+						  }
+						  
+						  if(rs.shippingCost){
+							  jq(".order_shipping_total").html(rs.shippingCost);
+						  }
+
+						  jq(el).ajUnload();
+						  
+					  }
+				});
+			}
+		}
 		
 	}		
 
@@ -269,6 +310,12 @@ jq("#main_box").ready(function() {
 					jq("#"+name+"_noti").html("Missing required field");
 				}
 				
+				if("country" == validation){
+					if(!value || value.length <1 || value == '0'){
+						jq("#"+name+"_noti").html("Please select a country");
+					}
+				}
+				
 				if("is_email_exist" == validation){
 					if(!(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/).test(value)){
 						jq("#"+name+"_noti").html("Invalid email");
@@ -288,6 +335,16 @@ jq("#main_box").ready(function() {
 		});
 	});
 	
+	
+	var billingAsPrimary = jq("#billingAddress_check_box").attr('checked');
+	
+	if("checked" == billingAsPrimary){
+		jq("#billingAddress_content").hide();
+		jq("#billingAddress_content_2").show();
+	}else{
+		jq("#billingAddress_content, #billingAddress_content_2").show();
+		jq("#billingAddress_content_2").hide();
+	}
 	
 	jq("#billingAddress_check_box").click(function(){
 		var value = jq(this).attr('checked');

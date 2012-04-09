@@ -1023,6 +1023,7 @@ textarea.order_msg {
 .scart_c li.scart_c_w_l,.scart_c li.scart_c_w_m,.scart_c li.scart_c_w_r
 	{
 	float: left;
+	width: 300px;
 }
 
 li.scart_c_w_l {
@@ -1053,30 +1054,6 @@ li.scart_c_w_r {
 
 .scart_m {
 	line-height: 36px;
-}
-
-.s_paypal div.d2,.s_c_card div.d2,.s_b_transfer div.d2,.s_w_union div.d2
-	{
-	background: white;
-	border: 1px solid #DDD;
-	margin-left: 24px;
-	line-height: 20px;
-	width: 738px;
-	padding: 22px 26px 62 px;
-	text-align: left;
-	overflow: hidden;
-	zoom: 1;
-	padding: 20px;
-}
-
-.s_paypal div.d2 p.pt,.s_c_card div.d2 p.pt {
-	margin-bottom: 20px;
-}
-
-.s_paypal div.d2 p.pt,.s_c_card div.d2 p.pt,.s_b_transfer div.d2 p.pt,.s_w_union div.d2 p.pt
-	{
-	color: black;
-	font-weight: bolder;
 }
 
 .scart_order_header {
@@ -1171,5 +1148,25 @@ li.scart_c_w_r {
 
 #main_box .red{
 	padding-left: 4px;
+}
+
+.shipping_desc{
+	 background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DDDDDD;
+    line-height: 20px;
+    margin-left: 24px;
+    overflow: hidden;
+    padding: 20px;
+    text-align: left;
+    width: 738px;
+}
+
+.shipping_title{
+	 line-height: 36px;
+}
+
+.shipping_title a{
+	vertical-align: middle;
+	 line-height: 36px;
 }
 
