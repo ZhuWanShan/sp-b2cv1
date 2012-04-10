@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="pragma" content="no-cache" />
 		<title>Page Title</title>
 		<link rel="stylesheet" type="text/css" href="/style/css/main.css">
 		<script src="/script/js/jquery-1.7.1.js" type="text/javascript">

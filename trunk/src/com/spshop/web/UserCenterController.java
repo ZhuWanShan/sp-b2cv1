@@ -2,6 +2,7 @@ package com.spshop.web;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
@@ -290,7 +290,25 @@ public class UserCenterController extends BaseController{
     }
 	
 	@RequestMapping("/myOrder")
-	public String myOrder(Model model) {
+	public String myOrder(Model model, HttpServletRequest request) {
+		
+		String strPage = request.getParameter(PAGINATION);
+		
+		int start = 1;
+		
+		try{
+			start = Integer.parseInt(strPage);
+		}catch(Exception e){
+		}
+		
+		if(start < 1){
+			start = 1;
+		}
+		
+		List<Order> orders = ServiceFactory.getService(OrderService.class).getOrdersByUserId(getUserView().getLoginUser().getId(), start);
+		
+		model.addAttribute(USER_ORDERS, orders);
+		
 		return "userOrder";
 	}
 	

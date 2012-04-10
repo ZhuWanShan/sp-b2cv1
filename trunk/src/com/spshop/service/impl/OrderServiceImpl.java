@@ -15,6 +15,7 @@ import com.spshop.service.AbstractService;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CouponService;
 import com.spshop.service.intf.OrderService;
+import com.spshop.utils.Constants;
 
 public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> implements OrderService{
 	public Order saveOrder(Order order, String status){
@@ -153,7 +154,7 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 	@Override
 	public Order getUserCart(long userId) {
 		
-		String hql = "From Order as o where o.user.id = ? and o.status = 'ONSHOPPING' order by o.id desc";
+		String hql = "From Order as o where o.user.id = ? and o.status = 'ONSHOPPING' order by o.id asc";
 		@SuppressWarnings("unchecked")
 		List<Object> cs = (List<Object>)getDao().queryByHQL(hql, userId);
 		if(null!=cs){
@@ -163,5 +164,26 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 		}
 		
 		return null;
+	}
+
+	@Override
+	public List<Order> getOrdersByUserId(long userId, int start) {
+		String hql = "From Order as o where o.user.id = ? and o.status != 'ONSHOPPING' order by o.id asc";
+		
+		int begin = (start -1)*Constants.PAGINATION_DEFAULT_20;
+		
+		if(begin < 0){
+			begin = 0;
+		}
+		
+		List<Order> orders= new ArrayList<Order>();
+		List<Object> cs = (List<Object>)getDao().queryByHQL(hql,begin,Constants.PAGINATION_DEFAULT_20, userId);
+		
+		if(null!=cs){
+			for (Object object : cs) {
+				orders.add(((Order)object).clone());
+			}
+		}
+		return orders;
 	}
 }
