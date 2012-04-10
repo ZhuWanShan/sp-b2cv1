@@ -1,6 +1,6 @@
 <%@ include file="../include.jsp"%>
 <div class="shopping_cart" id="top_Cart">
-	<a rel="nofollow" href="/shoppingCart"
+	<a rel="nofollow" href="/uc/shoppingCart"
 		class="cart_icon wihte_D_shadow Dark_gray">My bag <span
 		class="items_num"> (<c:if test="${shoppingcart eq null}">0</c:if>${shoppingcart.itemCount})</span>
 	</a>
