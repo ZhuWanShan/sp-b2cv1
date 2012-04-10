@@ -1,4 +1,4 @@
-<#include "/header/top.hpl">
+<#include "/header/top_clean.hpl">
 <div class="main_box" id="main_box">
 	<#assign defaultOrder = currentOrder>
 	<p>redirecting to Paypal site</p>
@@ -20,4 +20,4 @@
 		jq("#paypaysubmitForm").submit();
 	</script>
 </div>
-<#include "/footer/bottom.hpl">
+<#include "/footer/bottom_clean.hpl">

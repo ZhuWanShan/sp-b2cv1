@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spshop.model.Order;
 import com.spshop.model.User;

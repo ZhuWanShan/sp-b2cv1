@@ -39,7 +39,7 @@
 			<li id="base_unlogin_li" class="">Login or Register
 				<div style="width: 200px; cursor: default; display: none;"
 					class="user_menu_hidd">
-					<form method="post" action="/login">
+					<form method="post" action="/uc/login">
 						<div class="border_bot indexlogin">
 							<dl>
 								<dd>
@@ -52,7 +52,7 @@
 								</dd>
 								<dd class="Question_mark">
 									Forgot your password?<br> <a
-										href="/recoveryPassword"
+										href="/uc/recoverPwd"
 										class="underline" rel="nofollow">Click here</a>
 								</dd>
 								<dd>
@@ -67,7 +67,7 @@
 						<p class="lineheight15 font_size11">Register Now for $5 in HoneyBuy.com!</p>
 						<div class="hei5"></div>
 						<input type="button" value="CREATE AN ACCOUNT" class="button_01"
-							onclick="window.location.href='/createAccount';">
+							onclick="window.location.href='/uc/createAccount';">
 					</div>
 				</div>
 			</li>
@@ -86,7 +86,7 @@
 								<a href="/orders" title="View Orders">View Orders</a>
 							</dd>
 							<dd class="dashborder">
-								<a href="/editProfile" rel="nofollow" title="Account Settings">Account Settings</a>
+								<a href="/uc/userProfile" rel="nofollow" title="Account Settings">Account Settings</a>
 							</dd>
 							<!-- 
 							<dd class="dashborder">
