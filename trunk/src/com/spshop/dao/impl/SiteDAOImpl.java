@@ -21,7 +21,7 @@ public class SiteDAOImpl extends AbstractBaseDAO<Site, Long>  implements SiteDAO
 	@Override
 	public Image getColorImgById(long id) {
 		String hql = "from Image where id = ?";
-		List<Object> rs = (List<Object>) queryByHQL(hql, id);
+		List<Object> rs = (List<Object>) queryByHQL(hql,0,999, id);
 		if(null != rs && rs.size()>0){
 			return (Image) rs.get(0);
 		}

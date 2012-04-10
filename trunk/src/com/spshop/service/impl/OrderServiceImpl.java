@@ -65,7 +65,7 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 	public Order getOrderById(String id) {
 		String hql = "From Order as o where o.name = ? and o.status != 'ONSHOPPING'";
 		@SuppressWarnings("unchecked")
-		List<Object> cs = (List<Object>)getDao().queryByHQL(hql, id);
+		List<Object> cs = (List<Object>)getDao().queryByHQL(hql,0,999, id);
 		if(null!=cs){
 			for (Object object : cs) {
 				return ((Order)object).clone();
@@ -89,7 +89,7 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 		String hql = "From Order as o where o.id = ? and o.status = 'ONSHOPPING' order by o.id desc";
 		
 		@SuppressWarnings("unchecked")
-		List<Object> cs = (List<Object>)getDao().queryByHQL(hql, longId);
+		List<Object> cs = (List<Object>)getDao().queryByHQL(hql,0,999, longId);
 		if(null!=cs){
 			for (Object object : cs) {
 				return ((Order)object).clone();
@@ -104,7 +104,7 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 	public List<Order> getOrdersByUserId(long userId) {
 		String hql = "From Order as o where o.user.id = ? and o.status != 'ONSHOPPING' order by o.id desc";
 		List<Order> orders= new ArrayList<Order>();
-		List<Object> cs = (List<Object>)getDao().queryByHQL(hql, userId);
+		List<Object> cs = (List<Object>)getDao().queryByHQL(hql,0,999, userId);
 		
 		if(null!=cs){
 			for (Object object : cs) {
@@ -156,7 +156,7 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 		
 		String hql = "From Order as o where o.user.id = ? and o.status = 'ONSHOPPING' order by o.id asc";
 		@SuppressWarnings("unchecked")
-		List<Object> cs = (List<Object>)getDao().queryByHQL(hql, userId);
+		List<Object> cs = (List<Object>)getDao().queryByHQL(hql, 0,999, userId);
 		if(null!=cs){
 			for (Object object : cs) {
 				return ((Order)object).clone();
