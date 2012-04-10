@@ -218,4 +218,10 @@ public class Constants {
     public static final String SHIPPING_EXPEDITED  = "expedited";
     
     public static final String SHIPPING_METHOD = "shippingMethod";
+    
+    public static final int PAGINATION_DEFAULT_20 = 20;
+    
+    public static final String PAGINATION = "page";
+    
+    public static final String USER_ORDERS = "userOrders";
 }
