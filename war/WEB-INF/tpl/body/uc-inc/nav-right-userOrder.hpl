@@ -27,8 +27,9 @@
 		</div>
 		<div>
 			<ul class="right-box_order_footer">
-				<li><a href="">Prev</a></li>
-				<li><a href="">Next</a></li>
+				<#list 1..userOrdersCount as i>
+					<li><a href="/uc/myOrder?page=${i?string}">${i?string}</a></li>
+				</#list>
 			</ul>
 		</div>
 	</div>

@@ -10,6 +10,7 @@ public interface OrderService extends BaseService<Order,OrderDAO, Long>{
 	public Order getOrderById(String id);
 	public List<Order> getOrdersByUserId(long userId);
 	public List<Order> getOrdersByUserId(long userId,int start);
+	public int countOrdersByUserId(long userId);
 	public Order getCartById(String id);
 	public Order getUserCart(long userId);
 }
