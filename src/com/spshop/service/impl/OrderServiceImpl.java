@@ -177,7 +177,7 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 		}
 		
 		List<Order> orders= new ArrayList<Order>();
-		List<Object> cs = (List<Object>)getDao().queryByHQL(hql,begin,Constants.PAGINATION_DEFAULT_20, userId);
+		List<Object> cs = (List<Object>)getDao().queryByHQL(hql,begin,Constants.PAGINATION_DEFAULT_20, new Long(userId));
 		
 		if(null!=cs){
 			for (Object object : cs) {
