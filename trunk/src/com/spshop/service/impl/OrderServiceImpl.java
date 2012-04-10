@@ -186,4 +186,16 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 		}
 		return orders;
 	}
+
+	@Override
+	public int countOrdersByUserId(long userId) {
+		
+		String hql = "select count(o.id) From Order as o where o.user.id = ? and o.status != 'ONSHOPPING' order by o.id asc";
+		
+		List<Object> rs = (List<Object>)getDao().queryByHQL(hql,0,Constants.PAGINATION_DEFAULT_20, new Long(userId));
+		
+		int count = Integer.valueOf( rs.get(0).toString());
+		
+		return count%Constants.PAGINATION_DEFAULT_20==0 ? count/Constants.PAGINATION_DEFAULT_20 : count/Constants.PAGINATION_DEFAULT_20+1;
+	}
 }

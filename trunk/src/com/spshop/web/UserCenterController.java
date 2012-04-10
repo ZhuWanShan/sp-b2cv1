@@ -307,7 +307,12 @@ public class UserCenterController extends BaseController{
 		
 		List<Order> orders = ServiceFactory.getService(OrderService.class).getOrdersByUserId(getUserView().getLoginUser().getId(), start);
 		
+		int count = ServiceFactory.getService(OrderService.class).countOrdersByUserId(getUserView().getLoginUser().getId());
+		
 		model.addAttribute(USER_ORDERS, orders);
+		model.addAttribute(USER_ORDERS_COUNT, count);
+		model.addAttribute(PAGINATION, start);
+		
 		
 		return "userOrder";
 	}
