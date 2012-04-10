@@ -59,7 +59,7 @@ public abstract class AbstractBaseDAO<T extends Component, ID extends Serializab
 	    return q.list();
 	}
 	
-	public Object queryByHQL(String hql,Object... params){
+/*	public Object queryByHQL(String hql,Object... params){
 		Query q = getSession().createQuery(hql);
 		if(null!=params){
 			for (int i = 0 ; i < params.length; i++) {
@@ -68,7 +68,7 @@ public abstract class AbstractBaseDAO<T extends Component, ID extends Serializab
 		}
 	    return q.list();
 	}
-	
+	*/
 	public Object queryByHQL(String hql,int start, int max,Object... params){
 		Query q = getSession().createQuery(hql).setFirstResult(start).setMaxResults(max);
 		if(null!=params){
