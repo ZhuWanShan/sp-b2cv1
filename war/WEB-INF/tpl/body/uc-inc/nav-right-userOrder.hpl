@@ -28,7 +28,7 @@
 		<div>
 			<ul class="right-box_order_footer">
 				<#list 1..userOrdersCount as i>
-					<li><a href="/uc/myOrder?page=${i?string}">${i?string}</a></li>
+					<li><a href="/uc/myOrder?page=${i?string}"  ${(page==i)?string("class='red'","")}>${i?string}</a></li>
 				</#list>
 			</ul>
 		</div>
