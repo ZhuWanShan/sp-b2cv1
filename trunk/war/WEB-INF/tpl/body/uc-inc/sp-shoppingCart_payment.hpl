@@ -84,7 +84,7 @@
         <li>${address.address1!''}</li>
         <li>${address.address2!''}</li>
         <li>
-        ${address.city!''}, ${address.stateProvince!''}, ${order.customerCountry!''}</li>
+        ${address.city!''}, ${address.stateProvince!''}, ${siteView.countryMap[address.country?string].name}</li>
         <li>Postal code: ${address.postalCode!''}</li>
         <li>Phone Number: ${address.phone!''}</li>
      </ul>
@@ -99,7 +99,7 @@
         <li>${address.address1!''}</li>
         <li>${address.address2!''}</li>
         <li>
-        ${address.city!''}, ${address.stateProvince!''}, ${order.customerBCountry!''}</li>
+        ${address.city!''}, ${address.stateProvince!''}, ${siteView.countryMap[address.country?string].name}</li>
         <li>Postal code: ${address.postalCode!''}</li>
         <li>Phone Number: ${address.phone!''}</li>
      </ul>

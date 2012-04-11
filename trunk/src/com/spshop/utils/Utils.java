@@ -180,14 +180,31 @@ public class Utils {
 	
 	public static User retrieveUser(HttpServletRequest request){
 		User user = (User) request.getSession().getAttribute(USER_INFO);
+		String userProfile = request.getParameter(USER_PROFILE);
+		
+
+		if(null==user && StringUtils.isNotBlank(userProfile)){
+			user = retrieveUserFromProfileString(userProfile);
+		}
+		
 		if(null==user){
 			user = retrieveUserFromCookies(request.getCookies());
 			 request.getSession().setAttribute(USER_INFO, user);
 		}
+		
 		return user;
 	}
 	
 	
+	private static User retrieveUserFromProfileString(String userProfile) {
+		String value = Utils.OBJ.getDecry(userProfile);
+		String[] mixUser = value.split(USER_NAME_PWD_SPLIT);
+		User user = new User();
+		user.setEmail(mixUser[0]);
+		user.setPassword(mixUser[1]);
+		return ServiceFactory.getService(UserService.class).validateUser(user);
+	}
+
 	public static User retrieveUserFromCookies(Cookie cookies[]){
 		try {
 			if(null!=cookies){

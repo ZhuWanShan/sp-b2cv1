@@ -4,6 +4,7 @@ import static com.spshop.utils.Constants.*;
 
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -143,7 +144,15 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		
 		List<Country> countries = ServiceFactory.getService(CountryService.class).getAllCountries();
 		
+		Map<String, Country> cMap = new HashMap<String,Country>();
+		
+		for (Iterator iterator = countries.iterator(); iterator.hasNext();) {
+			Country country = (Country) iterator.next();
+			cMap.put(country.getId()+"", country);
+		}
+		
 		siteView.setCountries(countries);
+		siteView.setCountryMap(cMap);
 		
 		return siteView;
 	}
