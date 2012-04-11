@@ -2,6 +2,7 @@ package com.spshop.web.view;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ public class SiteView {
 	private String currency;
 	private Map<String,Float> currencies;
 	private List<Country> countries = new ArrayList<Country>();
+	private Map<String,Country> countryMap = new HashMap<String,Country>();
 	
 	public Site getSite() {
 		return site;
@@ -59,6 +61,12 @@ public class SiteView {
 	}
 	public void setCountries(List<Country> countries) {
 		this.countries = countries;
+	}
+	public Map<String,Country> getCountryMap() {
+		return countryMap;
+	}
+	public void setCountryMap(Map<String,Country> countryMap) {
+		this.countryMap = countryMap;
 	}
 	
 }
