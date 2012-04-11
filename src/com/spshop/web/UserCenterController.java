@@ -318,7 +318,11 @@ public class UserCenterController extends BaseController{
 	}
 	
 	@RequestMapping("/orderDetails")
-	public String orderDetails(Model model) {
+	public String orderDetails(Model model, HttpServletRequest request) {
+		String userProfile = request.getParameter("");
+		
+		
+		
 		return "orderDetails";
 	}
 	

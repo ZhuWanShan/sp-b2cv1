@@ -1,7 +1,7 @@
 <#include "/header/top_clean.hpl">
-<div class="main_box" id="main_box">
+<p>redirecting to Paypal site</p>
+<div>
 	<#assign defaultOrder = currentOrder>
-	<p>redirecting to Paypal site</p>
 	<form action="https://www.paypal.com/cgi-bin/webscr" method="post"
 		id="paypaysubmitForm">
 		<input type="hidden" name="cmd" value="_xclick"> <input
