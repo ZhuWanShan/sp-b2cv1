@@ -226,4 +226,6 @@ public class Constants {
     public static final String USER_ORDERS = "userOrders";
     
     public static final String USER_ORDERS_COUNT = "userOrdersCount";
+    
+    public static final String USER_PROFILE = "userProfile";
 }
