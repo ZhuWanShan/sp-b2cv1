@@ -18,8 +18,7 @@
 			Coupon:<span class="red">${(order.currency)}&nbsp;-${(userView.currencyRate*order.couponCutOff)?string(",##0.##")}</span>
 		</dd>
 		<dd>
-			Shipping Cost:${(order.currency)}&nbsp;<span
-				class="order_shipping_total">${(userView.currencyRate*order.dePrice)?string(",##0.##")}</span>
+			Shipping Cost:<span class="red">${(order.currency)}&nbsp;${(userView.currencyRate*order.dePrice)?string(",##0.##")}</span>
 		</dd>
 		<dd class="separator">
 		</dd>
