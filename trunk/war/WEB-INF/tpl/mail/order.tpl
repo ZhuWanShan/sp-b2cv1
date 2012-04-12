@@ -330,9 +330,21 @@
         <td style="padding:0in 0in 0in 15.0pt">
         <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt;line-height:
         16.5pt"><span style="font-size:9.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;">${order.currency}
-        ${(order.dePrice*currencyRate)?string("0.##")}<o:p></o:p></span></p>
+        ${(currencyRate*order.dePrice)?string(",##0.##")}<o:p></o:p></span></p>
         </td>
         <td width="4" style="width:3.0pt;padding:0in 0in 0in 0in"></td>
+       </tr>
+       <tr style="mso-yfti-irow:2">
+	        <td style="padding:0in 0in 0in 0in">
+	        <p align="right" class="MsoNormal" style="margin:0in;margin-bottom:.0001pt;
+	        text-align:right;line-height:16.5pt"><span style="font-size:9.0pt;
+	        mso-fareast-font-family:&quot;Times New Roman&quot;">Coupon:<o:p></o:p></span></p>
+	        </td>
+	        <td style="padding:0in 0in 0in 15.0pt">
+	        <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt;line-height:
+	        16.5pt"><span style="font-size:9.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;">${(order.currency)}&nbsp;-${(currencyRate*order.couponCutOff)?string(",##0.##")}<o:p></o:p></span></p>
+	        </td>
+	        <td width="4" style="width:3.0pt;padding:0in 0in 0in 0in"></td>
        </tr>
        <tr style="mso-yfti-irow:4;mso-yfti-lastrow:yes">
         <td style="border:none;border-top:solid #E2E2E2 1.0pt;mso-border-top-alt:
@@ -345,7 +357,7 @@
         solid #E2E2E2 .75pt;padding:7.5pt 0in 0in 15.0pt">
         <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt;line-height:
         16.5pt"><strong><span style="font-size:9.0pt;mso-fareast-font-family:
-        &quot;Times New Roman&quot;">${order.currency}  ${((order.dePrice+order.totalPrice)*currencyRate)?string("0.##")}</span></strong><span style="font-size:
+        &quot;Times New Roman&quot;">${order.currency}  ${(currencyRate*(order.totalPrice-order.couponCutOff+order.dePrice))?string(",##0.##")}</span></strong><span style="font-size:
         9.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p>
         </td>
         <td width="4" style="width:3.0pt;padding:0in 0in 0in 0in"></td>
