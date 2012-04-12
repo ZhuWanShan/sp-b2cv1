@@ -1,6 +1,7 @@
-<#assign pageKeywords = "keywords">
-<#assign pageDescription = "pageDescription">
-<#assign pageTitle = "pageTitle">
+<#assign pageKeywords = "Order Details on Honeybuy.com, Fashion Dress, Apparel, Suits With Free Shipping">
+<#assign pageDescription = "Order Details on Honeybuy.com - Enjoy Online Shopping For Fashion Dress, Apparel, Suits With Free Shipping">
+<#assign pageTitle = "Order Details on Honeybuy.com: Fashion Dress, Apparel, Suits With Free Shipping">
+
 
 <#include "/header/top.hpl">
 <#include "/body/body-sp-orderDetails.hpl">	

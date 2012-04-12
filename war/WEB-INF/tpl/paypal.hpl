@@ -1,6 +1,6 @@
-<#assign pageKeywords = "keywords">
-<#assign pageDescription = "pageDescription">
-<#assign pageTitle = "pageTitle">
+<#assign pageKeywords = "Paypal, Honeybuy.com">
+<#assign pageDescription = "Pay by Paypal">
+<#assign pageTitle = "Pay by Paypal">
 
 <#include "/header/top_clean.hpl">
 <p>redirecting to Paypal site</p>
