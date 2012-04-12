@@ -116,19 +116,15 @@
         <td width="10" valign="top" style="width:7.5pt;padding:.75pt .75pt .75pt .75pt"></td>
         <td width="170" valign="top" style="width:127.5pt;padding:.75pt .75pt .75pt .75pt">
         <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;">
-		 <#if order.bcustomerName??>
-		${order.bcustomerName}
-		</#if>
+        
+        <#assign "address"= primary!order.primaryAddress >
+        
+		${address.fullName}
 		<br>
-        <#if order.bcustomerAddress??>
-			${order.bcustomerAddress}
-		</#if>
-        <#if order.bcity??>
-			${order.bcity}
-		</#if><br>
-        Phone: <#if order.bphone??>
-			${order.bphone}
-		</#if><o:p></o:p></span></p>
+        (${address.address1!''} ${address.city!''},
+							${address.stateProvince!''},
+							${siteView.countryMap[address.country?string].name}, Postal Code:
+							${address.postalCode!''}) Phone:${address.phone!''}</span></p>
         </td>
        </tr>
        <tr style="mso-yfti-irow:1;height:11.25pt">
@@ -164,21 +160,19 @@
         </td>
         <td width="10" valign="top" style="width:7.5pt;padding:.75pt .75pt .75pt .75pt"></td>
         <td width="170" valign="top" style="width:127.5pt;padding:.75pt .75pt .75pt .75pt">
-        <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;">	 <#if order.bcustomerName??>
-		${order.customerName}
-		</#if><br>
-        <#if order.customerAddress??>
-			${order.customerAddress}
-		</#if>
-       <#if order.city??>
-			${order.city}
-		</#if><br>
-		 <#if order.customerCountry??>
-			${order.customerCountry}
-		</#if><br>
-        Phone:<#if order.deliverPhone??>
-			${order.deliverPhone}
-		</#if><o:p></o:p></span></p>
+        <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;">	
+        		<#if order.billingSameAsPrimary> 
+						<#assign "address"= order.primaryAddress >
+					<#else>
+					 	<#assign "address"= order.billingAddress >
+					 </#if>
+        
+       	 ${address.fullName}
+       	 <br/>
+							(${address.address1!''} ${address.city!''},
+							${address.stateProvince!''},${siteView.countryMap[address.country?string].name},
+							Postal Code: ${address.postalCode!''}) Phone:${address.phone!''}
+        </span></p>
         </td>
        </tr>
        <tr style="mso-yfti-irow:1;height:11.25pt">
