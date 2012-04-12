@@ -76,7 +76,7 @@
       <p style="margin-top:7.5pt;margin-right:0in;margin-bottom:7.5pt; margin-left:0in;line-height:13.5pt;paading: 0"><span style="font-size:11.0pt">Thank you for ordering from HoneyBuy.com!</span></p>
       <p style="margin-top:7.5pt;margin-right:0in;margin-bottom:7.5pt;
       margin-left:0in;line-height:13.5pt;paading: 0;font-size:11.0pt">We have received your Payment! 
-	  <P>We have been processing <a href="http://www.honeybuy.com/orders?id=${order.name}">your orders</a>, and you will receive your product in 15-30 Days. </p>
+	  <P>We have been processing <a href="http://www.honeybuy.com/uc/orderDetails?id=${order.name}">your orders</a>, and you will receive your product in 15-30 Days. </p>
 	  </p>
    
       </td>
