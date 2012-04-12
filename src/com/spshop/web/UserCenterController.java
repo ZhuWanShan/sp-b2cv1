@@ -30,6 +30,7 @@ import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.UserService;
 import com.spshop.utils.EmailTools;
 import com.spshop.utils.Utils;
+import com.spshop.web.view.SiteView;
 
 import static com.spshop.utils.Constants.*;
 
@@ -161,6 +162,9 @@ public class UserCenterController extends BaseController{
 			final Order o = order;
 			
 			final Map<String,Object> root = new HashMap<String,Object>(); 
+			
+			final SiteView siteView =  getSiteView();
+			
 			root.put("order", order);
 			
 			float currencyRate = 1;
@@ -169,8 +173,10 @@ public class UserCenterController extends BaseController{
 				currencyRate =  getSiteView().getCurrencies().get(o.getCurrency());
 			}
 			
+			
+			
 			root.put("currencyRate",currencyRate);
-			root.put(SITE_VIEW, getSiteView());
+			root.put(SITE_VIEW,siteView);
 			new Thread(){
 				public void run() {
 					try{
