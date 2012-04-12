@@ -12,6 +12,7 @@ import net.sf.json.JSONObject;
 
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,12 +28,16 @@ import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.UserService;
+import com.spshop.utils.EmailTools;
 import com.spshop.utils.Utils;
 
 import static com.spshop.utils.Constants.*;
 
 @Controller
 public class UserCenterController extends BaseController{
+	
+	Logger logger = Logger.getLogger(UserCenterController.class);
+	
 	@RequestMapping("/changePwd")
 	public String changePwd(Model model) {
 		return "changePwd";
@@ -151,7 +156,31 @@ public class UserCenterController extends BaseController{
 		
 		model.addAttribute(CURRENT_ORDER,order);
 		
-		return "paypal";
+		if(null!=order && !order.getItems().isEmpty()){
+			final Map<String,Object> root = new HashMap<String,Object>(); 
+			final Order o = order;
+			root.put("order", order);
+			
+			float currencyRate = 1;
+			
+			if(!DEFAULT_CURRENCY.equals(o.getCurrency())){
+				currencyRate =  getSiteView().getCurrencies().get(o.getCurrency());
+			}
+			
+			root.put("currencyRate",currencyRate);
+			new Thread(){
+				public void run() {
+					try{
+						EmailTools.sendMail("paid", "Order Received, Awaiting Payment Confirmation", root,o.getUser().getEmail());
+					}catch(Exception e){
+						logger.debug(e);
+					}
+				};
+			}.start();
+			return "paypal";
+		}
+		
+		return "shoppingCart_payment";
 	}
 	
 	@RequestMapping(value="/shoppingCart_address",method=RequestMethod.POST)

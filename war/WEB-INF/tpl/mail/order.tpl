@@ -82,7 +82,7 @@
       margin-left:0in;line-height:13.5pt;paading: 0"><span style="font-size:
       11.0pt">If you have already completed your payment, you should receive a
       "Payment Confirmation" email within 1 working day and at that
-      time, we will begin to process <a href="http://www.honeybuy.com/orders?id=${order.name}">your order</a>.<o:p></o:p></span></p>
+      time, we will begin to process <a href="http://www.honeybuy.com/uc/orderDetails?id=${order.name}">your order</a>.<o:p></o:p></span></p>
    
       </td>
       <td width="22" valign="top" style="width:16.5pt;border:none;padding:0in 0in 0in 0in"></td>

@@ -27,8 +27,18 @@
 				</c:forEach>
 			</dl>
 		</li>
-		<li>
-			<a href="/orders">Order</a>
+		<li>User Center
+				<dl class="user_menu_hidd" style="width: 200px;display: none;padding: 5px;">
+					<dd>
+						<a class="menuNav" href="/uc/changePwd">Change Password</a>
+					</dd>
+					<dd>
+						<a class="menuNav" href="/uc/userProfile">My Profile</a>
+					</dd>
+					<dd>
+						<a class="menuNav" href="/uc/myOrder">My Order</a>
+					</dd>
+				</dl>
 		</li>
 		<script type="text/javascript">
 		if(""!="${pageForm.pageProperties.loginError}"){
@@ -77,27 +87,7 @@
 				<span id="hide_login_span">
 					${sessionScope.userInfo.email}
 				</span>.
-				(<a href="/login?<%=Constants.ACTION %>=<%=Constants.LOGOUT_ACTION %>" title="Sign out">Sign out</a>)
-				<div style="width: 100%; display: none; cursor: default;"
-					class="user_menu_hidd">
-					<div class="indexlogin">
-						<dl>
-							<dd class="dashborder">
-								<a href="/orders" title="View Orders">View Orders</a>
-							</dd>
-							<dd class="dashborder">
-								<a href="/uc/userProfile" rel="nofollow" title="Account Settings">Account Settings</a>
-							</dd>
-							<!-- 
-							<dd class="dashborder">
-								<a href="#" rel="nofollow" title="My Favorites">My Favorites</a>
-							</dd> 
-							<dd class="dashborder">
-								<a href="#" rel="nofollow" title="Manage Address Book">Manage Address Book</a>
-							</dd>-->
-						</dl>
-					</div>
-				</div>
+				(<a href="/uc/logout" title="Sign out">Sign out</a>)
 			</li>
 		</c:if>
 	</ul>
