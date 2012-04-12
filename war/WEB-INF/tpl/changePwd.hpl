@@ -1,3 +1,7 @@
+<#assign pageKeywords = "keywords">
+<#assign pageDescription = "pageDescription">
+<#assign pageTitle = "pageTitle">
+
 <#include "/header/top.hpl">
 <#include "/body/body-uc-changePwd.hpl">	
 <#include "/footer/ucf1.hpl">

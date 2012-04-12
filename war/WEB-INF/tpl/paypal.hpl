@@ -1,3 +1,7 @@
+<#assign pageKeywords = "keywords">
+<#assign pageDescription = "pageDescription">
+<#assign pageTitle = "pageTitle">
+
 <#include "/header/top_clean.hpl">
 <p>redirecting to Paypal site</p>
 <div>
