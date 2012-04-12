@@ -54,11 +54,11 @@
 							<dl>
 								<dd>
 									Username<br> <input type="text" autocomplete="off"
-										name="loginEmail" id="loginEmail" class="loginuserpass">
+										name="LoginEmail" id="loginEmail" class="loginuserpass">
 								</dd>
 								<dd>
 									Password<br> <input type="password"
-										name="loginPassword" class="loginuserpass">
+										name="LoginPwd" class="loginuserpass">
 								</dd>
 								<dd class="Question_mark">
 									Forgot your password?<br> <a
