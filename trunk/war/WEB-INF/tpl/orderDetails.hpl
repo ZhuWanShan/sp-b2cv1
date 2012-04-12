@@ -1,3 +1,7 @@
+<#assign pageKeywords = "keywords">
+<#assign pageDescription = "pageDescription">
+<#assign pageTitle = "pageTitle">
+
 <#include "/header/top.hpl">
 <#include "/body/body-sp-orderDetails.hpl">	
 <#include "/footer/bottom.hpl">
