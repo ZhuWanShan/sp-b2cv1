@@ -157,8 +157,10 @@ public class UserCenterController extends BaseController{
 		model.addAttribute(CURRENT_ORDER,order);
 		
 		if(null!=order && !order.getItems().isEmpty()){
-			final Map<String,Object> root = new HashMap<String,Object>(); 
+			
 			final Order o = order;
+			
+			final Map<String,Object> root = new HashMap<String,Object>(); 
 			root.put("order", order);
 			
 			float currencyRate = 1;
@@ -168,6 +170,7 @@ public class UserCenterController extends BaseController{
 			}
 			
 			root.put("currencyRate",currencyRate);
+			root.put(SITE_VIEW, getSiteView());
 			new Thread(){
 				public void run() {
 					try{
