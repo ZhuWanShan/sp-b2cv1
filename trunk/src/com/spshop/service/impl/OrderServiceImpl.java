@@ -10,7 +10,6 @@ import java.util.Random;
 import org.apache.commons.lang.StringUtils;
 
 import com.spshop.dao.intf.OrderDAO;
-import com.spshop.model.Country;
 import com.spshop.model.Coupon;
 import com.spshop.model.Order;
 import com.spshop.model.User;
@@ -35,6 +34,10 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 		
 		if(order.getName() == null){
 			order.setName(getOrderId());
+		}
+		
+		if(null==order.getStatus()){
+			order.setStatus(Constants.DEFAULT_CURRENCY);
 		}
 		
 		order.setStatus(status);
