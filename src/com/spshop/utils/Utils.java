@@ -9,6 +9,9 @@ import java.security.SecureRandom;
 import java.security.Security;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -27,6 +30,7 @@ import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.UserService;
+import com.spshop.web.interceptor.ViewDataInterceptor;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
@@ -44,6 +48,28 @@ public class Utils {
 
 	private Utils() {
 		init("XAdadajkxsfdfskldfhsdfhhhasfasfaasdaqwerqweqwasasdazxczxczxcfvhdfghdf");
+	}
+	
+	public static Map<String,Float> getCurrencies(){
+		Map<String,Float> currencies = new HashMap<String, Float>();
+		Properties cp = new Properties();
+		try {
+			
+			cp.load(ViewDataInterceptor.class.getResourceAsStream("/currency.properties"));
+			for (Object currencyName : cp.keySet()) {
+				try {
+					float rate = Float.parseFloat(cp.get(currencyName).toString());
+					currencies.put(currencyName.toString().trim(), rate);
+				} catch (NumberFormatException e) {
+					log.error(e.getMessage(), e);
+				}
+			}
+		}catch(Exception e){
+			log.error(e.getMessage(), e);
+			throw new RuntimeException(e);
+		}
+		
+		return currencies;
 	}
 	
 	public void init(String str) {
