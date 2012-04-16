@@ -2,20 +2,27 @@ package com.spshop.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import org.apache.commons.lang.StringUtils;
 
 import com.spshop.dao.intf.OrderDAO;
+import com.spshop.model.Country;
 import com.spshop.model.Coupon;
 import com.spshop.model.Order;
 import com.spshop.model.User;
+import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.AbstractService;
 import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.CouponService;
 import com.spshop.service.intf.OrderService;
 import com.spshop.utils.Constants;
+import com.spshop.utils.EmailTools;
+import com.spshop.utils.Utils;
 
 public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> implements OrderService{
 	public Order saveOrder(Order order, String status){
@@ -53,6 +60,44 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 				order.setCouponCutOff(0);
 				order.setCouponCode(null);
 			}
+		}
+		
+		if(OrderStatus.PAID.toString().equals(order.getStatus())){
+			final Map<String,Object> root = new HashMap<String,Object>(); 
+			final Order o = order;
+			root.put("order", order);
+			
+			Map<String,Float> currencies = Utils.getCurrencies();
+			
+			float currencyRate = 1;
+			
+			if(!Constants.DEFAULT_CURRENCY.equalsIgnoreCase(order.getCurrency())){
+				currencyRate = currencies.get(order.getCurrency());
+			}
+			root.put("currencyRate", currencyRate);
+			
+			
+			
+			String primaryAddCountry = ServiceFactory.getService(CountryService.class).getCountryById(order.getPrimaryAddress().getCountry()).getName();
+			String billingAddCountry = primaryAddCountry;
+			if(order.isBillingSameAsPrimary()){
+				billingAddCountry = ServiceFactory.getService(CountryService.class).getCountryById(order.getBillingAddress().getCountry()).getName();
+			}
+			
+			
+			root.put("primaryAddCountry", primaryAddCountry);
+			
+			root.put("billingAddCountry", billingAddCountry);
+			
+			new Thread(){
+				public void run() {
+					try{
+						EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,o.getUser().getEmail());
+					}catch(Exception e){
+						
+					}
+				};
+			}.start();
 		}
 		
 		order = getDao().save(order);

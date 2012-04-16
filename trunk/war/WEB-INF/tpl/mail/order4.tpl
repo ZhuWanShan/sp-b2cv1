@@ -159,21 +159,16 @@
         </td>
         <td width="10" valign="top" style="width:7.5pt;padding:.75pt .75pt .75pt .75pt"></td>
         <td width="170" valign="top" style="width:127.5pt;padding:.75pt .75pt .75pt .75pt">
-        <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;">	 <#if order.bcustomerName??>
-		${order.customerName}
-		</#if><br>
-        <#if order.customerAddress??>
-			${order.customerAddress}
-		</#if>
-       <#if order.city??>
-			${order.city}
-		</#if><br>
-		 <#if order.customerCountry??>
-			${order.customerCountry}
-		</#if><br>
-        Phone:<#if order.deliverPhone??>
-			${order.deliverPhone}
-		</#if><o:p></o:p></span></p>
+        <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;">
+        
+        <#assign "address"= primary!order.primaryAddress >
+        
+		${address.fullName}
+		<br>
+        (${address.address1!''} ${address.city!''},
+							${address.stateProvince!''},
+							${primaryAddCountry!''}, Postal Code:
+							${address.postalCode!''}) Phone:${address.phone!''}</span></p>
         </td>
        </tr>
        <tr style="mso-yfti-irow:1;height:11.25pt">
@@ -191,11 +186,19 @@
         </td>
         <td width="10" valign="top" style="width:7.5pt;padding:.75pt .75pt .75pt .75pt"></td>
         <td valign="top" style="padding:.75pt .75pt .75pt .75pt">
-        <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;">
-		<#if order.shippingMethod??>
-			${order.shippingMethod}
-		</#if>
-		<o:p></o:p></span></p>
+        <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;">	
+        		<#if order.billingSameAsPrimary> 
+						<#assign "address"= order.primaryAddress >
+					<#else>
+					 	<#assign "address"= order.billingAddress >
+					 </#if>
+        
+       	 ${address.fullName}
+       	 <br/>
+							(${address.address1!''} ${address.city!''},
+							${address.stateProvince!''},${billingAddCountry!''},
+							Postal Code: ${address.postalCode!''}) Phone:${address.phone!''}
+        </span></p>
         </td>
        </tr>
       </tbody></table>
@@ -335,6 +338,20 @@
         </td>
         <td width="4" style="width:3.0pt;padding:0in 0in 0in 0in"></td>
        </tr>
+       
+       <tr style="mso-yfti-irow:2">
+	        <td style="padding:0in 0in 0in 0in">
+	        <p align="right" class="MsoNormal" style="margin:0in;margin-bottom:.0001pt;
+	        text-align:right;line-height:16.5pt"><span style="font-size:9.0pt;
+	        mso-fareast-font-family:&quot;Times New Roman&quot;">Coupon:<o:p></o:p></span></p>
+	        </td>
+	        <td style="padding:0in 0in 0in 15.0pt">
+	        <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt;line-height:
+	        16.5pt"><span style="font-size:9.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;">${(order.currency)}&nbsp;-${(currencyRate*order.couponCutOff)?string(",##0.##")}<o:p></o:p></span></p>
+	        </td>
+	        <td width="4" style="width:3.0pt;padding:0in 0in 0in 0in"></td>
+       </tr>
+       
        <tr style="mso-yfti-irow:4;mso-yfti-lastrow:yes">
         <td style="border:none;border-top:solid #E2E2E2 1.0pt;mso-border-top-alt:
         solid #E2E2E2 .75pt;padding:7.5pt 0in 0in 15.0pt">
@@ -346,7 +363,7 @@
         solid #E2E2E2 .75pt;padding:7.5pt 0in 0in 15.0pt">
         <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt;line-height:
         16.5pt"><strong><span style="font-size:9.0pt;mso-fareast-font-family:
-        &quot;Times New Roman&quot;">${order.currency}  ${((order.dePrice+order.totalPrice)*currencyRate)?string("0.##")}</span></strong><span style="font-size:
+        &quot;Times New Roman&quot;">${order.currency}  ${(currencyRate*(order.totalPrice-order.couponCutOff+order.dePrice))?string(",##0.##")}</span></strong><span style="font-size:
         9.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p>
         </td>
         <td width="4" style="width:3.0pt;padding:0in 0in 0in 0in"></td>

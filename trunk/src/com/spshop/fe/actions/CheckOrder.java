@@ -153,19 +153,7 @@ public class CheckOrder extends BaseAction {
 					}
 					*/
 					ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.getValue());
-					final Map<String,Object> root = new HashMap<String,Object>(); 
-					final Order o = order;
-					root.put("order", order);
-					root.put("currencyRate", getCurrencies(request).get(order.getCurrency()));
-					new Thread(){
-						public void run() {
-							try{
-								EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,o.getCustomerEmail());
-							}catch(Exception e){
-								
-							}
-						};
-					}.start();
+					
 				}
 				
 				
