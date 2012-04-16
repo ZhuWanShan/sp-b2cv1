@@ -80,10 +80,9 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 			
 			String primaryAddCountry = ServiceFactory.getService(CountryService.class).getCountryById(order.getPrimaryAddress().getCountry()).getName();
 			String billingAddCountry = primaryAddCountry;
-			if(order.isBillingSameAsPrimary()){
+			if(!order.isBillingSameAsPrimary()){
 				billingAddCountry = ServiceFactory.getService(CountryService.class).getCountryById(order.getBillingAddress().getCountry()).getName();
 			}
-			
 			
 			root.put("primaryAddCountry", primaryAddCountry);
 			
