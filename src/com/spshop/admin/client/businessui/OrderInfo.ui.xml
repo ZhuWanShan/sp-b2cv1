@@ -100,10 +100,10 @@
 							<g:Label ui:field="createDate" styleName="{style.value}"/>
 						</g:customCell>
 						<g:customCell>
-							<g:Label text="Gender" styleName="{style.items}"/>
+							<g:Label text="Coupon Id" styleName="{style.items}"/>
 						</g:customCell>
 						<g:customCell>
-							<g:Label styleName="{style.value}" ui:field="gender"/>
+							<g:Label styleName="{style.value}" ui:field="couponId"/>
 						</g:customCell>
 					</g:row>
 					<g:row>
@@ -114,10 +114,16 @@
 							<g:Label ui:field="email" styleName="{style.value}"/>
 						</g:customCell>
 						<g:customCell>
-							<g:Label text="Message" styleName="{style.items}"/>
+							<g:Label ui:field="message" styleName="{style.items}"/>
 						</g:customCell>
 						<g:customCell>
-							<g:Label ui:field="message" styleName="{style.value}"/>
+							<g:Label styleName="{style.value}"/>
+						</g:customCell>
+						<g:customCell>
+							<g:Label ui:field="bbb" styleName="{style.items}" text="Coupon Price"/>
+						</g:customCell>
+						<g:customCell>
+							<g:Label ui:field="couponPrice"/>
 						</g:customCell>
 					</g:row>
 				</g:Grid>
@@ -136,6 +142,14 @@
 						</g:customCell>
 						<g:customCell>
 							<g:Label ui:field="billingAddr" styleName="{style.value}"/>
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Message" styleName="{style.items}"/>
+						</g:customCell>
+						<g:customCell>
+							<g:Label ui:field="customerMsg"/>
 						</g:customCell>
 					</g:row>
 				</g:Grid>
