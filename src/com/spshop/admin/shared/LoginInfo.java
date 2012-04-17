@@ -1,7 +1,9 @@
 package com.spshop.admin.shared;
 
 import java.io.Serializable;
+import java.util.Map;
 
+import com.spshop.model.Country;
 import com.spshop.model.Site;
 
 public class LoginInfo implements Serializable{
@@ -13,6 +15,7 @@ public class LoginInfo implements Serializable{
 	
 	private Site site;
 	private String userID;
+	private Map<String, Country> countryMap;
 	public void setSite(Site site) {
 		this.site = site;
 	}
@@ -25,5 +28,11 @@ public class LoginInfo implements Serializable{
 	public String getUserID() {
 		return userID;
 	}
+    public void setCountryMap(Map<String, Country> countryMap) {
+        this.countryMap = countryMap;
+    }
+    public Map<String, Country> getCountryMap() {
+        return countryMap;
+    }
 
 }
