@@ -74,31 +74,19 @@
 							<g:Label ui:field="orderId" styleName="{style.value}"/>
 						</g:customCell>
 						<g:customCell>
-							<g:Label text="OrderType" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="orderType" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
 							<g:Label text="TotalPrice" styleName="{style.items}"/>
 						</g:customCell>
 						<g:customCell>
 							<g:Label ui:field="totalPrice" styleName="{style.value}"/>
 						</g:customCell>
 						<g:customCell>
-							<g:Label text="City" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="city" styleName="{style.value}"/>
-						</g:customCell>
-					</g:row>
-					<g:row>
-						<g:customCell>
 							<g:Label text="DePrice" styleName="{style.items}"/>
 						</g:customCell>
 						<g:customCell>
 							<g:Label ui:field="dePrice" styleName="{style.value}"/>
 						</g:customCell>
+					</g:row>
+					<g:row>
 						<g:customCell>
 							<g:Label text="Currency" styleName="{style.items}"/>
 						</g:customCell>
@@ -112,169 +100,42 @@
 							<g:Label ui:field="createDate" styleName="{style.value}"/>
 						</g:customCell>
 						<g:customCell>
-							<g:Label styleName="{style.items}"/>
+							<g:Label text="Gender" styleName="{style.items}"/>
 						</g:customCell>
 						<g:customCell>
-							<g:Label styleName="{style.value}"/>
+							<g:Label styleName="{style.value}" ui:field="gender"/>
 						</g:customCell>
 					</g:row>
 					<g:row>
-						<g:customCell>
-							<g:Label text="Name" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="customerName" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label text="State" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="state" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label text="Address1" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="customerAddr1" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label text="Address2" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="customerAddr2" styleName="{style.value}"/>
-						</g:customCell>
-					</g:row>
-					<g:row>
-						<g:customCell>
-							<g:Label text="Tel" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="customerTel" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label text="Country" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="customerCountry" styleName="{style.value}"/>
-						</g:customCell>
 						<g:customCell>
 							<g:Label text="Email" styleName="{style.items}"/>
 						</g:customCell>
 						<g:customCell>
-							<g:Label ui:field="customerEmail" styleName="{style.value}"/>
+							<g:Label ui:field="email" styleName="{style.value}"/>
 						</g:customCell>
-						<g:customCell>
-							<g:Label text="ZIP" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="customerZIP" styleName="{style.value}"/>
-						</g:customCell>
-					</g:row>
-					<g:row>
 						<g:customCell>
 							<g:Label text="Message" styleName="{style.items}"/>
 						</g:customCell>
 						<g:customCell>
-							<g:Label ui:field="customerMsg" styleName="{style.value}"/>
+							<g:Label ui:field="message" styleName="{style.value}"/>
+						</g:customCell>
+					</g:row>
+				</g:Grid>
+				<g:Grid width="100%" borderWidth="1">
+					<g:row>
+						<g:customCell>
+							<g:Label styleName="{style.items}" text="Primary Address"/>
 						</g:customCell>
 						<g:customCell>
-							<g:Label text="Gender" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="customerGender" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label styleName="{style.value}"/>
+							<g:Label styleName="{style.value}" ui:field="primaryAddr"/>
 						</g:customCell>
 					</g:row>
 					<g:row>
 						<g:customCell>
-							<g:Label text="DeliverCode" styleName="{style.items}"/>
+							<g:Label styleName="{style.items}" text="Billing Address"/>
 						</g:customCell>
 						<g:customCell>
-							<g:Label ui:field="deliverCode" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label text="DeliverCompany" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="deliverCompany" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label text="DeliverPhone" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="deliverPhone" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label styleName="{style.value}"/>
-						</g:customCell>
-					</g:row>
-					<g:row>
-						<g:customCell>
-							<g:Label text="BillingName" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="bName" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label text="BillingGender" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="bGender" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label text="BillingAddress1" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="bAddr1" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label text="BillingAddress2" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="bAddr2" styleName="{style.value}"/>
-						</g:customCell>
-					</g:row>
-					<g:row>
-						<g:customCell>
-							<g:Label text="BillingCity" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="bCity" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label text="BillingZIP" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="bZIP" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label text="BillingPhone" styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label ui:field="bPhone" styleName="{style.value}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:HTML wordWrap="true" ui:field="orderURL">orderURL</g:HTML>
-						</g:customCell>
-						<g:customCell>
-							<g:Label styleName="{style.items}"/>
-						</g:customCell>
-						<g:customCell>
-							<g:Label styleName="{style.value}"/>
+							<g:Label ui:field="billingAddr" styleName="{style.value}"/>
 						</g:customCell>
 					</g:row>
 				</g:Grid>
