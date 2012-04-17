@@ -41,11 +41,12 @@ public class OrderInfo extends Composite {
     @UiField Label currency;
     @UiField Label createDate;
     @UiField Label email;
-    @UiField Label message;
     @UiField Label billingAddr;
-    @UiField Label gender;
+    @UiField Label couponId;
     @UiField Label dePrice;
     @UiField Label primaryAddr;
+    @UiField Label customerMsg;
+    @UiField Label couponPrice;
     private void populateOrderInfo(){
         DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
         this.orderId.setText(this.order.getName());
@@ -54,8 +55,9 @@ public class OrderInfo extends Composite {
         this.currency.setText(this.order.getCurrency());
         this.createDate.setText(dateTimeFormat.format(this.order.getCreateDate()));
         this.email.setText(this.order.getCustomerEmail());
-        this.message.setText(this.order.getCustomerMsg());
-        this.gender.setText(order.getUser().getGender());
+        this.customerMsg.setText(this.order.getCustomerMsg());
+        this.couponId.setText(order.getCouponCode());
+        this.couponPrice.setText(String.valueOf(order.getCouponCutOff()));
         this.primaryAddr.setText(populateAddressString(this.order.getPrimaryAddress()));
         if (this.order.isBillingSameAsPrimary()) {
             this.billingAddr.setText(populateAddressString(this.order.getPrimaryAddress()));
@@ -81,7 +83,7 @@ public class OrderInfo extends Composite {
         initOrderInfoHeader();
         if (this.order != null && this.order.getItems() != null && this.order.getItems().size() != 0) {
             for (int i = 0; i < this.order.getItems().size(); i++) {
-                this.orderTable.setHTML(i, 0, "<ul><li>Size : "+processSize(getOptionData(this.order.getItems().get(i).getUserOptions(), "Size"), this.order.getItems().get(i).getUserOptions())+"</li><li>Closure : "+getOptionData(this.order.getItems().get(i).getUserOptions(), "Closure").getValue()+"</li><li>Color: "+processColor(getOptionData(this.order.getItems().get(i).getUserOptions(), "Color"), this.order.getItems().get(i).getUserOptions())+"</li> </ul>");
+                this.orderTable.setHTML(i, 0, populateUserOptionString(this.order.getItems().get(i).getUserOptions()));
                 this.orderTable.setText(i, 1, this.order.getItems().get(i).getCreateDate().toString());
                 this.orderTable.setHTML(i, 2, "<a target='_blank' href='"+"http://"+site.getDomain()+"/"+this.order.getItems().get(i).getProduct().getName()+"'>"+this.order.getItems().get(i).getProduct().getTitle()+"</a>");
                 this.orderTable.setText(i, 3, String.valueOf(this.order.getItems().get(i).getQuantity()));
@@ -99,13 +101,32 @@ public class OrderInfo extends Composite {
         return new UserOption();
     }
     
-    private String processSize(UserOption userOption, List<UserOption> userOptions){
-        if ("Customized".equals(userOption.getValue())) {
-            return getOptionData(userOptions, "Customized Size").getValue();
-        } else {
-            return userOption.getValue();
+    private String populateUserOptionString(List<UserOption> userOptions){
+        StringBuffer html = new StringBuffer();
+        html.append("<ul>");
+        for (UserOption userOption : userOptions) {
+            html.append("<li>");
+            html.append(userOption.getName());
+            html.append(": ");
+            if ("Color".equals(userOption.getName())) {
+                html.append(processColor(userOption, userOptions));
+            } else {
+                html.append(userOption.getValue());
+            }
+            html.append("</li>");
         }
+        
+        html.append("</ul>");
+        return html.toString();
     }
+    
+//    private String processSize(UserOption userOption, List<UserOption> userOptions){
+//        if ("Customized".equals(userOption.getValue())) {
+//            return getOptionData(userOptions, "Customized Size").getValue();
+//        } else {
+//            return userOption.getValue();
+//        }
+//    }
     private String processColor(UserOption userOption, List<UserOption> userOptions){
         if ("The Same As Picture".equals(userOption.getName()) || "ASP".equals(userOption.getName()) || "The Same As Picture##ASP".equals(userOption.getName())) {
             return "The Same As Picture";
