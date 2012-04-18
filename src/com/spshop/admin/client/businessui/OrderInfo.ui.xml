@@ -114,10 +114,10 @@
 							<g:Label ui:field="email" styleName="{style.value}"/>
 						</g:customCell>
 						<g:customCell>
-							<g:Label ui:field="message" styleName="{style.items}"/>
+							<g:Label ui:field="message" styleName="{style.items}" text="Shipping Type"/>
 						</g:customCell>
 						<g:customCell>
-							<g:Label styleName="{style.value}"/>
+							<g:Label styleName="{style.value}" ui:field="shippingType"/>
 						</g:customCell>
 						<g:customCell>
 							<g:Label ui:field="bbb" styleName="{style.items}" text="Coupon Price"/>

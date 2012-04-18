@@ -47,6 +47,7 @@ public class OrderInfo extends Composite {
     @UiField Label primaryAddr;
     @UiField Label customerMsg;
     @UiField Label couponPrice;
+    @UiField Label shippingType;
     private void populateOrderInfo(){
         DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
         this.orderId.setText(this.order.getName());
@@ -58,16 +59,17 @@ public class OrderInfo extends Composite {
         this.customerMsg.setText(this.order.getCustomerMsg());
         this.couponId.setText(order.getCouponCode());
         this.couponPrice.setText(String.valueOf(order.getCouponCutOff()));
-        this.primaryAddr.setText(populateAddressString(this.order.getPrimaryAddress()));
+        this.shippingType.setText(order.getShippingMethod());
+        this.primaryAddr.setText(populateAddressString(this.order.getPrimaryAddress()) + ", " + this.order.getDeliverPhone());
         if (this.order.isBillingSameAsPrimary()) {
-            this.billingAddr.setText(populateAddressString(this.order.getPrimaryAddress()));
+            this.billingAddr.setText(populateAddressString(this.order.getPrimaryAddress()) + ", " + this.order.getDeliverPhone());
         } else {
-            this.billingAddr.setText(populateAddressString(this.order.getBillingAddress()));
+            this.billingAddr.setText(populateAddressString(this.order.getBillingAddress()) + ", " + this.order.getDeliverPhone());
         }
     }
     
     private String populateAddressString(Address addr){
-        return addr.getFullName()+" ("+addr.getAddress1() + " " + addr.getCity() + " " + addr.getStateProvince() + " " + (this.countryMap.get(String.valueOf(addr.getCountry()))!=null?this.countryMap.get(String.valueOf(addr.getCountry())).getName():"" ) + " Postal Code:" +addr.getPostalCode() + ") Tel:" + addr.getPhone();
+        return addr.getFullName()+" ("+addr.getAddress1() + ", " + addr.getCity() + ", " + addr.getStateProvince() + ", " + (this.countryMap.get(String.valueOf(addr.getCountry()))!=null?this.countryMap.get(String.valueOf(addr.getCountry())).getName():"" ) + ", Postal Code:" +addr.getPostalCode() + ") Tel:" + addr.getPhone();
     }
     
     interface OrderInfoUiBinder extends UiBinder<Widget, OrderInfo> {
