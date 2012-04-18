@@ -3,41 +3,13 @@
 	
 	<div class="w-bp w-joinOurCommunity" id="joinOurCommunity">
 		<h2 class="commH2">Join Our Community for Coupons, Gifts and Happiness:</h2>
-		<div id="followBarButtons"></div>
-		<script>
-			var params = {
-				containerID : 'followBarButtons',
-				buttons : [ {
-					provider : 'facebook',
-					actionURL : 'http://www.facebook.com/HoneyBuy',
-					action : 'dialog'
-				}, {
-					provider : 'twitter',
-					followUsers : 'honeybuy',
-					actionURL : 'http://www.twitter.com/HoneyBuy',
-					action : 'dialog'
-				}, {
-					provider : 'email',
-					confirmationText : 'Thank you for following us',
-					action : 'dialog'
-				}, {
-					provider : 'rss',
-					actionURL : 'http://honeybuy.wordpress.com/feed/',
-					action : 'window'
-				}, {
-					provider : 'linkedin',
-					actionURL : 'http://www.linkedin.com/in/honeybuy/',
-					action : 'redirect'
-				} ]
-			};
-			gigya.services.socialize.showFollowBarUI(params);
-		</script>
+		
 		<a href="https://plus.google.com/109978880912693970020?prsrc=3"	style="text-decoration: none; margin-left: 10px" target="_blank">
 		   <img src="https://ssl.gstatic.com/images/icons/gplus-32.png" 
 		     alt="Google Plus" title="Plus HoneyBuy on Google+" style="border: 0; width: 30px; height: 30px"></a> 
 		<a href="http://pinterest.com/HoneyBuy/" style="text-decoration: none; margin-left: 10px" target="_blank">
 		   <img src="http://passets-cdn.pinterest.com/images/big-p-button.png"
-			 alt="Follow Me on Pinterest" title="Follow HoneyBuy on Pinterest" style="border: 0; width: 31px; height: 31px"></a> 
+			 alt="Follow us on Pinterest" title="Follow HoneyBuy on Pinterest" style="border: 0; width: 31px; height: 31px"></a> 
 		<a href="http://honeybuy.blogspot.com" style="margin-left: 10px" target="_blank">
 		  <img src="https://www.blogger.com/img/start/icon.png" 
 			 title="Honeybuy Blogger" alt="HoneyBuy Blogger" style="border: 0; width: 31px; height: 31px"></a>
@@ -123,14 +95,13 @@
 	</div>
 	
 <div style="padding:5px; border-top: 1px solid #CCCCCC; text-align:center">
-<table width="135" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose VeriSign SSL for secure e-commerce and confidential communications.">
-<tr>
-<td width="135" align="center" valign="top"><script type="text/javascript" src="https://seal.verisign.com/getseal?host_name=www.HoneyBuy.com&amp;size=L&amp;use_flash=YES&amp;use_transparent=YES&amp;lang=en"></script><br />
+<a width="135" border="0" title="Click to Verify - This site chose VeriSign SSL for secure e-commerce and confidential communications.">
+<script type="text/javascript" src="https://seal.verisign.com/getseal?host_name=www.HoneyBuy.com&amp;size=L&amp;use_flash=YES&amp;use_transparent=YES&amp;lang=en"></script><br />
 <a href="http://www.verisign.com/ssl-certificate/" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;">ABOUT SSL CERTIFICATES</a></td>
 </tr>
-</table>
+</a>
 <img rel="nofollow" src="http://www.honeybuy.com/image/84995201997600.jpg" alt="Shipping ways on honeybuy.com" style="float:left; border:0; margin-top: 20px">
-<img rel="nofollow"src="http://www.honeybuy.com/image/6199016674013598.jpg" alt="Payment methods on honeybuy.com"style="float:left; border:0; margin-top: 20px">
+<img rel="nofollow"src="http://www.honeybuy.com/image/6199016674013598.jpg" alt="Payment methods on honeybuy.com" style="float:left; border:0; margin-top: 20px">
 <a target="_blank" rel="nofollow" href="https://www.paypal.com/verified/pal=paypal@honeybuy.com">
 <img src="http://www.honeybuy.com/image/6197576203911273.jpg" style="float:left; border:0">
 </a><p class="clearBoth"></p>
