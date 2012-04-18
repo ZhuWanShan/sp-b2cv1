@@ -219,7 +219,7 @@ public class ShoppingController extends BaseController{
 				getUserView().getMsg().put(REG_USER_NAME_SUC, "Create Account successfully");
 				   final Map<String,Object> root = new HashMap<String,Object>(); 
 		            root.put("user", u);
-		            u.setPassword(u.getPassword().substring(0,u.getPassword().length()-2)+"**");
+		            u.setPassword(u.getPassword());
 		            
 		            model.addAttribute(USER_INFO, u);
 					request.getSession().setAttribute(USER_INFO,u);
@@ -282,7 +282,7 @@ public class ShoppingController extends BaseController{
 			final String username = user.getName();
 			
 			if(null!=user.getPassword() && user.getPassword().length()>2){
-				user.setPassword(user.getPassword().substring(0,user.getPassword().length()-2)+"**");
+				user.setPassword(user.getPassword());
 			}
 			new Thread(){
 				@Override
