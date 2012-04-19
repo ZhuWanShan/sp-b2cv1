@@ -69,7 +69,7 @@ public class OrderInfo extends Composite {
     }
     
     private String populateAddressString(Address addr){
-        return addr.getFullName()+" ("+addr.getAddress1() + ", " + addr.getCity() + ", " + addr.getStateProvince() + ", " + (this.countryMap.get(String.valueOf(addr.getCountry()))!=null?this.countryMap.get(String.valueOf(addr.getCountry())).getName():"" ) + ", Postal Code:" +addr.getPostalCode() + ") Tel:" + addr.getPhone();
+        return addr.getFullName()+" ("+addr.getAddress1() + "<"+addr.getAddress2()+">, " + addr.getCity() + ", " + addr.getStateProvince() + ", " + (this.countryMap.get(String.valueOf(addr.getCountry()))!=null?this.countryMap.get(String.valueOf(addr.getCountry())).getName():"" ) + "<"+this.order.getCustomerCountry()+">, Postal Code:" +addr.getPostalCode() + ") Tel:" + addr.getPhone();
     }
     
     interface OrderInfoUiBinder extends UiBinder<Widget, OrderInfo> {
