@@ -4,6 +4,31 @@
 
 
 <#include "/header/top.hpl">
-<#include "/body/body-uc-reg.hpl">	
+<#include "/body/body-uc-reg.hpl">
+
+<!-- Google Code for /uc/createAccount Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1010858884;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "_ylaCMSRvgIQhPeB4gM";
+var google_conversion_value = 0;
+if (1) {
+  google_conversion_value = 1;
+}
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1010858884/?value=1&amp;label=_ylaCMSRvgIQhPeB4gM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<!-- Google Code for /uc/createAccount Conversion Page end-->
+
+	
 <#include "/footer/ucf1.hpl">
 <#include "/footer/bottom.hpl">

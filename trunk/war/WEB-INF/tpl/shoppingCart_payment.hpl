@@ -5,4 +5,29 @@
 
 <#include "/header/top.hpl">
 <#include "/body/body-sp-shoppingCart_payment.hpl">	
+
+<!-- Google Code for /uc/shoppingCart_payment_2_pay Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1010858884;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "2ci0CLTo5gIQhPeB4gM";
+var google_conversion_value = 0;
+if (3) {
+  google_conversion_value = 3;
+}
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1010858884/?value=3&amp;label=2ci0CLTo5gIQhPeB4gM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<!-- Google Code for /uc/shoppingCart_payment_2_pay Conversion Page end-->
+
+
 <#include "/footer/bottom.hpl">
