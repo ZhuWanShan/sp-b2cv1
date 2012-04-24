@@ -31,6 +31,8 @@ public class OrderInfo extends Composite {
     private Order order;
     private Site site;
     private Map<String, Country> countryMap = new HashMap<String, Country>();
+    private static String ADDRESS_SEPARATOR = "  ";
+    private static String ADDRESS_COMMA = ", ";
     
     @UiField Button button;
     @UiField OrderStatusSelection orderStatus;
@@ -60,16 +62,58 @@ public class OrderInfo extends Composite {
         this.couponId.setText(order.getCouponCode());
         this.couponPrice.setText(String.valueOf(order.getCouponCutOff()));
         this.shippingType.setText(order.getShippingMethod());
-        this.primaryAddr.setText(populateAddressString(this.order.getPrimaryAddress()) + ", " + this.order.getDeliverPhone());
+        this.primaryAddr.setText(populateAddressString(this.order.getPrimaryAddress()));
         if (this.order.isBillingSameAsPrimary()) {
-            this.billingAddr.setText(populateAddressString(this.order.getPrimaryAddress()) + ", " + this.order.getDeliverPhone());
+            this.billingAddr.setText(populateAddressString(this.order.getPrimaryAddress()));
         } else {
-            this.billingAddr.setText(populateAddressString(this.order.getBillingAddress()) + ", " + this.order.getDeliverPhone());
+            this.billingAddr.setText(populateAddressString(this.order.getBillingAddress()));
         }
     }
     
     private String populateAddressString(Address addr){
-        return addr.getFullName()+" ("+addr.getAddress1() + "<"+addr.getAddress2()+">, " + addr.getCity() + ", " + addr.getStateProvince() + ", " + (this.countryMap.get(String.valueOf(addr.getCountry()))!=null?this.countryMap.get(String.valueOf(addr.getCountry())).getName():"" ) + "<"+this.order.getCustomerCountry()+">, Postal Code:" +addr.getPostalCode() + ") Tel:" + addr.getPhone();
+        
+        String fullName = addr.getFullName();
+        String address1 = addr.getAddress1();
+        String address2 = addr.getAddress2();
+        String city = addr.getCity();
+        String state = addr.getStateProvince();
+        String country = this.countryMap.get(String.valueOf(addr.getCountry())) != null ? this.countryMap.get(String.valueOf(addr.getCountry())).getName() : "";
+        String postalCode = addr.getPostalCode();
+        String tel = addr.getPhone();
+        
+        StringBuilder address = new StringBuilder();
+        address.append(fullName);
+        address.append(ADDRESS_SEPARATOR);
+        address.append("(");
+        address.append(address1);
+        if (address2 != null && !"".equals(address2.trim())) {
+            address.append(ADDRESS_COMMA);
+            address.append("<");
+            address.append(address2);
+            address.append(">");
+        }
+        address.append(ADDRESS_COMMA);
+        address.append(city);
+        address.append(ADDRESS_COMMA);
+        address.append(state);
+        address.append(ADDRESS_COMMA);
+        address.append(postalCode);
+        address.append(ADDRESS_COMMA);
+        if (this.order.getCustomerCountry()!=null && !"".equals(this.order.getCustomerCountry().trim())) {
+            address.append(this.order.getCustomerCountry());
+        } else {
+            address.append(country);
+        }
+        address.append(")");
+        address.append(ADDRESS_SEPARATOR);
+        address.append("Tel: ");
+        if (tel!=null && !"".equals(tel.trim())) {
+            address.append(tel);
+        } else {
+            address.append(this.order.getDeliverPhone());
+        }
+        
+        return address.toString();
     }
     
     interface OrderInfoUiBinder extends UiBinder<Widget, OrderInfo> {
@@ -92,15 +136,6 @@ public class OrderInfo extends Composite {
                 this.orderTable.setText(i, 4, String.valueOf(this.order.getItems().get(i).getFinalPrice()));
             }
         }
-    }
-    
-    private UserOption getOptionData(List<UserOption> userOptions, String name){
-        for (UserOption userOption : userOptions) {
-            if (userOption.getName().equals(name)) {
-                return userOption;
-            }
-        }
-        return new UserOption();
     }
     
     private String populateUserOptionString(List<UserOption> userOptions){
