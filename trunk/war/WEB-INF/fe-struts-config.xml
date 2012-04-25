@@ -4,161 +4,53 @@
 	<form-beans>
 		<form-bean name="pageForm" type="com.spshop.fe.formbeans.PageFormBean"></form-bean>
 	</form-beans>
-	
+
 	<global-exceptions>
-        
-    </global-exceptions>
+
+	</global-exceptions>
 	<global-forwards>
-		
+
 	</global-forwards>
 
 	<action-mappings>
-		<action
-			path="/"
-			type="com.spshop.fe.actions.PageAction"
-			name="pageForm"
+		<action path="/" type="com.spshop.fe.actions.PageAction" name="pageForm"
 			scope="request">
 			<forward name="Success" path="/index.jsp" />
 		</action>
-		
-		<action 
-			path="/c/*" 
-			type="com.spshop.fe.actions.PageAction" 
-			name="pageForm"
-			scope="request">
-			<forward name="Success" path="/jsp/categories.jsp"></forward>
-			<forward name="Special" path="/jsp/market.jsp"></forward>
-		</action>
-		
-		<action 
-			path="/q/cmd/search" 
-			type="com.spshop.fe.actions.SearchAction" 
-			name="pageForm"
-			scope="request">
+
+		<action path="/c/*" type="com.spshop.fe.actions.PageAction"
+			name="pageForm" scope="request">
 			<forward name="Success" path="/jsp/categories.jsp"></forward>
 			<forward name="Special" path="/jsp/market.jsp"></forward>
 		</action>
 
-		
-		<action 
-			path="/createAccount" 
-			type="com.spshop.fe.actions.RegisterAction" 
-			name="pageForm"
-			scope="request">
-			<forward name="Success" path="/"></forward>
-			<forward name="Failure" path="/createAccount.jsp"></forward>
+		<action path="/q/cmd/search" type="com.spshop.fe.actions.SearchAction"
+			name="pageForm" scope="request">
+			<forward name="Success" path="/jsp/categories.jsp"></forward>
+			<forward name="Special" path="/jsp/market.jsp"></forward>
 		</action>
-		
-		<action 
-			path="/login" 
-			type="com.spshop.fe.actions.LoginAction" 
-			name="pageForm"
-			scope="request">
-			<forward name="Success" path="/"></forward>
-			<forward name="Failure" path="/createAccount.jsp"></forward>
-		</action>
-		
-		<action 
-			path="/login/cmd/goto_check" 
-			type="com.spshop.fe.actions.LoginAction" 
-			name="pageForm"
-			scope="request">
-			<forward name="Success" path="/shopping/cmd/check" redirect="true"></forward>
-			<forward name="Failure" path="/createAccount.jsp"></forward>
-		</action>
-		
-		<action 
-			path="/recoveryPassword" 
-			type="com.spshop.fe.actions.RecoveryPasswordAction" 
-			name="pageForm"
-			scope="request">
-			<forward name="Success" path="/"></forward>
-			<forward name="Failure" path="/jsp/recoveryPassword.jsp"></forward>
-		</action>
-		
-		<action 
-			path="/shoppingCart" 
-			type="com.spshop.fe.actions.ShoppingCartAction" 
-			name="pageForm"
-			scope="request">
-			<forward name="Success" path="/jsp/cart.jsp"></forward>
-		</action>
-		
-		<action 
-			path="/shopping/cmd/check" 
-			type="com.spshop.fe.actions.ShoppingCartAction" 
-			name="pageForm"
-			scope="request">
-			<forward name="Success" path="/jsp/cart.jsp"></forward>
-		</action>
-		
-		<action 
-			path="/checkOut" 
-			type="com.spshop.fe.actions.ShoppingCartAction" 
-			name="pageForm"
-			scope="request">
-			<forward name="Success" path="/jsp/order.jsp"></forward>
-		</action>
-		
-		<action 
-			path="/checkorder" 
-			type="com.spshop.fe.actions.CheckOrder" 
-			name="pageForm"
-			scope="request">
+
+
+		<action path="/checkorder" type="com.spshop.fe.actions.CheckOrder"
+			name="pageForm" scope="request">
 			<forward name="Success" path="/orders"></forward>
 		</action>
-		
-		<action 
-			path="/orders" 
-			type="com.spshop.fe.actions.ShoppingCartAction" 
-			name="pageForm"
-			scope="request">
+
+		<action path="/orders" type="com.spshop.fe.actions.ShoppingCartAction"
+			name="pageForm" scope="request">
 			<forward name="Success" path="/jsp/order.jsp"></forward>
 		</action>
-		
-		<action 
-			path="/pay" 
-			type="com.spshop.fe.actions.PayAction" 
-			name="pageForm"
-			scope="request">
-			<forward name="Success" path="/jsp/bankReturn.jsp"></forward>
-		</action>
-		
-		
-		<!-- For Tom to add product action -->
-			<action
-				path="/*"
-				type="com.spshop.fe.actions.ProductAction"
-				name="pageForm"
-				scope="request">
-				<forward name="Success" path="/jsp/goods.jsp"></forward>
-			</action>
 
-		<action path="/editProfile" type="com.spshop.fe.actions.EditProfileAction"
+		<!-- For Tom to add product action -->
+		<action path="/*" type="com.spshop.fe.actions.ProductAction"
 			name="pageForm" scope="request">
-			<forward name="Success" path="/jsp/editProfile.jsp"></forward>
+			<forward name="Success" path="/jsp/goods.jsp"></forward>
 		</action>
-		
+
 		<action path="/storeEmail" type="com.spshop.fe.actions.StoreEmailAction"
 			name="pageForm" scope="request">
 			<forward name="Success" path="/jsp/subscribeEmail.jsp"></forward>
 		</action>
-		
-		
-		<action 
-			path="/couponAction_12343445324564564521223" 
-			type="com.spshop.fe.actions.CouponAction" 
-			name="pageForm"
-			scope="request">
-		</action>
-		
-<!-- 		<action  -->
-<!-- 			path="/keywords/*"  -->
-<!-- 			type="com.spshop.fe.actions.PageAction"  -->
-<!-- 			name="pageForm" -->
-<!-- 			scope="request"> -->
-<!-- 			<forward name="Success" path="/jsp/goods.jsp"></forward> -->
-<!-- 		</action> -->
 	</action-mappings>
-	<message-resources parameter="FE_ApplicationResources" null="true"/>
+	<message-resources parameter="FE_ApplicationResources" null="true" />
 </struts-config>
