@@ -1,12 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!doctype html>
-<!-- The DOCTYPE declaration above will set the    -->
-<!-- browser's rendering engine into               -->
-<!-- "Standards Mode". Replacing this declaration  -->
-<!-- with a "Quirks Mode" doctype may lead to some -->
-<!-- differences in layout.                        -->
-
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -14,21 +7,14 @@
     <!--                                           -->
     <!-- Any title is fine                         -->
     <!--                                           -->
-    <title>ShopAdmin2</title>
+    <title>Web Application Starter Project</title>
     
     <!--                                           -->
     <!-- This script loads your compiled module.   -->
     <!-- If you add any GWT meta tags, they must   -->
     <!-- be added before this line.                -->
     <!--                                           -->
-    <script type="text/javascript" language="javascript" src="workspace2/workspace2.nocache.js"></script>
-    <style type="text/css">
-    	body{
-    		margin: 0;
-    		padding: 0;
-    		border: 0;
-    	}
-    </style>
+    <script type="text/javascript" language="javascript" src="mainapp/mainapp.nocache.js"></script>
   </head>
 
   <!--                                           -->
@@ -37,6 +23,7 @@
   <!-- to create a completely dynamic UI.        -->
   <!--                                           -->
   <body>
+
     <!-- OPTIONAL: include this if you want history support -->
     <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
     
