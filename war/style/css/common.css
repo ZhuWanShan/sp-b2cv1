@@ -1230,7 +1230,8 @@ li.scart_c_w_r {
 /********************************************************Measurement **************************************/
 
 .measure_panel {
-    background: url("/style/image/background_grey_box.jpg") no-repeat scroll 0 0 transparent;
+    /**background: url("/style/image/background_grey_box.jpg") no-repeat scroll 0 0 transparent;*/
+    background:#fff;
     height: 306px;
     left: 0;
     margin: 0;
@@ -1361,7 +1362,7 @@ li.scart_c_w_r {
 	height: 370px;
 }
 .measure_dashboard{
-	height: 420px;
+	height: 430px;
 	width: 762px;
 	
 }

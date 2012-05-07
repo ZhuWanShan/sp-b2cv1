@@ -20,6 +20,13 @@
 	<link rel="stylesheet" type="text/css" href="../css/head.css">
 	
 	<script src="../js/jquery-1.5.1.js" type="text/javascript"></script>
+	
+		<script src="/script/js/jquery-1.7.1.js" type="text/javascript">
+		</script>
+		<script type="text/javascript">
+			var jq = jQuery.noConflict();
+		</script>
+		<script src="/script/js/common.js" type="text/javascript"></script>
 	<script>
 		var Image_url = 'http://127.0.0.1:8888/css',root_url = 'http://127.0.0.1:8888/',seller_lang='en-uk';
 		var head_SearchKeywordsNo='Enter search keywords or item code here';

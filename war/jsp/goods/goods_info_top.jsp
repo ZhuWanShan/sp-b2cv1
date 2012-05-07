@@ -338,7 +338,7 @@ Please DO NOT use "the same as picture" option.</p>
 						</div>
 					</c:if>
 				</c:forEach>
-				</c:if>
+				
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
 					var="option" varStatus="idx">
 						
@@ -360,7 +360,8 @@ Please DO NOT use "the same as picture" option.</p>
 									</div>
 							</c:if>
 						
-					</c:forEach>
+						</c:forEach>
+					</c:if>
 				<input type="hidden"
 						value="${pageForm.pageProperties.productDetail.name}"
 						name="ProductId">
@@ -419,17 +420,42 @@ Please DO NOT use "the same as picture" option.</p>
 		</ul>
 			<c:if test='${pageForm.pageProperties.displayOrderItem == null}'>
 				<div class="addtocart">
-
-					<input type="submit" style="display: none;" id="sub"
+					<c:if test="${pageForm.pageProperties.productDetail.optType <1 }">
+						<input type="submit" style="display: none;" id="sub"
 						value="ADD TO MY BAG" class="item_addBag"> <input
 						type="submit" id="nosubitem_addBag" value="ADD TO MY BAG" class="item_addBag">
-						<script type="text/javascript">
+							<script type="text/javascript">
 							jq("#nosubitem_addBag").click(function(){
 								//jq("#nosubitem_addBag").attr("disabled","disabled");
 								jq("#cusform").submit();
 								
 							});
 						</script>
+					</c:if>
+					<c:if test="${pageForm.pageProperties.productDetail.optType > 0 }">
+						
+						<jsp:include page="suitOpt.jsp"></jsp:include>
+											
+						<input type="submit" style="display: none;" id="sub"
+						value="ADD TO MY BAG" class="item_addBag"> <input
+						type="submit" id="nosubitem_addBag" value="Customnize" class="item_addBag">
+						<script type="text/javascript">
+							jq("#nosubitem_addBag").click(function(){
+								//jq.documentMask(); 
+								jq.documentMask({ 
+								'opacity': 0.6, 
+								'bgcolor': '#000000', 
+								'z': 301 
+								}); 
+								jq(".measure_dashboard").slider();
+								return false;
+								//jq("#nosubitem_addBag").attr("disabled","disabled");
+								//jq("#cusform").submit();
+								
+							});
+						</script>
+					</c:if>
+					
 					<%--<div class="sub_outDiv_normal" style="display: none;"
 						id="sub_outDiv">
 						<div id="notselect_tips" class="notselect_tips">
