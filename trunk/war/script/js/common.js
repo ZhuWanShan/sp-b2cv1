@@ -229,6 +229,7 @@ var SP = new Object();
 		
 		jq.fn.slider = function(){
 			var slider = jq(this);
+			slider.show();
 			slider.currentSlider = 0;
 			slider.sliders = slider.find(".measure_panel");
 			slider.controllers = slider.find(".measure_controller img");
@@ -260,6 +261,11 @@ var SP = new Object();
 				
 				jq(slider.buttons.get(1)).click(function(){
 					slider.go(slider.currentSlider + 1);
+				});
+				
+				jq(slider.buttons.get(3)).click(function(){
+					slider.hide();
+					jq.documentUMask();
 				});
 			}
 			
@@ -310,6 +316,45 @@ var SP = new Object();
                       });
             }
         });*/
+		
+		
+
+		jq.extend({
+			documentMask : function(options) {
+				var op = jq.extend({
+					opacity : 0.8,
+					z : 10000,
+					bgcolor : '#000'
+				}, options);
+	
+				jq('<div class="jquery_addmask"> </div>').appendTo(document.body)
+						.css({
+							position : 'absolute',
+							top : '0px',
+							left : '0px',
+							'z-index' : op.z,
+							width : jq(document).width(),
+							height : jq(document).height(),
+							'background-color' : op.bgcolor,
+							opacity : 0,
+							cursor: "wait"
+						}).fadeIn('slow', function() {
+							jq(this).fadeTo('slow', op.opacity);
+						})/*.click(function() {
+							jq(this).fadeTo('slow', 0, function() {
+								jq(this).remove();
+							});
+						})*/;
+	
+				return this;
+			}
+		}); 
+		
+		jq.extend({
+			documentUMask : function(){
+				jq(".jquery_addmask").remove();
+			}
+		});
 	}
 )(jq);
 

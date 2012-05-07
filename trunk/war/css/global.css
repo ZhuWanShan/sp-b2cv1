@@ -122,3 +122,146 @@
 	border: 2px dotted #ff0000;
 	opacity:0.5;
 }
+
+/********************************************************Measurement **************************************/
+
+.measure_panel {
+    /**background: url("/style/image/background_grey_box.jpg") no-repeat scroll 0 0 transparent;*/
+    background:#fff;
+    height: 306px;
+    left: 0;
+    margin: 0;
+    padding: 25px;
+    text-align: left;
+    top: 0;
+    width: 712px;
+    float: left;
+}
+
+
+.measure_panel .measure_sidebar {
+    float: left;
+    font-size: 11px;
+    height: 300px;
+    width: 320px;
+}
+
+.measure_sidebar h2{
+    color: #4D4D4D;
+    font-weight:bold;
+    font-size:40px;
+    text-transform: uppercase;
+	line-height: 1;
+}
+
+.measure_sidebar p{
+	color: #808080;
+	font-size:18px;
+     margin: 0 0 9px;
+     
+}
+
+
+.measure_panel .measure_content{
+ 	float: left;
+    padding: 0;
+    width: 380px;
+    color: #808080;
+}
+
+
+.measure_content ul{
+	list-style-type: none;
+    margin: 100px 0 0;
+    padding: 0;
+
+}
+
+.measure_content ul li{
+	 border-top: 2px dotted #CCCCCC;
+    margin: 0;
+    padding: 10px 0;
+     line-height: 18px;	
+     list-style-type: none;
+
+}
+
+.measure_content ul li label{
+	 cursor: pointer;
+    float: left !important;
+    font-weight: bold;
+    width: 100px !important;
+
+}
+.measure_content .measure_value{
+	float: left !important;
+    width: 250px !important;
+
+}
+
+.measure_content .txt_input{
+	width: 40px;
+}
+
+
+.measure_navigation{
+	text-align: center;
+}
+
+.measure_navigation .measure_buttons {
+    height: 40px;
+}
+
+.measure_navigation .measure_controller{
+	height: 40px;
+}
+
+
+
+.measure_navigation .pagination_active_m{
+	background: url("/style/image/pagination_active.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    cursor: pointer;
+    height: 14px;
+    margin: 0 5px;
+    width: 14px;
+}
+
+
+.measure_navigation .pagination_m{
+	background: url("/style/image/pagination_circle.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    cursor: pointer;
+    height: 14px;
+    margin: 0 5px;
+    width: 14px;
+}
+
+.measure_navigation .pagination_m:hover{
+		background: url("/style/image/pagination_hover.png") no-repeat scroll 0 0 transparent;
+}
+
+.circle_hint {
+    background: url("/style/image/pagination_hover_title_bg.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: bold;
+    height: 28px;
+    line-height: 20px;
+    position: absolute;
+    text-align: center;
+    width: 200px;
+}
+
+.measure_dashboard_content{
+	width: 999999999px;
+	height: 370px;
+}
+.measure_dashboard{
+	height: 430px;
+	width: 762px;
+
+}
+
+/********************************************************end Measurement **************************************/
+
