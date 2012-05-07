@@ -7,6 +7,8 @@ import java.util.List;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.BlurEvent;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.logical.shared.BeforeSelectionEvent;
@@ -19,6 +21,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DoubleBox;
+import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
@@ -68,6 +71,7 @@ public class ProductCreation extends Composite{
 	@UiField Button manualPicker;
 	@UiField Button removeManual;
 	@UiField TabLayoutPanel manual;
+	@UiField ListBox optionTypes;
 	
 	private Product product;
 
@@ -82,6 +86,17 @@ public class ProductCreation extends Composite{
 		relatedProduct.setShowName(false);
 		relatedProduct.setShowButton(false);
 		relatedProduct.setShowPicker(false);
+		
+		
+		//optionTypes.setValue(0, "Native");
+		//optionTypes.setValue(1, "Suit");
+		//optionTypes.setValue(2, "Other");
+		
+		optionTypes.addItem("Native", "0");
+		optionTypes.addItem("Suit Opt", "1");
+		
+		optionTypes.setSelectedIndex(product.getOptType());
+		
 		final ProductCreation self = this;
 		host.addBeforeSelectionHandler(new BeforeSelectionHandler<Integer>() {
 			@Override
@@ -176,6 +191,13 @@ public class ProductCreation extends Composite{
 		if(null==product.getImages()){
 			product.setImages(new ArrayList<Image>());
 		}
+		
+		optionTypes.addChangeHandler(new ChangeHandler() {
+			@Override
+			public void onChange(ChangeEvent e) {
+				getProduct().setOptType(getOptType().getSelectedIndex());
+			}
+		});
 		
 		name.setValue(product.getName());
 		title.setValue(product.getTitle());
@@ -337,6 +359,11 @@ public class ProductCreation extends Composite{
 		return manual;
 	}
 	
+	public ListBox getOptType(){
+		
+		return optionTypes;
+		
+	}
 	private boolean isHaveDiffrientTypeImage(){
 		ImageSizeType sizeType = null;
 		if(null != product.getImages()){

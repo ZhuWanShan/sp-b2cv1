@@ -22,6 +22,13 @@
 				>My Profile</a>
 			</dd>
 			<dd>
+				<a href="/uc/my-measurements"
+				<#if  uc_current_page= "measurements">
+					class="nav-left-item_current"
+				</#if>
+				>My Measurements</a>
+			</dd>
+			<dd>
 				<a href="/uc/changePwd"
 				<#if  uc_current_page= "changePwd">
 					class="nav-left-item_current"

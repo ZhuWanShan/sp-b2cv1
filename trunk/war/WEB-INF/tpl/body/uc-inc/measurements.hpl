@@ -1,0 +1,124 @@
+<div class="nav-right-box">
+	<div class="box_title">My Measurements</div>
+	<div class="nav-right-box_content">
+	<div class="measure_dashboard">
+		<div class="measure_dashboard_content">
+			<div class="measure_panel">
+				<div class="measure_sidebar">
+					<h2>Setup your measurement profile</h2>
+					<p>Get started by filling in your height, weight, and age.</p>
+				</div>
+				<div class="measure_content">
+					<ul>
+						<li><label>HEIGHT</label>
+							<div class="measure_value">
+								<input type="text" class="txt_input">&nbsp;IN
+							</div>
+							<p class="clearBoth"></p></li>
+
+						<li><label>WEIGHT</label>
+							<div class="measure_value">
+								<input type="text" class="txt_input"> KG
+							</div>
+							<p class="clearBoth"></p></li>
+
+
+						<li><label>AGE</label>
+							<div class="measure_value">
+								<input type="text" class="txt_input">
+							</div>
+							<p class="clearBoth"></p></li>
+
+
+					</ul>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Sassdfgsdf asfasf asfasfas asfas e</h2>
+					<p>asfas asfasfas asfasfasfas.</p>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>2222222</h2>
+					<p>asfas asfasfas asfasfasfas.</p>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>33333</h2>
+					<p>asfas asfasfas asfasfasfas.</p>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>44444444</h2>
+					<p>asfas asfasfas asfasfasfas.</p>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>5555555</h2>
+					<p>asfas asfasfas asfasfasfas.</p>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<p class="clearBoth"></p>
+		</div>
+		<div class="measure_navigation">
+			<div class="measure_buttons">
+				<input type="button" class="button_01" value="<         PREVIOUS">
+				<input type="button" class="button_01" value="NEXT             >">
+				<input type="button" class="button_01" value="FINISH           >">
+			</div>
+			<div class="measure_controller">
+				<div class="circle_hint" style="display: none;">BODY SHAPE</div>
+				<img class="pagination_active_m" src="/style/image/1x1.png" title="1111">
+				<img class="pagination_m" src="/style/image/1x1.png" title="222">
+				<img class="pagination_m" src="/style/image/1x1.png" title="333">
+				<img class="pagination_m" src="/style/image/1x1.png" title="444">
+				<img class="pagination_m" src="/style/image/1x1.png" title="5555">
+				<img class="pagination_m" src="/style/image/1x1.png" title="666">
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		jq(".measure_dashboard").slider();
+	</script>
+	
+ </div>
+</div>

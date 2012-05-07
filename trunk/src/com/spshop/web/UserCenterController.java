@@ -365,6 +365,12 @@ public class UserCenterController extends BaseController{
 		return "orderDetails";
 	}
 	
+	@RequestMapping(value="/my-measurements", method = RequestMethod.GET)
+	public String measurements(Model model,HttpServletRequest request,HttpServletResponse response){
+		
+		return "measurements";
+	}
+	
 	
 	private Address retrieveAddress(HttpServletRequest request){
 		String type = request.getParameter(ADD_TYPE);
