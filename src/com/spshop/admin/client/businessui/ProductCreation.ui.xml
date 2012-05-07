@@ -53,6 +53,15 @@
 									<p2:CategoryPicker ui:field="categoryPicker"/>
 								</g:customCell>
 							</g:row>
+							<g:row>
+								<g:customCell>
+									<g:Label text="Option Type"/>
+								</g:customCell>
+								<g:customCell>
+									<g:ListBox ui:field="optionTypes">
+									</g:ListBox>
+								</g:customCell>
+							</g:row>
 							<!-- <g:row>
 								<g:customCell>
 									<g:Label text="Abstract:" />

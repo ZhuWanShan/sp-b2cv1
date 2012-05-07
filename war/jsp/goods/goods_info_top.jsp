@@ -167,6 +167,7 @@
 						</c:forEach>
 					</div>
 				</div>
+				<c:if test="${pageForm.pageProperties.productDetail.optType <1 }">
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
 					var="option" varStatus="idx">
 						<c:if test='${(option.strSelectType eq "COLOR_SINGLE") and (!empty option.items) }'>
@@ -278,6 +279,7 @@ Please DO NOT use "the same as picture" option.</p>
 						</div>
 					</c:if>
 			</c:forEach>
+			
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
 					var="option" varStatus="idx">
 						<c:if test='${option.strSelectType eq "INPUT_TEXT"}'>
@@ -336,6 +338,7 @@ Please DO NOT use "the same as picture" option.</p>
 						</div>
 					</c:if>
 				</c:forEach>
+				</c:if>
 				<c:forEach items="${pageForm.pageProperties.productDetail.options}"
 					var="option" varStatus="idx">
 						

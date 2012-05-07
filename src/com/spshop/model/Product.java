@@ -34,6 +34,7 @@ public class Product extends Component{
 	private String manualKey;
 	private boolean showlikeButton;
 	private String productUrl;
+	private int optType;
 	
 	public Product() {
 		ProductOption colorOp = new ProductOption();
@@ -212,6 +213,7 @@ public class Product extends Component{
 		obj.tabProductKey = this.tabProductKey;
 		obj.showlikeButton = this.showlikeButton;
 		obj.manualKey = this.manualKey;
+		obj.optType = this.optType;
 
 		if (this.abstractText != null) {
 			/* Does not have a clone() method */
@@ -323,6 +325,12 @@ public class Product extends Component{
 	 */
 	public void setProductUrl(String productUrl) {
 		this.productUrl = productUrl;
+	}
+	public int getOptType() {
+		return optType;
+	}
+	public void setOptType(int optType) {
+		this.optType = optType;
 	}
 	
 	

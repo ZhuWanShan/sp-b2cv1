@@ -293,6 +293,7 @@
 		<property name="showlikeButton"></property>
 		<property name="tabProductKey"></property>
 		<property name="price"></property>
+		<property name="optType"></property>
 		<property name="actualPrice"></property>
 		<property name="manualKey"></property>
 		

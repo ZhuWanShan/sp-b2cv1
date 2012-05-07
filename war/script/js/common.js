@@ -167,8 +167,7 @@ var SP = new Object();
 					  }
 				});
 			}
-		}
-		
+		};
 	}		
 
 )(SP,jq);
@@ -226,6 +225,76 @@ var SP = new Object();
 			jq("#mask_content").remove();
 			var el = jq(this);
 			el.hide();
+		};
+		
+		jq.fn.slider = function(){
+			var slider = jq(this);
+			slider.currentSlider = 0;
+			slider.sliders = slider.find(".measure_panel");
+			slider.controllers = slider.find(".measure_controller img");
+			slider.buttons = slider.find(".measure_navigation .measure_buttons .button_01");
+			slider.tips = slider.find(".measure_controller .circle_hint");
+			
+			function initButtons(){
+				
+				slider.buttons.show();
+				
+				slider.buttons.unbind();
+				
+				if(slider.currentSlider == 0){
+					jq(slider.buttons.get(0)).hide();
+				} 
+				
+				if(slider.currentSlider < slider.sliders.length-1){
+					jq(slider.buttons.get(2)).hide();
+				}
+				
+				if(slider.currentSlider >= slider.sliders.length-1){
+					jq(slider.buttons.get(1)).hide();
+				}
+				
+				
+				jq(slider.buttons.get(0)).click(function(){
+					slider.go(slider.currentSlider - 1);
+				});
+				
+				jq(slider.buttons.get(1)).click(function(){
+					slider.go(slider.currentSlider + 1);
+				});
+			}
+			
+			initButtons();
+			
+			slider.go = function(index){
+				if(index != slider.currentSlider){
+					slider.currentSlider = index;
+					slider.sliders.hide();
+					jq(slider.sliders.get(slider.currentSlider)).fadeIn("slow");
+					slider.controllers.removeClass("pagination_active_m");
+					slider.controllers.addClass("pagination_m");
+					jq(slider.controllers.get(slider.currentSlider)).removeClass("pagination_m");
+					jq(slider.controllers.get(slider.currentSlider)).addClass("pagination_active_m");
+				}
+				initButtons();
+			};
+			
+			slider.controllers.each(function(index){
+				jq(slider.controllers.get(index)).click(function(){
+					slider.go(index);
+				});
+				
+				/*jq(slider.controllers.get(index)).mouseover(function(e){
+					slider.tips.html(jq(this).attr("title"));
+					slider.tips.show();
+					slider.tips.offset({top:e.pageY - 37 ,left:e.pageX - 90});
+				});
+				
+				jq(slider.controllers.get(index)).mouseout(function(){
+					slider.tips.hide();
+				});*/
+			});
+			
+			return slider;
 		};
 
 		/*jq.extend(jq.fn,{
