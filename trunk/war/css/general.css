@@ -196,7 +196,7 @@ input,select{font-family:Arial, Helvetica, sans-serif;}
 .B_Categories .goods_list{}
 .goods_picture div{/*position:absolute;bottom:0; right:0;*/}
 .goods_list .goods_picture{width:100%;overflow:hidden;text-align:center;position:relative;margin-bottom:7px;}
-.goods_list .goods_name{display:block;font-size:11px;font-weight:normal;height:28px;overflow:hidden;line-height:14px;padding:0 0 2px; }
+.goods_list .goods_name{display:block;font-size:11px;font-weight:normal;height:40px;overflow:hidden;line-height:14px;padding:0 0 2px; }
 .goods_list .goods_name a{color:#000;}
 .goods_list .goods_name a:hover{color:#ff5a00;}
 .goods_list .Reference_Price{display:block;padding:0 0 2px;text-align:right;}
