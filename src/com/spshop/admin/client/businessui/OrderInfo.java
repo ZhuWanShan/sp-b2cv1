@@ -131,7 +131,7 @@ public class OrderInfo extends Composite {
             for (int i = 0; i < this.order.getItems().size(); i++) {
                 this.orderTable.setHTML(i, 0, populateUserOptionString(this.order.getItems().get(i).getUserOptions()));
                 this.orderTable.setText(i, 1, this.order.getItems().get(i).getCreateDate().toString());
-                this.orderTable.setHTML(i, 2, "<a target='_blank' href='"+"http://"+site.getDomain()+"/"+this.order.getItems().get(i).getProduct().getName()+"'>"+this.order.getItems().get(i).getProduct().getTitle()+"</a>");
+                this.orderTable.setHTML(i, 2, "<img src='"+"http://"+site.getDomain()+"/"+this.order.getItems().get(i).getProduct().getImages().get(0).getIconUrl()+"'/><a target='_blank' href='"+"http://"+site.getDomain()+"/"+this.order.getItems().get(i).getProduct().getName()+"'>"+this.order.getItems().get(i).getProduct().getTitle()+"</a>");
                 this.orderTable.setText(i, 3, String.valueOf(this.order.getItems().get(i).getQuantity()));
                 this.orderTable.setText(i, 4, String.valueOf(this.order.getItems().get(i).getFinalPrice()));
             }
@@ -179,8 +179,8 @@ public class OrderInfo extends Composite {
     
     private void initOrderInfoHeader(){
         this.orderHeader.getColumnFormatter().setWidth(0, "150px");
-        this.orderHeader.getColumnFormatter().setWidth(1, "120px");
-        this.orderHeader.getColumnFormatter().setWidth(2, "220px");
+        this.orderHeader.getColumnFormatter().setWidth(1, "90px");
+        this.orderHeader.getColumnFormatter().setWidth(2, "250px");
         this.orderHeader.getColumnFormatter().setWidth(3, "30px");
         this.orderHeader.getColumnFormatter().setWidth(4, "40px");
         
@@ -191,8 +191,8 @@ public class OrderInfo extends Composite {
         this.orderHeader.setText(0, 4, "Price");
         
         this.orderTable.getColumnFormatter().setWidth(0, "150px");
-        this.orderTable.getColumnFormatter().setWidth(1, "120px");
-        this.orderTable.getColumnFormatter().setWidth(2, "220px");
+        this.orderTable.getColumnFormatter().setWidth(1, "90px");
+        this.orderTable.getColumnFormatter().setWidth(2, "250px");
         this.orderTable.getColumnFormatter().setWidth(3, "30px");
         this.orderTable.getColumnFormatter().setWidth(4, "40px");
     }
