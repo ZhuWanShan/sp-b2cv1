@@ -116,8 +116,14 @@
 			</div>
 			<div class="measure_panel" style="display: none">
 				<div class="measure_sidebar">
-					<h2>33333</h2>
-					<p>asfas asfasfas asfasfasfas.</p>
+					<h2>Jacket/Shirt Length</h2>
+					<ol class="tips">
+						<li>Pop Your Collar. Place the tape where the shoulder and neck seams meet..</li>
+						<li>Measure straight down to the desired length, usually around the thumb joint. </li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -128,8 +134,14 @@
 			</div>
 			<div class="measure_panel" style="display: none">
 				<div class="measure_sidebar">
-					<h2>44444444</h2>
-					<p>asfas asfasfas asfasfasfas.</p>
+					<h2>Chest Size</h2>
+					<ol class="tips">
+						<li>Measure around the widest part of your chest, usually around the nipples.</li>
+						<li>Leave room for 1 finger.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -138,11 +150,194 @@
 					<p class="clearBoth"></p>
 				</div>
 			</div>
-			
 			<div class="measure_panel" style="display: none">
 				<div class="measure_sidebar">
-					<h2>5555555</h2>
-					<p>asfas asfasfas asfasfasfas.</p>
+					<h2>Stomach Size</h2>
+					<ol class="tips">
+						<li>Measure around the widest part of your stomach, usually around the belly button.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Jacket Hips</h2>
+					<ol class="tips">
+						<li>Measure the widest part of your hips, usually where your bum peaks.</li>
+						<li>Measure snug with room for one finger.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Shoulder Size</h2>
+					<ol class="tips">
+						<li>Place the tape where the shoulder and armhole seam meet on a well-fitting shirt.</li>
+						<li>Measure straight across.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Sleeve Length</h2>
+					<ol class="tips">
+						<li>Place the tape where the shoulder and armhole seam meet on a well-fitting shirt.</li>
+						<li>Measure straight down your arm to your desired length.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Bicep Size</h2>
+					<ol class="tips">
+						<li>At the top of the armpit, measure the width of your bicep.</li>
+						<li>Measure snug with room for one finger.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Wrist Size</h2>
+					<ol class="tips">
+						<li>Measure around the wrist bone.</li>
+						<li>Leave room for one finger.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Pants Length</h2>
+					<ol class="tips">
+						<li>Start from the top of the pants' waistband.</li>
+						<li>Measure along the side pants seam to the bottom of your pants or roughly 1 to 1.5 inches from the ground.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Waist</h2>
+					<ol class="tips">
+						<li>Have the tape follow the top of your pants the whole way around.</li>
+						<li>Imagine the tape is your actual pants' waist and adjust to your desired snugness.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Crotch</h2>
+					<ol class="tips">
+						<li>Place the tape at the middle of your waist.</li>
+						<li>Follow the crotch seam through your legs, up to the front of the pants..</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Thigh Size</h2>
+					<ol class="tips">
+						<li>Starting at the top of your inseam, measure around your thigh.</li>
+						<li>Measure snug with room for one finger.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+				</div>
+				<div class="measure_content">
+					<div style="height: 300px;width: 400px;background: black;">
+					
+					</div>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Knee Size</h2>
+					<ol class="tips">
+						<li>Measure around your knee cap, snug, with room for one finger.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -161,12 +356,23 @@
 			</div>
 			<div class="measure_controller">
 				<div class="circle_hint" style="display: none;">BODY SHAPE</div>
-				<img class="pagination_active_m" src="/style/image/1x1.png" title="1111">
-				<img class="pagination_m" src="/style/image/1x1.png" title="222">
-				<img class="pagination_m" src="/style/image/1x1.png" title="333">
-				<img class="pagination_m" src="/style/image/1x1.png" title="444">
-				<img class="pagination_m" src="/style/image/1x1.png" title="5555">
-				<img class="pagination_m" src="/style/image/1x1.png" title="666">
+				<img class="pagination_active_m" src="/style/image/1x1.png" title="Hight&Weight">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Body Shape 1">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Body Shape 2">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Shirt Neck">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Jacket/Shirt Length">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Chest Size">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Stomach Size">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Jacket Hips">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Shoulder Size">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Sleeve Length">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Bicep Size">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Wrist Size">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Pants Length">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Waist">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Crotch">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Thigh Size">
+				<img class="pagination_m" src="/style/image/1x1.png" title="Knee Size">
 			</div>
 		</div>
 	</div>
