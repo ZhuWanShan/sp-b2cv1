@@ -1230,8 +1230,8 @@ li.scart_c_w_r {
 /********************************************************Measurement **************************************/
 
 .measure_panel {
-    /**background: url("/style/image/background_grey_box.jpg") no-repeat scroll 0 0 transparent;*/
-    background:#fff;
+   /* background: url("/style/image/background_grey_box.jpg") no-repeat scroll 0 0 transparent;*/
+    background:#ddd;
     height: 306px;
     left: 0;
     margin: 0;
@@ -1273,12 +1273,58 @@ li.scart_c_w_r {
     color: #808080;
 }
 
+.measure_content .attribute {
+    float: left;
+    width: 160px;
+    padding-left: 35px;
+}
+
+.attribute ul.options {
+    margin: 0;
+    padding: 0;
+}
+
+.attribute ul.options li {
+    margin: 0;
+    padding: 5px 0;
+   	border: none;
+}
+
+
+.attribute ul.options li label{
+    margin: 0;
+    padding: 5px 0;
+   	border: none;
+   	float: none !important;
+}
 
 .measure_content ul{
 	list-style-type: none;
     margin: 100px 0 0;
     padding: 0;
 
+}
+
+.measure_sidebar ol.tips {
+    list-style: decimal outside none;
+    margin: 5px 15px;
+    padding: 0 5px;
+}
+
+.measure_sidebar ol.tips li {
+    font-size: 12px;
+    margin: 0;
+    padding: 5px 0;
+}
+
+.attribute ul li label {
+    font-size: 11px;
+    padding-left: 5px;
+}
+
+.attribute h4 {
+    font-size: 12px;
+    margin: 10px 0 5px;
 }
 
 .measure_content ul li{
@@ -1367,4 +1413,18 @@ li.scart_c_w_r {
 	
 }
 
+.measure_field{
+	width: 260px;
+	height: 50px;
+	/*background-color: #BBB;*/
+	position: absolute;
+	top: 286px;
+	padding-left: 60px;
+}
+
+
+.measure_input{
+	height: 30px;
+	width: 80px;
+}
 /********************************************************end Measurement **************************************/
