@@ -115,7 +115,7 @@
 							<c:if test="${!empty specialOffer.value[0].url}">
 								<a title="${specialOffer.value[0].displayName}"
 									href="<%=Constants.HTTP_PROTOCOL%>${specialOffer.value[0].url}">
-									<img width="174" height="84" border="0" src="${specialOffer.value[0].specialOfferImage.noChangeUrl}">
+									<img width="174" border="0" src="${specialOffer.value[0].specialOfferImage.noChangeUrl}">
 								</a>
 							</c:if>
 							</li>
