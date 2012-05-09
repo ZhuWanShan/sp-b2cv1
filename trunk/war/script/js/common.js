@@ -273,13 +273,15 @@ var SP = new Object();
 			
 			slider.go = function(index){
 				if(index != slider.currentSlider){
-					slider.currentSlider = index;
-					slider.sliders.hide();
-					jq(slider.sliders.get(slider.currentSlider)).fadeIn("slow");
-					slider.controllers.removeClass("pagination_active_m");
-					slider.controllers.addClass("pagination_m");
-					jq(slider.controllers.get(slider.currentSlider)).removeClass("pagination_m");
-					jq(slider.controllers.get(slider.currentSlider)).addClass("pagination_active_m");
+					if(jq(slider.sliders.get(slider.currentSlider)).fieldCheck()){
+						slider.currentSlider = index;
+						slider.sliders.hide();
+						jq(slider.sliders.get(slider.currentSlider)).fadeIn("slow");
+						slider.controllers.removeClass("pagination_active_m");
+						slider.controllers.addClass("pagination_m");
+						jq(slider.controllers.get(slider.currentSlider)).removeClass("pagination_m");
+						jq(slider.controllers.get(slider.currentSlider)).addClass("pagination_active_m");
+					}
 				}
 				initButtons();
 			};
