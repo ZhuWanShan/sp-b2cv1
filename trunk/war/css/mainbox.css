@@ -21,7 +21,7 @@
 /*7.4每日抢购样式修改*/
 .tab_content{ height:770px; background:#FBF9F7; position:relative; overflow:hidden;}
 .daily_madness{ padding:0 0 0 8px;}
-.daily_madness li{ overflow:visible; position:relative; height:320px; margin:10px 8px 30px;}
+.daily_madness li{ overflow:visible; position:relative; height:335px; margin:10px 8px 30px;}
 .countdown_sun{ float:none; clear:right;}
 .countdown_sun span{ display:inline-block; background:#FBF9F7; position:relative; z-index:5;}
 .countdown_sun span.text{ font-size:16px; font-weight:normal;}
