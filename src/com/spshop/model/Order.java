@@ -366,10 +366,10 @@ public class Order extends Component{
 		obj.bicepSize = this.bicepSize;
 		obj.wristSize = this.wristSize;
 		obj.pantsLength = this.pantsLength;
-		obj.waist = obj.waist;
-		obj.crotch = obj.crotch;
+		obj.waist = this.waist;
+		obj.crotch = this.crotch;
 		obj.thighSize = this.thighSize;
-		obj.kneeSize = obj.kneeSize;
+		obj.kneeSize = this.kneeSize;
 		obj.suitMeasurement = this.suitMeasurement;
 		
 		
@@ -924,4 +924,28 @@ public class Order extends Component{
 		return new SuitMeasurement(height, weight, age, shoulder, chest, stomch, posture, shirtNeck, jacketShirtLenght, chestSize, stomachSize, jacketHips, shoulderSize, sleeveLength, bicepSize, wristSize, pantsLength, waist, crotch, thighSize, kneeSize);
 	}
 	
+	public void setMySuitMeasurement(SuitMeasurement measurement){
+		this.chest = measurement.getChest();
+		this.chestSize = measurement.getChestSize();
+		this.height = measurement.getHeight();
+		this.weight = measurement.getWeight();
+		this.age = measurement.getAge();
+		this.shoulder = measurement.getShoulder();
+		this.stomch = measurement.getStomch();
+		this.posture = measurement.getPosture();
+		this.shirtNeck = measurement.getShirtNeck();
+		this.jacketShirtLenght = measurement.getJacketShirtLenght();
+		this.stomachSize = measurement.getStomachSize();
+		this.jacketHips = measurement.getJacketHips();
+		this.shoulderSize = measurement.getShoulderSize();
+		this.sleeveLength = measurement.getSleeveLength();
+		this.bicepSize = measurement.getBicepSize();
+		this.wristSize = measurement.getWristSize();
+		this.pantsLength = measurement.getPantsLength();
+		this.waist = measurement.getWaist();
+		this.crotch = measurement.getCrotch();
+		this.thighSize = measurement.getThighSize();
+		this.kneeSize = measurement.getKneeSize();
+	}
+
 }

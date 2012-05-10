@@ -27,12 +27,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.spshop.cache.SCacheFacade;
 import com.spshop.model.Coupon;
 import com.spshop.model.Order;
 import com.spshop.model.OrderItem;
 import com.spshop.model.Product;
+import com.spshop.model.SuitMeasurement;
 import com.spshop.model.User;
 import com.spshop.model.UserOption;
 import com.spshop.model.cart.ShoppingCart;
@@ -47,6 +49,7 @@ import com.spshop.utils.FeedTools;
 import com.spshop.utils.Utils;
 
 @Controller
+@SessionAttributes(CURRENT_PRODUCT)
 public class ShoppingController extends BaseController{
 	
 	private static final String COLOR = COLOR_PARAM_PRE;
@@ -72,6 +75,19 @@ public class ShoppingController extends BaseController{
 	public String shoppingCart2(Model model,HttpServletRequest request,HttpServletResponse response) {
 		int qty = retriveQty(request);
 		Product product = SCacheFacade.getProduct(retriveProductId(request));
+		
+		if(product.getOptType() == 1){
+			SuitMeasurement measurement = retrieveSuitMeasurement(request);
+			if(null != validate(measurement)){
+				model.addAttribute(CURRENT_PRODUCT, product);
+				getUserView().getMsg().put(MISS_MEASUREMENT, "You need fill the suit measurement then continue...");
+				return "/my-measurements";
+			}else{
+				getUserView().getCart().getOrder().setMySuitMeasurement(measurement);
+				getUserView().getCart().getOrder().setSuitMeasurement(true);
+			}
+		}
+		
 		List<UserOption> options = retriveUserOptions(request);
 		if(null!=product){
 			getUserView().getCart().addItem(product, options, qty);
