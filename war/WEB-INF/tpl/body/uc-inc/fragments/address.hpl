@@ -10,7 +10,7 @@
 			</td>
 			<td><textarea name="${(addType)!''}address1" id="${(addType)!''}address1"
 					class="txt_area" validation="address">${(address.address1)!''}</textarea> <span class="red" id="${(addType)!''}address1_noti">${(userView.err[((addType)!'')+'address1Err'])!''}</span>
-					<p class="gray"> PO Boxes or similar addresses are not available for shipping,thank you£¡</p></td>
+					<p class="gray"> PO Boxes or similar addresses are not available for shipping,thank you!</p></td>
 		</tr>
 		<tr>
 			<td height="45" align="right" valign="top">Address 2</td>
