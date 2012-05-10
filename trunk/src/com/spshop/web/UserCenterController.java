@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.spshop.model.Address;
 import com.spshop.model.Country;
 import com.spshop.model.Order;
+import com.spshop.model.SuitMeasurement;
 import com.spshop.model.User;
 import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
@@ -367,6 +368,28 @@ public class UserCenterController extends BaseController{
 	
 	@RequestMapping(value="/my-measurements", method = RequestMethod.GET)
 	public String measurements(Model model,HttpServletRequest request,HttpServletResponse response){
+		
+		return "measurements";
+	}
+	
+	@RequestMapping(value="/my-measurements", method = RequestMethod.POST)
+	public String measurementsPost(Model model,HttpServletRequest request,HttpServletResponse response){
+		
+		SuitMeasurement measurement = retrieveSuitMeasurement(request);
+		
+		model.addAttribute(SUIT_MEASUREMENT, measurement);
+		
+		String validationString = validate(measurement);
+		if(null != validate(measurement)){
+			getUserView().getMsg().put(MISS_MEASUREMENT, validationString);
+			return "/my-measurements";
+		}else{
+			getUserView().getLoginUser().setMySuitMeasurement(measurement);
+			getUserView().getLoginUser().setSuitMeasurement(true);
+		}
+		
+		ServiceFactory.getService(UserService.class).saveUser(getUserView().getLoginUser());
+		
 		
 		return "measurements";
 	}

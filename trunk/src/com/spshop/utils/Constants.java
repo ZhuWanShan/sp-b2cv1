@@ -228,4 +228,10 @@ public class Constants {
     public static final String USER_ORDERS_COUNT = "userOrdersCount";
     
     public static final String USER_PROFILE = "userProfile";
+    
+    public static final String CURRENT_PRODUCT = "currentProduct";
+    
+    public static final String MISS_MEASUREMENT = "missMeasurement";
+    
+    public static final String SUIT_MEASUREMENT = "suitMeasurement";
 }
