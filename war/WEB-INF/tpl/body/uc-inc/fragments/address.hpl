@@ -9,7 +9,8 @@
 			<td height="50" align="right" valign="top">Address 1<span class="red">*</span>
 			</td>
 			<td><textarea name="${(addType)!''}address1" id="${(addType)!''}address1"
-					class="txt_area" validation="address">${(address.address1)!''}</textarea> <span class="red" id="${(addType)!''}address1_noti">${(userView.err[((addType)!'')+'address1Err'])!''}</span></td>
+					class="txt_area" validation="address">${(address.address1)!''}</textarea> <span class="red" id="${(addType)!''}address1_noti">${(userView.err[((addType)!'')+'address1Err'])!''}</span>
+					<p class="gray"> PO Boxes or similar addresses are not available for shipping,thank you£¡</p></td>
 		</tr>
 		<tr>
 			<td height="45" align="right" valign="top">Address 2</td>
@@ -50,7 +51,7 @@
 			<td valign="top"><input name="${(addType)!''}telNum" id="${(addType)!''}telNum" type="text" value="${(address.phone)!''}"
 				class="txt_input " validation="phone"><span
 				class="red" id="${(addType)!''}telNum_noti">${(userView.err[((addType)!'') +'telNumErr'])!''}</span>
-				<p class="gray">Your phone number is needed so we or the shipping company can
+				<p class="gray"> Your phone number is needed so we or the shipping company can
 					contact you in case of problems.</p></td>
 		</tr>
 		<#if showSubmitBtn>
