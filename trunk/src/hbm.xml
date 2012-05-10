@@ -213,6 +213,31 @@
 		<property name="customerBCountry" ></property>
 		<property name="shippingMethod" ></property>
 		
+		<!-- measurement -->
+		<property name="height" ></property>
+		<property name="weight" ></property>
+		<property name="age" ></property>
+		<property name="shoulder" ></property>
+		<property name="chest" ></property>
+		<property name="stomch" ></property>
+		<property name="posture" ></property>
+		<property name="shirtNeck" ></property>
+		<property name="jacketShirtLenght" ></property>
+		<property name="chestSize" ></property>
+		<property name="stomachSize" ></property>
+		<property name="jacketHips" ></property>
+		<property name="shoulderSize" ></property>
+		<property name="sleeveLength" ></property>
+		<property name="bicepSize" ></property>
+		<property name="wristSize" ></property>
+		<property name="pantsLength" ></property>
+		<property name="waist" ></property>
+		<property name="crotch" ></property>
+		<property name="thighSize" ></property>
+		<property name="kneeSize" ></property>
+		<property name="suitMeasurement" ></property>
+		<!-- end measurement -->
+		
 		<property name="status" length="255" column="order_status"></property>
 		
 		
@@ -451,6 +476,31 @@
 		<property name="phoneB" ></property>
 		
 		<property name="billingSameAsPrimary" ></property>
+		
+		<!-- measurement -->
+		<property name="height" ></property>
+		<property name="weight" ></property>
+		<property name="age" ></property>
+		<property name="shoulder" ></property>
+		<property name="chest" ></property>
+		<property name="stomch" ></property>
+		<property name="posture" ></property>
+		<property name="shirtNeck" ></property>
+		<property name="jacketShirtLenght" ></property>
+		<property name="chestSize" ></property>
+		<property name="stomachSize" ></property>
+		<property name="jacketHips" ></property>
+		<property name="shoulderSize" ></property>
+		<property name="sleeveLength" ></property>
+		<property name="bicepSize" ></property>
+		<property name="wristSize" ></property>
+		<property name="pantsLength" ></property>
+		<property name="waist" ></property>
+		<property name="crotch" ></property>
+		<property name="thighSize" ></property>
+		<property name="kneeSize" ></property>
+		<property name="suitMeasurement" ></property>
+		<!-- end measurement -->
 		
 	</class>
 	
