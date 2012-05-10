@@ -121,7 +121,8 @@
 					</ol>
 				</div>
 				<div class="measure_field">
-					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<input type="text" class="measure_input" checkRule="required,double" filedName="Shirt Neck" msg="Shirt Neck must be a number!" msgField="measure_shirt_neck_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_shirt_neck_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -139,7 +140,8 @@
 					</ol>
 				</div>
 				<div class="measure_field">
-					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<input type="text" class="measure_input" checkRule="required,double" filedName="Jacket/Shirt Length" msg="Shirt Neck must be a number!" msgField="jacket_shirt_length_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="jacket_shirt_length_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -157,7 +159,8 @@
 					</ol>
 				</div>
 				<div class="measure_field">
-					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<input type="text" class="measure_input" checkRule="required,double" filedName="Chest Size" msg="Chest Size must be a number!" msgField="measure_chest_size_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_chest_size_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -174,7 +177,8 @@
 					</ol>
 				</div>
 				<div class="measure_field">
-					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<input type="text" class="measure_input" checkRule="required,double" filedName="Stomach Size" msg="Stomach Size must be a number!" msgField="measure_stomach_size_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_stomach_size_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -192,7 +196,8 @@
 					</ol>
 				</div>
 				<div class="measure_field">
-					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<input type="text" class="measure_input" checkRule="required,double" filedName="Jacket Hips" msg="Jacket Hips must be a number!" msgField="measure_jacket_hips_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_jacket_hips_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -210,7 +215,8 @@
 					</ol>
 				</div>
 				<div class="measure_field">
-					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<input type="text" class="measure_input" checkRule="required,double" filedName="Shoulder Size" msg="Shoulder Size must be a number!" msgField="measure_shoulder_size_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_shoulder_size_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -228,7 +234,8 @@
 					</ol>
 				</div>
 				<div class="measure_field">
-					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<input type="text" class="measure_input" checkRule="required,double" filedName="Sleeve Length" msg="Sleeve Length must be a number!" msgField="measure_sleeve_length_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_sleeve_length_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -246,7 +253,8 @@
 					</ol>
 				</div>
 				<div class="measure_field">
-					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<input type="text" class="measure_input" checkRule="required,double" filedName="Bicep Size" msg="Bicep Size must be a number!" msgField="measure_bicep_size_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_bicep_size_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -264,7 +272,8 @@
 					</ol>
 				</div>
 				<div class="measure_field">
-					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<input type="text" class="measure_input" checkRule="required,double" filedName="Wrist Size" msg="Wrist Size must be a number!" msgField="measure_wrist_size_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_wrist_size_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -282,7 +291,8 @@
 					</ol>
 				</div>
 				<div class="measure_field">
-					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<input type="text" class="measure_input" checkRule="required,double" filedName="Pants Length" msg="Pants Length must be a number!" msgField="measure_pants_length_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_pants_length_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -300,7 +310,8 @@
 					</ol>
 				</div>
 				<div class="measure_field">
-					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<input type="text" class="measure_input" checkRule="required,double" filedName="Waist" msg="Waist must be a number!" msgField="measure_waist_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_waist_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -318,7 +329,8 @@
 					</ol>
 				</div>
 				<div class="measure_field">
-					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<input type="text" class="measure_input" checkRule="required,double" filedName="Crotch" msg="Crotch must be a number!" msgField="measure_crotch_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_crotch_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -336,7 +348,8 @@
 					</ol>
 				</div>
 				<div class="measure_field">
-					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<input type="text" class="measure_input" checkRule="required,double" filedName="Thigh Size" msg="Thigh Size must be a number!" msgField="measure_thigh_size_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_thigh_size_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
@@ -353,7 +366,8 @@
 					</ol>
 				</div>
 				<div class="measure_field">
-					<input type="text" class="measure_input"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<input type="text" class="measure_input"  checkRule="required,double" filedName="Knee Size" msg="Knee Size must be a number!" msgField="measure_knee_size_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_knee_size_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
 					<div style="height: 300px;width: 400px;background: black;">
