@@ -83,11 +83,11 @@ public class SuitMeasurement {
 	public void setChest(String chest) {
 		this.chest = chest;
 	}
-	public String getStomch() {
+	public String getStomach() {
 		return stomch;
 	}
-	public void setStomch(String stomch) {
-		this.stomch = stomch;
+	public void setStomach(String stomach) {
+		this.stomch = stomach;
 	}
 	public String getPosture() {
 		return posture;

@@ -369,6 +369,16 @@ public class UserCenterController extends BaseController{
 	@RequestMapping(value="/my-measurements", method = RequestMethod.GET)
 	public String measurements(Model model,HttpServletRequest request,HttpServletResponse response){
 		
+		SuitMeasurement measurement = getUserView().getLoginUser().getSuitMeasurement();
+		
+		model.addAttribute(SUIT_MEASUREMENT, measurement);
+		
+		if(getUserView().getLoginUser().isSuitMeasurement()){
+			model.addAttribute(MEASUREMENT_MSG,"You have filled the suit measurement");
+		}else{
+			model.addAttribute(MEASUREMENT_MSG,"You have not filled the suit measurement");
+		}
+		
 		return "measurements";
 	}
 	
@@ -381,7 +391,7 @@ public class UserCenterController extends BaseController{
 		
 		String validationString = validate(measurement);
 		if(null != validate(measurement)){
-			getUserView().getMsg().put(MISS_MEASUREMENT, validationString);
+			getUserView().getMsg().put(MEASUREMENT_MSG, validationString);
 			return "/my-measurements";
 		}else{
 			getUserView().getLoginUser().setMySuitMeasurement(measurement);
@@ -390,6 +400,7 @@ public class UserCenterController extends BaseController{
 		
 		ServiceFactory.getService(UserService.class).saveUser(getUserView().getLoginUser());
 		
+		model.addAttribute(MEASUREMENT_MSG,"Update measurement successfully");
 		
 		return "measurements";
 	}

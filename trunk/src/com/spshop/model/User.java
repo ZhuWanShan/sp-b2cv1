@@ -658,7 +658,7 @@ public class User extends Component{
 		this.weight = measurement.getWeight();
 		this.age = measurement.getAge();
 		this.shoulder = measurement.getShoulder();
-		this.stomch = measurement.getStomch();
+		this.stomch = measurement.getStomach();
 		this.posture = measurement.getPosture();
 		this.shirtNeck = measurement.getShirtNeck();
 		this.jacketShirtLenght = measurement.getJacketShirtLenght();
