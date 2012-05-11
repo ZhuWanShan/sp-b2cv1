@@ -50,7 +50,7 @@
 	</ui:style>
 	<g:HTMLPanel>
 		<g:SplitLayoutPanel styleName='{style.outer}' height="100%" width="100%">
-			<g:north size="280">
+			<g:north size="370">
 				<g:VerticalPanel styleName="{style.orderInfo}" width="100%">
 				<g:Grid>
 					<g:row>
@@ -62,6 +62,19 @@
 						</g:customCell>
 						<g:customCell>
 							<g:Button text="Save" ui:field="button"/>
+						</g:customCell>
+					</g:row>
+				</g:Grid>
+				<g:Grid>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Order Trace:"/>
+						</g:customCell>
+						<g:customCell>
+							<g:TextArea width="500px" height="80px" name="traceInfo" ui:field="txtTraceInfo"/>
+						</g:customCell>
+						<g:customCell>
+							<g:Button ui:field="btnSaveTrace" text="Save"/>
 						</g:customCell>
 					</g:row>
 				</g:Grid>
@@ -162,7 +175,7 @@
 					</g:north>
 					<g:center>
 						<g:ScrollPanel>
-							<g:FlexTable styleName="{style.table}" ui:field="orderTable"></g:FlexTable>
+							<g:FlexTable styleName="{style.table}" ui:field="orderTable" height="20"></g:FlexTable>
 						</g:ScrollPanel>
 					</g:center>
 				</g:DockLayoutPanel>
