@@ -80,7 +80,7 @@ public class ShoppingController extends BaseController{
 			SuitMeasurement measurement = retrieveSuitMeasurement(request);
 			if(null != validate(measurement)){
 				model.addAttribute(CURRENT_PRODUCT, product);
-				getUserView().getMsg().put(MISS_MEASUREMENT, "You need fill the suit measurement then continue...");
+				getUserView().getMsg().put(MEASUREMENT_MSG, "You need fill the suit measurement then continue...");
 				return "/my-measurements";
 			}else{
 				getUserView().getCart().getOrder().setMySuitMeasurement(measurement);
