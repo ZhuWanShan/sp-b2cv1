@@ -57,6 +57,7 @@ public class Order extends Component{
 	
 	private boolean billingSameAsPrimary = true;
 	
+	private String traceInfo;
 	
 	private float height;
 	private float weight;
@@ -947,5 +948,13 @@ public class Order extends Component{
 		this.thighSize = measurement.getThighSize();
 		this.kneeSize = measurement.getKneeSize();
 	}
+
+    public void setTraceInfo(String traceInfo) {
+        this.traceInfo = traceInfo;
+    }
+
+    public String getTraceInfo() {
+        return traceInfo;
+    }
 
 }

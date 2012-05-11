@@ -23,6 +23,7 @@ import com.spshop.model.Country;
 import com.spshop.model.Order;
 import com.spshop.model.Site;
 import com.spshop.model.UserOption;
+import com.google.gwt.user.client.ui.TextArea;
 
 public class OrderInfo extends Composite {
 
@@ -50,6 +51,8 @@ public class OrderInfo extends Composite {
     @UiField Label customerMsg;
     @UiField Label couponPrice;
     @UiField Label shippingType;
+    @UiField TextArea txtTraceInfo;
+    @UiField Button btnSaveTrace;
     private void populateOrderInfo(){
         DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
         this.orderId.setText(this.order.getName());
@@ -62,6 +65,7 @@ public class OrderInfo extends Composite {
         this.couponId.setText(order.getCouponCode());
         this.couponPrice.setText(String.valueOf(order.getCouponCutOff()));
         this.shippingType.setText(order.getShippingMethod());
+        this.txtTraceInfo.setText(this.order.getTraceInfo());
         this.primaryAddr.setText(populateAddressString(this.order.getPrimaryAddress()));
         if (this.order.isBillingSameAsPrimary()) {
             this.billingAddr.setText(populateAddressString(this.order.getPrimaryAddress()));
@@ -210,6 +214,18 @@ public class OrderInfo extends Composite {
     void onButtonClick(ClickEvent event) {
         CommandFactory.lock("Save Order Status").execute();
         this.order.setStatus(this.orderStatus.getSelectedValue());
+        AdminWorkspace.ADMIN_SERVICE_ASYNC.updateOrderStatus(order, new AsyncCallbackAdapter<Order>() {
+            @Override
+            public void onSuccess(Order result) {
+                setOrder(result);
+                CommandFactory.release().execute();
+            }
+        });
+    }
+    @UiHandler("btnSaveTrace")
+    void onBtnSaveTraceClick(ClickEvent event) {
+        CommandFactory.lock("Save Order Status").execute();
+        this.order.setTraceInfo(this.txtTraceInfo.getValue());
         AdminWorkspace.ADMIN_SERVICE_ASYNC.updateOrderStatus(order, new AsyncCallbackAdapter<Order>() {
             @Override
             public void onSuccess(Order result) {

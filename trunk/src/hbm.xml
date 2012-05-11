@@ -212,6 +212,7 @@
 		<property name="bcountry" ></property>
 		<property name="customerBCountry" ></property>
 		<property name="shippingMethod" ></property>
+		<property column="traceInfo" generated="never" lazy="false" name="traceInfo" length="255"/>
 		
 		<!-- measurement -->
 		<property name="height" ></property>
