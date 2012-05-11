@@ -146,6 +146,19 @@ public class UserCenterController extends BaseController{
 		return "shoppingCart_payment";
 	}
 	
+
+	@RequestMapping("/shoppingCart_payment2")
+	public String shoppingCartPayment(Model model, @RequestParam("id") String orderId) {
+		
+		Order order = ServiceFactory.getService(OrderService.class).getOrderById(orderId);
+		if(null!=order && OrderStatus.PENDING.getValue().equals(order.getStatus())){
+			model.addAttribute(CURRENT_ORDER, order);
+		}else{
+			model.addAttribute(CURRENT_ORDER, order);
+		}
+		
+		return "paypal";
+	}
 	
 	@RequestMapping(value = "/shoppingCart_payment_2_pay" , method = RequestMethod.POST)
 	public String shoppingCartPayment2Pay(Model model) {
