@@ -118,6 +118,14 @@
 				<b>Grand Total:<span id="GrabdTotal">${(order.currency)}&nbsp;<span
 						class="order_grand_total">${(currencyRate*(order.totalPrice-order.couponCutOff+order.dePrice))?string(",##0.##")}</span></span></b>
 			</dd>
+			<#if order.status="PENDING">
+			<dd class="red">
+				<form action="/uc/shoppingCart_payment2">
+					<Span><input type="submit" class="button_01" value="Pay this Order>>" id="GO_TO_Fill_Address" ></Span>
+					<input type="hidden" name="id" value="${order.name}">
+				</form>
+			</dd>
+			</#if>
 		</dl>
 
 	</div>
