@@ -76,6 +76,13 @@
 						<td class="scart_status_list_table_w1">SHIPPING METHOD:</td>
 						<td class="scart_status_list_table_w2">${order.shippingMethod!'Standard'}</td>
 					<tr>
+					<#assign traceInfo=((order.traceInfo)!'')>
+					<#if traceInfo!=''>
+						<tr>
+							<td class="scart_status_list_table_w1">SHIPPING INFO:</td>
+							<td class="scart_status_list_table_w2">${order.traceInfo}</td>
+						<tr>
+					</#if>
 					<#assign "address"= primary!order.primaryAddress >
 					<tr>
 						<td class="scart_status_list_table_w1">SHIPPED TO:</td>
