@@ -344,6 +344,11 @@ public class Order extends Component{
 			obj.customerMsg = this.customerMsg;
 		}
 		
+		if (this.traceInfo != null) {
+            /* Does not have a clone() method */
+            obj.traceInfo = this.traceInfo;
+        }
+		
 		obj.dePrice = this.dePrice;
 		obj.country = this.country;
 		obj.bcountry = this.bcountry;
