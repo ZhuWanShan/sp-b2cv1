@@ -438,7 +438,7 @@ Please DO NOT use "the same as picture" option.</p>
 											
 						<input type="submit" style="display: none;" id="sub"
 						value="ADD TO MY BAG" class="item_addBag"> <input
-						type="submit" id="nosubitem_addBag" value="Customnize" class="item_addBag">
+						type="submit" id="nosubitem_addBag" value="Customize" class="item_addBag">
 						<script type="text/javascript">
 							jq("#nosubitem_addBag").click(function(){
 								//jq.documentMask(); 
