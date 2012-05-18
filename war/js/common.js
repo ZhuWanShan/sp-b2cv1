@@ -2039,7 +2039,7 @@ jQuery.fn.defaultValue = function() {
 
 })( jQuery );
 
-jQuery( document ).ready(function() {
+jQuery( ".item_box_right" ).ready(function() {
 	jQuery("#CustomizedHidden").attr("name","");
 	jQuery("#alert_thing_box_customizedsize").hide();
 	
