@@ -21,8 +21,6 @@
 	
 	<script src="../js/jquery-1.5.1.js" type="text/javascript"></script>
 	
-		<script src="/script/js/jquery-1.7.1.js" type="text/javascript">
-		</script>
 		<script type="text/javascript">
 			var jq = jQuery.noConflict();
 		</script>
