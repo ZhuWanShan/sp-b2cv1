@@ -24,7 +24,8 @@
 		<script type="text/javascript">
 			var jq = jQuery.noConflict();
 		</script>
-		<script src="/script/js/common.js" type="text/javascript"></script>
+		<script src="/script/js/common2.js" type="text/javascript"></script>
+		<script src="/script/js/jquery.validation.js" type="text/javascript"></script>
 	<script>
 		var Image_url = 'http://127.0.0.1:8888/css',root_url = 'http://127.0.0.1:8888/',seller_lang='en-uk';
 		var head_SearchKeywordsNo='Enter search keywords or item code here';

@@ -152,7 +152,7 @@ public class Utils {
 	public static ShoppingCart retrieveShoppingCart(HttpServletRequest request, User user) {
 		
 		ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute(SHOPPINGCART);
-		String currency = (String) request.getAttribute(CURRENCY);
+		String currency = (String) request.getSession().getAttribute(CURRENCY);
 		if(StringUtils.isEmpty(currency)){
 			currency = DEFAULT_CURRENCY;
 		}
@@ -183,8 +183,8 @@ public class Utils {
 		
 		if(StringUtils.isBlank(cart.getOrder().getCurrency())){
 			cart.getOrder().setCurrency(currency);
-		}else if(StringUtils.isEmpty(request.getParameter(CURRENCY))){
-			request.getSession().setAttribute(CURRENCY, cart.getOrder().getCurrency());
+		}else if(StringUtils.isEmpty(request.getParameter(CURRENCY)) || StringUtils.isNotBlank(currency)){
+			request.getSession().setAttribute(CURRENCY, currency);
 		}
 		
 		return cart;
