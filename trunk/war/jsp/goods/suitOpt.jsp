@@ -38,16 +38,16 @@
 				<div class="measure_content">
 					<ul class="img_opt three_img_item">
 							<li>
-								<img src="/style/image/peak.png" >
-								<h3>Peak</h3>
+								<img src="/style/image/vents/none.png" >
+								<h3>None</h3>
 							</li>
 							<li>
-								<img src="/style/image/notch.png" >
-								<h3>Notch</h3>
+								<img src="/style/image/vents/one.png" >
+								<h3>One</h3>
 							</li>
 							<li>
-								<img src="/style/image/notch_slim.png" >
-								<h3 class="current">Notch (Slim)</h3>
+								<img src="/style/image/vents/two.png" >
+								<h3 class="current">Two</h3>
 							</li>
 						</ul>
 					<p class="clearBoth"></p>
@@ -62,20 +62,20 @@
 				<div class="measure_content">
 					<ul class="img_opt four_img_item">
 							<li>
-								<img src="/style/image/peak.png" >
-								<h3>Peak</h3>
+								<img src="/style/image/btns/one.png" >
+								<h3>One</h3>
 							</li>
 							<li>
-								<img src="/style/image/notch.png" >
-								<h3>Notch</h3>
+								<img src="/style/image/btns/two.png" >
+								<h3>Two</h3>
 							</li>
 							<li>
-								<img src="/style/image/notch_slim.png" >
-								<h3 class="current">Notch (Slim)</h3>
+								<img src="/style/image/btns/three.png" >
+								<h3 class="current">Three</h3>
 							</li>
 							<li>
-								<img src="/style/image/shawl.png" >
-								<h3 class="active">Shawl</h3>
+								<img src="/style/image/btns/double_breasted.png" >
+								<h3 class="active">Double Breasted</h3>
 							</li>
 						</ul>
 					<p class="clearBoth"></p>
@@ -90,36 +90,36 @@
 				<div class="measure_content">
 					<ul class="img_opt eight_img_item">
 							<li>
-								<img class="small" src="/style/image/peak.png" >
-								<h3>Peak</h3>
+								<img class="small" src="/style/image/materials/black.png" >
+								<h3>Black</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/peak.png" >
-								<h3>Notch</h3>
+								<img class="small" src="/style/image/materials/black.png" >
+								<h3>Black</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/peak.png" >
-								<h3 class="current">Notch (Slim)</h3>
+								<img class="small" src="/style/image/materials/black.png" >
+								<h3>Black</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/peak.png" >
-								<h3 class="active">Shawl</h3>
+								<img class="small" src="/style/image/materials/black.png" >
+								<h3>Black</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/peak.png" >
-								<h3>Peak</h3>
+								<img class="small" src="/style/image/materials/black.png" >
+								<h3>Black</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/peak.png" >
-								<h3>Notch</h3>
+								<img class="small" src="/style/image/materials/black.png" >
+								<h3>Black</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/peak.png" >
-								<h3 class="current">Notch (Slim)</h3>
+								<img class="small" src="/style/image/materials/black.png" >
+								<h3>Black</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/peak.png" >
-								<h3 class="active">Shawl</h3>
+								<img class="small" src="/style/image/materials/black.png" >
+								<h3>Black</h3>
 							</li>
 							
 						</ul>
@@ -145,14 +145,14 @@
 						<div>
 							<div>
 								<h3>FONT</h3>
-								<img class="img_opt" src="http://d3dgk6r8ca2pzn.cloudfront.net/images/customization/font/timesroman.png">
-								<img class="img_opt active" src="http://d3dgk6r8ca2pzn.cloudfront.net/images/customization/font/timesroman.png">
+								<img class="img_opt" src="/style/image/font/timesroman.png">
+								<img class="img_opt active" src="/style/image/font/brushscript.png">
 							</div>
 							<div>
 								<h3>COLOR</h3>
-								<img src="http://d3dgk6r8ca2pzn.cloudfront.net/images/customization/font/timesroman.png">
-								<img src="http://d3dgk6r8ca2pzn.cloudfront.net/images/customization/font/timesroman.png">
-								<img src="http://d3dgk6r8ca2pzn.cloudfront.net/images/customization/font/timesroman.png">
+								<img src="/style/image/font/brushscript.png">
+								<img src="/style/image/font/brushscript.png">
+								<img src="/style/image/font/brushscript.png">
 							</div>
 						</div>
 					</div>
@@ -168,12 +168,12 @@
 				<div class="measure_content">
 					<ul class="img_opt three_img_item">
 							<li>
-								<img src="/style/image/notch.png" >
-								<h3>Notch</h3>
+								<img src="/style/image/pleats/none.png" >
+								<h3>None</h3>
 							</li>
 							<li>
-								<img src="/style/image/notch_slim.png" >
-								<h3 class="current">Notch (Slim)</h3>
+								<img src="/style/image/pleats/one.png" >
+								<h3 class="current">One</h3>
 							</li>
 						</ul>
 					<p class="clearBoth"></p>
@@ -189,12 +189,12 @@
 				<input type="button" class="button_01" value="Cancel">
 			</div>
 			<div class="measure_controller">
-				<img class="pagination_active_m" src="/style/image/1x1.png" title="1111">
-				<img class="pagination_m" src="/style/image/1x1.png" title="222">
-				<img class="pagination_m" src="/style/image/1x1.png" title="333">
-				<img class="pagination_m" src="/style/image/1x1.png" title="444">
-				<img class="pagination_m" src="/style/image/1x1.png" title="5555">
-				<img class="pagination_m" src="/style/image/1x1.png" title="5555">
+				<img class="pagination_active_m" src="/style/image/1x1.png" title="JACKET LAPELS">
+				<img class="pagination_m" src="/style/image/1x1.png" title="JACKET VENTS">
+				<img class="pagination_m" src="/style/image/1x1.png" title="JACKET BUTTONS">
+				<img class="pagination_m" src="/style/image/1x1.png" title="JACKET LINING">
+				<img class="pagination_m" src="/style/image/1x1.png" title="JACKET MONOGRAM">
+				<img class="pagination_m" src="/style/image/1x1.png" title="PANTS PLEATS">
 			</div>
 		</div>
 	</div>
