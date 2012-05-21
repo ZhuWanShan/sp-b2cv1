@@ -370,8 +370,20 @@ img.active{
 }
 
 img.current{
-	border: 5px solid #DD8200;	
+	border: 5px solid #e5e5e5;
 }
 
+.no_measure_note{
+	padding: 10px 2px;
+}
+
+
+.no_measure_note a{
+	padding: 10px 2px;
+	color: #DD8200;	
+	padding: 25px 10px;
+	font-weight: bold;
+	display: block;
+}
 /********************************************************end Measurement **************************************/
 

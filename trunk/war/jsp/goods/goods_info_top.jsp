@@ -435,25 +435,34 @@ Please DO NOT use "the same as picture" option.</p>
 					<c:if test="${pageForm.pageProperties.productDetail.optType > 0 }">
 						
 						<jsp:include page="suitOpt.jsp"></jsp:include>
-											
-						<input type="submit" style="display: none;" id="sub"
-						value="ADD TO MY BAG" class="item_addBag"> <input
-						type="submit" id="nosubitem_addBag" value="Customize" class="item_addBag">
-						<script type="text/javascript">
-							jq("#nosubitem_addBag").click(function(){
-								//jq.documentMask(); 
-								jq.documentMask({ 
-								'opacity': 0.6, 
-								'bgcolor': '#000000', 
-								'z': 301 
-								}); 
-								jq(".measure_dashboard").slider();
-								return false;
-								//jq("#nosubitem_addBag").attr("disabled","disabled");
-								//jq("#cusform").submit();
-								
-							});
-						</script>
+						<c:if test="${not empty userInfo && userInfo.suitMeasurement}">				
+							<input type="submit" style="display: none;" id="sub"
+							value="ADD TO MY BAG" class="item_addBag"> <input
+							type="submit" id="nosubitem_addBag" value="Customize" class="item_addBag">
+							<script type="text/javascript">
+								jq("#nosubitem_addBag").click(function(){
+									//jq.documentMask(); 
+									jq.documentMask({ 
+									'opacity': 0.6, 
+									'bgcolor': '#000000', 
+									'z': 301 
+									}); 
+									jq(".measure_dashboard").slider();
+									return false;
+									//jq("#nosubitem_addBag").attr("disabled","disabled");
+									//jq("#cusform").submit();
+									
+								});
+							</script>
+						</c:if>	
+						<c:if test="${empty userInfo || !userInfo.suitMeasurement}">
+							<div class="no_measure_note">
+								<p>You have not complete suit measurement. In order to service you better, please fill the measurement form, then continue shopping</p>
+								<p>
+									<a href="/uc/my-measurements?currentProductID=${pageForm.pageProperties.productDetail.name }">Fill the Measurement>></a>	
+								</p>
+							</div>
+						</c:if>
 					</c:if>
 					
 					<%--<div class="sub_outDiv_normal" style="display: none;"
