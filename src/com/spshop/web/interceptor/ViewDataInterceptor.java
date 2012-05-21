@@ -70,6 +70,8 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		
 		setCurrency(request,userView,siteView.getCurrencies());
 		
+		setCurrentProductID(request);
+		
 		String landingPage = request.getParameter(LOGIN_LANDING_PAGE_PARAM);
 		if(StringUtils.isBlank(landingPage)){
 			String url = request.getRequestURL().toString();
@@ -101,6 +103,14 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 	}
 	
 	
+	private void setCurrentProductID(HttpServletRequest request) {
+		String cpid = request.getParameter(CURRENT_PRODUCT_ID);
+		
+		if(StringUtils.isNotBlank(cpid)){
+			request.getSession().setAttribute(CURRENT_PRODUCT_ID, cpid);
+		}
+	}
+
 	private void setCurrency(HttpServletRequest request, UserView userView, Map<String, Float> currencies) {
 		
 		String cCode = request.getParameter(CURRENCY);

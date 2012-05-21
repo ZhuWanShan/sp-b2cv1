@@ -4,6 +4,11 @@
 <div class="nav-right-box">
 	<div class="box_title">My Measurements</div>
 	<div class="nav-right-box_content">
+	<#if currentProductID ??>
+		<div class="form_error blue">
+				<a class="blue" href="/${currentProductID}">>>Continue Shopping</a><br>
+		</div>
+	</#if>
 	<form action="/uc/my-measurements" method="post">
 	<div class="measure_dashboard">
 		<div class="measure_dashboard_content">

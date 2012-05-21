@@ -18,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.spshop.model.Address;
 import com.spshop.model.Country;
@@ -36,6 +37,7 @@ import com.spshop.web.view.SiteView;
 import static com.spshop.utils.Constants.*;
 
 @Controller
+@SessionAttributes("currentProductID")
 public class UserCenterController extends BaseController{
 	
 	Logger logger = Logger.getLogger(UserCenterController.class);
@@ -381,6 +383,12 @@ public class UserCenterController extends BaseController{
 	
 	@RequestMapping(value="/my-measurements", method = RequestMethod.GET)
 	public String measurements(Model model,HttpServletRequest request,HttpServletResponse response){
+		
+		String cpid = (String) request.getSession().getAttribute(CURRENT_PRODUCT_ID);
+		
+		if(StringUtils.isNotBlank(cpid)){
+			model.addAttribute(CURRENT_PRODUCT_ID, cpid);
+		}
 		
 		SuitMeasurement measurement = getUserView().getLoginUser().getSuitMeasurement();
 		
