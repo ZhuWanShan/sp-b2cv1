@@ -49,7 +49,7 @@ public class PageAction extends BaseAction {
 				    List<Product> tempProds = (ArrayList<Product>) page.getPageProperties().get(Constants.PROD_IN_CATEGORY_PAGE);
 				    Long count = ServiceFactory.getService(ProductService.class).queryCountByCategory(page.getCategory());
 				    List<Integer> pageIndexes = new ArrayList<Integer>();
-				    for (int i = 1; i <= (count-1)/24+1; i++) {
+				    for (int i = 1; i <= (count-1)/pageSize+1; i++) {
                         pageIndexes.add(i);
                     }
 				    
