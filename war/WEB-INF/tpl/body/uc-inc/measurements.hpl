@@ -135,9 +135,7 @@
 					<p id="measure_shirt_neck_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
-					<div style="height: 300px;width: 400px;background: black;">
-					
-					</div>
+					<img src="/style/image/suit_measure_img/Shirt-Neck.jpg" alt="suits measurement shirt neck" title="suits measurement shirt neck">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -154,9 +152,7 @@
 					<p id="jacket_shirt_length_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
-					<div style="height: 300px;width: 400px;background: black;">
-					
-					</div>
+					<img src="/style/image/suit_measure_img/Jacket-Shirt-Length.jpg" alt="Suits measurement Jacket or Shirt Length" title="Suits measurement Jacket or Shirt Length">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -173,9 +169,7 @@
 					<p id="measure_chest_size_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
-					<div style="height: 300px;width: 400px;background: black;">
-					
-					</div>
+					<img src="/style/image/suit_measure_img/Chest-Size.jpg" alt="Suits measurement Chest Size" title="Suits measurement Chest Size">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -191,10 +185,9 @@
 					<p id="measure_stomach_size_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
-					<div style="height: 300px;width: 400px;background: black;">
-					
-					</div>
+					<img src="/style/image/suit_measure_img/Stomach-Size.jpg" alt="Suits measurement Stomach Size" title="Suits measurement Stomach Size">
 					<p class="clearBoth"></p>
+					
 				</div>
 			</div>
 			<div class="measure_panel" style="display: none">
@@ -210,9 +203,7 @@
 					<p id="measure_jacket_hips_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
-					<div style="height: 300px;width: 400px;background: black;">
-					
-					</div>
+					<img src="/style/image/suit_measure_img/Jacket-Hips.jpg" alt="Suits measurement Jacket Hips" title="Suits measurement Jacket Hips">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -229,9 +220,7 @@
 					<p id="measure_shoulder_size_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
-					<div style="height: 300px;width: 400px;background: black;">
-					
-					</div>
+					<img src="/style/image/suit_measure_img/Shoulder-Size.jpg" alt="Suits measurement Shoulder Size" title="Suits measurement Shoulder Size">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -248,9 +237,7 @@
 					<p id="measure_sleeve_length_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
-					<div style="height: 300px;width: 400px;background: black;">
-					
-					</div>
+					<img src="/style/image/suit_measure_img/Sleeve-Length.jpg" alt="Suits measurement Sleeve Length" title="Suits measurement Sleeve Length">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -267,9 +254,7 @@
 					<p id="measure_bicep_size_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
-					<div style="height: 300px;width: 400px;background: black;">
-					
-					</div>
+					<img src="/style/image/suit_measure_img/Bicep-Size.jpg" alt="Suits measurement Bicep Size" title="Suits measurement Bicep Size">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -286,9 +271,7 @@
 					<p id="measure_wrist_size_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
-					<div style="height: 300px;width: 400px;background: black;">
-					
-					</div>
+					<img src="/style/image/suit_measure_img/Wrist-Size.jpg" alt="Suits measurement Wrist Sizee" title="Suits measurement Wrist Size">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -305,9 +288,7 @@
 					<p id="measure_pants_length_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
-					<div style="height: 300px;width: 400px;background: black;">
-					
-					</div>
+					<img src="/style/image/suit_measure_img/Pants-Length.jpg" alt="Suits measurement Pants Length" title="Suits measurement Pants Length">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -324,9 +305,7 @@
 					<p id="measure_waist_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
-					<div style="height: 300px;width: 400px;background: black;">
-					
-					</div>
+					<img src="/style/image/suit_measure_img/Waist.jpg" alt="Suits measurement Waist" title="Suits measurement Waist">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -343,9 +322,7 @@
 					<p id="measure_crotch_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
-					<div style="height: 300px;width: 400px;background: black;">
-					
-					</div>
+					<img src="/style/image/suit_measure_img/Crotch.jpg" alt="Suits measurement Crotch" title="Suits measurement Crotch">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -362,9 +339,7 @@
 					<p id="measure_thigh_size_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
-					<div style="height: 300px;width: 400px;background: black;">
-					
-					</div>
+					<img src="/style/image/suit_measure_img/Thigh-Size.jpg" alt="Suits measurement Thigh Size" title="Suits measurement Thigh Size">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -380,9 +355,8 @@
 					<p id="measure_knee_size_noti" class="red"></p>
 				</div>
 				<div class="measure_content">
-					<div style="height: 300px;width: 400px;background: black;">
-					
-					</div>
+					<img src="/style/image/suit_measure_img/Knee-Size.jpg" alt="Suits measurement Knee Size" title="Suits measurement Knee Size">
+					<p class="clearBoth"></p>
 					<p class="clearBoth"></p>
 				</div>
 			</div>
