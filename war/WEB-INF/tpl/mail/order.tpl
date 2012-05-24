@@ -416,11 +416,7 @@
        <tr style="mso-yfti-irow:1">
         <td valign="top" style="border:none;padding:0in 16.5pt 0in 16.5pt">
         
-		<p><strong><span style="font-size:9.0pt">Please
-        Note:</span></strong><span style="font-size:9.0pt"><br>
-        If you have chosen Expedited Shipping, your package(s) will arrive in
-        2-4 days from the time they are shipped, and you can enjoy the same
-        reliable service at the lowest rate possible.<o:p></o:p></span></p>
+		
 		
         </td>
        </tr>
