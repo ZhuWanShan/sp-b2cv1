@@ -73,11 +73,8 @@
 		${order.customerName}
 	  </#if>
 	  ,</span></strong><span style="font-size:9.0pt"></span></p>
-      <p style="margin-top:7.5pt;margin-right:0in;margin-bottom:7.5pt; margin-left:0in;line-height:13.5pt;paading: 0"><span style="font-size:11.0pt">Thank you for ordering from HoneyBuy.com!</span></p>
-      <p style="margin-top:7.5pt;margin-right:0in;margin-bottom:7.5pt;
-      margin-left:0in;line-height:13.5pt;paading: 0;font-size:11.0pt">We have received your Payment! 
-	  <P>We have been processing <a href="http://www.honeybuy.com/uc/orderDetails?id=${order.name}">your orders</a>, and you will receive your product in 25-30 Days. </p>
-	  </p>
+      <p style="margin-top:7.5pt;margin-right:0in;margin-bottom:7.5pt; margin-left:0in;line-height:13.5pt;paading: 0; font-size:10.0pt">We have confirmed your payment and have begun processing <a href="http://www.honeybuy.com/uc/orderDetails?id=${order.name}">your order</a>!</p>
+	  <p style="margin-top:7.5pt;margin-right:0in;margin-bottom:7.5pt; margin-left:0in;line-height:13.5pt;paading: 0; font-size:10.0pt">Once your items have been packed and are ready to go, they will be shipped to you immediately. You will receive a shipment notification via email once your order has been shipped.</p>
    
       </td>
       <td width="22" valign="top" style="width:16.5pt;border:none;padding:0in 0in 0in 0in"></td>
@@ -427,7 +424,17 @@
      <tbody>
      <tr>
       <td style="width:5px; border:none;padding:10px 0in 0in 0in"></td>
-      <td style="padding:10px 0px"> <p style="text-align:left;font-size:12.0pt">Dear <strong><#if order.customerName??> ${order.customerName} </#if></strong> thanks for your orders again! We appreciate your feedback and please Like-Share-Comment your orders on our site and use $20 Coupon:<span style="color:red"> HONEYBUY-2S6M2g</span> for your next orders over $150. We are waiting for your next visit!</p></td>
+            
+       <td style="padding:10px 0px"> 
+	  <p style="text-align:left;font-size:10.0pt"><strong>Please Note: </strong></P>
+	  <p style="text-align:left;font-size:9.0pt">Once we finish processing your order, your items will be immediately packaged and shipped to you. The average processing time for made-to-measure clothing (such as wedding, suits or special occasion dresses) is 8-12 business days, and for all other items, approximately 1-3 business days. And</p>
+      <p style="text-align:left;font-size:8.0pt">If you have chosen Expedited shipping, your package(s) will arrive in 2-4 business days from the time they are shipped, the fastest shipping method worldwide.</p>
+	  <p style="text-align:left;font-size:8.0pt">If you have chosen Standard shipping, your package(s) will arrive in 5-8 business days from the time they are shipped, free shipping to all major destinations, but takes a bit longer than expedited shipping.</p>
+	  <p style="text-align:left;font-size:9.0pt">Cancellations of made-to-measure clothing (including dresses, wraps, and accessories) 24-72 hours after payment confirmation are subject to restocking and materials fees of 50% of the original item price, as tailoring has already begun. After 72 hours, only a portion of the shipping costs can be refunded on cancelled orders.</p>
+	  <p style="text-align:left;font-size:9.0pt">For all other questions, Please send <a href="mailto:service@honeybuy.com">Email</a> to us: service@honeybuy.com!</p>
+	  <p style="text-align:left;font-size:9.0pt">Dear <strong><#if order.customerName??> ${order.customerName} </#if></strong> thanks for your orders again! We appreciate your feedback and please Like-Share-Comment your orders on our site and use $20 Coupon:<span style="color:red"> HONEYBUY-2S6M2g</span> for your next orders over $150. We are waiting for your next visit!</p></td>
+   
+   
     <td style="width:5px;border:none;padding:0in 0in 0in 0in"></td>
      </tr>
     </tbody></table>
