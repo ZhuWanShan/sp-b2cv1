@@ -46,7 +46,7 @@
 				<p>If you have PayPal account, please pay your order by PayPal
 					account directly. If you do not have PayPal account, it does not
 					matter. You can make the payment via PayPal with your credit card
-					or your debit card. HoneyBuy’s PayPal account is: paypal@honeybuy.com</p>
+					or your debit card. HoneyBuy's PayPal account is: paypal@honeybuy.com</p>
 				<img src="${siteView.host}/style/image/horizontal_solution_PP.gif">
 				<img src="${siteView.host}/style/image/PaypalVerify.gif">
 				<br/>
