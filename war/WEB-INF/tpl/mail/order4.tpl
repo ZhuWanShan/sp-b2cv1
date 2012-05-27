@@ -184,17 +184,7 @@
         <td width="10" valign="top" style="width:7.5pt;padding:.75pt .75pt .75pt .75pt"></td>
         <td valign="top" style="padding:.75pt .75pt .75pt .75pt">
         <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;">	
-        		<#if order.billingSameAsPrimary> 
-						<#assign "address"= order.primaryAddress >
-					<#else>
-					 	<#assign "address"= order.billingAddress >
-					 </#if>
-        
-       	 ${address.fullName}
-       	 <br/>
-							(${address.address1!''} ${address.city!''},
-							${address.stateProvince!''},${billingAddCountry!''},
-							Postal Code: ${address.postalCode!''}) Phone:${address.phone!''}
+        		<#if order.shippingMethod??> ${order.shippingMethod}
         </span></p>
         </td>
        </tr>
