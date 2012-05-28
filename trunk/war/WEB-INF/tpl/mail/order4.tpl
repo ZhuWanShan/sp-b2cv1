@@ -184,7 +184,7 @@
         <td width="10" valign="top" style="width:7.5pt;padding:.75pt .75pt .75pt .75pt"></td>
         <td valign="top" style="padding:.75pt .75pt .75pt .75pt">
         <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;">	
-        		<#if order.shippingMethod??> ${order.shippingMethod}
+        		<#if order.shippingMethod??> ${order.shippingMethod} </#if>
         </span></p>
         </td>
        </tr>
