@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.spshop.model.Address;
 import com.spshop.model.Country;
 import com.spshop.model.Order;
+import com.spshop.model.OrderItem;
 import com.spshop.model.SuitMeasurement;
 import com.spshop.model.User;
 import com.spshop.model.enums.OrderStatus;
@@ -33,6 +34,7 @@ import com.spshop.service.intf.UserService;
 import com.spshop.utils.EmailTools;
 import com.spshop.utils.Utils;
 import com.spshop.web.view.SiteView;
+import com.spshop.web.view.UserView;
 
 import static com.spshop.utils.Constants.*;
 
@@ -116,6 +118,22 @@ public class UserCenterController extends BaseController{
 			getUserView().getErr().put(EMPTY_ORDER, "Shopping cart is empty");
 			return "shoppingCart";
 		}
+		
+		for(OrderItem orderItem : getUserView().getCart().getOrder().getItems()){
+			if(orderItem.getProduct().getOptType() == 1){
+				SuitMeasurement measurement = getUserView().getLoginUser().getSuitMeasurement();
+				if(null != validate(measurement)){
+					model.addAttribute(CURRENT_PRODUCT, orderItem.getProduct());
+					getUserView().getMsg().put(MEASUREMENT_MSG, "You need fill the suit measurement then continue...");
+					return "/my-measurements";
+				}else{
+					getUserView().getCart().getOrder().setMySuitMeasurement(measurement);
+					getUserView().getCart().getOrder().setSuitMeasurementComplete(true);
+					break;
+				}
+			}
+		}
+		
 		
 		Address primary = null;
 		Address billing = null;
@@ -394,7 +412,7 @@ public class UserCenterController extends BaseController{
 		
 		model.addAttribute(SUIT_MEASUREMENT, measurement);
 		
-		if(getUserView().getLoginUser().isSuitMeasurement()){
+		if(getUserView().getLoginUser().isSuitMeasurementComplete()){
 			model.addAttribute(MEASUREMENT_MSG,"You have filled the suit measurement");
 		}else{
 			model.addAttribute(MEASUREMENT_MSG,"You have not filled the suit measurement");
@@ -416,7 +434,7 @@ public class UserCenterController extends BaseController{
 			return "/my-measurements";
 		}else{
 			getUserView().getLoginUser().setMySuitMeasurement(measurement);
-			getUserView().getLoginUser().setSuitMeasurement(true);
+			getUserView().getLoginUser().setSuitMeasurementComplete(true);
 		}
 		
 		ServiceFactory.getService(UserService.class).saveUser(getUserView().getLoginUser());

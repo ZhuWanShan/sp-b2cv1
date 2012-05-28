@@ -369,6 +369,59 @@ var SP = new Object();
 				jq(".jquery_addmask").remove();
 			}
 		});
+		
+		jq.fn.checkableGroup = function(){
+			var el = jq(this);
+			var group = el.attr("checkableGroup");
+			var value = el.attr("value");
+			var target = el.attr("target");
+			
+			if(target.val == el.attr("value")){
+				if(el.next("h3").length > 0){
+					jq("[checkableGroup="+group+"]").next("h3").removeClass("current");
+					el.next("h3").addClass("current");
+				}else{
+					jq("[checkableGroup="+group+"]").removeClass("current");
+					el.addClass("current");
+				}
+			}
+			
+			el.mouseover(function(){
+					if(jq("[checkableGroup="+group+"]").next("h3").length > 0){
+						jq("[checkableGroup="+group+"]").next("h3").removeClass("active");
+					}else{
+						jq("[checkableGroup="+group+"]").removeClass("active");
+					}
+					
+					if(el.next("h3").length > 0){
+						jq("[checkableGroup="+group+"]").next("h3").removeClass("active");
+						el.next("h3").addClass("active");
+					}else{
+						el.removeClass("active");
+						el.addClass("active");
+					}
+			});
+			
+			el.mouseout(function(){
+				if(el.next("h3").length > 0){
+					jq("[checkableGroup="+group+"]").next("h3").removeClass("active");
+				}else{
+					el.removeClass("active");
+				}
+			});
+			
+			el.click(function(){
+				jq("#"+target).val(value);
+				if(el.next("h3").length > 0){
+					jq("[checkableGroup="+group+"]").next("h3").removeClass("current");
+					el.next("h3").addClass("current");
+				}else{
+					jq("[checkableGroup="+group+"]").removeClass("current");
+					el.addClass("current");
+				}
+			});
+		}
+		
 	}
 )(jq);
 
@@ -460,6 +513,13 @@ jq("#main_box").ready(function() {
 	
 });
 
+
+
+jq("#suitOpts").ready(function(){
+	jq(this).find("[checkableGroup]").each(function(index,el){
+		jq(el).checkableGroup();
+	});
+});
 
 
 

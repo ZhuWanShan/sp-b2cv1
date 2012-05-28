@@ -366,11 +366,11 @@ img.img_opt{
 }
 
 img.active{
-	border: 5px solid #DD8200;	
+	border: 5px solid #e5e5e5;
 }
 
 img.current{
-	border: 5px solid #e5e5e5;
+	border: 5px solid #DD8200;	
 }
 
 .no_measure_note{

@@ -76,18 +76,6 @@ public class ShoppingController extends BaseController{
 		int qty = retriveQty(request);
 		Product product = SCacheFacade.getProduct(retriveProductId(request));
 		
-		if(product.getOptType() == 1){
-			SuitMeasurement measurement = retrieveSuitMeasurement(request);
-			if(null != validate(measurement)){
-				model.addAttribute(CURRENT_PRODUCT, product);
-				getUserView().getMsg().put(MEASUREMENT_MSG, "You need fill the suit measurement then continue...");
-				return "/my-measurements";
-			}else{
-				getUserView().getCart().getOrder().setMySuitMeasurement(measurement);
-				getUserView().getCart().getOrder().setSuitMeasurement(true);
-			}
-		}
-		
 		List<UserOption> options = retriveUserOptions(request);
 		if(null!=product){
 			getUserView().getCart().addItem(product, options, qty);

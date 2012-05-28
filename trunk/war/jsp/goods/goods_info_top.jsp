@@ -436,7 +436,7 @@ Please DO NOT use "the same as picture" option.</p>
 					<c:if test="${pageForm.pageProperties.productDetail.optType > 0 }">
 						
 						<jsp:include page="suitOpt.jsp"></jsp:include>
-						<c:if test="${not empty userInfo && userInfo.suitMeasurement}">				
+						<c:if test="${not empty userInfo && userInfo.suitMeasurementComplete}">				
 							<input type="submit" style="display: none;" id="sub"
 							value="ADD TO MY BAG" class="item_addBag"> <input
 							type="submit" id="nosubitem_addBag" value="Customize" class="item_addBag">
@@ -456,7 +456,7 @@ Please DO NOT use "the same as picture" option.</p>
 								});
 							</script>
 						</c:if>	
-						<c:if test="${empty userInfo || !userInfo.suitMeasurement}">
+						<c:if test="${empty userInfo || !userInfo.suitMeasurementComplete}">
 							<div class="no_measure_note">
 								<p>You have not complete suit measurement. In order to service you better, please fill the measurement form, then continue shopping</p>
 								<p>
