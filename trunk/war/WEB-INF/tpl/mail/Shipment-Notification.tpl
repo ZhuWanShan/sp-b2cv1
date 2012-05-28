@@ -61,10 +61,10 @@
         
        	 ${address.fullName}
        	 <br/>
-							${address.address1!''} ${address.city!''},
-							${address.stateProvince!''},${siteView.countryMap[address.country?string].name},
-							Postal Code: ${address.postalCode!''} Phone:${address.phone!''}
-							
+					 (${address.address1!''} ${address.city!''},
+							${address.stateProvince!''},
+							${primaryAddCountry!''}, Postal Code:
+							${address.postalCode!''}) Phone:${address.phone!''}
 					  
 					  </td> </tr>
                     <tr>
