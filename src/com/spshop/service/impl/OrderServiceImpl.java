@@ -65,36 +65,48 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 			}
 		}
 		
+		final Map<String,Object> root = new HashMap<String,Object>(); 
+		final Order o = order;
+		root.put("order", order);
+		
+		Map<String,Float> currencies = Utils.getCurrencies();
+		
+		float currencyRate = 1;
+		
+		if(!Constants.DEFAULT_CURRENCY.equalsIgnoreCase(order.getCurrency())){
+			currencyRate = currencies.get(order.getCurrency());
+		}
+		root.put("currencyRate", currencyRate);
+		
+		
+		
+		String primaryAddCountry = ServiceFactory.getService(CountryService.class).getCountryById(order.getPrimaryAddress().getCountry()).getName();
+		String billingAddCountry = primaryAddCountry;
+		if(!order.isBillingSameAsPrimary()){
+			billingAddCountry = ServiceFactory.getService(CountryService.class).getCountryById(order.getBillingAddress().getCountry()).getName();
+		}
+		
+		root.put("primaryAddCountry", primaryAddCountry);
+		
+		root.put("billingAddCountry", billingAddCountry);
+		
+		
 		if(OrderStatus.PAID.toString().equals(order.getStatus())){
-			final Map<String,Object> root = new HashMap<String,Object>(); 
-			final Order o = order;
-			root.put("order", order);
-			
-			Map<String,Float> currencies = Utils.getCurrencies();
-			
-			float currencyRate = 1;
-			
-			if(!Constants.DEFAULT_CURRENCY.equalsIgnoreCase(order.getCurrency())){
-				currencyRate = currencies.get(order.getCurrency());
-			}
-			root.put("currencyRate", currencyRate);
-			
-			
-			
-			String primaryAddCountry = ServiceFactory.getService(CountryService.class).getCountryById(order.getPrimaryAddress().getCountry()).getName();
-			String billingAddCountry = primaryAddCountry;
-			if(!order.isBillingSameAsPrimary()){
-				billingAddCountry = ServiceFactory.getService(CountryService.class).getCountryById(order.getBillingAddress().getCountry()).getName();
-			}
-			
-			root.put("primaryAddCountry", primaryAddCountry);
-			
-			root.put("billingAddCountry", billingAddCountry);
 			
 			new Thread(){
 				public void run() {
 					try{
 						EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,o.getUser().getEmail());
+					}catch(Exception e){
+						
+					}
+				};
+			}.start();
+		}else if(OrderStatus.SHIPPING.toString().equals(order.getStatus())){
+			new Thread(){
+				public void run() {
+					try{
+						EmailTools.sendMail("shipping", "Shipping notification - HoneyBuy", root,o.getUser().getEmail());
 					}catch(Exception e){
 						
 					}
