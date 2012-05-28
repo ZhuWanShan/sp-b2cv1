@@ -63,15 +63,38 @@
 												offer</span>
 										</div>
 										<ul class="topNavClassAd">
+											<#assign spExist = false>
 											<#list catlog.subCategories as subcatlog>
-													<li><a
-														href="${siteView.host}/c/Designer-Wedding-Dresses"
-														title="Designer Wedding Dresses"> <img width="174"
-															border="0" height="84"
-															src="http://www.honeybuy.com/image/17760190179278.jpg">
-													</a></li>
-												<#break>
+												<#if subcatlog.specialOffer>
+													<#assign url = (subcatlog.specialOfferImage.noChangeUrl)!'' >
+													<#if ((url?length) > 1)>
+														<#assign sp = subcatlog >
+														<#assign spExist = true>
+														<#break>
+													</#if>
+												</#if>	
 											</#list>
+											<#if !spExist>
+												<#list catlog.subCategories as subcatlog>
+													<#list subcatlog.subCategories as sb2>
+														<#assign url = (sb2.specialOfferImage.noChangeUrl)!'' >
+														<#if ((url?length) > 1)>
+															<#assign sp = sb2>
+															<#assign  spExist = true>
+															<#break>
+														</#if>
+													</#list>
+												</#list>
+											</#if>
+											
+											<#if sp ??>
+													<li><a
+															href="${siteView.host}/c/${sp.name}"
+															title="${sp.displayName}"> <img width="174"
+																border="0" height="84"
+																src="http://www.honeybuy.com/${sp.specialOfferImage.noChangeUrl}">
+														</a></li>
+											</#if>
 										</ul>
 									</div>
 								</div>
