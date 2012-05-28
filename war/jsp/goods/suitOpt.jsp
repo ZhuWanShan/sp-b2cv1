@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <div id="suitOpts">
 	<div class="measure_dashboard" style="position: absolute;left: -650px;top:-50px;z-index: 302;float: left;background: #fff;border: 1px solid #bbb;display: none;">
 		<div class="measure_dashboard_content">
 
@@ -7,26 +8,28 @@
 				<div class="measure_sidebar">
 					<h2>JACKET LAPELS</h2>
 					<p>Notch lapels are the most widely used and most versatile. Peak lapels are for a touch of flair. Slim lapels are more fashion forward, noticeably slimmer than the average suit.</p>
+					<p class="error red" id="JACKET_LAPELS_noti" style="color: #CC0000"></p>
 				</div>
 				<div class="measure_content">
 						<ul class="img_opt four_img_item">
 							<li>
-								<img src="/style/image/peak.png" >
+								<img src="/style/image/peak.png" value="Peak" target="JACKET_LAPELS" checkableGroup="JACKET_LAPELS" >
 								<h3>Peak</h3>
 							</li>
 							<li>
-								<img src="/style/image/notch.png" >
+								<img src="/style/image/notch.png" value="Notch" target="JACKET_LAPELS" checkableGroup="JACKET_LAPELS">
 								<h3>Notch</h3>
 							</li>
 							<li>
-								<img src="/style/image/notch_slim.png" >
-								<h3 class="current">Notch (Slim)</h3>
+								<img src="/style/image/notch_slim.png" value="Notch (Slim)" target="JACKET_LAPELS" checkableGroup="JACKET_LAPELS">
+								<h3>Notch (Slim)</h3>
 							</li>
 							<li>
-								<img src="/style/image/shawl.png" >
-								<h3 class="active">Shawl</h3>
+								<img src="/style/image/shawl.png" value="Shawl" target="JACKET_LAPELS" checkableGroup="JACKET_LAPELS">
+								<h3>Shawl</h3>
 							</li>
 						</ul>
+						<input type="text" value="" id="JACKET_LAPELS"  name="text@JACKET_LAPELS" checkRule="required" filedName="height" msg="Please select a JACKET LAPELS" msgField="JACKET_LAPELS_noti">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -34,22 +37,24 @@
 				<div class="measure_sidebar">
 					<h2>JACKET VENTS</h2>
 					<p>One and two vent options are interchangeable and a matter of personal preference. No vent jackets are reserved for tuxedos.</p>
+					<p class="error red" id="JACKET_VENTS_noti" style="color: #CC0000"></p>
 				</div>
 				<div class="measure_content">
 					<ul class="img_opt three_img_item">
 							<li>
-								<img src="/style/image/vents/none.png" >
+								<img src="/style/image/vents/none.png" value="None" target="JACKET_VENTS" checkableGroup="JACKET_VENTS">
 								<h3>None</h3>
 							</li>
 							<li>
-								<img src="/style/image/vents/one.png" >
+								<img src="/style/image/vents/one.png" value="One" target="JACKET_VENTS" checkableGroup="JACKET_VENTS">
 								<h3>One</h3>
 							</li>
 							<li>
-								<img src="/style/image/vents/two.png" >
-								<h3 class="current">Two</h3>
+								<img src="/style/image/vents/two.png" value="Two" target="JACKET_VENTS" checkableGroup="JACKET_VENTS">
+								<h3>Two</h3>
 							</li>
 						</ul>
+						<input type="text" value="" id="JACKET_VENTS"  name="text@JACKET_VENTS" checkRule="required" filedName="height" msg="Please select a JACKET VENTS" msgField="JACKET_VENTS_noti">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -58,26 +63,29 @@
 					<h2>JACKET BUTTONS</h2>
 					<p>Two button suits are often your best choice. One button suits are more trendy. Three button suits are a matter of preference and work well with a taller frame.</p>
 					<p>Double-breasted jackets offer a bolder yet elegant look, and are recommended to be worn with a peak lapel.</p>
+					
+					<p class="error red" id="JACKET_BUTTONS_noti" style="color: #CC0000"></p>
 				</div>
 				<div class="measure_content">
 					<ul class="img_opt four_img_item">
 							<li>
-								<img src="/style/image/btns/one.png" >
+								<img src="/style/image/btns/one.png" value="One" target="JACKET_BUTTONS" checkableGroup="JACKET_BUTTONS">
 								<h3>One</h3>
 							</li>
 							<li>
-								<img src="/style/image/btns/two.png" >
+								<img src="/style/image/btns/two.png" value="Two" target="JACKET_BUTTONS" checkableGroup="JACKET_BUTTONS">
 								<h3>Two</h3>
 							</li>
 							<li>
-								<img src="/style/image/btns/three.png" >
-								<h3 class="current">Three</h3>
+								<img src="/style/image/btns/three.png" value="Three" target="JACKET_BUTTONS" checkableGroup="JACKET_BUTTONS">
+								<h3>Three</h3>
 							</li>
 							<li>
-								<img src="/style/image/btns/double_breasted.png" >
-								<h3 class="active">Double Breasted</h3>
+								<img src="/style/image/btns/double_breasted.png" value="Double Breasted" target="JACKET_BUTTONS" checkableGroup="JACKET_BUTTONS">
+								<h3>Double Breasted</h3>
 							</li>
 						</ul>
+						<input type="text" value="" id="JACKET_BUTTONS"  name="text@JACKET_BUTTONS" checkRule="required" filedName="height" msg="Please select a JACKET_BUTTONS" msgField="JACKET_BUTTONS_noti">
 					<p class="clearBoth"></p>
 				</div>
 			</div>
@@ -86,42 +94,44 @@
 					<h2>JACKET LINING</h2>
 					<p>The best way to add personality to your jacket is through the lining.</p>
 					<img src="/style/image/j_lining_thumb.jpg">
+					
+					<p class="error red" id="JACKET_LINING_noti" style="color: #CC0000"></p>
 				</div>
 				<div class="measure_content">
 					<ul class="img_opt eight_img_item">
 							<li>
-								<img class="small" src="/style/image/materials/black.png" >
-								<h3>Black</h3>
+								<img class="small" src="/style/image/materials/black.png" value="A" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3>A</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/black.png" >
-								<h3>Black</h3>
+								<img class="small" src="/style/image/materials/black.png"  value="B" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3>B</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/black.png" >
-								<h3>Black</h3>
+								<img class="small" src="/style/image/materials/black.png"  value="C" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3>C</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/black.png" >
-								<h3>Black</h3>
+								<img class="small" src="/style/image/materials/black.png"  value="D" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3>D</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/black.png" >
-								<h3>Black</h3>
+								<img class="small" src="/style/image/materials/black.png"  value="E" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3>E</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/black.png" >
-								<h3>Black</h3>
+								<img class="small" src="/style/image/materials/black.png"  value="F" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3>F</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/black.png" >
-								<h3>Black</h3>
+								<img class="small" src="/style/image/materials/black.png"  value="G" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3>H</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/black.png" >
-								<h3>Black</h3>
+								<img class="small" src="/style/image/materials/black.png"  value="H" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3>H</h3>
 							</li>
-							
+								<input type="text" value="" id="JACKET_LINING"  name="text@JACKET_LINING" checkRule="required" filedName="height" msg="Please select a JACKET_LINING" msgField="JACKET_LINING_noti">
 						</ul>
 					<p class="clearBoth"></p>
 				</div>
@@ -132,6 +142,8 @@
 					<h2>JACKET MONOGRAM</h2>
 					<p>Make your jacket truly say something with the only 40 character monogramming in the world.</p>
 					<img src="/style/image/j_lining_thumb.jpg">
+					
+					<p class="error red" id="JACKET_MONOGRAM_noti" style="color: #CC0000"></p>
 				</div>
 				<div class="measure_content">
 					<div class="front_opt">
@@ -145,14 +157,16 @@
 						<div>
 							<div>
 								<h3>FONT</h3>
-								<img class="img_opt" src="/style/image/font/timesroman.png">
-								<img class="img_opt active" src="/style/image/font/brushscript.png">
+								<img class="img_opt" src="/style/image/font/timesroman.png"  value="A" target="JACKET_MONOGRAM_FONT" checkableGroup="JACKET_MONOGRAM_FONT">
+								<img class="img_opt active" src="/style/image/font/brushscript.png"  value="B" target="JACKET_MONOGRAM_FONT" checkableGroup="JACKET_MONOGRAM_FONT">
+								<input type="text" value="" id="JACKET_MONOGRAM_FONT"  name="text@JACKET_MONOGRAM_FONT" checkRule="required" filedName="height" msg="Please select a JACKET_MONOGRAM_FONT" msgField="JACKET_MONOGRAM_noti">
 							</div>
 							<div>
 								<h3>COLOR</h3>
-								<img src="/style/image/font/brushscript.png">
-								<img src="/style/image/font/brushscript.png">
-								<img src="/style/image/font/brushscript.png">
+								<img class="img_opt" src="/style/image/font/brushscript.png"  value="A" target="JACKET_MONOGRAM_COLOR" checkableGroup="JACKET_MONOGRAM_COLOR">
+								<img class="img_opt" src="/style/image/font/brushscript.png"  value="B" target="JACKET_MONOGRAM_COLOR" checkableGroup="JACKET_MONOGRAM_COLOR">
+								<img class="img_opt" src="/style/image/font/brushscript.png"  value="C" target="JACKET_MONOGRAM_COLOR" checkableGroup="JACKET_MONOGRAM_COLOR">
+								<input type="text" value="" id="JACKET_MONOGRAM_COLOR"  name="text@JACKET_MONOGRAM_COLOR" checkRule="required" filedName="height" msg="Please select a JACKET_MONOGRAM_COLOR" msgField="JACKET_MONOGRAM_noti">
 							</div>
 						</div>
 					</div>
@@ -164,17 +178,20 @@
 				<div class="measure_sidebar">
 					<h2>PANTS PLEATS</h2>
 					<p>Indochino always endorses pants without pleats (flat front). For the man preferring pleats, please choose so accordingly.</p>
+					
+					<p class="error red" id="PANTS_PLEATS_noti" style="color: #CC0000"></p>
 				</div>
 				<div class="measure_content">
 					<ul class="img_opt three_img_item">
 							<li>
-								<img src="/style/image/pleats/none.png" >
+								<img src="/style/image/pleats/none.png" value="None" target="PANTS_PLEATS" checkableGroup="PANTS_PLEATS">
 								<h3>None</h3>
 							</li>
 							<li>
-								<img src="/style/image/pleats/one.png" >
-								<h3 class="current">One</h3>
+								<img src="/style/image/pleats/one.png" value="One" target="PANTS_PLEATS" checkableGroup="PANTS_PLEATS">
+								<h3>One</h3>
 							</li>
+							<input type="text" value="" id="PANTS_PLEATS"  name="text@PANTS_PLEATS" checkRule="required" filedName="height" msg="Please select a PANTS_PLEATS" msgField="PANTS_PLEATS_noti">
 						</ul>
 					<p class="clearBoth"></p>
 				</div>
@@ -182,10 +199,15 @@
 			<p class="clearBoth"></p>
 		</div>
 		<div class="measure_navigation">
+			<script type="text/javascript">
+			 function checkFields(){
+				 return jq("#suitOpts").fieldCheck();
+			 }
+			</script>
 			<div class="measure_buttons">
 				<input type="button" class="button_01" value="<         PREVIOUS">
 				<input type="button" class="button_01" value="NEXT             >">
-				<input type="button" class="button_01" value="FINISH           >">
+				<input type="submit" class="button_01" value="FINISH           >" onclick="return checkFields()">
 				<input type="button" class="button_01" value="Cancel">
 			</div>
 			<div class="measure_controller">
@@ -198,3 +220,4 @@
 			</div>
 		</div>
 	</div>
+</div>

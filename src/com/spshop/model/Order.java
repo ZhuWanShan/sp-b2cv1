@@ -689,11 +689,11 @@ public class Order extends Component{
 		this.kneeSize = kneeSize;
 	}
 
-	public boolean isSuitMeasurement() {
+	public boolean isSuitMeasurementComplete() {
 		return suitMeasurement;
 	}
 
-	public void setSuitMeasurement(boolean suitMeasurement) {
+	public void setSuitMeasurementComplete(boolean suitMeasurement) {
 		this.suitMeasurement = suitMeasurement;
 	}
 

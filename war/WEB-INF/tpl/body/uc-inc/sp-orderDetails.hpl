@@ -104,6 +104,33 @@
 							${address.stateProvince!''},${siteView.countryMap[address.country?string].name},
 							Postal Code: ${address.postalCode!''}) Phone:${address.phone!''}</td>
 					<tr>
+					<#if order.suitMeasurementComplete >
+					<tr>
+						<td>Suit Measurement</td>
+						<td>
+								height : ${(order.suitMeasurement.height)!''}<br>
+								weight : ${(order.suitMeasurement.weight)!''}<br>
+								age : ${(order.suitMeasurement.age)!''}<br>
+								shoulder : ${(order.suitMeasurement.shoulder)!''}<br>
+								stomach : ${(order.suitMeasurement.stomch)!''}<br>
+								posture : ${(order.suitMeasurement.posture)!''}<br>
+								shirtNeck : ${(order.suitMeasurement.shirtNeck)!''}<br>
+								jacketShirtLenght : ${(order.suitMeasurement.jacketShirtLenght)!''}<br>
+								chestSize : ${(order.suitMeasurement.chestSize)!''}<br>
+								stomachSize : ${(order.suitMeasurement.stomachSize)!''}<br>
+								jacketHips : ${(order.suitMeasurement.jacketHips)!''}<br>
+								shoulderSize : ${(order.suitMeasurement.shoulderSize)!''}<br>
+								sleeveLength : ${(order.suitMeasurement.sleeveLength)!''}<br>
+								bicepSize : ${(order.suitMeasurement.bicepSize)!''}<br>
+								wristSize : ${(order.suitMeasurement.wristSize)!''}<br>
+								pantsLength : ${(order.suitMeasurement.pantsLength)!''}<br>
+								waist : ${(order.suitMeasurement.waist)!''}<br>
+								crotch : ${(order.suitMeasurement.crotch)!''}<br>
+								thighSize : ${(order.suitMeasurement.thighSize)!''}<br>
+								kneeSize : ${(order.suitMeasurement.kneeSize)!''}<br>
+						</td>
+					</tr>
+					</#if>
 				</tbody>
 			</table>
 		</div>

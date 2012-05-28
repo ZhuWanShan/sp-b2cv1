@@ -236,7 +236,7 @@
 		<property name="crotch" ></property>
 		<property name="thighSize" ></property>
 		<property name="kneeSize" ></property>
-		<property name="suitMeasurement" ></property>
+		<property name="SuitMeasurementComplete" column="suitMeasurement"></property>
 		<!-- end measurement -->
 		
 		<property name="status" length="255" column="order_status"></property>
@@ -500,7 +500,7 @@
 		<property name="crotch" ></property>
 		<property name="thighSize" ></property>
 		<property name="kneeSize" ></property>
-		<property name="suitMeasurement" ></property>
+		<property name="SuitMeasurementComplete" column="suitMeasurement"></property>
 		<!-- end measurement -->
 		
 	</class>
