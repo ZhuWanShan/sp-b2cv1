@@ -24,7 +24,7 @@
                 <td align="right">Ordered at <#if order.createDate??> ${order.createDate?string("yyyy-MM-dd HH:mm:ss zzzz")} </#if>
 				</td>
                 <td width="22"> </td> </tr> </tbody> </table>
-            <table width="700" cellspacing="0" cellpadding="0" border="0" align="right" style="BORDER-BOTTOM: #c9c9ca 1px solid; FONT-SIZE: 12px">
+            <table width="700" cellspacing="0" cellpadding="0" border="0" align="center" style="BORDER-BOTTOM: #c9c9ca 1px solid; FONT-SIZE: 12px">
               <tbody>
               <tr valign="top">
                 <td width="12"> </td>
