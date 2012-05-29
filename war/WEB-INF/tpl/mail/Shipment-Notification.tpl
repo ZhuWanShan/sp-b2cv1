@@ -159,7 +159,7 @@
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px"> <strong style="COLOR: #444">Do I have to pay import or customs 
                   duties?</strong> </p>
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px">Honeybuy.com 
-                  doesn’t charge any taxes for its purchases, so now you are 
+                  doesn't charge any taxes for its purchases, so now you are 
                   paid in full. However, since your order is shipping from 
                   China, it may be subject to customs or import duties charged 
                   once your order reaches your country.</p> </td>
@@ -170,7 +170,7 @@
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px">Once you 
                   receive your package, please be sure to check for any damage. 
                   If the package was damaged during delivery, you can request 
-                  “Proof of Damage” documentation from the carrier. You can use 
+                  "Proof of Damage" documentation from the carrier. You can use 
                   this when contacting Customer Service to arrange for damage 
                   reimbursement.</p>
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px"> <strong style="COLOR: #444">How can I contact customer 
