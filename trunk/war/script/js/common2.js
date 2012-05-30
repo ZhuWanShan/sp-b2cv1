@@ -305,7 +305,7 @@ var SP = new Object();
 					}else{
 						slider.go(0);
 					}
-				},3000);
+				},5000);
 			}
 			
 			slider.controllers.each(function(index){
