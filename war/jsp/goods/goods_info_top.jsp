@@ -104,7 +104,7 @@
 							items="${pageForm.pageProperties.productDetail.properties}"
 							var="property" varStatus="idx" step="1">
 							<tr>
-								<td><c:out value="${property.name}" /> :</td>
+								<td width="104px"><c:out value="${property.name}" /> :</td>
 								<td><c:out value="${property.value}" />
 								</td>
 							</tr>
