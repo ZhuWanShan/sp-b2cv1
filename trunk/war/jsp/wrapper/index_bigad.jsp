@@ -3,19 +3,19 @@
 		<div class="measure_dashboard">
 		<div class="measure_dashboard_content">
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Wedding-Dresses-2012"><img alt="Wedding Dresses 2012" title="Wedding Dresses 2012" src="http://www.honeybuy.com/image/banner1.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Wedding-Dresses-2012"><img alt="Wedding Dresses 2012" title="Wedding Dresses 2012" width="972px" height="428px" src="http://www.honeybuy.com/image/banner1.jpg"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Prom-Dresses-2012"><img alt="Prom Dresses 2012" title="Prom Dresses 2012" src="http://www.honeybuy.com/image/93717484529844.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Prom-Dresses-2012"><img alt="Prom Dresses 2012" title="Prom Dresses 2012"  width="972px" height="428px" src="http://www.honeybuy.com/image/93717484529844.jpg"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Fashion-Apparel"></a><img alt="Fashion-Apparel" title="Fashion-Apparel" src="http://www.honeybuy.com/image/banner3.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Fashion-Apparel"></a><img alt="Fashion-Apparel" title="Fashion-Apparel"  width="972px" height="428px" src="http://www.honeybuy.com/image/banner3.jpg"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Custom-Groom-Suits"></a><img alt="Custom Groom Suits" title="Custom Groom Suits" src="http://www.honeybuy.com/image/94386245035319.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Custom-Groom-Suits"></a><img alt="Custom Groom Suits" title="Custom Groom Suits"  width="972px" height="428px" src="http://www.honeybuy.com/image/94386245035319.jpg"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Sweet-Sixteen-Dresses"></a><img alt="Sweet Sixteen Dresses" title="Sweet Sixteen Dresses" src="http://www.honeybuy.com/image/banner5.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Sweet-Sixteen-Dresses"></a><img alt="Sweet Sixteen Dresses" title="Sweet Sixteen Dresses"  width="972px" height="428px" src="http://www.honeybuy.com/image/banner5.jpg"></a>
 			</div>
 			<p class="clearBoth"></p>
 		</div>
