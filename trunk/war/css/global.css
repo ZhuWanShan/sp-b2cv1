@@ -385,5 +385,50 @@ img.current{
 	font-weight: bold;
 	display: block;
 }
+
+#index_bigad .measure_dashboard_content{
+	
+	background: none;
+    border: none;
+    float: none;
+    left: auto;
+    position: relative;
+    top: auto;
+    z-index: 8;
+     height: 428px;
+    overflow: hidden;
+    position: relative;
+    width: 972px;
+}
+
+#index_bigad .measure_panel{
+	 height: 428px;
+    overflow: hidden;
+    position: relative;
+    width: 972px;
+    padding: 0px;
+}
+
+#index_bigad .measure_dashboard{
+	 height: 428px;
+    overflow: hidden;
+    position: relative;
+    width: 972px;
+	
+}
+
+#index_bigad .measure_navigation .measure_controller {
+    float: right;
+    height: 40px;
+}
+
+#index_bigad .measure_navigation {
+    left: 0;
+    position: relative;
+    text-align: center;
+    top: -20px;
+    z-index: 9;
+}
+
 /********************************************************end Measurement **************************************/
 

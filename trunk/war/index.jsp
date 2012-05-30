@@ -50,6 +50,10 @@
 	</div>
 	</noscript>
 <link href="https://plus.google.com/109978880912693970020" rel="publisher" />
+
+	<script src="/script/js/common2.js" type="text/javascript"></script>
+	<script src="/script/js/jquery.validation.js" type="text/javascript"></script>
+
 </head>
 <body>
 	<div id="fb-root"></div>

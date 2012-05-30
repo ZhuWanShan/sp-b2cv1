@@ -298,6 +298,16 @@ var SP = new Object();
 				initButtons();
 			};
 			
+			slider.cycle = function(){
+				setInterval(function(){
+					if(slider.sliders.length - 1 > slider.currentSlider){
+						slider.go(slider.currentSlider +1);
+					}else{
+						slider.go(0);
+					}
+				},3000);
+			}
+			
 			slider.controllers.each(function(index){
 				jq(slider.controllers.get(index)).click(function(){
 					slider.go(index);
