@@ -460,7 +460,7 @@ Please DO NOT use "the same as picture" option.</p>
 							<div class="no_measure_note">
 								<p>You have not complete suit measurement. In order to service you better, please fill the measurement form, then continue shopping</p>
 								<p>
-									<a href="/uc/my-measurements?currentProductID=${pageForm.pageProperties.productDetail.name }">Fill the Measurement>></a>	
+									<a class="continue_shopping" style="padding: 0 0 0 10px" href="/uc/my-measurements?currentProductID=${pageForm.pageProperties.productDetail.name }">Fill Measurement</a>	
 								</p>
 							</div>
 						</c:if>

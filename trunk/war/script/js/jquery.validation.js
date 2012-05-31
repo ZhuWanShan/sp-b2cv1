@@ -35,7 +35,7 @@
 				for(var i =0 ; i< rules.length; i++){
 				
 					if("double" == rules[i]){
-						if(!(/^\d+(\.\d+)?$/).test(value)){
+						if(!(/^\d+(\.\d+)?$/).test(value) || !(parseFloat(value) > 0)){
 							msgField.html(msg);
 							passed = false;
 						}

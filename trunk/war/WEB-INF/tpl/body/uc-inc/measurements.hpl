@@ -1,14 +1,28 @@
 <#if suitMeasurement ??>
 	<#assign measurement = suitMeasurement>
 </#if>
+
+<#assign targetProduct = false>
+<#assign editMode = editMode!false>
+<#assign finishedMeasure = userView.loginUser.suitMeasurementComplete>
+
 <div class="nav-right-box">
 	<div class="box_title">My Measurements</div>
 	<div class="nav-right-box_content">
 	<#if currentProductID ??>
+		<#assign targetProduct = true>
+	</#if>
+	
+	<#if finishedMeasure>
 		<div class="form_error blue">
-				<a class="blue" href="/${currentProductID}">>>Continue Shopping</a><br>
+			<p class="blue error">${measurementMsg!''}</p>
+			<#if targetProduct>
+				<a class="continue_shopping" href="/${currentProductID}">Continue Shopping</a>
+			</#if>
+			<a class="edit_measurement" href="/uc/my-measurements?editMode=true">Edit measurement</a>
 		</div>
 	</#if>
+	<#if !finishedMeasure || editMode>
 	<form action="/uc/my-measurements" method="post">
 	<div class="measure_dashboard">
 		<div class="measure_dashboard_content">
@@ -366,7 +380,7 @@
 			<div class="measure_buttons">
 				<input type="button" class="button_01" value="<         PREVIOUS">
 				<input type="button" class="button_01" value="NEXT             >">
-				<input type="submit" class="button_01" value="FINISH           >">
+				<input type="submit" class="button_01" value="FINISH           >" onclick="return jq('.measure_dashboard').fieldCheck();">
 			</div>
 			<div class="measure_controller">
 				<div class="circle_hint" style="display: none;">BODY SHAPE</div>
@@ -394,6 +408,6 @@
 	<script type="text/javascript">
 		jq(".measure_dashboard").slider();
 	</script>
-	
+	</#if>
  </div>
 </div>

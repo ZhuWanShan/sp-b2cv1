@@ -408,6 +408,10 @@ public class UserCenterController extends BaseController{
 			model.addAttribute(CURRENT_PRODUCT_ID, cpid);
 		}
 		
+		if(StringUtils.isNotBlank(request.getParameter("editMode"))){
+			model.addAttribute("editMode", true);
+		}
+		
 		SuitMeasurement measurement = getUserView().getLoginUser().getSuitMeasurement();
 		
 		model.addAttribute(SUIT_MEASUREMENT, measurement);
