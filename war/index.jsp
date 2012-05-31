@@ -56,6 +56,7 @@
 
 </head>
 <body>
+	<c:set var="isHome" scope="request">true</c:set>
 	<div id="fb-root"></div>
 	<script>
 		(function(d, s, id) {
