@@ -1253,7 +1253,7 @@ li.scart_c_w_r {
 .measure_sidebar h2{
     color: #4D4D4D;
     font-weight:bold;
-    font-size:40px;
+    font-size:30px;
     text-transform: uppercase;
 	line-height: 1;
 }
@@ -1426,5 +1426,37 @@ li.scart_c_w_r {
 .measure_input{
 	height: 30px;
 	width: 80px;
+}
+
+
+.continue_shopping{
+		  background: url("/css/goods-bt.png") no-repeat scroll -1px -362px transparent;
+    border: medium none;
+    color: #B52F07;
+    cursor: pointer;
+     display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    height: 52px;
+    line-height: 52px;
+    padding-left: 10px;
+    text-transform: uppercase;
+    width: 188px;
+}
+
+
+.edit_measurement{
+	  background: url("/css/goods-bt.png") no-repeat scroll -1px -362px transparent;
+    border: medium none;
+    color: #B52F07;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    height: 52px;
+    line-height: 52px;
+    padding-left: 10px;
+    text-transform: uppercase;
+    width: 188px;
 }
 /********************************************************end Measurement **************************************/
