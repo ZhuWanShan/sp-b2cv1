@@ -1,7 +1,7 @@
 <%@include file="../include.jsp" %>
 
 <div class="index_bigad" id="index_bigad">
-<c:if test='${category.name == "home"}'>
+<c:if test='${isHome == "true"}'>
 		<div class="measure_dashboard">
 		<div class="measure_dashboard_content">
 			<div class="measure_panel">
@@ -36,7 +36,7 @@
 	var slider = jq(".measure_dashboard").slider().cycle();
 </script>
 </c:if>
-<c:if test='${category.name != "home"}'>
+<c:if test='${isHome != "true"}'>
 		<c:out escapeXml="false" value="${pageForm.category.marketContent}"></c:out>
 </c:if>
 </div>
