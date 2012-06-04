@@ -76,9 +76,21 @@ public class ShoppingController extends BaseController{
 		int qty = retriveQty(request);
 		Product product = SCacheFacade.getProduct(retriveProductId(request));
 		
+		String[] relatedProducts = request.getParameterValues("relatedProduct");
+		
 		List<UserOption> options = retriveUserOptions(request);
 		if(null!=product){
 			getUserView().getCart().addItem(product, options, qty);
+			
+			if(null!=relatedProducts){
+				for (String pid : relatedProducts) {
+					Product p = SCacheFacade.getProduct(pid);
+					if(null!=p){
+						getUserView().getCart().addItem(p, new ArrayList<UserOption>(), 1);
+					}
+				}
+			}
+			
 			persistantCart();
 		}
 		

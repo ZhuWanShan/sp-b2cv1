@@ -24,6 +24,9 @@
 				        
 				        ${currency} <fmt:formatNumber value=" ${product.actualPrice * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
 				       </div>
+				        <div>
+							<input type="checkbox" name="relatedProduct" value="${product.name}" />				        	
+				       </div>
 				      </li>
 		      </ss:product>
 		     </c:forEach>

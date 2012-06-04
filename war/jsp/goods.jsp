@@ -64,15 +64,17 @@
 
 	<!-- Main box start -->
 	<div class="main_box">
-		<jsp:include page="wrapper/path_title.jsp"></jsp:include>
-		<div class="item_ad_box"> </div>
-		<jsp:include page="goods/correlation_thing.jsp"></jsp:include>
-		<div class="item_ad_box"> </div>
-		<jsp:include page="goods/goods_info_top.jsp"></jsp:include>
-		
-		<!-- goods related -->
-		<jsp:include page="goods/goodsRelated.jsp"></jsp:include>
-		<!-- goods related  end-->
+		<form name="cusform" method="post" action="/uc/shoppingCart" onsubmit="return checkItem()">
+			<jsp:include page="wrapper/path_title.jsp"></jsp:include>
+			<div class="item_ad_box"> </div>
+			<jsp:include page="goods/correlation_thing.jsp"></jsp:include>
+			<div class="item_ad_box"> </div>
+			<jsp:include page="goods/goods_info_top.jsp"></jsp:include>
+			
+			<!-- goods related -->
+			<jsp:include page="goods/goodsRelated.jsp"></jsp:include>
+			<!-- goods related  end-->
+		</form>
 	</div>
 	<!-- Main box end -->
 	

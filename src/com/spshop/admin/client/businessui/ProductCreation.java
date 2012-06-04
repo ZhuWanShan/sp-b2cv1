@@ -313,6 +313,12 @@ public class ProductCreation extends Composite{
 			public void callBack(List<Component> selectedItems) {
 			//	HTML html = (HTML)selectedItems.get(0);
 				String mannualKey = getProduct().getManualKey() == null?"" : getProduct().getManualKey()+",";
+				if(mannualKey!=null){
+					mannualKey = mannualKey.trim();
+					if(mannualKey.startsWith(",")){
+						mannualKey = mannualKey.substring(1);
+					}
+				}
 				List<String> keys = Arrays.asList(mannualKey.split(","));
 				if(null!=selectedItems){
 					for (int i = 0; i < selectedItems.size(); i++) {
