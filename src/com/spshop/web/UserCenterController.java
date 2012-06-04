@@ -90,17 +90,33 @@ public class UserCenterController extends BaseController{
 		
 		if(null!=country){
 		
+			float dePrice = 0f;
+			float adDePrice = 0f;
+			
 			if(SHIPPING_EXPEDITED.equals(shippingMethod)){
-				rs.put("grandTotal", Utils.toNumber((getUserView().getCart().getOrder().getTotalPrice()+country.getAdDePrice()-getUserView().getCart().getOrder().getCouponCutOff())*getUserView().getCurrencyRate()));
-				rs.put("shippingCost", Utils.toNumber(country.getAdDePrice()*getUserView().getCurrencyRate()));
+				if(getUserView().getCart().getOrder().getTotalPrice() > country.getFreeAdDePrice()){
+					adDePrice = 0;
+				}else{
+					adDePrice = country.getAdDePrice();
+				}
+				
+				rs.put("grandTotal", Utils.toNumber((getUserView().getCart().getOrder().getTotalPrice()+adDePrice-getUserView().getCart().getOrder().getCouponCutOff())*getUserView().getCurrencyRate()));
+				rs.put("shippingCost", Utils.toNumber(adDePrice*getUserView().getCurrencyRate()));
 			}else{
-				rs.put("grandTotal", Utils.toNumber((getUserView().getCart().getOrder().getTotalPrice()+country.getDePrice()-getUserView().getCart().getOrder().getCouponCutOff())*getUserView().getCurrencyRate()));
-				rs.put("shippingCost", Utils.toNumber(country.getDePrice()*getUserView().getCurrencyRate()));
+				
+				if(getUserView().getCart().getOrder().getTotalPrice() > country.getFreeDePrice()){
+					dePrice = 0;
+				}else{
+					dePrice = country.getDePrice();
+				}
+				
+				rs.put("grandTotal", Utils.toNumber((getUserView().getCart().getOrder().getTotalPrice()+dePrice-getUserView().getCart().getOrder().getCouponCutOff())*getUserView().getCurrencyRate()));
+				rs.put("shippingCost", Utils.toNumber(dePrice*getUserView().getCurrencyRate()));
 			}
 			
 			if(null!=country){
-				rs.put(SHIPPING_STANDARD, Utils.toNumber(country.getDePrice()*getUserView().getCurrencyRate()));
-				rs.put(SHIPPING_EXPEDITED, Utils.toNumber(country.getAdDePrice()*getUserView().getCurrencyRate()));
+				rs.put(SHIPPING_STANDARD, Utils.toNumber(dePrice*getUserView().getCurrencyRate()));
+				rs.put(SHIPPING_EXPEDITED, Utils.toNumber(adDePrice*getUserView().getCurrencyRate()));
 				
 			}
 		}
@@ -270,9 +286,17 @@ public class UserCenterController extends BaseController{
 		}
 		
 		if(SHIPPING_STANDARD.equals(getUserView().getCart().getOrder().getShippingMethod())){
-			getUserView().getCart().getOrder().setDePrice(country.getDePrice());
+			if(getUserView().getCart().getOrder().getTotalPrice() < country.getFreeDePrice() ){
+				getUserView().getCart().getOrder().setDePrice(country.getDePrice());
+			}else{
+				getUserView().getCart().getOrder().setDePrice(0f);
+			}
 		}else{
-			getUserView().getCart().getOrder().setDePrice(country.getAdDePrice());
+			if(getUserView().getCart().getOrder().getTotalPrice() < country.getFreeAdDePrice() ){
+				getUserView().getCart().getOrder().setDePrice(country.getAdDePrice());
+			}else{
+				getUserView().getCart().getOrder().setDePrice(0f);
+			}
 		}
 		
 		ServiceFactory.getService(OrderService.class).saveOrder(getUserView().getCart().getOrder(), OrderStatus.ONSHOPPING.toString());

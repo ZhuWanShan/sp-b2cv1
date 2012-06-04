@@ -37,6 +37,22 @@
 										<g:DoubleBox ui:field="hDPrice"/>
 									</g:customCell>
 								</g:row>
+									<g:row>
+									<g:customCell>
+										<g:Label text="Free Basic Price:"/>
+									</g:customCell>
+									<g:customCell>
+										<g:DoubleBox ui:field="freeBasicD"/>
+									</g:customCell>
+								</g:row>
+								<g:row>
+									<g:customCell>
+										<g:InlineLabel text="Free HD Price"/>
+									</g:customCell>
+									<g:customCell>
+										<g:DoubleBox ui:field="freeHD"/>
+									</g:customCell>
+								</g:row>
 								<g:row>
 									<g:customCell>
 									<g:HorizontalPanel>

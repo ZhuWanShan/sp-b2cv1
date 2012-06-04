@@ -28,6 +28,8 @@ public class CountryCreation extends ObservableComposite<Country, CountryCreatio
 	@UiField Button newCountry;
 	@UiField DoubleBox dePrice;
 	@UiField DoubleBox hDPrice;
+	@UiField DoubleBox freeBasicD;
+	@UiField DoubleBox freeHD;
 	
 	
 	interface CountryCreationUiBinder extends UiBinder<Widget, CountryCreation> {
@@ -55,6 +57,8 @@ public class CountryCreation extends ObservableComposite<Country, CountryCreatio
 		countryAbbr.setText(component.getAbbrCode());
 		dePrice.setValue((double)component.getDePrice());
 		hDPrice.setValue((double)component.getAdDePrice());
+		freeBasicD.setValue((double)component.getFreeDePrice());
+		freeHD.setValue((double)component.getFreeAdDePrice());
 	}
 
 	@UiHandler("countryName")
@@ -93,5 +97,13 @@ public class CountryCreation extends ObservableComposite<Country, CountryCreatio
 	@UiHandler("hDPrice")
 	void onHDPriceKeyUp(KeyUpEvent event) {
 		getComponet().setAdDePrice(hDPrice.getValue().floatValue());
+	}
+	@UiHandler("freeHD")
+	void onFreeHDKeyUp(KeyUpEvent event) {
+		getComponet().setFreeAdDePrice(freeHD.getValue().floatValue());
+	}
+	@UiHandler("freeBasicD")
+	void onFreeBasicDKeyUp(KeyUpEvent event) {
+		getComponet().setFreeDePrice(freeBasicD.getValue().floatValue());
 	}
 }

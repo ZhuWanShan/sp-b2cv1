@@ -11,6 +11,8 @@ public class Country extends Component{
 	private String abbrCode;
 	private float dePrice;
 	private float adDePrice;
+	private float freeDePrice;
+	private float freeAdDePrice;
 	
 	public Country() {
 	}
@@ -50,6 +52,9 @@ public class Country extends Component{
 		}
 		obj.dePrice = this.dePrice;
 		obj.adDePrice = this.adDePrice;
+		obj.freeDePrice = this.freeDePrice;
+		obj.freeAdDePrice = this.freeAdDePrice;
+		
 		return obj;
 	}
 
@@ -67,6 +72,22 @@ public class Country extends Component{
 
 	public float getAdDePrice() {
 		return adDePrice;
+	}
+
+	public float getFreeDePrice() {
+		return freeDePrice;
+	}
+
+	public void setFreeDePrice(float freeDePrice) {
+		this.freeDePrice = freeDePrice;
+	}
+
+	public float getFreeAdDePrice() {
+		return freeAdDePrice;
+	}
+
+	public void setFreeAdDePrice(float freeAdDePrice) {
+		this.freeAdDePrice = freeAdDePrice;
 	}
 	
 	
