@@ -39,7 +39,7 @@
 								</g:row>
 									<g:row>
 									<g:customCell>
-										<g:Label text="Free Expedited:"/>
+										<g:Label text="Free Standard:"/>
 									</g:customCell>
 									<g:customCell>
 										<g:DoubleBox ui:field="freeBasicD"/>
@@ -47,7 +47,7 @@
 								</g:row>
 								<g:row>
 									<g:customCell>
-										<g:InlineLabel text="Free HD Price"/>
+										<g:InlineLabel text="Free Expedited"/>
 									</g:customCell>
 									<g:customCell>
 										<g:DoubleBox ui:field="freeHD"/>
