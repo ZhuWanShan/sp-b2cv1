@@ -23,7 +23,7 @@
 								</g:row>
 								<g:row>
 									<g:customCell>
-										<g:Label text="Delivery Price:"/>
+										<g:Label text="Standard:"/>
 									</g:customCell>
 									<g:customCell>
 										<g:DoubleBox ui:field="dePrice"/>
@@ -31,7 +31,7 @@
 								</g:row>
 								<g:row>
 									<g:customCell>
-										<g:InlineLabel text="HD Price"/>
+										<g:InlineLabel text="Expedited"/>
 									</g:customCell>
 									<g:customCell>
 										<g:DoubleBox ui:field="hDPrice"/>
@@ -39,7 +39,7 @@
 								</g:row>
 									<g:row>
 									<g:customCell>
-										<g:Label text="Free Basic Price:"/>
+										<g:Label text="Free Expedited:"/>
 									</g:customCell>
 									<g:customCell>
 										<g:DoubleBox ui:field="freeBasicD"/>
