@@ -88,7 +88,7 @@
 		</div>
 	</div>
 	<!-- shopping function -->
-	<form name="cusform" method="post" action="/uc/shoppingCart" onsubmit="return checkItem()">
+
 		<div class=" item_shopping_fun">
 			<div class="noFlow">
 				<h1>
@@ -503,7 +503,6 @@ Please DO NOT use "the same as picture" option.</p>
 				</h3>
 			</div>
 		</div>
-	</form>
 	<div id='musicwhp_backgroundDiv' style="display: none;"></div>
 	<script type="text/javascript" src="../js/thing_item.js"></script>
 
