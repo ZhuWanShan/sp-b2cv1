@@ -98,6 +98,8 @@
 		<property name="abbrCode" length="50"></property>
 		<property name="dePrice"></property>
 		<property name="adDePrice"></property>
+		<property name="freeDePrice"></property>
+		<property name="freeAdDePrice"></property>
 	</class>
 	
 	<class name="Deliver" table="SHOP_Deliver">
