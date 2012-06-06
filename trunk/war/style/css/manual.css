@@ -24,7 +24,7 @@
 .manual-suit-col-13 {
     display: inline;
     float: left;
-    margin: 20px 0px 5px 15px;
+    margin: 20px 15px 5px 0px;
     text-align: justify;
     width: 295px;
 	color: #808080;
@@ -35,7 +35,7 @@
 .manual-suit-col-11 {
     display: inline;
     float: left;
-    margin: 20px 0px 5px 16px;
+    margin: 20px 15px 5px 0px;
     text-align: justify;
     width: 930px;
 	color: #808080;
@@ -45,10 +45,10 @@
 .manual-suit-col-10 {
     display: inline;
     float: left;
-    margin: 20px 136px 5px 136px;
+    margin: 20px 15px 20px 0px;
     text-align: justify;
-    
-	color: #808080;
+    width: 930px;
+    color: #808080;
 	font-size: 13px;
     line-height: 20px;	
 }
@@ -61,14 +61,6 @@
     float: center;
     text-transform: uppercase;
 }
-.manual-suit-col-13 a {
-	color: 	#0069FF;
-	cursor: pointer;
-	text-decoration: none;
-}
-
-
-
 
 .clearBoth {
 	clear: both;
