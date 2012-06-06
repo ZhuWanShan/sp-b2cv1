@@ -532,6 +532,25 @@ jq("#suitOpts").ready(function(){
 });
 
 
+jq(".item_bottom_right").ready(function(){
+		
+		jq("ul.complete_look_normal li input[type='checkbox']").each(function(index,el){
+			
+			jq(el).click(function(){
+				
+				if(jq(this).attr("checked")){
+					jq(this).parent().parent().parent().addClass("selected").removeClass("unselected");
+				}else{
+					jq(this).parent().parent().parent().addClass("unselected").removeClass("selected");
+				}
+				
+			});
+			
+		});
+		
+		
+	});
+
 
 
 
