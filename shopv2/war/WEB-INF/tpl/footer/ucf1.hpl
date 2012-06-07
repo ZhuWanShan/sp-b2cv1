@@ -1,0 +1,58 @@
+<div class="main_box">
+<div style="padding:0px; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC">
+<style>
+    .uc_footer_h1{
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 20px;
+    margin:10px 10px;
+    }
+    .uc_footer_h2{
+    font-size: 20px;
+    font-weight: bold;
+    color:#666666;
+    line-height: 20px;
+    margin:20px 10px;
+    }
+    .uc_footer_h3{
+  
+    line-height: 10px;
+    margin:20px 10px;
+    color:#666666;
+    }
+    .uc_footer_img{
+        margin:10px 10px;
+            
+    }
+    a img {
+    border: none
+    }
+    .a:hover 
+			{
+			color: #FF5A00;
+			text-decoration: underline;
+			}
+			.foot_ul a 
+			{cursor: pointer;
+			}	
+</style>
+
+<h1 class="uc_footer_h1">Enjoy Shopping Here With Free Shipping.</h1>
+<h2 class="uc_footer_h2">2012's hottest goods ship free. So much for holiday stress. Pick up now!</h2>
+<h3 class="uc_footer_h3">Big big sale. <a herf="http://www.honeybuy.com/c/Promotions-News"><span style="color: #0069FF">offer details</span></a></h3>
+
+
+<div class="uc_footer_img">
+<a href="http://www.honeybuy.com/c/Wedding-Dresses-2012"><img src="http://www.honeybuy.com/image/178360405109088.jpg" title="Wedding Dresses 2012"></a>
+<a href="http://www.honeybuy.com/c/Prom-Dresses-2012"><img src="http://www.honeybuy.com/image/184648899449346.jpg" title="Prom Dresses 2012"></a>
+<a href="http://www.honeybuy.com/c/Bridesmaid-Dresses-2012"><img src="http://www.honeybuy.com/image/177755826938838.jpg" title="Bridesmaid Dresses 2012"></a>
+
+</div>
+<div class="uc_footer_img">
+<a href="http://www.honeybuy.com/c/Suits"><img src="http://www.honeybuy.com/image/178976854836440.jpg" title="Suits"></a>
+<a href="http://www.honeybuy.com/c/Jewelry"><img src="http://www.honeybuy.com/image/179193813636673.jpg" title="Jewelry"></a>
+<a href="http://www.honeybuy.com/c/Boots"><img src="http://www.honeybuy.com/image/179585025099951.jpg" title="Boots"></a>
+</div>
+</div>
+	
+</div>
