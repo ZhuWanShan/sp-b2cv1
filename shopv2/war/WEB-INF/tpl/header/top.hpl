@@ -1,3 +1,0 @@
-	<#include "top_clean.hpl">
-	<#include "topContent/dockbar.hpl">
-	<#include "topContent/navigationBox.hpl">
