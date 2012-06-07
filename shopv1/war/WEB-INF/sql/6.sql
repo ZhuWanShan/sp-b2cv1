@@ -1,1 +1,0 @@
-ALTER TABLE `sshop`.`shop_order` ADD COLUMN `traceInfo` VARCHAR(255) NULL  AFTER `customerBCountry` ;
