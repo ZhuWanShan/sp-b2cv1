@@ -9,15 +9,28 @@
 			<div class="item_bottom_funBt">
 			</div>
 		    <ul class="complete_look_normal">
-		     <c:forEach items="${names}" var="name">
-		     	<ss:product var="product" productName="${name}">
-				      <li> 
+		      <li class="source"> 
+				     <div>
+				      	<a title="${pageForm.pageProperties.productDetail.title }" href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=Constants.URL_SEPERATOR %>${pageForm.pageProperties.productDetail.name}">
+				      		<c:if test='${pageForm.pageProperties.productDetail.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
+				      			<img style="width: 120px; height: 105; padding-top: ${(105-80)/2}px;" border="0" alt="${pageForm.pageProperties.productDetail.title }" src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${pageForm.pageProperties.productDetail.images[0].thumbnailUrl}">
+				      		</c:if>
+				      		<c:if test='${pageForm.pageProperties.productDetail.images[0].strSizeType eq "PRODUCT_NORMAL"}'>
+				      			<img style="width: 120px; height: 105;" border="0" alt="${pageForm.pageProperties.productDetail.title }" src="http://www.honeybuy.com${pageForm.pageProperties.productDetail.images[0].thumbnailUrl}">
+				      		</c:if>
+				      	</a>
+				      </div>
+				 </li>
+		     <c:forEach items="${names}" var="name" end="9">
+		     	<ss:product var="product" productName="${name}" >
+				      <li class="unselected"> 
+				      	<div>
 				      	<a title="${product.title }" href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=Constants.URL_SEPERATOR %>${product.name}">
 				      		<c:if test='${product.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
 				      		<img style="width: 80px; height: 105; padding-top: ${(105-80)/2}px;" border="0" alt="${product.title }" src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}">
 				      		</c:if>
 				      		<c:if test='${product.images[0].strSizeType eq "PRODUCT_NORMAL"}'>
-				      		<img style="width: 80px; height: 105;" border="0" alt="${product.title }" src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}">
+				      		<img style="width: 80px; height: 105;" border="0" alt="${product.title }" src="http://www.honeybuy.com${product.images[0].smallUrl}">
 				      		</c:if>
 				      	</a>
 				        <div>
@@ -27,14 +40,17 @@
 				        <div>
 							<input type="checkbox" name="relatedProduct" value="${product.name}" />				        	
 				       </div>
+				       </div>
 				      </li>
 		      </ss:product>
 		     </c:forEach>
 		    </ul>
+		    
+		  
+		    
 	    </ss:tabProductNames>
     </c:if>
-</div>  
-
+</div>
   <div class="item_reviews">
   <div class="item_tab">
   <%-- 
