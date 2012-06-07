@@ -1,4 +1,0 @@
-<div class="main_box" id="main_box">
-	<#include "uc-inc/sp-shoppingCart.hpl">
-	<p class="clearBoth"></p>
-</div>
