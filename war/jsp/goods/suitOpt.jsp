@@ -100,36 +100,36 @@
 				<div class="measure_content">
 					<ul class="img_opt eight_img_item">
 							<li>
-								<img class="small" src="/style/image/materials/black.png" value="A" target="JACKET_LINING" checkableGroup="JACKET_LINING">
-								<h3 value="A" target="JACKET_LINING" checkableGroup="JACKET_LINING">A</h3>
+								<img class="small" src="/style/image/materials/300_brown_dots.jpg" value="Brown Dots" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3 value="Brown Dots" target="JACKET_LINING" checkableGroup="JACKET_LINING">A</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/black.png"  value="B" target="JACKET_LINING" checkableGroup="JACKET_LINING">
-								<h3 value="B" target="JACKET_LINING" checkableGroup="JACKET_LINING">B</h3>
+								<img class="small" src="/style/image/materials/300_gold_dots.jpg"  value="Gold Dots.jpg" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3 value="Gold Dots" target="JACKET_LINING" checkableGroup="JACKET_LINING">B</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/black.png"  value="C" target="JACKET_LINING" checkableGroup="JACKET_LINING">
-								<h3 value="C" target="JACKET_LINING" checkableGroup="JACKET_LINING">C</h3>
+								<img class="small" src="/style/image/materials/300_purple_dots.jpg"  value="Purple Dots" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3 value="Purple Dots" target="JACKET_LINING" checkableGroup="JACKET_LINING">C</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/black.png"  value="D" target="JACKET_LINING" checkableGroup="JACKET_LINING">
-								<h3 value="D" target="JACKET_LINING" checkableGroup="JACKET_LINING">D</h3>
+								<img class="small" src="/style/image/materials/black.png"  value="Black" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3 value="Black" target="JACKET_LINING" checkableGroup="JACKET_LINING">D</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/black.png"  value="E" target="JACKET_LINING" checkableGroup="JACKET_LINING">
-								<h3 value="E" target="JACKET_LINING" checkableGroup="JACKET_LINING">E</h3>
+								<img class="small" src="/style/image/materials/brown.png"  value="Brown" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3 value="Brown" target="JACKET_LINING" checkableGroup="JACKET_LINING">E</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/black.png"  value="F" target="JACKET_LINING" checkableGroup="JACKET_LINING">
-								<h3 value="F" target="JACKET_LINING" checkableGroup="JACKET_LINING">F</h3>
+								<img class="small" src="/style/image/materials/dark_beige.png"  value="Dark Beige" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3 value="Dark Beige" target="JACKET_LINING" checkableGroup="JACKET_LINING">F</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/black.png"  value="G" target="JACKET_LINING" checkableGroup="JACKET_LINING">
-								<h3 value="G" target="JACKET_LINING" checkableGroup="JACKET_LINING">G</h3>
+								<img class="small" src="/style/image/materials/gold.png"  value="Gold" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3 value="Gold" target="JACKET_LINING" checkableGroup="JACKET_LINING">G</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/black.png"  value="H" target="JACKET_LINING" checkableGroup="JACKET_LINING">
-								<h3 value="H" target="JACKET_LINING" checkableGroup="JACKET_LINING">H</h3>
+								<img class="small" src="/style/image/materials/medium_brown.png"  value="Medium Brown" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<h3 value="Medium Brown" target="JACKET_LINING" checkableGroup="JACKET_LINING">H</h3>
 							</li>
 								<input type="text" value="" id="JACKET_LINING"  name="text@JACKET_LINING" checkRule="required" filedName="height" msg="Please select a JACKET_LINING" msgField="JACKET_LINING_noti">
 						</ul>
@@ -163,10 +163,9 @@
 							</div>
 							<div>
 								<h3>COLOR</h3>
-								<img class="img_opt" src="/style/image/font/brushscript.png"  value="A" target="JACKET_MONOGRAM_COLOR" checkableGroup="JACKET_MONOGRAM_COLOR">
-								<img class="img_opt" src="/style/image/font/brushscript.png"  value="B" target="JACKET_MONOGRAM_COLOR" checkableGroup="JACKET_MONOGRAM_COLOR">
-								<img class="img_opt" src="/style/image/font/brushscript.png"  value="C" target="JACKET_MONOGRAM_COLOR" checkableGroup="JACKET_MONOGRAM_COLOR">
-								<input type="text" value="" id="JACKET_MONOGRAM_COLOR"  name="text@JACKET_MONOGRAM_COLOR" checkRule="required" filedName="height" msg="Please select a JACKET_MONOGRAM_COLOR" msgField="JACKET_MONOGRAM_noti">
+								<img class="img_opt" src="/style/image/font/jacket-monogram-1.png"  value="White" target="JACKET_MONOGRAM_COLOR" checkableGroup="JACKET_MONOGRAM_COLOR">
+								<img class="img_opt" src="/style/image/font/jacket-monogram-2.png"  value="Silver Gray" target="JACKET_MONOGRAM_COLOR" checkableGroup="JACKET_MONOGRAM_COLOR">
+								<img class="img_opt" src="/style/image/font/jacket-monogram-3.png"  value="Blue" target="JACKET_MONOGRAM_COLOR" checkableGroup="JACKET_MONOGRAM_COLOR">
 							</div>
 						</div>
 					</div>
