@@ -19,6 +19,7 @@ import com.spshop.model.Country;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.SiteService;
+import com.spshop.service.intf.UserService;
 import com.spshop.utils.Constants;
 
 public class LoginService extends HttpServlet {
@@ -57,6 +58,7 @@ public class LoginService extends HttpServlet {
             if (users.containsKey(username) && users.get(username).equals(pwd)) {
                 LoginInfo info = new LoginInfo();
                 info.setCountryMap(populateCountryMap());
+                info.setLoginUser(ServiceFactory.getService(UserService.class).queryUserByEmail(users.getProperty(Constants.DEFAULT_ADMIN_EMAIL_KEY)));
                 info.setSite(ServiceFactory.getService(SiteService.class).getSiteById(Constants.DEFAULT_SITE_ID));
                 info.setUserID(username);
                 req.getSession().setAttribute(Constants.ADMIN_LOGIN_INFO, info);

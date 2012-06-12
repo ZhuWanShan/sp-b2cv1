@@ -11,6 +11,7 @@ import com.spshop.model.Component;
 import com.spshop.model.Country;
 import com.spshop.model.HTML;
 import com.spshop.model.Image;
+import com.spshop.model.Message;
 import com.spshop.model.Order;
 import com.spshop.model.Product;
 import com.spshop.model.Site;
@@ -41,5 +42,6 @@ public interface AdminService  extends RemoteService{
 	public Country getCountryById(long id) throws ServiceValidateException;
 	Order updateOrderStatus(Order order);
 	QueryResult<Component> queryByHQL(String hql, List<Object> params, String className) throws IllegalArgumentException;
+	Message replyMessage(Message parent, Message message);
 }
 

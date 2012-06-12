@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.spshop.model.Country;
 import com.spshop.model.Site;
+import com.spshop.model.User;
 
 public class LoginInfo implements Serializable{
 
@@ -16,6 +17,7 @@ public class LoginInfo implements Serializable{
 	private Site site;
 	private String userID;
 	private Map<String, Country> countryMap;
+	private User loginUser;
 	public void setSite(Site site) {
 		this.site = site;
 	}
@@ -33,6 +35,12 @@ public class LoginInfo implements Serializable{
     }
     public Map<String, Country> getCountryMap() {
         return countryMap;
+    }
+    public void setLoginUser(User loginUser) {
+        this.loginUser = loginUser;
+    }
+    public User getLoginUser() {
+        return loginUser;
     }
 
 }

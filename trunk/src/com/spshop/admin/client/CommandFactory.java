@@ -1,6 +1,8 @@
 package com.spshop.admin.client;
 
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +19,7 @@ import com.spshop.admin.client.businessui.DeliveryManager;
 import com.spshop.admin.client.businessui.HTMLCreation;
 import com.spshop.admin.client.businessui.ImageBatchCreation;
 import com.spshop.admin.client.businessui.ImageCreation;
+import com.spshop.admin.client.businessui.PostMessage;
 import com.spshop.admin.client.businessui.ProductCreation;
 import com.spshop.admin.client.businessui.SiteManager;
 import com.spshop.admin.client.businessui.TopSellingManager;
@@ -24,6 +27,7 @@ import com.spshop.admin.client.businessui.callback.AsyncCallbackAdapter;
 import com.spshop.admin.client.businessui.callback.SelectedCallBack;
 import com.spshop.model.Country;
 import com.spshop.model.Image;
+import com.spshop.model.Message;
 import com.spshop.model.Order;
 import com.spshop.model.OrderItem;
 import com.spshop.model.Product;
@@ -524,4 +528,50 @@ public class CommandFactory {
             }
         };
     }
+    
+    public static Command showMessages(){
+        return new CommandAdapter(){
+            @Override
+            public void execute() {
+                AdminWorkspace.contentPanel.body.clear();
+                ComponentQuery componentQuery = new ComponentQuery("Message List", Message.class);
+                String hql = "From Message as m where m.replyBy = null order by m.replied asc";
+                componentQuery.getQueryCondition().setAsc(true);
+                componentQuery.getQueryCondition().setOrderBy("id");
+                componentQuery.getQueryCondition().setHql(hql);
+                AdminWorkspace.contentPanel.body.add(componentQuery);
+            }  
+        };
+    }
+    
+    public static Command popUpReplyPanel(final boolean multiSelect, final Message message, final SelectedCallBack callBack) {
+        return new CommandAdapter(){
+            @Override
+            public void execute() {
+                List<Message> messages = retrieveMessageThread(message);
+                PostMessage postMessage = new PostMessage();
+                postMessage.setMessageList(messages);
+                
+                final PopWindow popWindow = new PopWindow("Reply Customers", postMessage, true, true);
+                popWindow.center();
+            }
+            private List<Message> retrieveMessageThread(Message message) {
+                List<Message> messages = null;
+                if (message != null) {
+                    messages = new ArrayList<Message>();
+                    messages.add(message);
+                    Message msg = message;
+                    do {
+                        if (msg.getReplyTo() != null) {
+                            messages.add(msg.getReplyTo());
+                            msg = msg.getReplyTo();
+                        }
+                    } while (msg != null && msg.getReplyTo() != null);
+                    Collections.reverse(messages);
+                }
+                return messages;
+            }
+        };
+    }
+    
 }

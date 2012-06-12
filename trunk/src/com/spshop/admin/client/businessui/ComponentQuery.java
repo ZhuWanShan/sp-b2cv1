@@ -26,6 +26,7 @@ import com.spshop.admin.client.businessui.callback.OperationListenerAdapter;
 import com.spshop.model.Component;
 import com.spshop.model.HTML;
 import com.spshop.model.Image;
+import com.spshop.model.Message;
 import com.spshop.model.Order;
 import com.spshop.model.Product;
 import com.spshop.model.TabProduct;
@@ -154,6 +155,10 @@ public class ComponentQuery extends ResizeComposite {
 		if (queryCondition.getType() == Order.class) {
             initOrderHeader();
         }
+		
+		if (queryCondition.getType() == Message.class) {
+            initMessageHeader();
+        }
 		// Initialize the table.
 
 	}
@@ -281,6 +286,30 @@ public class ComponentQuery extends ResizeComposite {
         table.getColumnFormatter().setWidth(4, "110px");
         table.getColumnFormatter().setWidth(5, "130px");
     }
+    
+    private void initMessageHeader() {
+        header.getColumnFormatter().setWidth(0, "200px");
+        header.getColumnFormatter().setWidth(1, "100px");
+        header.getColumnFormatter().setWidth(2, "100px");
+        header.getColumnFormatter().setWidth(3, "100px");
+        header.getColumnFormatter().setWidth(4, "90px");
+        header.getColumnFormatter().setWidth(5, "80px");
+        header.setText(0, 0, "Title");
+        header.setText(0, 1, "Email");
+        header.setText(0, 2, "Create Date");
+        header.setText(0, 3, "Customer");
+        header.setText(0, 4, "Status");
+
+        header.setWidget(0, 5, navBar);
+        header.getCellFormatter().setHorizontalAlignment(0, 5, HasHorizontalAlignment.ALIGN_RIGHT);
+        
+        table.getColumnFormatter().setWidth(0, "200px");
+        table.getColumnFormatter().setWidth(1, "100px");
+        table.getColumnFormatter().setWidth(2, "100px");
+        table.getColumnFormatter().setWidth(3, "100px");
+        table.getColumnFormatter().setWidth(4, "90px");
+        table.getColumnFormatter().setWidth(5, "80px");
+    }
 
 	/**
 	 * Selects the given row (relative to the current page).
@@ -370,6 +399,10 @@ public class ComponentQuery extends ResizeComposite {
 			
 			if (result.getComponentType().equals(Order.class.getName())) {
                 updateOrder();
+            }
+			
+			if (result.getComponentType().equals(Message.class.getName())) {
+                updateMessage();
             }
 		}
 
@@ -559,6 +592,22 @@ public class ComponentQuery extends ResizeComposite {
                     HasHorizontalAlignment.ALIGN_RIGHT);
         }
     }
+	
+	private void updateMessage(){
+	    DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
+        for (int i = 0; i < result.getResult().size(); i++) {
+            Message message = (Message) result.getResult().get(i);
+            table.setText(i, 0, message.getName());
+            table.setText(i, 1, message.getUser().getEmail());
+            table.setText(i, 2, dateTimeFormat.format(message.getCreateDate()));
+            table.setText(i, 3, String.valueOf(message.getUser().getFullNameP()));
+            table.setText(i, 4, message.isReplied()?"Replied":"Awaiting Replied");
+            ReplyMessage reply = new ReplyMessage(message);
+            table.setWidget(i, 5, reply);
+            table.getCellFormatter().setHorizontalAlignment(i, 5,
+                    HasHorizontalAlignment.ALIGN_RIGHT);
+        }
+	}
 
 	public void setQueryCriteria(QueryCriteria queryCriteria) {
 		this.queryCriteria = queryCriteria;
