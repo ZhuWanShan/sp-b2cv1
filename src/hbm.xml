@@ -528,4 +528,20 @@
 		<property name="updateDate"></property>
 		<property name="emailAddress" length="100"></property>
 	</class>
+
+	<class name="Message" table="SHOP_Message">
+		<id column="ID" name="id">
+			<generator class="identity" />
+		</id>
+		<property generated="never" lazy="false" length="100" name="name" />
+		<property generated="never" lazy="false" name="createDate" />
+		<property generated="never" lazy="false" name="updateDate" />
+		<property generated="never" lazy="false" length="1000" name="content" />
+		<many-to-one class="Message" column="replyTo" name="replyTo"
+			not-found="ignore" />
+		<many-to-one class="Message" column="replyBy" name="replyBy"
+			not-found="ignore" />
+		<property generated="never" lazy="false" name="replied" />
+		<many-to-one class="User" column="user_id" name="user" />
+	</class>
 </hibernate-mapping>

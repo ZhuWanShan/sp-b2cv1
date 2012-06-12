@@ -1,6 +1,60 @@
 package com.spshop.web;
 
+import static com.spshop.utils.Constants.ADDRESS1;
+import static com.spshop.utils.Constants.ADDRESS1_ERR;
+import static com.spshop.utils.Constants.ADDRESS2;
+import static com.spshop.utils.Constants.ADDRESS2_ERR;
+import static com.spshop.utils.Constants.ADD_TYPE;
+import static com.spshop.utils.Constants.ADD_TYPE_B;
+import static com.spshop.utils.Constants.ADD_TYPE_P;
+import static com.spshop.utils.Constants.BILLING_ADDRESS;
+import static com.spshop.utils.Constants.BILLING_SAME_AS_PRIMARY;
+import static com.spshop.utils.Constants.CITY;
+import static com.spshop.utils.Constants.CITY_ERR;
+import static com.spshop.utils.Constants.COUNTRY;
+import static com.spshop.utils.Constants.COUNTRY_ERR;
+import static com.spshop.utils.Constants.CURRENT_ORDER;
+import static com.spshop.utils.Constants.CURRENT_PRODUCT;
+import static com.spshop.utils.Constants.CURRENT_PRODUCT_ID;
+import static com.spshop.utils.Constants.C_USER_FIRST_NAME;
+import static com.spshop.utils.Constants.C_USER_LAST_NAME;
+import static com.spshop.utils.Constants.DEFAULT_CURRENCY;
+import static com.spshop.utils.Constants.EMPTY_ORDER;
+import static com.spshop.utils.Constants.FIRST_NAME_ERR;
+import static com.spshop.utils.Constants.LAST_NAME_ERR;
+import static com.spshop.utils.Constants.MEASUREMENT_MSG;
+import static com.spshop.utils.Constants.PAGINATION;
+import static com.spshop.utils.Constants.POASTAL_CODE;
+import static com.spshop.utils.Constants.POSTAL_CODE_ERR;
+import static com.spshop.utils.Constants.PRIMARY_ADDRESS;
+import static com.spshop.utils.Constants.REG_PWD_RE_ERR;
+import static com.spshop.utils.Constants.REG_USER_NAME_SUC;
+import static com.spshop.utils.Constants.SHIPPING_EXPEDITED;
+import static com.spshop.utils.Constants.SHIPPING_METHOD;
+import static com.spshop.utils.Constants.SHIPPING_STANDARD;
+import static com.spshop.utils.Constants.SITE_VIEW;
+import static com.spshop.utils.Constants.STATE_PROVINCE;
+import static com.spshop.utils.Constants.STATE_PROVINCE_ERR;
+import static com.spshop.utils.Constants.SUIT_MEASUREMENT;
+import static com.spshop.utils.Constants.TEL_NUM;
+import static com.spshop.utils.Constants.TEL_NUM_ERR;
+import static com.spshop.utils.Constants.TXT_NEW_PWD1;
+import static com.spshop.utils.Constants.TXT_NEW_PWD2;
+import static com.spshop.utils.Constants.TXT_PWD;
+import static com.spshop.utils.Constants.UPDATE_ACC_SUC;
+import static com.spshop.utils.Constants.UPDATE_ADDRESS_1_SUC;
+import static com.spshop.utils.Constants.UPDATE_ADDRESS_2_SUC;
+import static com.spshop.utils.Constants.USERNAME;
+import static com.spshop.utils.Constants.USERNAME_ERR;
+import static com.spshop.utils.Constants.USER_ORDERS;
+import static com.spshop.utils.Constants.USER_ORDERS_COUNT;
+import static com.spshop.utils.Constants.WRONG_PWD;
+
 import java.io.IOException;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +76,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.spshop.model.Address;
 import com.spshop.model.Country;
+import com.spshop.model.Message;
 import com.spshop.model.Order;
 import com.spshop.model.OrderItem;
 import com.spshop.model.SuitMeasurement;
@@ -29,14 +84,12 @@ import com.spshop.model.User;
 import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CountryService;
+import com.spshop.service.intf.MessageService;
 import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.UserService;
 import com.spshop.utils.EmailTools;
 import com.spshop.utils.Utils;
 import com.spshop.web.view.SiteView;
-import com.spshop.web.view.UserView;
-
-import static com.spshop.utils.Constants.*;
 
 @Controller
 @SessionAttributes("currentProductID")
@@ -538,4 +591,75 @@ public class UserCenterController extends BaseController{
 		
 		return err;
 	}
+	
+    @RequestMapping("/feedback")
+    public String postMessage(Model model, HttpServletRequest request, HttpServletResponse response) {
+        String optType = request.getParameter("optType");
+        if ("compose".equals(optType)) {
+            return "composeMsg";
+        } else if ("viewThread".equals(optType)) {
+            retrieveMessageThread(model, request);
+            model.addAttribute("currentUserId", getUserView().getLoginUser().getId());
+            return "feedback";
+        } else if ("postMsg".equals(optType)) {
+            populateMessage(request);
+            populateMessages(model);
+            return "messageList";
+        } else {
+            populateMessages(model);
+            return "messageList";
+        }
+    }
+    
+    private void retrieveMessageThread(Model model, HttpServletRequest request) {
+        String msgId = request.getParameter("messageId");
+        Message message = ServiceFactory.getService(MessageService.class).fetchById(Long.valueOf(msgId));
+        if (message != null) {
+            List<Message> messages = new ArrayList<Message>();
+            messages.add(message);
+            Message msg = message;
+            do {
+                if (msg.getReplyBy() != null) {
+                    messages.add(msg.getReplyBy());
+                    msg = msg.getReplyBy();
+                }
+            } while (msg != null && msg.getReplyBy() != null);
+            Collections.reverse(messages);
+            model.addAttribute("messageThread", messages);
+        }
+    }
+
+    private Message populateMessage(HttpServletRequest request) {
+        String content = request.getParameter("newMessage");
+        String title = request.getParameter("messageTitle");
+        String lastMessageId = request.getParameter("lastMsgId");
+        Message msg = new Message();
+        Message parentMsg = null;
+        Date date = new Date();
+        String dateStr = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(date);
+        msg.setContent(content);
+        if (title != null) {
+            msg.setName(title);
+        } else {
+            msg.setName(dateStr.trim());
+        }
+        msg.setCreateDate(date);
+        msg.setReplied(false);
+        msg.setUser(getUserView().getLoginUser());
+        if (lastMessageId != null) {
+            parentMsg = ServiceFactory.getService(MessageService.class).fetchById(Long.valueOf(lastMessageId));
+            msg.setReplyTo(parentMsg);
+        }
+        msg = ServiceFactory.getService(MessageService.class).save(msg);
+        if (parentMsg != null) {
+            parentMsg.setReplyBy(msg);
+            ServiceFactory.getService(MessageService.class).save(parentMsg);
+        }
+        
+        return msg;
+    }
+    
+    private void populateMessages(Model model) {
+        model.addAttribute("messages", ServiceFactory.getService(MessageService.class).getMessagesByUser(getUserView().getLoginUser()));
+    }
 }

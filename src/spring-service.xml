@@ -182,4 +182,11 @@
 		<property name="target" ref="com.spshop.service.intf.EmailService.target" />
 	</bean>
 	
+	<bean id="com.spshop.service.intf.MessageService.target" class="com.spshop.service.impl.MessageServiceImpl">
+	</bean>
+	
+	<bean id="com.spshop.service.intf.MessageService" parent="transactionBase">
+		<property name="target" ref="com.spshop.service.intf.MessageService.target" />
+	</bean>
+	
 </beans>

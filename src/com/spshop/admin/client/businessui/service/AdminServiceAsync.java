@@ -10,6 +10,7 @@ import com.spshop.model.Component;
 import com.spshop.model.Country;
 import com.spshop.model.HTML;
 import com.spshop.model.Image;
+import com.spshop.model.Message;
 import com.spshop.model.Order;
 import com.spshop.model.Product;
 import com.spshop.model.Site;
@@ -61,4 +62,6 @@ public interface AdminServiceAsync {
 	void updateOrderStatus(Order order, AsyncCallback<Order> callback);
 	
 	void queryByHQL(String hql, List<Object> params, String className, AsyncCallback<QueryResult<Component>> callback);
+	
+	void replyMessage(Message parent, Message message, AsyncCallback<Message> callback);
 }

@@ -48,6 +48,7 @@ public class Constants {
 	
 	public static final String LOGIN_FAILURE = "username or password not correct, please check";
 	
+	public static final String DEFAULT_ADMIN_EMAIL_KEY = "admin.email";
 	public static final long DEFAULT_SITE_ID = 1L;
 	public static final Serializable DEFAULT_SITE_CACHE = "DEFAULT_SITE_CACHE";
 	public static final Serializable DEFAULT_TOPSELLING_CACHE = "DEFAULT_TOPSELLING_CACHE";

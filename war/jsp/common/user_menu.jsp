@@ -38,6 +38,9 @@
 					<dd>
 						<a class="menuNav" href="/uc/myOrder">My Order</a>
 					</dd>
+					<dd>
+						<a class="menuNav" href="/uc/feedback">My Message</a>
+					</dd>
 				</dl>
 		</li>
 		<script type="text/javascript">
