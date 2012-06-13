@@ -10,4 +10,6 @@ public interface MessageService extends BaseService<Message, MessageDAO, Long> {
     public List<Message> getMessagesByUser(User user);
     
     public List<Message> retrieveNoRepliedMessage();
+    
+    public Message replyMessage(Message parent, Message message);
 }
