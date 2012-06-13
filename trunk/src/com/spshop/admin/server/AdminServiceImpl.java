@@ -163,11 +163,7 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 
     @Override
     public Message replyMessage(Message parent, Message message) {
-        message = ServiceFactory.getService(MessageService.class).save(message);
-        parent.setReplied(true);
-        parent.setReplyBy(message);
-        ServiceFactory.getService(MessageService.class).save(parent);
-        return message;
+        return ServiceFactory.getService(MessageService.class).replyMessage(parent, message);
     }
 
 }

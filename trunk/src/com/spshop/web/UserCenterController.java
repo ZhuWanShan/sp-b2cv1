@@ -602,7 +602,15 @@ public class UserCenterController extends BaseController{
             model.addAttribute("currentUserId", getUserView().getLoginUser().getId());
             return "feedback";
         } else if ("postMsg".equals(optType)) {
-            populateMessage(request);
+            Message message = populateMessage(request);
+            String lastMsgId = request.getParameter("lastMsgId"); 
+            if (lastMsgId != null) {
+                long parentId = Long.valueOf(lastMsgId);
+                Message parent = ServiceFactory.getService(MessageService.class).fetchById(Long.valueOf(parentId));
+                ServiceFactory.getService(MessageService.class).replyMessage(parent, message);
+            } else {
+                ServiceFactory.getService(MessageService.class).save(message);
+            }
             populateMessages(model);
             return "messageList";
         } else {
@@ -632,9 +640,7 @@ public class UserCenterController extends BaseController{
     private Message populateMessage(HttpServletRequest request) {
         String content = request.getParameter("newMessage");
         String title = request.getParameter("messageTitle");
-        String lastMessageId = request.getParameter("lastMsgId");
         Message msg = new Message();
-        Message parentMsg = null;
         Date date = new Date();
         String dateStr = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(date);
         msg.setContent(content);
@@ -646,16 +652,6 @@ public class UserCenterController extends BaseController{
         msg.setCreateDate(date);
         msg.setReplied(false);
         msg.setUser(getUserView().getLoginUser());
-        if (lastMessageId != null) {
-            parentMsg = ServiceFactory.getService(MessageService.class).fetchById(Long.valueOf(lastMessageId));
-            msg.setReplyTo(parentMsg);
-        }
-        msg = ServiceFactory.getService(MessageService.class).save(msg);
-        if (parentMsg != null) {
-            parentMsg.setReplyBy(msg);
-            ServiceFactory.getService(MessageService.class).save(parentMsg);
-        }
-        
         return msg;
     }
     

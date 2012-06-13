@@ -75,7 +75,6 @@ public class PostMessage extends Composite {
         msg.setName(dateTimeFormat.format(new Date()).trim());
         msg.setCreateDate(new Date());
         msg.setReplied(true);
-        msg.setReplyTo(parentMessage);
         msg.setUser(AdminWorkspace.loginInfo.getLoginUser());
         return msg;
     }

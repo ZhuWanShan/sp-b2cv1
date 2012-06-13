@@ -28,15 +28,47 @@ public class MessageServiceImpl extends AbstractService<Message, MessageDAO, Lon
     @Override
     public List<Message> retrieveNoRepliedMessage() {
         String hql = "From Message as m where m.replied = false and m.replyBy = null order by m.id asc";
-        List<Message> orders = new ArrayList<Message>();
+        List<Message> messages = new ArrayList<Message>();
         List<Object> cs = (List<Object>)getDao().queryByHQL(hql);
 
         if (null != cs) {
             for (Object object : cs) {
-                orders.add(((Message)object).clone());
+                messages.add(((Message)object).clone());
             }
         }
-        return orders;
+        return messages;
+    }
+
+    @Override
+    public Message replyMessage(Message parent, Message message) {
+        message.setReplyTo(parent);
+        message = getDao().save(message);
+        parent.setReplied(true);
+        parent.setReplyBy(message);
+        Message ancestor = retrieveAncestorMessage(parent);
+        getDao().merge(parent);
+        if (ancestor != null) {
+            if (ancestor.getUser().getName().equals(message.getUser().getName())) {
+                ancestor.setReplied(false);
+            } else {
+                ancestor.setReplied(true);
+            }
+            getDao().merge(ancestor);
+        }
+        return message.clone();
+    }
+    
+    private Message retrieveAncestorMessage(Message message){
+        Message ancestor = message;
+        while (ancestor.getReplyTo() != null) {
+            ancestor = ancestor.getReplyTo();
+        }
+        return ancestor.clone();
+    }
+    
+    @Override
+    public Message fetchById(Long id) {
+        return super.fetchById(id).clone();
     }
 
 }
