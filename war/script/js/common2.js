@@ -545,10 +545,10 @@ jq(".item_bottom_right").ready(function(){
 				
 				if(jq(this).attr("checked")){
 					jq(this).parent().parent().parent().addClass("selected").removeClass("unselected");
-					jq("#related_product_sum_total_price").html(cc +" " + (total+m))
+					jq("#related_product_sum_total_price").html(cc +" " + parseInt((total+m)*100)/100)
 				}else{
 					jq(this).parent().parent().parent().addClass("unselected").removeClass("selected");
-					jq("#related_product_sum_total_price").html(cc +" " + (total-m))
+					jq("#related_product_sum_total_price").html(cc +" " + parseInt((total-m)*100)/100)
 				}
 				
 			});
