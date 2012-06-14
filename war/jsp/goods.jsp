@@ -12,12 +12,12 @@
 	<meta name="description" content="Buy ${pageForm.pageProperties.productDetail.title} at wholesale price from HoneyBuy.com, all free shipping! Buy Now!">
 	<meta name="keywords" content="${pageForm.pageProperties.productDetail.keywords}">
 	  
-	<link rel="stylesheet" type="text/css" href="../css/header.css">
-	<link rel="stylesheet" type="text/css" href="../css/general.css">	
-	<link rel="stylesheet" type="text/css" href="../css/index.css">
-	<link rel="stylesheet" type="text/css" href="../css/footer.css">
-	<link rel="stylesheet" type="text/css" href="../css/global.css">
-	<link rel="stylesheet" type="text/css" href="../css/head.css">
+	<link rel="stylesheet" type="text/css" href="../css/header.css?799">
+	<link rel="stylesheet" type="text/css" href="../css/general.css?799">	
+	<link rel="stylesheet" type="text/css" href="../css/index.css?799">
+	<link rel="stylesheet" type="text/css" href="../css/footer.css?799">
+	<link rel="stylesheet" type="text/css" href="../css/global.css?799">
+	<link rel="stylesheet" type="text/css" href="../css/head.css?799">
 	
 	<script src="../js/jquery-1.5.1.js" type="text/javascript"></script>
 	
@@ -48,15 +48,15 @@
 	
 	<!-- Top box start -->
 	<jsp:include page="top/top_box.jsp"></jsp:include>
-	<script type="text/javascript" src="../js/header.js"></script>
+	<script type="text/javascript" src="../js/header.js?799"></script>
 	<!-- Top box end -->
 
 	<script src="../js/addthis.js" type="text/javascript"></script>
 	
 	<script>var pic_high=0;</script>
 	
-	<link type="text/css" rel="stylesheet" href="../css/thing_item.css">
-	<link type="text/css" rel="stylesheet" href="../css/default_thing_item.css">
+	<link type="text/css" rel="stylesheet" href="../css/thing_item.css?799">
+	<link type="text/css" rel="stylesheet" href="../css/default_thing_item.css?799">
 	<link media="screen" href="../css/jquery.fancybox-1.3.4.css" type="text/css" rel="stylesheet">
 	
 	<script type="text/javascript" src="../js/jquery.mousewheel-3.0.4.pack.js"></script>

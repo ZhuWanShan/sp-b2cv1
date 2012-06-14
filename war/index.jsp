@@ -12,12 +12,12 @@
 <meta name="description" content="${pageForm.category.description}">
 <meta name="keywords" content="${pageForm.category.relatedKeyword}">
 
-<link rel="stylesheet" type="text/css" href="css/header.css">
-<link rel="stylesheet" type="text/css" href="css/general.css">
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<link rel="stylesheet" type="text/css" href="css/footer.css">
-<link rel="stylesheet" type="text/css" href="css/global.css">
-<link rel="stylesheet" type="text/css" href="css/head.css">
+<link rel="stylesheet" type="text/css" href="css/header.css?799">
+<link rel="stylesheet" type="text/css" href="css/general.css?799">
+<link rel="stylesheet" type="text/css" href="css/index.css?799">
+<link rel="stylesheet" type="text/css" href="css/footer.css?799">
+<link rel="stylesheet" type="text/css" href="css/global.css?799">
+<link rel="stylesheet" type="text/css" href="css/head.css?799">
 <link href="css/mainbox.css" type="text/css" rel="stylesheet" />
 
 <script src="js/jquery-1.5.1.js" type="text/javascript"></script>
@@ -51,8 +51,8 @@
 	</noscript>
 <link href="https://plus.google.com/109978880912693970020" rel="publisher" />
 
-	<script src="/script/js/common2.js" type="text/javascript"></script>
-	<script src="/script/js/jquery.validation.js" type="text/javascript"></script>
+	<script src="/script/js/common2.js?799" type="text/javascript"></script>
+	<script src="/script/js/jquery.validation.js?799" type="text/javascript"></script>
 
 </head>
 <body>
@@ -93,7 +93,7 @@
 	<jsp:include page="jsp/bottom/bottom_box.jsp"></jsp:include>
 	<!-- Bottom end -->
 
-	<script type="text/javascript" src="js/index.js"></script>
-	<script type="text/javascript" src="js/footer.js"></script>
+	<script type="text/javascript" src="js/index.js?799"></script>
+	<script type="text/javascript" src="js/footer.js?799"></script>
 </body>
 </html>
