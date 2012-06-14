@@ -538,10 +538,17 @@ jq(".item_bottom_right").ready(function(){
 			
 			jq(el).click(function(){
 				
+				var cc = jq(this).parent().prev().html().trim().split(" ")[0]
+				var m = parseFloat(jq(this).parent().prev().html().trim().split(" ")[1]);
+				
+				var total = parseFloat(jq("#related_product_sum_total_price").html().trim().split(" ")[1]); 
+				
 				if(jq(this).attr("checked")){
 					jq(this).parent().parent().parent().addClass("selected").removeClass("unselected");
+					jq("#related_product_sum_total_price").html(cc +" " + (total+m))
 				}else{
 					jq(this).parent().parent().parent().addClass("unselected").removeClass("selected");
+					jq("#related_product_sum_total_price").html(cc +" " + (total-m))
 				}
 				
 			});

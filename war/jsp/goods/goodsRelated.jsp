@@ -8,20 +8,20 @@
 			<h3>Customers Who Bought This Item Also Bought</h3>
 			<div class="item_bottom_funBt">
 			</div>
-		    <ul class="complete_look_normal">
+		    <ul class="complete_look_normal related_product">
 		      <li class="source"> 
 				     <div>
 				      	<a title="${pageForm.pageProperties.productDetail.title }" href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=Constants.URL_SEPERATOR %>${pageForm.pageProperties.productDetail.name}">
 				      		<c:if test='${pageForm.pageProperties.productDetail.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
-				      			<img style="width: 120px; height: 105; padding-top: ${(105-80)/2}px;" border="0" alt="${pageForm.pageProperties.productDetail.title }" src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${pageForm.pageProperties.productDetail.images[0].thumbnailUrl}">
+				      			<img style="width: 160px; height: 105; padding-top: ${(105-80)/2}px;" border="0" alt="${pageForm.pageProperties.productDetail.title }" src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${pageForm.pageProperties.productDetail.images[0].thumbnailUrl}">
 				      		</c:if>
 				      		<c:if test='${pageForm.pageProperties.productDetail.images[0].strSizeType eq "PRODUCT_NORMAL"}'>
-				      			<img style="width: 120px; height: 105;" border="0" alt="${pageForm.pageProperties.productDetail.title }" src="http://www.honeybuy.com${pageForm.pageProperties.productDetail.images[0].thumbnailUrl}">
+				      			<img style="width: 160px; height: 105;" border="0" alt="${pageForm.pageProperties.productDetail.title }" src="http://www.honeybuy.com${pageForm.pageProperties.productDetail.images[0].thumbnailUrl}">
 				      		</c:if>
 				      	</a>
 				      </div>
 				 </li>
-		     <c:forEach items="${names}" var="name" end="9">
+		     <c:forEach items="${names}" var="name" end="7">
 		     	<ss:product var="product" productName="${name}" >
 				      <li class="unselected"> 
 				      	<div>
@@ -46,6 +46,18 @@
 		     </c:forEach>
 		    </ul>
 		    
+		    <div class="related_product_sum">
+		    	<ul>
+			       <li><span> Total Price:</span><span id="related_product_sum_total_price"> ${currency} <fmt:formatNumber value=" ${pageForm.pageProperties.productDetail.actualPrice * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber></span></li>
+			       <li><input type="button"  value="Buy Together" id="related_product_sum_total_price_submit" class="button_01"></li>
+			     </ul>
+			     <script type="text/javascript">
+			     	
+			     	jq("#related_product_sum_total_price_submit").click(function(){
+			     		jq("#nosubitem_addBag").click();
+			     	});
+			     </script>
+		    </div>
 		  
 		    
 	    </ss:tabProductNames>
