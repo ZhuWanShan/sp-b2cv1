@@ -218,8 +218,8 @@ input.item_emailenter{background:url(goods-bt.png) -340px -181px no-repeat; colo
 .item_reviews_bottom_page{ float:right; margin-bottom:20px;}
 
 
-/********* Ã¥â€¢â€ Ã¥â€œÂ�Ã¥Ë†â€”Ã¨Â¡Â¨ *********/
-/********* Ã§Â¿Â»Ã©Â¡Âµ *********/
+/********* ÃƒÂ¥Ã¢â‚¬Â¢Ã¢â‚¬Â ÃƒÂ¥Ã¢â‚¬Å“Ã‚ï¿½ÃƒÂ¥Ã‹â€ Ã¢â‚¬â€�ÃƒÂ¨Ã‚Â¡Ã‚Â¨ *********/
+/********* ÃƒÂ§Ã‚Â¿Ã‚Â»ÃƒÂ©Ã‚Â¡Ã‚Âµ *********/
 
 .pages_box { clear: both; float: none; margin-top: 5px; padding: 10px 4px; text-align: right; }
 .pages_box em { font-size: 11px; color: #666666; font-style: normal; padding-right: 10px; }
@@ -235,7 +235,7 @@ input.item_emailenter{background:url(goods-bt.png) -340px -181px no-repeat; colo
 .pages_box a:visited.prev { border: 1px solid #CCCCCC; text-decoration: none; margin-right: 4px; padding-top: 3px; padding-right: 6px; padding-bottom: 3px; padding-left: 15px; background: url(previous.gif) no-repeat 8px 8px; }
 .pages_box a:hover.prev { background: #fdffbf url(previous.gif) no-repeat 8px 8px; border: 1px solid #F0F0F0; color: #000000; }
 
-/********* Ã§Â¿Â»Ã©Â¡Âµ *********/
+/********* ÃƒÂ§Ã‚Â¿Ã‚Â»ÃƒÂ©Ã‚Â¡Ã‚Âµ *********/
 
 
 .prin_link{ float:right; }
@@ -286,7 +286,7 @@ input.item_emailenter{background:url(goods-bt.png) -340px -181px no-repeat; colo
 	width: 200px;
 }
 
-/********* Ã¥Â¼Â¹Ã¥â€¡ÂºÃ§Âªâ€”Ã¥Â�Â£ *********/
+/********* ÃƒÂ¥Ã‚Â¼Ã‚Â¹ÃƒÂ¥Ã¢â‚¬Â¡Ã‚ÂºÃƒÂ§Ã‚ÂªÃ¢â‚¬â€�ÃƒÂ¥Ã‚ï¿½Ã‚Â£ *********/
 .alert_thing_box { z-index:300; background: url(alert_thing_bg.gif) left top; padding: 10px; width: 560px; }
 .alert_thing_bg { background: #FFF; width: 560px; margin-top: -7px !important; margin-top: 0px; }
 .alert_thing_top { background: url(Image_mosaic.png) repeat-x 0 -107px; height: 93px; width: 100%; position: relative; }
@@ -364,7 +364,7 @@ a.close_link { background: url(close_link.gif) no-repeat left top; display:block
 a:link.submit_8,a:visited.submit_8 { background: url(submit_8.gif) no-repeat left top; color:#4a4a4a; width:158px; height:21px; padding-top:4px; border-width: 0px; border-style: none; font-size: 12px; text-align: center; text-decoration:none; display: block; position:absolute; bottom:30px; right:0; top:-30px; _right:10px; z-index:1; }
 .sub_outDiv{z-index:2; right:0; top:55px; position:absolute;}
 .sub_outDiv_normal{z-index:2; right:0; top:25px; position:absolute;}
-/********* Ã¦Å“ÂªÃ¥â€¹Â¾Ã©â‚¬â€°Ã©Â¢Å“Ã¨â€°Â²Ã¥â€™Å’Ã¥Â°ÂºÃ¥Â¯Â¸Ã§Å¡â€žÃ¦Â�Â�Ã§Â¤ÂºÃ¦Â¡â€ *********/
+/********* ÃƒÂ¦Ã…â€œÃ‚ÂªÃƒÂ¥Ã¢â‚¬Â¹Ã‚Â¾ÃƒÂ©Ã¢â€šÂ¬Ã¢â‚¬Â°ÃƒÂ©Ã‚Â¢Ã…â€œÃƒÂ¨Ã¢â‚¬Â°Ã‚Â²ÃƒÂ¥Ã¢â‚¬â„¢Ã…â€™ÃƒÂ¥Ã‚Â°Ã‚ÂºÃƒÂ¥Ã‚Â¯Ã‚Â¸ÃƒÂ§Ã…Â¡Ã¢â‚¬Å¾ÃƒÂ¦Ã‚ï¿½Ã‚ï¿½ÃƒÂ§Ã‚Â¤Ã‚ÂºÃƒÂ¦Ã‚Â¡Ã¢â‚¬Â *********/
 .addtocart{position:relative; _z-index:0; }
 .notselect_tips{ position:absolute; border:#9E9E9E solid 1px; border-bottom:none; width:138px; right:0px; bottom:38px; background:#EDE5DB;}
 .notselect_tips .tips_title{ font-size:11px; margin:3px 10px; padding:5px;  /*background:url(../tips_title_bg.gif) repeat-x center bottom;*/ border-bottom:1px dotted #000; color:#954401;}
@@ -388,7 +388,7 @@ a:link.submit_8,a:visited.submit_8 { background: url(submit_8.gif) no-repeat lef
 
 
 
-/********* Ã¦â€°Â¹Ã¥Â�â€˜Ã¥Â¼Â¹Ã¥â€¡ÂºÃ§Âªâ€”Ã¥Â�Â£ *********/
+/********* ÃƒÂ¦Ã¢â‚¬Â°Ã‚Â¹ÃƒÂ¥Ã‚ï¿½Ã¢â‚¬ËœÃƒÂ¥Ã‚Â¼Ã‚Â¹ÃƒÂ¥Ã¢â‚¬Â¡Ã‚ÂºÃƒÂ§Ã‚ÂªÃ¢â‚¬â€�ÃƒÂ¥Ã‚ï¿½Ã‚Â£ *********/
 .backgroundDiv2{ width:100%; height:3500px; display:none;z-index:900; background-color:#333333; position:absolute; top:0px; left:0px;}
 .info2{ z-index:1000;width:752px; display:none; height:609px; position:relative; background:url(Order_inquirybg.png) no-repeat; font-family:Arial, Helvetica, sans-serif;}
 .close_button02{ height:16px; width:16px; position:absolute; right:8px; top:9px; }
@@ -416,3 +416,23 @@ a:link.submit_8,a:visited.submit_8 { background: url(submit_8.gif) no-repeat lef
 .table_style2 th { background: #EFEFEF; font-weight: normal; color: #333333; font-size: 11px; }
 .table_style2 td { padding:7px; background: #FFFFFF; font-size: 11px; border-bottom: 1px solid #F0F0F0; text-align: center; }
 .info_pro{ margin:1px 20px; font-size:11px; line-height:15px;}
+.related_product{width: 750px;float: left;background: url("/style/image/dpxs_picadd01.jpg") no-repeat scroll right center transparent}
+.related_product_sum{
+    float: left;
+    height: 200px;
+    width: 160px;
+    padding: 50px 5px;
+}
+
+.related_product_sum li{
+	margin: 20px 2px;
+}
+
+.related_product_sum li span{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.related_product_sum li #related_product_sum_total_price{
+	color: #F07302;
+}

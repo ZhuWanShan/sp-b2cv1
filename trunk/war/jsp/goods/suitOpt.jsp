@@ -207,7 +207,7 @@
 			<div class="measure_buttons">
 				<input type="button" class="button_01" value="<         PREVIOUS">
 				<input type="button" class="button_01" value="NEXT             >">
-				<input type="submit" class="button_01" value="FINISH           >" onclick="return checkFields()">
+				<input type="submit" id="nosubitem_addBag" class="button_01" value="FINISH           >" onclick="return checkFields()">
 				<input type="button" class="button_01" value="Cancel">
 			</div>
 			<div class="measure_controller">
