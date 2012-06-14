@@ -165,7 +165,7 @@ textarea {
 <div class="send_private_msg">
 	<dl class="private_SRLr clearfix">
 		<dt class="headportrait">
-			<a title=""><img width="50" height="50" src="/image/Honeybuylogo.jpg" alt=""></a>
+			<a title=""><img width="50" height="50" src="/image/png-0010.png" alt="Me"></a>
 		</dt>
 		<dd class="W_border content">
 			<div class="R_msg">
@@ -193,7 +193,7 @@ textarea {
 	<#if msg.user.id != currentUserId>
 	<dl node-type="msgList" class="private_SRLl clearfix">
 		<dt class="face">
-			<a title=""><img width="50" height="50" src="/image/questionsanswers.jpg" alt="I have a question"></a>
+			<a title=""><img width="50" height="50" src="/image/png-0656.png" alt="Admin"></a>
 		</dt>
 		<dd class="W_border content">
 			<div class="R_msg">
@@ -213,7 +213,7 @@ textarea {
 	<#else>
 	<dl node-type="msgList" class="private_SRLr clearfix">
 		<dt class="face">
-			<a title=""><img width="50" height="50" src="/image/Honeybuylogo.jpg" alt="HoneyBuy Customer Service"></a>
+			<a title=""><img width="50" height="50" src="/image/png-0010.png" alt="Me"></a>
 		</dt>
 		<dd class="W_border content">
 			<div class="R_msg">
