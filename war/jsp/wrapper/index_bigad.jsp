@@ -4,8 +4,11 @@
 <c:if test='${isHome == "true"}'>
 		<div class="measure_dashboard">
 		<div class="measure_dashboard_content">
+			<div class="measure_panel" style="display: none;">
+				<a href="http://www.honeybuy.com/c/Wedding-Dresses-2012"><img width="972px" height="428px" src="http://www.honeybuy.com/image/banner1.jpg" title="Wedding Dresses 2012" alt="Wedding Dresses 2012"></a>
+			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Wedding-Dresses-2012"><img alt="Wedding Dresses 2012" title="Wedding Dresses 2012" width="972px" height="428px" src="/image/Banner20120515-4.png"></a>
+				<a href="http://www.honeybuy.com/c/Wedding-Dresses"><img alt="Wedding Dresses" title="Wedding Dresses" width="972px" height="428px" src="/image/Banner20120515-4.png"></a>
 			</div>
 			<div class="measure_panel">
 				<a href="http://www.honeybuy.com/c/Prom-Dresses-2012"><img alt="Prom Dresses 2012" title="Prom Dresses 2012"  width="972px" height="428px" src="/image/Banner20120515-2.png"></a>
@@ -19,7 +22,9 @@
 			<div class="measure_panel">
 				<a href="http://www.honeybuy.com/c/Evening-Dresses"><img alt="Evening Dresses" title="Evening Dresses"  width="972px" height="428px" src="/image/Banner20120515-5.png"></a>
 			</div>
-			
+			<div class="measure_panel">
+				<a href="http://www.honeybuy.com/c/Sweet-Sixteen-Dresses"><img alt="Sweet Sixteen Dresses" title="Sweet Sixteen Dresses" width="972px" height="428px" src="/image/banner5.jpg"></a>
+			</div>
 			
 			<p class="clearBoth"></p>
 		</div>
@@ -31,6 +36,8 @@
 				<img class="pagination_m" src="/style/image/1x1.png" title="3">
 				<img class="pagination_m" src="/style/image/1x1.png" title="4">
 				<img class="pagination_m" src="/style/image/1x1.png" title="5">
+				<img class="pagination_m" src="/style/image/1x1.png" title="6">
+				<img class="pagination_m" src="/style/image/1x1.png" title="7">
 			</div>
 		</div>
 	</div>
