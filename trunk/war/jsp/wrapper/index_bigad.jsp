@@ -11,14 +11,16 @@
 				<a href="http://www.honeybuy.com/c/Prom-Dresses-2012"><img alt="Prom Dresses 2012" title="Prom Dresses 2012"  width="972px" height="428px" src="http://www.honeybuy.com/image/Banner20120515-2.png"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Fashion-Apparel"><img alt="Fashion-Apparel" title="Fashion-Apparel"  width="972px" height="428px" src="http://www.honeybuy.com/image/Banner20120515-3.png"></a>
+				<a href="http://www.honeybuy.com/c/Fashion-Apparel"><img alt="Fashion-Apparel" title="Fashion Apparel"  width="972px" height="428px" src="http://www.honeybuy.com/image/Banner20120515-3.png"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Business-Suits"><img alt="Custom Groom Suits" title="Custom Groom Suits"  width="972px" height="428px" src="http://www.honeybuy.com/image/Banner20120515-1.png"></a>
+				<a href="http://www.honeybuy.com/c/Business-Suits"><img alt="Custom Groom Suits" title="Custom Business Suits"  width="972px" height="428px" src="http://www.honeybuy.com/image/Banner20120515-1.png"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Evening-Dresses"><img alt="Sweet Sixteen Dresses" title="Sweet Sixteen Dresses"  width="972px" height="428px" src="http://www.honeybuy.com/image/Banner20120515-5.png"></a>
+				<a href="http://www.honeybuy.com/c/Evening-Dresses"><img alt="Sweet Sixteen Dresses" title="Evening Dresses"  width="972px" height="428px" src="http://www.honeybuy.com/image/Banner20120515-5.png"></a>
 			</div>
+			
+			
 			<p class="clearBoth"></p>
 		</div>
 		<div class="measure_navigation">
