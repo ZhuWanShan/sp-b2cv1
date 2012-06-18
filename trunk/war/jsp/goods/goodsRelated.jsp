@@ -54,7 +54,11 @@
 			     <script type="text/javascript">
 			     	
 			     	jq("#related_product_sum_total_price_submit").click(function(){
-			     		jq("#nosubitem_addBag").click();
+			     		if(jq("#nosubitem_addBag_customize").length>0){
+			     			jq("#nosubitem_addBag_customize").click();
+			     		}else{
+			     			jq("#nosubitem_addBag").click();
+			     		}
 			     	});
 			     </script>
 		    </div>
