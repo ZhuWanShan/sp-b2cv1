@@ -439,9 +439,9 @@ Please DO NOT use "the same as picture" option.</p>
 						<c:if test="${not empty userInfo && userInfo.suitMeasurementComplete}">				
 							<input type="submit" style="display: none;" id="sub"
 							value="ADD TO MY BAG" class="item_addBag"> <input
-							type="submit" id="nosubitem_addBag" value="Customize" class="item_addBag">
+							type="submit" id="nosubitem_addBag_customize" value="Customize" class="item_addBag">
 							<script type="text/javascript">
-								jq("#nosubitem_addBag").click(function(){
+								jq("#nosubitem_addBag_customize").click(function(){
 									//jq.documentMask(); 
 									jq.documentMask({ 
 									'opacity': 0.6, 
