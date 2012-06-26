@@ -273,7 +273,12 @@ input.item_emailenter{background:url(goods-bt.png) -340px -181px no-repeat; colo
 	padding-left: 27px;
 }
 
-.complete_look_normal li a{
+.complete_look_normal li.unselected a{
+	display: block;
+	height: 120px;
+}
+
+.complete_look_normal li.selected a{
 	display: block;
 	height: 120px;
 }
