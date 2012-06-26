@@ -458,9 +458,9 @@ Please DO NOT use "the same as picture" option.</p>
 						</c:if>	
 						<c:if test="${empty userInfo || !userInfo.suitMeasurementComplete}">
 							<div class="no_measure_note">
-								<p>You have not complete suit measurement. In order to service you better, please fill the measurement form, then continue shopping</p>
+								<p>Dear, please take your Measurement first, then continue shopping.</p>
 								<p>
-									<a class="continue_shopping" style="padding: 0 0 0 10px" href="/uc/my-measurements?currentProductID=${pageForm.pageProperties.productDetail.name }">Fill Measurement</a>	
+									<a class="continue_shopping" style="padding: 0 0 0 10px" href="/uc/my-measurements?currentProductID=${pageForm.pageProperties.productDetail.name }">My Measurements</a>	
 								</p>
 							</div>
 						</c:if>
