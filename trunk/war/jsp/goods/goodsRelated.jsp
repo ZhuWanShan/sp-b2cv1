@@ -27,10 +27,10 @@
 				      	<div>
 				      	<a title="${product.title }" href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}<%=Constants.URL_SEPERATOR %>${product.name}">
 				      		<c:if test='${product.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
-				      		<img style="width: 80px; height: 105; padding-top: ${(105-80)/2}px;" border="0" alt="${product.title }" src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].smallUrl}">
+				      		<img style="width: 80px; height: 105; padding-top: ${(105-80)/2}px;" border="0" alt="${product.title }" src="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}${product.images[0].thumbnailUrl}">
 				      		</c:if>
 				      		<c:if test='${product.images[0].strSizeType eq "PRODUCT_NORMAL"}'>
-				      		<img style="width: 80px; height: 105;" border="0" alt="${product.title }" src="http://www.honeybuy.com${product.images[0].smallUrl}">
+				      		<img style="width: 80px; height: 105;" border="0" alt="${product.title }" src="http://www.honeybuy.com${product.images[0].thumbnailUrl}">
 				      		</c:if>
 				      	</a>
 				        <div>
