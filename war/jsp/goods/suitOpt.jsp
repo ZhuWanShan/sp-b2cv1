@@ -157,8 +157,8 @@
 						<div>
 							<div>
 								<h3>FONT</h3>
-								<img class="img_opt" src="/style/image/font/timesroman.png"  value="A" target="JACKET_MONOGRAM_FONT" checkableGroup="JACKET_MONOGRAM_FONT">
-								<img class="img_opt active" src="/style/image/font/brushscript.png"  value="B" target="JACKET_MONOGRAM_FONT" checkableGroup="JACKET_MONOGRAM_FONT">
+								<img class="img_opt" src="/style/image/font/timesroman.png"  value="TimesRoman" target="JACKET_MONOGRAM_FONT" checkableGroup="JACKET_MONOGRAM_FONT">
+								<img class="img_opt active" src="/style/image/font/brushscript.png"  value="BrushScript" target="JACKET_MONOGRAM_FONT" checkableGroup="JACKET_MONOGRAM_FONT">
 								<input type="hidden"  id="JACKET_MONOGRAM_FONT"  name="text@JACKET_MONOGRAM_FONT" checkRule="" filedName="height" msg="Please select a JACKET_MONOGRAM_FONT" msgField="JACKET_MONOGRAM_noti">
 							</div>
 							<div>
