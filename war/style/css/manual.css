@@ -7,6 +7,10 @@
     text-align: left;
 }
 
+.manual-suit-section ul{
+    list-style: square inside none; 
+}
+
 .manual-suit-h2{
     color: #696969;
     font-size: 28px;
@@ -20,6 +24,14 @@
     border: 0px;
     text-align: center;  
     width:930px;     
+}
+
+.manual-suit-img2{
+    border: 0px;
+    padding-left: 40px;
+    width: 120px;
+    float: right;
+          
 }
 .manual-suit-col-13 {
     display: inline;
