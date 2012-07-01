@@ -11,6 +11,10 @@
     list-style: square inside none; 
 }
 
+.manual-suit-section h3{
+    padding:10px 0px; 
+}
+
 .manual-suit-h2{
     color: #696969;
     font-size: 28px;
@@ -33,6 +37,12 @@
     float: right;
           
 }
+
+.manual-suit-img3{
+    border: 0px;
+    padding-left: 40px;
+    float: right;
+}   
 .manual-suit-col-13 {
     display: inline;
     float: left;
