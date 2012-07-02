@@ -37,10 +37,9 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 		}
 		
 		if(null==order.getStatus()){
-			order.setStatus(Constants.DEFAULT_CURRENCY);
+			order.setStatus(OrderStatus.ONSHOPPING.toString());
 		}
 		
-		order.setStatus(status);
 		order.setUpdateDate(new Date());
 		if(null==order.getCreateDate()){
 			order.setCreateDate(new Date());
@@ -66,18 +65,10 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 		}
 
 		
-		Order theOldOder = null;
-				
-		try {
-			theOldOder = getOrderById(order.getName());
-		} catch (Exception e1) {
-		}
-		
-		if(null != theOldOder){
 			
 			
 			
-			if(OrderStatus.PAID.toString().equals(order.getStatus()) && !(OrderStatus.PAID.toString().equals(theOldOder.getStatus()))){
+			if(OrderStatus.PAID.toString().equals(order.getStatus()) && !status.equals(order.getStatus())){
 				
 				final Map<String,Object> root = new HashMap<String,Object>(); 
 				final Order o = order;
@@ -114,7 +105,7 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 						}
 					};
 				}.start();
-			}else if(OrderStatus.SHIPPING.toString().equals(order.getStatus()) && !(OrderStatus.SHIPPING.toString().equals(theOldOder.getStatus()))){
+			}else if(OrderStatus.SHIPPING.toString().equals(order.getStatus()) && !(!status.equals(order.getStatus()))){
 				
 				final Map<String,Object> root = new HashMap<String,Object>(); 
 				final Order o = order;
@@ -151,8 +142,8 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 					};
 				}.start();
 			}
-		}
 		
+		order.setStatus(status);
 		order = getDao().save(order);
 		order = order.clone();
 		
