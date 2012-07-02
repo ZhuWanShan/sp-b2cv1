@@ -27,7 +27,7 @@
     float: left;
     border: 0px;
     text-align: center;  
-    width:930px;     
+    width:900px;     
 }
 
 .manual-suit-img2{
@@ -40,7 +40,7 @@
 
 .manual-suit-img3{
     border: 0px;
-    padding-left: 40px;
+    padding: 40px 5px;
     align: middle;
   
 }
