@@ -213,8 +213,8 @@ public class OrderInfo extends Composite {
     @UiHandler("button")
     void onButtonClick(ClickEvent event) {
         CommandFactory.lock("Save Order Status").execute();
-        this.order.setStatus(this.orderStatus.getSelectedValue());
-        AdminWorkspace.ADMIN_SERVICE_ASYNC.updateOrderStatus(order, new AsyncCallbackAdapter<Order>() {
+        //this.order.setStatus(this.orderStatus.getSelectedValue());
+        AdminWorkspace.ADMIN_SERVICE_ASYNC.updateOrderStatus(order ,this.orderStatus.getSelectedValue() , new AsyncCallbackAdapter<Order>() {
             @Override
             public void onSuccess(Order result) {
                 setOrder(result);
@@ -226,7 +226,7 @@ public class OrderInfo extends Composite {
     void onBtnSaveTraceClick(ClickEvent event) {
         CommandFactory.lock("Save Order Status").execute();
         this.order.setTraceInfo(this.txtTraceInfo.getValue());
-        AdminWorkspace.ADMIN_SERVICE_ASYNC.updateOrderStatus(order, new AsyncCallbackAdapter<Order>() {
+        AdminWorkspace.ADMIN_SERVICE_ASYNC.updateOrderStatus(order, this.orderStatus.getSelectedValue(),  new AsyncCallbackAdapter<Order>() {
             @Override
             public void onSuccess(Order result) {
                 setOrder(result);

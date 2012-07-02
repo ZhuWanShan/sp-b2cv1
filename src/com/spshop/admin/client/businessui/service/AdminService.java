@@ -40,7 +40,7 @@ public interface AdminService  extends RemoteService{
 	Country saveCountry(Country country) throws ServiceValidateException;
 	public List<Country> getAllCountries() throws ServiceValidateException;
 	public Country getCountryById(long id) throws ServiceValidateException;
-	Order updateOrderStatus(Order order);
+	Order updateOrderStatus(Order order,String status);
 	QueryResult<Component> queryByHQL(String hql, List<Object> params, String className) throws IllegalArgumentException;
 	Message replyMessage(Message parent, Message message);
 }

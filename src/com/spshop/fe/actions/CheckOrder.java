@@ -71,13 +71,13 @@ public class CheckOrder extends BaseAction {
 			PrintWriter pw = new PrintWriter(uc.getOutputStream());
 			pw.println(str);
 			pw.close();
-			// æŽ¥å�— PayPal å¯¹ IPN å›žå�‘çš„å›žå¤�ä¿¡æ�¯
+			// Ã¦Å½Â¥Ã¥ï¿½â€” PayPal Ã¥Â¯Â¹ IPN Ã¥â€ºÅ¾Ã¥ï¿½â€˜Ã§Å¡â€žÃ¥â€ºÅ¾Ã¥Â¤ï¿½Ã¤Â¿Â¡Ã¦ï¿½Â¯
 			BufferedReader in = new BufferedReader(new InputStreamReader(
 					uc.getInputStream()));
 			String res = in.readLine();
 			in.close();
-			// å°† POST ä¿¡æ�¯åˆ†é…�ç»™æœ¬åœ°å�˜é‡�ï¼Œå�¯ä»¥æ ¹æ�®æ‚¨çš„éœ€è¦�æ·»åŠ 
-			// è¯¥ä»˜æ¬¾æ˜Žç»†æ‰€æœ‰å�˜é‡�å�¯å�‚è€ƒï¼š
+			// Ã¥Â°â€  POST Ã¤Â¿Â¡Ã¦ï¿½Â¯Ã¥Ë†â€ Ã©â€¦ï¿½Ã§Â»â„¢Ã¦Å“Â¬Ã¥Å“Â°Ã¥ï¿½ËœÃ©â€¡ï¿½Ã¯Â¼Å’Ã¥ï¿½Â¯Ã¤Â»Â¥Ã¦Â Â¹Ã¦ï¿½Â®Ã¦â€šÂ¨Ã§Å¡â€žÃ©Å“â‚¬Ã¨Â¦ï¿½Ã¦Â·Â»Ã¥Å Â 
+			// Ã¨Â¯Â¥Ã¤Â»ËœÃ¦Â¬Â¾Ã¦ËœÅ½Ã§Â»â€ Ã¦â€°â‚¬Ã¦Å“â€°Ã¥ï¿½ËœÃ©â€¡ï¿½Ã¥ï¿½Â¯Ã¥ï¿½â€šÃ¨â‚¬Æ’Ã¯Â¼Å¡
 			// https://www.paypal.com/IntegrationCenter/ic_ipn-pdt-variable-reference.html
 			String itemName = request.getParameter("item_name");
 			String quantity = request.getParameter("quantity");
@@ -96,14 +96,14 @@ public class CheckOrder extends BaseAction {
 			String first_name = request.getParameter("first_name");
 			String last_name = request.getParameter("last_name");
 			Enumeration els = request.getParameterNames();
-			// â€¦
-			// èŽ·å�– PayPal å¯¹å›žå�‘ä¿¡æ�¯çš„å›žå¤�ä¿¡æ�¯ï¼Œåˆ¤æ–­åˆšæ‰�çš„é€šçŸ¥æ˜¯å�¦ä¸º PayPal å�‘å‡ºçš„
+			// Ã¢â‚¬Â¦
+			// Ã¨Å½Â·Ã¥ï¿½â€“ PayPal Ã¥Â¯Â¹Ã¥â€ºÅ¾Ã¥ï¿½â€˜Ã¤Â¿Â¡Ã¦ï¿½Â¯Ã§Å¡â€žÃ¥â€ºÅ¾Ã¥Â¤ï¿½Ã¤Â¿Â¡Ã¦ï¿½Â¯Ã¯Â¼Å’Ã¥Ë†Â¤Ã¦â€“Â­Ã¥Ë†Å¡Ã¦â€°ï¿½Ã§Å¡â€žÃ©â‚¬Å¡Ã§Å¸Â¥Ã¦ËœÂ¯Ã¥ï¿½Â¦Ã¤Â¸Âº PayPal Ã¥ï¿½â€˜Ã¥â€¡ÂºÃ§Å¡â€ž
 			if ("VERIFIED".equals(res)) {
-				// æ£€æŸ¥ä»˜æ¬¾çŠ¶æ€�
-				// æ£€æŸ¥ txn_id æ˜¯å�¦å·²ç»�å¤„ç�†è¿‡
-				// æ£€æŸ¥ receiver_email æ˜¯å�¦æ˜¯æ‚¨çš„ PayPal è´¦æˆ·ä¸­çš„ EMAIL åœ°å�€
-				// æ£€æŸ¥ä»˜æ¬¾é‡‘é¢�å’Œè´§å¸�å�•ä½�æ˜¯å�¦æ­£ç¡®
-				// å¤„ç�†å…¶ä»–æ•°æ�®ï¼ŒåŒ…æ‹¬å†™æ•°æ�®åº“
+				// Ã¦Â£â‚¬Ã¦Å¸Â¥Ã¤Â»ËœÃ¦Â¬Â¾Ã§Å Â¶Ã¦â‚¬ï¿½
+				// Ã¦Â£â‚¬Ã¦Å¸Â¥ txn_id Ã¦ËœÂ¯Ã¥ï¿½Â¦Ã¥Â·Â²Ã§Â»ï¿½Ã¥Â¤â€žÃ§ï¿½â€ Ã¨Â¿â€¡
+				// Ã¦Â£â‚¬Ã¦Å¸Â¥ receiver_email Ã¦ËœÂ¯Ã¥ï¿½Â¦Ã¦ËœÂ¯Ã¦â€šÂ¨Ã§Å¡â€ž PayPal Ã¨Â´Â¦Ã¦Ë†Â·Ã¤Â¸Â­Ã§Å¡â€ž EMAIL Ã¥Å“Â°Ã¥ï¿½â‚¬
+				// Ã¦Â£â‚¬Ã¦Å¸Â¥Ã¤Â»ËœÃ¦Â¬Â¾Ã©â€¡â€˜Ã©Â¢ï¿½Ã¥â€™Å’Ã¨Â´Â§Ã¥Â¸ï¿½Ã¥ï¿½â€¢Ã¤Â½ï¿½Ã¦ËœÂ¯Ã¥ï¿½Â¦Ã¦Â­Â£Ã§Â¡Â®
+				// Ã¥Â¤â€žÃ§ï¿½â€ Ã¥â€¦Â¶Ã¤Â»â€“Ã¦â€¢Â°Ã¦ï¿½Â®Ã¯Â¼Å’Ã¥Å’â€¦Ã¦â€¹Â¬Ã¥â€ â„¢Ã¦â€¢Â°Ã¦ï¿½Â®Ã¥Âºâ€œ
 				Order order = ServiceFactory.getService(OrderService.class).getOrderById(itemName);
 				logger.info(">>>>>>>>>>>>>>>>>>>VERIFIED>>>>>>>>>>>>>>>>>>>>>>");
 				if(null!=order){
@@ -126,7 +126,7 @@ public class CheckOrder extends BaseAction {
 							&&order.getCurrency().equals(paymentCurrency)
 							&&receiverEmail.equalsIgnoreCase(ACCOUNT)
 							&&quantity.equals("1")){
-						order.setStatus(OrderStatus.PAID.getValue());
+						//order.setStatus(OrderStatus.PAID.getValue());
 						Map<String,Object> root = new HashMap<String,Object>(); 
 						root.put("order", order);
 						root.put("currencyRate", getCurrencies(request).get(order.getCurrency()));
@@ -158,10 +158,10 @@ public class CheckOrder extends BaseAction {
 				
 				
 			} else if ("INVALID".equals(res)) {
-				// é�žæ³•ä¿¡æ�¯ï¼Œå�¯ä»¥å°†æ­¤è®°å½•åˆ°æ‚¨çš„æ—¥å¿—æ–‡ä»¶ä¸­ä»¥å¤‡è°ƒæŸ¥
+				// Ã©ï¿½Å¾Ã¦Â³â€¢Ã¤Â¿Â¡Ã¦ï¿½Â¯Ã¯Â¼Å’Ã¥ï¿½Â¯Ã¤Â»Â¥Ã¥Â°â€ Ã¦Â­Â¤Ã¨Â®Â°Ã¥Â½â€¢Ã¥Ë†Â°Ã¦â€šÂ¨Ã§Å¡â€žÃ¦â€”Â¥Ã¥Â¿â€”Ã¦â€“â€¡Ã¤Â»Â¶Ã¤Â¸Â­Ã¤Â»Â¥Ã¥Â¤â€¡Ã¨Â°Æ’Ã¦Å¸Â¥
 				logger.info("##############INVALID########################");
 			} else {
-				// å¤„ç�†å…¶ä»–é”™è¯¯
+				// Ã¥Â¤â€žÃ§ï¿½â€ Ã¥â€¦Â¶Ã¤Â»â€“Ã©â€�â„¢Ã¨Â¯Â¯
 				logger.info("##############ORTHER########################");
 			}
 		} catch (Exception e) {
