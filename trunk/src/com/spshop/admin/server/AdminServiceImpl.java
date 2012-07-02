@@ -146,14 +146,14 @@ public class AdminServiceImpl extends RemoteService implements AdminService{
 	}
 
     @Override
-    public Order updateOrderStatus(Order order) {
+    public Order updateOrderStatus(Order order,String status) {
 		/*if(order.getStatus().equals(OrderStatus.PAID.toString())){
 			Map<String,Object> root = new HashMap<String,Object>(); 
 			root.put("order", order);
 			root.put("currencyRate", ((Map<String, Float>) getServletContext().getAttribute("currencies")).get(order.getCurrency()));
 			EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,order.getCustomerEmail());
 		}*/
-        return ServiceFactory.getService(OrderService.class).saveOrder(order, order.getStatus());
+        return ServiceFactory.getService(OrderService.class).saveOrder(order, status);
     }
 
     @Override

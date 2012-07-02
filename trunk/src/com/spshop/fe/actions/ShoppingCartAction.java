@@ -444,7 +444,7 @@ public class ShoppingCartAction extends BaseAction {
 		}else{
 			Order order = new Order();
 			order.setCreateDate(new Date());
-			order.setStatus(OrderStatus.ONSHOPPING.getValue());
+			//order.setStatus(OrderStatus.ONSHOPPING.getValue());
 			order.setName(getOrderId());
 			order.setCurrency(getCurrencyName(request));
 			getCart(request,response).setOrder(order);

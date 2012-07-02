@@ -59,7 +59,7 @@ public interface AdminServiceAsync {
 
 	void getCountryById(long id, AsyncCallback<Country> callback);
 	
-	void updateOrderStatus(Order order, AsyncCallback<Order> callback);
+	void updateOrderStatus(Order order, String status, AsyncCallback<Order> callback);
 	
 	void queryByHQL(String hql, List<Object> params, String className, AsyncCallback<QueryResult<Component>> callback);
 	
