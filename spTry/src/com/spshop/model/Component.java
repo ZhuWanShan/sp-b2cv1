@@ -3,6 +3,9 @@ package com.spshop.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonIgnore;
+@JsonAutoDetect
 public  abstract class Component implements Serializable,Cloneable{
 	public static final String EXPIRED="Y";
 	public static final String NOT_EXPIRED="N";
@@ -15,6 +18,7 @@ public  abstract class Component implements Serializable,Cloneable{
 	private String name;
 	private Date createDate;
 	private Date updateDate;
+	@JsonIgnore
 	private boolean expired;
 	private String strExpired;
 	private int componentStatus;
@@ -94,7 +98,7 @@ public  abstract class Component implements Serializable,Cloneable{
 			return NOT_EXPIRED;
 		}
 	}
-	
+	@JsonIgnore
 	public boolean isExpired() {
 		return strExpired == EXPIRED;
 	}

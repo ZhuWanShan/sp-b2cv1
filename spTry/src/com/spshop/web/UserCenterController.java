@@ -1,5 +1,55 @@
 package com.spshop.web;
 
+import static com.spshop.utils.Constants.ADDRESS1;
+import static com.spshop.utils.Constants.ADDRESS1_ERR;
+import static com.spshop.utils.Constants.ADDRESS2;
+import static com.spshop.utils.Constants.ADDRESS2_ERR;
+import static com.spshop.utils.Constants.ADD_TYPE;
+import static com.spshop.utils.Constants.ADD_TYPE_B;
+import static com.spshop.utils.Constants.ADD_TYPE_P;
+import static com.spshop.utils.Constants.BILLING_ADDRESS;
+import static com.spshop.utils.Constants.BILLING_SAME_AS_PRIMARY;
+import static com.spshop.utils.Constants.CITY;
+import static com.spshop.utils.Constants.CITY_ERR;
+import static com.spshop.utils.Constants.COUNTRY;
+import static com.spshop.utils.Constants.COUNTRY_ERR;
+import static com.spshop.utils.Constants.CURRENT_ORDER;
+import static com.spshop.utils.Constants.CURRENT_PRODUCT;
+import static com.spshop.utils.Constants.CURRENT_PRODUCT_ID;
+import static com.spshop.utils.Constants.C_USER_FIRST_NAME;
+import static com.spshop.utils.Constants.C_USER_LAST_NAME;
+import static com.spshop.utils.Constants.DEFAULT_CURRENCY;
+import static com.spshop.utils.Constants.EMPTY_ORDER;
+import static com.spshop.utils.Constants.FIRST_NAME_ERR;
+import static com.spshop.utils.Constants.LAST_NAME_ERR;
+import static com.spshop.utils.Constants.MEASUREMENT_MSG;
+import static com.spshop.utils.Constants.PAGINATION;
+import static com.spshop.utils.Constants.POASTAL_CODE;
+import static com.spshop.utils.Constants.POSTAL_CODE_ERR;
+import static com.spshop.utils.Constants.PRIMARY_ADDRESS;
+import static com.spshop.utils.Constants.REG_PWD_RE_ERR;
+import static com.spshop.utils.Constants.REG_USER_NAME_SUC;
+import static com.spshop.utils.Constants.SHIPPING_EXPEDITED;
+import static com.spshop.utils.Constants.SHIPPING_METHOD;
+import static com.spshop.utils.Constants.SHIPPING_STANDARD;
+import static com.spshop.utils.Constants.SITE_VIEW;
+import static com.spshop.utils.Constants.STATE_PROVINCE;
+import static com.spshop.utils.Constants.STATE_PROVINCE_ERR;
+import static com.spshop.utils.Constants.SUIT_MEASUREMENT;
+import static com.spshop.utils.Constants.TEL_NUM;
+import static com.spshop.utils.Constants.TEL_NUM_ERR;
+import static com.spshop.utils.Constants.TXT_NEW_PWD1;
+import static com.spshop.utils.Constants.TXT_NEW_PWD2;
+import static com.spshop.utils.Constants.TXT_PWD;
+import static com.spshop.utils.Constants.UPDATE_ACC_SUC;
+import static com.spshop.utils.Constants.UPDATE_ADDRESS_1_SUC;
+import static com.spshop.utils.Constants.UPDATE_ADDRESS_2_SUC;
+import static com.spshop.utils.Constants.USERNAME;
+import static com.spshop.utils.Constants.USERNAME_ERR;
+import static com.spshop.utils.Constants.USER_ORDERS;
+import static com.spshop.utils.Constants.USER_ORDERS_COUNT;
+import static com.spshop.utils.Constants.WRONG_PWD;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +65,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,9 +85,6 @@ import com.spshop.service.intf.UserService;
 import com.spshop.utils.EmailTools;
 import com.spshop.utils.Utils;
 import com.spshop.web.view.SiteView;
-import com.spshop.web.view.UserView;
-
-import static com.spshop.utils.Constants.*;
 
 @Controller
 @SessionAttributes("currentProductID")
@@ -49,8 +97,9 @@ public class UserCenterController extends BaseController{
 		return "changePwd";
 	}
 	
-	@RequestMapping(value = "/changePwd", method=RequestMethod.POST)
-	public String changePwd2(Model model, HttpServletRequest request) {
+	@RequestMapping(value = "/{catagory}", method=RequestMethod.POST)
+	public String changePwd2(Model model, HttpServletRequest request, @PathVariable("catagory") String catalog) {
+		
 		String oldPWD = request.getParameter(TXT_PWD);
 		String pwd1 = request.getParameter(TXT_NEW_PWD1);
 		String pwd2 = request.getParameter(TXT_NEW_PWD2);

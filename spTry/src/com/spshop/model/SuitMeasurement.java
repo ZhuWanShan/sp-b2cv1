@@ -1,5 +1,7 @@
 package com.spshop.model;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+@JsonAutoDetect
 public class SuitMeasurement {
 	private float height;
 	private float weight;
@@ -22,6 +24,9 @@ public class SuitMeasurement {
 	private float crotch;
 	private float thighSize;
 	private float kneeSize;
+	
+	public SuitMeasurement() {
+	}
 	
 	public SuitMeasurement(float height, float weight, float age,
 			String shoulder, String chest, String stomch, String posture,

@@ -1,5 +1,6 @@
 package com.spshop.model;
 
+import org.codehaus.jackson.annotate.JsonProperty;
 public class User extends Component{
 	
 	/**
@@ -66,6 +67,8 @@ public class User extends Component{
 	private float crotch;
 	private float thighSize;
 	private float kneeSize;
+	
+	private boolean suitMeasurement;
 	
 	public float getHeight() {
 		return height;
@@ -235,15 +238,17 @@ public class User extends Component{
 		this.kneeSize = kneeSize;
 	}
 
+	@JsonProperty(value="isSuitMeasured")
 	public boolean isSuitMeasurementComplete() {
 		return suitMeasurement;
 	}
-
+	
+	@JsonProperty(value="isSuitMeasured")
 	public void setSuitMeasurementComplete(boolean suitMeasurement) {
 		this.suitMeasurement = suitMeasurement;
 	}
 
-	private boolean suitMeasurement;
+	
 	
 	public User() {
 	}
@@ -647,10 +652,12 @@ public class User extends Component{
 		this.billingSameAsPrimary = billingSameAsPrimary;
 	}
 	
+	@JsonProperty(value="suitMeasurement")
 	public SuitMeasurement getSuitMeasurement(){
 		return new SuitMeasurement(height, weight, age, shoulder, chest, stomch, posture, shirtNeck, jacketShirtLenght, chestSize, stomachSize, jacketHips, shoulderSize, sleeveLength, bicepSize, wristSize, pantsLength, waist, crotch, thighSize, kneeSize);
 	}
 	
+	@JsonProperty(value="suitMeasurement")
 	public void setMySuitMeasurement(SuitMeasurement measurement){
 		this.chest = measurement.getChest();
 		this.chestSize = measurement.getChestSize();
