@@ -17,7 +17,7 @@
 				<#assign currencyRate = siteView.currencies[order.currency]>
 			</#if>
 			<ul class="right-box_order_item">
-				<li class="order_item_w1">${order.updateDate?string("yyyy-MM-dd hh:mm:ss a")}</li>
+				<li class="order_item_w1">${order.updateDate?string("yyyy-MM-dd HH:mm:ss")}</li>
 				<li class="order_item_w2"><a href="/uc/orderDetails?id=${order.name}">${order.name}</a></li>
 				<li class="order_item_w3">${order.currency} ${(currencyRate*(order.totalPrice-order.couponCutOff+order.dePrice))?string(",##0.##")}</li>
 				<li class="order_item_w4">${order.status}</li>
