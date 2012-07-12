@@ -207,7 +207,7 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 		String id = "";
 		Date today = new Date();
 		int y= today.getYear()%100;
-		int m = today.getMonth();
+		int m = today.getMonth() + 1;
 		int d = today.getDate();
 		String sy = "";
 		String sm = "";
