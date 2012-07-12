@@ -62,7 +62,7 @@
 
 						<td cl ass="scart_status_list_table_w1">ORDER DATE:</td>
 						<td class="scart_status_list_table_w2">${order.updateDate?string("yyyy-MM-dd
-							hh:mm:ss a")}</td>
+							HH:mm:ss")}</td>
 					<tr>
 					<tr>
 						<td class="scart_status_list_table_w1">STATUS:</td>
