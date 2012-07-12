@@ -8,7 +8,7 @@
 		<table class="form_table">
 			<tbody>
 				<tr>
-					<td width="161" height="30" align="right">Fist Name<span class="red">*</span></td>
+					<td width="161" height="30" align="right">First Name<span class="red">*</span></td>
 					<td><input name="c_user_first_name" id="c_user_first_name" type="text"
 						class="txt_input" value="${(userView.loginUser.firstName)!''}" validation="username"> 
 						<span class="red" id="c_user_first_name_noti">
