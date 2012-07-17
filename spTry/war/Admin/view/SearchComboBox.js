@@ -4,5 +4,5 @@ Ext.define("Admin.view.SearchComboBox", {
 			queryMode : 'local',
 			displayField : 'name',
 			valueField : 'id',
-			store : "ComponentStore"
+			store : "Components"
 		});

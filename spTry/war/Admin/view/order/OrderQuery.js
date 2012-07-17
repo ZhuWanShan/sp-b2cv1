@@ -1,6 +1,6 @@
-Ext.define("Admin.view.user.UserQuery", {
+Ext.define("Admin.view.order.OrderQuery", {
 			extend : "Ext.form.Panel",
-			alias : "widget.userquery",
+			alias : "widget.orderquery",
 			layout : {
 				type : 'vbox',
 				align : 'stretch'
@@ -67,7 +67,6 @@ Ext.define("Admin.view.user.UserQuery", {
 
 			buttons : [{
 						text : 'Search',
-						action : "search",
 						width : 50,
 						height : 20
 					}]

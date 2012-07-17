@@ -1,23 +1,25 @@
-Ext.define('Admin.view.AbstractSearchView' ,{
-//	requires: ['Ext.grid.View'],
-    extend: 'Ext.grid.Panel',
-    
-    
-    
-//    config: {
-//    	store : "unknow",
-//       
-//    },
-//    
-    constructor : function(config){
-    	this.callParent(config);
-    },
+Ext.define('Admin.view.AbstractSearchView', {
+			extend : 'Ext.panel.Panel',
+			mixins : {
+				mask : "Admin.view.Maskable"
+			},
+			initComponent : function() {
+				/*
+				 * Ext.apply(this, { items: [ //as above ] });
+				 */
 
-    
-    initComponent : function(){
-    	this.callParent();
-//    	alert("asdasd");
-//    	alert( this.getStore());
-    }
-
-});
+				this.callParent(arguments);
+				this.on("beforerender", function(panel) {
+							console.log("beforerender...........");
+						})
+				var me = this;
+				this.child("gridpanel").getStore().on("beforeload", function() {
+							console.log("beforeload...........");
+							me.mk("Loading");
+						});
+				this.child("gridpanel").getStore().on("refresh", function() {
+							console.log("refresh...........");
+							me.umk();
+						});
+			}
+		});

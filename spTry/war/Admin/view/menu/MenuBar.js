@@ -8,7 +8,9 @@ Ext.define("Admin.view.menu.MenuBar", {
 						selectOnFocus: true,
 						labelWidth : 80,
 						 typeAhead: true,
-						 labelAlign:"right"
+						 labelAlign:"right",
+						 forceSelection : true
+						 
 					}, {
 						text : "<b>Create</b>",
 

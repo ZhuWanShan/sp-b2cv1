@@ -38,6 +38,13 @@ public class UserController {
 	@RequestMapping(value="/search", method = RequestMethod.GET)
 	public @ResponseBody SearchResponseView<List<User>> queryUser() {
 		
+		try {
+			Thread.currentThread().sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		List<User> users = ServiceFactory.getService(UserService.class).findPageByPage(0, 100);
 		
 		return new SearchResponseView<List<User>>(true,users,100);

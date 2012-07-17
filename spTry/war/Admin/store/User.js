@@ -1,10 +1,11 @@
-Ext.define('Admin.store.UserStore', {
+Ext.define('Admin.store.User', {
     extend: 'Ext.data.Store',
     model: 'Admin.model.User',
-    autoLoad: true,
+  //  autoLoad: true,
+    remoteSort : true,
     proxy: {
         type: 'ajax',
-        buffered : true,
+      //  buffered : true,
         url: '/rest/resource/search',
         reader: {
             type: 'json',

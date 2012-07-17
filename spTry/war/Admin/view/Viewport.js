@@ -1,6 +1,9 @@
 Ext.define('Admin.view.Viewport', {
 			extend : 'Ext.container.Viewport',
 			layout : 'border',
+			viewConfig : {
+				loadMask : true
+			},
 			initComponent : function() {
 				this.items = {
 					xtype : 'panel',
@@ -46,16 +49,18 @@ Ext.define('Admin.view.Viewport', {
 								tabPosition : "bottom",
 								id : "leftTab",
 								items : [{
-											xtype : "userlist",
-											closable : true
-										},{
-											xtype : "userlist",
-											closable : true
+											xtype : "userlist"
 										}]
 
 							}]
 
 				}
-				this.callParent();
+
+				this.callParent(arguments);
+				
+				this.on("", function(){
+				
+					
+				});
 			}
 		});

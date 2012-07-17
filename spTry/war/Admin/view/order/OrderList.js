@@ -1,6 +1,6 @@
-Ext.define('Admin.view.user.UserList', {
-			extend : 'Admin.view.AbstractSearchView',
-			alias : ['widget.userlist'],
+Ext.define('Admin.view.order.OrderList', {
+			extend : 'Ext.panel.Panel',
+			alias : ['widget.orderlist'],
 			border : 0,
 			layout : {
 				type : 'vbox',
@@ -9,17 +9,13 @@ Ext.define('Admin.view.user.UserList', {
 			defaults : {
 				border : false
 			},
-
 			items : [{
-						xtype : "userquery",
+						xtype : "orderquery",
 						height : "auto",
 						border : 1
 					}, {
 						xtype : "gridpanel",
 						store : "User",
-						viewConfig : {
-							loadMask : false
-						},
 						flex : 4,
 						border : "1 0 0 0",
 						margin : "5 0 0 0",
@@ -47,6 +43,11 @@ Ext.define('Admin.view.user.UserList', {
 								}]
 					}],
 
-			title : 'Users'
+			title : 'Users',
+			
+			beforerender : function (me, arg){
+				alert("asdasdas");
+				return true
+			}
 
 		});

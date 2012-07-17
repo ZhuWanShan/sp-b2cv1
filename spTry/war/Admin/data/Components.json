@@ -1,8 +1,8 @@
 [{
-			"id" : "User",
+			"id" : "userlist",
 			"name" : "User"
 		}, {
-			"id" : "Order",
+			"id" : "orderlist",
 			"name" : "Order"
 		}, {
 			"id" : "Image",

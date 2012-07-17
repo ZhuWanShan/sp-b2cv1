@@ -1,4 +1,4 @@
-Ext.define('Admin.store.ComponentStore', {
+Ext.define('Admin.store.Components', {
 			extend : "Ext.data.Store",
 			fields : ['id', 'name'],
 			proxy : {
