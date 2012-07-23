@@ -19,6 +19,7 @@
 													</dt>
 													<#if subcatlog.subCategories??>	
 														<#list subcatlog.subCategories as subsubcatlog>
+															<#if !subsubcatlog.specialOffer>
 															<dd>
 																<a href="${siteView.host}/c/${subsubcatlog.name}"
 																	title="${subsubcatlog.displayName}"> ${subsubcatlog.displayName}
@@ -26,6 +27,7 @@
 															</dd>
 															<#if (subsubcatlog_index > 4)>
 																<#break>
+															</#if>
 															</#if>
 														</#list>
 															<dd>
