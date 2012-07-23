@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@include file="include.jsp" %>
+<%@page import="com.spshop.utils.Constants"%>
 <html>
 <head>
 	<base href="http://${pageForm.site.domain }/" />
@@ -17,6 +18,12 @@
 	<link rel="stylesheet" type="text/css" href="../css/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<link rel="stylesheet" type="text/css" href="../css/head.css">
+	<c:if test="${(requestScope.pageNum-1)>0}">
+	<link rel="prev" herf="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%=Constants.CATEGORY_URL %>/${pageForm.category.name}?pageNum=${requestScope.pageNum-1}"/>
+	</c:if>
+	<c:if test="${(requestScope.pageNum+1)<(fn:length(requestScope.pageIndex)+1)}">
+	<link rel="next" herf="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%=Constants.CATEGORY_URL %>/${pageForm.category.name}?pageNum=${requestScope.pageNum+1}"/>
+	</c:if>
 	
 	<script src="../js/jquery-1.5.1.js" type="text/javascript"></script>
 	
