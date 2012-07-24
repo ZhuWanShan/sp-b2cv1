@@ -1,0 +1,21 @@
+<link rel="stylesheet" type="text/css" href="/style/css/helpCenter.css?799">
+
+<div class="main_box" id="main_box">
+<#include "left.hpl">
+<div id="helpcenter">
+<div class="help_right">
+<div class="help_ti">
+  <div class="detail_title">1.	Which payment methods do you accept?</div></div>
+<div class="detail">
+<!--gai-->
+<span>
+<h2>We accept a variety of payment methods.</h2>
+• Credit
+<br>
+&nbsp;&nbsp;Cards</span>
+<img src="pic/vise.jpg" width="547" height="33" /> <span style="line-height:80px">• PayPal<img src="pic/PayPal.jpg" width="72" height="70" /></span>
+<span>• PayPal<img src="pic/wester.jpg" width="106" height="28" /></span>
+<!--gai-->
+</div>
+</div><p class="clearBoth"></p>
+</div></div>
