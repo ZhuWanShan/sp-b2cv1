@@ -16,7 +16,6 @@
 #helpcenter .help_left .help_input2{ height:24px; margin:5px 0px; width:50px;}
 #helpcenter .help_left ul.help_menu li{font-family: Arial, Helvetica;font-size:12px; color:#555; padding:0 0 0 15px; margin-bottom:5px; background: url(/style/image/pic/sanjiao.png) no-repeat 0 6px;}
 #helpcenter .help_left ul.help_menu li a{ line-height:18px}
-#helpcenter .help_left ul.help_menu li ul{}
 #helpcenter .help_left ul.help_menu li ul li{background: url(/style/image/pic/huise.png) no-repeat 0 6px;padding:0 0 0 6px;font-size:11px;}
 /**right**/
 #helpcenter .help_right{ float:right; width:771px}
@@ -30,7 +29,6 @@
 #helpcenter .help_Problem_Block ul li{ padding:0 0 0 20px;font-size:14px; background: url(/style/image/pic/sanjiao.png) no-repeat 10px 6px; line-height:20px}
 #helpcenter .help_Problem_Block ul li a{ font-family: Arial, Helvetica;}
 #helpcenter .help_Problem_Block span{ display:block; margin:15px 10px;font-family: Arial, Helvetica;}
-#helpcenter .help_right .help_more{}css/helpCenter.css
 #helpcenter .help_more ul li{ padding:0 0 0 20px;font-size:14px; background: url(/style/image/pic/sanjiao.png) no-repeat 10px 6px; line-height:20px}
 #helpcenter .help_more ul li a{ font-family: Arial, Helvetica;}
 #helpcenter .help_more span{ display:block; margin:15px 10px;font-family: Arial, Helvetica;}
@@ -51,7 +49,7 @@
 #helpcenter .detail h2{ margin:10px 0 10px 0;display:block;font-family: Arial, Helvetica; font-weight:bold; font-size:14px;}
 #helpcenter .detail ul{ width:180px; background:#7f7b72}
 #helpcenter .detail li{ line-height:20px; height:20px;}
-#helpcenter .detail ul li a{font-family: Arial, Helvetica; font-size:14px; display:block; text-indent:30px; background:url(../pic/pagebg.png) no-repeat 5px -40px; color:#dbccbd;}
+#helpcenter .detail ul li a{font-family: Arial, Helvetica; font-size:14px; display:block; text-indent:30px; background:url(/style/image/pic/pagebg.png) no-repeat 5px -40px; color:#dbccbd;}
 #helpcenter .detail ul li a:hover{ text-decoration:underline}
 #helpcenter .detail ul li a.use1{ background-position:5px -106px}
 #helpcenter .detail ul li a.use2{ background-position:5px -128px}
