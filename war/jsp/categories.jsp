@@ -8,8 +8,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
 	
 	
-	<title>${pageForm.category.pageTitle}</title>
-	<meta name="description" content="${pageForm.category.description}">
+	<title>${pageForm.category.pageTitle} - page ${requestScope.pageNum}</title>
+	<meta name="description" content="${pageForm.category.description} - page ${requestScope.pageNum}">
 	<meta name="keywords" content="${pageForm.category.relatedKeyword}">
 	
 	<link rel="stylesheet" type="text/css" href="../css/header.css">
