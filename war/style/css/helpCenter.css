@@ -20,6 +20,7 @@
 /**right**/
 #helpcenter .help_right{ float:right; width:771px}
 #helpcenter .help_right .help_ti{ margin-bottom:10px}
+#helpcenter .help_ti span a{color:#ff5a00}
 #helpcenter .help_ti .help_title{ text-align:center; line-height:30px;font-family: Arial, Helvetica;font-size:20px; font-weight: bold;}
 #helpcenter .help_ti span{ line-height:18px;font-family: Arial, Helvetica;font-size:12px;}
 #helpcenter .help_right .help_Problem{}
