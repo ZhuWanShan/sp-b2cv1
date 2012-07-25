@@ -12,13 +12,13 @@
   <span><p>1. Leave us a message with your account in our store</p></span>
   <span><p>Step 1:</p>
 Sign in to My Orders and find the order number you need to contact us about. Click User Center-My Message </span>
-  <img src="pic/top2.jpg" width="768" height="146" />
+  <img src="/style/image/pic/top2.jpg" width="768" height="146" />
     <span><p>Step 2:</p>click compose</span>
-  <img src="pic/compose.jpg" width="769" height="307" />
+  <img src="/style/image/pic/compose.jpg" width="769" height="307" />
   <span><p>Step 3:</p>leave a message, it is better with your order number </span>
-      <img src="pic/post.jpg" width="769" height="293" />
+      <img src="/style/image/pic/post.jpg" width="769" height="293" />
       <span>
-      <p>2.	Send email to <a href="#">service@honeybuy.com</a> or <a href="#">sales@honeybuy.com</a> .</p>
+      <p>2.	Send email to <a href="mailto:service@honeybuy.com">service@honeybuy.com</a> or <a href="mailto:sales@honeybuy.com">sales@honeybuy.com</a> .</p>
 3.	Call us at : 0086-592-5183012 </span>
 <!--gai-->
 </div>
