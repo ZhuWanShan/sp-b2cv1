@@ -25,6 +25,9 @@
 			<div class="measure_panel">
 				<a href="http://www.honeybuy.com/c/Sweet-Sixteen-Dresses"><img alt="Sweet Sixteen Dresses" title="Sweet Sixteen Dresses" width="972px" height="428px" src="/image/banner5.jpg"></a>
 			</div>
+			<div class="measure_panel">
+				<a href="http://www.honeybuy.com/c/Ties"><img alt="Ties" title="Ties" width="972px" height="428px" src="/image/ties-banner.jpg"></a>
+			</div>
 			
 			<p class="clearBoth"></p>
 		</div>
@@ -38,6 +41,7 @@
 				<img class="pagination_m" src="/style/image/1x1.png" title="5">
 				<img class="pagination_m" src="/style/image/1x1.png" title="6">
 				<img class="pagination_m" src="/style/image/1x1.png" title="7">
+				<img class="pagination_m" src="/style/image/1x1.png" title="8">
 			</div>
 		</div>
 	</div>
