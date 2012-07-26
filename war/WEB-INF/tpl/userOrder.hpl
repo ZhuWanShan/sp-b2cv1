@@ -6,5 +6,5 @@
 
 <#include "/header/top.hpl">
 <#include "/body/body-uc-userOrder.hpl">	
-<#include "/footer/ucf1.hpl">
+
 <#include "/footer/bottom.hpl">
