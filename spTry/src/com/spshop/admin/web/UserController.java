@@ -45,7 +45,7 @@ public class UserController {
 			e.printStackTrace();
 		}
 		
-		List<User> users = ServiceFactory.getService(UserService.class).findPageByPage(0, 100);
+		List<User> users = ServiceFactory.getService(UserService.class).findPageByPage(0, 20);
 		
 		return new SearchResponseView<List<User>>(true,users,100);
 	}

@@ -58,9 +58,5 @@ Ext.define('Admin.view.Viewport', {
 
 				this.callParent(arguments);
 				
-				this.on("", function(){
-				
-					
-				});
 			}
 		});

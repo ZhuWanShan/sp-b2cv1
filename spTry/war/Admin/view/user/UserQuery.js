@@ -31,13 +31,13 @@ Ext.define("Admin.view.user.UserQuery", {
 									fieldLabel : 'Name',
 									emptyText : "User name",
 									margin : '0 5 0 0',
-									allowBlank : false
+									allowBlank : true
 								}, {
 									xtype : 'textfield',
 									name : 'email',
 									emptyText : "User email",
 									fieldLabel : 'Email',
-									allowBlank : false
+									allowBlank : true
 								}]
 					}, {
 						xtype : 'fieldset',
@@ -56,12 +56,12 @@ Ext.define("Admin.view.user.UserQuery", {
 									name : 'startDate',
 									fieldLabel : 'Start',
 									margin : '0 5 0 0',
-									allowBlank : false
+									allowBlank : true
 								}, {
 									xtype : 'datefield',
 									name : 'endDate',
 									fieldLabel : 'End',
-									allowBlank : false
+									allowBlank : true
 								}]
 					}],
 
@@ -69,6 +69,25 @@ Ext.define("Admin.view.user.UserQuery", {
 						text : 'Search',
 						action : "search",
 						width : 50,
+						disabled : true,
 						height : 20
-					}]
+					}],
+
+			initComponent : function() {
+				this.on({
+							"dirtychange" : function(form) {
+								if (!form.hasInvalidField()) {
+									this.query("button[action=search]")[0].enable(true);
+								}
+
+							},
+							"validitychange" : function(form){
+								if (!form.hasInvalidField()) {
+									this.query("button[action=search]")[0].enable(true);
+								} 
+							}
+						});
+
+				this.callParent(arguments);
+			}
 		});

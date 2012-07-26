@@ -4,11 +4,13 @@ Ext.define('Admin.controller.User', {
 				var me = this;
 				this.control({
 							'userlist userquery button[action=search]' : {
-								click : function() {
-									//me.getView("userlist").mask();
-									me.getUserStore().loadPage(1);
-									//this.up("userlist").mask();
+								click : function(btn) {
+									var store = me.getUserStore();
+									var queryForm = btn.up("userquery");
 									
+									store.getProxy().extraParams = queryForm.getForm().getFieldValues(false);
+
+									store.loadPage(1);
 								}
 							}
 
