@@ -90,7 +90,7 @@
 #bottom .pay{ margin-top:20px; height:109px; background:url(/style/image/pic/beijing.jpg) repeat-x; clear:both}
 #bottom .pay .pal{ height:90px;}
 #bottom .pay .pal .noth{ width:135px; float:left}
-#bottom .pay .pal .zhongjian{ width:725px; float:left; padding-top:30px}
+#bottom .pay .pal .zhongjian{ width:725px; float:left; padding-top:30px; margin-left:5px; }
 #bottom .pay .pal .paypal{ float:left; padding:10px}
 #bottom .pay p{ text-align:center}
 #bottom .pay p a{ text-align:center;color:#0088cc; text-decoration:none;}
