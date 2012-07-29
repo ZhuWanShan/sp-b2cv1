@@ -7,10 +7,8 @@
 	<div class="help_right">
 		<div class="help_ti">
 			<div class="help_title">Welcome to Honeybuy.com Knowledge Base!</div>
-			<span>We have developed this help page to assist you with
-				standard information you may need, It also includes all the
-				frequently asked questions from our customers.You can browse by
-				categories you are interested or you can search some information you
+			<span>Honeybuy.com Knowledge Base was developed to assist you with standard information you may need, It also includes all the
+				frequently asked questions from our customers. You can browse by categories you are interested or you can search some information you
 				want to know. </span>
 		</div>
 		<div class="help_Problem">
@@ -41,7 +39,7 @@
 			<!--right-->
 			<!--right-->
 			<div class="help_Problem_Block one">
-				<h4 class="help_title">Part Two：About the orders</h4>
+				<h4 class="help_title">Part Two: About the orders</h4>
 				<ul>
 					<li><a href="/uc/helpCenter/help2-1">How can I track my
 							package?</a>
@@ -68,8 +66,7 @@
 				<h4 class="help_title">Part Three: About the made to custom
 					order</h4>
 				<ul>
-					<li><a href="/uc/helpCenter/help3-1">1.What does
-							made-to-order mean?</a>
+					<li><a href="/uc/helpCenter/help3-1">What does made-to-order mean?</a>
 					</li>
 					<li><a href="/uc/helpCenter/help3-2">How to measure my
 							size?</a>
@@ -93,7 +90,7 @@
 				<h4 class="help_title">Part Four: Returns & Refunds FAQs</h4>
 				<ul>
 					<li><a href="/uc/helpCenter/help4-1">An item was lost or
-							damaged during shipping</a>
+							damaged during shipping.</a>
 					</li>
 					<li><a href="/uc/helpCenter/help4-2">An item is missing
 							from my shipment?</a>
@@ -154,7 +151,7 @@
 				<h4 class="help_title">Part Seven: How to Pay</h4>
 				<ul>
 					<li><a href="/uc/helpCenter/help7-1">Accepted Payment
-							Methods</a>
+							Methods.</a>
 					</li>
 					<li><a href="/uc/helpCenter/help7-2">PayPal Isn't
 							Available in My Country?</a>
