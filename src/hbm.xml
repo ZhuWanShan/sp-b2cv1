@@ -324,7 +324,7 @@
 		<property name="optType"></property>
 		<property name="actualPrice"></property>
 		<property name="manualKey"></property>
-		
+		<property name="tags"></property>
 		<!--  <many-to-one name="cutOff" class="CutOff" column="product_id"></many-to-one>-->
 		<bag name="properties" cascade="all">
 			<key column="product_id"></key>

@@ -35,6 +35,7 @@ public class Product extends Component{
 	private boolean showlikeButton;
 	private String productUrl;
 	private int optType;
+	private String tags;
 	
 	public Product() {
 		ProductOption colorOp = new ProductOption();
@@ -236,6 +237,11 @@ public class Product extends Component{
 		if (this.cutOff != null) {
 			obj.cutOff = (CutOff) this.cutOff.clone();
 		}
+		
+		if (this.tags != null) {
+			obj.tags = this.tags;
+		}
+		
 		if (this.options != null) {
 			obj.options = new ArrayList<ProductOption>();
 			if(null!=this.options){
@@ -331,6 +337,12 @@ public class Product extends Component{
 	}
 	public void setOptType(int optType) {
 		this.optType = optType;
+	}
+	public String getTags() {
+		return tags;
+	}
+	public void setTags(String tags) {
+		this.tags = tags;
 	}
 	
 	
