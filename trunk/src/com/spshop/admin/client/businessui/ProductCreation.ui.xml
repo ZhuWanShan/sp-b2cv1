@@ -39,6 +39,14 @@
 							</g:row>
 							<g:row>
 								<g:customCell>
+									<g:Label text="Tags" />
+								</g:customCell>
+								<g:customCell>
+									<g:TextArea width="236px" height="50px" ui:field="tags" />
+								</g:customCell>
+							</g:row>
+							<g:row>
+								<g:customCell>
 									<g:Label text="Keywords" />
 								</g:customCell>
 								<g:customCell>
