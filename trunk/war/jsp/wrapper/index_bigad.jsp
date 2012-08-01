@@ -7,8 +7,14 @@
 			<div class="measure_panel" style="display: none;">
 				<a href="http://www.honeybuy.com/c/Wedding-Dresses-2012"><img width="972px" height="428px" src="http://www.honeybuy.com/image/banner1.jpg" title="Wedding Dresses 2012" alt="Wedding Dresses 2012"></a>
 			</div>
-			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Wedding-Dresses"><img alt="Wedding Dresses" title="Wedding Dresses" width="972px" height="428px" src="/image/banner11.jpg"></a>
+			<div class="measure_panel" style="position:relative">
+				<a href="http://www.honeybuy.com/c/Promotions-News"><img alt="Wedding Dresses" title="Wedding Dresses" width="972px" height="428px" src="/image/londonh.jpg"></a>
+	            <div style="position:absolute;top:170px;left:380px; width:300px;">
+                <p style="margin:0; padding:0; font-size:16px; font-family:Arial, Helvetica, sans-serif; line-height:25px"><a href="http://www.honeybuy.com/c/Promotions-News" style="text-decoration:none;color:#06F;">Suits</a></p>
+                <p style="margin:0; padding:0; font-size:16px; font-family:Arial, Helvetica, sans-serif; line-height:25px;"><a href="http://www.honeybuy.com/c/Promotions-News" style="text-decoration:none;color:#06F;">Wedding Apparel</a></p>
+                <p style="margin:0; padding:0; font-size:16px; font-family:Arial, Helvetica, sans-serif; line-height:25px"><a href="http://www.honeybuy.com/c/Promotions-News" style="text-decoration:none;color:#06F;">Special Occasion Dresses</a></p>
+                <p style="margin:0; padding:0; font-size:16px; font-family:Arial, Helvetica, sans-serif; line-height:25px"><a href="http://www.honeybuy.com/c/Promotions-News" style="text-decoration:none;color:#06F;">Fashion Apparel</a></p>
+      </div>
 			</div>
 			<div class="measure_panel">
 				<a href="http://www.honeybuy.com/c/A-line-Wedding-Dresses"><img alt="A line Wedding Dresses" title="A line Wedding Dresses"  width="972px" height="428px" src="/image/hunsha-banner.jpg"></a>
