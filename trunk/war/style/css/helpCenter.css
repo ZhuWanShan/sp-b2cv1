@@ -65,9 +65,8 @@
 #helpcenter .detail ul li a.use8{ background-position:5px -62px}
 #helpcenter .detail .centent{ width:771px; margin:10px auto; text-align:center}
 /******** helpCenter CSS Document END ********/
-
 /******** bottom css star *******/
-#bottom{ width:972px; margin:20px auto 0 auto;border-top:1px solid #474747;}
+#bottom{ width:972px; margin:20px auto 0 auto;border-top:1px solid #474747;clear:both}
 #bottom img{ border:0; vertical-align:top;}
 #bottom ul,li{ margin:0px; padding:0; list-style:none;}
 #bottom p,h1,h2,h3,dl,dd,dt{ margin:0; padding:0; font-size:12px; font-family: Arial, Helvetica;}
@@ -160,3 +159,32 @@ opacity: 0.5;}
 #Promotion .two  del{ line-height:20px; width:150px; text-align:center; display:block;color:#333}
 #Promotion .two span{ line-height:20px; width:150px; text-align:center; display:block;color:#c84100}
 /*****cuxiao css end*****/
+/*****Company Info css star*****/
+#AboutUs{width:972px;margin:0 auto}
+#AboutUs html,body,p,ul,li,h2,h3,h4{ margin:0; padding:0; font-size:12px; font-family: Arial, Helvetica;}
+#AboutUs ul,li{list-style:none;}
+#AboutUs img{ border:0; vertical-align:top;}
+#AboutUs .left{ width:171px; padding:0 10px; background:#EFEFEF; float:left}
+#AboutUs .left h2{ font-size:18px;color:#333;line-height:28px;}
+#AboutUs .left li{ text-indent:12px; background:url(/style/image/pic/sanjiao.png) no-repeat 0 11px; line-height:28px}
+#AboutUs li a{color:#333; text-decoration:none; font-size:14px;}
+#AboutUs li a:hover{color:#ff7200;}
+#AboutUs .right { width:771px; float:right}
+#AboutUs .right h2{ font-size:18px; line-height:28px;color:#333}
+#AboutUs .right a{ text-decoration:none;color:#ff7200}
+#AboutUs .right .norton{width:771px;height:90px;}
+#AboutUs .center p{clear:both;line-height:20px;}
+#AboutUs .center p span{ font-size:18px;}
+#AboutUs .center h4{margin:13px 0; font-size:14px}
+#AboutUs .center h3{ margin-top:8px}
+#AboutUs .center b{ margin-top:10px; display:block}
+#AboutUs .center .text-z{ text-indent:15px}
+#AboutUs .center .p-line{border-bottom:1px solid #000;padding-bottom:15px}
+#AboutUs .center .img-center{ text-align:center}
+#AboutUs .center b.imgb img{ margin-left:40px;display:inline}
+#AboutUs .center .txt{ padding-bottom:20px;border-bottom:solid 1px #000; margin-bottom:20px}
+#AboutUs .center p.txt-2{color: rgb(102, 102, 102); font-family: Georgia, 'Times New Roman', times, serif; font-size:large; line-height:22px; text-align:center}
+#AboutUs .center p.align{ text-align:right;padding-right:30px; margin-left:5px}
+#AboutUs .center .txt-tu{ float:right;text-align:right; padding-right:30px; padding-left:5px; margin-top:8px}
+#AboutUs .center .txt-tu2{ float:right; width:10%; text-align:right; padding-top:2px;margin-top:8px}
+/*****Company Info css end*****/
