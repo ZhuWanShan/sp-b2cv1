@@ -1,0 +1,72 @@
+<div class="main_box" id="main_box">
+	<#include "include.hpl">
+	<div class="tag-index-container">
+		<dl>
+			<dt>A</dt>
+			<dd>
+				<a
+					href="">A
+					Beautiful Wedding Dress</a>
+			</dd>
+			<dd>
+				<a
+					href="">A
+					Bridesmaid Dress</a>
+			</dd>
+			<dd>
+				<a
+					href="">A
+					Bridesmaids Dress For A Wedding</a>
+			</dd>
+		</dl>
+		<dl>
+			<dt>B</dt>
+			<dd>
+				<a href="">B
+					Mobile Phones</a>
+			</dd>
+			<dd>
+				<a href="">B
+					Mp3 Players</a>
+			</dd>
+			<dd>
+				<a href="">B22
+					Lamp Holders</a>
+			</dd>
+		</dl>
+		<dl>
+			<dt>C</dt>
+			<dd>
+				<a href="">C
+					2 Dual Sim</a>
+			</dd>
+			<dd>
+				<a href="">C
+					Phone 4</a>
+			</dd>
+			<dd>
+				<a href="">C1000
+					Dual Sim</a>
+			</dd>
+		</dl>
+		<dl>
+			<dt>D</dt>
+			<dd>
+				<a
+					href="">D
+					8 Is A Dual Sim Card Phone</a>
+			</dd>
+			<dd>
+				<a
+					href="">D
+					Link Wireless Camera</a>
+			</dd>
+			<dd>
+				<a href="">D
+					Player</a>
+			</dd>
+		</dl>
+		<p class="clearBoth"></p>
+	</div>
+	<p class="clearBoth"></p>
+</div>
