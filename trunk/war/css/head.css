@@ -73,7 +73,7 @@ html{_text-overflow:ellipsis;}
 .sub_menu .inner_box1{width:190px;float:left;}
 .sub_menu .inner_box2{width:380px;float:left;}
 .sub_menu .inner_box3{width:570px;float:left;}
-.sub_menu .inner_list{height:146px;overflow:hidden;}
+.sub_menu .inner_list{height:160px;overflow:hidden;}
 .sub_menu .inner_box_along{overflow:hidden;float:left;zoom:1;width:180px;}
 .sub_menu .inner_box_along dt{border-bottom:1px dashed #CCCCCC;}
 .sub_menu .inner_box_along dt a{color:#614F11;}
