@@ -18,6 +18,7 @@
 															title="${catlog.displayName}">${subcatlog.displayName} </a>
 													</dt>
 													<#if subcatlog.subCategories??>	
+														<#assign subsubcatlogIndex = 0>
 														<#list subcatlog.subCategories as subsubcatlog>
 															<#if !subsubcatlog.specialOffer>
 															<dd>
@@ -25,9 +26,10 @@
 																	title="${subsubcatlog.displayName}"> ${subsubcatlog.displayName}
 																</a>
 															</dd>
-															<#if (subsubcatlog_index > 6)>
-																<#break>
+															<#assign subsubcatlogIndex = (subsubcatlogIndex + 1) >
 															</#if>
+															<#if (subsubcatlogIndex > 6)>
+																<#break>
 															</#if>
 														</#list>
 															<dd>
