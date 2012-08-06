@@ -25,7 +25,7 @@
 																	title="${subsubcatlog.displayName}"> ${subsubcatlog.displayName}
 																</a>
 															</dd>
-															<#if (subsubcatlog_index > 7)>
+															<#if (subsubcatlog_index > 6)>
 																<#break>
 															</#if>
 															</#if>
