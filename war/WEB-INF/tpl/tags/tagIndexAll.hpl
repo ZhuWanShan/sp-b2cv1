@@ -1,0 +1,9 @@
+<#assign pageKeywords = "Tag index">
+<#assign pageDescription = "Tag index">
+<#assign pageTitle = "Tag index">
+
+<#include "/header/top.hpl">
+
+<#include "/body/tagIndex/body-tag-index_all.hpl">	
+
+<#include "/footer/bottom.hpl">
