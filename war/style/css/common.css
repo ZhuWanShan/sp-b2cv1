@@ -88,6 +88,14 @@ textarea {
 	width: 20px;
 }
 
+.Path_title{
+	font-weight: bold;
+}
+
+.Light_gray2 {
+	color: #666;
+}
+
 input:-webkit-autofill {
 	background-color: #FAFFBD;
 	background-image: none;
@@ -1552,3 +1560,41 @@ li.scart_c_w_r {
     width: 188px;
 }
 /********************************************************end Measurement **************************************/
+
+
+/*******************************Tags*****************************************/
+.tag-index-banner {
+	font-size: 12px;
+	line-height: 30px;
+	border: 1px solid #DDD;
+	border-width: 1px 0;
+	padding-left: 10px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	clear: both;
+	zoom: 1;
+}
+
+.tag-index-banner a{
+	margin: 2px 5px;
+}
+
+.tag-index-container{
+	
+}
+
+.tag-index-container dl {
+	float: left;
+	display: inline;
+	width: 243px;
+	line-height: 120%;
+	margin: 10px 0px
+}
+
+.tag-index-container dl dt{
+	 font-weight: bold;
+}
+
+.tag-index-container dl dd{
+	 padding: 2px 3px;
+}
