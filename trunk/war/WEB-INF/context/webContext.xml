@@ -13,16 +13,8 @@
 	http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
-
-	<context:component-scan base-package="com.spshop.web" />
-	<context:component-scan base-package="com.spshop.web">
-		<context:include-filter type="annotation"
-			expression="org.springframework.stereotype.Component" />
-		<context:include-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />
-	</context:component-scan>
 	<aop:aspectj-autoproxy />
-
+	<bean class="com.spshop.web.interceptor.ModelAttributeAndLoginCheckInjecter"></bean>
 	<bean id="handlerMapping"
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
 		<property name="interceptors" ref="viewDataInterceptor"></property>
