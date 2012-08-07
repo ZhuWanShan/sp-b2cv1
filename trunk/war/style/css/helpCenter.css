@@ -188,3 +188,63 @@ opacity: 0.5;}
 #AboutUs .center .txt-tu{ float:right;text-align:right; padding-right:30px; padding-left:5px; margin-top:8px}
 #AboutUs .center .txt-tu2{ float:right; width:10%; text-align:right; padding-top:2px;margin-top:8px}
 /*****Company Info css end*****/
+/******** prom css star *******/
+#PromDresses html,body,p,ul,li,h2,h3,h4,dl,dd,dt{ margin:0; padding:0; font-size:12px; font-family: Arial, Helvetica;}
+#PromDresses ul,li{ margin:0px; padding:0; list-style:none;}
+#PromDresses img{ border:0; vertical-align:top;}
+#PromDresses .left{float:left}
+#PromDresses .right{float:right;}
+#PromDresses .clear{ clear:both}
+#PromDresses{ width:972px; margin:0 auto}
+#PromDresses .dingju{ width:972px; margin:0 auto}
+#PromDresses .prom-title{ height:972px; height:49px; background:url(/style/image/pic/promtitle.jpg) no-repeat}
+#PromDresses .prom-title h2{ font-size:18px; color:#c45326; padding:12px;}
+#PromDresses .prom-product{height:720px;border:10px solid #ffd6c6; margin-bottom:10px;}
+#PromDresses .prom-product dl{ float:left; margin-left:12px;}
+#PromDresses .prom-product dl dt{ width:222px; margin-bottom:5px}
+#PromDresses .prom-product dl dd{ text-align:center; width:222px;}
+#PromDresses .prom-product dl dd del{ text-align:center; display:block; line-height:20px}
+#PromDresses .prom-product dl dd span{ text-align:center; display:block;color:#ba4101;line-height:20px; margin-bottom:10px}
+#PromDresses .prom-product2{height:620px;border:10px solid #ffd6c6; margin-bottom:10px;}
+#PromDresses .prom-product2 .prom-left{ float:left}
+#PromDresses .prom-left dl{ float:left; margin-left:10px;}
+#PromDresses .prom-left dl dt{ width:200px; margin-bottom:5px}
+#PromDresses .prom-left dl dd{ text-align:center; width:200px;}
+#PromDresses .prom-left dl dd del{ text-align:center; display:block; line-height:20px}
+#PromDresses .prom-left dl dd span{ text-align:center; display:block;color:#ba4101;line-height:20px; margin-bottom:10px}
+#PromDresses .prom-product2 .prom-right{ float:right}
+#PromDresses .prom-right dl{ float:left; margin-right:10px;}
+#PromDresses .prom-right dl dt{ width:200px; margin-bottom:5px}
+#PromDresses .prom-right dl dd{ text-align:center; width:200px;}
+#PromDresses .prom-right dl dd del{ text-align:center; display:block; line-height:20px}
+#PromDresses .prom-right dl dd span{ text-align:center; display:block;color:#ba4101;line-height:20px; margin-bottom:10px}
+/******** prom css end *******/
+/******** suits css star *******/
+#Suits-zy html,body,p,ul,li,h2,h3,h4,dl,dd,dt{ margin:0; padding:0; font-size:12px; font-family: Arial, Helvetica;}
+#Suits-zy ul,li{ margin:0px; padding:0; list-style:none;}
+#Suits-zy img{ border:0; vertical-align:top;}
+#Suits-zy .clear{ clear:both}
+#Suits-zy{ width:972px; margin:0 auto; background:url(/style/image/pic/suitsbac.jpg) repeat-y}
+#Suits-zy .suits-pro{ padding:0 10px}
+#Suits-zy .wenzhi{ background:#000; position:absolute;left:0;bottom:0; width:100%;height:34px;}
+#Suits-zy .wenzhi del{ display:block; float:left; width:50%; line-height:32px; text-align:center;color:#fff}
+#Suits-zy .wenzhi span{display:block; float:left; width:50%; line-height:32px; text-align:center;color:#ff0000}
+#Suits-zy .suits-pro .suits-t1{ float:left; width:419px;}
+#Suits-zy .suits-t1 .suitser{ margin-top:10px; width:419px;}
+#Suits-zy .suits-t1 .onewei{ position:relative; margin-bottom:10px;}
+#Suits-zy .suits-t1 .q1{ float:left}
+#Suits-zy .suits-t1 .q2{ float:right}
+#Suits-zy .suits-pro .suits-t2{ float:right;width:524px;}
+#Suits-zy .suits-t2 .q3{ float:left; position:relative}
+#Suits-zy .suits-t2 .q4{ float:right; position:relative; margin-bottom:10px;}
+#Suits-zy .xia{ clear:both;}
+#Suits-zy .xia ul li{ display:block; float:left; position:relative}
+#Suits-zy .xia ul li.jianju{ margin-left:10px;}
+#Suits-zy .suits-pro .suits-t3{ clear:both;}
+#Suits-zy .adbanner{ padding:10px;}
+#Suits-zy .suitproduct{background:#dcdcdc; width:952px; margin:0 auto 0 auto; }
+#Suits-zy .suitproduct dl{ width:225px; margin:10px 0 0 10px; float:left}
+#Suits-zy .suitproduct dl dt{ width:225px; height:310px; background:#999}
+#Suits-zy .suitproduct dl dd del{ display:block; line-height:20px; text-align:center}
+#Suits-zy .suitproduct dl dd p{color:#ff0000;display:block; line-height:20px; text-align:center}
+/******** suits css end *******/
