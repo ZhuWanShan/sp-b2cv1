@@ -1,0 +1,11 @@
+<#assign pageKeywords = "1. Placing Orders?">
+<#assign pageDescription = "1. Placing Orders?">
+<#assign pageTitle = "1. Placing Orders?">
+
+
+
+<#include "/header/top.hpl">
+
+<#include "/body/hc/help1-8.hpl">	
+
+<#include "/footer/bottom.hpl">
