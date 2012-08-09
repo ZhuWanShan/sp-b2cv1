@@ -1,0 +1,24 @@
+<link rel="stylesheet" type="text/css" href="/style/css/helpCenter.css?799">
+
+<div class="main_box" id="main_box">
+<#include "left.hpl">
+<div id="helpcenter">
+<div class="help_right">
+<div class="help_ti"><div class="detail_title">2.Track Order?</div>  
+  </div>
+<div class="detail">
+  <!--gai-->
+  <span><p>Online Tracking: <a href="http://www.honeybuy.com/orders">http://www.honeybuy.com/orders</a></p></span>
+  <span>
+ <p><strong>Default Process:</strong> nce you placed the order, we may ship your item in 2 working days for the in stock item.And for the custom made item,we may ship your item in 15-20 working days.And usually by DHL it takes 3-5 working days for shipping to your door. </p><br></span>
+ <span><p><strong>Tracking in your account:</strong> Login your account to track your orders.Create a account with which allows you to shop faster, track the status of your current orders, review your previous orders and take advantage of our other member's benefits.</p><br></span>
+  
+<span><p><strong>By email ( Highly Recommended ):</strong> We are always happy to hear from our customers. You can contact us via e-mail <a href="mailto:service@honeybuy.com">service@honeybuy.com </a>
+<a href="mailto:sales@honeybuy.com">sales@honeybuy.com</a> . </p></span>
+<span><p><strong>By Phone:</strong> You can call us 86-592-5183012  for your order progress,do remember your order No.It is not easy for us to check your order status without your order number./p></span>
+<!--gai-->
+</div>
+</div>
+<p class="clearBoth"></p>
+</div>
+</div>
