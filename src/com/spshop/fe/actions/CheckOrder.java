@@ -28,11 +28,10 @@ import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CouponService;
 import com.spshop.service.intf.OrderService;
-import com.spshop.utils.EmailTools;
 
 public class CheckOrder extends BaseAction {
 	
-	private static final String ACCOUNT = "paypal@honeybuy.com";
+	private static final String ACCOUNT = "kabist@gmail.com";
 	
 	private static Logger logger = Logger.getLogger(CheckOrder.class);
 	
