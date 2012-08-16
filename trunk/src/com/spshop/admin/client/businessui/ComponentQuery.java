@@ -51,7 +51,7 @@ public class ComponentQuery extends ResizeComposite {
 	}
 
 	private static final Binder binder = GWT.create(Binder.class);
-	static final int VISIBLE_RECORD_COUNT = 20;
+	static final int VISIBLE_RECORD_COUNT = 40;
 
 	@UiField
 	FlexTable header;
