@@ -36,12 +36,20 @@
 						${product.title}
 					</a>
 				</strong>
-				<span class="Reference_Price"> 
+				<div class="Reference_Price">
+				<div style="bottom: 5px; color: red; float: left; text-align: left;">
+						<c:if test="${product.actualPrice ne product.price }">
+						<p style="color: #FFBE41; font-size: 18px; font-weight: bold; margin-bottom: -5px;">Save</p>
+						<p style="color: #E50001; font-size: 28px;">
+							<fmt:formatNumber type="number" value="${(1 - product.actualPrice / product.price) * 100}" maxFractionDigits="0"/>%
+						</p>
+						</c:if>
+				</div>
 					${currency }<del>
 					<fmt:formatNumber value="${product.price * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
 					</del> 
 					<span class="red fontbold"><fmt:formatNumber value="${product.actualPrice * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber></span> 
-				</span>
+				</div>
 				<div class="list_stars">
 					<span class="Reference_Price"> 
 						<!-- TODO Rate -->
