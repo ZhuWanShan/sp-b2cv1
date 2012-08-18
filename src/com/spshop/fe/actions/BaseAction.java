@@ -3,14 +3,12 @@ package com.spshop.fe.actions;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 import java.util.TreeMap;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,13 +21,9 @@ import org.apache.struts.action.ActionMapping;
 import com.spshop.cache.SCacheFacade;
 import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Category;
-import com.spshop.model.Order;
 import com.spshop.model.Site;
 import com.spshop.model.User;
 import com.spshop.model.cart.ShoppingCart;
-import com.spshop.model.enums.OrderStatus;
-import com.spshop.service.factory.ServiceFactory;
-import com.spshop.service.intf.OrderService;
 import com.spshop.utils.Constants;
 import com.spshop.utils.Utils;
 
