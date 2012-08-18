@@ -26,7 +26,7 @@
 	<div class="hei5"></div>
 
 	<div class="hei10"></div>
-	<div class="B_Categories Gallery_pic">
+	<div class="B_Categories Gallery_pic" style="background: none repeat scroll 0 0 #FBF9F7; border: 1px solid #D1D1D1; padding-top: 10px;">
 		<ul>
 		<c:forEach items="${pageForm.pageProperties.productsInCategoryPage}" var="product">
 			<li class="goods_list box_shadow">

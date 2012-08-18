@@ -90,7 +90,12 @@
 		<div class="right_box">
 			<jsp:include page="wrapper/ad_list_box.jsp"></jsp:include>
 			<div class="hei20"></div>
-			<jsp:include page="wrapper/contain_change.jsp"></jsp:include>
+			<c:if test="${fn:length(pageForm.category.subCategories) != 0}">
+				<jsp:include page="wrapper/parentCategoryContent.jsp"></jsp:include>
+			</c:if>
+			<c:if test="${fn:length(pageForm.category.subCategories) == 0}">
+				<jsp:include page="wrapper/contain_change.jsp"></jsp:include>
+			</c:if>
 			<div class="hei10"></div>
 		</div>
 		<!-- Right box end -->
