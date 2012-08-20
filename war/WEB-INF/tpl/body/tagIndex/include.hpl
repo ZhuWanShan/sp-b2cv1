@@ -1,10 +1,10 @@
 	<div class="Path_title Light_gray2">
-		<a href="http://127.0.0.1:8888" class="Light_gray2">Home</a> <span>&gt;</span>
+		<a href="${siteView.host}" class="Light_gray2">Home</a> <span>&gt;</span>
 
 		<a title="Wedding Apparel"
-			href="http://127.0.0.1:8888/c/Wedding-Apparel"> Tags </a> <span>&gt;</span>
+			href="${siteView.host}/tags/index"> Tags </a> <span>&gt;</span>
 		<a title="Wedding Dresses"
-			href="http://127.0.0.1:8888/c/Wedding-Dresses"> A </a>
+			href="${siteView.host}/tags/index/A"> A </a>
 	</div>
 	<div class="tag-index-banner ">
 		<a href="">A</a>&nbsp;|&nbsp;<a href="">B</a>&nbsp;|&nbsp;<a href="">C</a>&nbsp;|&nbsp;<a
