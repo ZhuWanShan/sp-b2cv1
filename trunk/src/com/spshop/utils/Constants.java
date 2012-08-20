@@ -237,4 +237,6 @@ public class Constants {
     public static final String SUIT_MEASUREMENT = "suitMeasurement";
     
     public static final String CURRENT_PRODUCT_ID = "currentProductID";
+    
+    public static final String TAG_INDEXS = "tagIndexs";
 }
