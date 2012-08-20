@@ -42,6 +42,16 @@
       <arg value="com.spshop.Workspace"/>
     </java>
   </target>
+	
+	  <target name="tags">
+	    <java failonerror="true" fork="true" classname="com.spshop.utils.TagsGen">
+	      <classpath>
+	        <pathelement location="src"/>
+	        <path refid="project.class.path"/>
+	      </classpath>
+	      <jvmarg value="-Xmx256M"/>
+	    </java>
+	  </target>
 
   <target name="devmode" depends="javac" description="Run development mode">
     <java failonerror="true" fork="true" classname="com.google.gwt.dev.DevMode">
