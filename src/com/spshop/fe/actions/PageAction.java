@@ -2,6 +2,7 @@ package com.spshop.fe.actions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -62,7 +63,7 @@ public class PageAction extends BaseAction {
 	
     private void populateContentByCategory(PageFormBean page, HttpServletRequest request) {
         List<Category> categories4Search = new ArrayList<Category>(page.getCategory().getSubCategories());
-        Map<String, List<Product>> content = new HashMap<String, List<Product>>();
+        Map<String, List<Product>> content = new LinkedHashMap<String, List<Product>>();
         List<Product> restProducts = new ArrayList<Product>();
         
         for (Category category : categories4Search) {
