@@ -8,7 +8,7 @@
 	<div class="B_Categories Gallery_pic" style="background: none repeat scroll 0 0 #FBF9F7; border: 1px solid #D1D1D1;">
 		<ul>
 		<c:forEach items="${pageForm.pageProperties.subCategoryProducts }" var="subProducts">
-		<span class="red font_size16" style="margin-bottom:5px; padding-top:8px; display:inline-block; width:100%; background:url('/css/Promotions_tab.gif') repeat-x scroll 0 0 center center transparent; height:39px;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);">
+		<span class="red font_size16" style="margin-bottom:5px; padding-top:8px; display:inline-block; width:100%; background:url('/css/Promotions_tab.gif') repeat-x scroll 0 0 transparent; height:39px;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);">
 			<a href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%=Constants.CATEGORY_URL %>/${subProducts.key.name}" style="font-weight:bold; margin-left: 15px;">${subProducts.key.displayName}</a>
 			<a style="float:right; margin-right:10px;" href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/<%=Constants.CATEGORY_URL %>/${subProducts.key.name}">more..</a>
 		</span>
