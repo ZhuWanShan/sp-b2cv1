@@ -1,7 +1,6 @@
 package com.spshop.fe.actions;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,11 +62,11 @@ public class PageAction extends BaseAction {
 	
     private void populateContentByCategory(PageFormBean page, HttpServletRequest request) {
         List<Category> categories4Search = new ArrayList<Category>(page.getCategory().getSubCategories());
-        Map<String, List<Product>> content = new LinkedHashMap<String, List<Product>>();
+        Map<Category, List<Product>> content = new LinkedHashMap<Category, List<Product>>();
         List<Product> restProducts = new ArrayList<Product>();
         
         for (Category category : categories4Search) {
-            content.put(category.getDisplayName().toString(), searchProductsByCategory(category, 0, 6));
+            content.put(category, searchProductsByCategory(category, 0, 6));
         }
         page.addPageProperty("subCategoryProducts", content);
         if (content.size() < 6) {

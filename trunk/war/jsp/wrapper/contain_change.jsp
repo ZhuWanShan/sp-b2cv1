@@ -31,6 +31,14 @@
 		<c:forEach items="${pageForm.pageProperties.productsInCategoryPage}" var="product">
 			<li class="goods_list box_shadow">
 				<div class="goods_picture" style="height: ${heightValue}px;">
+						<div style='background:url("/css/sales_bg.png") no-repeat scroll 0 0 transparent; position:absolute; top: 0; right: 0; width:65px; height: 65px;'>
+							<label style="font-size: 18px; position: relative; top: 7px; color: white;">
+								Save
+							</label>
+							<label style="font-size: 2em; position: relative; top: 5px; color: white; font-weight: bold;">
+								<fmt:formatNumber type="number" value="${(1 - product.actualPrice / product.price) * 100}" maxFractionDigits="0"/>%
+							</label>
+						</div>
 						<a onclick="redirect('<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/${product.name}')"
 							href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/${product.name}" title="">
 							<c:if test='${product.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
@@ -52,18 +60,10 @@
 					</a>
 				</strong>
 				<div class="Reference_Price"> 
-				<div style="bottom: 5px; color: red; float: left; text-align: left;">
-						<c:if test="${product.actualPrice ne product.price }">
-						<p style="color: #FFBE41; font-size: 18px; font-weight: bold; margin-bottom: -5px;">Save</p>
-						<p style="color: #E50001; font-size: 28px;">
-							<fmt:formatNumber type="number" value="${(1 - product.actualPrice / product.price) * 100}" maxFractionDigits="0"/>%
-						</p>
-						</c:if>
-				</div>
 					${currency }<del>
 					<fmt:formatNumber value="${product.price * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
-					</del> 
-					<span class="red fontbold"><fmt:formatNumber value="${product.actualPrice * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber></span> 
+					</del> <br />
+					<span class="red fontbold" style="font-size: 18px;"><fmt:formatNumber value="${product.actualPrice * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber></span> 
 				</div>
 				<div class="list_stars">
 					<span class="Reference_Price"> 
