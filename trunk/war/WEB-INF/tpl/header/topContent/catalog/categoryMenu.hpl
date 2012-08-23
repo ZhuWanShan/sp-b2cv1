@@ -28,7 +28,7 @@
 															</dd>
 															<#assign subsubcatlogIndex = (subsubcatlogIndex + 1) >
 															</#if>
-															<#if (subsubcatlogIndex > 6)>
+															<#if (subsubcatlogIndex > 5)>
 																<#break>
 															</#if>
 														</#list>
