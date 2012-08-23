@@ -17,7 +17,7 @@
 		<c:forEach items="${subProducts.value}" var="product">
 			<li class="goods_list box_shadow">
 				<div class="goods_picture" style="height: ${heightValue}px;">
-						<div style='background:url("/css/sales_bg.png") no-repeat scroll 0 0 transparent; position:absolute; top: -11; right: -11; width:65px; height: 65px;'>
+						<div style='background:url("/css/sales_bg.png") no-repeat scroll 0 0 transparent; position:absolute; top: -11px; right: -11px; width:65px; height: 65px;'>
 							<label style="font-size: 12px; position: relative; top: 7px; color: white;">
 								Save
 							</label>
