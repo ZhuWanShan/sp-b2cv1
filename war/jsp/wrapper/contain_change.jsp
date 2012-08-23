@@ -31,11 +31,11 @@
 		<c:forEach items="${pageForm.pageProperties.productsInCategoryPage}" var="product">
 			<li class="goods_list box_shadow">
 				<div class="goods_picture" style="height: ${heightValue}px;">
-						<div style='background:url("/css/sales_bg.png") no-repeat scroll 0 0 transparent; position:absolute; top: 0; right: 0; width:65px; height: 65px;'>
-							<label style="font-size: 18px; position: relative; top: 7px; color: white;">
+						<div style='background:url("/css/sales_bg.png") no-repeat scroll 0 0 transparent; position:absolute; top: -11; right: -11; width:65px; height: 65px;'>
+							<label style="font-size: 12px; position: relative; top: 7px; color: white;">
 								Save
 							</label>
-							<label style="font-size: 2em; position: relative; top: 5px; color: white; font-weight: bold;">
+							<label style="font-size: 22px; position: relative; top: 5px; color: white; font-weight: bold;">
 								<fmt:formatNumber type="number" value="${(1 - product.actualPrice / product.price) * 100}" maxFractionDigits="0"/>%
 							</label>
 						</div>
