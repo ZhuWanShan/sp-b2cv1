@@ -16,7 +16,7 @@
 #helpcenter .help_left .help_menu ul li{background: url(/style/image/pic/huise.png) no-repeat 0 6px;padding:0 0 0 6px;font-size:12px;line-height:25px;}
 #helpcenter .help_left .help_menu ul li a{color:#484848;line-height:16px;}
 #helpcenter .help_left .help_menu ul li a:hover{color:#ff5a00}
-#helpcenter .help_left .help_menu .collapse_btn{vertical-align:middle; margin-right:5px;}
+#helpcenter .help_left .help_menu .collapse_btn{vertical-align:middle; margin-right:5px;cursor: pointer;}
 #helpcenter .help_left .help_menu ul{display:none;}
 /******** helpCenter CSS right**/
 #helpcenter .help_right{ float:right; width:771px}
