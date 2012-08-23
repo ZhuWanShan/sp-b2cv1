@@ -14,8 +14,8 @@
 											<#if !subcatlog.specialOffer>
 												<dl>
 													<dt>
-														<a href="${siteView.host}/c/${catlog.name}"
-															title="${catlog.displayName}">${subcatlog.displayName} </a>
+														<a href="${siteView.host}/c/${subcatlog.name}"
+															title="${subcatlog.displayName}">${subcatlog.displayName} </a>
 													</dt>
 													<#if subcatlog.subCategories??>	
 														<#assign subsubcatlogIndex = 0>
