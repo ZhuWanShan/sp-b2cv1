@@ -192,10 +192,10 @@ input,select{font-family:Arial, Helvetica, sans-serif;}
 .Cos_Categories ul li img{width:240px;height:210px;}
 .Cos_Categories ul li h3{position:absolute;width:240px;top:185px;left:3px;text-align:center;font-weight:normal;font-size:14px;}
 /**********默认商品图片列表*****************/
-.goods_list{float:left;width:164px;padding:3px;display:inline;margin:10px 8px 30px 12px;*margin:10px 2px 30px 15px;overflow:hidden;position:;}
+.goods_list{float:left;width:164px;padding:3px;display:inline;margin:10px 8px 30px 12px;*margin:10px 2px 30px 15px;}
 .B_Categories .goods_list{}
 .goods_picture div{/*position:absolute;bottom:0; right:0;*/}
-.goods_list .goods_picture{width:100%;overflow:hidden;text-align:center;position:relative;margin-bottom:7px;}
+.goods_list .goods_picture{width:100%;text-align:center;position:relative;margin-bottom:7px;}
 .goods_list .goods_name{display:block;font-size:11px;font-weight:normal;height:40px;overflow:hidden;line-height:14px;padding:0 0 2px; }
 .goods_list .goods_name a{color:#000;}
 .goods_list .goods_name a:hover{color:#ff5a00;}
