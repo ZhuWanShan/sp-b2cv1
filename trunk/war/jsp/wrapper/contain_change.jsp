@@ -62,8 +62,10 @@
 					</a>
 				</strong>
 				<div class="Reference_Price"> 
-					<img alt="Free" src="/css/shipping.jpg" style="float:left; width:15px;">
-					<span style="float:left; color:gray;">Free Shipping</span>
+					<c:if test="${product.actualPrice > 80}">
+						<img alt="Free" src="/css/shipping.jpg" style="float:left; width:15px;">
+						<span style="float:left; color:gray;">Free Shipping</span>
+					</c:if>
 					${currency }<del>
 					<fmt:formatNumber value="${product.price * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
 					</del> <br />
