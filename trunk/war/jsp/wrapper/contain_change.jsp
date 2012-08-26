@@ -31,6 +31,7 @@
 		<c:forEach items="${pageForm.pageProperties.productsInCategoryPage}" var="product">
 			<li class="goods_list box_shadow">
 				<div class="goods_picture" style="height: ${heightValue}px;">
+					<c:if test="${(1 - product.actualPrice / product.price) * 100 > 40}">
 						<div style='background:url("/css/sales_bg.png") no-repeat scroll 0 0 transparent; position:absolute; top: -11px; right: -11px; width:65px; height: 65px;'>
 							<label style="font-size: 12px; position: relative; top: 7px; color: white;">
 								Save
@@ -39,6 +40,7 @@
 								<fmt:formatNumber type="number" value="${(1 - product.actualPrice / product.price) * 100}" maxFractionDigits="0"/>%
 							</label>
 						</div>
+					</c:if>
 						<a onclick="redirect('<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/${product.name}')"
 							href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/${product.name}" title="">
 							<c:if test='${product.images[0].strSizeType eq "PRODUCT_SQUARE"}'>
@@ -60,6 +62,8 @@
 					</a>
 				</strong>
 				<div class="Reference_Price"> 
+					<img alt="Free" src="/css/shipping.jpg" style="float:left; width:15px;">
+					<span style="float:left; color:gray;">Free Shipping</span>
 					${currency }<del>
 					<fmt:formatNumber value="${product.price * currencies[currency]}" currencyCode="${currency }" maxFractionDigits="2"></fmt:formatNumber>
 					</del> <br />
