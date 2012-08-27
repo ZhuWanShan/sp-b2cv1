@@ -2,7 +2,6 @@
 	<head></head>
 <body>
 <div align="center">
-
 <table cellspacing="0" cellpadding="0" border="0" width="809" class="MsoNormalTable" style="width:606.75pt;mso-cellspacing:0in;background:#F2F3F4;mso-yfti-tbllook:
  1184;mso-padding-alt:0in 0in 0in 0in">
  <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes">
@@ -13,7 +12,6 @@
    <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:10.5pt">
     <td colspan="2" style="padding:0in 0in 0in 0in;height:10.5pt"></td>
    </tr>
-   
    <tr style="mso-yfti-irow:2;mso-yfti-lastrow:yes">
     <td style="padding:0in 0in 0in 0in">
     <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="mso-fareast-font-family:&quot;Times New Roman&quot;"><img border="0" id="_x0000_i1026" src="https://www.honeybuy.com/image/4614200824386.jpg"><o:p></o:p></span></p>
@@ -83,8 +81,7 @@
       11.0pt">If you have already completed your payment, you should receive a
       "Payment Confirmation" email within 1 working day and at that
       time, we will begin to process <a href="http://www.honeybuy.com/orders?id=${order.name}">your order</a>.<o:p></o:p></span></p>
-   
-      </td>
+     </td>
       <td width="22" valign="top" style="width:16.5pt;border:none;padding:0in 0in 0in 0in"></td>
      </tr>
     </tbody></table>
@@ -411,27 +408,23 @@
         reliable service at the lowest rate possible. <BR><BR></span></p>
         </td>
        </tr>
-
-      </tbody></table>
+     </tbody></table>
       </div>
       </td>
      </tr>
-   
-    </tbody></table>
+     </tbody></table>
     </div>
     <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="mso-fareast-font-family:&quot;Times New Roman&quot;;display:none;mso-hide:
     all"><o:p>&nbsp;</o:p></span></p>
 <!-- FAQ -->
     <div align="center">
-   
-    </div>
+     </div>
     <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="mso-fareast-font-family:&quot;Times New Roman&quot;;display:none;mso-hide:
     all"><o:p>&nbsp;</o:p></span></p>
 <!-- FAQ eof -->
     <div align="center">
     <table cellspacing="2" cellpadding="0" border="1" width="700" class="MsoNormalTable" style="width:525.0pt;mso-cellspacing:0in;border:none;>
      <tbody>
-
      <tr style="mso-yfti-irow:1">
       <td style="border:none;padding:0in 0in 0in 0in">
       <p align="center" class="MsoNormal" style="margin:0in;margin-bottom:.0001pt;
@@ -452,15 +445,13 @@
       <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="font-size:9.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;"><a href="http://www.facebook.com/honeybuy">Join Us On Facebook For Coupons, Games, &amp; More! &gt;&gt;</a> <o:p></o:p></span></p>
       </td>
      </tr>
-
-    </tbody></table>
+     </tbody></table>
     </div>
     </td>
    </tr>
   </tbody></table>
   </div>
-  
-  <div align="center">
+ <div align="center">
   <table cellspacing="0" cellpadding="0" border="0" width="700" class="MsoNormalTable" style="width:525.0pt;mso-cellspacing:0in;mso-yfti-tbllook:1184;mso-padding-alt:
    0in 0in 0in 0in">
    <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:7.5pt;mso-row-margin-right:
@@ -491,14 +482,12 @@
     </td>
     <td width="22" style="width:16.5pt;padding:0in 0in 0in 0in;height:15.0pt"></td>
    </tr>
-
-  </tbody></table>
+</tbody></table>
   </div>
   </td>
  </tr>
 <!-- email footer eof-->
 </tbody></table>
-
 </div>
 </body>
 </html>
