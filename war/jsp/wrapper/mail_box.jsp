@@ -1,6 +1,6 @@
 <div class="Mail_subscription">
 
-<div class="fb-like-box" data-href="http://www.facebook.com/HoneyBuy" data-width="191" data-show-faces="true" data-stream="false" data-header="false"></div>
+<div class="fb-like-box" data-href="http://www.facebook.com/HoneyBuyCity" data-width="191" data-show-faces="true" data-stream="false" data-header="false"></div>
 		
 <!-- 	<img src="../css/followUs_banner.png" style="height: 51px;"></img> -->
 <!-- 	<script> -->
