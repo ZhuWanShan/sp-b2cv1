@@ -31,13 +31,14 @@ public class PageDataInterceptor extends HandlerInterceptorAdapter{
         
         PageView pageView = new PageView();
         
-        populateCategoryForCategoryPage(request.getPathInfo().substring(1), pageView);
-        populateBreadcrumbForPage(pageView.getCategory(), pageView.getBreadcrumb());
+        String categoryName = request.getPathInfo().substring(1);
+        populateCategoryForCategoryPage(categoryName, pageView);
         
         if(pageView.getCategory() == null) {
-            Category category = ServiceFactory.getService(CategoryService.class).getCategoryByName(pageView.getCategory().getName());
+            Category category = ServiceFactory.getService(CategoryService.class).getCategoryByName(categoryName);
             pageView.setCategory(category);
         }
+        populateBreadcrumbForPage(pageView.getCategory(), pageView.getBreadcrumb());
         
         TabProduct topSelling = SCacheFacade.getTopSelling(0,false);
         pageView.setTopSellingProducts(topSelling);

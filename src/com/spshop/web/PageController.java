@@ -28,7 +28,7 @@ public class PageController extends BaseController {
     
     private PageView pageView;
     
-    private static final String SPECIAL_UI = "special";
+    private static final String MARKET_ONLY_UI = "market";
     private static final String CATEGORIES_UI = "categories";
     
     
@@ -44,7 +44,7 @@ public class PageController extends BaseController {
         }
         
         if (getPageView().getCategory().isDisplayMarketOnly()) {
-            return SPECIAL_UI;
+            return MARKET_ONLY_UI;
         }
         
         if (getPageView().getCategory().getSubCategories().size() == 0) {
