@@ -149,7 +149,7 @@
 		<servlet-name>SpringMVCUserCenter</servlet-name>
 		<url-pattern>/uc/*</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>SpringMVCTags</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -163,6 +163,21 @@
 	<servlet-mapping>
 		<servlet-name>SpringMVCTags</servlet-name>
 		<url-pattern>/tags/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SpringMVCPage</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/context/webContext.xml,/WEB-INF/context/pageContext.xml</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SpringMVCPage</servlet-name>
+		<url-pattern>/c/*</url-pattern>
 	</servlet-mapping>
 <!--<error-page> -->
 <!-- 		<exception-type>java.lang.Throwable</exception-type> -->
