@@ -1644,9 +1644,10 @@ li.scart_c_w_r {
 
 .top-selling .title {
 	line-height: 30px;
-    text-align: center;
+    text-align: left;
     font-size: 16px;
     color: #CC0000;
+    margin-left: 10px;
 }
 
 .top-selling-items {
