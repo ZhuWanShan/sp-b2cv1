@@ -1,0 +1,21 @@
+<div class="pagination">
+	<div class="paginator">
+		<form action='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}' method="post">
+			<#if (startIndex > 1)>
+				<a href='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}?pageNum=${(pageNum - 1)?string!"1"}'>Prev</a>
+			</#if>
+			<#if (endIndex < productsCount)>
+				<a href='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}?pageNum=${(pageNum + 1)?string!"1"}'>Next</a>
+			</#if>
+			<#list pageIndex as pageIdx>
+				<a href='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}?pageNum=${pageIdx!1}'>${pageIdx}</a>
+			</#list>
+			<input type="text" name="pageNum" class="page-input" value="${pageNum}">
+			<input type="hidden" name="startIndex" value="${startIndex}">
+			<input type="hidden" name="endIndex" value="${endIndex}">
+			<input type="submit" value="ok">
+		</form>
+	</div>
+	<span>Showing Results ${startIndex + " - " + endIndex} of ${productsCount}</span>
+	<div class="height-5"></div>
+</div>
