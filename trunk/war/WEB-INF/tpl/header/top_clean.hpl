@@ -6,6 +6,7 @@
 		<meta http-equiv="Cache-Control" content="no-cache" />
 		<meta content="${pageKeywords!''}" name="keywords">
 		<meta content="${pageDescription!''}" name="description">
+		<base href="${pageBaseURL!''}" />
 		
 		<title>${pageTitle!''}</title>
 		<link rel="stylesheet" type="text/css" href="/style/css/main.css?799">

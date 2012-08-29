@@ -2,10 +2,6 @@ package com.spshop.utils;
 
 import java.io.Serializable;
 
-
-/**
- * author Delgado
- */
 public class Constants {
 
 	public static String JMAGICK_SYSTEM_PROPERTY = "jmagick.systemclassloader";
@@ -93,6 +89,7 @@ public class Constants {
     
     public static final String SITE_VIEW = "siteView";
     public static final String USER_VIEW = "userView";
+    public static final String PAGE_VIEW = "pageView";
     
     public static final String LOGIN_LANDING_PAGE_PARAM = "landing_page";
     
@@ -239,4 +236,14 @@ public class Constants {
     public static final String CURRENT_PRODUCT_ID = "currentProductID";
     
     public static final String TAG_INDEXS = "tagIndexs";
+    
+    public static final String SUB_CATEGORY_PRODUCTS_KEY = "subCategoryProducts";
+    
+    public static final String CATEGORY_DATA_KEY = "categoryData";
+    
+    public static final String CATEGORY_IMAGE_SIZE_INFO_KEY = "categoryImageSizeInfo";
+    
+    public static final String IMAGE_SIZE_INFO_KEY = "imageSize";
+    
+    public static final String ADDITIONAL_PRODUCTS_KEY = "restProducts";
 }
