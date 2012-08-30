@@ -2,6 +2,7 @@
 	<head></head>
 <body>
 <div align="center">
+
 <table cellspacing="0" cellpadding="0" border="0" style="width:760px; background:#F2F3F4">
  <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes">
   <td style="padding:0in 0in 0in 0in"><!-- head logo & link -->
@@ -13,6 +14,7 @@ cellspacing:0in;mso-yfti-tbllook:1184;mso-padding-alt:
    <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:10.5pt">
     <td colspan="2" style="padding:0in 0in 0in 0in;height:10.5pt"></td>
    </tr>
+   
    <tr style="mso-yfti-irow:2;mso-yfti-lastrow:yes">
     <td style="padding:0in 0in 0in 0in">
     <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="mso-fareast-font-family:&quot;Times New 
@@ -101,11 +103,16 @@ href="http://www.honeybuy.com/uc/orderDetails?id=${order.name}">your order</a>!<
 0; font-size:10.0pt">Once your items have been packed and are ready to go, they will be shipped to you immediately. You 
 
 will receive a shipment notification via email once your order has been shipped.</p>
-</td>
+   
+      </td>
       <td width="22" valign="top" style="width:16.5pt;border:none;padding:0in 0in 0in 0in"></td>
      </tr>
     </tbody></table>
     </div>
+    <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="mso-fareast-font-family:&quot;Times New 
+
+Roman&quot;;display:none;mso-hide:
+    all"><o:p>&nbsp;</o:p></span></p>
 <!-- EMAIL HEADER EOF --><!-- ship -->
     <div align="center">
     <table cellspacing="0" cellpadding="0" border="0" width="700" class="MsoNormalTable" style="width:525.0pt;mso-
@@ -355,6 +362,7 @@ family:&quot;Times New Roman&quot;">${order.currency}
        </tr>
       </tbody></table>
       </td>
+      <td width="4" style="width:3.0pt;padding:0in 0in 0in 0in;height:19.5pt"></td>
      </tr>
      <tr style="mso-yfti-irow:4">
       <td width="100%" style="width:100.0%;padding:0in 0in 0in 0in">
@@ -412,6 +420,7 @@ Roman&quot;">${(order.currency)}&nbsp;-${(currencyRate*order.couponCutOff)?strin
 	        </td>
 	        <td width="4" style="width:3.0pt;padding:0in 0in 0in 0in"></td>
        </tr>
+       
        <tr style="mso-yfti-irow:4;mso-yfti-lastrow:yes">
         <td style="border:none;border-top:solid #E2E2E2 1.0pt;mso-border-top-alt:
         solid #E2E2E2 .75pt;padding:7.5pt 0in 0in 15.0pt">
@@ -431,11 +440,33 @@ order.couponCutOff+order.dePrice))?string(",##0.##")}</span></strong><span style
         9.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p>
         </td>
         <td width="4" style="width:3.0pt;padding:0in 0in 0in 0in"></td>
+       </tr>
+      </tbody></table>
+      </td>
+      <td style="padding:0in 0in 0in 0in"></td>
+      <td style="padding:0in 0in 0in 0in"></td>
+      <td style="padding:0in 0in 0in 0in"></td>
+      <td style="padding:0in 0in 0in 0in"></td>
+      <td style="padding:0in 0in 0in 0in"></td>
+      <td style="padding:0in 0in 0in 0in"></td>
+     </tr>
+     <tr style="mso-yfti-irow:5;mso-yfti-lastrow:yes;height:7.5pt">
+      <td style="padding:0in 0in 0in 0in;height:7.5pt"></td>
+      <td style="padding:0in 0in 0in 0in;height:7.5pt"></td>
+      <td style="padding:0in 0in 0in 0in;height:7.5pt"></td>
+      <td style="padding:0in 0in 0in 0in;height:7.5pt"></td>
+      <td style="padding:0in 0in 0in 0in;height:7.5pt"></td>
+      <td style="padding:0in 0in 0in 0in;height:7.5pt"></td>
+      <td style="padding:0in 0in 0in 0in;height:7.5pt"></td>
+     </tr>
+    </tbody></table>
     </div>
-<!-- item list EOF -->
+    <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="mso-fareast-font-family:&quot;Times New 
 
-
-     
+Roman&quot;;display:none;mso-hide:
+    all"><o:p>&nbsp;</o:p></span></p>
+<!-- item list EOF --><!-- line -->
+    <div align="center">
     <table cellspacing="0" cellpadding="0" border="1" width="100%" class="MsoNormalTable" style="width:100.0%;mso-
 
 cellspacing:0in;border:none;
@@ -446,7 +477,31 @@ cellspacing:0in;border:none;
      </tr>
     </tbody></table>
     </div>
-   <!-- FAQ -->
+    <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="mso-fareast-font-family:&quot;Times New 
+
+Roman&quot;;display:none;mso-hide:
+    all"><o:p>&nbsp;</o:p></span></p>
+<!-- line eof -->
+    <div align="center">
+    <table cellspacing="0" cellpadding="0" border="1" width="700" class="MsoNormalTable" style="width:525.0pt;mso-
+
+cellspacing:0in;border:none;border-bottom:solid #C9C9CA 1.0pt;
+     mso-border-bottom-alt:solid #C9C9CA .75pt;mso-yfti-tbllook:1184;
+     mso-padding-alt:0in 0in 0in 0in">
+     <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:7.5pt">
+      <td style="border:none;padding:0in 0in 0in 0in;height:7.5pt"></td>
+     </tr>
+     <tr style="mso-yfti-irow:1">
+      <td valign="top" style="border:none;padding:0in 16.5pt 0in 16.5pt">
+      </td>
+     </tr>
+     <tr style="mso-yfti-irow:2;mso-yfti-lastrow:yes;height:7.5pt">
+     
+     </tr>
+    </tbody></table>
+    </div>
+    <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"></p>
+<!-- FAQ -->
     <div align="center">
     <table cellspacing="0" cellpadding="0" border="0" width="100%" class="MsoNormalTable" style="width:100.0%;mso-
 
@@ -455,6 +510,7 @@ cellspacing:0in;mso-yfti-tbllook:
      <tbody>
      <tr>
       <td style="width:5px; border:none;padding:10px 0in 0in 0in"></td>
+            
        <td style="padding:10px 0px"> 
 	  <p style="text-align:left;font-size:10.0pt"><strong>Please Note: </strong></P>
 	  <p style="text-align:left;font-size:9.0pt">Once we finish processing your order, your items will be 
@@ -489,31 +545,39 @@ href="mailto:service@honeybuy.com">Email</a> to us: service@honeybuy.com!</p>
 our site and use $20 Coupon:<span style="color:red"> HONEYBUY-2S6M2g</span> for your next orders over $150. We are 
 
 waiting for your next visit!</p></td>
-   <td style="width:5px;border:none;padding:0in 0in 0in 0in"></td>
+   
+   
+    <td style="width:5px;border:none;padding:0in 0in 0in 0in"></td>
      </tr>
     </tbody></table>
     </div>
+    <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="mso-fareast-font-family:&quot;Times New 
+
+Roman&quot;;display:none;mso-hide:
+    all"><o:p>&nbsp;</o:p></span></p>
 <!-- FAQ eof -->
-<div align="center" style="padding:12px 0; border-top:1px solid #C9C9CA ">
- <table width="728" border="0" cellspacing="0" cellpadding="0">
+    <div align="center">
+<table width="728" border="0" cellspacing="0" cellpadding="0" style="border-top:1px solid #C9C9CA; padding:6px; 
+
+padding-bottom:none">
   <tr>
-    <td style="padding-left:12px; width:100%;">Join Honeybuy Community for Coupons, Gifts and Happiness:
-Like Honeybuy on Facebook</td>
+    <td>Join Honeybuy Community for Coupons, Gifts and Happiness:</td>
   </tr>
    <tr><td>&nbsp;</td>
   </tr>
 </table>
-    <table width="500" border="0" cellspacing="0" cellpadding="0">
+    <table width="500" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:15px;">
   <tr>
-    <td><a href="http://www.facebook.com/HoneyBuyCity" target="_blank"><img title="Like Honeybuy on Facebook" alt="Like 
+    <td>&nbsp;</td>
+  <td><a href="https://www.facebook.com/HoneyBuyCity" target="_blank"><img title="Like Honeybuy on Facebook" alt="Like 
 
 Honeybuy on Facebook" src="http://www.honeybuy.com/style/image/pic/facebook_32.png" border="0" /></a></td>
-    <td><a href="http://plus.google.com/109978880912693970020/posts?prsr=3" target="_blank"><img width="32" height="32" 
+    <td><a href="https://plus.google.com/109978880912693970020/posts?prsr=3" target="_blank"><img width="32" 
 
-title="Honeybuy Google+" alt="Honeybuy Google+" src="http://www.honeybuy.com/style/image/pic/gplus-32.png" border="0" 
+height="32" title="Honeybuy Google+" alt="Honeybuy Google+" src="http://www.honeybuy.com/style/image/pic/gplus-32.png" 
 
-/></a></td>
-  <td><a href="http://twitter.com/HoneyBuy" target="_blank"><img width="32" height="32" title="Follow Honeybuy on 
+border="0" /></a></td>
+  <td><a href="https://twitter.com/HoneyBuy" target="_blank"><img width="32" height="32" title="Follow Honeybuy on 
 
 Twitter" alt="Follow Honeybuy on Twitter" src="http://www.honeybuy.com/style/image/pic/twitter_32.png" 
 
@@ -545,13 +609,18 @@ title="Honeybuy Blogspot" alt="Honeybuy Blogspot" src="http://www.honeybuy.com/s
 border="0"></a></td>
   </tr>
 </table>
-</div>
-<div align="center">
-  <table cellspacing="0" cellpadding="0" border="0" width="700" style="width:525.0pt;mso-cellspacing:0in;mso-yfti-
+    </div>
+    </td>
+   </tr>
+  </tbody></table>
+  </div>
+  <div align="center">
+  <table cellspacing="0" cellpadding="0" border="0" width="700" class="MsoNormalTable" style="width:525.0pt;mso-
 
-tbllook:1184;mso-padding-alt:
+cellspacing:0in;mso-yfti-tbllook:1184;mso-padding-alt:
    0in 0in 0in 0in">
-   <tbody><tr style="mso-yfti-irow:1;height:37.5pt">
+   <tbody>
+   <tr style="mso-yfti-irow:1;height:37.5pt">
     <td width="22" style="width:16.5pt;padding:0in 0in 0in 0in;height:37.5pt"></td>
     <td style="padding:0in 0in 0in 0in;height:37.5pt">
     <p align="center" class="MsoNormal" style="margin:0in;margin-bottom:.0001pt;
@@ -559,6 +628,9 @@ tbllook:1184;mso-padding-alt:
     &quot;Times New Roman&quot;;color:#646464"><br>
     <strong>PLEASE DO NOT REPLY to this email! If you have any question, Please
     <a href="mailto:service@honeybuy.com">Contact Us </a>here</strong>. <o:p></o:p></span></p>
+    </td>
+    <td width="22" style="width:16.5pt;padding:0in 0in 0in 0in;height:37.5pt"></td>
+   </tr>
    <tr style="mso-yfti-irow:2;height:15.0pt">
     <td width="22" style="width:16.5pt;padding:0in 0in 0in 0in;height:15.0pt"></td>
     <td style="padding:0in 0in 0in 0in;height:15.0pt">
@@ -571,13 +643,14 @@ tbllook:1184;mso-padding-alt:
     </td>
     <td width="22" style="width:16.5pt;padding:0in 0in 0in 0in;height:15.0pt"></td>
    </tr>
+   <tr style="mso-yfti-irow:3;mso-yfti-lastrow:yes;height:20pt">
+   </tr>
   </tbody></table>
   </div>
-</td>
-</tr>
+  </td>
+ </tr>
 <!-- email footer eof-->
-</tbody>
-</table>
+</tbody></table>
 
 </div>
 </body>
