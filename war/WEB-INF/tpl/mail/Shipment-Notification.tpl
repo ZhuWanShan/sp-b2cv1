@@ -8,40 +8,32 @@
         <tbody>
         <tr>
          <td> <img board="0" title="honeybuy.com" alt="honeybuy.com" 
-
 src="https://www.honeybuy.com/image/4614200824386.jpg"> </td>
           <td align="right" style="FONT-SIZE: 14pt">Shipment 
         Notification</td> </tr> </tbody> </table>
       <table width="700" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" align="center" style="BORDER-
-
 BOTTOM: #c9c9ca 1px solid; BORDER-LEFT: #c9c9ca 1px solid; BORDER-TOP: #d4232b 1px solid; BORDER-RIGHT: #c9c9ca 1px 
-
 solid">
         <tbody>
         <tr>
           <td colspan="2">
             <table width="700" height="55" cellspacing="0" cellpadding="0" border="0" align="center" style="BORDER-
-
 BOTTOM: #c9c9ca 1px solid; FONT-SIZE: 12px">
               <tbody>
               <tr>
                 <td width="22"> </td>
                 <td align="left"> <strong>Order No.:</strong> ${order.name}</td>
                 <td align="right">Ordered at <#if order.createDate??> ${order.createDate?string("yyyy-MM-dd HH:mm:ss 
-
 zzzz")} </#if></td><td width="22"> </td> </tr> </tbody> </table>
             <table width="700" cellspacing="0" cellpadding="0" border="0" align="center" style="BORDER-BOTTOM: #c9c9ca 
-
 1px solid; FONT-SIZE: 12px">
               <tbody>
               <tr valign="top">
                 <td width="12"> </td>
                 <td> <img src="http://cloud.lbox.me/images/wholesale/201009/n_car1283947100.jpg" style="PADDING-TOP: 
-
 25px"> </td><td width="30"> </td>
                 <td width="660">
                   <p style="LINE-HEIGHT: 17px; MARGIN: 26px 0px 5px; paading: 0"> <strong style="COLOR: #000">Dear <#if 
-
 order.customerName??> ${order.customerName}</#if>,</strong></p>
                   <p style="LINE-HEIGHT: 17px; MARGIN: 5px 0px; paading: 0">We 
                   are pleased to inform you that one or more of your items has 
@@ -175,21 +167,26 @@ target="_blank">My Order</a>. Some carriers may not provide tracking
                   information. If you ordered multiple items, you may receive 
                   separate shipments with no additional shipping charges. </p>
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px">For details 
-                  regarding processing and delivery times, please see <a href="http://www.honeybuy.com/c/Shipping-
+                  regarding processing and delivery times, please see <a 
 
-Information" style="COLOR: #1e4e8e; TEXT-DECORATION: none" target="_blank">Shipping Information</a>.</p>
+href="http://www.honeybuy.com/uc/helpCenter/more-2" style="COLOR: #1e4e8e; TEXT-DECORATION: none" 
+
+target="_blank">Shipping Information</a>.</p>
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px">If you are not 
                   satisfied with your purchase, you may be eligible to return 
                   your item(s) by contacting Customer Service within 7 days of 
-                  receiving your package. For more information, visit our <a href="http://www.honeybuy.com/c/Return-
+                  receiving your package. For more information, visit our <a 
 
-Exchange" style="COLOR: #1e4e8e; TEXT-DECORATION: none" target="_blank">Return Exchange</a> policy.</p>
+href="http://www.honeybuy.com/uc/helpCenter/more-4" style="COLOR: #1e4e8e; TEXT-DECORATION: none" 
+
+target="_blank">Return Exchange</a> policy.</p>
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px">For all other 
-                  questions, visit our <a href="http://www.honeybuy.com/c/FAQ" style="COLOR: #1e4e8e; TEXT-DECORATION: 
+                  questions, visit our <a href="http://www.honeybuy.com/uc/helpCenter/hcIndex" style="COLOR: #1e4e8e; 
+
+TEXT-DECORATION: 
 
 none" target="_blank">FAQ</a>.</p>
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px"> <strong style="COLOR: #444">Do I have to pay import 
-
 or customs duties?</strong> </p>
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px">Honeybuy.com 
                   doesn't charge any taxes for its purchases, so now you are 
@@ -199,7 +196,6 @@ or customs duties?</strong> </p>
                 <td width="37"> </td>
                 <td width="44%" style="TEXT-ALIGN: left">
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px"> <strong style="COLOR: #444">What if my package was 
-
 damaged during  delivery?</strong> </p>
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px">Once you 
                   receive your package, please be sure to check for any damage. 
@@ -208,27 +204,22 @@ damaged during  delivery?</strong> </p>
                   this when contacting Customer Service to arrange for damage 
                   reimbursement.</p>
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px"> <strong style="COLOR: #444">How can I contact 
-
 customer  service?</strong> </p>
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px">For help with 
                   any order, just log in to <a href="http://www.honeybuy.com/uc/orderDetails?id=${order.name}" 
-
 style="COLOR: #1e4e8e; TEXT-DECORATION: none" target="_blank">My Order</a> and click on the order you need help 
-
 with.Through the 
                   order details page, you can easily check order status and 
                   request the kind of Customer Service you need.  </p>
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px">Please note: 
                   Our Online Sales Chat representatives do not have access to 
                   any order information. <br>For all other questions, please send Email to: 
-
 <em>service@honeybuy.com</em>.</p> </td>
                 <td width="22"> </td> </tr>
               <tr>
                 <td height="22"></td> 
 				</tr> </tbody> </table>
             <table width="700" cellspacing="0" cellpadding="0" border="0" align="center" style="FONT-SIZE: 12px; 
-
 BORDER-TOP: #c9c9ca 1px solid" align="center">
   <tr>
     <td align="center" style="padding-top:8px">Join Honeybuy Community for Coupons, Gifts and Happiness:
@@ -237,33 +228,23 @@ Like Honeybuy on Facebook</td>
    <tr><td>&nbsp;</td>
   </tr>
 </table>
-    <table width="500" border="0" cellspacing="0" cellpadding="0" align="center" style="padding-bottom:8px">
-  <tr>
-    <td><a href="http://www.facebook.com/HoneyBuyCity" target="_blank"><img title="Like Honeybuy on Facebook" alt="Like 
-
+<table width="500" border="0" cellspacing="0" cellpadding="0" align="center" style="padding-bottom:8px">
+<tr>
+<td><a href="http://www.facebook.com/HoneyBuyCity" target="_blank"><img title="Like Honeybuy on Facebook" alt="Like 
 Honeybuy on Facebook" src="http://www.honeybuy.com/style/image/pic/facebook_32.png" border="0" /></a></td>
-    <td><a href="http://plus.google.com/109978880912693970020/posts?prsr=3" target="_blank"><img width="32" height="32" 
-
+<td><a href="http://plus.google.com/109978880912693970020/posts?prsr=3" target="_blank"><img width="32" height="32" 
 title="Honeybuy Google+" alt="Honeybuy Google+" src="http://www.honeybuy.com/style/image/pic/gplus-32.png" border="0" 
-
 /></a></td>
-  <td><a href="http://twitter.com/HoneyBuy" target="_blank"><img width="32" height="32" title="Follow Honeybuy on 
-
+<td><a href="http://twitter.com/HoneyBuy" target="_blank"><img width="32" height="32" title="Follow Honeybuy on 
 Twitter" alt="Follow Honeybuy on Twitter" src="http://www.honeybuy.com/style/image/pic/twitter_32.png" 
-
 border="0"/></a></td>
-  <td><a rel="nofollow" target="_blank" href="http://www.linkedin.com/in/honeybuy"><img width="32" height="32" 
-
+<td><a rel="nofollow" target="_blank" href="http://www.linkedin.com/in/honeybuy"><img width="32" height="32" 
 title="Honeybuy Linkedin" alt="Hoenybuy Linkedin" src="http://www.honeybuy.com/style/image/pic/linkedin_32.png" 
-
 border="0"></a></td>
 <td><a rel="nofollow" target="_blank" href="http://www.youtube.com/user/honeybuyshow"><img width="32" height="32" 
-
 title="Honeybuy Youtube" alt="Honeybuy Youtube" src="http://www.honeybuy.com/style/image/pic/youtube-logo.jpg" 
-
 border="0"/></a></td>
-    <td><a rel="nofollow" target="_blank" href="http://pinterest.com/honeybuy/"><img width="32" height="32" 
-
+<td><a rel="nofollow" target="_blank" href="http://pinterest.com/honeybuy/"><img width="32" height="32" 
 title="Honeybuy Pinterest" alt="Honeybuy Pinterest" src="http://www.honeybuy.com/style/image/pic/big-p-button.png" 
 
 border="0"></a></td>
