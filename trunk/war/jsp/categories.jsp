@@ -8,8 +8,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
 	
 	
+	<c:if test="${requestScope.pageNum != null}">
 	<title>${pageForm.category.pageTitle} - page ${requestScope.pageNum}</title>
 	<meta name="description" content="${pageForm.category.description} - page ${requestScope.pageNum}">
+	</c:if>
+	<c:if test="${requestScope.pageNum == null}">
+	<title>${pageForm.category.pageTitle}</title>
+	<meta name="description" content="${pageForm.category.description}">
+	</c:if>
 	<meta name="keywords" content="${pageForm.category.relatedKeyword}">
 	
 	<link rel="stylesheet" type="text/css" href="../css/header.css">
