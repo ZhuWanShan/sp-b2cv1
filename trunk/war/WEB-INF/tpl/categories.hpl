@@ -2,7 +2,7 @@
 <#assign pageDescription = '${pageView.category.description!""}'>
 <#assign pageTitle = '${pageView.category.pageTitle!""}'>
 <#assign pageBaseURL = '${siteView.host+"/"}'>
-<#assign pageSuffix = '${pageNum}'>
+<#assign pageSuffix = '${pageNum!""}'>
 
 <#include "/header/top.hpl">
 <#include "/body/body-sp-category.hpl">	

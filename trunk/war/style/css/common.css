@@ -20,6 +20,10 @@ a {
 	text-decoration: none;
 }
 
+img {
+	border:0px;
+}
+
 .button_01 {
 	background: url("/style/image/button01_bg.gif") repeat scroll 0 0
 		transparent !important;
