@@ -48,7 +48,7 @@ public class TagsServiceImpl implements TagsService {
 					String[] keys = tagIndexs.get(key);
 					List<String> keyList = new ArrayList<String>();
 					indexsAll.put(key, kws);
-					for(int i = 0; i < INDEX_SIZE_PER_KEY && i < keys.length - 2 && null != keys; i++){
+					for(int i = 0; i < INDEX_SIZE_PER_KEY && i < keys.length && null != keys; i++){
 						keyList.add(keys[i]);
 					}
 					indexs.put(key, keyList);

@@ -31,4 +31,6 @@ public interface ProductService extends BaseService<Product,ProductDAO, Long>{
 	List<Product> getProductsByTag(String tag, int start, int end);
 	
 	int getProductCountByTag(String tag);
+	
+	List<String> getTags();
 }
