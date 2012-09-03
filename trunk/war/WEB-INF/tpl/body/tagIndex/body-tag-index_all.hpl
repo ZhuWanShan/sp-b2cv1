@@ -3,11 +3,11 @@
 	<div class="tag-index-container">
 	<#list (tagIndexs?keys) as key >
 		<dl>
-			<dt>${key}</dt>
+			<dt> <a href='/tags/index/${key?trim?replace(" ", "-")}'>${key}</a></dt>
 			<#list (tagIndexs[key]) as keyword >
 				<dd>
 					<a
-						href="">${keyword}</a>
+						href='/tags/k/${keyword?trim?replace(" ", "-")}'>${keyword}</a>
 				</dd>
 			</#list>
 		</dl>

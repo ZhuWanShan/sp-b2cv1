@@ -246,4 +246,20 @@ public class Constants {
     public static final String IMAGE_SIZE_INFO_KEY = "imageSize";
     
     public static final String ADDITIONAL_PRODUCTS_KEY = "restProducts";
+    
+    public static final String CURRENT_KEYWORD = "currentKeyword";
+    
+    public static final String CURRENT_KEYWORD_2 = "currentKeyword2";
+    
+    public static final String CURRENT_INDEX_KEY_LIST = "currentIndexKeyList";
+    
+    public static final String CURRENT_INDEX_KEY_PAGE = "currentIndexKeyPage";
+    
+    public static final String CURRENT_INDEX_KEY_PAGE_COUNT = "currentIndexKeyPageCount";
+    
+    public static final int TAGS_PRODUCT_PER_PAGE = 20;
+    
+    public static final String TOP_SELLING_TAB_PRODUCT = "topSellingTabProduct";
+    
+    public static final String TAGED_PRODUCTS = "tagedProducts";
 }

@@ -9,7 +9,9 @@ import java.security.SecureRandom;
 import java.security.Security;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -23,7 +25,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
+import com.spshop.admin.shared.ImageSize;
+import com.spshop.model.Image;
 import com.spshop.model.Order;
+import com.spshop.model.Product;
 import com.spshop.model.User;
 import com.spshop.model.cart.ShoppingCart;
 import com.spshop.model.enums.OrderStatus;
@@ -256,4 +261,29 @@ public class Utils {
 		return format.format(number);
 	}
 
+	 public static List<Float> figureOutProductsSize(List<Product> products){
+	        List<Float> size = new ArrayList<Float>();
+	        Float maxW = 0f;
+	        Float maxH = 0f;
+	        Float minH = 600f;
+	        Float tempW = 0f;
+	        Float tempH = 0f;
+	        Image img;
+	        for (Product p : products) {
+	            img = p.getImages().get(0);
+	            tempW = Float.valueOf(ImageTools.getXY(img.getSizeType(), ImageSize.valueOf("LARGE_SIZE"))[0]);
+	            tempH = Float.valueOf(ImageTools.getXY(img.getSizeType(), ImageSize.valueOf("LARGE_SIZE"))[1]);
+	            if(tempH > maxH){
+	                maxH = tempH;
+	                maxW = tempW;
+	            }
+	            if (tempH <= minH) {
+	                minH = tempH;
+	            }
+	        }
+	        size.add(minH);
+	        size.add(maxH);
+	        size.add(maxW);
+	        return size;
+	    }
 }

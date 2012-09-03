@@ -1,6 +1,7 @@
 package com.spshop.service.impl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -119,6 +120,34 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 	@Override
 	public Map<String,String> search(String keyword, int start, int end) {
 		return getDao().search(keyword, start, end);
+	}
+	
+	
+	@Override
+	public int getProductCountByTag(String tag) {
+		
+		String hql = "select count(id) From Product where keywords like '%"+tag+"%' order by createDate desc"; 
+		
+		List<Object> count= (List<Object>) getDao().queryByHQL(hql);
+		
+		return Integer.valueOf(count.get(0).toString());
+	}
+	
+
+	@Override
+	public List<Product> getProductsByTag(String tag, int start, int max) {
+		
+		String hql = "From Product where keywords like '%"+tag+"%' order by createDate desc"; 
+		
+		List<Product> products= getDao().queryByHQL(hql, start, max);
+		
+		if(null != products){
+			for (Product product : products) {
+				product = product.clone();
+			}
+		}
+		
+		return products;
 	}
 	
 	

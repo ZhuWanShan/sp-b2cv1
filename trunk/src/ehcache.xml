@@ -57,5 +57,10 @@
 		timeToLiveSeconds="864000" maxElementsInMemory="500"
 		memoryStoreEvictionPolicy="LRU" overflowToDisk="true"
 		maxElementsOnDisk="50000" />
+	
+	<cache name="tagsProduct" eternal="false"
+		timeToLiveSeconds="864000" maxElementsInMemory="10"
+		memoryStoreEvictionPolicy="LRU" overflowToDisk="true"
+		maxElementsOnDisk="50000" />
 
 </ehcache>

@@ -1,7 +1,7 @@
 <div class="top-selling">
 	<h3 class="title">Top Selling</h3>
 	<ul>
-		<#list pageView.topSellingProducts.products as topProduct>
+		<#list topSellingProduct as topProduct >
 			<li class="top-selling-item">
 				<a title="${topProduct.title?string}" href='${(siteView.host+"/"+topProduct.name)?string!""}'>
 					<#if topProduct.images[0].strSizeType == "PRODUCT_SQUARE">
