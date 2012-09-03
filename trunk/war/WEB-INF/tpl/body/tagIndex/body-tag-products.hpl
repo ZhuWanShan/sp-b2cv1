@@ -1,7 +1,0 @@
-<#assign pageCategories = pageView.category.subCategories>
-<div class="main_box" id="main_box">
-	<#include "include.hpl">
-	<#include "/body/uc-inc/sp-left.hpl">
-
-	<p class="clearBoth"></p>
-</div>
