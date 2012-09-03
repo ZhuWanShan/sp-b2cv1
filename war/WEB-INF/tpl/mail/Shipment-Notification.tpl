@@ -91,16 +91,16 @@ order.customerName??> ${order.customerName}</#if>,</strong></p>
             <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="FONT-SIZE: 12px">
               <tbody>
               <tr>
-                <td width="100%" height="26" bgcolor="#0000FF" colspan="6">
+                <td width="100%" height="26" bgcolor="#e7e7e7" colspan="6">
                   <table width="100%" cellspacing="0" cellpadding="0" border="0" style="COLOR: #ffffff; FONT-SIZE: 
 
 12px">
                     <tbody>
                     <tr align="left">
                       <td width="22"> </td>
-                      <td width="574" style="COLOR: #ffffff">Item(s) in Order</td>
+                      <td width="574" style="COLOR: #222222">Item(s) in Order</td>
                       <td width="10"> </td>
-                      <td width="102" align="center" style="COLOR: #ffffff">Qty</td> </tr> </tbody> </table> </td>
+                      <td width="102" align="center" style="COLOR: #222222">Qty</td> </tr> </tbody> </table> </td>
                 <td width="4"> </td> </tr>
 				<#if order.items??>
 				<#list order.items as item>
@@ -139,27 +139,26 @@ style="color:#1E4E8E;text-decoration:none;text-underline:none">${item.product.ti
                   service at the lowest rate possible. </td> </tr>
               <tr>
                 <td height="10"> </td> </tr> </tbody> </table>
-            <table width="700" cellspacing="0" cellpadding="0" border="0" align="center" style="COLOR: #6f7074; FONT-
-
-SIZE: 12px">
+            <table width="700" cellspacing="0" cellpadding="0" border="0" align="center" style="font-size: 12px">
               <tbody>
               <tr>
                 <td height="15"> </td> </tr>
               <tr>
                 <td> </td>
-                <td colspan="2" style="COLOR: #444; FONT-SIZE: 13px"> <strong>Frequently Asked Questions</strong> </td> 
+                <td colspan="2" style="COLOR: #444; FONT-SIZE: 12px"> <strong>Frequently Asked Questions</strong> </td> 
 
 </tr>
               <tr>
                 <td height="10"> </td> </tr>
               <tr valign="top">
                 <td width="22"> </td>
-                <td width="44%" style="TEXT-ALIGN: left">
+                <td width="44%" style="text-align: left">
                   <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px"> <strong style="COLOR: #444">How do I track my 
 
 package?</strong> </p>
-                  <p style="LINE-HEIGHT: 14px; MARGIN: 10px 0px">All available 
-                  tracking information has been provided above and in your <a 
+                  <p style="line-height:14px; margin:10px 0px">All available tracking information has been provided 
+
+above and in your <a 
 
 href="http://www.honeybuy.com/uc/orderDetails?id=${order.name}" style="COLOR: #1e4e8e; TEXT-DECORATION: none" 
 
@@ -219,6 +218,27 @@ with.Through the
               <tr>
                 <td height="22"></td> 
 				</tr> </tbody> </table>
+
+
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0" style="COLOR: #222; FONT-SIZE: 12px">
+ <tr align="center"><td width="100%" height="26" bgcolor="#e7e7e7" colspan="6"><strong>Share Your Experiences to Win 
+
+Coupons.</strony></td></tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0" border="0" style="COLOR: #222; FONT-SIZE: 12px; padding:10px">
+ <tr><td>All customers who have purchased with HoneyBuy.com. (No additional purchases necessary.)
+<br>Submit a review for any previously purchased product.<br> </br> 
+1: Submit your review on honeybuy Facebook page. Then a $10 coupons will be sent to you.<br> </br>
+2: Submit your review videos on youtube.com, and share the videos on Honeybuy Facebook page.  Then a $20 coupon will be 
+
+sent to you.
+</td></tr>
+</table>
+
+
+
+
             <table width="700" cellspacing="0" cellpadding="0" border="0" align="center" style="FONT-SIZE: 12px; 
 BORDER-TOP: #c9c9ca 1px solid" align="center">
   <tr>
