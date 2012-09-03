@@ -11,12 +11,14 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Properties;
-import java.util.Random;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.terracotta.agent.repkg.de.schlichtherle.io.FileOutputStream;
+
+import com.spshop.service.factory.ServiceFactory;
+import com.spshop.service.intf.ProductService;
 
 public class TagsGen {
 
@@ -38,9 +40,9 @@ public class TagsGen {
 
 	public void launch() {
 		init();
-		String[] tags = new String[] {
-				"abc,abc,asda,fghfg,qwew,gdgd,rwer,dfggd,fdgdf,fgh,wer,poi,jyjy",
-				"jtytj,tryrt,wrw,uiyi,erwe,sd,fh,ddf,sdfsd,sdfsdf,sdf,ghhf,hfg,h,sdfsd,rtyrwerqw" };
+		
+		List<String> tags = ServiceFactory.getService(ProductService.class).getTags();
+		
 		Set<String> tagList = new HashSet<String>();
 		for (String tag : tags) {
 			if (StringUtils.isNotBlank(tag)) {
@@ -93,7 +95,7 @@ public class TagsGen {
 		
 		
 		//Test data
-		Random random = new Random();
+	/*	Random random = new Random();
 		for (int int1 = 0; int1 < 100000; int1++) {
 			a.append("A"+random.nextInt()+ comma);
 			b.append("B"+random.nextInt()+ comma);
@@ -122,7 +124,7 @@ public class TagsGen {
 			y.append("Y"+random.nextInt()+ comma);
 			z.append("Z"+random.nextInt()+ comma);
 			number.append(random.nextInt(99999999)+ comma);
-		}
+		}*/
 		
 		//End test data
 

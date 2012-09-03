@@ -126,9 +126,9 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 	@Override
 	public int getProductCountByTag(String tag) {
 		
-		String hql = "select count(id) From Product where keywords like '%"+tag+"%' order by createDate desc"; 
+		String hql = "select count(id) From Product where tags like ? order by createDate desc"; 
 		
-		List<Object> count= (List<Object>) getDao().queryByHQL(hql);
+		List<Object> count= (List<Object>) getDao().queryByHQL(hql,0,9999,"%"+tag+"%");
 		
 		return Integer.valueOf(count.get(0).toString());
 	}
@@ -137,9 +137,9 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 	@Override
 	public List<Product> getProductsByTag(String tag, int start, int max) {
 		
-		String hql = "From Product where keywords like '%"+tag+"%' order by createDate desc"; 
+		String hql = "From Product where tags like ? order by createDate desc"; 
 		
-		List<Product> products= getDao().queryByHQL(hql, start, max);
+		List<Product> products= (List<Product>) getDao().queryByHQL(hql, start, max,"%"+tag+"%");
 		
 		if(null != products){
 			for (Product product : products) {
@@ -148,6 +148,16 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 		}
 		
 		return products;
+	}
+
+	@Override
+	public List<String> getTags() {
+		
+		String hql = "select tags from Product";
+		
+		List<String>  rs =  (List<String>) getDao().queryByHQL(hql);
+		
+		return rs;
 	}
 	
 	
