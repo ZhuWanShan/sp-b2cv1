@@ -12,15 +12,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.spshop.admin.shared.ImageSize;
 import com.spshop.cache.SCacheFacade;
 import com.spshop.model.Category;
-import com.spshop.model.Image;
 import com.spshop.model.Product;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.ProductService;
 import com.spshop.utils.Constants;
-import com.spshop.utils.ImageTools;
+import com.spshop.utils.Utils;
 import com.spshop.web.view.PageView;
 
 @Controller
@@ -58,7 +56,7 @@ public class PageController extends BaseController {
     
     private void populateProductsByCategory(PageView page, int startIndex, int pageSize, int pageNum, HttpServletRequest request) {
         List<Product> products = searchProductsByCategory(page.getCategory(), startIndex - 1, startIndex + pageSize - 1);
-        List<Float> imageSize = figureOutProductsSize(products);
+        List<Float> imageSize = Utils.figureOutProductsSize(products);
         page.addPageProperty(Constants.PROD_IN_CATEGORY_PAGE, products);
         page.addPageProperty(Constants.IMAGE_SIZE_INFO_KEY, imageSize);
         
@@ -99,7 +97,7 @@ public class PageController extends BaseController {
             tempProducts = searchProductsByCategory(category, 0, 6);
             content.put(category.getName().toString(), tempProducts);
             categoryData.put(category.getName().toString(), category);
-            categoryImageSizeInfo.put(category.getName().toString(), figureOutProductsSize(tempProducts));
+            categoryImageSizeInfo.put(category.getName().toString(), Utils.figureOutProductsSize(tempProducts));
         }
         page.addPageProperty(Constants.SUB_CATEGORY_PRODUCTS_KEY, content);
         page.addPageProperty(Constants.CATEGORY_DATA_KEY, categoryData);
@@ -110,31 +108,7 @@ public class PageController extends BaseController {
         }
     }
     
-    private List<Float> figureOutProductsSize(List<Product> products){
-        List<Float> size = new ArrayList<Float>();
-        Float maxW = 0f;
-        Float maxH = 0f;
-        Float minH = 600f;
-        Float tempW = 0f;
-        Float tempH = 0f;
-        Image img;
-        for (Product p : products) {
-            img = p.getImages().get(0);
-            tempW = Float.valueOf(ImageTools.getXY(img.getSizeType(), ImageSize.valueOf("LARGE_SIZE"))[0]);
-            tempH = Float.valueOf(ImageTools.getXY(img.getSizeType(), ImageSize.valueOf("LARGE_SIZE"))[1]);
-            if(tempH > maxH){
-                maxH = tempH;
-                maxW = tempW;
-            }
-            if (tempH <= minH) {
-                minH = tempH;
-            }
-        }
-        size.add(minH);
-        size.add(maxH);
-        size.add(maxW);
-        return size;
-    }
+   
     
     public void setPageView(PageView pageView) {
         this.pageView = pageView;

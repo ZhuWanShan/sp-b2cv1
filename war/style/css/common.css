@@ -1575,9 +1575,30 @@ li.scart_c_w_r {
 	zoom: 1;
 }
 
+
 .tag-index-banner a{
 	margin: 2px 5px;
 }
+
+.tag-index-pager {
+	font-size: 12px;
+	line-height: 30px;
+	border: 1px solid #DDD;
+	border-width: 1px 0;
+	padding-left: 10px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	clear: both;
+	zoom: 1;
+	float: right;
+	width: 300px;
+	margin-right: 150px;
+}
+
+.tag-index-pager a{
+	margin: 2px 5px;
+}
+
 
 .tag-index-container{
 	
@@ -1597,6 +1618,29 @@ li.scart_c_w_r {
 
 .tag-index-container dl dd{
 	 padding: 2px 3px;
+}	
+
+.tag-index-container_keys{
+	
+}
+
+.tag-index-container_keys dl {
+	float: left;
+	display: inline;
+	width: 972px;
+	line-height: 120%;
+	margin: 10px 0px
+}
+
+.tag-index-container_keys dl dt{
+	 font-weight: bold;
+}
+
+.tag-index-container_keys dl dd{
+	 padding: 2px 3px;
+	 width: 237px;
+	 float: left;
+	 display: block;
 }
 
 /*******************************************left regions*********************************************/

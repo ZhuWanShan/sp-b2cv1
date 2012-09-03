@@ -38,6 +38,7 @@ public class SCacheFacade{
 	public static final String COUNTRY_CACHE = "countryCache";
 	public static final String ORDER_CACHE = "orderCache";
 	public static final String COLOR_CACHE = "colorCache";
+	 public static final String TAGS_PRODUCT_CACHE  = "tagsProduct";
 	
 	static{
 		cacheManager = new SCacheManager(SCacheFacade.class.getResourceAsStream("/ehcache.xml"));
@@ -73,6 +74,10 @@ public class SCacheFacade{
 	
 	public static Cache getColorCache(){
 		return cacheManager.getCache(COLOR_CACHE);
+	}
+	
+	public static SCache getTagsProductCache(){
+		return cacheManager.getSCache(TAGS_PRODUCT_CACHE);
 	}
 
 	public static Order getOrder(String userEmail) {
@@ -258,4 +263,18 @@ public class SCacheFacade{
 		
 		return colors;
 	}
+	
+	public static List<Product> getTagsProducts(String tag, int page){
+		String key = tag+"@"+page;
+		List<Product> products = (List<Product>) getTagsProductCache().get(key);
+		
+		if(null == products){
+			tag = tag.replace('-', ' ');
+			products = ServiceFactory.getService(ProductService.class).getProductsByTag(tag, (page-1)*Constants.TAGS_PRODUCT_PER_PAGE,Constants.TAGS_PRODUCT_PER_PAGE); 
+			 getTagsProductCache().put(key, products);
+		}
+		
+		return products;
+	}
+	
 }

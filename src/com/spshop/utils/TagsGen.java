@@ -89,7 +89,7 @@ public class TagsGen {
 		StringBuffer x = new StringBuffer("X=");
 		StringBuffer y = new StringBuffer("Y=");
 		StringBuffer z = new StringBuffer("Z=");
-		StringBuffer number = new StringBuffer("1=");
+		StringBuffer number = new StringBuffer("0_9=");
 		
 		
 		//Test data
@@ -253,9 +253,13 @@ public class TagsGen {
 
 			}
 			try {
+				File file =  new File(indexFile);
+				if(!file.exists()){
+					file.mkdirs();
+					file.createNewFile();
+				}
 				BufferedWriter writer = new BufferedWriter(
-						new OutputStreamWriter(new FileOutputStream(new File(
-								indexFile))));
+						new OutputStreamWriter(new FileOutputStream(file)));
 				writer.write(a + "\n");
 				writer.write(b + "\n");
 				writer.write(c + "\n");
