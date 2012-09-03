@@ -35,14 +35,6 @@
 			<img alt="Free" src="/css/shipping.jpg" class="free-shipping-img"/>
 			<span class="free-shipping-text">Free Shipping</span>
 		</#if>
-		<!-- AddThis Button BEGIN -->
-		<div class="addthis_toolbox addthis_default_style " style="float: left; margin-left: 10px;" addthis:url='${(siteView.host + "/" + product.name)?string!""}'>
-		<a class="addthis_button_preferred_1"></a>
-		<a class="addthis_button_preferred_2"></a>
-		</div>
-		<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f3774750525e36a"></script>
-		<!-- AddThis Button END -->
 		${currency }<del>
 		${product.price * userView.currencyRate}
 		</del> <br />
