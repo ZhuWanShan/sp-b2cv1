@@ -1,6 +1,6 @@
-<#assign pageKeywords = "Tag index">
-<#assign pageDescription = "Tag index">
-<#assign pageTitle = "Tag index">
+<#assign pageKeywords = " ${currentKeyword!''}, cheap ${currentKeyword2!''}, wholesale ${currentKeyword2!''}">
+<#assign pageDescription = "Buy ${currentKeyword!''} with big discount from HoneyBuy.com! New fashion *** are on hot sale! Quality Guaranteed! Buy Now!">
+<#assign pageTitle = "Buy ${currentKeyword!''} Online | HoneyBuy.com">
 
 <#include "/header/top.hpl">
 
