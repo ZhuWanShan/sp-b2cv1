@@ -13,8 +13,10 @@
 			<div class="measure_panel">
 				<a href="http://www.honeybuy.com/c/Special-Occasion-Dresses"><img alt="Special Occasion Dresses" title="Special Occasion Dresses"  width="972px" height="428px" src="/image/home-dresses.jpg"></a>
 			</div>
-			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Suits"><img alt="Suits" title="Suits"  width="972px" height="428px" src="/image/home-suit.jpg"></a>
+			<div class="measure_panel" style="position:relative">
+				<img alt="Suits" title="Suits"  width="972px" height="428px" src="/image/home-suit.jpg">
+				<div style="position:absolute; top:0; left:0; width:972px"><a href="http://www.honeybuy.com/c/Custom-Jackets" alt="Custom-Jackets" title="Custom-Jackets" style="width:65%; height:428px; display:block; float:left;"></a>
+				<a href="http://www.honeybuy.com/c/Suits" alt="Suits" title="Suits" style="width:35%; height:428px; display:block; float:left;"></a></div>
 			</div>
 			<div class="measure_panel">
 				<a href="http://www.honeybuy.com/c/Womens-Shoes"><img alt="Womens-Shoes" title="Womens-Shoes"  width="972px" height="428px" src="/image/home-shoe.jpg"></a>
