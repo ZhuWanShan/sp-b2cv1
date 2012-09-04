@@ -105,7 +105,7 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 						}
 					};
 				}.start();
-			}else if(OrderStatus.SHIPPING.toString().equals(order.getStatus())){
+			}else if(OrderStatus.SHIPPING.toString().equals(status) && !(status.equals(order.getStatus()))){
 				
 				final Map<String,Object> root = new HashMap<String,Object>(); 
 				final Order o = order;
