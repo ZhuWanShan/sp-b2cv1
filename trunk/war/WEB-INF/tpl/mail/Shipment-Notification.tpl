@@ -16,7 +16,7 @@ BOTTOM: #c9c9ca 1px solid; BORDER-LEFT: #c9c9ca 1px solid; BORDER-TOP: #d4232b 1
 solid">
         <tbody>
         <tr>
-          <td colspan="2">
+          <td colspan="2" style="border-bottom:1px solid #c9c9ca">
             <table width="700" height="55" cellspacing="0" cellpadding="0" border="0" align="center" style="BORDER-
 BOTTOM: #c9c9ca 1px solid; FONT-SIZE: 12px">
               <tbody>
@@ -221,8 +221,8 @@ with.Through the
 
 
 
-<table width="100%" cellspacing="0" cellpadding="0" border="0" style="COLOR: #222; FONT-SIZE: 12px">
- <tr align="center"><td width="100%" height="26" bgcolor="#e7e7e7" colspan="6"><strong>Share Your Experiences to Win 
+<table width="100%" cellspacing="0" cellpadding="0" border="0" style="COLOR: #fff; FONT-SIZE: 12px">
+ <tr align="center"><td width="100%" height="26" bgcolor="#3cb8ff" colspan="6"><strong>Share Your Experiences to Win 
 
 Coupons.</strony></td></tr>
 </table>
@@ -283,8 +283,8 @@ border="0"></a></td>
 </td> </tr> </tbody> </table> 
       <table width="700" cellspacing="0" cellpadding="0" border="0" align="center">
         <tbody>
-        <tr>
-          <td height="10"> </td> </tr>
+        <tr >
+          <td height="10" style="border-top:1px solid #3cb8ff"> </td> </tr>
         <tr valign="top">
           <td width="22"> </td>
           <td height="50" style="COLOR: #646464; FONT-SIZE: 12px"> <strong>PLEASE 
