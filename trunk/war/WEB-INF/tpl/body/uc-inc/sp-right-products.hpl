@@ -1,5 +1,5 @@
-<#assign productList = pageView.pageProperties["productsInCategoryPage"]>
-<#assign imageSize = pageView.pageProperties["imageSize"]>
+<#assign productList = (pageView.pageProperties["productsInCategoryPage"])!>
+<#assign imageSize = (pageView.pageProperties["imageSize"])!>
 <#assign calculateImageSize = "com.spshop.web.function.CalculateImage"?new()>
 <#assign hAndPadding = calculateImageSize(imageSize[0]?string, imageSize[1]?string, imageSize[2]?string, "225")>
 
