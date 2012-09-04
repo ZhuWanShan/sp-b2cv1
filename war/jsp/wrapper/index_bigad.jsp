@@ -11,13 +11,13 @@
 				<a href="http://www.honeybuy.com/c/Tattoos"><img alt="Tattoos" title="Tattoos" width="972px" height="428px" src="/image/homebanner4.jpg"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Shoes"><img alt="Shoes" title="Shoes"  width="972px" height="428px" src="/image/homebanner2.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Special-Occasion-Dresses"><img alt="Special Occasion Dresses" title="Special Occasion Dresses"  width="972px" height="428px" src="/image/home-dresses.jpg"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Suits"><img alt="Suits" title="Suits"  width="972px" height="428px" src="/image/homebanner3.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Suits"><img alt="Suits" title="Suits"  width="972px" height="428px" src="/image/home-suit.jpg"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Sport-Shoes"><img alt="Sport-Shoes" title="Sport-Shoes"  width="972px" height="428px" src="/image/homebanner7.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Womens-Shoes"><img alt="Womens-Shoes" title="Womens-Shoes"  width="972px" height="428px" src="/image/home-shoe.jpg"></a>
 			</div>
 			<div class="measure_panel">
 				<a href="http://www.honeybuy.com/c/Cheap-Tie-In-Stock"><img alt="Cheap ties in Stock" title="Cheap ties in Stock"  width="972px" height="428px" src="/image/ties-banner.jpg"></a>
