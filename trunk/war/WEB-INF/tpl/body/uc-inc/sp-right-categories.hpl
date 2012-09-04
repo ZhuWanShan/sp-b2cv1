@@ -1,5 +1,5 @@
-<#assign subCategoryProducts = pageView.pageProperties["subCategoryProducts"]>
-<#assign categoryData = pageView.pageProperties["categoryData"]>
+<#assign subCategoryProducts = pageView.pageProperties["subCategoryProducts"]!>
+<#assign categoryData = pageView.pageProperties["categoryData"]!>
 <#assign categoryImageSizeInfo = pageView.pageProperties["categoryImageSizeInfo"]>
 <#assign calculateImageSize = "com.spshop.web.function.CalculateImage"?new()>
 
@@ -29,6 +29,8 @@
 		</div>
 		</#list>
 		<#if pageView.pageProperties["restProducts"]??>
+		<#assign imageSize = categoryImageSizeInfo["restProductsImageSizeInfo"]>
+		<#assign hAndPadding = calculateImageSize(imageSize[0]?string, imageSize[1]?string, imageSize[2]?string, "225")>
 		<#list pageView.pageProperties["restProducts"] as product>
 			<#include "fragments/product-item.hpl">
 		</#list>

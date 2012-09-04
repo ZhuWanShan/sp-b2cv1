@@ -1,5 +1,5 @@
 <li class="item">
-	<div class="item-picture" style="height: ${hAndPadding[0]?int}px;">
+	<div class="item-picture" <#if (hAndPadding?? && (hAndPadding[0] != 0))>style="height: ${hAndPadding[0]?int}px;"</#if>>
 		<#if ((1 - product.actualPrice / product.price) > 0.4)>
 			<div class="sales-logo">
 				<label class="text">

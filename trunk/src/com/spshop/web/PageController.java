@@ -28,6 +28,7 @@ public class PageController extends BaseController {
     
     private static final String MARKET_ONLY_UI = "market";
     private static final String CATEGORIES_UI = "categories";
+
     
     
     @RequestMapping(value="/{categoryName}")
@@ -99,13 +100,14 @@ public class PageController extends BaseController {
             categoryData.put(category.getName().toString(), category);
             categoryImageSizeInfo.put(category.getName().toString(), Utils.figureOutProductsSize(tempProducts));
         }
+        if (content.size() < 6) {
+            restProducts = searchProductsByCategory(page.getCategory(), 0, (6-content.size()) * 6 - 1);
+            categoryImageSizeInfo.put(Constants.ADDITIONAL_PRODUCTS_IMAGE_SIZE_INFO, Utils.figureOutProductsSize(restProducts));
+            page.addPageProperty(Constants.ADDITIONAL_PRODUCTS_KEY, restProducts);
+        }
         page.addPageProperty(Constants.SUB_CATEGORY_PRODUCTS_KEY, content);
         page.addPageProperty(Constants.CATEGORY_DATA_KEY, categoryData);
         page.addPageProperty(Constants.CATEGORY_IMAGE_SIZE_INFO_KEY, categoryImageSizeInfo);
-        if (content.size() < 6) {
-            restProducts = searchProductsByCategory(page.getCategory(), 0, (6-content.size()) * 6 - 1);
-            page.addPageProperty(Constants.ADDITIONAL_PRODUCTS_KEY, restProducts);
-        }
     }
     
    

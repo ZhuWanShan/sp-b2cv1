@@ -262,4 +262,6 @@ public class Constants {
     public static final String TOP_SELLING_TAB_PRODUCT = "topSellingTabProduct";
     
     public static final String TAGED_PRODUCTS = "tagedProducts";
+    
+    public static final String ADDITIONAL_PRODUCTS_IMAGE_SIZE_INFO = "restProductsImageSizeInfo";
 }
