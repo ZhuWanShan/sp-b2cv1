@@ -1,6 +1,6 @@
-<#assign pageKeywords = " ***, cheap ***, wholesale ***">
-<#assign pageDescription = "Buy dresses with big discount from HoneyBuy.com! New fashion *** are on hot sale! Quality Guaranteed! Buy Now!">
-<#assign pageTitle = "Buy dresses Online | HoneyBuy.com">
+<#assign pageKeywords = "tag, tags, keyword, Honeybuy.com">
+<#assign pageDescription = "Tags on Honeybuy.com, search your fashion product with tags! Quality Guaranteed! Buy Now!">
+<#assign pageTitle = "Tags on Honeybuy.com, find your fahion and cheap product with tags on honeybuy!">
 
 <#include "/header/top.hpl">
 

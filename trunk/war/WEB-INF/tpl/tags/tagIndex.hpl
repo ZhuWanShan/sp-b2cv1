@@ -1,6 +1,6 @@
-<#assign pageKeywords = " ${currentKeyword!''}, cheap ${currentKeyword2!''}, wholesale ${currentKeyword2!''}">
-<#assign pageDescription = "Buy ${currentKeyword!''} with big discount from HoneyBuy.com! New fashion *** are on hot sale! Quality Guaranteed! Buy Now!">
-<#assign pageTitle = "Buy ${currentKeyword!''} Online | HoneyBuy.com">
+<#assign pageKeywords = " ${currentKeyword!''}, cheap product with tag ${currentKeyword!''}, wholesale product with tag ${currentKeyword!''}">
+<#assign pageDescription = "Buy cheap fashion and new quality product with tag ${currentKeyword!''} on big discount from HoneyBuy.com! Quality Guaranteed! Buy Now!">
+<#assign pageTitle = "Buy cheap fashion new quality product with tag ${currentKeyword!''} Online | HoneyBuy.com">
 
 <#include "/header/top.hpl">
 
