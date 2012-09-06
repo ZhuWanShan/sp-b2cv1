@@ -94,8 +94,6 @@ public class ShoppingController extends BaseController{
 			getUserView().getErr().put(EMPTY_ORDER, "Shopping cart is empty");
 		}
 		
-		
-		
 		return "shoppingCart";
 	}
 	
@@ -108,6 +106,7 @@ public class ShoppingController extends BaseController{
 		
 		List<UserOption> options = retriveUserOptions(request);
 		if(null!=product){
+			
 			getUserView().getCart().addItem(product, options, qty);
 			
 			if(null!=relatedProducts){

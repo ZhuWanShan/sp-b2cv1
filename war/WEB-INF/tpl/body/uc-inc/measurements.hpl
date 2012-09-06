@@ -9,15 +9,16 @@
 <div class="nav-right-box">
 	<div class="box_title">My Measurements</div>
 	<div class="nav-right-box_content">
-	<#if currentProductID ??>
-		<#assign targetProduct = true>
+	<#assign continueFlag = false>
+	<#if continueShopping ??>
+		<#assign continueFlag = true>
 	</#if>
 	
 	<#if finishedMeasure>
 		<div class="form_error blue">
 			<p class="blue error">${measurementMsg!''}</p>
-			<#if targetProduct>
-				<a class="continue_shopping" href="/${currentProductID}">Continue Shopping</a>
+			<#if continueFlag >
+				<a class="continue_shopping" href="/uc/shoppingCart">Continue Shopping</a>
 			</#if>
 			<a class="edit_measurement" href="/uc/my-measurements?editMode=true">Edit measurement</a>
 		</div>

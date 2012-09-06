@@ -1,7 +1,12 @@
 package com.spshop.web;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
+import com.spshop.model.Order;
+import com.spshop.model.OrderItem;
+import com.spshop.model.Product;
 import com.spshop.model.SuitMeasurement;
 import com.spshop.web.view.SiteView;
 import com.spshop.web.view.UserView;
@@ -66,11 +71,16 @@ public class BaseController {
 		return measurement;
 	}
 	
-	protected String validate(SuitMeasurement measurement){
+	protected boolean validateMeasurements(){
 		
-		String rs = null;
+		for(OrderItem orderItem : getUserView().getCart().getOrder().getItems()){
+			if(orderItem.getProduct().getOptType() > 0){
+				if(!getUserView().getLoginUser().isSuitMeasurementComplete()){
+					return false;
+				}
+			}
+		}
 		
-		
-		return rs;
+		return true;
 	}
 }
