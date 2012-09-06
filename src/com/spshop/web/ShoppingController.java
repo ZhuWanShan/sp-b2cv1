@@ -77,7 +77,7 @@ import com.spshop.utils.FeedTools;
 import com.spshop.utils.Utils;
 
 @Controller
-@SessionAttributes(CURRENT_PRODUCT)
+@SessionAttributes({CURRENT_PRODUCT,"continueShopping"})
 public class ShoppingController extends BaseController{
 	
 	private static final String COLOR = COLOR_PARAM_PRE;
@@ -108,6 +108,10 @@ public class ShoppingController extends BaseController{
 		if(null!=product){
 			
 			getUserView().getCart().addItem(product, options, qty);
+			
+			if(product.getOptType() > 0){
+				model.addAttribute("continueShopping", "true");
+			}
 			
 			if(null!=relatedProducts){
 				for (String pid : relatedProducts) {
