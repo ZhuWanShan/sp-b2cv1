@@ -54,7 +54,10 @@
 									<#default>
 										<li>${opt.name } : ${opt.value }</li>
 								</#switch>
-							</#list>
+							</#list>	
+							<#if (item.product.optType>0) >
+								<li  style="color: blue;">(Note: This Product Require Complete Body Measurement)</li>
+							</#if>
 						</ul>
 						<p class="clearBoth"></p>
 					</dd>
