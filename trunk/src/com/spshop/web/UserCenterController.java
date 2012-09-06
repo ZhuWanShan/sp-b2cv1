@@ -92,7 +92,7 @@ import com.spshop.utils.Utils;
 import com.spshop.web.view.SiteView;
 
 @Controller
-@SessionAttributes("currentProductID")
+@SessionAttributes({"continueShopping"})
 public class UserCenterController extends BaseController{
 	
 	Logger logger = Logger.getLogger(UserCenterController.class);
@@ -186,6 +186,7 @@ public class UserCenterController extends BaseController{
 	
 	@RequestMapping(value="/shoppingCart_address",method=RequestMethod.GET)
 	public String shoppingCartAdress(Model model) {
+		
 		if(getUserView().getCart().getItemCount() < 1){
 			getUserView().getErr().put(EMPTY_ORDER, "Shopping cart is empty");
 			return "shoppingCart";
@@ -194,10 +195,11 @@ public class UserCenterController extends BaseController{
 		for(OrderItem orderItem : getUserView().getCart().getOrder().getItems()){
 			if(orderItem.getProduct().getOptType() == 1){
 				SuitMeasurement measurement = getUserView().getLoginUser().getSuitMeasurement();
-				if(null != validate(measurement)){
+				if(!validateMeasurements()){
 					model.addAttribute(CURRENT_PRODUCT, orderItem.getProduct());
 					getUserView().getMsg().put(MEASUREMENT_MSG, "You need fill the suit measurement then continue...");
-					return "/my-measurements";
+					model.addAttribute("continueShopping", "true");
+					return "redirect:/uc/my-measurements";
 				}else{
 					getUserView().getCart().getOrder().setMySuitMeasurement(measurement);
 					getUserView().getCart().getOrder().setSuitMeasurementComplete(true);
@@ -482,10 +484,12 @@ public class UserCenterController extends BaseController{
 	@RequestMapping(value="/my-measurements", method = RequestMethod.GET)
 	public String measurements(Model model,HttpServletRequest request,HttpServletResponse response){
 		
-		String cpid = (String) request.getSession().getAttribute(CURRENT_PRODUCT_ID);
+		//String cpid = (String) request.getSession().getAttribute(CURRENT_PRODUCT_ID);
 		
-		if(StringUtils.isNotBlank(cpid)){
-			model.addAttribute(CURRENT_PRODUCT_ID, cpid);
+		String continueShopping =  (String) request.getSession().getAttribute("continueShopping");
+		
+		if(StringUtils.isNotBlank(continueShopping)){
+			model.addAttribute("continueShopping", "true");
 		}
 		
 		if(StringUtils.isNotBlank(request.getParameter("editMode"))){
@@ -511,15 +515,9 @@ public class UserCenterController extends BaseController{
 		SuitMeasurement measurement = retrieveSuitMeasurement(request);
 		
 		model.addAttribute(SUIT_MEASUREMENT, measurement);
-		
-		String validationString = validate(measurement);
-		if(null != validate(measurement)){
-			getUserView().getMsg().put(MEASUREMENT_MSG, validationString);
-			return "/my-measurements";
-		}else{
-			getUserView().getLoginUser().setMySuitMeasurement(measurement);
-			getUserView().getLoginUser().setSuitMeasurementComplete(true);
-		}
+
+		getUserView().getLoginUser().setMySuitMeasurement(measurement);
+		getUserView().getLoginUser().setSuitMeasurementComplete(true);
 		
 		ServiceFactory.getService(UserService.class).saveUser(getUserView().getLoginUser());
 		
