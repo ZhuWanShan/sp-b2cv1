@@ -433,9 +433,81 @@ Please DO NOT use "the same as picture" option.</p>
 							});
 						</script>
 					</c:if>
-					<c:if test="${pageForm.pageProperties.productDetail.optType > 0 }">
+					<c:if test="${pageForm.pageProperties.productDetail.optType == 1 }">
 						
 						<jsp:include page="suitOpt.jsp"></jsp:include>
+									
+							<input type="submit" style="display: none;" id="sub"
+							value="ADD TO MY BAG" class="item_addBag"> <input
+							type="submit" id="nosubitem_addBag_customize" value="Customize" class="item_addBag">
+							<script type="text/javascript">
+								jq("#nosubitem_addBag_customize").click(function(){
+									//jq.documentMask(); 
+									jq.documentMask({ 
+									'opacity': 0.6, 
+									'bgcolor': '#000000', 
+									'z': 301 
+									}); 
+									jq(".measure_dashboard").slider();
+									return false;
+									//jq("#nosubitem_addBag").attr("disabled","disabled");
+									//jq("#cusform").submit();
+									
+								});
+							</script>
+					</c:if>
+					
+					<c:if test="${pageForm.pageProperties.productDetail.optType == 2 }">
+						
+						<jsp:include page="suitPants.jsp"></jsp:include>
+									
+							<input type="submit" style="display: none;" id="sub"
+							value="ADD TO MY BAG" class="item_addBag"> <input
+							type="submit" id="nosubitem_addBag_customize" value="Customize" class="item_addBag">
+							<script type="text/javascript">
+								jq("#nosubitem_addBag_customize").click(function(){
+									//jq.documentMask(); 
+									jq.documentMask({ 
+									'opacity': 0.6, 
+									'bgcolor': '#000000', 
+									'z': 301 
+									}); 
+									jq(".measure_dashboard").slider();
+									return false;
+									//jq("#nosubitem_addBag").attr("disabled","disabled");
+									//jq("#cusform").submit();
+									
+								});
+							</script>
+					</c:if>
+					
+					<c:if test="${pageForm.pageProperties.productDetail.optType == 3 }">
+						
+						<jsp:include page="VestOpt.jsp"></jsp:include>
+									
+							<input type="submit" style="display: none;" id="sub"
+							value="ADD TO MY BAG" class="item_addBag"> <input
+							type="submit" id="nosubitem_addBag_customize" value="Customize" class="item_addBag">
+							<script type="text/javascript">
+								jq("#nosubitem_addBag_customize").click(function(){
+									//jq.documentMask(); 
+									jq.documentMask({ 
+									'opacity': 0.6, 
+									'bgcolor': '#000000', 
+									'z': 301 
+									}); 
+									jq(".measure_dashboard").slider();
+									return false;
+									//jq("#nosubitem_addBag").attr("disabled","disabled");
+									//jq("#cusform").submit();
+									
+								});
+							</script>
+					</c:if>
+					
+					<c:if test="${pageForm.pageProperties.productDetail.optType == 4 }">
+						
+						<jsp:include page="woman_suit.jsp"></jsp:include>
 									
 							<input type="submit" style="display: none;" id="sub"
 							value="ADD TO MY BAG" class="item_addBag"> <input

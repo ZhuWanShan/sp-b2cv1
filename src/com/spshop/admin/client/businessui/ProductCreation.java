@@ -95,6 +95,9 @@ public class ProductCreation extends Composite{
 		
 		optionTypes.addItem("Native", "0");
 		optionTypes.addItem("Suit Opt", "1");
+		optionTypes.addItem("Suit pants", "2");
+		optionTypes.addItem("Vest Opt", "3");
+		optionTypes.addItem("Woman suit Opt", "4");
 		
 		optionTypes.setSelectedIndex(product.getOptType());
 		
