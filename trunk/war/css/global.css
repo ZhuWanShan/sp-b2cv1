@@ -146,7 +146,13 @@
     width: 320px;
 }
 
-.measure_sidebar h2{
+.measure_panel .measure_title {
+    font-size: 11px;
+    width: 100%;
+}
+
+
+.measure_sidebar h2, .measure_title  h2{
     color: #4D4D4D;
     font-weight:bold;
     font-size:30px;
@@ -154,7 +160,7 @@
 	line-height: 1;
 }
 
-.measure_sidebar p{
+.measure_sidebar p, .measure_title p{
 	color: #808080;
 	font-size:18px;
      margin: 0 0 9px;
@@ -269,6 +275,22 @@ ul.img_opt{
     margin: 10px;
     width: 400px;
 }
+
+ul.three_img_item_flat{
+	width: 700px;
+	padding: 50px;
+}
+
+ul.six_img_item_flat{
+	width: 700px;
+	padding: 0px 50px;
+}
+
+ul.two_img_item_flat{
+	width: 700px;
+	padding: 50px 140px;
+}
+
 
 ul.four_img_item{
 
@@ -464,6 +486,10 @@ img.current{
     padding-left: 10px;
     text-transform: uppercase;
     width: 188px;
+}
+
+.clearBoth{
+	clear: both;
 }
 
 /********************************************************end Measurement **************************************/
