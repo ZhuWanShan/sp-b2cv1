@@ -365,11 +365,11 @@ public class ShoppingController extends BaseController{
 	public String login2(Model model,HttpServletRequest request,HttpServletResponse response){
 		
 		User user = retrieveUserNameAndPWDFromCookie(request.getCookies());
-		/*
+		
 		if(user!=null){
 			model.addAttribute(LOGIN_USER_NAME,user.getEmail());
 			model.addAttribute(LOGIN_PWD,user.getPassword());
-		}*/
+		}
 		
 		return "login";
 		
