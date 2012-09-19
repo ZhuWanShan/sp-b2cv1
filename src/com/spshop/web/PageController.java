@@ -24,8 +24,8 @@ import com.spshop.web.view.PageView;
 @Controller
 public class PageController extends BaseController {
     
-    private PageView pageView;
     
+    private ThreadLocal<PageView> pageViewThreadLocal = new ThreadLocal<PageView>();
     private static final String MARKET_ONLY_UI = "market";
     private static final String CATEGORIES_UI = "categories";
 
@@ -113,10 +113,10 @@ public class PageController extends BaseController {
    
     
     public void setPageView(PageView pageView) {
-        this.pageView = pageView;
+        this.pageViewThreadLocal.set(pageView);
     }
 
     public PageView getPageView() {
-        return pageView;
+        return pageViewThreadLocal.get();
     }
 }
