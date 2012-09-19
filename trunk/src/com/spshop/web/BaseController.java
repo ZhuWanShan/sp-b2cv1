@@ -3,6 +3,12 @@ package com.spshop.web;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.spshop.model.Order;
 import com.spshop.model.OrderItem;
@@ -13,8 +19,7 @@ import com.spshop.web.view.UserView;
 
 public class BaseController {
 	private SiteView siteView;
-	private ThreadLocal<UserView> userViewLoacal = new ThreadLocal<UserView>();
-
+	public static final String USER_SESSION_VIEW = "USER_SESSION_VIEW";
 	public SiteView getSiteView() {
 		return siteView;
 	}
@@ -24,11 +29,14 @@ public class BaseController {
 	}
 	
 	public UserView getUserView(){
-		return userViewLoacal.get();
+		HttpSession  session = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest().getSession();
+		return (UserView) session.getAttribute(USER_SESSION_VIEW);
 	}
 	
 	public void setUserView(UserView userView){
-		userViewLoacal.set(userView);
+		HttpSession  session = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest().getSession();
+		
+		session.setAttribute(USER_SESSION_VIEW, userView);
 	}
 	
 	protected SuitMeasurement retrieveSuitMeasurement(HttpServletRequest request){
