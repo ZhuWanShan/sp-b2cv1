@@ -25,10 +25,9 @@ import com.spshop.web.view.PageView;
 public class PageController extends BaseController {
     
     
-    private ThreadLocal<PageView> pageViewThreadLocal = new ThreadLocal<PageView>();
+    private static ThreadLocal<PageView> pageViewThreadLocal = new ThreadLocal<PageView>();
     private static final String MARKET_ONLY_UI = "market";
     private static final String CATEGORIES_UI = "categories";
-
     
     
     @RequestMapping(value="/{categoryName}")

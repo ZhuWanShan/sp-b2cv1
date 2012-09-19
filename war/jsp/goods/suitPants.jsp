@@ -59,8 +59,95 @@
 					</div>
 			</div>
 			
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Thigh Size</h2>
+					<ol class="tips">
+						<li>Starting at the top of your inseam, measure around your thigh.</li>
+						<li>Measure snug with room for one finger.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input" name="measure_thigh_size" value="${(measurement.thighSize)!''}" checkRule="required,double" filedName="Thigh Size" msg="Thigh Size must be a number!" msgField="measure_thigh_size_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_thigh_size_noti" class="red"></p>
+				</div>
+				<div class="measure_content">
+					<img src="/style/image/suit_measure_img/Thigh-Size.jpg" alt="Suits measurement Thigh Size" title="Suits measurement Thigh Size">
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Pants Length</h2>
+					<ol class="tips">
+						<li>Start from the top of the pants' waistband.</li>
+						<li>Measure along the side pants seam to the bottom of your pants or roughly 1 to 1.5 inches from the ground.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input" name="measure_pants_length"  value="${(measurement.pantsLength)!''}"  checkRule="required,double" filedName="Pants Length" msg="Pants Length must be a number!" msgField="measure_pants_length_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_pants_length_noti" class="red"></p>
+				</div>
+				<div class="measure_content">
+					<img src="/style/image/suit_measure_img/Pants-Length2.jpg" alt="Suits measurement Pants Length" title="Suits measurement Pants Length">
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Waist</h2>
+					<ol class="tips">
+						<li>Have the tape follow the top of your pants the whole way around.</li>
+						<li>Imagine the tape is your actual pants' waist and adjust to your desired snugness.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input" name="measure_waist" value="${(measurement.waist)!''}" checkRule="required,double" filedName="Waist" msg="Waist must be a number!" msgField="measure_waist_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_waist_noti" class="red"></p>
+				</div>
+				<div class="measure_content">
+					<img src="/style/image/suit_measure_img/Waist.jpg" alt="Suits measurement Waist" title="Suits measurement Waist">
+					<p class="clearBoth"></p>
+				</div>
+			</div>
 			
 			
+			
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Crotch</h2>
+					<ol class="tips">
+						<li>Place the tape at the middle of your waist.</li>
+						<li>Follow the crotch seam through your legs, up to the front of the pants..</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input" name="measure_crotch" value="${(measurement.crotch)!''}" checkRule="required,double" filedName="Crotch" msg="Crotch must be a number!" msgField="measure_crotch_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_crotch_noti" class="red"></p>
+				</div>
+				<div class="measure_content">
+					<img src="/style/image/suit_measure_img/Crotch.jpg" alt="Suits measurement Crotch" title="Suits measurement Crotch">
+					<p class="clearBoth"></p>
+				</div>
+			</div>
+			<div class="measure_panel" style="display: none">
+				<div class="measure_sidebar">
+					<h2>Knee Size</h2>
+					<ol class="tips">
+						<li>Measure around your knee cap, snug, with room for one finger.</li>
+					</ol>
+				</div>
+				<div class="measure_field">
+					<input type="text" class="measure_input" name="measure_knee_size" value="${(measurement.kneeSize)!''}"  checkRule="required,double" filedName="Knee Size" msg="Knee Size must be a number!" msgField="measure_knee_size_noti"><SPAN style="font-size: 22px;font-weight: bold;">&nbsp;IN </SPAN>
+					<p id="measure_knee_size_noti" class="red"></p>
+				</div>
+				<div class="measure_content">
+					<img src="/style/image/suit_measure_img/Knee-Size.jpg" alt="Suits measurement Knee Size" title="Suits measurement Knee Size">
+					<p class="clearBoth"></p>
+					<p class="clearBoth"></p>
+				</div>
+			</div>
 			
 			
 			
