@@ -1,21 +1,26 @@
+<#assign startIdx = startIndex!1>
+<#assign endIdx = endIndex!1>
+<#assign indexList = pageIndex!>
+<#assign pageNO = pageNum!1>
+
 <div class="pagination">
 	<div class="paginator">
 		<form action='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}' method="post">
-			<#if (startIndex > 1)>
-				<a href='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}?pageNum=${(pageNum - 1)?string!"1"}'>Prev</a>
+			<#if (startIdx > 1)>
+				<a href='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}?pageNum=${(pageNO - 1)?string!"1"}'>Prev</a>
 			</#if>
-			<#if (endIndex < productsCount)>
-				<a href='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}?pageNum=${(pageNum + 1)?string!"1"}'>Next</a>
+			<#if (endIdx < productsCount)>
+				<a href='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}?pageNum=${(pageNO + 1)?string!"1"}'>Next</a>
 			</#if>
-			<#list pageIndex as pageIdx>
+			<#list indexList as pageIdx>
 				<a href='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}?pageNum=${pageIdx!1}'>${pageIdx}</a>
 			</#list>
-			<input type="text" name="pageNum" class="page-input" value="${pageNum}">
-			<input type="hidden" name="startIndex" value="${startIndex}">
-			<input type="hidden" name="endIndex" value="${endIndex}">
+			<input type="text" name="pageNum" class="page-input" value="${pageNO}">
+			<input type="hidden" name="startIndex" value="${startIdx}">
+			<input type="hidden" name="endIndex" value="${endIdx}">
 			<input type="submit" value="ok">
 		</form>
 	</div>
-	<span>Showing Results ${startIndex + " - " + endIndex} of ${productsCount}</span>
+	<span>Showing Results ${startIdx + " - " + endIdx} of ${productsCount!}</span>
 	<div class="height-5"></div>
 </div>
