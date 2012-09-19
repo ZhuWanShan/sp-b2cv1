@@ -364,12 +364,12 @@ public class ShoppingController extends BaseController{
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login2(Model model,HttpServletRequest request,HttpServletResponse response){
 		
-		User user = retrieveUserNameAndPWDFromCookie(request.getCookies());
+		/*User user = retrieveUserNameAndPWDFromCookie(request.getCookies());
 		
 		if(user!=null){
 			model.addAttribute(LOGIN_USER_NAME,user.getEmail());
 			model.addAttribute(LOGIN_PWD,user.getPassword());
-		}
+		}*/
 		
 		return "login";
 		
@@ -430,13 +430,14 @@ public class ShoppingController extends BaseController{
 			if(null!=loginUser){
 				model.addAttribute(USER_INFO, loginUser);
 				request.getSession().setAttribute(USER_INFO,loginUser);
-				/*
+				
 				if(TRUE.equals(rememberAccount)){
 					Cookie cookie = new Cookie(COOKIE_ACCOUNT, Utils.OBJ.getEncryString(loginUser.getEmail()+USER_NAME_PWD_SPLIT+loginUser.getPassword()));
 					cookie.setMaxAge(30*24*60*60);
 					cookie.setPath("/");
 					response.addCookie(cookie);
-				}*/
+				}
+				
 				return "redirect:"+landingpage;
 			}else{
 				getUserView().getErr().put(USER_ACCOUNT_ERROR, "User account/password invalid!");
