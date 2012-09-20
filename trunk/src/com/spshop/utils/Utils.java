@@ -218,10 +218,10 @@ public class Utils {
 			user = retrieveUserFromProfileString(userProfile);
 		}
 		
-		if(null==user){
+		/*if(null==user){
 			user = retrieveUserFromCookies(request.getCookies());
 			 request.getSession().setAttribute(USER_INFO, user);
-		}
+		}*/
 
 		return user;
 	}
