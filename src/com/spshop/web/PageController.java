@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.spshop.cache.SCacheFacade;
 import com.spshop.model.Category;
@@ -25,9 +27,10 @@ import com.spshop.web.view.PageView;
 public class PageController extends BaseController {
     
     
-    private static ThreadLocal<PageView> pageViewThreadLocal = new ThreadLocal<PageView>();
+    //private static ThreadLocal<PageView> pageViewThreadLocal = new ThreadLocal<PageView>();
     private static final String MARKET_ONLY_UI = "market";
     private static final String CATEGORIES_UI = "categories";
+    private static final String CATEGORIE_VIEW_IN_REQUEST = "CATEGORIE_VIEW_IN_REQUEST";
     
     
     @RequestMapping(value="/{categoryName}")
@@ -112,10 +115,12 @@ public class PageController extends BaseController {
    
     
     public void setPageView(PageView pageView) {
-        this.pageViewThreadLocal.set(pageView);
+    	 ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest().setAttribute(CATEGORIE_VIEW_IN_REQUEST, pageView);
+        /*this.pageViewThreadLocal.set(pageView);*/
     }
 
     public PageView getPageView() {
-        return pageViewThreadLocal.get();
+    	return (PageView) ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest().getAttribute(CATEGORIE_VIEW_IN_REQUEST);
+//        return pageViewThreadLocal.get();
     }
 }
