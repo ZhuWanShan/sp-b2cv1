@@ -9,7 +9,7 @@
 	<form action="https://www.paypal.com/cgi-bin/webscr" method="post"
 		id="paypaysubmitForm">
 		<input type="hidden" name="cmd" value="_xclick"> <input
-			type="hidden" name="business" value="pay@honeybuy.com"> <input
+			type="hidden" name="business" value="payment@honeybuy.com"> <input
 			type="hidden" name="item_name" value="${defaultOrder.name }">
 		<input type="hidden" name="amount"
 			value='${(userView.currencyRate*(defaultOrder.totalPrice-defaultOrder.couponCutOff+defaultOrder.dePrice))?string("##0.##")}'>
