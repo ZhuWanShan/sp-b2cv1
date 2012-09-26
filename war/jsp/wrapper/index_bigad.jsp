@@ -8,7 +8,7 @@
 				<a href="http://www.honeybuy.com/c/Suits"><img width="972px" height="428px" src="/image/homebanner8.jpg" alt="Suits" title="Suits"></a>
 			</div>
 			<div class="measure_panel" style="position:relative">
-				<a href="http://www.honeybuy.com/c/Tattoos"><img alt="Tattoos" title="Tattoos" width="972px" height="428px" src="/image/homebanner4.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Prom-Dresses-2013"><img alt="Prom Dresses 2013" title="Prom Dresses 2013" width="972px" height="428px" src="/image/home-banner-1.jpg"></a>
 			</div>
 			<div class="measure_panel">
 				<a href="http://www.honeybuy.com/c/Special-Occasion-Dresses"><img alt="Special Occasion Dresses" title="Special Occasion Dresses"  width="972px" height="428px" src="/image/home-dresses.jpg"></a>
