@@ -1,6 +1,7 @@
 package com.spshop.web;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +32,7 @@ public class PageController extends BaseController {
     private static final String MARKET_ONLY_UI = "market";
     private static final String CATEGORIES_UI = "categories";
     private static final String CATEGORIE_VIEW_IN_REQUEST = "CATEGORIE_VIEW_IN_REQUEST";
+    private static final int MAX_PAGE_INDEXES_DISPLAY = 5;
     
     
     @RequestMapping(value="/{categoryName}")
@@ -67,8 +69,25 @@ public class PageController extends BaseController {
             List<Product> tempProds = (ArrayList<Product>) page.getPageProperties().get(Constants.PROD_IN_CATEGORY_PAGE);
             Long count = ServiceFactory.getService(ProductService.class).queryCountByCategory(page.getCategory());
             List<Integer> pageIndexes = new ArrayList<Integer>();
-            for (int i = 1; i <= (count-1)/pageSize+1; i++) {
-                pageIndexes.add(i);
+            int maxPageNum = (int)((count-1)/pageSize+1);
+            if (maxPageNum >= MAX_PAGE_INDEXES_DISPLAY) {
+                int rTempIdx = pageNum, lTempIdx = pageNum;
+                pageIndexes.add(pageNum);
+                while (pageIndexes.size()<MAX_PAGE_INDEXES_DISPLAY) {
+                    if (rTempIdx + 1 < maxPageNum) {
+                        rTempIdx++;
+                        pageIndexes.add(rTempIdx);
+                    }
+                    if (lTempIdx - 1 > 0) {
+                        lTempIdx--;
+                        pageIndexes.add(lTempIdx);
+                    }
+                }
+                Collections.sort(pageIndexes);
+            } else {
+                for (int i = 1; i <= maxPageNum; i++) {
+                   pageIndexes.add(i);
+                }
             }
             
             request.setAttribute(Constants.PAGE_INDEX, pageIndexes);
