@@ -1,4 +1,4 @@
-@charset "utf-8";
+ @charset "utf-8";
 /******** helpCenter CSS Document star ********/
 #helpcenter ul,li{ margin:0px; padding:0; list-style:none;}
 #helpcenter img{ border:0; vertical-align:top;}
@@ -120,13 +120,15 @@
 #Promotion{ width:972px; margin:0 auto}
 #Promotion .dingju{ width:972px; margin:0 auto}
 /***wedding***/
-#Promotion .wedding{ width:952px; border:10px solid #efb835; position:relative; height:712px}
-#Promotion .wedding .title{ position:absolute;top:-10px; text-align:center; width:952px; height:46px; background:url(/style/image/pic/title_010.jpg) no-repeat center}
-#Promotion .wedding .title h2{ line-height:35px; height:38px; font-size:18px; color:#c87801; text-indent:18px}
+#Promotion .wedding{ width:952px; border:10px solid #ffbcd3; position:relative; height:712px}
+#Promotion .wedding .title{ position:absolute;top:-10px; text-align:center; width:952px; height:46px; background: url(/style/image/pic/title_010.png) no-repeat center}
+#Promotion .wedding .title h2{ line-height:35px; height:38px; font-size:18px; color:#ec1c63; text-indent:18px}
 #Promotion .wedding .center{ height:660px;padding-top:52px; background:#f3f3f3}
 #Promotion .center dl{ width:210px;height:302px; background:#e4e4e4; padding-top:5px; margin-left:22px; float:left; margin-bottom:20px; display:inline}
 #Promotion .center dl dt{ width:200px; height:261px; margin:0 5px 5px 5px ;background:#fff; position:relative}
-#Promotion .center dl .dazhe{ position:absolute; width:80px;height:80px; top:-5px; right:-5px;}
+#Promotion .center dl .dazhe{ position:absolute; width:65px;height:65px; top:-12px; right:-11px; background: url("http://www.honeybuy.com/css/sales_bg.png") no-repeat scroll 0 0 transparent;}
+#Promotion .center dl .dazhe .text{color: white;font-size: 12px;position:relative;top:7px;right:-20px;}
+#Promotion .center dl .dazhe .percentage{color: white;font-size: 20px;font-weight: bold;position: relative; top:26px; right:12px}
 #Promotion .center dl .dinw{ position:absolute; bottom:0; width:190px; left:0; height:59px; background:#000;color:#fff; padding:5px 5px 0 5px;filter:alpha(opacity=50);
 -moz-opacity:0.5;
 -khtml-opacity: 0.5;
@@ -135,8 +137,8 @@ opacity: 0.5;}
 #Promotion .center dl dd del{width:100px;display:block; float:left; text-align:center; font-size:13px; font-family: Arial, Helvetica;}
 #Promotion .center dl dd span{width:100px;display:block;float:left; text-align:center;color:#cb4200;font-size:13px}
 /***Special***/
-#Promotion .Special{ margin:10px 0 10px 0;height:290px; background:#f3f3f3;border:10px solid #efb835; position:relative}
-#Promotion .Special .title{ position:absolute;top:-10px; text-align:center; width:952px; height:46px; background:url(/style/image/pic/title_010.jpg) no-repeat center}
+#Promotion .Special{ margin:10px 0 10px 0;height:290px; background:#f3f3f3;border:10px solid #ffbcd3; position:relative}
+#Promotion .Special .title{ position:absolute;top:-10px; text-align:center; width:952px; height:46px; background:url(../images/title_010.jpg) no-repeat center}
 #Promotion .Special .title h2{ line-height:35px; height:38px; font-size:18px; color:#c87801; text-indent:18px}
 #Promotion .Special_f{ margin-top:40px}
 #Promotion .Special_f dl{ width:150px; float:left; margin-left:7px; display:inline;}
