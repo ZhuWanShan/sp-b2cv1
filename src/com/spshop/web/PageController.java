@@ -74,7 +74,7 @@ public class PageController extends BaseController {
                 int rTempIdx = pageNum, lTempIdx = pageNum;
                 pageIndexes.add(pageNum);
                 while (pageIndexes.size()<MAX_PAGE_INDEXES_DISPLAY) {
-                    if (rTempIdx + 1 < maxPageNum) {
+                    if (rTempIdx + 1 <= maxPageNum) {
                         rTempIdx++;
                         pageIndexes.add(rTempIdx);
                     }
@@ -89,7 +89,12 @@ public class PageController extends BaseController {
                    pageIndexes.add(i);
                 }
             }
-            
+            if (!pageIndexes.contains(maxPageNum)) {
+                request.setAttribute(Constants.MAX_PAGE_NUM, maxPageNum);
+            }
+            if (!pageIndexes.contains(1)) {
+                request.setAttribute(Constants.FIRST_PAGE_INDEX, 1);
+            }
             request.setAttribute(Constants.PAGE_INDEX, pageIndexes);
             request.setAttribute(Constants.PROD_COUNT, count);
             request.setAttribute(Constants.START_INDEX, pageSize * (pageNum - 1) + 1);
