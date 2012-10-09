@@ -38,6 +38,8 @@ public class Constants {
 	public static String USER_INFO = "userInfo";
 	public static String SUBSCRIBE_EMAL = "subscribeEmail";
 	public static String PAGE_INDEX = "pageIndex";
+	public static String MAX_PAGE_NUM = "maxPageNum";
+	public static String FIRST_PAGE_INDEX = "firstPageIdx";
 	
 	public static String CATEGORY_CACHE = "catetoryCache";
 	public static String ORDER_CACHE = "orderCache";
@@ -90,6 +92,7 @@ public class Constants {
     public static final String SITE_VIEW = "siteView";
     public static final String USER_VIEW = "userView";
     public static final String PAGE_VIEW = "pageView";
+    public static final String HOME_VIEW = "homeView";
     
     public static final String LOGIN_LANDING_PAGE_PARAM = "landing_page";
     
