@@ -9,9 +9,15 @@
 			<#if (startIdx > 1)>
 				<a href='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}?pageNum=${(pageNO - 1)?string!"1"}'>Prev</a>
 			</#if>
+			<#if firstPageIdx??>
+				<a href='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}?pageNum=${firstPageIdx}'><span class="page-index">${firstPageIdx}</span></a>....
+			</#if>
 			<#list indexList as pageIdx>
-				<a href='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}?pageNum=${pageIdx!1}'>${pageIdx}</a>
+				<a href='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}?pageNum=${pageIdx!1}'><span class="page-index">${pageIdx}</span></a>
 			</#list>
+			<#if maxPageNum??>
+				....<a href='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}?pageNum=${maxPageNum}'><span class="page-index">${maxPageNum}</span></a>
+			</#if>
 			<#if (endIdx < productsCount)>
 				<a href='${(siteView.host + "/" + "c" + "/" + pageView.category.name)?string!""}?pageNum=${(pageNO + 1)?string!"1"}'>Next</a>
 			</#if>
