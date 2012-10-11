@@ -141,11 +141,11 @@ opacity: 0.5;}
 #Promotion-2 .center dl dd span{width:100px;display:block;float:left; text-align:center;color:#cb4200;font-size:13px}
 /***Special***/
 #Promotion-2 .Special{ margin:10px 0 10px 0;height:290px; background:#f3f3f3;border:10px solid #ffbcd3;}
-#Promotion-2 .Special_f dl{ width:140px; float:left; margin:-20px 5px 0 0; display:inline;}
-#Promotion-2 .Special_f dl dt{ width:150px;height:204px;}
-#Promotion-2 .Special_f dl dd{ width:150px;}
-#Promotion-2 .Special_f dl dd del{ width:150px; display:block; text-align:center; margin-bottom:3px}
-#Promotion-2 .Special_f dl dd span{ width:150px; display:block; text-align:center; color:#c84100}
+#Promotion-2 .Special_f dl{ width:140px; float:left; margin:-15px 0 0 15px; display:inline;}
+#Promotion-2 .Special_f dl dt{ width:140px;height:204px;}
+#Promotion-2 .Special_f dl dd{ width:140px;}
+#Promotion-2 .Special_f dl dd del{ width:140px; display:block; text-align:center; margin-bottom:3px}
+#Promotion-2 .Special_f dl dd span{ width:140px; display:block; text-align:center; color:#c84100}
 /***none***/
 #Promotion .last_none{ margin:10px 0 10px 0; height:668px; background:#eeecec;border:10px solid #efb835; padding-top:10px}
 #Promotion .last_none .one{ height:221px; margin-bottom:10px}
