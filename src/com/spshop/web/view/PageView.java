@@ -9,7 +9,7 @@ import com.spshop.model.Category;
 import com.spshop.model.Site;
 import com.spshop.model.TabProduct;
 
-public class PageView {
+public class PageView extends BaseFrontendView {
     /**
      * 
      */
@@ -31,11 +31,6 @@ public class PageView {
     private List<Category> pathNodes = new ArrayList<Category>();
     
     /**
-     *  Page category
-     */
-    private Category category;
-    
-    /**
      *  Special offer categories
      */
     private Map<Object, Object> specialOffer = new HashMap<Object, Object>();
@@ -47,14 +42,6 @@ public class PageView {
     
     private List<Category> breadcrumb = new ArrayList<Category>();
     
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
     public void setSite(Site site) {
         this.site = site;
     }
