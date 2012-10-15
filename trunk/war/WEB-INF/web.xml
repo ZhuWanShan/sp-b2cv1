@@ -26,7 +26,7 @@
 	<servlet>
 		<servlet-name>action</servlet-name>
 		<servlet-class>
-			org.apache.struts.action.ActionServlet
+			com.spshop.web.support.URLHandlerServlet
 		</servlet-class>
 		<init-param>
 			<param-name>config</param-name>
@@ -179,6 +179,22 @@
 		<servlet-name>SpringMVCPage</servlet-name>
 		<url-pattern>/c/*</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SpringMVCHome</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/context/webContext.xml,/WEB-INF/context/homeContext.xml</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SpringMVCHome</servlet-name>
+		<url-pattern>/home/*</url-pattern>
+	</servlet-mapping>
+
 <!--<error-page> -->
 <!-- 		<exception-type>java.lang.Throwable</exception-type> -->
 <!-- 		<location>/500.jsp</location> -->

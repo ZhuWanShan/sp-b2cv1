@@ -26,6 +26,8 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 import com.spshop.admin.shared.ImageSize;
+import com.spshop.cache.SCacheFacade;
+import com.spshop.model.Category;
 import com.spshop.model.Image;
 import com.spshop.model.Order;
 import com.spshop.model.Product;
@@ -36,6 +38,8 @@ import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.UserService;
 import com.spshop.web.interceptor.ViewDataInterceptor;
+import com.spshop.web.view.BaseFrontendView;
+import com.spshop.web.view.PageView;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
@@ -285,5 +289,37 @@ public class Utils {
 	        size.add(maxH);
 	        size.add(maxW);
 	        return size;
+	    }
+	 
+	    /**
+	     * Find category from list in cache
+	     * 
+	     * @param categories
+	     *            The target list for finding
+	     * @param catName
+	     *            The category name
+	     * @return Searching result
+	     */
+	    private static Category searchCategory(List<Category> categories, String catName) {
+	        Category result = null;
+	        
+	        for (Category category : categories) {
+	            if (category.getName().equals(catName)) {
+	                result = category;
+	                break;
+	            } else if (category.getSubCategories().size() != 0){
+	                result = searchCategory(category.getSubCategories(), catName);
+	                if (result != null)
+	                break;
+	            }
+	        }
+	        
+	        return result;
+	    }
+	    
+	    public static void populateCategoryForCategoryPage(String categoryName, BaseFrontendView view) {
+	        List<Category> categories = SCacheFacade.getTopCategories();
+	        
+	        view.setCategory(searchCategory(categories, categoryName));
 	    }
 }

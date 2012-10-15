@@ -7,6 +7,7 @@ import java.util.Map;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -54,10 +55,10 @@ public class OrderInfo extends Composite {
     @UiField TextArea txtTraceInfo;
     @UiField Button btnSaveTrace;
     private void populateOrderInfo(){
-        DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
+        DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm:ss");
         this.orderId.setText(this.order.getName());
-        this.totalPrice.setText(String.valueOf(this.order.getTotalPrice()));
-        this.dePrice.setText(String.valueOf(this.order.getDePrice()));
+        this.totalPrice.setText(NumberFormat.getFormat("0.00").format(this.order.getTotalPrice()));
+        this.dePrice.setText(NumberFormat.getFormat("0.00").format(this.order.getDePrice()));
         this.currency.setText(this.order.getCurrency());
         this.createDate.setText(dateTimeFormat.format(this.order.getCreateDate()));
         this.email.setText(this.order.getCustomerEmail());
@@ -124,6 +125,7 @@ public class OrderInfo extends Composite {
     }
 
     public OrderInfo(Order order) {
+        DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm:ss");
         initWidget(uiBinder.createAndBindUi(this));
         this.site = AdminWorkspace.loginInfo.getSite();
         this.order = order;
@@ -134,10 +136,10 @@ public class OrderInfo extends Composite {
         if (this.order != null && this.order.getItems() != null && this.order.getItems().size() != 0) {
             for (int i = 0; i < this.order.getItems().size(); i++) {
                 this.orderTable.setHTML(i, 0, populateUserOptionString(this.order.getItems().get(i).getUserOptions()));
-                this.orderTable.setText(i, 1, this.order.getItems().get(i).getCreateDate().toString());
+                this.orderTable.setText(i, 1, dateTimeFormat.format(this.order.getItems().get(i).getCreateDate()));
                 this.orderTable.setHTML(i, 2, "<img src='"+"http://"+site.getDomain()+"/"+this.order.getItems().get(i).getProduct().getImages().get(0).getIconUrl()+"'/><a target='_blank' href='"+"http://"+site.getDomain()+"/"+this.order.getItems().get(i).getProduct().getName()+"'>"+this.order.getItems().get(i).getProduct().getTitle()+"</a>");
                 this.orderTable.setText(i, 3, String.valueOf(this.order.getItems().get(i).getQuantity()));
-                this.orderTable.setText(i, 4, String.valueOf(this.order.getItems().get(i).getFinalPrice()));
+                this.orderTable.setText(i, 4, NumberFormat.getFormat("0.00").format(this.order.getItems().get(i).getFinalPrice()));
             }
         }
     }

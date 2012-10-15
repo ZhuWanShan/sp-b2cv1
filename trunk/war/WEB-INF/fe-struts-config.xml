@@ -13,10 +13,7 @@
 	</global-forwards>
 
 	<action-mappings>
-		<action path="/" type="com.spshop.fe.actions.PageAction" name="pageForm"
-			scope="request">
-			<forward name="Success" path="/index.jsp" />
-		</action>
+
 
 		<action path="/c/*" type="com.spshop.fe.actions.PageAction"
 			name="pageForm" scope="request">

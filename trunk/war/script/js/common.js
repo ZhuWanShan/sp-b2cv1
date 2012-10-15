@@ -503,8 +503,17 @@ jq("#main_box").ready(function() {
 	
 });
 
-
-
+jq("#promotions-tab").ready(function() {
+	var currentTab = jq("#promotions-tab>h3").first("h3");
+	jq("#promotions-tab>h3").mouseover(function(){
+		currentTab.removeClass("link-now");
+		jq("#" + currentTab.attr("aim")).hide();
+		jq(this).addClass("link-now");
+		jq("#" + jq(this).attr("aim")).show();
+		currentTab = jq(this);
+	});
+	
+});
 
 
 

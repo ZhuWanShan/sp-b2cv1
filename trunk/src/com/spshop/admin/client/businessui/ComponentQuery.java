@@ -6,6 +6,7 @@ import java.util.List;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -569,7 +570,7 @@ public class ComponentQuery extends ResizeComposite {
             table.setText(i, 0, order.getCustomerName());
             table.setText(i, 1, order.getCustomerEmail());
             table.setText(i, 2, dateTimeFormat.format(order.getCreateDate()));
-            table.setText(i, 3, String.valueOf(order.getTotalPrice()));
+            table.setText(i, 3, NumberFormat.getFormat("0.00").format(order.getTotalPrice()));
             table.setText(i, 4, order.getStatus());
             Operation<Order> operation = new Operation<Order>(order);
             operation.setListener(new OperationListenerAdapter<Order>(){

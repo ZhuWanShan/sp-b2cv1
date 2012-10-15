@@ -544,7 +544,7 @@ px
 
 }
 .main_menu ul li span {
-	border-right: 1px solid #D1D1D1;
+	border-left: 1px solid #D1D1D1;
 	display: block;
 	padding: 0 14.2px;
 }
@@ -1953,7 +1953,7 @@ li.scart_c_w_r {
 }
 
 .promotions-tab {
-	background: url("Promotions_tab.gif") repeat-x scroll 0 0 transparent;
+	background: url("/css/Promotions_tab.gif") repeat-x scroll 0 0 transparent;
     height: 39px;
 }
 
@@ -1969,7 +1969,7 @@ li.scart_c_w_r {
 }
 
 .promotions-tab .link-now {
-	background: url("Promotions_tabon.gif") repeat-x scroll 0 0 transparent;
+	background: url("/css/Promotions_tabon.gif") repeat-x scroll 0 0 transparent;
     color: #4A1805;
 }
 
@@ -1977,4 +1977,152 @@ li.scart_c_w_r {
 	height: 770px;
     overflow: hidden;
     position: relative;
+}
+
+.daily-madness {
+    padding: 0 0 0 8px;
+}
+
+.daily-madness li {
+    height: 335px;
+    margin: 10px 8px 30px;
+    overflow: visible;
+    position: relative;
+}
+
+.goods-list {
+    display: inline;
+    float: left;
+    padding: 3px;
+    width: 164px;
+}
+
+.goods-list .goods-picture {
+    margin-bottom: 7px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.goods-list .goods-name {
+    display: block;
+    font-size: 11px;
+    font-weight: normal;
+    height: 40px;
+    line-height: 14px;
+    overflow: hidden;
+    padding: 0 0 2px;
+}
+
+.dailyMadness-save {
+    bottom: 5px;
+    color: red;
+    font-size: 16px;
+    left: 7px;
+    position: absolute;
+}
+
+.dailyMadness-save .save-title {
+    color: #FFBE41;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: -5px;
+}
+
+.dailyMadness-save .save-num {
+    color: #E50001;
+    font-size: 28px;
+}
+
+.dailyMadness-priceTip {
+    background: url("/css/indexIntegration_bg.png") no-repeat scroll 0 -341px transparent;
+    bottom: 2px;
+    color: #C60000;
+    font-size: 12px;
+    font-weight: bold;
+    height: 38px;
+    line-height: 32px;
+    position: absolute;
+    right: -6px;
+    text-align: center;
+    width: 84px;
+}
+
+.daily-madness del {
+    bottom: 40px;
+    color: #8B8B8B;
+    font-size: 11px;
+    position: absolute;
+    right: 6px;
+}
+
+.box-shadow {
+    background-color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+
+.box-shadow:hover{
+	border:1px solid #C6C6C6; 
+}
+
+.index-tab {
+    height: 800px;
+    overflow: hidden;
+}
+
+.borderstyle-01 {
+    border: 1px solid #D1D1D1;
+}
+
+.other-progoods {
+    display: block;
+    margin: 10px 0 0 8px;
+}
+
+
+.other-progoods dl {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #E9E9E9;
+    display: inline;
+    float: left;
+    height: 145px;
+    margin: 10px 7px 7px 0;
+    padding: 8px 4px;
+    width: 234px;
+}
+
+.other-progoods dl:hover{ 
+	background:#fff5c0;
+}
+
+.other-progoods dl dt {
+    float: left;
+    overflow: hidden;
+    width: 118px;
+}
+
+.other-progoods dl dt img {
+    width: 97px;
+}
+
+.other-progoods dl .goods-name {
+    font-size: 11px;
+    height: 69px;
+    line-height: 13px;
+    overflow: hidden;
+}
+
+.other-progoods dl .save-per {
+    color: #F1312C;
+    height: 40px;
+    font-size: 20px;
+}
+
+.other-progoods dl del {
+    color: #8D8C8A;
+    font-size: 11px;
+}
+
+.other-progoods dl .goods-price {
+    color: #000000;
 }
