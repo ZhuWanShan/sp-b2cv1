@@ -73,6 +73,7 @@ import com.spshop.service.intf.CouponService;
 import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.UserService;
 import com.spshop.utils.EmailTools;
+import com.spshop.utils.Encrypt;
 import com.spshop.utils.FeedTools;
 import com.spshop.utils.Utils;
 
@@ -528,6 +529,59 @@ public class ShoppingController extends BaseController{
 		response.getWriter().print(jsonObject);
 		
 		return null;
+	}
+	
+	@RequestMapping(value="/yoursPayResults")
+	public String yoursPayResults(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		String MD5key = "YNWNUrlJ";                                     /** <非空>--密钥. 从网店系统中获取。**/
+		
+		String BillNo = request.getParameter("BillNo");                 /** <非空>--订单号. 从yourspay服务器返回 **/
+		
+		String Currency = request.getParameter("Currency");             /** <非空>--通道参数. 从yourspay服务器返回 **/
+		
+		String Amount = request.getParameter("Amount");                 /** <非空>--金额. 从yourspay服务器返回**/
+
+		String CurrencyCode = request.getParameter("CurrencyCode");     /** <非空>--币种. 从yourspay服务器返回**/
+		
+		String Succeed = request.getParameter("Succeed");               /** <非空>--支付状态.从yourspay服务器返回."0"表示支付失败，"1"表示支付成功,"2"表示待处理  **/
+		
+		String Result = request.getParameter("Result");                 /** <非空>--支付结果. 从yourspay服务器返回**/
+		
+		String MD5info = request.getParameter("MD5info");               /** <非空>--取得的MD5校验信息. 从yourspay服务器返回**/
+		
+		String Remark = request.getParameter("Remark");                 /** <非空>--备注. 从yourspay服务器返回**/
+		
+		StringBuilder md5src = new StringBuilder();
+		md5src = md5src.append(BillNo).append(Currency).append(Amount).append(Succeed).append(MD5key);   /** <非空>--参数组合.组合只能以这个顺序,位置不能颠倒 **/
+		
+		String md5sign = Encrypt.MD5(md5src.toString()).toUpperCase();  /** <非空>--对组合参数进行md5加密**/
+		
+		OrderService orderService = ServiceFactory.getService(OrderService.class);
+		
+		Order order = orderService.getOrderById(BillNo);
+
+		/** 对返回信息进行判断.然后把支付结果显示在返回页面中，并更新网店后台的订单状态. **/
+		if(MD5info == md5sign && Succeed == "1"){
+			 // 支付结果为:支付成功(Payment Result: Success)。
+			 // 更新网店后台的订单状态为:支付成功(Success)。
+			orderService.saveOrder(order, OrderStatus.PAID.toString());
+			
+		}else if(MD5info == md5sign && Succeed == "2"){  
+			 // 支付结果为:支付待处理(Payment Result:Processing)
+			 // 更新网店后台的订单状态为:待处理(Processing)。
+			orderService.saveOrder(order, OrderStatus.PENDING.toString());
+		}else if(MD5info == md5sign && Succeed == "0"){ 
+			// 支付结果为:支付失败(Payment Result: Fail)。
+			// 更新网店后台的订单状态为:支付失败(Fail)。
+			orderService.saveOrder(order, OrderStatus.PENDING.toString());
+		}else{
+			// 支付结果为:数据校验失败(Payment Result: Data Authentication Failed)。
+			// 更新网店后台的订单状态为：支付失败(Fail)。
+			orderService.saveOrder(order, OrderStatus.FAILD.toString());
+		}
+		
+		return "forward:/uc/orderDetails?id="+order.getName();
 	}
 	
 	private Map<String,String> updateCart(String itemID,int amount,boolean isRemove){
