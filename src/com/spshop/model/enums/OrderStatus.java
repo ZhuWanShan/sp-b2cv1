@@ -7,6 +7,7 @@ public enum OrderStatus{
 		CHECKED("CHECKED","Checked"),
 		PAID("PAID","Paid"),
 		SHIPPING("SHIPPING","Shipping"),
+		FAILD("FAILD","Faild"),
 		COMPLETED("COMPLETED","Completed");
 		
 		private String value;

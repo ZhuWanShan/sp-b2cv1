@@ -302,7 +302,7 @@ public class UserCenterController extends BaseController{
 				
 				String MerNo = "1624";                /** <必填>--商户号. **/
 
-				String BillNo = "111";		           /** <必填>--订单号. 一个网店只能产生唯一的订单号,不能出现重复,可以是字母和数字的组合. **/
+				String BillNo = order.getName();		           /** <必填>--订单号. 一个网店只能产生唯一的订单号,不能出现重复,可以是字母和数字的组合. **/
 				
 				String MD5key = "YNWNUrlJ";	           /** <必填>--密钥. 可以在YourSpay商户后台查询和修改,为了支付安全,建议一段时间更换一次. **/
 				
@@ -314,43 +314,57 @@ public class UserCenterController extends BaseController{
 			   
 				/* 以下为账单信息.为了让客户在支付页面无需重复填写账单信息,建议账单信息尽可能获取,如果网店系统无账单信息,建议用收货信息代替. */
 				
-				String BFirstName = "BillFirstName";       /** <可选>--持卡人姓. 如果网店只有一个全名,建议把全名对姓和名各赋值一份. **/
+				String BFirstName = order.getUser().getFirstName()== null ? "" : order.getUser().getFirstName();       /** <可选>--持卡人姓. 如果网店只有一个全名,建议把全名对姓和名各赋值一份. **/
 				
-				String BLastName = "BillLastName";         /** <可选>--持卡人名. 如果网店只有一个全名,建议把全名对姓和名各赋值一份. **/
+				String BLastName = order.getUser().getLastName()== null ? "" : order.getUser().getLastName();          /** <可选>--持卡人名. 如果网店只有一个全名,建议把全名对姓和名各赋值一份. **/
 				
 				String Email = order.getUser().getEmail();             /** <必填>--持卡人邮箱.  用于支付成功或者失败,向客户发送支付成功/失败提示邮件. **/
 				
-				String Phone = "15888888";			       /** <可选>--持卡人电话. **/
+				String Phone = order.getUser().getBillingAddress().getPhone();			       /** <可选>--持卡人电话. **/
 				
-				String BillAddress = "BillAddress";        /** <可选>--详细地址. **/
+				String BillAddress = order.getUser().getBillingAddress().getAddress1() == null ? "" : order.getUser().getBillingAddress().getAddress1();        /** <可选>--详细地址. **/
 				
-				String BillCity = "BillCity";		       /** <可选>--城市. **/
+				String BillCity = order.getUser().getBillingAddress().getCity() == null ? "" : order.getUser().getBillingAddress().getCity() ;		       /** <可选>--城市. **/
 				
-				String BillState = "BillState";            /** <可选>--省份/州. **/
+				String BillState = order.getUser().getBillingAddress().getStateProvince() == null ? "" : order.getUser().getBillingAddress().getStateProvince();            /** <可选>--省份/州. **/
 				
-				String BillCountry = "CN";                 /** <可选>--国家. 国家名称最好用大写,而且是国家简称. **/
+				String BillCountry = order.getUser().getBillingAddress().getCountry() == 0 ? "" : ServiceFactory.getService(CountryService.class).getCountryById(order.getUser().getBillingAddress().getCountry()).getAbbrCode();                 /** <可选>--国家. 国家名称最好用大写,而且是国家简称. **/
 				
-				String BillZip = "222888";				   /** <可选>--邮编. **/	
+				String BillZip = order.getUser().getBillingAddress().getPostalCode() == null ? "" : order.getUser().getBillingAddress().getPostalCode() ;				   /** <可选>--邮编. **/	
+				
+				if(order.getUser().isBillingSameAsPrimary()){
+					Phone = order.getUser().getPrimaryAddress().getPhone();			       /** <可选>--持卡人电话. **/
+					
+					BillAddress = order.getUser().getPrimaryAddress().getAddress1() == null ? "" : order.getUser().getPrimaryAddress().getAddress1();        /** <可选>--详细地址. **/
+					
+					BillCity = order.getUser().getPrimaryAddress().getCity() == null ? "" : order.getUser().getPrimaryAddress().getCity() ;		       /** <可选>--城市. **/
+					
+					BillState = order.getUser().getPrimaryAddress().getStateProvince() == null ? "" : order.getUser().getPrimaryAddress().getStateProvince();            /** <可选>--省份/州. **/
+					
+					BillCountry = order.getUser().getPrimaryAddress().getCountry() == 0 ? "" : ServiceFactory.getService(CountryService.class).getCountryById(order.getUser().getPrimaryAddress().getCountry()).getAbbrCode();                 /** <可选>--国家. 国家名称最好用大写,而且是国家简称. **/
+					
+					BillZip = order.getUser().getPrimaryAddress().getPostalCode() == null ? "" : order.getUser().getPrimaryAddress().getPostalCode() ;		
+				}
 				
 				/** 收货人信息 **/	
 				
-				String SFirstName = "ShipFirstName";       /** <必填>--收货人姓. 如果网店只有一个全名,建议把全名对姓和名各赋值一份. **/
+				String SFirstName = BFirstName;       /** <必填>--收货人姓. 如果网店只有一个全名,建议把全名对姓和名各赋值一份. **/
 				
-				String SLastName = "ShipLastName";         /** <必填>--收货人名. 如果网店只有一个全名,建议把全名对姓和名各赋值一份. **/
+				String SLastName = BLastName;         /** <必填>--收货人名. 如果网店只有一个全名,建议把全名对姓和名各赋值一份. **/
 				
-				String ShipAddress = "ShipAddress";	       /** <必填>--详细地址. **/
+				String ShipAddress = "00000";	       /** <必填>--详细地址. **/
 				
-				String ShipCity = "ShipCity";		       /** <必填>--城市. **/
+				String ShipCity = "00000";		       /** <必填>--城市. **/
 				
-			    String ShipState = "ShipState";	           /** <可选>--省份/州. **/
+			    String ShipState = "00000";	           /** <可选>--省份/州. **/
 				
-				String ShipCountry = "ShipCountry";	       /** <必填>--国家. 国家名称最好用大写,而且是国家简称. **/
+				String ShipCountry = "00000";	       /** <必填>--国家. 国家名称最好用大写,而且是国家简称. **/
 				
-				String ShipZip = "518000";                 /** <必填>--邮编. **/
+				String ShipZip = "00000";                 /** <必填>--邮编. **/
 				 
-				String ShipEmail="test2@126.com";          /** <可选>--邮箱. **/
+				String ShipEmail = order.getUser().getEmail();          /** <可选>--邮箱. **/
 				
-				String ShipPhone="15888888";               /** <可选>--电话. **/   
+				String ShipPhone = order.getUser().getPrimaryAddress().getPhone();               /** <可选>--电话. **/   
 				
 				/** 通道信息 **/
 				String Language = "2";		               /** <必填>--通道参数,非语言,只能为固定值:2. **/
@@ -359,7 +373,7 @@ public class UserCenterController extends BaseController{
 
 				String Currency = "15";	                   /** <必填>--通道参数.非币种,只能为固定值:15. **/
 				
-				String ReturnURL = "http://www.honeybuy.com/order";	  /** <必填>--返回页面. 支付完成后,将返回到此页面,提示支 付的结果(成功/失败). **/
+				String ReturnURL = "http://www.honeybuy.com//uc/yoursPayResults";	  /** <必填>--返回页面. 支付完成后,将返回到此页面,提示支 付的结果(成功/失败). **/
 				
 				String Remark = "";	   /** <可选>--备注. 网店中客户填写的备注. **/
 
