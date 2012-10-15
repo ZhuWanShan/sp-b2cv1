@@ -15,7 +15,6 @@ import static com.spshop.utils.Constants.COUNTRY;
 import static com.spshop.utils.Constants.COUNTRY_ERR;
 import static com.spshop.utils.Constants.CURRENT_ORDER;
 import static com.spshop.utils.Constants.CURRENT_PRODUCT;
-import static com.spshop.utils.Constants.CURRENT_PRODUCT_ID;
 import static com.spshop.utils.Constants.C_USER_FIRST_NAME;
 import static com.spshop.utils.Constants.C_USER_LAST_NAME;
 import static com.spshop.utils.Constants.DEFAULT_CURRENCY;
@@ -62,6 +61,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jxl.write.NumberFormat;
+
 import net.sf.json.JSONObject;
 
 import org.apache.commons.collections.MapUtils;
@@ -88,6 +89,7 @@ import com.spshop.service.intf.MessageService;
 import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.UserService;
 import com.spshop.utils.EmailTools;
+import com.spshop.utils.Encrypt;
 import com.spshop.utils.Utils;
 import com.spshop.web.view.SiteView;
 
@@ -255,9 +257,10 @@ public class UserCenterController extends BaseController{
 	}
 	
 	@RequestMapping(value = "/shoppingCart_payment_2_pay" , method = RequestMethod.POST)
-	public String shoppingCartPayment2Pay(Model model) {
+	public String shoppingCartPayment2Pay(Model model, @RequestParam("payType") String payType) {
 		
 		Order order = getUserView().getCart().getOrder();
+		order.setOrderType(payType);
 		
 		getUserView().getCart().setOrder(new Order());
 		
@@ -294,6 +297,124 @@ public class UserCenterController extends BaseController{
 					}
 				};
 			}.start();
+			
+			if("YoursPay".equals(payType)){/** 订单信息 **/
+				
+				String MerNo = "1624";                /** <必填>--商户号. **/
+
+				String BillNo = "111";		           /** <必填>--订单号. 一个网店只能产生唯一的订单号,不能出现重复,可以是字母和数字的组合. **/
+				
+				String MD5key = "YNWNUrlJ";	           /** <必填>--密钥. 可以在YourSpay商户后台查询和修改,为了支付安全,建议一段时间更换一次. **/
+				
+				String Amount = new NumberFormat("##0.##").getNumberFormat().format((order.getTotalPrice()-order.getCouponCutOff())*currencyRate);		           /** <必填>--订单总金额.包括运费在内. 必须只能为数字,并且大于0,最多为小数点两位. **/ 
+				
+				String Freight = new NumberFormat("##0.##").getNumberFormat().format((order.getDePrice())*currencyRate);	               /** <必填>--运费. 必须只能为数字,最多为小数点两位,如果无运费,可以为设为0. **/
+				
+				String CurrencyCode = order.getCurrency();		   /** <必填>--币种. 美元:USD,英镑:GBP,欧元:EUR,加元:CAD,澳元:AUD,日元:JPY. **/		
+			   
+				/* 以下为账单信息.为了让客户在支付页面无需重复填写账单信息,建议账单信息尽可能获取,如果网店系统无账单信息,建议用收货信息代替. */
+				
+				String BFirstName = "BillFirstName";       /** <可选>--持卡人姓. 如果网店只有一个全名,建议把全名对姓和名各赋值一份. **/
+				
+				String BLastName = "BillLastName";         /** <可选>--持卡人名. 如果网店只有一个全名,建议把全名对姓和名各赋值一份. **/
+				
+				String Email = order.getUser().getEmail();             /** <必填>--持卡人邮箱.  用于支付成功或者失败,向客户发送支付成功/失败提示邮件. **/
+				
+				String Phone = "15888888";			       /** <可选>--持卡人电话. **/
+				
+				String BillAddress = "BillAddress";        /** <可选>--详细地址. **/
+				
+				String BillCity = "BillCity";		       /** <可选>--城市. **/
+				
+				String BillState = "BillState";            /** <可选>--省份/州. **/
+				
+				String BillCountry = "CN";                 /** <可选>--国家. 国家名称最好用大写,而且是国家简称. **/
+				
+				String BillZip = "222888";				   /** <可选>--邮编. **/	
+				
+				/** 收货人信息 **/	
+				
+				String SFirstName = "ShipFirstName";       /** <必填>--收货人姓. 如果网店只有一个全名,建议把全名对姓和名各赋值一份. **/
+				
+				String SLastName = "ShipLastName";         /** <必填>--收货人名. 如果网店只有一个全名,建议把全名对姓和名各赋值一份. **/
+				
+				String ShipAddress = "ShipAddress";	       /** <必填>--详细地址. **/
+				
+				String ShipCity = "ShipCity";		       /** <必填>--城市. **/
+				
+			    String ShipState = "ShipState";	           /** <可选>--省份/州. **/
+				
+				String ShipCountry = "ShipCountry";	       /** <必填>--国家. 国家名称最好用大写,而且是国家简称. **/
+				
+				String ShipZip = "518000";                 /** <必填>--邮编. **/
+				 
+				String ShipEmail="test2@126.com";          /** <可选>--邮箱. **/
+				
+				String ShipPhone="15888888";               /** <可选>--电话. **/   
+				
+				/** 通道信息 **/
+				String Language = "2";		               /** <必填>--通道参数,非语言,只能为固定值:2. **/
+				
+				String LangCode = "en";		               /** <可选>--支付页面语言. 英文:en,法语:fr,意大利语:it,德语:de,日语:ja,默认为英文(en). **/
+
+				String Currency = "15";	                   /** <必填>--通道参数.非币种,只能为固定值:15. **/
+				
+				String ReturnURL = "http://www.honeybuy.com/order";	  /** <必填>--返回页面. 支付完成后,将返回到此页面,提示支 付的结果(成功/失败). **/
+				
+				String Remark = "";	   /** <可选>--备注. 网店中客户填写的备注. **/
+
+			    /** <必填>--货物信息.如果购物多个,通过循环遍历,把所需的每个商品的名称(GoodsName),数量(Qty)单价(Price)进行连结 **/
+				/** 比如：<Goods><GoodsName>商品名</GoodsName><Qty>数量</Qty><Price>单价</Price></Goods> **/ 
+				StringBuilder GoodsListInfo = new StringBuilder();
+			    GoodsListInfo = GoodsListInfo.append("<Goods><GoodsName>").append("Nike").append("</GoodsName><Qty>").append("2").append("</Qty><Price>").append("10").append("</Price></Goods>");
+			    GoodsListInfo = GoodsListInfo.append("<Goods><GoodsName>").append("Addi").append("</GoodsName><Qty>").append("1").append("</Qty><Price>").append("20").append("</Price></Goods>");
+			    
+			    /** 参数组合, 顺序不能颠倒 **/
+			    StringBuilder md5src = new StringBuilder();
+				md5src = md5src.append(MerNo).append(BillNo).append(Freight).append(Amount).append(CurrencyCode).append(ReturnURL).append(Email).append(MD5key);    
+			    /** 对参数组合字符串进行md5加密,并且转换为大写 **/
+				String MD5info = Encrypt.MD5(md5src.toString()).toUpperCase();     
+
+				/** 把参数用xml组合成字符串 **/
+				StringBuilder basexml = new  StringBuilder();
+				basexml = basexml.append("<?xml version='1.0' encoding='UTF-8' ?><Order>");
+				basexml =  basexml.append("<MerNo>").append(MerNo).append("</MerNo>");
+				basexml =  basexml.append("<BillNo>").append(BillNo).append("</BillNo>");
+				basexml =  basexml.append("<GoodsList>").append(GoodsListInfo) .append("</GoodsList>");
+				basexml =  basexml.append("<Amount>").append(Amount).append("</Amount>");
+				basexml =  basexml.append("<Freight>").append(Freight).append("</Freight>");
+				basexml =  basexml.append("<CurrencyCode>").append(CurrencyCode).append("</CurrencyCode>");
+				basexml =  basexml.append("<BFirstName>").append(BFirstName).append("</BFirstName>");
+				basexml =  basexml.append("<BLastName>").append(BLastName).append("</BLastName>");
+				basexml =  basexml.append("<Email>").append(Email).append("</Email>");
+				basexml =  basexml.append("<Phone>").append(Phone).append("</Phone>");
+				basexml =  basexml.append("<BillAddress>").append(BillAddress).append("</BillAddress>");
+				basexml =  basexml.append("<BillCity>").append(BillCity).append("</BillCity>");
+				basexml =  basexml.append("<BillState>").append(BillState).append("</BillState>");
+				basexml =  basexml.append("<BillCountry>").append(BillCountry).append("</BillCountry>");
+				basexml =  basexml.append("<BillZip>").append(BillZip).append("</BillZip>");
+				basexml =  basexml.append("<SFirstName>").append(SFirstName).append("</SFirstName>");
+				basexml =  basexml.append("<SLastName>").append(SLastName).append( "</SLastName>");
+				basexml =  basexml.append("<ShipAddress>").append(ShipAddress).append("</ShipAddress>");
+				basexml =  basexml.append("<ShipCity>").append(ShipCity).append("</ShipCity>");
+				basexml =  basexml.append("<ShipState>").append(ShipState).append("</ShipState>");
+				basexml =  basexml.append("<ShipCountry>").append(ShipCountry).append("</ShipCountry>");
+				basexml =  basexml.append("<ShipZip>").append(ShipZip).append("</ShipZip>");
+				basexml =  basexml.append("<ShipEmail>").append(ShipEmail).append("</ShipEmail>");
+				basexml =  basexml.append("<ShipPhone>").append(ShipPhone).append("</ShipPhone>");
+				basexml =  basexml.append("<Language>").append(Language).append("</Language>");
+				basexml =  basexml.append("<LangCode>").append(LangCode).append("</LangCode>");
+				basexml =  basexml.append("<Currency>").append(Currency).append("</Currency>");
+				basexml =  basexml.append("<ReturnURL>").append(ReturnURL).append("</ReturnURL>");
+				basexml =  basexml.append("<Remark>").append(Remark).append("</Remark>");
+				basexml =  basexml.append("<MD5info>").append(MD5info).append("</MD5info></Order>");	
+				String TradeInfo = Encrypt.URLEncode_BASE64(basexml.toString());
+					
+				model.addAttribute("tradeInfo", TradeInfo);
+					
+				return "yoursPay";
+			}
+			
 			return "paypal";
 		}
 		
