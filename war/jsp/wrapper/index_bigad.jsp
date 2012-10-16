@@ -22,7 +22,7 @@
 				<a href="http://www.honeybuy.com/c/Womens-Shoes"><img alt="Womens-Shoes" title="Womens-Shoes"  width="972px" height="428px" src="/image/home-shoe.jpg"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Cheap-Tie-In-Stock"><img alt="Cheap ties in Stock" title="Cheap ties in Stock"  width="972px" height="428px" src="/image/ties-banner.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Ties"><img alt="Ties" title="Ties"  width="972px" height="428px" src="/image/ties-banner.jpg"></a>
 			</div>
 <p class="clearBoth"></p>
 		</div>
