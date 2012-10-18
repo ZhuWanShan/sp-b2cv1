@@ -586,11 +586,11 @@ public class UserCenterController extends BaseController {
 				// //////////////////////////////////请求参数//////////////////////////////////////
 
 				// 服务器异步通知页面路径
-				String notify_url = "http://184.22.252.66/AliPayTest/notify_url.jsp";
+				String notify_url = getSiteView().getHost()+"/uc/aliPayAsyncResults";
 				// 需http://格式的完整路径，不允许加?id=123这类自定义参数
 
 				// 页面跳转同步通知页面路径
-				String return_url = "http://184.22.252.66/AliPayTest/return_url.jsp";
+				String return_url = getSiteView().getHost()+"/uc/aliPaySyncResults";
 				// 需http://格式的完整路径，不允许加?id=123这类自定义参数
 
 				// 商户订单号
@@ -662,9 +662,11 @@ public class UserCenterController extends BaseController {
 				String sHtmlText = AlipaySubmit.buildRequest(sParaTemp, "get",
 						"Submit");
 				
-				model.addAttribute("alipay", sHtmlText);
+				model.addAttribute("alipayFormContent", sHtmlText);
 				
 				//out.println(sHtmlText);
+				
+				return "alipay";
 			}
 
 			return "paypal";
