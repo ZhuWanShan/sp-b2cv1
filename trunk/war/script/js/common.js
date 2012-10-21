@@ -298,6 +298,16 @@ var SP = new Object();
 				initButtons();
 			};
 			
+			slider.cycle = function(){
+				setInterval(function(){
+					if(slider.sliders.length - 1 > slider.currentSlider){
+						slider.go(slider.currentSlider +1);
+					}else{
+						slider.go(0);
+					}
+				},5000);
+			}
+			
 			slider.controllers.each(function(index){
 				jq(slider.controllers.get(index)).click(function(){
 					slider.go(index);
@@ -316,20 +326,6 @@ var SP = new Object();
 			
 			return slider;
 		};
-
-		/*jq.extend(jq.fn,{
-            mask: function(msg,maskDivClass){},
-            
-            unmask: function(){
-                     var original=jq(document.body);
-                         if(this[0] && this[0]!==window.document){
-                            original=jq(this[0]);
-                      }
-                      original.find("> div.maskdivgen").fadeOut('slow',0,function(){
-                          $(this).remove();
-                      });
-            }
-        });*/
 		
 		
 
