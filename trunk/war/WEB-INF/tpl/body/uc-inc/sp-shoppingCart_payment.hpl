@@ -101,6 +101,29 @@
 						value="Processed to Pay">
 				</div>
 			</li>
+			<li>
+				<div class="shipping_title" style="display: none;">
+					<input name="payType" type="radio" value="alipay"> <span>AliPay
+					<img width="30" height="20"
+						src="${siteView.host}/style/image/home_103.gif"> <img
+						width="29" height="20" src="${siteView.host}/style/image/--.jpg">
+						<img width="31" height="20"
+						src="${siteView.host}/style/image/amex.jpg"> <img width="33"
+						height="20" src="${siteView.host}/style/image/dse.jpg">
+					</span>
+				</div>
+				<div class="shipping_desc" style="display: none;">
+					<p>How to pay by a Credit Card.</p>
+					<p>Visa Only! You can pay direct with your visa card. Payment
+						with this way is traceable, immediate and convenient, and the
+						payment is deposited directly into HoneyBuy’s account. Moreover,
+						credit card companies typically provide some level of identity and
+						purchase protection. Please do not block any pop-up windows when
+						going through the paying process</p>
+					<br /> <input type="submit" class="button_01"
+						value="Processed to Pay">
+				</div>
+			</li>
 		</ul>
 		<#assign order = currentOrder!userView.cart.order> <#assign "address"=
 		primary!order.primaryAddress >
