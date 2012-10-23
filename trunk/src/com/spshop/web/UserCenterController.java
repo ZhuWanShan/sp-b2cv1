@@ -648,15 +648,15 @@ public class UserCenterController extends BaseController {
 				sParaTemp.put("_input_charset", AlipayConfig.input_charset);
 				sParaTemp.put("notify_url", notify_url);
 				sParaTemp.put("return_url", return_url);
-				sParaTemp.put("out_trade_no", out_trade_no);
-				sParaTemp.put("subject", subject);
+				sParaTemp.put("out_trade_no", order.getName());
+				sParaTemp.put("subject", order.getName());
 				sParaTemp.put("default_bank", default_bank);
 				sParaTemp.put("extend_param", extend_param);
-				sParaTemp.put("seller_logon_id", seller_logon_id);
-				sParaTemp.put("total_fee", total_fee);
-				sParaTemp.put("body", body);
+				sParaTemp.put("seller_logon_id", "ali11053093@alitest.com");
+				sParaTemp.put("total_fee", order.getTotalPrice()+"");
+				//sParaTemp.put("body", body);
 				sParaTemp.put("show_url", show_url);
-				sParaTemp.put("currency", currency);
+				sParaTemp.put("currency", order.getCurrency());
 
 				// 建立请求
 				String sHtmlText = AlipaySubmit.buildRequest(sParaTemp, "get",
