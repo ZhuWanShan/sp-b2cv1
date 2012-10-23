@@ -134,118 +134,188 @@ public class TagsGen {
 				Character index = key.charAt(0);
 				switch (index) {
 				case 'A':
+					a.append(key + comma);
+					break;
 				case 'a':
 					a.append(key + comma);
 					break;
 				case 'b':
+					b.append(key + comma);
+					break;
 				case 'B':
 					b.append(key + comma);
 					break;
 				case 'c':
+					c.append(key + comma);
+					break;
 				case 'C':
 					c.append(key + comma);
 					break;
 				case 'd':
+					d.append(key + comma);
+					break;
 				case 'D':
 					d.append(key + comma);
 					break;
 				case 'e':
+					e.append(key + comma);
+					break;
 				case 'E':
 					e.append(key + comma);
 					break;
 				case 'f':
+					f.append(key + comma);
+					break;
 				case 'F':
 					f.append(key + comma);
 					break;
 				case 'g':
+					g.append(key + comma);
+					break;
 				case 'G':
 					g.append(key + comma);
 					break;
 				case 'h':
+					h.append(key + comma);
+					break;
 				case 'H':
 					h.append(key + comma);
 					break;
 				case 'i':
+					i.append(key + comma);
+					break;
 				case 'I':
 					i.append(key + comma);
 					break;
 				case 'j':
+					j.append(key + comma);
+					break;
 				case 'J':
 					j.append(key + comma);
 					break;
 				case 'k':
+					k.append(key + comma);
+					break;
 				case 'K':
 					k.append(key + comma);
 					break;
 				case 'l':
+					l.append(key + comma);
+					break;
 				case 'L':
 					l.append(key + comma);
 					break;
 				case 'm':
+					m.append(key + comma);
+					break;
 				case 'M':
 					m.append(key + comma);
 					break;
 				case 'n':
+					n.append(key + comma);
+					break;
 				case 'N':
 					n.append(key + comma);
 					break;
 				case 'o':
+					o.append(key + comma);
+					break;
 				case 'O':
 					o.append(key + comma);
 					break;
 				case 'p':
+					p.append(key + comma);
+					break;
 				case 'P':
 					p.append(key + comma);
 					break;
 				case 'q':
+					q.append(key + comma);
+					break;
 				case 'Q':
 					q.append(key + comma);
 					break;
 				case 'r':
+					r.append(key + comma);
+					break;
 				case 'R':
 					r.append(key + comma);
 					break;
 				case 's':
+					s.append(key + comma);
+					break;
 				case 'S':
 					s.append(key + comma);
 					break;
 				case 't':
+					t.append(key + comma);
+					break;
 				case 'T':
 					t.append(key + comma);
 					break;
 				case 'u':
+					u.append(key + comma);
+					break;
 				case 'U':
 					u.append(key + comma);
 					break;
 				case 'v':
+					v.append(key + comma);
+					break;
 				case 'V':
 					v.append(key + comma);
 					break;
 				case 'w':
+					w.append(key + comma);
+					break;
 				case 'W':
 					w.append(key + comma);
 					break;
 				case 'x':
+					x.append(key + comma);
+					break;
 				case 'X':
 					x.append(key + comma);
 					break;
 				case 'y':
+					y.append(key + comma);
+					break;
 				case 'Y':
 					y.append(key + comma);
 					break;
 				case 'z':
+					z.append(key + comma);
+					break;
 				case 'Z':
 					z.append(key + comma);
 					break;
 				case '0':
+					number.append(key + comma);
+					break;
 				case '1':
+					number.append(key + comma);
+					break;
 				case '2':
+					number.append(key + comma);
+					break;
 				case '3':
+					number.append(key + comma);
+					break;
 				case '4':
+					number.append(key + comma);
+					break;
 				case '5':
+					number.append(key + comma);
+					break;
 				case '6':
+					number.append(key + comma);
+					break;
 				case '7':
+					number.append(key + comma);
+					break;
 				case '8':
+					number.append(key + comma);
+					break;
 				case '9':
 					number.append(key + comma);
 					break;
