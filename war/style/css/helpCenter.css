@@ -9,9 +9,9 @@
 #helpcenter .clear{ clear:both}
 #helpcenter .mid{ width:972px; margin:0 auto}
 /******** helpCenter CSS left**/
-#helpcenter .help_left{ float:left; width:171px;padding:0 10px 0 10px; background:#efefef}
+#helpcenter .help_left{ float:left; width:169px; padding:0 10px 0 10px; background:url(/style/image/pic/help-leftB.jpg) repeat-x ; border:1px solid #cacaca}
 #helpcenter .help_left h3{ line-height:30px;font-family: Arial, Helvetica;font-size: 18px; font-weight: bold;}
-#helpcenter .help_left .help_menu span{font-family: Arial, Helvetica;font-size:13px; color:#555; margin-bottom:5px;}
+#helpcenter .help_left .help_menu span{font-family: Arial, Helvetica;font-size:13px; color:#555; margin-bottom:5px; display:block;}
 #helpcenter .help_left .help_menu span a{ line-height:18px;color:#333}
 #helpcenter .help_left .help_menu ul li{background: url(/style/image/pic/huise.png) no-repeat 0 6px;padding:0 0 0 6px;font-size:12px;line-height:25px;}
 #helpcenter .help_left .help_menu ul li a{color:#484848;line-height:16px;}
