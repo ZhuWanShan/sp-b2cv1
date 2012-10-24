@@ -16,7 +16,7 @@
 <div id="helpcenter">
 <div class="help_left"><h3><a href="/uc/helpCenter/hcIndex">Knowledge Base</a></h3>
  <div class="help_menu">
-   <span><img id="collapse_1" class="collapse_btn" src="/style/image/pic/sanjiao.png"/><a href="/uc/helpCenter/more-1">Part One: About the order Status</a></span><br/>
+   <span><img id="collapse_1" class="collapse_btn" src="/style/image/pic/sanjiao.png"/><a href="/uc/helpCenter/more-1">Part One: About the order Status</a></span>
 <ul id="collapse_1_content">
    <li><a href="/uc/helpCenter/help1-8">1. Placing Orders?</a></li>
    <li><a href="/uc/helpCenter/help1-9">2. Track Order?</a></li>
@@ -28,7 +28,7 @@
     <li><a href="/uc/helpCenter/help1-6">8. I ordered a standard sized dress, not a custom size, why is it taking so long?</a></li>
     <li><a href="/uc/helpCenter/help1-7">9. How do I contact Customer Service about my order?</a></li>
 </ul>
-   <span><img id="collapse_2" class="collapse_btn" src="/style/image/pic/sanjiao.png"/><a href="/uc/helpCenter/more-2">Part Two: Shipping & Delivery</a> </span><br/>
+   <span><img id="collapse_2" class="collapse_btn" src="/style/image/pic/sanjiao.png"/><a href="/uc/helpCenter/more-2">Part Two: Shipping & Delivery</a> </span>
 <ul id="collapse_2_content">
    <li><a href="/uc/helpCenter/help2-1">1. How can I track my package?</a></li>
    <li><a href="/uc/helpCenter/help2-2">2. How do I estimate my delivery time?</a></li>
@@ -39,7 +39,7 @@
     <li><a href="/uc/helpCenter/help2-7">7. Do you ship to PO Boxes or APO/FPO military addresses?</a></li>
     <li><a href="/uc/helpCenter/help2-8">8. Why was I asked for a "CPF" number? (Brazilian customers)</a></li>
 </ul>
-   <span><img id="collapse_3" class="collapse_btn" src="/style/image/pic/sanjiao.png"/><a href="/uc/helpCenter/more-3">Part Three: About the made to custom order</a></span><br/>
+   <span><img id="collapse_3" class="collapse_btn" src="/style/image/pic/sanjiao.png"/><a href="/uc/helpCenter/more-3">Part Three: About the made to custom order</a></span>
 <ul id="collapse_3_content">
    <li><a href="/uc/helpCenter/help3-1">1. What does made-to-order mean?</a></li>
    <li><a href="/uc/helpCenter/help3-2">2. How to measure my size?</a></li>
@@ -51,7 +51,7 @@
     <li><a href="/uc/helpCenter/help3-8">8. Do you sell fabric swatches or can I buy material directly from you?</a></li>
     <li><a href="/uc/helpCenter/help3-9">9. Made-to-Order dresses alteration options & return policy</a></li>
 </ul>
-   <span><img id="collapse_4" class="collapse_btn" src="/style/image/pic/sanjiao.png"/><a href="/uc/helpCenter/more-4">Part Four: Returns & Refunds FAQs</a></span><br/>
+   <span><img id="collapse_4" class="collapse_btn" src="/style/image/pic/sanjiao.png"/><a href="/uc/helpCenter/more-4">Part Four: Returns & Refunds FAQs</a></span>
 <ul id="collapse_4_content">
    <li><a href="/uc/helpCenter/help4-1">1. An item was lost or damaged during shipping</a></li>
    <li><a href="/uc/helpCenter/help4-2">2. An item is missing from my shipment</a></li>
@@ -59,7 +59,7 @@
     <li><a href="/uc/helpCenter/help4-4">4. Have you received my returned items?</a></li>
     <li><a href="/uc/helpCenter/help4-5">5. Our Return & Cancellation Policy</a></li>
 </ul>
-   <span><img id="collapse_5" class="collapse_btn" src="/style/image/pic/sanjiao.png"/><a href="/uc/helpCenter/more-5">Part Five: Payment FAQs</a></span><br/>
+   <span><img id="collapse_5" class="collapse_btn" src="/style/image/pic/sanjiao.png"/><a href="/uc/helpCenter/more-5">Part Five: Payment FAQs</a></span>
 <ul id="collapse_5_content">
    <li><a href="/uc/helpCenter/help5-1">1. Which payment methods do you accept?</a></li>
    <li><a href="/uc/helpCenter/help5-2">2. How to pay with credit/debit card</a></li>
@@ -70,12 +70,12 @@
     <li><a href="/uc/helpCenter/help5-7">7. How can I view prices in my currency?</a></li>
     <li><a href="/uc/helpCenter/help5-8">8. How do you calculate currency rates?</a></li>
 </ul>
-   <span><img id="collapse_6" class="collapse_btn" src="/style/image/pic/sanjiao.png"/><a href="#">Part Six: My Account FAQs</a></span><br/>
+   <span><img id="collapse_6" class="collapse_btn" src="/style/image/pic/sanjiao.png"/><a href="#">Part Six: My Account FAQs</a></span>
 <ul id="collapse_6_content">
    <li><a href="/uc/helpCenter/help6-1">1. Why should I create an account?</a></li>
    <li><a href="/uc/helpCenter/help6-2">2. I forgot my password</a></li>
 </ul>
-   <span><img id="collapse_7" class="collapse_btn" src="/style/image/pic/sanjiao.png"/><a href="/uc/helpCenter/more-7">Part Seven: How to Pay</a></span><br/>
+   <span><img id="collapse_7" class="collapse_btn" src="/style/image/pic/sanjiao.png"/><a href="/uc/helpCenter/more-7">Part Seven: How to Pay</a></span>
 <ul id="collapse_7_content">
     <li><a href="/uc/helpCenter/help7-1">1. Accepted Payment Methods</a></li>
     <li><a href="/uc/helpCenter/help7-2">2. PayPal Isn't Available in My Country</a></li>
