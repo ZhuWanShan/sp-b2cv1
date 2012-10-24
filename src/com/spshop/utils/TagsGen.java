@@ -130,200 +130,201 @@ public class TagsGen {
 
 		for (String key : sortedTags) {
 			if (StringUtils.isNotBlank(key)) {
-				key = key.trim();
+				key = key.trim().replace("\n", ",").replace("\r", "");
 				Character index = key.charAt(0);
 				switch (index) {
 				case 'A':
 					a.append(key + comma);
-					break;
+					continue;
 				case 'a':
 					a.append(key + comma);
-					break;
+					continue;
 				case 'b':
 					b.append(key + comma);
-					break;
+					continue;
 				case 'B':
 					b.append(key + comma);
-					break;
+					continue;
 				case 'c':
 					c.append(key + comma);
-					break;
+					continue;
 				case 'C':
 					c.append(key + comma);
-					break;
+					continue;
 				case 'd':
 					d.append(key + comma);
-					break;
+					continue;
 				case 'D':
 					d.append(key + comma);
-					break;
+					continue;
 				case 'e':
 					e.append(key + comma);
-					break;
+					continue;
 				case 'E':
 					e.append(key + comma);
-					break;
+					continue;
 				case 'f':
 					f.append(key + comma);
-					break;
+					continue;
 				case 'F':
 					f.append(key + comma);
-					break;
+					continue;
 				case 'g':
 					g.append(key + comma);
-					break;
+					continue;
 				case 'G':
 					g.append(key + comma);
-					break;
+					continue;
 				case 'h':
 					h.append(key + comma);
-					break;
+					continue;
 				case 'H':
 					h.append(key + comma);
-					break;
+					continue;
 				case 'i':
 					i.append(key + comma);
-					break;
+					continue;
 				case 'I':
 					i.append(key + comma);
-					break;
+					continue;
 				case 'j':
 					j.append(key + comma);
-					break;
+					continue;
 				case 'J':
 					j.append(key + comma);
-					break;
+					continue;
 				case 'k':
 					k.append(key + comma);
-					break;
+					continue;
 				case 'K':
 					k.append(key + comma);
-					break;
+					continue;
 				case 'l':
 					l.append(key + comma);
-					break;
+					continue;
 				case 'L':
 					l.append(key + comma);
-					break;
+					continue;
 				case 'm':
 					m.append(key + comma);
-					break;
+					continue;
 				case 'M':
 					m.append(key + comma);
-					break;
+					continue;
 				case 'n':
 					n.append(key + comma);
-					break;
+					continue;
 				case 'N':
 					n.append(key + comma);
-					break;
+					continue;
 				case 'o':
 					o.append(key + comma);
-					break;
+					continue;
 				case 'O':
 					o.append(key + comma);
-					break;
+					continue;
 				case 'p':
 					p.append(key + comma);
-					break;
+					continue;
 				case 'P':
 					p.append(key + comma);
-					break;
+					continue;
 				case 'q':
 					q.append(key + comma);
-					break;
+					continue;
 				case 'Q':
 					q.append(key + comma);
-					break;
+					continue;
 				case 'r':
 					r.append(key + comma);
-					break;
+					continue;
 				case 'R':
 					r.append(key + comma);
-					break;
+					continue;
 				case 's':
 					s.append(key + comma);
-					break;
+					continue;
 				case 'S':
 					s.append(key + comma);
-					break;
+					continue;
 				case 't':
 					t.append(key + comma);
-					break;
+					continue;
 				case 'T':
 					t.append(key + comma);
-					break;
+					continue;
 				case 'u':
 					u.append(key + comma);
-					break;
+					continue;
 				case 'U':
 					u.append(key + comma);
-					break;
+					continue;
 				case 'v':
 					v.append(key + comma);
-					break;
+					continue;
 				case 'V':
 					v.append(key + comma);
-					break;
+					continue;
 				case 'w':
 					w.append(key + comma);
-					break;
+					continue;
 				case 'W':
 					w.append(key + comma);
-					break;
+					continue;
 				case 'x':
 					x.append(key + comma);
-					break;
+					continue;
 				case 'X':
 					x.append(key + comma);
-					break;
+					continue;
 				case 'y':
 					y.append(key + comma);
-					break;
+					continue;
 				case 'Y':
 					y.append(key + comma);
-					break;
+					continue;
 				case 'z':
 					z.append(key + comma);
-					break;
+					continue;
 				case 'Z':
 					z.append(key + comma);
-					break;
+					continue;
 				case '0':
 					number.append(key + comma);
-					break;
+					continue;
 				case '1':
 					number.append(key + comma);
-					break;
+					continue;
 				case '2':
 					number.append(key + comma);
-					break;
+					continue;
 				case '3':
 					number.append(key + comma);
-					break;
+					continue;
 				case '4':
 					number.append(key + comma);
-					break;
+					continue;
 				case '5':
 					number.append(key + comma);
-					break;
+					continue;
 				case '6':
 					number.append(key + comma);
-					break;
+					continue;
 				case '7':
 					number.append(key + comma);
-					break;
+					continue;
 				case '8':
 					number.append(key + comma);
-					break;
+					continue;
 				case '9':
 					number.append(key + comma);
-					break;
+					continue;
 				default:
-					break;
+					continue;
 				}
 
 			}
+		}
 			try {
 				File file =  new File(indexFile);
 				if(!file.exists()){
@@ -365,7 +366,6 @@ public class TagsGen {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-		}
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
@@ -379,6 +379,6 @@ public class TagsGen {
 		// FileOutputStream fileOutputStream =new FileOutputStream(new
 		// File("C:\\Workspace\\dev\\ShopPro\\war\\WEB-INF\\index\\index.tag"));
 		
-
+		
 	}
 }

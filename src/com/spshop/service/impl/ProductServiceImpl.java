@@ -1,7 +1,6 @@
 package com.spshop.service.impl;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -40,6 +39,10 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 		if(null!=name){
 			name = name.replaceAll("\\s+", "-");
 			product.setName(name);
+		}
+		if(null!=product.getTags()){
+			name = name.replaceAll("\\s+", "-");
+			product.setTags(product.getTags().replaceAll("\\s+", " "));
 		}
 		new ProductValidator(product).validate();
 		if(product.getId()<1&&!queryByName(product.getName()).getResult().isEmpty()){
