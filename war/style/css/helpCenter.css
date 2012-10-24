@@ -310,3 +310,16 @@ opacity: 0.5;}
 #Promotion_two .center-c dl dd{ height:33px; margin-top:5px}
 #Promotion_two .center-c dl dd span{ float:left; display:block; font-size:18px; color:#cf1231; width:50%; text-align:center;}
 #Promotion_two .center-c dl dd del{ float:left; display:block}
+/******** promotion_two css end *******/
+/******** suits-size css star *******/
+#suits_size { width:970px; margin:0 auto}
+#suits_size p{text-align:justify; margin-bottom:10px; font-size:12px;}
+#suits_size .sizechart-tb { margin:10px auto;}
+#suits_size .sizechart_title { font-size: 30px; font-weight: bold; text-align:center; color: #000000; letter-spacing: -1px; margin: 15px 0px 15px 0px; } 
+#suits_size .sizechart_title2 { font-size: 20px;  font-weight: bold; text-align: left; color: #000000; letter-spacing: -1px; margin-bottom: 10px; }
+#suits_size .sizechart_text { font-size: 16px; color: #000000; }
+#suits_size .sizetd-head { background: #59aef8; border-bottom: 2px solid white; color: white; font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size:12px; height: 20px; text-align: center; }
+#suits_size .sizetd { background: #e4e4e4; border-bottom: 2px solid white; color: black; font-family: Arial, Helvetica, sans-serif; height: 20px; text-align: center; font-size: 12px; }
+#suits_size .sizetd-a { background: #ffffff; border-bottom: 2px solid white; color: black; font-family: Arial, Helvetica, sans-serif; height: 20px; text-align: center; font-size: 12px; }
+#suits_size .sizetd-title {background: #298be0; border-bottom: 2px solid white; color: white; font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 16px; height: 30px; text-align: left; padding-left: 10px; border-bottom: 2px solid #ffffff; }
+/******** suits-size css end *******/
