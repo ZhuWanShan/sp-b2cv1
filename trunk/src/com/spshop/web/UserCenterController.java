@@ -613,7 +613,7 @@ public class UserCenterController extends BaseController {
 				
 				String extend_param = "ship_to_country^"+countryCode
 										+"|ship_to_state^"+order.getState()
-										+"|ship_to_street1^"+order.getbCustomerAddress()
+										+"|ship_to_street1^"+order.getCustomerAddress()
 										+"|ship_to_phonenumber^"+order.getCustomerTelephone()
 										+"|ship_to_postalcode^"+order.getCustomerZipcode()
 										+"|ship_to_shipmethod^"+order.getShippingMethod()
