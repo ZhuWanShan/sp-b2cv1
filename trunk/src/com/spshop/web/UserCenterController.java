@@ -614,7 +614,7 @@ public class UserCenterController extends BaseController {
 				// 必填
 
 				// 付款金额
-				String total_fee = "9.99";
+				String total_fee = "1.00";
 				// 必填
 
 				// 订单描述
