@@ -604,9 +604,9 @@ public class UserCenterController extends BaseController {
 				// 默认网银
 				String default_bank = request.getParameter("default_bank");
 				// 必填，如果要使用外卡支付功能，本参数需赋值为“12.5 银行列表”中的值
-
+				
 				// 公用业务扩展参数
-				String extend_param = "ship_to_country^US|ship_to_state^AL|ship_to_street1^xihu wenyi road|ship_to_phonenumber^13857144423|ship_to_postalcode^310012|ship_to_shipmethod^4|ship_to_firstname^lin|ship_to_lastname^changfu|product_name^Payment Test|registration_name^asdfsd1af@126.com|registration_email^asdfsd1af@126.com|registration_phone^13857144423";
+				String extend_param = "ship_to_country^"+order.getCustomerCountry()+"|ship_to_state^"+order.getState()+"|ship_to_street1^"+order.getbCustomerAddress()+"|ship_to_phonenumber^"+order.getCustomerTelephone()+"|ship_to_postalcode^"+order.getCustomerZipcode()+"|ship_to_shipmethod^"+order.getShippingMethod()+"|ship_to_firstname^"+order.getUser().getFirstName()==null?"N/A":order.getUser().getFirstName()+"|ship_to_lastname^"+order.getUser().getLastName()==null?"N/A":order.getUser().getLastName()+"|product_name^"+order.getName()+"|registration_name^"+order.getUser().getEmail()+"|registration_email^"+order.getUser().getEmail()+"|registration_phone^"+order.getCustomerTelephone();
 				// 必填，用于商户的特定业务信息的传递
 
 				// 卖家支付宝账号
@@ -619,10 +619,10 @@ public class UserCenterController extends BaseController {
 
 				// 订单描述
 
-				String body = "test";
+				String body = "";
 				
 				// 商品展示地址
-				String show_url = "www.honeybuy.com";
+				String show_url = "www.honeybuy.com/uc/orderDetails?id="+order.getName();
 				// 空值
 
 				// 币种
