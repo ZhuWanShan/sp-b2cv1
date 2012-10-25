@@ -606,7 +606,23 @@ public class UserCenterController extends BaseController {
 				// 必填，如果要使用外卡支付功能，本参数需赋值为“12.5 银行列表”中的值
 				
 				// 公用业务扩展参数
-				String extend_param = "ship_to_country^"+order.getCustomerCountry()+"|ship_to_state^"+order.getState()+"|ship_to_street1^"+order.getbCustomerAddress()+"|ship_to_phonenumber^"+order.getCustomerTelephone()+"|ship_to_postalcode^"+order.getCustomerZipcode()+"|ship_to_shipmethod^"+order.getShippingMethod()+"|ship_to_firstname^"+order.getUser().getFirstName()==null?"NA":order.getUser().getFirstName()+"|ship_to_lastname^"+order.getUser().getLastName()==null?"NA":order.getUser().getLastName()+"|product_name^"+order.getName()+"|registration_name^"+order.getUser().getEmail()+"|registration_email^"+order.getUser().getEmail()+"|registration_phone^"+order.getCustomerTelephone();
+				
+				Country customerCountry = ServiceFactory.getService(CountryService.class).getCountryByName(order.getCustomerCountry());
+				
+				String countryCode = customerCountry == null ? "NA": customerCountry.getAbbrCode();
+				
+				String extend_param = "ship_to_country^"+countryCode
+										+"|ship_to_state^"+order.getState()
+										+"|ship_to_street1^"+order.getbCustomerAddress()
+										+"|ship_to_phonenumber^"+order.getCustomerTelephone()
+										+"|ship_to_postalcode^"+order.getCustomerZipcode()
+										+"|ship_to_shipmethod^"+order.getShippingMethod()
+										+"|ship_to_firstname^"+(order.getUser().getFirstName()==null?"NA":order.getUser().getFirstName())
+										+"|ship_to_lastname^"+(order.getUser().getLastName()==null?"NA":order.getUser().getLastName())
+										+"|product_name^"+order.getName()
+										+"|registration_name^"+order.getUser().getEmail()
+										+"|registration_email^"+order.getUser().getEmail()
+										+"|registration_phone^"+order.getCustomerTelephone();
 				// 必填，用于商户的特定业务信息的传递
 
 				// 卖家支付宝账号
