@@ -594,49 +594,39 @@ public class UserCenterController extends BaseController {
 				// 需http://格式的完整路径，不允许加?id=123这类自定义参数
 
 				// 商户订单号
-				String out_trade_no = new String(request.getParameter(
-						"WIDout_trade_no").getBytes("ISO-8859-1"), "UTF-8");
+				String out_trade_no = order.getName();
 				// 必填
 
 				// 订单名称
-				String subject = new String(request.getParameter("WIDsubject")
-						.getBytes("ISO-8859-1"), "UTF-8");
+				String subject = order.getName();
 				// 必填
 
 				// 默认网银
-				String default_bank = new String(request.getParameter(
-						"WIDdefault_bank").getBytes("ISO-8859-1"), "UTF-8");
+				String default_bank = request.getParameter("default_bank");
 				// 必填，如果要使用外卡支付功能，本参数需赋值为“12.5 银行列表”中的值
 
 				// 公用业务扩展参数
-				String extend_param = new String(request.getParameter(
-						"WIDextend_param").getBytes("ISO-8859-1"), "UTF-8");
+				String extend_param = "ship_to_country^US|ship_to_state^AL|ship_to_street1^xihu wenyi road|ship_to_phonenumber^13857144423|ship_to_postalcode^310012|ship_to_shipmethod^4|ship_to_firstname^lin|ship_to_lastname^changfu|product_name^Payment Test|registration_name^asdfsd1af@126.com|registration_email^asdfsd1af@126.com|registration_phone^13857144423";
 				// 必填，用于商户的特定业务信息的传递
 
 				// 卖家支付宝账号
-				String seller_logon_id = new String(request.getParameter(
-						"WIDseller_logon_id").getBytes("ISO-8859-1"), "UTF-8");
+				String seller_logon_id = "ali11053093@alitest.com";
 				// 必填
 
 				// 付款金额
-				String total_fee = new String(request.getParameter(
-						"WIDtotal_fee").getBytes("ISO-8859-1"), "UTF-8");
+				String total_fee = "9.99";
 				// 必填
 
 				// 订单描述
 
-				String body = new String(request.getParameter("WIDbody")
-						.getBytes("ISO-8859-1"), "UTF-8");
+				String body = "test";
+				
 				// 商品展示地址
-				String show_url = new String(request
-						.getParameter("WIDshow_url").getBytes("ISO-8859-1"),
-						"UTF-8");
+				String show_url = "www.honeybuy.com";
 				// 空值
 
 				// 币种
-				String currency = new String(request
-						.getParameter("WIDcurrency").getBytes("ISO-8859-1"),
-						"UTF-8");
+				String currency = order.getCurrency();
 				// 必填，default_bank为boc-visa或boc-master时，支持USD，为boc-jcb时，不支持currency参数，即默认支持RMB
 
 				// ////////////////////////////////////////////////////////////////////////////////
@@ -648,15 +638,17 @@ public class UserCenterController extends BaseController {
 				sParaTemp.put("_input_charset", AlipayConfig.input_charset);
 				sParaTemp.put("notify_url", notify_url);
 				sParaTemp.put("return_url", return_url);
-				sParaTemp.put("out_trade_no", order.getName());
-				sParaTemp.put("subject", order.getName());
+				sParaTemp.put("out_trade_no", out_trade_no);
+				sParaTemp.put("subject", subject);
 				sParaTemp.put("default_bank", default_bank);
 				sParaTemp.put("extend_param", extend_param);
+				sParaTemp.put("body", body);
+				sParaTemp.put("seller_logon_id", seller_logon_id);
 				sParaTemp.put("seller_logon_id", "ali11053093@alitest.com");
-				sParaTemp.put("total_fee", order.getTotalPrice()+"");
+				sParaTemp.put("total_fee", total_fee);
 				//sParaTemp.put("body", body);
 				sParaTemp.put("show_url", show_url);
-				sParaTemp.put("currency", order.getCurrency());
+				sParaTemp.put("currency", currency);
 
 				// 建立请求
 				String sHtmlText = AlipaySubmit.buildRequest(sParaTemp, "get",
