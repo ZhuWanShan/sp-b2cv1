@@ -38,4 +38,18 @@ public class CountryServiceImpl extends AbstractService<Country,CountryDAO, Long
 		
 		return country.clone();
 	}
+
+	@Override
+	public Country getCountryByName(String name)
+			throws ServiceValidateException {
+		
+		String hql = "FROM Country where name = ?";
+		List<Country> rs = (List<Country>) getDao().queryByHQL(hql, 0, 200,name);
+		
+		if(null == rs || rs.isEmpty()){
+			return null;
+		}
+		
+		return rs.get(0);
+	}
 }
