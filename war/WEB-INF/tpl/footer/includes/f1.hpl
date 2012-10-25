@@ -140,10 +140,8 @@ Blogspot" title="Honeybuy Blogspot" height="32"
 			</dd>
 		</dl>
 	</div>
-	<div class="gao 
-clear"></div>
-	<br>
-	<div class="pay">
+	<div style="clear:both"></div>
+<div class="pay">
 		<div class="pal">
 			<div class="noth">
 				<a style="float: left; border: 0; margin-left: 5px"
