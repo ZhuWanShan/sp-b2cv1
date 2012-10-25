@@ -1,9 +1,9 @@
-<#assign pageKeywords = "YoursPay, Honeybuy.com">
-<#assign pageDescription = "Pay by YoursPay">
-<#assign pageTitle = "Pay by YoursPay">
+<#assign pageKeywords = "Alipay, Honeybuy.com">
+<#assign pageDescription = "Pay by Alipay">
+<#assign pageTitle = "Pay by Alipay">
 
 <#include "/header/top_clean.hpl">
-<p>redirecting to YoursPay site</p>
+<p>redirecting to Alipay site</p>
 <div>
 	<#assign defaultOrder = currentOrder>
 

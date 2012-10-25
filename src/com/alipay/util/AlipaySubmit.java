@@ -36,7 +36,8 @@ public class AlipaySubmit {
     /**
      * 支付宝提供给商户的服务接入网关URL(新)
      */
-    private static final String ALIPAY_GATEWAY_NEW = "https://mapi.alipay.com/gateway.do?";
+    private static final String ALIPAY_GATEWAY_NEW = /*"https://mapi.alipay.com/gateway.do?" +*/
+    		"http://mapi.alipay.net/gateway.do?extend_param=";
 	
     /**
      * 生成签名结果
