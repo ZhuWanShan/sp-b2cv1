@@ -603,6 +603,9 @@ public class ShoppingController extends BaseController{
 				//out.println("验证失败");
 			}
 		} catch (Exception e) {
+			
+			logger.error(e.getMessage(), e);
+			
 			return null;
 		}
 		
@@ -673,6 +676,7 @@ public class ShoppingController extends BaseController{
 				out.println("fail");
 			}
 		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
 			out.println("fail");
 		}
 		
