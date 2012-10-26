@@ -660,7 +660,7 @@ public class UserCenterController extends BaseController {
 				sParaTemp.put("extend_param", extend_param);
 				sParaTemp.put("body", body);
 				sParaTemp.put("seller_logon_id", seller_logon_id);
-				sParaTemp.put("seller_logon_id", "ali11053093@alitest.com");
+//				sParaTemp.put("seller_logon_id", seller_logon_id);
 				sParaTemp.put("total_fee", total_fee);
 				//sParaTemp.put("body", body);
 				sParaTemp.put("show_url", show_url);
