@@ -561,14 +561,14 @@ public class ShoppingController extends BaseController{
 
 			//付款总金额
 
-			String total_fee = new String(request.getParameter("total_fee").getBytes("ISO-8859-1"),"UTF-8");
+			//String total_fee = new String(request.getParameter("total_fee").getBytes("ISO-8859-1"),"UTF-8");
 
 			//币种
 
-			String currency = new String(request.getParameter("currency").getBytes("ISO-8859-1"),"UTF-8");
+			//String currency = new String(request.getParameter("currency").getBytes("ISO-8859-1"),"UTF-8");
 
 			//外币金额
-			String forex_total_fee = new String(request.getParameter("forex_total_fee").getBytes("ISO-8859-1"),"UTF-8");
+			//String forex_total_fee = new String(request.getParameter("forex_total_fee").getBytes("ISO-8859-1"),"UTF-8");
 
 			//获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表(以上仅供参考)//
 			
@@ -642,14 +642,14 @@ public class ShoppingController extends BaseController{
 
 			//付款总金额
 
-			String total_fee = new String(request.getParameter("total_fee").getBytes("ISO-8859-1"),"UTF-8");
+			//String total_fee = new String(request.getParameter("total_fee").getBytes("ISO-8859-1"),"UTF-8");
 
 			//币种
 
-			String currency = new String(request.getParameter("currency").getBytes("ISO-8859-1"),"UTF-8");
+			//String currency = new String(request.getParameter("currency").getBytes("ISO-8859-1"),"UTF-8");
 
 			//外币金额
-			String forex_total_fee = new String(request.getParameter("forex_total_fee").getBytes("ISO-8859-1"),"UTF-8");
+			//String forex_total_fee = new String(request.getParameter("forex_total_fee").getBytes("ISO-8859-1"),"UTF-8");
 
 			//获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表(以上仅供参考)//
 
