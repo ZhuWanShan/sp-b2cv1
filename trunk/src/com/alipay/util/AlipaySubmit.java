@@ -36,8 +36,8 @@ public class AlipaySubmit {
     /**
      * 支付宝提供给商户的服务接入网关URL(新)
      */
-    private static final String ALIPAY_GATEWAY_NEW = /*"https://mapi.alipay.com/gateway.do?" +*/
-    		"http://mapi.alipay.net/gateway.do?extend_param=";
+    private static final String ALIPAY_GATEWAY_NEW = "https://mapi.alipay.com/gateway.do?" 
+    		/*"http://mapi.alipay.net/gateway.do?extend_param="*/;
 	
     /**
      * 生成签名结果
@@ -86,7 +86,7 @@ public class AlipaySubmit {
         StringBuffer sbHtml = new StringBuffer();
 
         sbHtml.append("<form id=\"alipaysubmit\" name=\"alipaysubmit\" action=\"" + ALIPAY_GATEWAY_NEW
-                      + /*"_input_charset=" + AlipayConfig.input_charset +*/ "\" method=\"" + strMethod
+                      + "_input_charset=" + AlipayConfig.input_charset + "\" method=\"" + strMethod
                       + "\">");
 
         for (int i = 0; i < keys.size(); i++) {
@@ -119,7 +119,7 @@ public class AlipaySubmit {
         StringBuffer sbHtml = new StringBuffer();
 
         sbHtml.append("<form id=\"alipaysubmit\" name=\"alipaysubmit\"  enctype=\"multipart/form-data\" action=\"" + ALIPAY_GATEWAY_NEW
-                      + /*"_input_charset=" + AlipayConfig.input_charset + */"\" method=\"" + strMethod
+                      + "_input_charset=" + AlipayConfig.input_charset + "\" method=\"" + strMethod
                       + "\">");
 
         for (int i = 0; i < keys.size(); i++) {
