@@ -158,7 +158,7 @@ public class AlipaySubmit {
         request.setCharset(AlipayConfig.input_charset);
 
         request.setParameters(generatNameValuePair(sPara));
-        request.setUrl(ALIPAY_GATEWAY_NEW+"_input_charset="+AlipayConfig.input_charset);
+        request.setUrl(ALIPAY_GATEWAY_NEW/*+"_input_charset="+AlipayConfig.input_charset*/);
 
         HttpResponse response = httpProtocolHandler.execute(request,strParaFileName,strFilePath);
         if (response == null) {
