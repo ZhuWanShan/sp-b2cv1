@@ -127,9 +127,6 @@
 				</div>
 				<div class="shipping_desc" style="display: none;">
 					Only support USD. If the currency is not USD, we will convert it to USD.
-					<input type="radio" value="boc-visa" name="default_bank" checked="checked">Visa
-					<input type="radio" value="boc-master" name="default_bank">Master card
-					
 					<br /> <input type="submit" class="button_01"
 						value="Processed to Pay">
 				</div>
