@@ -103,17 +103,30 @@
 			</li>
 			<li>
 				<div class="shipping_title" > 
-					<input name="payType" type="radio" value="alipay"> <span>AliPay(under testing, DO NOT USE this way)
+					<input name="payType" type="radio" value="alipay" id="ali-visa"> <span>VISA
 					<img width="30" height="20"
-						src="${siteView.host}/style/image/home_103.gif"> <img
-						width="29" height="20" src="${siteView.host}/style/image/--.jpg">
-						<img width="31" height="20"
-						src="${siteView.host}/style/image/amex.jpg"> <img width="33"
-						height="20" src="${siteView.host}/style/image/dse.jpg">
+						src="${siteView.host}/style/image/visa.png">
 					</span>
 				</div>
 				<div class="shipping_desc" style="display: none;">
+					Only support USD. If the currency is not USD, we will convert it to USD.
+					<input type="hidden" value="boc-visa" name="default_bank" checked="checked" id="ali-default_bank">Visa
+					<!-- <input type="radio" value="boc-master" name="default_bank">Master card -->
 					
+					<br /> <input type="submit" class="button_01"
+						value="Processed to Pay">
+				</div>
+			</li>
+			
+			<li>
+				<div class="shipping_title" > 
+					<input name="payType" type="radio" value="alipay" id="ali-master-card"> <span>MASTER CARD
+					<img width="30" height="20"
+						src="${siteView.host}/style/image/mastercard.png">
+					</span>
+				</div>
+				<div class="shipping_desc" style="display: none;">
+					Only support USD. If the currency is not USD, we will convert it to USD.
 					<input type="radio" value="boc-visa" name="default_bank" checked="checked">Visa
 					<input type="radio" value="boc-master" name="default_bank">Master card
 					
@@ -122,6 +135,15 @@
 				</div>
 			</li>
 		</ul>
+		<script>
+			jq("#ali-master-card").click(function(){
+				jq("#ali-default_bank".val("boc-master");
+			});	
+				
+				jq("#ali-visa").click(function(){
+					jq("#ali-default_bank".val("boc-visa");
+				});	
+		</script>
 		<#assign order = currentOrder!userView.cart.order> <#assign "address"=
 		primary!order.primaryAddress >
 		<div class="scart_header2">Address Details</div>
