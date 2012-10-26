@@ -86,7 +86,7 @@ public class AlipaySubmit {
         StringBuffer sbHtml = new StringBuffer();
 
         sbHtml.append("<form id=\"alipaysubmit\" name=\"alipaysubmit\" action=\"" + ALIPAY_GATEWAY_NEW
-                      + "_input_charset=" + AlipayConfig.input_charset + "\" method=\"" + strMethod
+                      + /*"_input_charset=" + AlipayConfig.input_charset +*/ "\" method=\"" + strMethod
                       + "\">");
 
         for (int i = 0; i < keys.size(); i++) {
@@ -119,7 +119,7 @@ public class AlipaySubmit {
         StringBuffer sbHtml = new StringBuffer();
 
         sbHtml.append("<form id=\"alipaysubmit\" name=\"alipaysubmit\"  enctype=\"multipart/form-data\" action=\"" + ALIPAY_GATEWAY_NEW
-                      + "_input_charset=" + AlipayConfig.input_charset + "\" method=\"" + strMethod
+                      + /*"_input_charset=" + AlipayConfig.input_charset + */"\" method=\"" + strMethod
                       + "\">");
 
         for (int i = 0; i < keys.size(); i++) {
@@ -158,7 +158,7 @@ public class AlipaySubmit {
         request.setCharset(AlipayConfig.input_charset);
 
         request.setParameters(generatNameValuePair(sPara));
-        request.setUrl(ALIPAY_GATEWAY_NEW/*+"_input_charset="+AlipayConfig.input_charset*/);
+        request.setUrl(ALIPAY_GATEWAY_NEW+"_input_charset="+AlipayConfig.input_charset);
 
         HttpResponse response = httpProtocolHandler.execute(request,strParaFileName,strFilePath);
         if (response == null) {
