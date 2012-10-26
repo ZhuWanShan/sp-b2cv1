@@ -134,11 +134,11 @@
 		</ul>
 		<script>
 			jq("#ali-master-card").click(function(){
-				jq("#ali-default_bank".val("boc-master");
+				jq("#ali-default_bank").val("boc-master");
 			});	
 				
 				jq("#ali-visa").click(function(){
-					jq("#ali-default_bank".val("boc-visa");
+					jq("#ali-default_bank").val("boc-visa");
 				});	
 		</script>
 		<#assign order = currentOrder!userView.cart.order> <#assign "address"=
