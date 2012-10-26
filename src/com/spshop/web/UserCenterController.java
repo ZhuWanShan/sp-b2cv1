@@ -626,7 +626,7 @@ public class UserCenterController extends BaseController {
 				// 必填，用于商户的特定业务信息的传递
 
 				// 卖家支付宝账号
-				String seller_logon_id = "ali11053093@alitest.com";
+				String seller_logon_id = "alipay-test06@alipay.com";
 				// 必填
 
 				// 付款金额
