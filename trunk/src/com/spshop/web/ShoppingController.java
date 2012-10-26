@@ -558,7 +558,9 @@ public class ShoppingController extends BaseController{
 			//商户订单号
 
 			String out_trade_no = new String(request.getParameter("out_trade_no").getBytes("ISO-8859-1"),"UTF-8");
-
+			
+			logger.info("out_trade_no:" + out_trade_no);
+			
 			//付款总金额
 
 			//String total_fee = new String(request.getParameter("total_fee").getBytes("ISO-8859-1"),"UTF-8");
@@ -639,6 +641,8 @@ public class ShoppingController extends BaseController{
 			//商户订单号
 
 			String out_trade_no = new String(request.getParameter("out_trade_no").getBytes("ISO-8859-1"),"UTF-8");
+			
+			logger.info("out_trade_no:" + out_trade_no);
 
 			//付款总金额
 
