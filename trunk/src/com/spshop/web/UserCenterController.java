@@ -626,11 +626,11 @@ public class UserCenterController extends BaseController {
 				// 必填，用于商户的特定业务信息的传递
 
 				// 卖家支付宝账号
-				String seller_logon_id = "alipay-test06@alipay.com";
+				String seller_logon_id = "honeybuy@foxmail.com";
 				// 必填
 
 				// 付款金额
-				String total_fee = "1.00";
+				String total_fee =  new NumberFormat("##0.##").getNumberFormat().format(order.getTotalPrice() + order.getDePrice());
 				// 必填
 
 				// 订单描述
@@ -642,7 +642,7 @@ public class UserCenterController extends BaseController {
 				// 空值
 
 				// 币种
-				String currency = order.getCurrency();
+				String currency = /*order.getCurrency()*/"USD";
 				// 必填，default_bank为boc-visa或boc-master时，支持USD，为boc-jcb时，不支持currency参数，即默认支持RMB
 
 				// ////////////////////////////////////////////////////////////////////////////////
