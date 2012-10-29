@@ -127,7 +127,7 @@ public class PageController extends BaseController {
             categoryImageSizeInfo.put(category.getName().toString(), Utils.figureOutProductsSize(tempProducts));
         }
         if (content.size() < 6) {
-            restProducts = searchProductsByCategory(page.getCategory(), 0, (6-content.size()) * 6 - 1);
+            restProducts = searchProductsByCategory(page.getCategory(), 0, (6-content.size()) * 6);
             categoryImageSizeInfo.put(Constants.ADDITIONAL_PRODUCTS_IMAGE_SIZE_INFO, Utils.figureOutProductsSize(restProducts));
             page.addPageProperty(Constants.ADDITIONAL_PRODUCTS_KEY, restProducts);
         }
