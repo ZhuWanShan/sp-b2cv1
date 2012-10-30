@@ -103,7 +103,7 @@
 			</li>
 			<li>
 				<div class="shipping_title" > 
-					<input name="payType" type="radio" value="alipay" id="ali-visa"> <span>VISA
+					<input name="payType" type="radio" value="alipay^boc-visa" id="ali-visa"> <span>VISA
 					<img width="30" height="20"
 						src="${siteView.host}/style/image/visa.png">
 					</span>
@@ -111,7 +111,7 @@
 				<div class="shipping_desc" style="display: none;">
 					Only support USD. If the currency is not USD, we will convert it to USD.
 					<input type="hidden" value="boc-visa" name="default_bank" checked="checked" id="ali-default_bank">Visa
-					<!-- <input type="radio" value="boc-master" name="default_bank">Master card -->
+					<!-- <input type="radio" value="" name="default_bank">Master card -->
 					
 					<br /> <input type="submit" class="button_01"
 						value="Processed to Pay">
@@ -120,7 +120,7 @@
 			
 			<li>
 				<div class="shipping_title" > 
-					<input name="payType" type="radio" value="alipay" id="ali-master-card"> <span>MASTER CARD
+					<input name="payType" type="radio" value="alipay^boc-master" id="ali-master-card"> <span>MASTER CARD
 					<img width="30" height="20"
 						src="${siteView.host}/style/image/mastercard.png">
 					</span>
@@ -132,15 +132,6 @@
 				</div>
 			</li>
 		</ul>
-		<script>
-			jq("#ali-master-card").click(function(){
-				jq("#ali-default_bank").val("boc-master");
-			});	
-				
-				jq("#ali-visa").click(function(){
-					jq("#ali-default_bank").val("boc-visa");
-				});	
-		</script>
 		<#assign order = currentOrder!userView.cart.order> <#assign "address"=
 		primary!order.primaryAddress >
 		<div class="scart_header2">Address Details</div>

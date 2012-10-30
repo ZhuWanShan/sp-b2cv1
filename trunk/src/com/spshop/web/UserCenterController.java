@@ -294,12 +294,31 @@ public class UserCenterController extends BaseController {
 
 	@RequestMapping(value = "/shoppingCart_payment_2_pay", method = RequestMethod.POST)
 	public String shoppingCartPayment2Pay(Model model,
-			@RequestParam("payType") String payType, HttpServletRequest request) throws UnsupportedEncodingException {
-
-		Order order = getUserView().getCart().getOrder();
-		order.setOrderType(payType);
-
-		getUserView().getCart().setOrder(new Order());
+			@RequestParam("payType") String paymentMehod, HttpServletRequest request) throws UnsupportedEncodingException {
+		
+		String payType = paymentMehod.split("^")[0];
+		String cardType = null;
+		
+		if(paymentMehod.split("^").length > 1 ){
+			cardType = paymentMehod.split("^")[1];
+		}
+		
+		Order order = null;
+		String orderId = request.getParameter("id");
+		if(StringUtils.isNotBlank(orderId)){
+			order = ServiceFactory.getService(OrderService.class).getOrderById(orderId);
+		}
+		
+		if(null == order){
+			order = getUserView().getCart().getOrder();
+			getUserView().getCart().setOrder(new Order());
+		}
+		
+		if(null != cardType){
+			order.setOrderType(payType+"^"+cardType);
+		}else{
+			order.setOrderType(payType);
+		}
 
 		order = ServiceFactory.getService(OrderService.class).saveOrder(order,
 				OrderStatus.PENDING.toString());
@@ -601,8 +620,11 @@ public class UserCenterController extends BaseController {
 				String subject = order.getName();
 				// 必填
 
+				if(null == cardType){
+					cardType = "boc-visa";
+				}
 				// 默认网银
-				String default_bank = request.getParameter("default_bank");
+				String default_bank = cardType/*request.getParameter("default_bank")*/;
 				// 必填，如果要使用外卡支付功能，本参数需赋值为“12.5 银行列表”中的值
 				
 				// 公用业务扩展参数
