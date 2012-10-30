@@ -67,6 +67,7 @@ public class ViewDataInterceptor extends HandlerInterceptorAdapter{
 		
 		userView.setLoginUser(user);
 		userView.setCart(shoppingCart);
+		userView.setCurrencyRateMap(currencies);
 		
 		setCurrency(request,userView,siteView.getCurrencies());
 		
