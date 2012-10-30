@@ -19,7 +19,7 @@ public class CountryServiceImpl extends AbstractService<Country,CountryDAO, Long
 	public List<Country> getAllCountries() throws ServiceValidateException{
 		List<Country> countries = new ArrayList<Country>();
 		String hql = "FROM Country";
-		List<Component> rs = getDao().queryByHQL(hql, 0, 200);
+		List<Component> rs = getDao().queryByHQL(hql, 0, 1000);
 		
 		for(Component c : rs){
 			Country co = (Country)c.clone();
