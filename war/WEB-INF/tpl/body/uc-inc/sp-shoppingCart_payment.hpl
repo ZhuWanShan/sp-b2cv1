@@ -104,7 +104,7 @@
 			<li>
 				<div class="shipping_title" > 
 					<input name="payType" type="radio" value="alipay^boc-visa" id="ali-visa"> <span>VISA
-					<img width="30" height="20"
+					<img  height="20"
 						src="${siteView.host}/style/image/visa.png">
 					</span>
 				</div>
@@ -121,7 +121,7 @@
 			<li>
 				<div class="shipping_title" > 
 					<input name="payType" type="radio" value="alipay^boc-master" id="ali-master-card"> <span>MASTER CARD
-					<img width="30" height="20"
+					<img height="20"
 						src="${siteView.host}/style/image/mastercard.png">
 					</span>
 				</div>
