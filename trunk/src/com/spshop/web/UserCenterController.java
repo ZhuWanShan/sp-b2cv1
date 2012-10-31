@@ -296,7 +296,7 @@ public class UserCenterController extends BaseController {
 	public String shoppingCartPayment2Pay(Model model,
 			@RequestParam("payType") String paymentMehod, HttpServletRequest request) throws UnsupportedEncodingException {
 		
-		String payType = paymentMehod.split("^")[0];
+		String payType = paymentMehod.split("\\^")[0];
 		String cardType = null;
 		
 		if(paymentMehod.split("^").length > 1 ){
