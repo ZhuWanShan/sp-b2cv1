@@ -300,7 +300,7 @@ public class UserCenterController extends BaseController {
 		String cardType = null;
 		
 		if(paymentMehod.split("^").length > 1 ){
-			cardType = paymentMehod.split("^")[1];
+			cardType = paymentMehod.split("\\^")[1];
 		}
 		
 		Order order = null;
