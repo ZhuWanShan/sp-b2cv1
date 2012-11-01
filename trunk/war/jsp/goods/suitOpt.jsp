@@ -112,7 +112,7 @@
 								<h3 value="Brown Dots" target="JACKET_LINING" checkableGroup="JACKET_LINING">Burgundy</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/3Dark Gray.jpg"  value="Dark Gray" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<img class="small" src="/style/image/materials/Dark Gray.jpg"  value="Dark Gray" target="JACKET_LINING" checkableGroup="JACKET_LINING">
 								<h3 value="Gold Dots" target="JACKET_LINING" checkableGroup="JACKET_LINING">Dark Gray</h3>
 							</li>
 							<li>

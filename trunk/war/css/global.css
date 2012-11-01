@@ -304,8 +304,10 @@ ul.img_opt li{
 	background: none repeat scroll 0 0 #FFFFFF;
     border: medium none;
     float: left;
-    height: 90px;
+    height: 130px;
     overflow: hidden;
+    widht: 130px;
+    padding:2px 30px;
 }
 
 ul.three_img_item li{
@@ -317,6 +319,7 @@ ul.three_img_item li{
 ul.eight_img_item li{
 	padding: 10px 10px 2px 2px ;
 	 width: 70px;
+	height:90px;
 }
 
 
