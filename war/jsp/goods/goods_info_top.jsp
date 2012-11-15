@@ -562,7 +562,7 @@ Please DO NOT use "the same as picture" option.</p>
 					<a href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/c/Guarantee"><em>QUALITY GUARANTEE</em></a>
 				</h3>
 				<h3 style="background-image: url('/css/returnPolicy.png');" class="linkHead">
-					<a href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/c/Return-Exchange"><em>RETURN POLICY</em></a>
+					<a href="<%=Constants.HTTP_PROTOCOL %>${pageForm.site.domain}/uc/helpCenter/more-4"><em>RETURN POLICY</em></a>
 				</h3>
 			</div>
 		</div>
