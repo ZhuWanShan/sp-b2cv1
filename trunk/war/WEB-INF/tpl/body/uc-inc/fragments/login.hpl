@@ -19,7 +19,7 @@
 			<p class="form_label">
 				<input name="" type="submit" class="button_01" value="Login">
 			</p>
-			<p><img src="/css/song.jpg" alt="get $5" title="get $5" /></p>
+			<p><img src="/css/registersave.jpg" alt="get $5" title="get $5" /></p>
 			<p class="form_label">Coupon will be sent to your E-mail after you register.</p>
 		</div>
 	</form>

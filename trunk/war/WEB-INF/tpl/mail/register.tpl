@@ -40,8 +40,8 @@
 	  Thanks for registering at <strong>www.honeybuy.com</strong>! Your information is as follows:
 	  <p>Account: ${user.name}</p>
 	  <p>Password is: ${user.password}</p>
-	  <p>As a HoneyBuy.com new customer, you get a <span style="color:red; font-weight:bold">$5</span> Coupon: <B>HONEYBUY-5Q8Y9N</B> </p>
-	  <P>You can apply it when you Check out your orders! </p>
+	  <p>As a HoneyBuy.com new customer, you get a <span style="color:red; font-weight:bold">$30</span> Coupon: <B>HoneyXmas</B> </p>
+	  <P>You can apply it when you Check out your orders,the orders should more than $150 before X'mas,2012! </p>
 <p>If any question, please contact us: <a href="mailto:service@honeybuy.com">service@honeybuy.com.</a></p>
 	  <p>Thank you and best regards!</p>
 	  <p>Customer Service.</p>
