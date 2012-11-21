@@ -1,7 +1,7 @@
 <div class="top_box">
 	<div class="logo_box">
 		<a href="http://www.honeybuy.com/" title="home">
-			<img alt="" src="http://www.honeybuy.com/image/4614200824386.jpg">
+			<img alt="" src="${(siteView.site.noChangeUrl)!""}">
 		</a>
 	</div>
 	<div class="search">
