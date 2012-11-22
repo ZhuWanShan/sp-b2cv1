@@ -54,7 +54,7 @@ public class TagsController extends BaseController{
 			model.addAttribute(CURRENT_KEYWORD, keyword);
 			model.addAttribute(CURRENT_INDEX_KEY_LIST, kws);
 			
-			int count = ServiceFactory.getService(TagsService.class).getKeyworkCount(keyword);
+			int count = ServiceFactory.getService(TagsService.class).getKeywordCount(keyword);
 			List<Integer> pageIndexes = new ArrayList<Integer>();
 			int maxPageNum = (int)((count-1)/KEYWORD_PER_PAGE+1);
 			if (maxPageNum >= MAX_PAGE_INDEXES_DISPLAY) {

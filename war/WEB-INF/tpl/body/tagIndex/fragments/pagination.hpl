@@ -6,7 +6,7 @@
 <div class="pagination">
 	<div class="paginator">
 			<#if (startIdx > 1)>
-				<a href='${(siteView.host + "/tags/index/" + ck + "/")?string!"" + (pageNO - 1)?string!"1"}'>Prev</a>
+				<a href='${(siteView.host + "/tags/index/" + ck + "/" + (pageNO - 1))?string!""}'>Prev</a>
 			</#if>
 			<#if firstPageIdx??>
 				<a href='${(siteView.host + "/tags/index/" + ck + "/")?string!"" + firstPageIdx}'><span class="page-index">${firstPageIdx}</span></a>....
@@ -18,7 +18,7 @@
 				....<a href='${(siteView.host + "/tags/index/" + ck + "/" + maxPageNum)?string!""}'><span class="page-index">${maxPageNum}</span></a>
 			</#if>
 			<#if (endIdx < keywordsCount)>
-				<a href='${(siteView.host + "/tags/index/" + ck + "/")?string!"" + (pageNO + 1)?string!"1"}'>Next</a>
+				<a href='${(siteView.host + "/tags/index/" + ck + "/" + (pageNO + 1))?string!""}'>Next</a>
 			</#if>
 	</div>
 	<div class="height-5"></div>
