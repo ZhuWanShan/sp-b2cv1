@@ -324,7 +324,7 @@ opacity: 0.5;}
 #suits_size .sizetd-title {background: #a1a1a1; border-bottom: 2px solid white; color: white; font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 16px; height: 30px; text-align: left; padding-left: 10px; border-bottom: 2px solid #ffffff; }
 /******** suits-size css end *******/
 /******** shengdan css star *******/
-#background-10{ background:url(../style/image/pic/background-0010.jpg) transparent center top  repeat-x; border:0;}
+#background-10{ background:url(/style/image/pic/background-0010.jpg) transparent center top  repeat-x; border:0;}
 #background-10 html,body,p,ul,li,h2,h3,h4,dl,dd,dt{ margin:0; padding:0; font-size:12px; font-family: Arial, Helvetica;}
 #background-10 ul,li{ margin:0px; padding:0; list-style:none;}
 #background-10 img{ border:0; vertical-align:top;}
