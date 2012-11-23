@@ -1,4 +1,4 @@
- @charset "utf-8";
+﻿ @charset "utf-8";
 /******** helpCenter CSS Document star ********/
 #helpcenter ul,li{ margin:0px; padding:0; list-style:none;}
 #helpcenter img{ border:0; vertical-align:top;}
@@ -323,3 +323,19 @@ opacity: 0.5;}
 #suits_size .sizetd-a { background: #ffffff; border-bottom: 2px solid white; color: black; font-family: Arial, Helvetica, sans-serif; height: 20px; text-align: center; font-size: 12px; }
 #suits_size .sizetd-title {background: #a1a1a1; border-bottom: 2px solid white; color: white; font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 16px; height: 30px; text-align: left; padding-left: 10px; border-bottom: 2px solid #ffffff; }
 /******** suits-size css end *******/
+/******** shengdan css star *******/
+#background-10{ background:url(../style/image/pic/background-0010.jpg) transparent center top  repeat-x; border:0;}
+#background-10 html,body,p,ul,li,h2,h3,h4,dl,dd,dt{ margin:0; padding:0; font-size:12px; font-family: Arial, Helvetica;}
+#background-10 ul,li{ margin:0px; padding:0; list-style:none;}
+#background-10 img{ border:0; vertical-align:top;}
+#background-10 .width972{ width:972px; margin:0 auto}
+#background-10 .title001{ background:#af0c00; height:34px; width:972px; margin-bottom:1px}
+#background-10 .title001 h2{ font-size:26px; color:#fff; float:left; text-indent:10px; line-height:35px}
+#background-10 .title001 span{ color:#fff; float:right; text-indent:10px; line-height:35px; margin-right:10px}
+#background-10 .title001 a{ color:#fff; text-decoration:none}
+#background-10 .centent001{ width:962px; height:432px; background:#af0c00; padding:5px;}
+.centent001 .show0001{width:956px; background:#fff; height:426px; padding:3px}
+.centent001 .shoes002 li{ width:181px; height:191px; float:left; margin-left:3px; position:relative; margin-top:20px; display:inline}
+.centent001 .shoes002 li .position001{ width:102px; height:24px; position:absolute; right:0; bottom:-12px; background:#f91f72; text-align:center; line-height:24px; color:#fff; font-size:16px;}
+.centent001 .shoes003 li{ width:181px; height:191px; float:left; margin-left:2px; position:relative; margin-top:20px; display:inline}
+/******** shengdan css end *******/
