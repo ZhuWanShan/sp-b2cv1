@@ -7,17 +7,15 @@
 			<div class="measure_panel" style="display: none;">
 				<a href="http://www.honeybuy.com/c/Pet-Supplies"><img width="972px" height="428px" src="/image/homebanner8.jpg" alt="Pet Supplies" title="Pet Supplies"></a>
 			</div>
-			<div class="measure_panel" style="position:relative">
-				<a href="http://www.honeybuy.com/c/Prom-Dresses-2013"><img alt="Prom Dresses 2013" title="Prom Dresses 2013" width="972px" height="428px" src="/image/home-banner-1.jpg"></a>
+			<div class="measure_panel">
+				<a href="http://www.honeybuy.com/c/prom-dresses-promotion"><img alt="prom dresses promotion" title="prom dresses promotion" width="972px" height="428px" src="/image/home-banner-1.jpg"></a>
 			</div>
 			<div class="measure_panel">
 				<a href="http://www.honeybuy.com/c/Special-Occasion-Dresses"><img alt="Special Occasion Dresses" title="Special Occasion Dresses"  width="972px" height="428px" src="/image/home-dresses.jpg"></a>
 			</div>
-			<div class="measure_panel" style="position:relative">
-				<img alt="Suits" title="Suits"  width="972px" height="428px" src="/image/home-suit.jpg">
-				<div style="position:absolute; top:0; left:0; width:972px"><a href="http://www.honeybuy.com/c/Custom-Jackets" alt="Custom-Jackets" title="Custom-Jackets" style="width:65%; height:428px; display:block; float:left;"></a>
-				<a href="http://www.honeybuy.com/c/Suits" alt="Suits" title="Suits" style="width:35%; height:428px; display:block; float:left;"></a></div>
-			</div>
+			<div class="measure_panel">
+				<a href="http://www.honeybuy.com/c/suits-promotion"><img alt="suits promotion" title="suits promotion"  width="972px" height="428px" src="/image/home-suit.jpg"></a>
+				</div>
 			<div class="measure_panel">
 				<a href="http://www.honeybuy.com/c/Boots"><img alt="Boots" title="Boots"  width="972px" height="428px" src="/image/home-shoe.jpg"></a>
 			</div>
