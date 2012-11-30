@@ -98,6 +98,7 @@
 #bottom .pay p a{ text-align:center;color:#0088cc; text-decoration:none;}
 #bottom .Copyright{ margin-top:10px; text-align:center; color:#888888}
 #bottom .Copyright a{ color:#0088cc; text-decoration:none;}
+.HB-bottom{ background:url(/image/HB-bottom.jpg) repeat-x;} 
 /*****bottom css end*****/
 /*****index-left css star*****/
 #index_left img{ border:0; vertical-align:top;}
