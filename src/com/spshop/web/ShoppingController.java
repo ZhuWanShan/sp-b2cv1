@@ -563,26 +563,49 @@ public class ShoppingController extends BaseController{
 			
 			//付款总金额
 
-			//String total_fee = new String(request.getParameter("total_fee").getBytes("ISO-8859-1"),"UTF-8");
+			String total_fee = request.getParameter("total_fee");
 
 			//币种
 
-			//String currency = new String(request.getParameter("currency").getBytes("ISO-8859-1"),"UTF-8");
+			String currency = request.getParameter("currency");
 
 			//外币金额
-			//String forex_total_fee = new String(request.getParameter("forex_total_fee").getBytes("ISO-8859-1"),"UTF-8");
-
+			String forex_total_fee = request.getParameter("forex_total_fee");
+			
+			float fee = 0f;
+			
+			try {
+				fee = Float.valueOf(total_fee);
+			} catch (Exception e) {
+				logger.warn("total_fee:" + total_fee);
+			}
+			
+			if(fee < 1){
+				try {
+					fee = Float.valueOf(forex_total_fee);
+				} catch (Exception e) {
+					logger.warn("forex_total_fee:" + forex_total_fee);
+				}
+			}
+			
+			Float currencyRate = getSiteView().getCurrencies().get(currency);
+			
 			//获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表(以上仅供参考)//
 			
 			//计算得出通知验证结果
 			boolean verify_result = AlipayNotify.verify(params);
 			
 			if(verify_result){//验证成功
-				
 				Order order = ServiceFactory.getService(OrderService.class).getOrderById(out_trade_no);
-				
-				ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.toString());
-				
+				if(order != null 
+						&& order.getCurrency().equals(currency)
+						&& null != currencyRate
+						&& currencyRate*fee + 1 > order.getTotalPrice() + order.getDePrice() - order.getCouponCutOff()
+						){
+					ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.toString());
+					
+					logger.info("out_trade_no:"+ out_trade_no + "is paid");
+				}
 				//////////////////////////////////////////////////////////////////////////////////////////
 				//请在这里加上商户的业务逻辑程序代码
 				//——请根据您的业务逻辑来编写程序（以下代码仅作参考）——
@@ -643,6 +666,37 @@ public class ShoppingController extends BaseController{
 			String out_trade_no = new String(request.getParameter("out_trade_no").getBytes("ISO-8859-1"),"UTF-8");
 			
 			logger.info("out_trade_no:" + out_trade_no);
+			
+
+			//付款总金额
+
+			String total_fee = request.getParameter("total_fee");
+
+			//币种
+
+			String currency = request.getParameter("currency");
+
+			//外币金额
+			String forex_total_fee = request.getParameter("forex_total_fee");
+			
+			float fee = 0f;
+			
+			try {
+				fee = Float.valueOf(total_fee);
+			} catch (Exception e) {
+				logger.warn("total_fee:" + total_fee);
+			}
+			
+			if(fee < 1){
+				try {
+					fee = Float.valueOf(forex_total_fee);
+				} catch (Exception e) {
+					logger.warn("forex_total_fee:" + forex_total_fee);
+				}
+			}
+			
+			Float currencyRate = getSiteView().getCurrencies().get(currency);
+			
 
 			//付款总金额
 
@@ -668,9 +722,19 @@ public class ShoppingController extends BaseController{
 					//如果有做过处理，那么不执行商户的业务程序
 				
 				Order order = ServiceFactory.getService(OrderService.class).getOrderById(out_trade_no);
-				
-				ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.toString());
+				if(order != null 
+						&& order.getCurrency().equals(currency)
+						&& null != currencyRate
+						&& currencyRate*fee + 1 > order.getTotalPrice() + order.getDePrice() - order.getCouponCutOff()
+						){
+					ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.toString());
 					
+					logger.info("out_trade_no:"+ out_trade_no + "is paid");
+					
+				};
+					
+				
+				
 				out.println("success");	//请不要修改或删除
 
 				//——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
