@@ -5,8 +5,9 @@
 		</a>
 	</div>
 	<div class="search">
+	<span style="display: inline-block; width: 276px; background: url('/image/register_banner01.png'); position: relative; left: 90px; height: 29px; top: -25px;"></span>
 		<form action="" method="get" name="formss" id="formss" onsubmit="">
-			<div class="search_box">
+			<div class="search_box" style="top:-20px;">
 				<input type="hidden" name="class" value="0"> <input
 					type="text" name="textfield" value="" id="top_search_box"
 					class="search_text font_size11 Light_gray" autocomplete="off">
