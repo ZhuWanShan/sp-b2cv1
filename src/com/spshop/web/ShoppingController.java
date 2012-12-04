@@ -33,7 +33,6 @@ import static com.spshop.utils.Constants.USER_NAME_PWD_SPLIT;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -596,6 +595,7 @@ public class ShoppingController extends BaseController{
 			boolean verify_result = AlipayNotify.verify(params);
 			
 			if(verify_result){//验证成功
+				logger.info("out_trade_no="+out_trade_no+",currency="+currency+",fee="+fee+", currencyRate="+currencyRate+"###########");
 				Order order = ServiceFactory.getService(OrderService.class).getOrderById(out_trade_no);
 				if(order != null 
 						&& order.getCurrency().equals(currency)
@@ -720,7 +720,7 @@ public class ShoppingController extends BaseController{
 				//判断是否在商户网站中已经做过了这次通知返回的处理
 					//如果没有做过处理，那么执行商户的业务程序
 					//如果有做过处理，那么不执行商户的业务程序
-				
+				logger.info("out_trade_no="+out_trade_no+",currency="+currency+",fee="+fee+", currencyRate="+currencyRate+"###########");
 				Order order = ServiceFactory.getService(OrderService.class).getOrderById(out_trade_no);
 				if(order != null 
 						&& order.getCurrency().equals(currency)
