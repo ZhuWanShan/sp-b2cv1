@@ -102,13 +102,13 @@
 				</div>
 			</li>
 			<li>
-				<div class="shipping_title" > 
+				<div class="shipping_title" style="display: none;"> 
 					<input name="payType" type="radio" value="alipay^boc-visa" id="ali-visa"> <span>VISA
 					<img  height="20"
 						src="${siteView.host}/style/image/visa.png">
 					</span>
 				</div>
-				<div class="shipping_desc" style="display: none;">
+				<div class="shipping_desc" style="display: none;" >
 					Only support USD. If the currency is not USD, we will convert it to USD.
 					<input type="hidden" value="boc-visa" name="default_bank" checked="checked" id="ali-default_bank">Visa
 					<!-- <input type="radio" value="" name="default_bank">Master card -->
@@ -119,7 +119,7 @@
 			</li>
 			
 			<li>
-				<div class="shipping_title" > 
+				<div class="shipping_title" style="display: none;"> 
 					<input name="payType" type="radio" value="alipay^boc-master" id="ali-master-card"> <span>MASTER CARD
 					<img height="20"
 						src="${siteView.host}/style/image/mastercard.png">
