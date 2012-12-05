@@ -64,11 +64,12 @@
 						<img width="31" height="20"
 						src="${siteView.host}/style/image/amex.jpg"> <img width="33"
 						height="20" src="${siteView.host}/style/image/dse.jpg">
+						We Accept VisaCard, MasterCard, America Express, JCB
 					</span>
 				</div>
 				<div class="shipping_desc">
 					<p>How to pay by a Credit Card.</p>
-					<p>You can pay via paypal with your credit card or debit card.
+					<p>You can pay via paypal with your credit card or debit card. We accept VisaCard, MasterCard, America Express and JCB cards.
 						Payment with this way is traceable, immediate and convenient, and
 						the payment is deposited directly into HoneyBuy's account.
 						Moreover, credit card companies typically provide some level of
