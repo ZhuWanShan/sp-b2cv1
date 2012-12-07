@@ -83,7 +83,7 @@
 	<#if isCartEmpty == ''>
 	<div class="scart_summary">
 		<div class="scart_summary_coupon_code">
-				<div class="box_sub_item_title">Have a Coupon Code? Add it here</div>
+				<div class="box_sub_item_title">Have a <a href="http://www.honeybuy.com/c/Coupons">Coupon Code?</a> Add it here</div>
 				<div>
 					<p>Enter code (if applicable) then click "Apply":</p>
 					<div class="form_error red" id="coupon_code_noti"></div>
