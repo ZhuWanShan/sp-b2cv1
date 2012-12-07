@@ -340,3 +340,24 @@ opacity: 0.5;}
 .centent001 .shoes002 li .position001{ width:102px; height:24px; position:absolute; right:0; bottom:-12px; background:#f91f72; text-align:center; line-height:24px; color:#fff; font-size:16px;}
 .centent001 .shoes003 li{ width:181px; height:191px; float:left; margin-left:2px; position:relative; margin-top:20px; display:inline}
 /******** shengdan css end *******/
+ /******** dress css end *******/
+ #dress002 ul,li,dl,dt,dd,p,span{ font-size:12px; margin:0; padding:0;}
+#dress002 ul,li{list-style:none}
+#dress002 img{border:0;}
+#dress002{ width:972px; margin:0 auto}
+/******top******/
+#dress002 .ad_Down430{ width:972px; height:60px; margin:0 auto; position:relative; background:url(/style/image/pic/hengfu.jpg) no-repeat scroll;}
+#dress002 .wrapper { position:absolute; top:10px; right:18px; width:190px; height:40px; background: url(/style/image/pic/shibeijing.png) no-repeat scroll;}
+#dress002 .wrapper span{width:40px; height:40px; display:block; float:left; color:#fff; text-align:center; line-height:40px; font-size:30px;}
+/******top******/
+#dress002 .background_line{ clear:both; height:10px; font-size:0; background:url(/style/image/pic/dress_003.jpg) repeat-x scroll;}
+#dress002 ul{ margin-top:15px;}
+#dress002 ul li{ display:block; width:181px; border:1px solid #777; float:left; position:relative;}
+#dress002 ul li.margin15{ margin-left:14px;}
+#dress002 ul li p{ font-size:11px; font-family:Tahoma, Geneva, sans-serif; text-align:center}
+#dress002 ul li .Money del{ width:50%; display:block; float:left; text-align:center; margin-top:3px;}
+#dress002 ul li .Money span{ width:50%; display:block; float:left; text-align:center; margin-top:3px; color:#ac2800}
+#dress002 ul li .save_position{ width:63px; height:63px; position:absolute; top:0; right:0; background:url(http://www.honeybuy.com/css/sales_bg.png) no-repeat scroll; color:#fff}
+#dress002 .save_position p{ margin-top:7px; font-size:16px}
+#dress002 .save_position span{ font-size:28px; text-align:center; display:block; margin-top:-5px;}
+/******three******/
