@@ -1,7 +1,18 @@
-var overDate = 1000 * 60 * 60 * 24 * 3;//due date + 3days  
-var NowTime = new Date();  
+var overDate = new Object();
+overDate.year = 2012;
+overDate.month = 11; //Need to minus 1 by real month
+overDate.day = 12;
+overDate.hour = 12;
+overDate.min = 30;
+overDate.sec = 0;
 
-var EndTime= new Date(NowTime.getTime() + overDate);  
+var NowTime = new Date();  
+var EndTime= new Date();
+EndTime.setFullYear(overDate.year, overDate.month, overDate.day);  
+EndTime.setHours(overDate.hour);
+EndTime.setMinutes(overDate.min);
+EndTime.setSeconds(overDate.sec);
+
 var EndTimeMsg = EndTime.getFullYear() + "Year";  
 EndTimeMsg = EndTimeMsg + (EndTime.getMonth()+1) + "Month";  
 EndTimeMsg = EndTimeMsg + (EndTime.getDate()) + "Day";  
