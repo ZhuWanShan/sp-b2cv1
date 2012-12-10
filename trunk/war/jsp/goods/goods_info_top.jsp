@@ -286,8 +286,8 @@ Please DO NOT use "the same as picture" option.</p>
 						<c:if test='${option.strSelectType eq "INPUT_TEXT"}'>
 							<c:if test='${!(option.name eq "Qty")}'>
 								<div class="noFlow">
-								<input type="text" name="text@${option.name}" id="<c:out value="${option.id}" />"
-										value="<c:out value="${option.defaultValue}" />" size="5"
+								<input type="text" name="text@${option.name}" id="<c:out value='${option.id}' />"
+										value="<c:out value='${option.defaultValue}' />" size="5"
 										maxlength="4" class="input_1">
 								<div class="item_funTotal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 								</div>
@@ -349,6 +349,12 @@ Please DO NOT use "the same as picture" option.</p>
 									<c:if test="${option.defaultValue eq null}">
 										<input type="text" name="qty" id="num"
 											value="1" size="5" maxlength="4" class="input_1"
+											onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value>9999)this.value=9999;"
+											onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
+									</c:if>
+									<c:if test="${option.defaultValue != null}">
+										<input type="text" name="qty" id="num"
+											value="${option.defaultValue }" size="5" maxlength="4" class="input_1"
 											onblur="javascript:if(!Boolean(this.value))  this.value=1;if(parseInt(this.value)===0)this.value=1;this.value=parseInt(this.value,10);if(this.value>9999)this.value=9999;"
 											onkeyup="value=value.replace(/[^\d]/g,'');ChangePrice();">
 									</c:if>
