@@ -2,9 +2,7 @@
 	<link rel="stylesheet" type="text/css" href="/style/css/helpCenter.css?799">
 	<div id="index_left">
 <div class="left_title">Promotion</div>
-<div id="CountMsg" style="width:160px; margin:0 auto 0 auto; padding:5px; border:dashed 1px #222; text-align:center">  
-	<strong style="display:none" id="EndTimeMsg">XX</strong>  
-	<span class="digitalBox" id="RemainD">XX</span>:<span class="digitalBox" id="RemainH">XX</span>:<span class="digitalBox" id="RemainM">XX</span>:<span class="digitalBox" id="RemainS">XX</span></div>
+
 <div class="img_left">
 <ul>
 <li style="background:url(http://www.honeybuy.com/style/image/pic/sanjiao-x.png) no-repeat 3px 8px scroll"><a href="http://www.honeybuy.com/c/Promotions-News" class="left_apic">Promotions News</a>
