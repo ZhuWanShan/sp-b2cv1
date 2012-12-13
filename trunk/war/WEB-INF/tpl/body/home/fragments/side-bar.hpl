@@ -1,3 +1,34 @@
 <div class="side-bar">
-	${siteView.site.sideBar}
+	<link rel="stylesheet" type="text/css" href="/style/css/helpCenter.css?799">
+	<div id="index_left">
+<div class="left_title">Promotion</div>
+<div id="CountMsg" style="width:160px; margin:0 auto 0 auto; padding:5px; border:dashed 1px #222; text-align:center">  
+	<strong style="display:none" id="EndTimeMsg">XX</strong>  
+	<span class="digitalBox" id="RemainD">XX</span>:<span class="digitalBox" id="RemainH">XX</span>:<span class="digitalBox" id="RemainM">XX</span>:<span class="digitalBox" id="RemainS">XX</span></div>
+<div class="img_left">
+<ul>
+<li style="background:url(http://www.honeybuy.com/style/image/pic/sanjiao-x.png) no-repeat 3px 8px scroll"><a href="http://www.honeybuy.com/c/Promotions-News" class="left_apic">Promotions News</a>
+<div class="none1"><a href="http://www.honeybuy.com/c/Promotions-News"><img alt="Promotions News" title="Promotions News" src="/style/image/pic/news_banner.jpg" style="margin-top:5px;"/></a></div></li>
+<li>
+<a href="http://www.honeybuy.com/c/2012xmas" class="left_apic">2012xmas</a>
+<div class="none2"><a href="http://www.honeybuy.com/c/2012xmas"><img alt="2012xmas" title="2012xmas" src="/style/image/pic/shoesbanner.jpg" /></a></div>
+</li>
+<li>
+<a href="http://www.honeybuy.com/c/prom-dresses-promotion" class="left_apic">prom dresses promotion</a>
+<div class="none3"><a href="http://www.honeybuy.com/c/prom-dresses-promotion"><img alt="prom dresses promotion" title="prom dresses promotion" src="/style/image/pic/promdresses_bn.jpg" /></a></div></li>
+<li>
+<a href="http://www.honeybuy.com/c/wedding-dresses-promotion" class="left_apic">wedding dresses promotion</a>
+<div class="none4"><a href="http://www.honeybuy.com/c/wedding-dresses-promotion"><img alt="wedding dresses promotion" title="wedding dresses promotion" src="/style/image/pic/wendding_banner.jpg" /></a></div>
+</li>
+<li>
+<a href="http://www.honeybuy.com/c/suits-promotion" class="left_apic">suits promotion</a>
+<div class="none5"><a href="http://www.honeybuy.com/c/suits-promotion"><img alt="suits promotion" title="suits promotion" src="/style/image/pic/suibanner.jpg"/></a></div>
+</li>
+<li>
+<a href="http://www.honeybuy.com/c/prom-dresses-2012-big-discount" class="left_apic" style="line-height:18px;">prom dresses 2012 big &nbsp;&nbsp;&nbsp;discount</a>
+<div class="none6"><a href="http://www.honeybuy.com/c/prom-dresses-2012-big-discount"><img alt="prom dresses 2012 big discount" title="prom dresses 2012 big discount" src="/style/image/pic/dress12banner.jpg"/></a></div>
+</li>
+</ul>
+</div>
+</div>
 </div>
