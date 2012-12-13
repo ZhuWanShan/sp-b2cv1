@@ -35,11 +35,11 @@ function GetRTime(){
 		document.getElementById("RemainS").innerHTML=nS + "." + nMS;  
 	}  
 	else {  
-		document.getElementById("CountMsg").innerHTML=　EndTimeMsg +"Past！";  
+		document.getElementById("CountMsg").innerHTML=EndTimeMsg+" Past";  
 	}  
 	setTimeout("GetRTime()",100);  
 }  
 window.onload=function(){  
-	document.getElementById("EndTimeMsg").innerHTML = EndTimeMsg;  
+	document.getElementById("EndTimeMsg").innerHTML=EndTimeMsg;  
 	GetRTime();  
 }  
