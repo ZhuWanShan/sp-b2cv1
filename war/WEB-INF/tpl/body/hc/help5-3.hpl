@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="/style/css/helpCenter.css?799">
-
 <div class="main_box" id="main_box">
 <#include "left.hpl">
 <div id="helpcenter">
@@ -15,7 +13,7 @@ Our PayPal Account is: <a href="mailto:payment@honeybuy.com">paypal@honeybuy.com
 <img src="/style/image/pic/paypal2.jpg" width="116" height="118" />
 <span>
 <p>1)  You can click and check out with PayPal after viewing your items on your shopping cart page. Then you will leave the page of honeybuy.com and enter into the page of PayPal.</p>
-<p>2) You can sign in your PayPal account, or you can create a new one if you haven't got one by following the instructions given by PayPal. Once you¡¯ve logged in, you can complete your order payment. </p>
+<p>2) You can sign in your PayPal account, or you can create a new one if you haven't got one by following the instructions given by PayPal. Once youï¿½ï¿½ve logged in, you can complete your order payment. </p>
 <p>Advantages:</p>
     <p>*Payment is traceable and safe.</p>
     <p>*Immediate and convenient</p>
