@@ -33,6 +33,7 @@ import static com.spshop.utils.Constants.USER_NAME_PWD_SPLIT;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -47,6 +48,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import jxl.write.NumberFormat;
 
 import net.sf.json.JSONObject;
 
@@ -751,6 +754,67 @@ public class ShoppingController extends BaseController{
 		return null;
 	}
 	
+	@RequestMapping("globebillPayRs")
+	public String globebillPayRs(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException{
+		/*
+		cardNo String
+		【支付卡号】
+		411111**********1111
+		orderStatus String
+		【交易状态】 返回数字：-2/-1/0/1 -2: 待确认 -1: 待处理 0: 失败 1: 成功
+		orderInfo
+		String 【交易结果信息】 Code+具体信息。
+		authTypeStatus String
+		【是否预授权】 返回数字：0/1 0: 未授权 1: 已授权 功能具体描述请见 4.预授权
+		signInfo String
+		【签名数据】 返回数据为大写.各语言加密方式不同, 详见附录 5.4 sha256加密方式。 明文加密结构：merNo + gatewayNo + tradeNo
+		+ orderNo + orderCurrency + orderAmount +
+		orderStatus + orderInfo + signkey
+		riskInfo String
+		【风控信息】 返回顺序格式（都是MaxMind返回）： |未过风控 |已过风控 |累加总分数 |设置总 分数 |MAXMIND返回分数 |发卡行 |发卡行国 家 |国家间隔距离 |持卡人IP |持卡人IP所 在国家 |
+
+		*/
+		
+		
+		String orderAmount = request.getParameter("orderAmount");
+		String orderStatus = request.getParameter("orderStatus");
+		String orderNo = request.getParameter("orderNo");
+		String currency = request.getParameter("orderCurrency");
+		
+		String orderInfo = request.getParameter("orderInfo");
+		
+		Order order = ServiceFactory.getService(OrderService.class).getOrderById(orderNo);
+		
+		
+		
+		logger.info(String.format(">>>>>>>>>>>>>>>>Recive Money orderNo=%1$2s, orderStatus = %2$2s, orderAmount=%3$2s, currency=%4$2s", orderNo, orderStatus, orderAmount, currency));
+		
+		float orderRealAmount = Float.parseFloat(new NumberFormat("##0.##").getNumberFormat().format(
+									getSiteView().getCurrencies().get(order.getCurrency())*
+									(order.getTotalPrice() + order.getDePrice() - order.getCouponCutOff())))
+									- 1;
+
+		if(orderRealAmount <= Float.parseFloat(orderAmount)
+				&&order.getCurrency().equals(currency)
+				&&orderStatus.equalsIgnoreCase("1")){
+			try{
+				Coupon coupon = ServiceFactory.getService(CouponService.class).getCouponByCode(order.getCouponCode());
+				coupon.setUsedCount(coupon.getUsedCount()+1);
+				ServiceFactory.getService(CouponService.class).saveCoupon(coupon);
+			}catch(Exception e){
+				logger.info(e.getMessage(),e);
+			}
+			
+			ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.getValue());
+		}else{
+			logger.info(">>>>>>>>>>>>>>>>>>>NOT enough mony>>>>>>>>>>>>>>>>>>>>>>");
+		}
+		logger.info("order.getAddressType():"+order.getAddressType());
+		
+		
+		return "redirect:/uc/orderDetails?id="+orderNo+"&tradeInfo=" + URLEncoder.encode(orderInfo, "UTF-8");
+	}
+	
 	@RequestMapping(value="/yoursPayResults")
 	public String yoursPayResults(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
@@ -866,8 +930,4 @@ public class ShoppingController extends BaseController{
 		
 		return rs;
 	}
-	
-	
-	
-	
 }

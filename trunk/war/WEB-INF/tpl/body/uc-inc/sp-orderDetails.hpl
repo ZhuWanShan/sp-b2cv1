@@ -1,3 +1,7 @@
+<#if tradeInfo ??>
+<h1 style="color:red;text-align: center;">Payment status: ${tradeInfo!''}</h1>
+</#if>
+<form action="/uc/shoppingCart_payment" method="post">
 <div class="scart_con">
 	<#if currentOrder ??> <#assign order = currentOrder> <#if
 	order.currency == "USD"> <#assign currencyRate = 1> <#else> <#assign
@@ -166,11 +170,9 @@
 			</dd>
 			<#if order.status="PENDING">
 			<dd class="red">
-				<form action="/uc/shoppingCart_payment_2_pay" method="post">
 					<Span><input type="submit" class="button_01" value="Pay this Order>>" id="GO_TO_Fill_Address" ></Span>
 					<input type="hidden" name="id" value="${order.name}">
 					<input type="hidden" name="payType" value="${order.orderType}">
-				</form>
 			</dd>
 			</#if>
 		</dl>
@@ -181,3 +183,4 @@
 	</#if>
 	<p class="clearBoth"></p>
 </div>
+</form>

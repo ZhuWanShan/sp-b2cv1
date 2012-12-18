@@ -26,7 +26,15 @@
 						class="order_grand_total">${(userView.currencyRate*(order.totalPrice-order.couponCutOff+order.dePrice))?string(",##0.##")}</span></span></b>
 			</dd>
 			<dd class="red">
-				<span> <a href="/uc/shoppingCart_address">Back >> </a> <input
+				<span>
+					<#if id ??>
+						<input name="id" value="${id}" type="hidden">
+					</#if>
+					<#if (id!'')=='' >
+					 <a href="/uc/shoppingCart_address">Back >> </a> 
+					</#if>
+					
+				<input
 					type="submit" class="button_01" value="Processed to Pay">
 				</span>
 			</dd>
@@ -57,7 +65,7 @@
 			</li>
 			<li>
 				<div class="shipping_title">
-					<input name="payType" type="radio" value="Paypal"> <span>Credit
+					<input name="payType" type="radio" value="Globebill"> <span>Credit
 						Card <img width="30" height="20"
 						src="${siteView.host}/style/image/home_103.gif"> <img
 						width="29" height="20" src="${siteView.host}/style/image/--.jpg">
@@ -138,7 +146,7 @@
 		<div class="scart_header2">Address Details</div>
 		<ul class="address_l">
 			<li class="l1">Shipping to this address:</li>
-			<li class="l2">${address.fullName}</li>
+			<li class="l2">${(address.fullName)!''}</li>
 			<li>${address.address1!''}</li>
 			<li>${address.address2!''}</li>
 			<li>${address.city!''}, ${address.stateProvince!''},
@@ -147,15 +155,15 @@
 			<li>Phone Number: ${address.phone!''}</li>
 		</ul>
 		<#if order.billingSameAsPrimary> <#assign "address"=
-		billing!userView.cart.order.primaryAddress > <#else> <#assign
-		"address"= billing!userView.cart.order.billingAddress > </#if>
+		order.primaryAddress!userView.cart.order.primaryAddress > <#else> <#assign
+		"address"= order.billingAddress!userView.cart.order.billingAddress > </#if>
 		<ul class="address_r">
 			<li class="l1">Billing to this address:</li>
-			<li class="l2">${address.fullName}</li>
+			<li class="l2">${(address.fullName)!''}</li>
 			<li>${address.address1!''}</li>
 			<li>${address.address2!''}</li>
 			<li>${address.city!''}, ${address.stateProvince!''},
-				${siteView.countryMap[address.country?string].name}</li>
+				${(siteView.countryMap[address.country?string].name)!''}</li>
 			<li>Postal code: ${address.postalCode!''}</li>
 			<li>Phone Number: ${address.phone!''}</li>
 		</ul>
