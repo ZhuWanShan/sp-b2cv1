@@ -69,7 +69,7 @@
 #bottom ul,li{ margin:0px; padding:0; list-style:none;}
 #bottom p,h1,h2,h3,dl,dd,dt{ margin:0; padding:0; font-size:12px; font-family: Arial, Helvetica;}
 #bottom h3{ font-weight:normal; font-size:12px}
-#bottom a{ color:#666666; text-decoration:none;}
+
 #bottom .enjoy{ font-size:38px;color:#bottom;!important; padding-bottom:30px; text-indent:10px}
 #bottom .hottest{ font-size:24px;font-family: 'Helvetica Neue',; font-weight:bold; color:#969696;text-indent:10px}
 #bottom .big{font-family: Arial, Helvetica; font-size:12px; text-indent:10px; color:#666666}
@@ -88,17 +88,16 @@
 #bottom .HoneyBuy dl{ margin-top:20px; float:left; margin-left:90px; display:inline}
 #bottom .HoneyBuy dl dt{ font-weight:bold; font-size:12px; margin-bottom:5px}
 #bottom .HoneyBuy dl dd{ font-size:12px; color:#666666; line-height:18px;font-family: 'Helvetica Neue',;}
-#bottom .HoneyBuy dl dd a{font-size:12px;line-height:18px;font-family: 'Helvetica Neue',; text-decoration:none}
-#bottom .HoneyBuy dl dd a:hover{color:#c72a14}
+#bottom .HoneyBuy dl dd a{font-size:12px;line-height:18px;font-family: 'Helvetica Neue',;}
 #bottom .pay{ margin-top:20px; border-top:1px solid #222; clear:both}
 #bottom .pay .pal{ height:90px;}
 #bottom .pay .pal .noth{ width:135px; float:left}
 #bottom .pay .pal .zhongjian{ width:725px; float:left; padding-top:30px; margin-left:5px; }
 #bottom .pay .pal .paypal{ float:left; padding:10px}
 #bottom .pay p{ text-align:center}
-#bottom .pay p a{ text-align:center;color:#0088cc; text-decoration:none;}
+#bottom .pay p a{ text-align:center;color:#FF5A00;}
 #bottom .Copyright{ margin-top:10px; text-align:center; color:#888888}
-#bottom .Copyright a{ color:#0088cc; text-decoration:none;}
+#bottom .Copyright a{ color:#FF5A00;}
 .HB-bottom{ background:url(/image/HB-bottom.jpg) repeat-x;} 
 /*****bottom css end*****/
 /*****index-left css star*****/
