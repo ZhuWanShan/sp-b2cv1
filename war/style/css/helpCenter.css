@@ -145,12 +145,12 @@
 #Promotion-2 .dingju{ width:972px; margin:0 auto}
 /***wedding***/
 #Promotion-2 img{border：none; margin:0; padding:0;}
-#Promotion-2 .wedding{ width:952px; border:10px solid #ffbcd3; position:relative; height:712px}
+#Promotion-2 .wedding{ width:952px; border:10px solid #ffbcd3; position:relative;}
 #Promotion-2 .wedding .title{ position:absolute;top:-10px; text-align:center; width:952px; height:46px; background: url(/style/image/pic/title_010.png) no-repeat center}
-#Promotion-2 .wedding .title h2{height:38px; font-size:18px; color:#ec1c63; text-indent:18px}
+#Promotion-2 .wedding .title h2{height:38px; font-size:18px; color:#ec1c63; text-indent:18px; line-height:38px;}
 #Promotion-2 .wedding .center{ height:660px;background:#f3f3f3}
-#Promotion-2 .center dl{ width:210px;height:302px; background:#e4e4e4; float:left; margin:-10px 0 20px 22px; display:inline;}
-#Promotion-2 .center dl dt{ width:200px; height:261px; margin:-10px 5px 0 5px; background:#fff; position:relative}
+#Promotion-2 .center dl{ width:210px;height:302px; background:#e4e4e4; float:left; margin:18px 14px 0 14px; display:inline;}
+#Promotion-2 .center dl dt{ width:200px; height:261px; margin:5px; background:#fff; position:relative}
 #Promotion-2 .center dl dt .dazhe{ position:absolute; width:65px;height:65px; top:-12px; right:-11px; background: url("http://www.honeybuy.com/css/sales_bg.png") no-repeat scroll 0 0 transparent;}
 #Promotion-2 .center dl dt .dazhe .text{color: white;font-size: 12px;position:relative;top:7px;right:-20px;}
 #Promotion-2 .center dl dt .dazhe .percentage{color: white;font-size: 20px;font-weight: bold;position: relative; top:26px; right:12px}
@@ -162,8 +162,8 @@ opacity: 0.5;}
 #Promotion-2 .center dl dd del{width:100px;display:block; float:left; text-align:center; font-size:13px; font-family: Arial, Helvetica;}
 #Promotion-2 .center dl dd span{width:100px;display:block;float:left; text-align:center;color:#cb4200;font-size:13px}
 /***Special***/
-#Promotion-2 .Special{ margin:10px 0 10px 0;height:290px; background:#f3f3f3;border:10px solid #ffbcd3;}
-#Promotion-2 .Special_f dl{ width:140px; float:left; margin:-15px 0 0 15px; display:inline;}
+#Promotion-2 .Special{ margin:10px 0 10px 0;background:#f3f3f3;border:10px solid #ffbcd3; padding-bottom:10px;}
+#Promotion-2 .Special_f dl{ width:140px; float:left; margin:15px 0 0 15px; display:inline;}
 #Promotion-2 .Special_f dl dt{ width:140px;height:204px;}
 #Promotion-2 .Special_f dl dd{ width:140px;}
 #Promotion-2 .Special_f dl dd del{ width:140px; display:block; text-align:center; margin-bottom:3px}
