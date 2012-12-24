@@ -1,7 +1,7 @@
 var overDate = new Object();
-overDate.year = 2012;
-overDate.month = 11; //Need to minus 1 by real month
-overDate.day = 24;
+overDate.year = 2013;
+overDate.month = 0; //Need to minus 1 by real month
+overDate.day = 1;
 overDate.hour = 23;
 overDate.min = 59;
 overDate.sec = 0;
