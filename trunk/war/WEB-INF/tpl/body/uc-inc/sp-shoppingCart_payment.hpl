@@ -63,8 +63,8 @@
 					<input type="submit" class="button_01" value="Processed to Pay">
 					
 					<script type="text/javascript">
-							jq("#GlobebillPayFrame").click(function(){
-								jq("#paypalPay").attr("target","_parent");
+							jq("#paypalPay").click(function(){
+								jq("#payForm").attr("target","_parent");
 							});
 						</script>
 				</div>
