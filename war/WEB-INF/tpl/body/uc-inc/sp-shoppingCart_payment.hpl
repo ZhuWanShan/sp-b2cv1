@@ -27,10 +27,12 @@
 			</dd>
 			<dd class="red">
 				<span>
+					
 					<#if id ??>
 						<input name="id" value="${id}" type="hidden">
 					</#if>
 					<#if (id!'')=='' >
+						<input name="id" value="${order.name}" type="hidden">
 					 <a href="/uc/shoppingCart_address">Back >> </a> 
 					</#if>
 					
