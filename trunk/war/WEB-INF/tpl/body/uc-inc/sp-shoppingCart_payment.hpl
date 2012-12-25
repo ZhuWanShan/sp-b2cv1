@@ -1,7 +1,7 @@
 <div class="scart_con">
 	<#assign order = currentOrder!userView.cart.order> <#if
 	((order.items?size)> 0) >
-	<form action="/uc/shoppingCart_payment_2_pay" method="post">
+	<form action="/uc/shoppingCart_payment_2_pay" id="payForm" method="post">
 
 		<div class="scart_step3"></div>
 		<div class="sc_order">
@@ -45,7 +45,7 @@
 		<ul class="scart_m">
 			<li>
 				<div class="shipping_title">
-					<input name="payType" type="radio" value="paypal" checked="checked">
+					<input name="payType" type="radio" value="paypal" checked="checked" id="paypalPay">
 					<span>Paypal<img
 						src="${siteView.host}/style/image/home_97.gif">The safer,
 						easier way to pay.
@@ -61,22 +61,36 @@
 					<img src="${siteView.host}/style/image/horizontal_solution_PP.gif">
 					<img src="${siteView.host}/style/image/PaypalVerify.gif"> <br />
 					<input type="submit" class="button_01" value="Processed to Pay">
+					
+					<script type="text/javascript">
+							jq("#GlobebillPayFrame").click(function(){
+								jq("#paypalPay").attr("target","parent");
+							});
+						</script>
 				</div>
 			</li>
 			<li>
 				<div class="shipping_title">
-					<input name="payType" type="radio" value="Globebill"> <span>Credit
+					<input name="payType" type="radio" value="Globebill" id="GlobebillPay"> <span>Credit
 						Card <img width="30" height="20"
 						src="${siteView.host}/style/image/home_103.gif"> <img
 						width="29" height="20" src="${siteView.host}/style/image/--.jpg">
-						<img width="31" height="20"
-						src="${siteView.host}/style/image/amex.jpg"> <img width="33"
-						height="20" src="${siteView.host}/style/image/dse.jpg">
-						We Accept VisaCard, MasterCard, America Express, JCB
+						We Accept VisaCard, MasterCard
 					</span>
+					
 				</div>
-				<div class="shipping_desc">
-					<p>How to pay by a Credit Card.</p>
+				<div class="shipping_desc" id="GlobebillPayFrameDiv">
+					<img alt="Loading" src="${siteView.host}/css/loading_img_s.gif">
+					<iframe name="GlobebillPayFrame" style="border: 0px;width: 750px; height: 500px;">
+					</iframe>
+					
+						<script type="text/javascript">
+							jq("#GlobebillPay").click(function(){
+								jq("#payForm").attr("target","GlobebillPayFrame").submit();
+							});
+							
+						</script>
+					<!-- <p>How to pay by a Credit Card.</p>
 					<p>You can pay via paypal with your credit card or debit card. We accept VisaCard, MasterCard, America Express and JCB cards.
 						Payment with this way is traceable, immediate and convenient, and
 						the payment is deposited directly into HoneyBuy's account.
@@ -84,7 +98,7 @@
 						identity and purchase protection. Please do not block any pop-up
 						windows when going through the paying process.</p>
 					<br /> <input type="submit" class="button_01"
-						value="Processed to Pay">
+						value="Processed to Pay"> -->
 				</div>
 			</li>
 			<li>

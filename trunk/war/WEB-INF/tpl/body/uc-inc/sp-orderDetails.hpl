@@ -1,5 +1,5 @@
 <#if tradeInfo ??>
-<h1 style="color:red;text-align: center;">Payment status: ${tradeInfo!''}</h1>
+<h1 style="color:red;text-align: center;color: red;text-align: center;border: 1px dotted red;margin: 0 240px;font-size: 20px;padding: 30px;">Payment status: ${tradeInfo!''}</h1>
 </#if>
 <form action="/uc/shoppingCart_payment" method="post">
 <div class="scart_con">

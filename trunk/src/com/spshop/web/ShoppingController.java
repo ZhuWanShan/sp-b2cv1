@@ -801,12 +801,14 @@ public class ShoppingController extends BaseController{
 				Coupon coupon = ServiceFactory.getService(CouponService.class).getCouponByCode(order.getCouponCode());
 				coupon.setUsedCount(coupon.getUsedCount()+1);
 				ServiceFactory.getService(CouponService.class).saveCoupon(coupon);
+				orderInfo = "Successful";
 			}catch(Exception e){
 				logger.info(e.getMessage(),e);
 			}
 			
 			ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.getValue());
 		}else{
+			orderInfo = "Failed";	
 			logger.info(">>>>>>>>>>>>>>>>>>>NOT enough mony>>>>>>>>>>>>>>>>>>>>>>");
 		}
 		logger.info("order.getAddressType():"+order.getAddressType());

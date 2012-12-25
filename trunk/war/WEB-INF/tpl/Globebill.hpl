@@ -2,7 +2,7 @@
 <#assign pageDescription = "Pay by Globebill"> 
 <#assign pageTitle = "Pay by Globebill">
 <#include "/header/top_clean.hpl">
-<p>redirecting to Globebill site</p>
+<p><img alt="Loading" src="${siteView.host}/css/loading_img_s.gif"></p>
 <div>
 	<#assign defaultOrder = currentOrder>
 	<!-- 
@@ -10,6 +10,7 @@
 			orderNo + orderCurrency+ orderAmount +
 			returnUrl+ signkey
 	 -->
+	 
 	<form name="payForm"
 		action="https://payment.secure-checkoutserver.com/Interface"
 		method="post" id="paypaysubmitForm">
@@ -29,7 +30,6 @@
 		<input type="hidden" name="city" value="${defaultOrder.city}" />
 		<input type="hidden" name="address" value="${defaultOrder.customerAddress}" />
 		<input type="hidden" name="zip" value="${defaultOrder.customerZipcode}" /> 
-		<input type="submit" value="Submit">
 	</form>
 	<script type="text/javascript">
 		jq("#paypaysubmitForm").submit();
