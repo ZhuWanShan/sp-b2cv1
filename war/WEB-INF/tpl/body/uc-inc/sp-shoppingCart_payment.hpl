@@ -78,7 +78,7 @@
 						src="${siteView.host}/style/image/home_103.gif"> <img
 						width="29" height="20" src="${siteView.host}/style/image/--.jpg">
 						We Accept VisaCard, MasterCard
-						<img alt="Loading" src="${siteView.host}/css/loading_img_s.gif" style="display:hidden">
+						<img alt="Loading" src="${siteView.host}/css/loading_img_s.gif" style="display:none">
 					</span>
 					
 				</div>
