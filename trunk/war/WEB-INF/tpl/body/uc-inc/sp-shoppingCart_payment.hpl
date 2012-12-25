@@ -64,7 +64,7 @@
 					
 					<script type="text/javascript">
 							jq("#GlobebillPayFrame").click(function(){
-								jq("#paypalPay").attr("target","parent");
+								jq("#paypalPay").attr("target","_parent");
 							});
 						</script>
 				</div>
@@ -79,9 +79,8 @@
 					</span>
 					
 				</div>
-				<div class="shipping_desc" id="GlobebillPayFrameDiv">
-					<img alt="Loading" src="${siteView.host}/css/loading_img_s.gif">
-					<iframe name="GlobebillPayFrame" style="border: 0px;width: 750px; height: 500px;">
+				<div class="shipping_desc" id="GlobebillPayFrameDiv" style="display: block;width: 800px;overflow: hidden;margin-left: 0px;">
+					<iframe name="GlobebillPayFrame" style="border: 0px;width: 850px;overflow: hidden;height: 550px;display: block;">
 					</iframe>
 					
 						<script type="text/javascript">
