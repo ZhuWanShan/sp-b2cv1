@@ -10,8 +10,15 @@
 				}
 			}
 			
-			
-
+			jq('#xc-lang-selector').ready(function(){
+				var langSelector = jq("#xc-lang-selector");
+				langSelector.find("ul").css("border-bottom", "1px solid #D1D1D1");
+				langSelector.find("ul").css("border-right", "1px solid #D1D1D1");
+				langSelector.find("ul").css("border-left", "1px solid #D1D1D1");
+				langSelector.find("ul").attr('style', 'width: 130px !important');
+				langSelector.find("ul>li>a").css("background-color", "inherit");
+				langSelector.find("ul>li>a").css("color", "#333333");
+			});
 		</script>
 	</body>
 </html>
