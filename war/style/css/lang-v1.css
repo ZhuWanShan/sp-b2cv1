@@ -61,14 +61,14 @@ ul.xct-menu a.xct-trigger-link{
     background-color:inherit;
     cursor:pointer;
     padding:3px 10px 3px 10px !important;
-    background-image:url('../images/arrow-down.png');
+    background-image:url('../image/arrow-down.png');
     background-repeat:no-repeat;
     background-position:right 6px;
     letter-spacing:1px;
 }
 
 ul.xct-menu.xct-botRight a.xct-trigger-link {
-    background-image:url('../images/arrow-up.png');
+    background-image:url('../image/arrow-up.png');
 }
 
 /* styles item link tags */
