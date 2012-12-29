@@ -1,5 +1,6 @@
 <div id="header_top" class="header_top" style="box-shadow: none;">
 	<div class="top_center">
+		<div id="xc-lang-selector"></div>
 		<div id="user_menu" class="user_menu">
 			<ul>
 				<li>Help
