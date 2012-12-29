@@ -1,11 +1,14 @@
 /* top level  */
 ul.xct-menu {
+	border-bottom: 1px solid #D1D1D1;
+    border-left: 1px solid #D1D1D1;
+    border-right: 1px solid #D1D1D1;
     position:relative;
     list-style:none !important;
     text-indent:none;
     margin:0;
     padding:0;
-    width:175px !important;
+    width:130px !important;
     overflow:hidden;
     overflow:hidden;
     text-align: left;
@@ -22,15 +25,17 @@ ul.xct-menu :focus {
 
 /* container of menu items */
 ul.xct-menu ul {
-    border-bottom: 1px solid #D1D1D1;
-    border-left: 1px solid #D1D1D1;
-    border-right: 1px solid #D1D1D1;
-    list-style: none outside none !important;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    text-align: left;
-    width: 120px !important;
+    display:none;
+    position:absolute;
+    list-style:none !important;
+    text-indent:none;
+    margin:0;
+    padding:0;
+    background-color:#ebebeb;
+    border:1px solid #c0c0c0;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 173px;
 }
 
 
