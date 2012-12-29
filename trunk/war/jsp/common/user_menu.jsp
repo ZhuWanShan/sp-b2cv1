@@ -1,5 +1,6 @@
 <%@page import="com.spshop.utils.Constants"%>
 <%@ include file="../include.jsp"%>
+<div id="xc-lang-selector"></div>
 <div class="user_menu" id="user_menu">
 	<ul>
 		<li>Help

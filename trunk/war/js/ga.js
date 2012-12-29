@@ -1,10 +1,6 @@
-var _gaq = _gaq || [];
+  var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-27926805-1']);
-  _gaq.push(['_setCampSourceKey', 'utm_source']);
-  _gaq.push(['_setCampMediumKey', 'utm_medium']);
-  _gaq.push(['_setCampContentKey', 'utm_content']);
-  _gaq.push(['_setCampTermKey', 'utm_keyword']);
-  _gaq.push(['_setCampNameKey', 'utm_campaign']);
+  _gaq.push(['_setDomainName', 'honeybuy.com']);
   _gaq.push(['_trackPageview']);
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
