@@ -10,7 +10,7 @@
 				}
 			}
 			
-			jq('#xc-lang-selector').ready(function(){
+			jq('body').ready(function(){
 				var langSelector = jq("#xc-lang-selector");
 				langSelector.find("ul").css("border-bottom", "1px solid #D1D1D1");
 				langSelector.find("ul").css("border-right", "1px solid #D1D1D1");
