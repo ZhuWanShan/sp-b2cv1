@@ -6,6 +6,8 @@ overDate.hour = 23;
 overDate.min = 59;
 overDate.sec = 0;
 
+var deltaDate = 1000 * 60 * 60 * 24 * 2;//due date + 2days
+
 var NowTime = new Date();  
 var EndTime= new Date();
 EndTime.setFullYear(overDate.year, overDate.month, overDate.day);  
@@ -34,8 +36,9 @@ function GetRTime(){
 		document.getElementById("RemainM").innerHTML=nM;  
 		document.getElementById("RemainS").innerHTML=nS + "." + nMS;  
 	}  
-	else {  
-		document.getElementById("CountMsg").innerHTML=EndTimeMsg+" Past";  
+	else {
+		EndTime = new Date(NowTime.getTime() + deltaDate);
+		//document.getElementById("CountMsg").innerHTML=EndTimeMsg+" Past";  
 	}  
 	setTimeout("GetRTime()",100);  
 }  
