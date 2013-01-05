@@ -40,8 +40,8 @@
 	  Thanks for registering at <strong>www.honeybuy.com</strong>! Your information is as follows:
 	  <p>Account: ${user.name}</p>
 	  <p>Password is: ${user.password}</p>
-	  <p>As a HoneyBuy.com new customer, you get a <span style="color:red; font-weight:bold">$30</span> Coupon: <B>HoneyXmas</B> </p>
-	  <P>You can apply it when you Check out your orders,the orders should more than $150 before X'mas,2012! </p>
+	  <p>As a honeybuy.com 2013 new customer, you get a <span style="color:red; font-weight:bold">$30 </span> Coupon: <span style="color:red; font-weight:bold"><B>honeybuy2013ok</B></span> </p>
+	  <P>You can apply it when you check out your orders, the orders should more than $169.</p>
 <p>If any question, please contact us: <a href="mailto:service@honeybuy.com">service@honeybuy.com.</a></p>
 	  <p>Thank you and best regards!</p>
 	  <p>Customer Service.</p>
@@ -95,7 +95,9 @@ Like Honeybuy on Facebook</td>
     <td style="padding:0in 0in 0in 0in">
     <p align="center" style="margin:0in;text-align:center"><span style="font-size:9.0pt;color:#646464">Copyright&copy; 2012 HoneyBuy.com; Inc. All Rights Reserved. | 
 	<a href="http://www.honeybuy.com/c/Terms-Of-Use">Terms of Use </a>| 
-	<a href="http://www.honeybuy.com/c/Privacy-Policy">Privacy Policy </a></span></p>
+	<a href="http://www.honeybuy.com/c/Privacy-Policy">Privacy Policy </a>| 
+	<a href="http://www.honeybuy.com/c/Testimonials">Testimonials</a>| 
+	<a href="http://www.honeybuy.com/uc/helpCenter/hcIndex">Help Center</a></span></p>
     </td>
    </tr>
  </tbody></table>
