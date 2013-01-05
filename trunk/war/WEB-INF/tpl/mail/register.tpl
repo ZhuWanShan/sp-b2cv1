@@ -41,7 +41,7 @@
 	  <p>Account: ${user.name}</p>
 	  <p>Password is: ${user.password}</p>
 	  <p>As a honeybuy.com 2013 new customer, you get a <span style="color:red; font-weight:bold">$30 </span> Coupon: <span style="color:red; font-weight:bold"><B>honeybuy2013ok</B></span> </p>
-	  <P>You can apply it when you check out your orders, the orders should more than $169.</p>
+	  <P>You can apply it when you check out your orders, the orders should more than $300.</p>
 <p>If any question, please contact us: <a href="mailto:service@honeybuy.com">service@honeybuy.com.</a></p>
 	  <p>Thank you and best regards!</p>
 	  <p>Customer Service.</p>
