@@ -6,7 +6,7 @@
 			<a title="home" href="http://www.honeybuy.com/">Home page</a>
 		</div>
 		<div class="search">
-			<span style="display: inline-block; width: 276px; background: url('/image/register_banner.png'); position: relative; left: 90px; height: 29px; top: -10px;"></span>
+			<span style="display: inline-block; width:323px; background: url('/image/register_banner.png'); position: relative; left: 90px; height: 29px; top: -10px;"></span>
 			<form onsubmit="" id="formss" name="formss" method="get" action="">
 				<jsp:include page="search_box.jsp"></jsp:include>
 			</form>
