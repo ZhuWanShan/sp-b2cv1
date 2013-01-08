@@ -74,10 +74,10 @@
 			<li>
 				<div class="shipping_title">
 					<input name="payType" type="radio" value="Globebill" id="GlobebillPay"> <span>Credit
-						Card <img width="30" height="20"
-						src="${siteView.host}/style/image/home_103.gif"> <img
-						width="29" height="20" src="${siteView.host}/style/image/--.jpg">
-						We Accept VisaCard, MasterCard
+						Card 
+						<img width="32" src="http://www.honeybuy.com/style/image/visa.png">
+						<img width="32" src="http://www.honeybuy.com/style/image/mastercard.png">
+						We accept VisaCard, MasterCard. Note: For security purpose, we will not save any of your credit card data.
 						<img alt="Loading" src="${siteView.host}/css/loading_img_s.gif" style="display:none">
 					</span>
 					
@@ -118,7 +118,7 @@
 					<p>How to pay by a Credit Card.</p>
 					<p>Visa Only! You can pay direct with your visa card. Payment
 						with this way is traceable, immediate and convenient, and the
-						payment is deposited directly into HoneyBuy’s account. Moreover,
+						payment is deposited directly into HoneyBuyï¿½s account. Moreover,
 						credit card companies typically provide some level of identity and
 						purchase protection. Please do not block any pop-up windows when
 						going through the paying process</p>
