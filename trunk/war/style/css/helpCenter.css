@@ -109,7 +109,7 @@
 #index_left li:hover{background:url("http://www.honeybuy.com/style/image/pic/sanjiao-x.png") no-repeat 3px 8px scroll;}
 #index_left li a{ color:#333; text-decoration:none; font-size:13px;}
 #index_left li:hover div{ display:block}
-#index_left .none2,.none3,.none4,.none5,.none6{ display:none}
+#index_left .none4,.none5{ display:none}
 #index_left .digitalBox{
 	background-color:black;
 	-webkit-border-radius: 5px;
