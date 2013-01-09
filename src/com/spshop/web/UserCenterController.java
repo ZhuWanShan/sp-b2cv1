@@ -324,7 +324,10 @@ public class UserCenterController extends BaseController {
 			order = ServiceFactory.getService(OrderService.class).getOrderById(orderId);
 		}
 		
+		boolean isRePay = true;
+		
 		if(null == order){
+			isRePay = false;
 			order = getUserView().getCart().getOrder();
 			getUserView().getCart().setOrder(new Order());
 		}
@@ -359,7 +362,7 @@ public class UserCenterController extends BaseController {
 
 			root.put("currencyRate", currencyRate);
 			root.put(SITE_VIEW, siteView);
-			if(StringUtils.isBlank(orderId)){
+			if(!isRePay){
 				new Thread() {
 					public void run() {
 						try {
