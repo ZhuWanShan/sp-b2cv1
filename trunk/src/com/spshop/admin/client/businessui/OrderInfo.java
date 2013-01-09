@@ -54,6 +54,7 @@ public class OrderInfo extends Composite {
     @UiField Label shippingType;
     @UiField TextArea txtTraceInfo;
     @UiField Button btnSaveTrace;
+    @UiField Label paymentMethod;
     private void populateOrderInfo(){
         DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm:ss");
         this.orderId.setText(this.order.getName());
@@ -72,6 +73,11 @@ public class OrderInfo extends Composite {
             this.billingAddr.setText(populateAddressString(this.order.getPrimaryAddress()));
         } else {
             this.billingAddr.setText(populateAddressString(this.order.getBillingAddress()));
+        }
+        if (this.order.getOrderType() == null || "".equals(this.order.getOrderType().trim())) {
+            this.paymentMethod.setText("Paypal");
+        } else {
+            this.paymentMethod.setText(order.getOrderType());
         }
     }
     
