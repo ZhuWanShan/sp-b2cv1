@@ -2,7 +2,7 @@
 <#assign pageDescription = "Pay by Globebill"> 
 <#assign pageTitle = "Pay by Globebill">
 <#include "/header/top_clean.hpl">
-<p><img alt="Loading" src="${siteView.host}/css/loading_img_s.gif"></p>
+<p><img style="margin-left: 30px" alt="Loading" src="${siteView.host}/css/loading_img_s.gif"></p>
 <div>
 	<#assign defaultOrder = currentOrder>
 	<!-- 
@@ -56,7 +56,7 @@
 </script>
 <noscript>
 	<div style="display: inline;">
-		<img height="1" width="1" style="border-style: none;margin-left: 30px" alt=""
+		<img height="1" width="1" style="border-style: none;" alt=""
 			src="http://www.googleadservices.com/pagead/conversion/1010858884/?value=3&amp;label=2ci0CLTo5gIQhPeB4gM&amp;guid=ON&amp;script=0" />
 	</div>
 </noscript>
