@@ -37,7 +37,7 @@
 					</#if>
 					
 				<input
-					type="submit" class="button_01" value="Processed to Pay">
+					type="submit" class="button_02" value="Processed to Pay">
 				</span>
 			</dd>
 		</dl>
@@ -62,7 +62,7 @@
 						payment@honeybuy.com</p>
 					<img src="${siteView.host}/style/image/horizontal_solution_PP.gif">
 					<img src="${siteView.host}/style/image/PaypalVerify.gif"> <br />
-					<input type="submit" class="button_01" value="Processed to Pay">
+					<input type="submit" class="button_02" value="Processed to Pay">
 					
 					<script type="text/javascript">
 							jq("#paypalPay").click(function(){
