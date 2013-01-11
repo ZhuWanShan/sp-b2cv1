@@ -52,21 +52,18 @@ order.customerName??> ${order.customerName}</#if>,</strong></p>
                     <tbody>
                     <tr valign="top">
                       <td width="15"> </td>
-                      <td width="80" align="left"> <strong style="COLOR: #000">Ship 
-                        to</strong> </td>
+                      <td width="80" align="left"> <strong style="COLOR: #000">Ship to</strong> </td>
                       <td width="170" align="left">
 					  				  
-					  <#if order.billingSameAsPrimary> 
-						<#assign "address"= order.primaryAddress >
-					<#else>
-					 	<#assign "address"= order.billingAddress >
-					 </#if>
-        ${address.fullName}
-       	 <br/>
-					 (${address.address1!''} ${address.city!''},
+					  <#assign "address"= primary!order.primaryAddress >
+        
+		${address.fullName}
+		<br>
+        (${address.address1!''} ${address.city!''},
 							${address.stateProvince!''},
 							${primaryAddCountry!''}, Postal Code:
 							${address.postalCode!''}) Phone:${address.phone!''}
+							
 					  </td> </tr>
                     <tr>
                       <td height="15"> </td> </tr> </tbody> </table> </td> 
