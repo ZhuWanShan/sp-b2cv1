@@ -53,7 +53,7 @@
 						easier way to pay.
 					</span>
 				</div>
-				<div class="shipping_desc">
+				<div class="shipping_desc" style="display: none;">
 					<p>How to pay by PayPal?</p>
 					<p>If you have PayPal account, please pay your order by PayPal
 						account directly. If you do not have PayPal account, it does not
