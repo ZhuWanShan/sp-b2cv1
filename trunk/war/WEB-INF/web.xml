@@ -203,6 +203,20 @@
 		<url-pattern>/home/*</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>SpringMVCFeed</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/context/webContext.xml,/WEB-INF/context/feedContext.xml</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SpringMVCFeed</servlet-name>
+		<url-pattern>/feed/*</url-pattern>
+	</servlet-mapping>
 	
 	<filter>
 	  <filter-name>HomeFilter</filter-name>
