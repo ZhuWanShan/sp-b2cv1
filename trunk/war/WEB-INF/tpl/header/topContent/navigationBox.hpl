@@ -1,11 +1,11 @@
 <div class="top_box">
 	<div class="logo_box">
 		<a href="http://www.honeybuy.com/" title="home">
-			<img alt="logo" src="/style/image/2012xmaslogo.jpg">
+			<img alt="logo" src="/style/image/honeybuy_logo.png">
 		</a>
 	</div>
 	<div class="search">
-	<span style="display: inline-block; width: 323px; background: url('/image/register_banner01.png'); position: relative; left: 90px; height: 29px; top: -25px;"></span>
+	<span style="display: inline-block; width: 261px; background: url('/image/register_banner01.png'); position: relative; left: 90px; height: 30px; top: -25px;"></span>
 		<form action="" method="get" name="formss" id="formss" onsubmit="">
 			<div class="search_box" style="top:-20px;">
 				<input type="hidden" name="class" value="0"> <input
