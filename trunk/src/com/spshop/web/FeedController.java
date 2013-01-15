@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
@@ -41,6 +42,19 @@ public class FeedController extends BaseController {
         }
     }
     
+    private static class CategoryMapper{
+        static String mapping(String category){
+            String[] categoryArr = null;
+            for (Object key : feedConfig.keySet()) {
+                categoryArr = feedConfig.getProperty(String.valueOf(key)).split(",");
+                if (Arrays.asList(categoryArr).contains(category)) {
+                    return String.valueOf(key);
+                }
+            }
+            return null;
+        }
+    }
+    
     @RequestMapping(value="/{category}/{index}/{size}", produces="application/xml")
     public void categoryMapping(Model model,
                                   HttpServletRequest request,
@@ -51,6 +65,7 @@ public class FeedController extends BaseController {
         final Logger logger = Logger.getLogger(FeedController.class);
         Integer pageSize = 100;
         Integer startIndex = 1;
+        String mappedCategory = CategoryMapper.mapping(category);
 
         if (StringUtils.isNotBlank(index)) {
             startIndex = Integer.valueOf(index);
@@ -61,13 +76,11 @@ public class FeedController extends BaseController {
 
         List<Product> products = searchProductsByCategory(category, startIndex - 1, startIndex + pageSize - 1);
 
-        Document doc = buildXMLByProducts(products);
+        Document doc = buildXMLByProducts(products, mappedCategory);
         XMLOutputter xmlOutputter = new XMLOutputter();
         try {
             File file = new File(feedConfig.getProperty("feed.file.location"), generateFileName(category, String.valueOf(startIndex), String.valueOf(startIndex + pageSize)));
             xmlOutputter.output(doc, new FileOutputStream(file));
-            response.setContentLength(new Long(file.length()).intValue());
-            response.setHeader("Content-Disposition","attachment; filename="+generateFileName(category, String.valueOf(startIndex), String.valueOf(startIndex + pageSize)));
             FileCopyUtils.copy(new FileInputStream(file), response.getOutputStream());
         } catch (FileNotFoundException e) {
             logger.error(e);
@@ -80,7 +93,7 @@ public class FeedController extends BaseController {
         return "products" + "-" + category + "-" + start + "-" + end + ".xml";
     }
 
-    private Document buildXMLByProducts(List<Product> products) {
+    private Document buildXMLByProducts(List<Product> products, String category) {
         Element root = new Element("products");
 
         for (Product product : products) {
@@ -90,6 +103,7 @@ public class FeedController extends BaseController {
             e.addContent(new Element("url").setText(getSiteView().getHost() + "/" + product.getName()));
             e.addContent(new Element("description").setText("Buy " + product.getTitle() + " at wholesale price from HoneyBuy.com, all free shipping! Buy Now!"));
             e.addContent(new Element("price").setText("$" + String.valueOf(product.getActualPrice())));
+            e.addContent(new Element("category").setText(category));
             e.addContent(new Element("image").setText(getSiteView().getImageHost()
                                                       + product.getImages().get(0).getLargerUrl()));
 
