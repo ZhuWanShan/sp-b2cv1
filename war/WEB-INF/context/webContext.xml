@@ -23,12 +23,8 @@
 	<bean id="viewDataInterceptor" class="com.spshop.web.interceptor.ViewDataInterceptor"></bean>
 
 	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		class="com.spshop.web.view.CustomFreeMarkerViewResolver">
 		<property name="suffix" value=".hpl" />
-		<property name="viewClass">
-			<value>org.springframework.web.servlet.view.freemarker.FreeMarkerView
-			</value>
-		</property>
 	</bean>
 	<bean id="freemarkerConfig"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
