@@ -49,7 +49,7 @@
 				<div class="shipping_title"  style="display: none;">
 					<input name="payType" type="radio" value="paypal" checked="checked" id="paypalPay">
 					<span>Paypal<img
-						src="${siteView.host}/style/image/home_97.gif">The safer,
+						src="/style/image/home_97.gif">The safer,
 						easier way to pay.
 					</span>
 				</div>
@@ -60,8 +60,8 @@
 						matter. You can make the payment via PayPal with your credit card
 						or your debit card. HoneyBuy's PayPal account is:
 						payment@honeybuy.com</p>
-					<img src="${siteView.host}/style/image/horizontal_solution_PP.gif">
-					<img src="${siteView.host}/style/image/PaypalVerify.gif"> <br />
+					<img src="/style/image/horizontal_solution_PP.gif">
+					<img src="/style/image/PaypalVerify.gif"> <br />
 					<input type="submit" class="button_02" value="Processed to Pay">
 					
 					<script type="text/javascript">
@@ -75,10 +75,10 @@
 				<div class="shipping_title">
 					<input name="payType" type="radio" value="Globebill" id="GlobebillPay"> <span>Credit
 						Card 
-						<img width="32" src="http://www.honeybuy.com/style/image/visa.png">
-						<img width="32" src="http://www.honeybuy.com/style/image/mastercard.png">
+						<img width="32" src="/style/image/visa.png">
+						<img width="32" src="/style/image/mastercard.png">
 						We accept VisaCard, MasterCard. Note: For security purpose, we will not save any of your credit card data.
-						<img alt="Loading" src="${siteView.host}/css/loading_img_s.gif" style="display:none">
+						<img alt="Loading" src="/css/loading_img_s.gif" style="display:none">
 					</span>
 					
 				</div>
@@ -109,11 +109,11 @@
 				<div class="shipping_title" style="display: none;">
 					<input name="payType" type="radio" value="YoursPay"> <span>Yours
 						Pay<img width="30" height="20"
-						src="${siteView.host}/style/image/home_103.gif"> <img
-						width="29" height="20" src="${siteView.host}/style/image/--.jpg">
+						src="/style/image/home_103.gif"> <img
+						width="29" height="20" src="/style/image/--.jpg">
 						<img width="31" height="20"
-						src="${siteView.host}/style/image/amex.jpg"> <img width="33"
-						height="20" src="${siteView.host}/style/image/dse.jpg">
+						src="/style/image/amex.jpg"> <img width="33"
+						height="20" src="/style/image/dse.jpg">
 					</span>
 				</div>
 				<div class="shipping_desc" style="display: none;">
@@ -124,7 +124,7 @@
 						credit card companies typically provide some level of identity and
 						purchase protection. Please do not block any pop-up windows when
 						going through the paying process</p>
-					<br /> <input type="submit" class="button_01"
+					<br /> <input type="submit" class="button_02"
 						value="Processed to Pay">
 				</div>
 			</li>
@@ -132,7 +132,7 @@
 				<div class="shipping_title" style="display: none;"> 
 					<input name="payType" type="radio" value="alipay^boc-visa" id="ali-visa"> <span>VISA
 					<img  height="20"
-						src="${siteView.host}/style/image/visa.png">
+						src="/style/image/visa.png">
 					</span>
 				</div>
 				<div class="shipping_desc" style="display: none;" >
@@ -140,7 +140,7 @@
 					<input type="hidden" value="boc-visa" name="default_bank" checked="checked" id="ali-default_bank">Visa
 					<!-- <input type="radio" value="" name="default_bank">Master card -->
 					
-					<br /> <input type="submit" class="button_01"
+					<br /> <input type="submit" class="button_02"
 						value="Processed to Pay">
 				</div>
 			</li>
@@ -149,7 +149,7 @@
 				<div class="shipping_title" style="display: none;"> 
 					<input name="payType" type="radio" value="alipay^boc-master" id="ali-master-card"> <span>MASTER CARD
 					<img height="20"
-						src="${siteView.host}/style/image/mastercard.png">
+						src="/style/image/mastercard.png">
 					</span>
 				</div>
 				<div class="shipping_desc" style="display: none;">
