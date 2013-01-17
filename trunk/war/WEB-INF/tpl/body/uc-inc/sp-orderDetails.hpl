@@ -32,7 +32,7 @@
 	<ul class="scart_c" id="${item.name}">
 		<li class="scart_thumbnail"><a target="_blank"
 			href="${siteView.host}/${item.product.name}"><img
-				src="${siteView.imageHost}${item.product.images[0].smallUrl}"></a>
+				src="{item.product.images[0].smallUrl}"></a>
 		</li>
 		<li class="scart_desc2">
 			<dl>
