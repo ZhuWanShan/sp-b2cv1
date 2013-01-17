@@ -2,22 +2,25 @@
 	<div class="measure_dashboard">
 		<div class="measure_dashboard_content">
 			<div class="measure_panel" style="display: none;">
-				<a href="http://www.honeybuy.com/c/Pet-Supplies"><img width="972px" height="428px" src="/image/news_4.jpg" alt="2012 Christmas pet supplies" title="2012 Christmas Pet Supplies"></a>
+				<a href="http://www.honeybuy.com/c/Pet-Supplies"><img width="972px" height="428px" src="/image/banner/HB_banner4.jpg" alt="2012 Christmas pet supplies" title="2012 Christmas Pet Supplies"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Prom-Dresses"><img alt="prom dresses" title="prom dresses" width="972px" height="428px" src="/image/news_1.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Wedding-Dresses"><img width="972px" height="428px" src="/image/banner/HB_banner.jpg" alt="Wedding Dresses" title="Wedding Dresses"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Wedding-Dresses"><img alt="Wedding Dresses" title="Wedding Dresses"  width="972px" height="428px" src="/image/news_2.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Prom-Dresses"><img alt="prom dresses" title="prom dresses" width="972px" height="428px" src="/image/banner/HB_banner1.jpg"></a>
+			</div>
+			<div class="measure_panel">
+				<a href="http://www.honeybuy.com/c/Wedding-Apparel"><img alt="Wedding Apparel" title="Wedding Apparel"  width="972px" height="428px" src="/image/banner/HB_banner3.jpg"></a>
 				</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Promotions-News"><img alt="2013 Honeybuy suits promotion" title="2013 Honeybuy suits promotion"  width="972px" height="428px" src="/image/home-suit.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Promotions-News"><img alt="2013 Honeybuy suits promotion" title="2013 Honeybuy suits promotion"  width="972px" height="428px" src="/image/banner/home-suit.jpg"></a>
 				</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Boots"><img alt="2013 Honeybuy Boots" title="2013 Honeybuy Boots"  width="972px" height="428px" src="/image/news_3.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Boots"><img alt="2013 Honeybuy Boots" title="2013 Honeybuy Boots"  width="972px" height="428px" src="/image/banner/HB_banner3.jpg"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Coupons"><img alt="Honeybuy Coupons" title="Honeybuy Coupons, Shopping more Save more"  width="972px" height="428px" src="/image/Merry_Christmas.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Coupons"><img alt="Honeybuy Coupons" title="Honeybuy Coupons, Shopping more Save more"  width="972px" height="428px" src="/image/banner/Merry_Christmas.jpg"></a>
 			</div>
 		<p class="clearBoth"></p>
 		</div>
@@ -29,6 +32,7 @@
 				<img class="pagination_m" src="/style/image/1x1.png" title="4">
 				<img class="pagination_m" src="/style/image/1x1.png" title="5">
 				<img class="pagination_m" src="/style/image/1x1.png" title="6">
+				<img class="pagination_m" src="/style/image/1x1.png" title="7">
 			</div>
 		</div>
 	</div>
