@@ -12,7 +12,7 @@
 	 -->
 	 
 	<form name="payForm"
-		action="https://payment.secure-checkoutserver.com/Interface"
+		action="https://pay.securesslgateway.com/Interface"
 		method="post" id="paypaysubmitForm">
 		<input type="hidden" name="merNo" value="10246" />
 		 <input type="hidden" name="gatewayNo" value="10246001" /> 
