@@ -67,41 +67,45 @@ public class HomeFilter implements Filter{
 		 if(null != httpReq.getQueryString()){
 			 url = url + "?" + httpReq.getQueryString();
 		 }
+		 
+		 url.replaceAll("(?i)(^https)", "http");
+		 
+		 boolean secured = false;
+		 
+		 secured = isSecuredURL(httpReq,httpResp, url);
+		 
 		 LOGGER.info("Accessing: "+ url);
-		 if(url.matches("(?i)(^http://[^w]{3}.*)(.*)") && !url.matches("(?i)(^http://[\\d]{1,3}.*)(.*)")  ){
+		 if(url.matches("(?i)(^http://[^w]{3}.*)(.*)") && !url.matches("(?i)(^http://[\\d]{1,3}.*)(.*)") & !secured){
 			 url = url.replaceAll("(?i)(^http://)", "http://www.");
 			 //LOGGER.info("Redirecting : "+ url);
-			
-			 url.replaceAll("(?i)(^https)", "http");
-			 url = handleSecuredURL(httpReq, httpResp, url);
 			 httpResp.sendRedirect(url);
 			 return;
 		 }
-		
-		 if(url.matches("(?i)(^https:.*)")){
-			 url =  url.replaceAll("(?i)(^https)", "http");
-			 String url2 = handleSecuredURL(httpReq, httpResp, url);
-			 if(!url2.equals(url)){
-				 httpResp.sendRedirect(url2);
-				 return;
+		 
+		 if(secured){
+			 if(url.matches("(?i)(^http://[^w]{3}.*)(.*)") && !url.matches("(?i)(^http://[\\d]{1,3}.*)(.*)")){
+				 url = url.replaceAll("(?i)(^http://)", "http://www.");
 			 }
+			 url = url.replaceAll("(?i)(^http)", "https");
+			 httpResp.sendRedirect(url);
+			 return;
 		 }
 		
 		 chain.doFilter(request, response);
 		
 	}
 	
-	private String handleSecuredURL(HttpServletRequest httpReq, HttpServletResponse httpResp, String url) throws IOException{
+	private boolean isSecuredURL(HttpServletRequest httpReq, HttpServletResponse httpResp, String url) throws IOException{
 		 if(null != securedURLs){
 			 for (String securedURL : securedURLs) {
 				if(url.matches(securedURL)){
-					String url2 = url.replaceAll("(?i)(^http)", "https");
-					return url2;
+					return true;
 				}
 			}
 		 }
 		 
-		 return url;
+		 return false;
+		 
 	}
 
 	
