@@ -95,8 +95,8 @@ public class HomeFilter implements Filter{
 		 if(null != securedURLs){
 			 for (String securedURL : securedURLs) {
 				if(url.matches(securedURL)){
-					url = url.replaceAll("(?i)(^http)", "https");
-					return url;
+					String url2 = url.replaceAll("(?i)(^http)", "https");
+					return url2;
 				}
 			}
 		 }
