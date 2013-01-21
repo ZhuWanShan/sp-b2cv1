@@ -80,9 +80,11 @@ public class HomeFilter implements Filter{
 		
 		 if(url.matches("(?i)(^https:.*)")){
 			 url =  url.replaceAll("(?i)(^https)", "http");
-			 url = handleSecuredURL(httpReq, httpResp, url);
-			 httpResp.sendRedirect(url);
-			 return;
+			 String url2 = handleSecuredURL(httpReq, httpResp, url);
+			 if(!url2.equals(url)){
+				 httpResp.sendRedirect(url);
+				 return;
+			 }
 		 }
 		
 		 chain.doFilter(request, response);
