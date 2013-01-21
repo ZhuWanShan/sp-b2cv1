@@ -77,8 +77,12 @@ public class HomeFilter implements Filter{
 			 httpResp.sendRedirect(url);
 			 return;
 		 }
-		 url.replaceAll("(?i)(^https)", "http");
+		
 		 handleSecuredURL(httpReq, httpResp, url);
+		 
+		 if(url.matches("(?i)(^https:.*)")){
+			 url.replaceAll("(?i)(^https)", "http");
+		 }
 		
 		 chain.doFilter(request, response);
 		
@@ -99,7 +103,7 @@ public class HomeFilter implements Filter{
 	
 	
 	public static void main(String[] args) {
-		System.out.println("http://www.honeybuy.com/uc/orderDetails".matches("http://[^/]+/uc/orderDetails[^/]*"));
+		System.out.println("https://www.honeybuy.com/uc/orderDetails".matches("(?i)(^https:.*)"));
 	}
 
 }
