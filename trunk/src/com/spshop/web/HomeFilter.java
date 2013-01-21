@@ -82,7 +82,7 @@ public class HomeFilter implements Filter{
 			 url =  url.replaceAll("(?i)(^https)", "http");
 			 String url2 = handleSecuredURL(httpReq, httpResp, url);
 			 if(!url2.equals(url)){
-				 httpResp.sendRedirect(url);
+				 httpResp.sendRedirect(url2);
 				 return;
 			 }
 		 }
