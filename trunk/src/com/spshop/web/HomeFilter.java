@@ -73,15 +73,14 @@ public class HomeFilter implements Filter{
 			 //LOGGER.info("Redirecting : "+ url);
 			
 			 url.replaceAll("(?i)(^https)", "http");
-			 handleSecuredURL(httpReq, httpResp, url);
+			 url = handleSecuredURL(httpReq, httpResp, url);
 			 httpResp.sendRedirect(url);
 			 return;
 		 }
 		
-		 handleSecuredURL(httpReq, httpResp, url);
-		 
 		 if(url.matches("(?i)(^https:.*)")){
 			 url =  url.replaceAll("(?i)(^https)", "http");
+			 url = handleSecuredURL(httpReq, httpResp, url);
 			 httpResp.sendRedirect(url);
 			 return;
 		 }
@@ -90,16 +89,17 @@ public class HomeFilter implements Filter{
 		
 	}
 	
-	private void handleSecuredURL(HttpServletRequest httpReq, HttpServletResponse httpResp, String url) throws IOException{
+	private String handleSecuredURL(HttpServletRequest httpReq, HttpServletResponse httpResp, String url) throws IOException{
 		 if(null != securedURLs){
 			 for (String securedURL : securedURLs) {
 				if(url.matches(securedURL)){
 					url = url.replaceAll("(?i)(^http)", "https");
-					httpResp.sendRedirect(url);
-					 return;
+					return url;
 				}
 			}
 		 }
+		 
+		 return url;
 	}
 
 	
