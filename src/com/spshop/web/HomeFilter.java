@@ -83,24 +83,21 @@ public class HomeFilter implements Filter{
 	}
 	
 	private void secureURL(HttpServletRequest httpReq, HttpServletResponse httpResp, String url) throws IOException{
-		boolean alreadySecured = false;
 		 if(null != securedURLs){
 			 for (String securedURL : securedURLs) {
 				if(url.matches(securedURL)){
 					url = url.replaceAll("(?i)(^http)", "https");
 					httpResp.sendRedirect(url);
 					return ;
-				}else if(url.matches(securedURL.replace("http","https"))){
-					alreadySecured = true;
 				}
 			}
 		 }
 		 
-		 if(!alreadySecured && url.matches("(?i)(^https:.*)")){
+/*		 if(!alreadySecured && url.matches("(?i)(^https:.*)")){
 			 url = url.replaceAll("(?i)(^https)", "http");
 			 httpResp.sendRedirect(url);
 			 return ;
-		 }
+		 }*/
 	}
 
 	
