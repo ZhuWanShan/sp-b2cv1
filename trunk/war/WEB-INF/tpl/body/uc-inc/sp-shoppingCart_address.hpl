@@ -34,7 +34,7 @@
 	<#assign shippingMethod=(order.shippingMethod)!'standard'>
 	<ul class="scart_c">
        <li class="scart_c_w_l"><input name="shippingMethod" type="radio" value="standard" ${(shippingMethod=='standard')?string('checked="checked"','')}>Standard Shipping</li>
-       <li class="scart_c_w_m">Normally 5 - 8 days</li>
+       <li class="scart_c_w_m">Normally 3 - 5 days</li>
        <li class="scart_c_w_r red ">${(order.currency)}&nbsp;<span class="order_shipping_standard">0</span></li>
     </ul>
     <p class="clearBoth">&nbsp;</p>
