@@ -48,7 +48,7 @@
 		<#assign order = currentOrder!userView.cart.order> <#assign "address"=
 		primary!order.primaryAddress >
 		<div class="scart_header2">Address Details</div>
-		<div style="margin-top:8px; padding-left:10px;">Please make sure the billing address you enter below matches the name and address associated with the credit card you are using for this purchase. Please note your billing address and shipping address country must be the same.</div>
+		<div style="padding: 15px; line-height: 20px; border-bottom: 1px dashed #7E7F7F;">Please make sure the billing address you enter below matches the name and address associated with the credit card you are using for this purchase. Please note your billing address and shipping address country must be the same.</div>
 		<ul class="address_l">
 			<li class="l1">Shipping to this address:</li>
 			<li class="l2">${(address.fullName)!''}</li>
