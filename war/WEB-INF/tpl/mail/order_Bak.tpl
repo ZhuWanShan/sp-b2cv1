@@ -143,7 +143,7 @@
         </td>
         <td width="10" valign="top" style="width:7.5pt;padding:.75pt .75pt .75pt .75pt"></td>
         <td valign="top" style="padding:.75pt .75pt .75pt .75pt">
-        <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;">Paypal<o:p></o:p></span></p>
+        <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;mso-fareast-font-family:&quot;Times New Roman&quot;">${(order.orderType)!''}<o:p></o:p></span></p>
         </td>
        </tr>
       </tbody></table>
