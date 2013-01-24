@@ -17,7 +17,7 @@ public class SpringApplicationContextFactoryTest {
 	
 	@Test
 	public void testGetContext_Normal_Case(){
-		ApplicationContext context = SpringApplicationContextFactory.getContext();
+		ApplicationContext context = CoreContextFactory.getContext();
 		Assert.assertNotNull(context);
 	}
 }

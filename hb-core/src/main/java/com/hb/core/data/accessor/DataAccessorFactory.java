@@ -4,6 +4,10 @@
  */
 package com.hb.core.data.accessor;
 
+import org.springframework.context.ApplicationContext;
+
+import com.hb.core.context.CoreContextFactory;
+
 
 /**
  * 
@@ -14,8 +18,9 @@ public class DataAccessorFactory {
 	
 	public static<T extends DataAccessor<?>> T get(Class<T> accClass){
 		
+		ApplicationContext context = CoreContextFactory.getContext();
 		
-		return null;
+		return context.getBean(accClass);
 	}
 	
 }

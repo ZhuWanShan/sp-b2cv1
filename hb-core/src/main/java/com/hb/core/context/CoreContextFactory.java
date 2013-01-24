@@ -16,9 +16,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author <link href="wan-shan.zhu@hp.com">Spark Zhu</link>
  * @version 1.0
  */
-public class SpringApplicationContextFactory{
+public class CoreContextFactory{
 	
-	private final static Logger logger = LoggerFactory.getLogger(SpringApplicationContextFactory.class);
+	private final static Logger logger = LoggerFactory.getLogger(CoreContextFactory.class);
 	private final static String CONTEXT_FILE_LOCATION = "/hb-core-context.xml";
 	
 	private static ApplicationContext context = null;
