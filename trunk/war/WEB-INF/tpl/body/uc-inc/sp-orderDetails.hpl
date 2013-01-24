@@ -98,7 +98,15 @@
 					<tr>
 					<tr>
 						<td class="scart_status_list_table_w1">PAYMENT METHOD:</td>
-						<td class="scart_status_list_table_w2">${order.orderType!'Paypal'}</td>
+						<td class="scart_status_list_table_w2">
+							<#if ((order.orderType!'')=="Globebill")>
+								Credit or Debit Card
+							<#elseif ((order.orderType!'')=="Paypal")>
+								Paypal
+							<#else>
+								Other
+							</#if>
+						</td>
 					<tr>
 					<tr>
 						<td class="scart_status_list_table_w1">SHIPPING METHOD:</td>
