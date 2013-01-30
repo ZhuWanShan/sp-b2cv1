@@ -10,6 +10,17 @@
 		<meta http-equiv="Cache-Control" content="no-cache" />
 		<meta content="" name="keywords">
 		<meta content="" name="description">
+		
+		<!-- Import css/js -->
+		<c:forEach items="${site.js }" var="js">
+			<script src="${site.resourceServer}${js}" type="text/javascript"></script>
+		</c:forEach>
+		<style type="text/css">
+			<c:forEach items="${site.css }" var="css">
+		   		 @import url("${site.resourceServer}${css}");
+			</c:forEach>
+		</style>
+		
 </head>
 <body>
 	<tiles:insertAttribute name="header" ignore="true" />
