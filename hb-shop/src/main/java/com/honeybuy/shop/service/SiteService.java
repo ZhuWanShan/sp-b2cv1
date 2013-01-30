@@ -34,6 +34,10 @@ public class SiteService implements ISiteService{
 		js.add("/js/jquery-1.9.0.js");
 		js.add("/js/jquery-ui-1.10.0.custom.js");
 		
+		siteDTO.setCss(css);
+		siteDTO.setJs(js);
+		
+		
 		return siteDTO;
 	}
 
