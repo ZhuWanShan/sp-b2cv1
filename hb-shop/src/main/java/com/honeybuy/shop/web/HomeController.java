@@ -2,7 +2,7 @@
  * Project: iSAPort
  * Copyright (c) 2012 HP. All Rights Reserved.
  */
-package com.honeybuy.admin.web;
+package com.honeybuy.shop.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +14,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @version 1.0
  */
 @Controller
-@RequestMapping("/workspace")
-public class WorkspaceController {
-	@RequestMapping("/test")
+@RequestMapping("/home")
+public class HomeController {
+	
+	@RequestMapping("")
+	public String home(){
+		return "home";
+	}
+	
+	@RequestMapping("/testJson")
 	@ResponseBody
 	public String test(){
 		return "asfasfjkldgjdklfgjdfklgjdfklgjdfklg";
