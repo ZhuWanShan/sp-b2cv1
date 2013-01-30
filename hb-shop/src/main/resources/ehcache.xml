@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true"
+	monitoring="autodetect" dynamicConfig="true">
+	<diskStore path="/home/data/cache/customerdevice" />
+	<defaultCache eternal="true" maxElementsInMemory="50"
+		memoryStoreEvictionPolicy="LFU" />
+	<cache name="deviceSearchCache" eternal="false"
+		timeToLiveSeconds="600" maxElementsInMemory="5000"
+		memoryStoreEvictionPolicy="LRU" statistics="true" overflowToDisk="true"
+		maxElementsOnDisk="100000" />
+		
+	<cache name="customerSearchCache" eternal="false"
+		timeToLiveSeconds="600" maxElementsInMemory="5000"
+		memoryStoreEvictionPolicy="LRU" statistics="true" overflowToDisk="true"
+		maxElementsOnDisk="100000" />
+	
+	<cache name="contactSearchCache" eternal="false"
+		timeToLiveSeconds="600" maxElementsInMemory="5000"
+		memoryStoreEvictionPolicy="LRU" statistics="true" overflowToDisk="true"
+		maxElementsOnDisk="100000" />
+		
+	<cache name="dataPackageSearchCache" eternal="false"
+		timeToLiveSeconds="600" maxElementsInMemory="5000"
+		memoryStoreEvictionPolicy="LRU" statistics="true" overflowToDisk="true"
+		maxElementsOnDisk="100000" />
+</ehcache>
