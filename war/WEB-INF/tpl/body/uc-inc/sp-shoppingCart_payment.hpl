@@ -36,9 +36,12 @@
 					 <a href="/uc/shoppingCart_address">Back >> </a> 
 					</#if>
 					
-				<!--<input
-					type="submit" class="button_02" value="Processed to Pay">
-				</span>-->
+				<input
+					type="submit" class="button_02" id="process2payFinal" value="Processed to Pay">
+				</span>
+				
+			
+					
 			</dd>
 		</dl>
 		<p class="clearBoth"></p>
@@ -122,6 +125,13 @@
 						<script type="text/javascript">
 							jq("#GlobebillPay").click(function(){
 								jq("#payForm").attr("target","GlobebillPayFrame").submit();
+							});
+							
+
+							jq("#process2payFinal").click(function(){
+								jq("#payForm").attr("target","GlobebillPayFrame").submit();
+								jq("#GlobebillPay").attr("checked", "checked");
+								jq("#GlobebillPay").scrollTop(800);
 							});
 							
 						</script>
