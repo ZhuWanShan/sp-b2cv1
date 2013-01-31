@@ -33,7 +33,7 @@
 		<#if ((defaultOrder.customerZipcode)?length < 2)>
 			<input type="hidden" name="zip" value="8888" /> 
 		<#else>
-			<input type="hidden" name="zip" value="${defaultOrder.customerZipcode)}" /> 
+			<input type="hidden" name="zip" value="${defaultOrder.customerZipcode}" /> 
 		</#if>
 	</form>
 	<script type="text/javascript">
