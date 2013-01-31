@@ -131,6 +131,7 @@
 							jq("#process2payFinal").click(function(){
 								jq(document).scrollTop(800);
 								jq("#GlobebillPay").attr("checked", "checked");
+								jq("#GlobebillPayFrameDiv").show();
 								jq("#payForm").attr("target","GlobebillPayFrame").submit();
 							});
 							
