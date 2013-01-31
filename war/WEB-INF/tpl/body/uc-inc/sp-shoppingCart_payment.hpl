@@ -33,11 +33,11 @@
 					</#if>
 					<#if (id!'')=='' >
 						<input name="id" value="${order.name}" type="hidden">
-					 <a href="/uc/shoppingCart_address">Back >> </a> 
+					 <a href="/uc/shoppingCart_address"> << Back </a> 
 					</#if>
 					
 				<input
-					type="submit" class="button_02" id="process2payFinal" value="Processed to Pay">
+					type="submit" class="button_02" id="process2payFinal" value="Proceed to Checkout">
 				</span>
 				
 			
@@ -129,9 +129,9 @@
 							
 
 							jq("#process2payFinal").click(function(){
-								jq("#payForm").attr("target","GlobebillPayFrame").submit();
-								jq("#GlobebillPay").attr("checked", "checked");
 								jq("#GlobebillPay").scrollTop(800);
+								jq("#GlobebillPay").attr("checked", "checked");
+								jq("#payForm").attr("target","GlobebillPayFrame").submit();
 							});
 							
 						</script>
