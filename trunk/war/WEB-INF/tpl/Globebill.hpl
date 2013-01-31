@@ -22,14 +22,19 @@
 		 <input type="hidden" name="signInfo" value="${signInfo}" />
 		<input type="hidden" name="returnUrl" value="${returnUrl}" /> 
 		<input type="hidden" name="firstName" value="${firstName}" /> 
-		<input type="hidden" name="lastName" value="${lastName!'N/A'}" />
+		<input type="hidden" name="lastName" value="${lastName!'NA'}" />
 		<input type="hidden" name="email" value="${defaultOrder.customerEmail}" /> 
 		<input type="hidden" name="phone" value="${defaultOrder.customerTelephone}" /> 
 		<input type="hidden" name="paymentMethod" value="Credit Card" /> 
 		<input type="hidden" name="country" value="${cc}" /> 
 		<input type="hidden" name="city" value="${defaultOrder.city}" />
 		<input type="hidden" name="address" value="${defaultOrder.customerAddress}" />
-		<input type="hidden" name="zip" value="${defaultOrder.customerZipcode}" /> 
+		
+		<#if ((defaultOrder.customerZipcode)?length < 2)>
+			<input type="hidden" name="zip" value="8888" /> 
+		<#else>
+			<input type="hidden" name="zip" value="${defaultOrder.customerZipcode)}" /> 
+		</#if>
 	</form>
 	<script type="text/javascript">
 		jq("#paypaysubmitForm").submit();
