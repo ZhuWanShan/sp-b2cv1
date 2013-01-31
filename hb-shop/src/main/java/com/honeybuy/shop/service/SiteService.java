@@ -24,8 +24,10 @@ public class SiteService implements ISiteService{
 		SiteDTO siteDTO = new SiteDTO();
 		
 		siteDTO.setOwnerId("None");
-		siteDTO.setResourceServer("http://localhost:8180/web-resources/hb");
+		siteDTO.setResourceServer("http://localhost/resources");
 		siteDTO.setSiteId("0");
+		siteDTO.setWebResourcesFolder("static");
+		siteDTO.setProductImageResourcesFolder("image");
 		
 		List<String> css = new ArrayList<String>();
 		css.add("/css/trontastic/jquery-ui-1.10.0.custom.css");

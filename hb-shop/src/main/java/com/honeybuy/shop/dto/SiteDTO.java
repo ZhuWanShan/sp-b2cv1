@@ -18,9 +18,12 @@ public class SiteDTO {
 	private List<String> css;
 	private List<String> js;
 	private String resourceServer;
+	private String webResourcesFolder;
+	private String productImageResourcesFolder;
 	private Serializable ownerId;
 	private String defaultCurrency;
 	private String siteName;
+	private String hostName;
 	private String siteDescription;
 	private String logo;
 
@@ -97,6 +100,31 @@ public class SiteDTO {
 
 	public void setLogo(String logo) {
 		this.logo = logo;
+	}
+
+	public String getWebResourcesFolder() {
+		return webResourcesFolder;
+	}
+
+	public void setWebResourcesFolder(String webResourcesFolder) {
+		this.webResourcesFolder = webResourcesFolder;
+	}
+
+	public String getProductImageResourcesFolder() {
+		return productImageResourcesFolder;
+	}
+
+	public void setProductImageResourcesFolder(
+			String productImageResourcesFolder) {
+		this.productImageResourcesFolder = productImageResourcesFolder;
+	}
+
+	public String getHostName() {
+		return hostName;
+	}
+
+	public void setHostName(String hostName) {
+		this.hostName = hostName;
 	}
 
 }
