@@ -69,6 +69,10 @@ import net.sf.json.JSONObject;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+//import org.codehaus.jackson.JsonFactory;
+//import org.codehaus.jackson.JsonGenerationException;
+//import org.codehaus.jackson.map.JsonMappingException;
+//import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -103,6 +107,8 @@ import com.spshop.web.view.SiteView;
 public class UserCenterController extends BaseController {
 
 	Logger logger = Logger.getLogger(UserCenterController.class);
+	
+	//private static final String ORDER_ID = "orderId";
 
 	@RequestMapping("/changePwd")
 	public String changePwd(Model model) {
@@ -141,6 +147,45 @@ public class UserCenterController extends BaseController {
 	public String userProfile(Model model) {
 		return "userProfile";
 	}
+	
+	/*@RequestMapping("/updateOrderAddress")
+	public String updateOrderAddress(Model model,
+			HttpServletRequest request, HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException{
+		
+		String orderId = request.getParameter(ORDER_ID);
+		String addType = request.getParameter(Constants.ADD_TYPE);
+		
+		Order order = null;
+
+		if(StringUtils.isNotBlank(orderId)){
+			order = ServiceFactory.getService(OrderService.class).getOrderById(orderId);
+		}else{
+			order = getUserView().getCart().getOrder();
+		}
+		
+		if(order != null){
+			
+			Address address = retrieveAddress(request);
+			
+			if(Constants.ADD_TYPE_P.equals(addType)){
+				address.setCountry(order.getPrimaryAddress().getCountry());
+				order.setPrimaryAddress(address);
+				ServiceFactory.getService(OrderService.class).saveOrder(order, order.getStatus());
+			}else{
+				order.setBillingSameAsPrimary(false);
+				address.setCountry(order.getPrimaryAddress().getCountry());
+				order.setBillingAddress(address);
+			}
+			
+			
+			JsonFactory f = new JsonFactory();
+			ObjectMapper mapper = new ObjectMapper(f);
+			mapper.writeValue(response.getOutputStream(), address);
+		
+		}
+		
+		return null;
+	}*/
 
 	@RequestMapping("/retrieveShippingPrice")
 	public String retrieveShippingPrice(Model model,
@@ -719,7 +764,7 @@ public class UserCenterController extends BaseController {
 				return "alipay";
 			}else if ("Globebill".equals(payType)){
 				
-				globebillPay(order,model);
+				globebillPay(order,model,request);
 				
 				return "Globebill";
 			}
@@ -730,7 +775,7 @@ public class UserCenterController extends BaseController {
 		return "shoppingCart_payment";
 	}
 
-	private void globebillPay(Order order, Model model) {
+	private void globebillPay(Order order, Model model, HttpServletRequest request) {
 		String merNo = "10246";
 		String gatewayNo = "10246001";
 		String signKeyNo = "04d6x2r8";
@@ -738,7 +783,7 @@ public class UserCenterController extends BaseController {
 		//订单金额, 两位小数
 	    String amount = new NumberFormat("##0.##").getNumberFormat().format(getSiteView().getCurrencies().get(order.getCurrency())*(order.getTotalPrice() + order.getDePrice() - order.getCouponCutOff()));
 
-	    String returnUrl = getSiteView().getHost() + "/uc/globebillPayRs";
+	    String returnUrl = request.getScheme()+"://" + request.getServerName() + "/uc/globebillPayRs";
 	    
 	    
 	    /**
