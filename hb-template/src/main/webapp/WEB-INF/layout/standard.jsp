@@ -16,6 +16,7 @@
 			<c:forEach items="${site.css }" var="css">
 		   		 @import url("${site.resourceServer}${site.webResourcesFolder}${css}");
 			</c:forEach>
+			 @import url("http://localhost/resources/static/css/blitzer/common.css");
 		</style>
 		
 		<c:forEach items="${site.js }" var="js">
@@ -24,8 +25,14 @@
 		
 </head>
 <body>
-	<tiles:insertAttribute name="header" ignore="true" />
-	<tiles:insertAttribute name="body"/>
-	<tiles:insertAttribute name="footer" ignore="true" />
+	<div id="top">
+		<tiles:insertAttribute name="header" />
+	</div>
+	<div id="main">
+		<tiles:insertAttribute name="body"/>
+	</div>
+	<div id="footer">
+		<tiles:insertAttribute name="footer"/>
+	</div>
 </body>
 </html>

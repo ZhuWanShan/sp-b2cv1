@@ -26,11 +26,12 @@ public class SiteService implements ISiteService{
 		siteDTO.setOwnerId("None");
 		siteDTO.setResourceServer("http://localhost/resources");
 		siteDTO.setSiteId("0");
-		siteDTO.setWebResourcesFolder("static");
-		siteDTO.setProductImageResourcesFolder("image");
+		siteDTO.setWebResourcesFolder("/static");
+		siteDTO.setProductImageResourcesFolder("/image");
 		
 		List<String> css = new ArrayList<String>();
-		css.add("/css/trontastic/jquery-ui-1.10.0.custom.css");
+		css.add("/css/blitzer/jquery-ui-1.10.0.custom.css");
+		css.add("/css/blitzer/common.css");
 		
 		List<String> js = new ArrayList<String>();
 		js.add("/js/jquery-1.9.0.js");
