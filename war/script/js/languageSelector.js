@@ -12,6 +12,10 @@ XctMenu.sdata = {
 		url : "http://de.honeybuy.com",
 		code : "de",
 		name : "Deutsch"
+	}, {
+		url : "http://pt.honeybuy.com",
+		code : "pt",
+		name : "Portugu\u00eas"
 	} ],
 	useDefaultStyle : true,
 	originalLang : "en",
@@ -243,7 +247,7 @@ var XctLanguageSelector = {
 			}
 			c += "</ul></li></ul>"
 		} else {
-			c = '<ul class="xct-menu"><li class="xct-trigger"><a class="xct-trigger-link"><span class="xct-lang">è¯­è¨€é€‰æ‹©å™¨ä¸å­˜åœ¨ï¼Œè¯·è®¾ç½®</span></a><li></li><ul></ul></ul>'
+			c = '<ul class="xct-menu"><li class="xct-trigger"><a class="xct-trigger-link"><span class="xct-lang">language selector is not existing, please setup</span></a><li></li><ul></ul></ul>'
 		}
 		return c
 	},
@@ -269,7 +273,7 @@ var XctLanguageSelector = {
 				return b[a].name
 			}
 		}
-		return "é”™è¯¯çš„åŸŸå"
+		return "error domain"
 	},
 	toggleDropdown : function() {
 		if (this.isDropdownOpen()) {
