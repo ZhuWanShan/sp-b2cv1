@@ -78,6 +78,12 @@ public class HomeFilter implements Filter{
 		 
 		 secureURL(httpReq, httpResp, url);
 		 
+        String reqUri = httpReq.getRequestURI().toString();
+        if (!reqUri.equals("/admin") && reqUri.matches("^(/)([^/\\.]+)")) {
+            httpReq.getRequestDispatcher("/p" + reqUri).forward(httpReq, httpResp);
+            return;
+        }
+		 
 		 chain.doFilter(request, response);
 		
 	}
@@ -103,7 +109,7 @@ public class HomeFilter implements Filter{
 	
 	
 	public static void main(String[] args) {
-		System.out.println("https://www.honeybuy.com/uc/orderDetails".matches("(?i)(^https:.*)"));
+		System.out.println("/sdfsd.txt".matches("^(/)([^/\\.]+)"));
 	}
 
 }
