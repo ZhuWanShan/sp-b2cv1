@@ -182,7 +182,7 @@ fareast-font-family:&quot;Times New Roman&quot;;
 
 family:&quot;Times New Roman&quot;"><#if ((order.orderType!'')=="Globebill")>
 								Credit or Debit Card
-							<#elseif ((order.orderType!'')=="Paypal")>
+							<#elseif ((order.orderType!'')=="paypal")>
 								Paypal
 							<#else>
 								Other
