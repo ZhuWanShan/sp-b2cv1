@@ -1,6 +1,7 @@
 <html>
 	<head></head>
 <body>
+<!--Order Received, Awaiting Payment Confirmation-->
 <div align="center">
 
 <table cellspacing="0" cellpadding="0" border="0" width="809" class="MsoNormalTable" style="width:606.75pt;mso-
@@ -142,7 +143,7 @@ class="MsoNormal">&nbsp;</p></td>
         <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><strong><span style="font-size:10.0pt;mso-
 
 fareast-font-family:&quot;Times New Roman&quot;;
-        color:black">Bill to</span></strong><span style="font-size:9.0pt;
+        color:black">Ship to</span></strong><span style="font-size:9.0pt;
         mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p>
         </td>
         <td width="10" valign="top" style="width:7.5pt;padding:.75pt .75pt .75pt .75pt"></td>
@@ -206,7 +207,7 @@ family:&quot;Times New Roman&quot;">
         <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><strong><span style="font-size:10.0pt;mso-
 
 fareast-font-family:&quot;Times New Roman&quot;;
-        color:black">Ship to</span></strong><span style="font-size:9.0pt;
+        color:black">Bill to</span></strong><span style="font-size:9.0pt;
         mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p>
         </td>
         <td width="10" valign="top" style="width:7.5pt;padding:.75pt .75pt .75pt .75pt"></td>
