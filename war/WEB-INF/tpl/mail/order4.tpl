@@ -2,7 +2,7 @@
 	<head></head>
 <body>
 <div align="center">
-
+<!-- Order Received and Payment Confirmation -->
 <table cellspacing="0" cellpadding="0" border="0" style="width:760px; background:#F2F3F4">
  <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes">
   <td style="padding:0in 0in 0in 0in"><!-- head logo & link -->
