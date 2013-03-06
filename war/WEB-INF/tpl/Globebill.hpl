@@ -12,7 +12,7 @@
 	 -->
 	 
 	<form name="payForm"
-		action="https://payment.globebill.com/Interface"
+		action="https://payment.secure-checkoutserver.com/Interface"
 		method="post" id="paypaysubmitForm">
 		<input type="hidden" name="merNo" value="10309" />
 		 <input type="hidden" name="gatewayNo" value="10309001" /> 
