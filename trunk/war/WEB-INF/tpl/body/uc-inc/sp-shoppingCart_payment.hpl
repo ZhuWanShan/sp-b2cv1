@@ -117,9 +117,9 @@
 					
 				</div>
 				
-				<div class="shipping_desc" id="GlobebillPayFrameDiv" style="display: block;width: 800px;height:340px;overflow: hidden;margin-left: 0px;">
+				<div class="shipping_desc" id="GlobebillPayFrameDiv" style="display: block;width: 800px;height:540px;overflow: hidden;margin-left: 0px;">
 					
-					<iframe name="GlobebillPayFrame" border="no" scroll="no" style="border: 0px;width:850px;overflow: hidden;height: 500px;display: block;margin-left: 60px">
+					<iframe name="GlobebillPayFrame" border="no" scroll="no" style="border: 0px;width:850px;overflow: hidden;height: 99999999px;display: block;margin-left: -26px">
 					</iframe>
 					
 						<script type="text/javascript">
