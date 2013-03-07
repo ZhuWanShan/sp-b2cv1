@@ -4,24 +4,19 @@
 <div align="center">
 <!-- Order Received and Payment Confirmation -->
 <table cellspacing="0" cellpadding="0" border="0" style="width:760px; background:#F2F3F4">
- <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes">
+ <tbody><tr>
   <td style="padding:0in 0in 0in 0in"><!-- head logo & link -->
   <div align="center">
-  <table cellspacing="0" cellpadding="0" border="0" width="700" class="MsoNormalTable" style="width:525.0pt;mso-
-
-cellspacing:0in;mso-yfti-tbllook:1184;mso-padding-alt:
-   0in 0in 0in 0in">
-   <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:10.5pt">
+  <table cellspacing="0" cellpadding="0" border="0" width="700" style="width:525.0pt;">
+   <tbody><tr style="height:10.5pt">
     <td colspan="2" style="padding:0in 0in 0in 0in;height:10.5pt"></td>
    </tr>
    
    <tr style="mso-yfti-irow:2;mso-yfti-lastrow:yes">
     <td style="padding:0in 0in 0in 0in">
-    <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="mso-fareast-font-family:&quot;Times New 
-
-Roman&quot;"><img border="0" id="_x0000_i1026" 
-
-src="https://www.honeybuy.com/image/4614200824386.jpg"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt">
+    <span>
+    <img board="0" title="www.honeybuy.com Logo" alt="www.honeybuy.com logo" src="https://www.honeybuy.com/image/4614200824386.jpg"><o:p></o:p></span></p>
     </td>
     <td style="padding:0in 0in 0in 0in">
     <p align="right" class="MsoNormal" style="margin:0in;margin-bottom:.0001pt;

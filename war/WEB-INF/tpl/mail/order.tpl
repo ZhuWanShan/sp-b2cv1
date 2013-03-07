@@ -23,7 +23,7 @@ cellspacing:0in;mso-yfti-tbllook:1184;mso-padding-alt:
     <td style="padding:0in 0in 0in 0in">
     <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="mso-fareast-font-family:&quot;Times New 
 
-Roman&quot;"><img border="0" id="_x0000_i1026" 
+Roman&quot;"><img board="0" title="www.honeybuy.com Logo" alt="www.honeybuy.com logo"
 
 src="https://www.honeybuy.com/image/4614200824386.jpg"><o:p></o:p></span></p>
     </td>
