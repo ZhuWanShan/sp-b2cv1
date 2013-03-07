@@ -7,8 +7,7 @@
       <table width="700" cellspacing="0" cellpadding="0" border="0" align="center">
         <tbody>
         <tr>
-         <td> <img board="0" title="honeybuy.com" alt="honeybuy.com" 
-src="https://www.honeybuy.com/image/4614200824386.jpg"> </td>
+         <td> <img board="0" title="www.honeybuy.com Logo" alt="www.honeybuy.com logo" src="https://www.honeybuy.com/image/4614200824386.jpg"> </td>
           <td align="right" style="FONT-SIZE: 14pt">Shipment 
         Notification</td> </tr> </tbody> </table>
       <table width="700" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" align="center" style="BORDER-
