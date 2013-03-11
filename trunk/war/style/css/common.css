@@ -1521,16 +1521,6 @@ li.scart_c_w_r {
     width: 200px;
 }
 
-.measure_dashboard_content{
-	width: 999999999px;
-	height: 370px;
-}
-.measure_dashboard{
-	height: 430px;
-	width: 762px;
-	
-}
-
 .measure_field{
 	width: 260px;
 	height: 50px;
@@ -2815,17 +2805,6 @@ li.scart_c_w_r {
     position: absolute;
     text-align: center;
     width: 200px;
-}
-
-.measure_dashboard_content{
-	width: 999999999px;
-	height: 370px;
-}
-
-.measure_dashboard{
-	height: 430px;
-	width: 762px;
-
 }
 
 ul.img_opt{
