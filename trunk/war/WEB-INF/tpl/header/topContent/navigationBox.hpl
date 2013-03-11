@@ -5,7 +5,7 @@
 		</a>
 	</div>
 	<div class="search">
-	<span style="display: inline-block; width: 261px; background: url('/image/register_banner01.png'); position: relative; left: 90px; height: 30px; top: -25px;"></span>
+	<span style="display: inline-block; width: 261px; background: url('/style/image/register_banner01.png'); position: relative; left: 90px; height: 30px; top: -25px;"></span>
 		<form action="" method="get" name="formss" id="formss" onsubmit="">
 			<div class="search_box" style="top:-20px;">
 				<input type="hidden" name="class" value="0"> <input
