@@ -435,8 +435,8 @@ span.icon_RUB {
 
 .security {
 	position: absolute;
-	right: 0;
-	top:0;
+	right: 0px;
+	top:6px;
 	height: 50px;
 }
 
@@ -447,7 +447,7 @@ span.icon_RUB {
 
 .security a img {
 	
-	margin: -10px 0px 10px;
+	margin: -16px 0px 16px;
 	border: none;
 }
 
