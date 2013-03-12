@@ -24,14 +24,15 @@
 		</form>
 	</div>
 	<div class="security">
-		<a style="float: left; border: 0; margin-left: 5px" title="Click to Verify - This site chose VeriSign SSL for secure e-commerce and confidential 
-			communications."><script type="text/javascript" src="https://seal.verisign.com/getseal?host_name=www.HoneyBuy.com&amp;size=L&amp;use_flash=YES&amp;use_transparent=YES&amp;lang=en"></script>
-		</a>	
+	
 		<a href="http://www.honeybuy.com/c/Promotions-News" title="Promotions news"> 
 		 	<img alt="Promotions news" src="/style/image/top01.jpg">
 		</a>
 		<a href="http://www.honeybuy.com/c/Promotions-News" title="Promotions news"> 
 		  	<img alt="Promotions news" src="/style/image/top02.jpg">
+		</a>
+		<a style="margin-left: 5px" title="Click to Verify - This site chose VeriSign SSL for secure e-commerce and confidential 
+			communications."><script type="text/javascript" src="https://seal.verisign.com/getseal?host_name=www.HoneyBuy.com&amp;size=S&amp;use_flash=YES&amp;use_transparent=YES&amp;lang=en"></script>
 		</a>
 	</div>
 	
