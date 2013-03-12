@@ -437,17 +437,17 @@ span.icon_RUB {
 	position: absolute;
 	right: 0;
 	top:0;
-	width: 370px;
 	height: 50px;
 }
 
 .security a {
+
 	
 }
 
 .security a img {
 	
-	margin: 15px 0px 0px 8px;
+	margin: -10px 0px 10px;
 	border: none;
 }
 
