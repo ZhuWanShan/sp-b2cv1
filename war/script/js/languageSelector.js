@@ -16,6 +16,10 @@ XctMenu.sdata = {
 		url : "http://pt.honeybuy.com",
 		code : "pt",
 		name : "Portugu\u00eas"
+	}, {
+		url : "http://ru.honeybuy.com",
+		code : "ru",
+		name : "P\u0443\u0441\u0441\u043a\u0438\u0439"
 	} ],
 	useDefaultStyle : true,
 	originalLang : "en",
