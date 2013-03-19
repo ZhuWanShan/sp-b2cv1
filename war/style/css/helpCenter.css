@@ -310,7 +310,7 @@ opacity: 0.5;}
 #Promotion_two .left{float:left}
 #Promotion_two .right{float:right;}
 #Promotion_two .clear{ clear:both}
-#Promotion_two{ background:url(/style/image/pic/Background.jpg) repeat-x; width:100%}
+#Promotion_two{ width:100%}
 #Promotion_two .Overall{ width:972px; margin:0 auto;}
 #Promotion_two .banner{ height:500px;}
 #Promotion_two .positio{width:972px;}
