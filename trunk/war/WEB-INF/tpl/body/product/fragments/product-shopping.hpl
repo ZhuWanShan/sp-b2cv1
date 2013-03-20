@@ -77,7 +77,7 @@
 			
 				<div class="color-window-list">
 				<#list pOption.items as item>
-					<#if item.value?ends_with(".jpg")>
+					<#if (item.value!"")?ends_with(".jpg")>
 						<img alt="${item.name}" src="${siteView.imageHost + item.value}" title="${item.name}">
 					</#if>
 				</#list>
