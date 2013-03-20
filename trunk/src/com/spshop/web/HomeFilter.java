@@ -25,7 +25,6 @@ import org.apache.log4j.Logger;
  */
 public class HomeFilter implements Filter{
 	
-	private static final Logger LOGGER = Logger.getLogger(HomeFilter.class);
 	
 	private static final String ENSURE_SCURE_URLS = "securedUrls";
 	

@@ -2980,3 +2980,78 @@ img.current{
 .ep_qsearch b{
 	color:red;
 }
+/******************************************product page end***********************************************/
+
+
+.addrSummary{
+	float: left;
+	width: 370px;
+	
+}
+.addrSummary li{
+	line-height: 1.5;
+}
+
+.addrSummary button{
+	margin: 5px;
+}
+
+/**************************Address dialog**************************/
+
+#addressDialogDelegate{
+	text-align: left;
+}
+
+#addressDialogDelegate th{
+	border: none;
+}
+
+#addressDialogDelegate .required{
+	color: red;
+}
+
+#addressDialogDelegate .errorInfo{
+	color: red;
+}
+
+#addressDialogDelegate input.address{
+	width: 300px;
+}
+
+input.invalid, select.invalid, texteara.invalid{
+	border: 1px solid #ff0000
+}
+
+input.valid, select.valid, texteara.valid{
+	border: 1px solid #00ff00
+}
+
+
+
+/**************************Address dialog**************************/
+
+
+
+.cartStep1, .cartStep2, .cartStep3 {
+float: left;
+background: url("/style/image/cart_step.jpg") 0 0 no-repeat;
+width: 294px;
+height: 40px;
+margin-left: 35px;
+}
+
+.cart_list_block{
+	margin-top: 25px;
+	border-bottom: 1px dashed #7E7F7F;
+	padding-bottom: 15px;
+}
+
+.cart_list_block .title{
+	background-color: #FAA003;
+	padding: 4px;
+	margin-bottom: 15px;
+}
+
+.addres_list_for_select li{
+	margin: 10px;
+}

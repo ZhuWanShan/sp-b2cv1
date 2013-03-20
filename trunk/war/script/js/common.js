@@ -853,3 +853,51 @@ function checkItem(){
 	
 	return true;
 }
+
+
+/*************************************Manager Address***************************************************/
+
+function deleteUserShippingAddress(btn, addId){
+	jQuery.ajax({
+		url : "/uc/deleteUserShippingAddress?id="+addId,
+		success : function(data){
+			window.location.reload();
+		},
+		error : function(){
+			alert("failed");
+		}
+	});
+}
+
+function editUserShippingAddress(btn, addId){
+	jQuery.HB.AddressWindow(
+			{contentUrl:"/uc/listAddress?id="+addId, 
+				postUrl:"/uc/addOrUpdateShippingAddress?id="+addId, 
+				title:"Edit Shipping Address",
+				success : function(data){
+					window.location.reload();
+					//jQuery("#user_shipping_address").append(data);
+				},
+				error : function (data){
+					alert('Failed');
+				}
+			});
+}
+
+function editUserBillingAddress(btn, addId){
+	jQuery.HB.AddressWindow(
+			{contentUrl:"/uc/listAddress?id="+addId, 
+				postUrl:"/uc/addOrUpdateBillingAddress?id="+addId, 
+				title:"Edit Billing Address",
+				success : function(data){
+					window.location.reload();
+					//jQuery("#user_shipping_address").append(data);
+				},
+				error : function (data){
+					alert('Failed');
+				}
+			});
+}
+
+
+
