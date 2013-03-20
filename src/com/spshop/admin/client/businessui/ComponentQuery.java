@@ -567,7 +567,7 @@ public class ComponentQuery extends ResizeComposite {
         DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yy/MM/dd");
         for (int i = 0; i < result.getResult().size(); i++) {
             Order order = (Order) result.getResult().get(i);
-            table.setText(i, 0, order.getCustomerName());
+            table.setText(i, 0, order.getShippingAddress().getFirstName() + " " + order.getShippingAddress().getLastName());
             table.setText(i, 1, order.getCustomerEmail());
             table.setText(i, 2, dateTimeFormat.format(order.getCreateDate()));
             table.setText(i, 3, NumberFormat.getFormat("0.00").format(order.getTotalPrice()));

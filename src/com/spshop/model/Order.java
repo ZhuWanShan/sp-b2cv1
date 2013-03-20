@@ -11,14 +11,13 @@ public class Order extends Component{
 	 * 
 	 */
 	private static final long serialVersionUID = 8785205423133606769L;
-	private String customerName;
-	private String customerCompany;
-	private String customerAddress;
-	private String customerAddress2;
-	private String customerTelephone;
-	private String customerCountry;
+	
+	private Address shippingAddress;
+	private Address billingAddress;
+	
+	
 	private String customerEmail;
-	private String customerZipcode;
+		
 	private User user;
 	private String deliverCode;
 	private String deliverCompany;
@@ -29,33 +28,19 @@ public class Order extends Component{
 	private float totalPrice;
 	private String status;
 	private String addressType;
-	private String city;
+	
 	private float dePrice;
 	private String currency;
 	private String customerMsg;
-	private String state;
-	private long country;
 	
-	
-	private String bCustomerName;
 	private String customGender;
 	private String bCustomGender;
-	private String bCustomerAddress;
-	private String bCustomerAddress2;
-	private String bCity;
-	private String bCustomerZipcode;
-	private String bstate;
-	private String bPhone;
-	private long bcountry;
-	private String customerBCountry;
 	
 	private String shippingMethod;
 	
 	private float couponCutOff;
 	
 	private String couponCode;
-	
-	private boolean billingSameAsPrimary = true;
 	
 	private String traceInfo;
 	
@@ -83,8 +68,9 @@ public class Order extends Component{
 	
 	private boolean suitMeasurement;
 	
+	
 	public Order() {
-		if(null!=getName()){
+		if(null==getName()){
 			setName(getOrderId());
 		}
 	}
@@ -96,37 +82,7 @@ public class Order extends Component{
 		}
 	}
 
-	public String getCustomerName() {
-		return customerName;
-	}
 
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
-
-	public String getCustomerCompany() {
-		return customerCompany;
-	}
-
-	public void setCustomerCompany(String customerCompany) {
-		this.customerCompany = customerCompany;
-	}
-
-	public String getCustomerAddress() {
-		return customerAddress;
-	}
-
-	public void setCustomerAddress(String customerAddress) {
-		this.customerAddress = customerAddress;
-	}
-
-	public String getCustomerTelephone() {
-		return customerTelephone;
-	}
-
-	public void setCustomerTelephone(String customerTelephone) {
-		this.customerTelephone = customerTelephone;
-	}
 
 
 	public String getCustomerEmail() {
@@ -137,13 +93,6 @@ public class Order extends Component{
 		this.customerEmail = customerEmail;
 	}
 
-	public String getCustomerZipcode() {
-		return customerZipcode;
-	}
-
-	public void setCustomerZipcode(String customerZipcode) {
-		this.customerZipcode = customerZipcode;
-	}
 
 	public User getUser() {
 		return user;
@@ -201,113 +150,33 @@ public class Order extends Component{
 		return status;
 	}
 
-	public void setCustomerCountry(String customerCountry) {
-		this.customerCountry = customerCountry;
-	}
-
-	public String getCustomerCountry() {
-		return customerCountry;
-	}
 
 	public void setTotalPrice(float totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 
 	public float getTotalPrice() {
+		float totalPrice = 0f;
+		
+		if(null != this.getItems()){
+			for (OrderItem item : this.getItems()) {
+				totalPrice += item.getItemTotalPrice(); 
+			}
+		}
+		
 		return totalPrice;
 	}
 	
-	public String getCfirstName(){
-		if(null!=customerName&&customerName.split(",").length>1){
-			return customerName.split(",")[0];
-		}
-		return "";
-	}
-	
-	public String getClastName(){
-		if(null!=customerName&&customerName.split(",").length>1){
-			return customerName.split(",")[1];
-		}
-		return "";
-
-	}
-	
-	public String getBfirstName(){
-		if(null!=bCustomerName&&bCustomerName.split(",").length>1){
-			return bCustomerName.split(",")[0];
-		}
-		return "";
-	}
-	
-	public String getBlastName(){
-		if(null!=bCustomerName&&bCustomerName.split(",").length>1){
-			return bCustomerName.split(",")[1];
-		}
-		return "";
-
-	}
-	
-	public Address getPrimaryAddress(){
-		return new Address(customerName,customerAddress,customerAddress2,city,state,(int)country,customerZipcode,customerTelephone);
-	}
-	
-	public void setPrimaryAddress(Address address){
-		 setCustomerName(address.getFullName());
-		 setCustomerAddress(address.getAddress1());
-		 setCustomerAddress2(address.getAddress2());
-		 setCity(address.getCity());
-		 setState(address.getStateProvince());
-		 setCountry(address.getCountry());
-		 setCustomerZipcode(address.getPostalCode());
-		 setCustomerTelephone(address.getPhone());
-	}
-	
-	public void setBillingAddress(Address address){
-		 setBcustomerName(address.getFullName());
-		 setBcustomerAddress(address.getAddress1());
-		 setBcustomerAddress2(address.getAddress2());
-		 setBcity(address.getCity());
-		 setBstate(address.getStateProvince());
-		 setBcountry(address.getCountry());
-		 setBcustomerZipcode(address.getPostalCode());
-		 setBphone(address.getPhone());
-	}
-	
-	public Address getBillingAddress(){
-		return new Address(bCustomerName,bCustomerAddress,bCustomerAddress2,bCity,bstate,(int)bcountry,bCustomerZipcode,bPhone);
-	}
 	
 	public Order clone() {
 		Order obj = null;
 		obj = new Order(this);
-		if (this.customerName != null) {
-			/* Does not have a clone() method */
-			obj.customerName = this.customerName;
-		}
-		if (this.customerCompany != null) {
-			/* Does not have a clone() method */
-			obj.customerCompany = this.customerCompany;
-		}
-		if (this.customerAddress != null) {
-			/* Does not have a clone() method */
-			obj.customerAddress = this.customerAddress;
-		}
-		if (this.customerTelephone != null) {
-			/* Does not have a clone() method */
-			obj.customerTelephone = this.customerTelephone;
-		}
-		if (this.customerCountry != null) {
-			/* Does not have a clone() method */
-			obj.customerCountry = this.customerCountry;
-		}
+		
 		if (this.customerEmail != null) {
 			/* Does not have a clone() method */
 			obj.customerEmail = this.customerEmail;
 		}
-		if (this.customerZipcode != null) {
-			/* Does not have a clone() method */
-			obj.customerZipcode = this.customerZipcode;
-		}
+
 		if (this.user != null) {
 			obj.user = (User) this.user.clone();
 		}
@@ -334,11 +203,6 @@ public class Order extends Component{
 			obj.addressType = this.addressType;
 		}
 		
-		if (this.customerAddress2 != null) {
-			/* Does not have a clone() method */
-			obj.customerAddress2 = this.customerAddress2;
-		}
-		
 		if (this.customerMsg != null) {
 			/* Does not have a clone() method */
 			obj.customerMsg = this.customerMsg;
@@ -350,9 +214,6 @@ public class Order extends Component{
         }
 		
 		obj.dePrice = this.dePrice;
-		obj.country = this.country;
-		obj.bcountry = this.bcountry;
-		obj.billingSameAsPrimary = this.billingSameAsPrimary;
 		obj.couponCutOff = this.couponCutOff;
 		
 		obj.chest = this.chest;
@@ -377,17 +238,6 @@ public class Order extends Component{
 		obj.thighSize = this.thighSize;
 		obj.kneeSize = this.kneeSize;
 		obj.suitMeasurement = this.suitMeasurement;
-		
-		
-		if (this.city != null) {
-			/* Does not have a clone() method */
-			obj.city = this.city;
-		}
-		
-		if (this.customerBCountry != null) {
-			/* Does not have a clone() method */
-			obj.customerBCountry = this.customerBCountry;
-		}
 		
 		if (this.currency != null) {
 			/* Does not have a clone() method */
@@ -417,10 +267,6 @@ public class Order extends Component{
 		}
 		
 		
-		if (this.bCustomerName != null) {
-			obj.bCustomerName = this.bCustomerName;
-		}
-		
 		if (this.customGender != null) {
 			obj.customGender = this.customGender;
 		}
@@ -429,48 +275,20 @@ public class Order extends Component{
 			obj.bCustomGender = this.bCustomGender;
 		}
 		
-		if (this.bCustomerAddress2 != null) {
-			obj.bCustomerAddress2 = this.bCustomerAddress2;
-		}
-		
-		if (this.bCustomerAddress != null) {
-			obj.bCustomerAddress = this.bCustomerAddress;
-		}
-		
-		if (this.bCity != null) {
-			obj.bCity = this.bCity;
-		}
-		
-		if (this.bCustomerZipcode != null) {
-			obj.bCustomerZipcode = this.bCustomerZipcode;
-		}
-		
-		if (this.bPhone != null) {
-			obj.bPhone = this.bPhone;
-		}
-		
-		if (this.state != null) {
-			obj.state = this.state;
-		}
-		
-		if (this.bstate != null) {
-			obj.bstate = this.bstate;
-		}
-		
 		
 		if (this.shippingMethod != null) {
 			obj.shippingMethod = this.shippingMethod;
 		}
 		
+		if (this.shippingAddress != null) {
+			obj.shippingAddress = this.shippingAddress;
+		}
+		
+		if (this.billingAddress != null) {
+			obj.billingAddress = this.billingAddress;
+		}
+		
 		return obj;
-	}
-
-	public String getbCustomerName() {
-		return bCustomerName;
-	}
-
-	public void setbCustomerName(String bCustomerName) {
-		this.bCustomerName = bCustomerName;
 	}
 
 	public String getbCustomGender() {
@@ -481,45 +299,6 @@ public class Order extends Component{
 		this.bCustomGender = bCustomGender;
 	}
 
-	public String getbCustomerAddress() {
-		return bCustomerAddress;
-	}
-
-	public void setbCustomerAddress(String bCustomerAddress) {
-		this.bCustomerAddress = bCustomerAddress;
-	}
-
-	public String getbCustomerAddress2() {
-		return bCustomerAddress2;
-	}
-
-	public void setbCustomerAddress2(String bCustomerAddress2) {
-		this.bCustomerAddress2 = bCustomerAddress2;
-	}
-
-	public String getbCity() {
-		return bCity;
-	}
-
-	public void setbCity(String bCity) {
-		this.bCity = bCity;
-	}
-
-	public String getbCustomerZipcode() {
-		return bCustomerZipcode;
-	}
-
-	public void setbCustomerZipcode(String bCustomerZipcode) {
-		this.bCustomerZipcode = bCustomerZipcode;
-	}
-
-	public String getbPhone() {
-		return bPhone;
-	}
-
-	public void setbPhone(String bPhone) {
-		this.bPhone = bPhone;
-	}
 
 	public float getHeight() {
 		return height;
@@ -713,13 +492,6 @@ public class Order extends Component{
 		return addressType;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getCity() {
-		return city;
-	}
 
 	public void setDePrice(float dePrice) {
 		this.dePrice = dePrice;
@@ -745,22 +517,6 @@ public class Order extends Component{
 		return customerMsg;
 	}
 
-	public void setCustomerAddress2(String customerAddress2) {
-		this.customerAddress2 = customerAddress2;
-	}
-
-	public String getCustomerAddress2() {
-		return customerAddress2;
-	}
-
-	public void setBcustomerName(String bCustomerName) {
-		this.bCustomerName = bCustomerName;
-	}
-
-	public String getBcustomerName() {
-		return bCustomerName;
-	}
-
 	public void setCustomGender(String customGender) {
 		this.customGender = customGender;
 	}
@@ -777,45 +533,6 @@ public class Order extends Component{
 		return bCustomGender;
 	}
 
-	public void setBcustomerAddress(String bCustomerAddress) {
-		this.bCustomerAddress = bCustomerAddress;
-	}
-
-	public String getBcustomerAddress() {
-		return bCustomerAddress;
-	}
-
-	public void setBcustomerAddress2(String bCustomerAddress2) {
-		this.bCustomerAddress2 = bCustomerAddress2;
-	}
-
-	public String getBcustomerAddress2() {
-		return bCustomerAddress2;
-	}
-
-	public void setBcity(String bCity) {
-		this.bCity = bCity;
-	}
-
-	public String getBcity() {
-		return bCity;
-	}
-
-	public void setBcustomerZipcode(String bCustomerZipcode) {
-		this.bCustomerZipcode = bCustomerZipcode;
-	}
-
-	public String getBcustomerZipcode() {
-		return bCustomerZipcode;
-	}
-
-	public void setBphone(String bPhone) {
-		this.bPhone = bPhone;
-	}
-
-	public String getBphone() {
-		return bPhone;
-	}
 	
 	protected String getOrderId(){
 		String id = "";
@@ -854,22 +571,6 @@ public class Order extends Component{
 		return id;
 	}
 
-	public void setBstate(String bstate) {
-		this.bstate = bstate;
-	}
-
-	public String getBstate() {
-		return bstate;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getState() {
-		return state;
-	}
-
 	public String getShippingMethod() {
 		return shippingMethod;
 	}
@@ -894,38 +595,6 @@ public class Order extends Component{
 		this.couponCode = couponCode;
 	}
 
-	public long getCountry() {
-		return country;
-	}
-
-	public void setCountry(long country) {
-		this.country = country;
-	}
-
-	public long getBcountry() {
-		return bcountry;
-	}
-
-	public void setBcountry(long bcountry) {
-		this.bcountry = bcountry;
-	}
-
-	public String getCustomerBCountry() {
-		return customerBCountry;
-	}
-
-	public void setCustomerBCountry(String customerBCountry) {
-		this.customerBCountry = customerBCountry;
-	}
-
-	public boolean isBillingSameAsPrimary() {
-		return billingSameAsPrimary;
-	}
-
-	public void setBillingSameAsPrimary(boolean billingSameAsPrimary) {
-		this.billingSameAsPrimary = billingSameAsPrimary;
-	}
-	
 	public SuitMeasurement getSuitMeasurement(){
 		return new SuitMeasurement(height, weight, age, shoulder, chest, stomch, posture, shirtNeck, jacketShirtLenght, chestSize, stomachSize, jacketHips, shoulderSize, sleeveLength, bicepSize, wristSize, pantsLength, waist, crotch, thighSize, kneeSize);
 	}
@@ -961,5 +630,22 @@ public class Order extends Component{
     public String getTraceInfo() {
         return traceInfo;
     }
+
+	public Address getBillingAddress() {
+		return this.billingAddress;
+	}
+
+	public void setBillingAddress(Address address) {
+		this.billingAddress = address;
+	}
+
+	public Address getShippingAddress() {
+		return this.shippingAddress;
+	}
+
+	public void setShippingAddress(Address address) {
+		this.shippingAddress = address;
+	}
+	
 
 }

@@ -50,7 +50,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jxl.write.NumberFormat;
-
 import net.sf.json.JSONObject;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -84,6 +83,7 @@ import com.spshop.utils.FeedTools;
 import com.spshop.utils.Utils;
 
 @Controller
+@RequestMapping("/uc")
 @SessionAttributes({CURRENT_PRODUCT,"continueShopping"})
 public class ShoppingController extends BaseController{
 	
@@ -874,7 +874,7 @@ public class ShoppingController extends BaseController{
 		ShoppingCart cart = getUserView().getCart();
 		Map<String, String> rs = new HashMap<String, String>();
 		
-		Order order = cart.getOrder();
+		/*Order order = cart.getOrder();
 		
 		Coupon coupon = ServiceFactory.getService(CouponService.class).getCouponByCode(order.getCouponCode());
 		
@@ -896,7 +896,7 @@ public class ShoppingController extends BaseController{
 			}
 		}else{
 			rs.put("couponFeedbackErr", "Invalid coupon");
-		}
+		}*/
 		
 		
 		if(null!=itemID){

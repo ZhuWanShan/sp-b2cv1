@@ -68,12 +68,9 @@ public class OrderInfo extends Composite {
         this.couponPrice.setText(String.valueOf(order.getCouponCutOff()));
         this.shippingType.setText(order.getShippingMethod());
         this.txtTraceInfo.setText(this.order.getTraceInfo());
-        this.primaryAddr.setText(populateAddressString(this.order.getPrimaryAddress()));
-        if (this.order.isBillingSameAsPrimary()) {
-            this.billingAddr.setText(populateAddressString(this.order.getPrimaryAddress()));
-        } else {
-            this.billingAddr.setText(populateAddressString(this.order.getBillingAddress()));
-        }
+        this.primaryAddr.setText(populateAddressString(this.order.getShippingAddress()));
+        this.billingAddr.setText(populateAddressString(this.order.getBillingAddress()));
+        
         if (this.order.getOrderType() == null || "".equals(this.order.getOrderType().trim())) {
             this.paymentMethod.setText("Paypal");
         } else {
@@ -82,13 +79,17 @@ public class OrderInfo extends Composite {
     }
     
     private String populateAddressString(Address addr){
+    	
+    	if(null == addr){
+    		return "N/A";
+    	}
         
-        String fullName = addr.getFullName();
+        String fullName = addr.getFirstName() + " " + addr.getLastName();
         String address1 = addr.getAddress1();
         String address2 = addr.getAddress2();
         String city = addr.getCity();
         String state = addr.getStateProvince();
-        String country = this.countryMap.get(String.valueOf(addr.getCountry())) != null ? this.countryMap.get(String.valueOf(addr.getCountry())).getName() : "";
+        String country = addr.getCountry();
         String postalCode = addr.getPostalCode();
         String tel = addr.getPhone();
         
@@ -110,11 +111,7 @@ public class OrderInfo extends Composite {
         address.append(ADDRESS_COMMA);
         address.append(postalCode);
         address.append(ADDRESS_COMMA);
-        if (this.order.getCustomerCountry()!=null && !"".equals(this.order.getCustomerCountry().trim())) {
-            address.append(this.order.getCustomerCountry());
-        } else {
-            address.append(country);
-        }
+        address.append(country);
         address.append(")");
         address.append(ADDRESS_SEPARATOR);
         address.append("Tel: ");

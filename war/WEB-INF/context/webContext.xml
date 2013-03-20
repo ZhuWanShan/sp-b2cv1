@@ -4,6 +4,7 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" 
 	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://www.springframework.org/schema/context
@@ -11,17 +12,51 @@
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 	http://www.springframework.org/schema/aop
-	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+	http://www.springframework.org/schema/security 
+	http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
 	<aop:aspectj-autoproxy />
+	<context:annotation-config/>
+	<mvc:annotation-driven/>
+	
 	<bean class="com.spshop.web.interceptor.ModelAttributeAndLoginCheckInjecter"></bean>
-	<bean id="handlerMapping"
-		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
-		<property name="interceptors" ref="viewDataInterceptor"></property>
+	
+	<mvc:resources location="/css/" mapping="/css/**"/>
+	<mvc:resources location="/im/" mapping="/im/**"/>
+	<mvc:resources location="/image/" mapping="/image/**"/>
+	<mvc:resources location="/js/" mapping="/js/**"/>
+	<mvc:resources location="/script/" mapping="/script/**"/>
+	<mvc:resources location="/template/" mapping="/template/**"/>
+	<mvc:resources location="/style/" mapping="/style/**"/>
+	<mvc:resources location="/tempZip/" mapping="/tempZip/**"/>
+	<mvc:resources location="/admin/" mapping="/admin/**"/>
+	<mvc:resources location="/workspace/" mapping="/workspace/**"/>
+	
+	<mvc:default-servlet-handler default-servlet-name="AdminLogin" />
+	<mvc:default-servlet-handler default-servlet-name="queryService" />
+	<mvc:default-servlet-handler default-servlet-name="initServlet" />
+	<mvc:default-servlet-handler default-servlet-name="ImageCreate" />
+	<mvc:default-servlet-handler default-servlet-name="ImageBatchCreate" />
+	
+	<bean id="bootstrapFilter" class="com.spshop.web.interceptor.BootstrapDataFilter"></bean> 
+	<bean id="categoryFilter" class="com.spshop.web.interceptor.CategoryDataFilter"></bean> 
+	<bean id="productDataFilter" class="com.spshop.web.interceptor.ProductDataFilter"></bean> 
+	<bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy">
+		<security:filter-chain-map path-type="ant">
+			<security:filter-chain pattern="/c/*"
+				filters="bootstrapFilter, categoryFilter" />
+				<security:filter-chain pattern="/*"
+				filters="bootstrapFilter, productDataFilter" />	
+			<security:filter-chain pattern="/**"
+				filters="bootstrapFilter" />
+		</security:filter-chain-map>
 	</bean>
-
-	<bean id="viewDataInterceptor" class="com.spshop.web.interceptor.ViewDataInterceptor"></bean>
-
+	
+	<context:component-scan base-package="com.spshop.web">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
 	<bean id="viewResolver"
 		class="com.spshop.web.view.CustomFreeMarkerViewResolver">
 		<property name="suffix" value=".hpl" />
