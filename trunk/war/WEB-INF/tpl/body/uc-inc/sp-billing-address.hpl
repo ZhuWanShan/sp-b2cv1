@@ -13,7 +13,7 @@
 		<div class="content">
 			<ul class="addres_list_for_select">
 			<#assign orderAddressStr = ((order.billingAddress.firstName)!'') + '^' + ((order.billingAddress.lastName)!'') + '^' + ((order.billingAddress.address1)!'') > 
-			<#if userView.loginUser.billingAddress.lastName ??>
+			<#if userView.loginUser.billingAddress ??>
 				<#assign address = userView.loginUser.billingAddress>
 					<li>
 						<#assign usrAddressStr = ((address.firstName)!'') + '^' + ((address.lastName)!'') + '^' + ((address.address1)!'') >

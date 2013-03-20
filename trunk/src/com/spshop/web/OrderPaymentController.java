@@ -90,22 +90,22 @@ public class OrderPaymentController extends BaseController{
 			summaryView.setGrandTotal(Utils.toNumber((order.getTotalPrice() + order.getDePrice() -order.getCouponCutOff())*rate));
 			summaryView.setDePrice(Utils.toNumber( rate * order.getDePrice()));
 			summaryView.setSubTotal(Utils.toNumber((order.getTotalPrice())*rate));
-			
-			Country country = ServiceFactory.getService(CountryService.class).getCountryById(Long.valueOf(order.getShippingAddress().getCountry()));
-			
-			if(null != country && order.getTotalPrice() < country.getFreeAdDePrice()){
-				shippingAddressJsonView.setExpeditedPrice(Utils.toNumber(country.getAdDePrice()*rate));
-				if(order.getTotalPrice() < country.getFreeDePrice()){
-					shippingAddressJsonView.setStandardPrice(Utils.toNumber(country.getDePrice()*rate));
-				}
+			if(null != order.getShippingAddress()){
+				Country country = ServiceFactory.getService(CountryService.class).getCountryById(Long.valueOf(order.getShippingAddress().getCountry()));
 				
-				if(Constants.SHIPPING_EXPEDITED.equals(order.getShippingMethod())){
-					shippingAddressJsonView.setExpeditedChecked(true);
-				}else if(Constants.SHIPPING_STANDARD.equals(Constants.SHIPPING_STANDARD)){
-					shippingAddressJsonView.setStandardChecked(true);
+				if(null != country && order.getTotalPrice() < country.getFreeAdDePrice()){
+					shippingAddressJsonView.setExpeditedPrice(Utils.toNumber(country.getAdDePrice()*rate));
+					if(order.getTotalPrice() < country.getFreeDePrice()){
+						shippingAddressJsonView.setStandardPrice(Utils.toNumber(country.getDePrice()*rate));
+					}
+					
+					if(Constants.SHIPPING_EXPEDITED.equals(order.getShippingMethod())){
+						shippingAddressJsonView.setExpeditedChecked(true);
+					}else if(Constants.SHIPPING_STANDARD.equals(Constants.SHIPPING_STANDARD)){
+						shippingAddressJsonView.setStandardChecked(true);
+					}
 				}
 			}
-			
 			if(null!=order.getItems()){
 				for (OrderItem oItem : order.getItems()) {
 					if(oItem.getId() == itemId){
