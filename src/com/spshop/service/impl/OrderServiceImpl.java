@@ -408,8 +408,14 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 
 	@Override
 	public Order applyBillingAddress(String orderSN, long uid ,long addressId) {
-		// TODO Auto-generated method stub
-		return null;
+		Order order = getCartOrPendingOrderById(orderSN, uid);
+		order = merge(order);
+		Address address = ServiceFactory.getService(AddressService.class).getAddressById(addressId);
+		if(null != order && null!= address){
+			order.setBillingAddress(address);
+		}
+		order = save(order).clone();
+		return order;
 	}
 
 	@Override
