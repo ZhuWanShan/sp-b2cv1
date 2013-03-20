@@ -16,6 +16,8 @@ import com.spshop.model.Country;
 import com.spshop.model.Coupon;
 import com.spshop.model.Order;
 import com.spshop.model.OrderItem;
+import com.spshop.model.cart.ShoppingCart;
+import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.CouponService;
@@ -192,6 +194,7 @@ public class OrderPaymentController extends BaseController{
 			}else if(StringUtils.isBlank(order.getShippingMethod())){
 				model.addAttribute("errorMsg", "Please select a shipping method");
 			}else if("Globebill".equals(payment)) {
+				order.setOrderType("Globebill");
 				model.addAttribute(Constants.PROCESSING_ORDER, order);
 				globebillPay(order, model, request);
 				return "billingAddress";
@@ -203,6 +206,29 @@ public class OrderPaymentController extends BaseController{
 		
 		return "forward:/uc/shoppingCart_address?id="+orderSN;
 	}
+	
+	@RequestMapping("/checkout_credit_card")
+	public String checkoutCreditCard( Model model, HttpServletRequest request, @RequestParam("orderSN")String orderSN,  @RequestParam("add")long addressId){
+		
+		Order order = ServiceFactory.getService(OrderService.class).applyBillingAddress(orderSN, getUserView().getLoginUser().getId(), addressId);
+		
+		if(null != order){
+			if(null == order.getBillingAddress()){
+				model.addAttribute("errorMsg", "Please fill you billing address");
+			}else {
+				model.addAttribute(Constants.PROCESSING_ORDER, order);
+				order.setOrderType("Globebill");
+				order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.toString());
+				getUserView().setCart(new ShoppingCart(new Order()));
+				globebillPay(order, model, request);
+				return "Globebill";
+			}
+			
+		}
+		
+		return "forward:/uc//checkout?orderSN="+orderSN + "&payment="+order.getOrderType();
+	}
+	
 	
 
 

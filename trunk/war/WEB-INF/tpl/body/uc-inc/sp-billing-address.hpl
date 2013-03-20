@@ -13,7 +13,7 @@
 		<div class="content">
 			<ul class="addres_list_for_select">
 			<#assign orderAddressStr = ((order.billingAddress.firstName)!'') + '^' + ((order.billingAddress.lastName)!'') + '^' + ((order.billingAddress.address1)!'') > 
-			<#if userView.loginUser.billingAddress??>
+			<#if userView.loginUser.billingAddress.lastName ??>
 				<#assign address = userView.loginUser.billingAddress>
 					<li>
 						<#assign usrAddressStr = ((address.firstName)!'') + '^' + ((address.lastName)!'') + '^' + ((address.address1)!'') >
@@ -30,16 +30,13 @@
 											${(address.address2)!''}
 										</#if>
 									</#if> <#if address.stateProvince ??> ${(address.stateProvince)!''}</#if> ${(address.city)!''} ${siteView.countryMap[address.country?string].name}) </label>
-						&nbsp;<a href="javascript:void(0)" class="edit_usr_add" id="add${address.id}" style="display: none;">Edit</a>
+						&nbsp;<a href="javascript:void(0)" class="edit_usr_add" id="add${address.id}">Edit</a>
 						<script>
-							if(jq("input[name='order_shippingAddress'][value='${address.id}']").attr("checked") == 'checked'){
-								jQuery("#add${address.id}").show();
-							}
 							jQuery("#add${address.id}").click(function(){
 								jQuery.HB.AddressWindow(
 										{contentUrl:"/uc/listAddress?id="+${address.id}, 
-											postUrl:"/uc/addOrUpdateShippingAddress?id="+${address.id}, 
-											title:"Edit Shipping Address",
+											postUrl:"/uc/addOrUpdateBillingAddress?id="+${address.id}, 
+											title:"Edit Billing Address",
 											success : function(data){
 												
 												jQuery.HB.applyShippingAddress(jq("input[name='order_shippingAddress'][value='${address.id}']"),'${order.name}',
@@ -121,13 +118,13 @@
 				<b>Grand Total:<span id="GrabdTotal">${(order.currency)} &nbsp;<span class="order_grand_total">${(currencyRate*(order.totalPrice-order.couponCutOff + order.dePrice))?string(",##0.##")}</span></span></b>
 			</dd>
 			<dd class="red">
-			
-				<span>
-					
-					<input type="hidden" name="orderSN" value="${order.name}">
-					<input	type="submit" class="button_02" value="Proceed to Checkout">
-				</span>
-				
+				<form action="/uc/checkout_credit_card">
+					<span>
+						<input type="hidden" name="add" value="${address.id}">
+						<input type="hidden" name="orderSN" value="${order.name}">
+						<input	type="submit" class="button_02" value="Proceed to Checkout">
+					</span>
+				</form>
 			</dd>
 		</dl>
 	</div>
