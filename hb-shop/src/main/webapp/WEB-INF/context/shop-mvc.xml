@@ -20,6 +20,13 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*"/>
+			<bean class="com.honeybuy.shop.web.interceptor.SiteDataInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
 <!-- 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>

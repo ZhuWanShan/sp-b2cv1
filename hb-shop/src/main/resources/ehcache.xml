@@ -5,23 +5,9 @@
 	<diskStore path="/home/data/cache/customerdevice" />
 	<defaultCache eternal="true" maxElementsInMemory="50"
 		memoryStoreEvictionPolicy="LFU" />
-	<cache name="deviceSearchCache" eternal="false"
-		timeToLiveSeconds="600" maxElementsInMemory="5000"
+	<cache name="siteDTO" eternal="false"
+		timeToLiveSeconds="6000" maxElementsInMemory="1"
 		memoryStoreEvictionPolicy="LRU" statistics="true" overflowToDisk="true"
-		maxElementsOnDisk="100000" />
+		maxElementsOnDisk="1" />
 		
-	<cache name="customerSearchCache" eternal="false"
-		timeToLiveSeconds="600" maxElementsInMemory="5000"
-		memoryStoreEvictionPolicy="LRU" statistics="true" overflowToDisk="true"
-		maxElementsOnDisk="100000" />
-	
-	<cache name="contactSearchCache" eternal="false"
-		timeToLiveSeconds="600" maxElementsInMemory="5000"
-		memoryStoreEvictionPolicy="LRU" statistics="true" overflowToDisk="true"
-		maxElementsOnDisk="100000" />
-		
-	<cache name="dataPackageSearchCache" eternal="false"
-		timeToLiveSeconds="600" maxElementsInMemory="5000"
-		memoryStoreEvictionPolicy="LRU" statistics="true" overflowToDisk="true"
-		maxElementsOnDisk="100000" />
 </ehcache>

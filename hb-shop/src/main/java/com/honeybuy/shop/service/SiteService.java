@@ -21,6 +21,7 @@ public class SiteService implements ISiteService{
 
 	@Override
 	public SiteDTO getSite() {
+		System.out.println("Getting site info.......................");
 		SiteDTO siteDTO = new SiteDTO();
 		
 		siteDTO.setOwnerId("None");
@@ -34,8 +35,6 @@ public class SiteService implements ISiteService{
 		css.add("/css/blitzer/common.css");
 		
 		List<String> js = new ArrayList<String>();
-		js.add("/js/jquery-1.9.0.js");
-		js.add("/js/jquery-ui-1.10.0.custom.js");
 		
 		siteDTO.setCss(css);
 		siteDTO.setJs(js);

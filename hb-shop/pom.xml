@@ -155,15 +155,6 @@
 			<scope>compile</scope>
 		</dependency>
 		
-		<!-- Template -->
-		<dependency>
-			<groupId>com.honeybuy</groupId>
-			<artifactId>hb-template</artifactId>
-			<version>${project.version}</version>
-			<type>war</type>
-			<scope>compile</scope>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
@@ -195,6 +186,16 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.2.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>jboss</groupId>
+			<artifactId>jboss-client</artifactId>
+			<version>4.0.2</version>
 		</dependency>
 	</dependencies>
 
@@ -246,20 +247,25 @@
 				</executions>
 			</plugin>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<warName>${war.name}</warName>
-					<outputDirectory>C:\cygwin\opt\casfw\tomcat-isaport-20120904\etc\tomcat-isaport\webapps</outputDirectory>
-					<overlays>
-						<overlay>
-							<groupId>com.honeybuy</groupId>
-							<artifactId>hb-template</artifactId>
-						</overlay>
-					</overlays>
-				</configuration>
-			</plugin>
+			 <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.15</version>
+                <configuration>
+                    <!-- By default the artifactId is taken, override it with something simple -->
+                    <contextPath>/</contextPath>
+                     <scanIntervalSeconds>2</scanIntervalSeconds>
+                    <stopKey>foo</stopKey>
+                    <stopPort>9999</stopPort>
+                    <connectors>
+                        <connector
+                                implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                            <port>88</port>
+                            <maxIdleTime>60000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                </configuration>
+            </plugin>
 			
 		</plugins>
 	</build>

@@ -13,7 +13,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
         http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring
  		http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring/ehcache-spring-1.1.xsd">
- 		<import resource="shop-filter.xml"/>
- 		<import resource="shop-servlet.xml"/>
+ 		<import resource="shop-mvc.xml"/>
+ 		<import resource="shop-security.xml"/>
  		<import resource="shop-service.xml"/>
 </beans>

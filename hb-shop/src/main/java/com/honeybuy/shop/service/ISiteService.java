@@ -4,6 +4,7 @@
  */
 package com.honeybuy.shop.service;
 
+import com.googlecode.ehcache.annotations.Cacheable;
 import com.honeybuy.shop.dto.SiteDTO;
 
 /**
@@ -12,5 +13,6 @@ import com.honeybuy.shop.dto.SiteDTO;
  * @version 1.0
  */
 public interface ISiteService {
+	@Cacheable(cacheName="siteDTO")
 	SiteDTO getSite();
 }
