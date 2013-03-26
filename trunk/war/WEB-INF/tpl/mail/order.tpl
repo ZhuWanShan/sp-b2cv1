@@ -93,9 +93,7 @@ cellspacing:0in;border:none;
       <td width="660" valign="top" style="width:495.0pt;border:none;padding:0in 0in 0in 0in">
       <p style="margin-top:19.5pt;margin-right:0in;margin-bottom:3.75pt;
       margin-left:0in;line-height:12.75pt;paading: 0"><strong><span style="font-size:11.0pt;color:black">Dear 
-	  <#if order.customerName??>
-		${order.customerName}
-	  </#if>
+		${(order.firstName)!''} ${(order.lastName)!''} 
 	  ,</span></strong><span style="font-size:9.0pt"><o:p></o:p></span></p>
       <p style="margin-top:7.5pt;margin-right:0in;margin-bottom:7.5pt;
       margin-left:0in;line-height:13.5pt;paading: 0"><span style="font-size:
