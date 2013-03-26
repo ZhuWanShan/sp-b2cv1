@@ -50,17 +50,18 @@
 	<mvc:default-servlet-handler default-servlet-name="ImageCreate" />
 	<mvc:default-servlet-handler default-servlet-name="ImageBatchCreate" />
 	
+	<bean id="noFilterMatcher" class="com.spshop.web.interceptor.NoFilterMatcher"></bean>
 	<bean id="bootstrapFilter" class="com.spshop.web.interceptor.BootstrapDataFilter"></bean> 
 	<bean id="categoryFilter" class="com.spshop.web.interceptor.CategoryDataFilter"></bean> 
 	<bean id="productDataFilter" class="com.spshop.web.interceptor.ProductDataFilter"></bean> 
 	<bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy">
 		<security:filter-chain-map path-type="ant">
 			<security:filter-chain pattern="/c/*"
-				filters="bootstrapFilter, categoryFilter" />
+				filters="bootstrapFilter, categoryFilter" request-matcher-ref="noFilterMatcher" />
 				<security:filter-chain pattern="/*"
-				filters="bootstrapFilter, productDataFilter" />	
-			<security:filter-chain pattern="/**"
-				filters="bootstrapFilter" />
+				filters="bootstrapFilter, productDataFilter" request-matcher-ref="noFilterMatcher" />	
+				<security:filter-chain pattern="/**"
+				 request-matcher-ref="noFilterMatcher" filters="bootstrapFilter" />
 		</security:filter-chain-map>
 	</bean>
 	
