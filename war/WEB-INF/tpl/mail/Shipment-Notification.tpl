@@ -53,15 +53,14 @@ order.customerName??> ${order.customerName}</#if>,</strong></p>
                       <td width="15"> </td>
                       <td width="80" align="left"> <strong style="COLOR: #000">Ship to</strong> </td>
                       <td width="170" align="left">
-					  				  
-					  <#assign "address"= primary!order.primaryAddress >
-        
-		${address.fullName}
-		<br>
-        (${address.address1!''} ${address.city!''},
-							${address.stateProvince!''},
-							${primaryAddCountry!''}, Postal Code:
-							${address.postalCode!''}) Phone:${address.phone!''}
+							
+				<#if order.shippingAddress ??>
+						<#assign "address"= order.shippingAddress >
+						${(address.firstName)!''} ${(address.lastName)!''} 
+								(${address.address1!''} ${address.city!''},
+								${address.stateProvince!''},${siteView.countryMap[address.country?string].name},
+								Postal Code: ${address.postalCode!''}) Phone:${address.phone!''}
+				</#if>
 							
 					  </td> </tr>
                     <tr>
