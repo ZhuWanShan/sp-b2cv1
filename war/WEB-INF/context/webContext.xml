@@ -33,16 +33,16 @@
 	<mvc:resources location="/admin/" mapping="/admin/**"/>
 	<mvc:resources location="/workspace/" mapping="/workspace/**"/>
 	
-	<security:http path-type="ant" pattern="/css/**" security="none" />
-	<security:http path-type="ant" pattern="/im/**" security="none" />
-	<security:http path-type="ant" pattern="/image/**" security="none" />
-	<security:http path-type="ant" pattern="/js/**" security="none" />
-	<security:http path-type="ant" pattern="/script/**" security="none" />
-	<security:http path-type="ant" pattern="/template/**" security="none" />
-	<security:http path-type="ant" pattern="/style/**" security="none" />
-	<security:http path-type="ant" pattern="/tempZip/**" security="none" />
-	<security:http path-type="ant" pattern="/admin/**" security="none" />
-	<security:http path-type="ant" pattern="/workspace/**" security="none" />
+	<security:http pattern="/css/**" security="none" />
+	<security:http pattern="/im/**" security="none" />
+	<security:http pattern="/image/**" security="none" />
+	<security:http pattern="/js/**" security="none" />
+	<security:http pattern="/script/**" security="none" />
+	<security:http pattern="/template/**" security="none" />
+	<security:http pattern="/style/**" security="none" />
+	<security:http pattern="/tempZip/**" security="none" />
+	<security:http pattern="/admin/**" security="none" />
+	<security:http pattern="/workspace/**" security="none" />
 	
 	<mvc:default-servlet-handler default-servlet-name="AdminLogin" />
 	<mvc:default-servlet-handler default-servlet-name="queryService" />
@@ -50,15 +50,16 @@
 	<mvc:default-servlet-handler default-servlet-name="ImageCreate" />
 	<mvc:default-servlet-handler default-servlet-name="ImageBatchCreate" />
 	
-	<bean id="noFilterMatcher" class="com.spshop.web.interceptor.NoFilterMatcher"></bean>
 	<bean id="bootstrapFilter" class="com.spshop.web.interceptor.BootstrapDataFilter"></bean> 
 	<bean id="categoryFilter" class="com.spshop.web.interceptor.CategoryDataFilter"></bean> 
 	<bean id="productDataFilter" class="com.spshop.web.interceptor.ProductDataFilter"></bean> 
+	<bean id="loginUrlRecorderFilter" class="com.spshop.web.interceptor.LoginUrlRecorderFilter"></bean> 
 	<bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy">
-		<security:filter-chain-map path-type="ant">
-			<security:filter-chain pattern="/c/*"
-				filters="bootstrapFilter, categoryFilter"/>
-				<security:filter-chain filters="bootstrapFilter, productDataFilter" request-matcher-ref="noFilterMatcher" />	
+		<security:filter-chain-map request-matcher="ant">
+			<security:filter-chain pattern="/c/*" filters="bootstrapFilter, categoryFilter"/>
+			<security:filter-chain pattern="/uc/*" filters="bootstrapFilter, loginUrlRecorderFilter"/>
+			<security:filter-chain pattern="/*" filters="bootstrapFilter, productDataFilter" />	
+			<security:filter-chain pattern="/**" filters="bootstrapFilter"  />
 		</security:filter-chain-map>
 	</bean>
 	
