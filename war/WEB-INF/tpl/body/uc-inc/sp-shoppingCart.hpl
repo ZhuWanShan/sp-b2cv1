@@ -116,7 +116,7 @@
 			<dd class="red">
 			<span>
 				<a href="${siteView.host}">Continue shopping>> </a>
-				<form action="/uc/shoppingCart_address" method="get">
+				<form action="https://${RawRequest.serverName}:${RawRequest.serverPort?string("###")}/uc/shoppingCart_address" method="get">
 					<input type="hidden" name="id" value="${userView.cart.order.name}">
 					<input	type="submit" class="button_02" value="Proceed to Checkout"/>
 				</form>
