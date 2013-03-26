@@ -106,7 +106,7 @@
 							</li>
 							<li>
 								<img class="small" src="/style/image/materials/burgundy.jpg" value="Burgundy" target="JACKET_LINING" checkableGroup="JACKET_LINING">
-								<h3 value="Brown Dots" target="JACKET_LINING" checkableGroup="JACKET_LINING">Burgundy</h3>
+								<h3 value="Burgundy" target="JACKET_LINING" checkableGroup="JACKET_LINING">Burgundy</h3>
 							</li>
 							<li>
 								<img class="small" src="/style/image/materials/Yellow.jpg"  value="Yellow" target="JACKET_LINING" checkableGroup="JACKET_LINING">
