@@ -55,6 +55,9 @@ public class LoginUrlRecorderFilter extends AbstractCategoryDataFilter{
 			userView.setRequestPage(landingPage);
 		}
 		
+		
+		chain.doFilter(req, response);
+		
 	}
 	
 }

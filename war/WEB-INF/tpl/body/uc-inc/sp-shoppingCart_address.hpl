@@ -199,7 +199,7 @@
 		</div>
 		
 	</div>
-	<form action="/uc/checkout" >
+	<form action="https://${RawRequest.serverName}:${RawRequest.serverPort?string("###")}/uc/checkout" >
 	<div class="cart_list_block">
 		<h1 class="title">Payment Method</h1>
 		<div class="content">

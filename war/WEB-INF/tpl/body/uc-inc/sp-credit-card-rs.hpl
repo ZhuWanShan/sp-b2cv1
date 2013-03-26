@@ -14,12 +14,12 @@
 				<#if ((tradeInfo)!'')=='Failed'>
 					<P class="red">
 						<strong>Faild </strong>
-						<a href="/">Detail</a>
+						<a href="/uc/orderDetails?id=${order.name}">Order Detail</a>
 					</P>
 				<#else>
 					<P class="red">
 						<strong>Order status : PAID</strong>
-						<a href="/">Detail</a>
+						<a href="/uc/orderDetails?id=${order.name}">Order Detail</a>
 					</P>
 				</#if>
 			</#if>
