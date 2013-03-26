@@ -82,4 +82,3 @@
 			<li class="red"><b>No order found</b></li>
 		</ul>
 </#if>
-</div>

@@ -77,6 +77,7 @@ import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CouponService;
 import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.UserService;
+import com.spshop.utils.Constants;
 import com.spshop.utils.EmailTools;
 import com.spshop.utils.Encrypt;
 import com.spshop.utils.FeedTools;
@@ -755,7 +756,7 @@ public class ShoppingController extends BaseController{
 	}
 	
 	@RequestMapping("globebillPayRs")
-	public String globebillPayRs(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException{
+	public String globebillPayRs(HttpServletRequest request, HttpServletResponse response, Model model) throws UnsupportedEncodingException{
 		/*
 		cardNo String
 		【支付卡号】
@@ -813,8 +814,10 @@ public class ShoppingController extends BaseController{
 		}
 		logger.info("order.getAddressType():"+order.getAddressType());
 		
+		model.addAttribute("tradeInfo", orderInfo);
+		model.addAttribute(Constants.PROCESSING_ORDER, order);
 		
-		return "redirect:/uc/orderDetails?id="+orderNo+"&tradeInfo=" + URLEncoder.encode(orderInfo, "UTF-8");
+		return "Credit-card-Rs";
 	}
 	
 	@RequestMapping(value="/yoursPayResults")
