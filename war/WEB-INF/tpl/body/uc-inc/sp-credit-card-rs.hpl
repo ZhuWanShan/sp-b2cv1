@@ -1,0 +1,46 @@
+<#if errorMsg??>
+<p class="red" style="border: dashed 1px red; padding: 10px; font-weight: bold;" >
+	Warning : ${errorMsg}
+</p>
+</#if>
+<#if processingOrder ??>
+	<#assign order = processingOrder>
+	<#assign currencyRate = (siteView.currencies[order.currency])!0 >
+	<div class="cart_list_block">
+		<h1 class="title">Order Number</h1>
+			Order Number:  <span class="red"> ${order.name}</span>
+			<p>&nbsp;</p>
+			<#if tradeInfo ??>
+				<#if ((tradeInfo)!'')=='Failed'>
+					<P class="red">
+						<strong>Faild </strong>
+						<a href="/">Detail</a>
+					</P>
+				<#else>
+					<P class="red">
+						<strong>Order status : PAID</strong>
+						<a href="/">Detail</a>
+					</P>
+				</#if>
+			<#if>
+		<div class="content">
+		</div>
+	</div>
+	<p class="clearBoth"></p>
+<#else>
+		<ul class="scart_c">
+			<li class="red"><b>No order found</b></li>
+		</ul>
+</#if>
+
+<script type="text/javascript">
+	if( top!=this || (self && self.frameElement && self.frameElement.tagName=="IFRAME")){
+		try{
+			jq(window.parent.document).find("#main_box").html(jq(window.parent.frames[0].document).find("#main_box"))
+			jq(window.document).scrollTop(0);
+		}catch(e){
+			console.log("##########");
+		}
+	}
+	
+</script>
