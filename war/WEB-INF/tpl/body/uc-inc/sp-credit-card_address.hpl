@@ -29,7 +29,7 @@
 	<div class="cart_list_block">
 		<h1 class="title">Credit And Debit Card Information</h1>
 		<div class="content">
-			<p><img style="margin-left: 300px;margin-top: 160px" alt="Loading" src="/css/loading_img_s.gif"></p>
+			<p><img id="Loading-GlobebillPayFrame" style="margin-left: 300px;margin-top: 160px" alt="Loading" src="/css/loading_img_s.gif"></p>
 			<iframe name="GlobebillPayFrame" border="no" scroll="no" style="border: 0px;width:850px;overflow: hidden;height: 500px;display: block;margin-left: 60px">
 							
 			</iframe>
@@ -67,9 +67,12 @@
 					
 				</form>
 				
-			<!-- <script type="text/javascript">
-					jq("#paypaysubmitForm").submit();		
-			</script> -->
+			<script type="text/javascript">
+					jq("#paypaysubmitForm").submit();
+					jq("#GlobebillPayFrame").ready(function(){
+						jq("#Loading-GlobebillPayFrame").remove();
+					});
+			</script> 
 		</div>
 	</div>
 	

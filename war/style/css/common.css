@@ -3055,3 +3055,7 @@ margin-left: 35px;
 .addres_list_for_select li{
 	margin: 10px;
 }
+
+.ui-dialog{
+	z-index: 999!important;
+}

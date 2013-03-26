@@ -29,12 +29,18 @@ public class UserServiceImpl extends AbstractService<User, UserDAO, Long>
 
 	@Override
 	public User validateUser(User user) {
-		return getDao().queryUserByEmailAndPassword(user).clone();
+		
+		user = getDao().queryUserByEmailAndPassword(user);
+			
+		return user!=null?user.clone():null;
 	}
 
 	@Override
 	public User queryUserByEmail(String email){
-		return getDao().queryUserByName(email).clone();
+		
+		User user = getDao().queryUserByName(email);
+		
+		return user!=null?user.clone():null;
 	}
 	
 	public User saveUser(User user){
