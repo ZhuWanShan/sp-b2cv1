@@ -7,13 +7,9 @@ package com.spshop.web.interceptor;
 import static com.spshop.utils.Constants.CURRENCY;
 import static com.spshop.utils.Constants.CURRENT_PRODUCT_ID;
 import static com.spshop.utils.Constants.DEFAULT_CURRENCY;
-import static com.spshop.utils.Constants.LOGIN_LANDING_PAGE_PARAM;
-import static com.spshop.utils.Constants.LOGIN_PAGE;
-import static com.spshop.utils.Constants.REG_PAGE;
 import static com.spshop.utils.Constants.SHOPPINGCART;
 
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;

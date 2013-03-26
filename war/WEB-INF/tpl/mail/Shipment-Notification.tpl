@@ -58,7 +58,7 @@ order.customerName??> ${order.customerName}</#if>,</strong></p>
 						<#assign "address"= order.shippingAddress >
 						${(address.firstName)!''} ${(address.lastName)!''} 
 								(${address.address1!''} ${address.city!''},
-								${address.stateProvince!''},${siteView.countryMap[address.country?string].name},
+								${address.stateProvince!''},${countryMap[address.country?string].name},
 								Postal Code: ${address.postalCode!''}) Phone:${address.phone!''}
 				</#if>
 							

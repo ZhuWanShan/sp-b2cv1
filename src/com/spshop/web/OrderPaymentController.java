@@ -1,5 +1,10 @@
 package com.spshop.web;
 
+import static com.spshop.utils.Constants.DEFAULT_CURRENCY;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import jxl.write.NumberFormat;
@@ -23,6 +28,7 @@ import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.CouponService;
 import com.spshop.service.intf.OrderService;
 import com.spshop.utils.Constants;
+import com.spshop.utils.EmailTools;
 import com.spshop.utils.EncryptUtil;
 import com.spshop.utils.Utils;
 import com.spshop.web.view.OrderItemSummaryJsonView;
@@ -212,6 +218,9 @@ public class OrderPaymentController extends BaseController{
 		
 		Order order = ServiceFactory.getService(OrderService.class).applyBillingAddress(orderSN, getUserView().getLoginUser().getId(), addressId);
 		
+		final Map<String, Object> root = new HashMap<String, Object>();
+		
+		
 		if(null != order){
 			if(null == order.getBillingAddress()){
 				model.addAttribute("errorMsg", "Please fill you billing address");
@@ -221,6 +230,32 @@ public class OrderPaymentController extends BaseController{
 				order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.toString());
 				getUserView().setCart(new ShoppingCart(new Order()));
 				globebillPay(order, model, request);
+				
+				final Order o = order;
+				
+				root.put("order", order);
+				float currencyRate = 1;
+				if (!DEFAULT_CURRENCY.equals(order.getCurrency())) {
+					currencyRate = getSiteView().getCurrencies().get(
+							order.getCurrency());
+				}
+				root.put("currencyRate", currencyRate);
+				
+				new Thread() {
+					public void run() {
+						try {
+							EmailTools
+									.sendMail(
+											"paid",
+											"Order Received, Awaiting Payment Confirmation",
+											root, o.getUser().getEmail());
+						} catch (Exception e) {
+							logger.debug(e);
+						}
+					};
+				}.start();
+			
+				
 				return "Globebill";
 			}
 			
