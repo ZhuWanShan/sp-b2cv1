@@ -22,7 +22,7 @@
 						<a href="/">Detail</a>
 					</P>
 				</#if>
-			<#if>
+			</#if>
 		<div class="content">
 		</div>
 	</div>
