@@ -31,9 +31,13 @@ import static com.spshop.utils.Constants.USER_ACCOUNT_ERROR;
 import static com.spshop.utils.Constants.USER_INFO;
 import static com.spshop.utils.Constants.USER_NAME_PWD_SPLIT;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -55,6 +59,8 @@ import net.sf.json.JSONObject;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,6 +70,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.alipay.util.AlipayNotify;
 import com.spshop.cache.SCacheFacade;
+import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Coupon;
 import com.spshop.model.Order;
 import com.spshop.model.OrderItem;
@@ -87,6 +94,8 @@ import com.spshop.utils.Utils;
 @RequestMapping("/uc")
 @SessionAttributes({CURRENT_PRODUCT,"continueShopping"})
 public class ShoppingController extends BaseController{
+	
+	private static final String ACCOUNT = "pay@honeybuy.com";
 	
 	private static final String COLOR = COLOR_PARAM_PRE;
 	private static final String QTY = QTY_PARAM;
@@ -934,5 +943,124 @@ public class ShoppingController extends BaseController{
 		rs.put("itemCount", cart.getItemCount()+"");
 		
 		return rs;
+	}
+	
+	
+	@RequestMapping("/checkorder")
+	public String PaypalRS(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		
+		try {
+			logger.info("Accept request");
+			
+			List<String> errorStrings = new ArrayList<String>();
+			List<String> msgs = new ArrayList<String>();
+			
+			Enumeration en = request.getParameterNames();
+			String str = "cmd=_notify-validate";
+			logger.info("################Accept######################");
+			while (en.hasMoreElements()) {
+				String paramName = (String) en.nextElement();
+				String paramValue = request.getParameter(paramName);
+				str = str + "&" + paramName + "="
+						+ URLEncoder.encode(paramValue, "iso-8859-1");
+				logger.info(paramName+": " + request.getParameter(paramName));
+			}
+			logger.info("######################################");
+			logger.info("str: " + str);
+			logger.info("######################################");
+			
+//			URL u = new URL("http://www.sandbox.paypal.com/c2/cgi-bin/webscr");
+			 URL u = new URL("http://www.paypal.com/cgi-bin/webscr");
+			URLConnection uc = u.openConnection();
+			uc.setDoOutput(true);
+
+			uc.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded");
+			PrintWriter pw = new PrintWriter(uc.getOutputStream());
+			pw.println(str);
+			pw.close();
+			
+			BufferedReader in = new BufferedReader(new InputStreamReader(
+					uc.getInputStream()));
+			String res = in.readLine();
+			in.close();
+			
+			// https://www.paypal.com/IntegrationCenter/ic_ipn-pdt-variable-reference.html
+			String itemName = request.getParameter("item_name");
+			String quantity = request.getParameter("quantity");
+			String paymentStatus = request.getParameter("payment_status");
+			String paymentAmount = request.getParameter("mc_gross");
+			String paymentCurrency = request.getParameter("mc_currency");
+			String txnId = request.getParameter("txn_id");
+			String receiverEmail = request.getParameter("receiver_email");
+			
+			String payerEmail = request.getParameter("payer_email");
+			String address_city = request.getParameter("address_city");
+			String contact_phone = request.getParameter("contact_phone");
+			String address_country = request.getParameter("address_country");
+			String address_street = request.getParameter("address_street");
+			String address_zip = request.getParameter("address_zip");
+			String first_name = request.getParameter("first_name");
+			String last_name = request.getParameter("last_name");
+			Enumeration els = request.getParameterNames();
+			
+			if ("VERIFIED".equals(res)) {
+				Order order = ServiceFactory.getService(OrderService.class).getOrderById(itemName);
+				logger.info(">>>>>>>>>>>>>>>>>>>VERIFIED>>>>>>>>>>>>>>>>>>>>>>");
+				if(null!=order){
+					order.setCustomerEmail(payerEmail);
+					logger.info(">>>>>>>>>>>>>>>>>>>paymentAmount:"+paymentAmount+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>paymentCurrency:"+paymentCurrency+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>receiverEmail:"+receiverEmail+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>itemNumber:"+quantity+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>(order.getTotalPrice()+order.getDePrice() - order.getCouponCutOff()):"+(order.getTotalPrice()+order.getDePrice() - order.getCouponCutOff())+">>>>>>>>>>>>>>>>>>>>>>");
+					
+					logger.info(">>>>>>>>>>>>>>>>>>>receiverEmail.equalsIgnoreCase(ACCOUNT):"+receiverEmail.equalsIgnoreCase(ACCOUNT)+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>itemNumber.equals('1'):"+quantity.equals("1")+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>order.getCurrency().equals(paymentCurrency):"+order.getCurrency().equals(paymentCurrency)+">>>>>>>>>>>>>>>>>>>>>>");
+					logger.info(">>>>>>>>>>>>>>>>>>>receiverEmail.equalsIgnoreCase(ACCOUNT):"+receiverEmail.equalsIgnoreCase(ACCOUNT)+">>>>>>>>>>>>>>>>>>>>>>");
+					
+					
+					float rate = getSiteView().getCurrencies().get(order.getCurrency());
+					
+					logger.info(">>>>>>>>>>>>>>>>>>>((order.getTotalPrice()+order.getDePrice() - order.getCouponCutOff())*rate- 1) <= Float.parseFloat(paymentAmount):"+(((order.getTotalPrice()+order.getDePrice() - order.getCouponCutOff())*rate- 1)  <= Float.parseFloat(paymentAmount))+">>>>>>>>>>>>>>>>>>>>>>");
+					if(((order.getTotalPrice()+order.getDePrice() - order.getCouponCutOff())*rate- 1) <= Float.parseFloat(paymentAmount)
+							&&order.getCurrency().equals(paymentCurrency)
+							&&receiverEmail.equalsIgnoreCase(ACCOUNT)
+							&&quantity.equals("1")){
+						//order.setStatus(OrderStatus.PAID.getValue());
+						Map<String,Object> root = new HashMap<String,Object>(); 
+						root.put("order", order);
+						root.put("currencyRate", rate);
+						//EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,order.getCustomerEmail());
+						try{
+							Coupon coupon = ServiceFactory.getService(CouponService.class).getCouponByCode(order.getCouponCode());
+							if(null != coupon){
+								coupon.setUsedCount(coupon.getUsedCount()+1);
+								ServiceFactory.getService(CouponService.class).saveCoupon(coupon);
+							}
+						}catch(Exception e){
+							logger.info(e.getMessage(),e);
+						}
+					}else{
+						logger.info(">>>>>>>>>>>>>>>>>>>NOT enough mony>>>>>>>>>>>>>>>>>>>>>>");
+					}
+					logger.info("order.getAddressType():"+order.getAddressType());
+					ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.getValue());
+					
+				}
+				
+				
+			} else if ("INVALID".equals(res)) {
+				logger.info("##############INVALID########################");
+			} else {
+				logger.info("##############ORTHER########################");
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+		}
+
+		 return null;
 	}
 }

@@ -201,9 +201,14 @@ public class OrderPaymentController extends BaseController{
 				model.addAttribute("errorMsg", "Please select a shipping method");
 			}else if("Globebill".equals(payment)) {
 				order.setOrderType("Globebill");
-				model.addAttribute(Constants.PROCESSING_ORDER, order);
+				order = checkOutOrder(model, order);
 				globebillPay(order, model, request);
 				return "billingAddress";
+				
+			}else if("paypal".equals(payment)) {
+				order.setOrderType("paypal");
+				checkOutOrder(model, order);
+				return "paypal";
 			}else{
 				model.addAttribute("errorMsg", "Please select a payment method");
 			}
@@ -218,43 +223,14 @@ public class OrderPaymentController extends BaseController{
 		
 		Order order = ServiceFactory.getService(OrderService.class).applyBillingAddress(orderSN, getUserView().getLoginUser().getId(), addressId);
 		
-		final Map<String, Object> root = new HashMap<String, Object>();
-		
-		
 		if(null != order){
 			if(null == order.getBillingAddress()){
 				model.addAttribute("errorMsg", "Please fill you billing address");
 			}else {
-				model.addAttribute(Constants.PROCESSING_ORDER, order);
-				order.setOrderType("Globebill");
-				order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.toString());
-				getUserView().setCart(new ShoppingCart(new Order()));
-				globebillPay(order, model, request);
 				
-				final Order o = order;
-				
-				root.put("order", order);
-				float currencyRate = 1;
-				if (!DEFAULT_CURRENCY.equals(order.getCurrency())) {
-					currencyRate = getSiteView().getCurrencies().get(
-							order.getCurrency());
-				}
-				root.put("currencyRate", currencyRate);
-				
-				new Thread() {
-					public void run() {
-						try {
-							EmailTools
-									.sendMail(
-											"paid",
-											"Order Received, Awaiting Payment Confirmation",
-											root, o.getUser().getEmail());
-						} catch (Exception e) {
-							logger.debug(e);
-						}
-					};
-				}.start();
+				order = checkOutOrder(model, order);
 			
+				globebillPay(order, model, request);
 				
 				return "Globebill";
 			}
@@ -262,6 +238,39 @@ public class OrderPaymentController extends BaseController{
 		}
 		
 		return "forward:/uc//checkout?orderSN="+orderSN + "&payment="+order.getOrderType();
+	}
+
+
+
+	private Order checkOutOrder(Model model, Order order) {
+		final Map<String, Object> root = new HashMap<String, Object>();
+		model.addAttribute(Constants.PROCESSING_ORDER, order);
+		order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.toString());
+		getUserView().setCart(new ShoppingCart(new Order()));
+		
+		final Order o = order;
+		root.put("order", order);
+		float currencyRate = 1;
+		if (!DEFAULT_CURRENCY.equals(order.getCurrency())) {
+			currencyRate = getSiteView().getCurrencies().get(
+					order.getCurrency());
+		}
+		root.put("currencyRate", currencyRate);
+		
+		new Thread() {
+			public void run() {
+				try {
+					EmailTools
+							.sendMail(
+									"paid",
+									"Order Received, Awaiting Payment Confirmation",
+									root, o.getUser().getEmail());
+				} catch (Exception e) {
+					logger.debug(e);
+				}
+			};
+		}.start();
+		return order;
 	}
 	
 	
