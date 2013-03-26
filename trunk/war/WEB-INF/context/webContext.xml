@@ -33,6 +33,17 @@
 	<mvc:resources location="/admin/" mapping="/admin/**"/>
 	<mvc:resources location="/workspace/" mapping="/workspace/**"/>
 	
+	<security:http path-type="ant" pattern="/css/**" security="none" />
+	<security:http path-type="ant" pattern="/im/**" security="none" />
+	<security:http path-type="ant" pattern="/image/**" security="none" />
+	<security:http path-type="ant" pattern="/js/**" security="none" />
+	<security:http path-type="ant" pattern="/script/**" security="none" />
+	<security:http path-type="ant" pattern="/template/**" security="none" />
+	<security:http path-type="ant" pattern="/style/**" security="none" />
+	<security:http path-type="ant" pattern="/tempZip/**" security="none" />
+	<security:http path-type="ant" pattern="/admin/**" security="none" />
+	<security:http path-type="ant" pattern="/workspace/**" security="none" />
+	
 	<mvc:default-servlet-handler default-servlet-name="AdminLogin" />
 	<mvc:default-servlet-handler default-servlet-name="queryService" />
 	<mvc:default-servlet-handler default-servlet-name="initServlet" />
