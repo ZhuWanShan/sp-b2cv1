@@ -57,11 +57,8 @@
 	<bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy">
 		<security:filter-chain-map path-type="ant">
 			<security:filter-chain pattern="/c/*"
-				filters="bootstrapFilter, categoryFilter" request-matcher-ref="noFilterMatcher" />
-				<security:filter-chain pattern="/*"
-				filters="bootstrapFilter, productDataFilter" request-matcher-ref="noFilterMatcher" />	
-				<security:filter-chain pattern="/**"
-				 request-matcher-ref="noFilterMatcher" filters="bootstrapFilter" />
+				filters="bootstrapFilter, categoryFilter"/>
+				<security:filter-chain filters="bootstrapFilter, productDataFilter" request-matcher-ref="noFilterMatcher" />	
 		</security:filter-chain-map>
 	</bean>
 	
