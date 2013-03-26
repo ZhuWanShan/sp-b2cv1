@@ -113,24 +113,6 @@ public class BootstrapDataFilter extends GenericFilterBean{
 		
 		setCurrentProductID(request);
 		
-		String landingPage = request.getParameter(LOGIN_LANDING_PAGE_PARAM);
-		if(StringUtils.isBlank(landingPage)){
-			String url = request.getRequestURL().toString();
-			if(url.endsWith(LOGIN_PAGE)||url.endsWith(REG_PAGE)){
-				url = null;
-			}
-			String queryString = request.getQueryString();
-			if(null != queryString && null != url){
-				url = url + "?" + queryString;
-				
-			}
-			if(null!=url){
-				userView.setRequestPage(URLEncoder.encode(url,"UTF-8"));
-			}
-		}else{
-			userView.setRequestPage(landingPage);
-		}
-		
 		request.getSession().getServletContext().setAttribute(Constants.SITE_VIEW, siteView);
 		request.getSession().setAttribute(Constants.USER_VIEW, userView);
 		
@@ -154,7 +136,6 @@ public class BootstrapDataFilter extends GenericFilterBean{
         homeView.setTabSelling(tabSelling);
         
         request.getSession().getServletContext().setAttribute(Constants.HOME_VIEW, homeView);
-        
         
 		chain.doFilter(request, response);
 	}
