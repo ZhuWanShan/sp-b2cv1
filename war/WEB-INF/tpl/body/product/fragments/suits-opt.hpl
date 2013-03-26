@@ -133,7 +133,7 @@
 								<h3 value="Coffee" target="JACKET_LINING" checkableGroup="JACKET_LINING">Coffee</h3>
 							</li>
 							<li>
-								<img class="small" src="/style/image/materials/Beige.jpgg" value="Beige" target="JACKET_LINING" checkableGroup="JACKET_LINING">
+								<img class="small" src="/style/image/materials/Beige.jpg" value="Beige" target="JACKET_LINING" checkableGroup="JACKET_LINING">
 								<h3 value="Beige" target="JACKET_LINING" checkableGroup="JACKET_LINING">Beige</h3>
 							</li>
 							<li>
