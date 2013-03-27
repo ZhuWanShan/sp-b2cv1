@@ -7,4 +7,4 @@
 
 <#include "/body/body-sp-billing-address.hpl">	
 
-<#include "/footer/bottom.hpl">
+<#include "/footer/bottom_clean.hpl">
