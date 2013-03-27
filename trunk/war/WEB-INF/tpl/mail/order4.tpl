@@ -536,9 +536,9 @@ refunded on cancelled orders.</p>
 	  <p style="text-align:left;font-size:9.0pt">For all other questions, Please send <a 
 
 href="mailto:service@honeybuy.com">Email</a> to us: service@honeybuy.com!</p>
-	  <p style="text-align:left;font-size:9.0pt">Dear <strong><#if order.customerName??> ${order.customerName} 
-
-</#if></strong> thanks for your orders again! We appreciate your feedback and please Like-Share-Comment your orders on 
+	  <p style="text-align:left;font-size:9.0pt">Dear <strong>
+	  ${(order.shippingAddress.firstName)!''} ${(order.shippingAddress.lastName)!''} 
+	  </strong> thanks for your orders again! We appreciate your feedback and please Like-Share-Comment your orders on 
 
 our site and use $20 Coupon:<span style="color:red"> HONEYBUY-2S6M2g</span> for your next orders over $150. We are 
 
