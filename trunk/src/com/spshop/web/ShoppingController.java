@@ -59,8 +59,6 @@ import net.sf.json.JSONObject;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
-import org.apache.struts.action.ActionForward;
-import org.apache.struts.action.ActionMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -70,7 +68,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.alipay.util.AlipayNotify;
 import com.spshop.cache.SCacheFacade;
-import com.spshop.fe.formbeans.PageFormBean;
 import com.spshop.model.Coupon;
 import com.spshop.model.Order;
 import com.spshop.model.OrderItem;
