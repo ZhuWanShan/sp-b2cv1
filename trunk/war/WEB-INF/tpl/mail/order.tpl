@@ -212,12 +212,14 @@ fareast-font-family:&quot;Times New Roman&quot;;
         <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;mso-fareast-font-
 
 family:&quot;Times New Roman&quot;">	
-	<#if order.billingAddress ??>
-						<#assign "address"= order.billingAddress >
-						${(address.firstName)!''} ${(address.lastName)!''} 
-								(${address.address1!''} ${address.city!''},
-								${address.stateProvince!''},${countryMap[address.country?string].name},
-								Postal Code: ${address.postalCode!''}) Phone:${address.phone!''}
+				<#if order.billingAddress ??>
+					<#assign "address"= order.billingAddress >					
+				</#if>
+				<#if address??>
+					${(address.firstName)!''} ${(address.lastName)!''} 
+					(${address.address1!''} ${address.city!''},
+					${address.stateProvince!''},${countryMap[address.country?string].name},
+					Postal Code: ${address.postalCode!''}) Phone:${address.phone!''}
 				</#if>
         </span></p>
         </td>
