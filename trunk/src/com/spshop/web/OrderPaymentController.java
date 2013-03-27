@@ -201,7 +201,6 @@ public class OrderPaymentController extends BaseController{
 				model.addAttribute("errorMsg", "Please select a shipping method");
 			}else if("Globebill".equals(payment)) {
 				order.setOrderType("Globebill");
-				order = checkOutOrder(model, order);
 				globebillPay(order, model, request);
 				return "billingAddress";
 				
