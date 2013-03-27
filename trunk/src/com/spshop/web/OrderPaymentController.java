@@ -205,7 +205,7 @@ public class OrderPaymentController extends BaseController{
 				return "billingAddress";
 				
 			}else if("paypal".equals(payment)) {
-				order.setOrderType("paypal");
+				order.setOrderType("Paypal");
 				checkOutOrder(model, order);
 				return "paypal";
 			}else{
