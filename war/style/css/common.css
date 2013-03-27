@@ -3032,12 +3032,28 @@ input.valid, select.valid, texteara.valid{
 
 
 
-.cartStep1, .cartStep2, .cartStep3 {
-float: left;
-background: url("/style/image/cart_step.jpg") 0 0 no-repeat;
-width: 294px;
-height: 40px;
-margin-left: 35px;
+.cartStep1{
+	float: left;
+	background: url("/style/image/cart_step.jpg") 0px 0px no-repeat;
+	width: 294px;
+	height: 40px;
+	margin-left: 35px;
+}
+
+.cartStep2{
+	float: left;
+	background: url("/style/image/cart_step.jpg") 0px -40px no-repeat;
+	width: 294px;
+	height: 40px;
+	margin-left: 35px;
+}
+
+.cartStep3{
+	float: left;
+	background: url("/style/image/cart_step.jpg") 0px -80px no-repeat;
+	width: 294px;
+	height: 40px;
+	margin-left: 35px;
 }
 
 .cart_list_block{

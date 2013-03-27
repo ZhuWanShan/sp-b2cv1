@@ -60,7 +60,7 @@
 						</p>
 					</li>
 			<#else>
-				<li><button class="button_01" id="Add_a_New_Billing_Address_from_shipping_cart">Add a New Shipping Address</button></li>
+				<li><button class="button_01" id="Add_a_New_Billing_Address_from_shipping_cart">Add a New Billing Address</button></li>
 			</#if>
 				
 				
