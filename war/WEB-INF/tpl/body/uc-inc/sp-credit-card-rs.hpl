@@ -12,15 +12,20 @@
 			<p>&nbsp;</p>
 			<#if tradeInfo ??>
 				<#if ((tradeInfo)!'')=='Failed'>
+				
+				<!--paid Faild  -->
 					<P class="red">
 						<strong>Faild </strong>
 						<a href="/uc/orderDetails?id=${order.name}">Order Detail</a>
 					</P>
+					
 				<#else>
+				<!--paid succeed  -->
 					<P class="red">
 						<strong>Order status : PAID</strong>
 						<a href="/uc/orderDetails?id=${order.name}">Order Detail</a>
 					</P>
+		
 				</#if>
 			</#if>
 		<div class="content">
