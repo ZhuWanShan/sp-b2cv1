@@ -997,7 +997,7 @@ li.feedback_item_w4 {
 }
 
 .scart_c {
-	width: 972px;
+	width: 970px;
 }
 
 ul.scart_c li {
@@ -1074,7 +1074,7 @@ ul.scart_c li.scart_item_w5 {
 }
 
 li.scart_item_w5,ul.scart_c li.scart_item_w5 {
-	width: 85px;
+	width: 83px;
 }
 
 ul.scart_c li.scart_item_w6 {
@@ -1133,11 +1133,15 @@ div.scart_summary {
 	float: right;
 }
 
-.scart_header {
+.scart_header_top {
 	  background: url("/style/image/uc_background.jpg") repeat scroll 0 0 transparent;
     padding-top: 28px;
 }
 
+.scart_header {
+	  background: url("/style/image/uc_background.jpg") repeat scroll 0 0 transparent;
+    padding-top: 28px;
+}
 
 .scart_header li {
 	background-color: #EFEFEF;
@@ -2950,17 +2954,7 @@ img.current{
 	display: block;
 }
 
-.button_01 {
-    background: url("/style/image/button01_bg.gif") repeat scroll 0 0 transparent !important;
-    border: 1px solid #45433E;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
-    height: 25px;
-    overflow: visible;
-    padding: 0 8px;
-    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7);
-}
+
 /**************************************************End Measurement **************************************/
 
 /******************************************product page end***********************************************/
@@ -3059,7 +3053,7 @@ input.valid, select.valid, texteara.valid{
 
 .cart_list_block{
 	border: 1px solid #CCCCCC;
-    margin-top: 25px;
+    margin-top: 5px;
     padding-bottom: 15px;
 
 }
@@ -3079,4 +3073,52 @@ input.valid, select.valid, texteara.valid{
 
 .ui-dialog{
 	z-index: 999!important;
+}
+
+/**************************payment**************************/
+
+.payment{
+	 padding: 20px 18px 10px;
+}
+.paypalIcon2, .mcardIcon, .visaIcon, .visaEIcon,  .mcardIcon2, .westernUIcon {
+    background: url("/style/image/paymethod.jpg") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 32px;
+    width: 51px;
+}
+
+.paypalIcon2 {
+    background-position: 0 -80px;
+}
+
+.visaIcon {
+    background-position: 0 -248px;
+}
+
+.mcardIcon {
+    background-position: 0 -164px;
+}
+
+.visaEIcon {
+    background-position: 0 -332px;
+}
+
+.mcardIcon2 {
+    background-position: 0 -126px;
+}
+
+.westernUIcon {
+    background-position: 0 -458px;
+}
+
+.WesternUnionText ul li {
+    color: #555555;
+    line-height: 16px;
+}
+.WesternUnionText .margin_t {
+    margin-top: 10px;
+}
+
+.content{
+	margin-left: 10px;
 }
