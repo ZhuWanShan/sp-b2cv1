@@ -3057,16 +3057,20 @@ input.valid, select.valid, texteara.valid{
 }
 
 .cart_list_block{
-	margin-top: 25px;
-	border-bottom: 1px dashed #7E7F7F;
-	padding-bottom: 15px;
+	border: 1px solid #CCCCCC;
+    margin-top: 25px;
+    padding-bottom: 15px;
+
 }
 
 .cart_list_block .title{
-	background-color: #FAA003;
-	padding: 4px;
-	margin-bottom: 15px;
+	background: url("/style/image/uc_background.jpg ") repeat scroll 0 0 transparent;
+    height: 28px;
+    line-height: 28px;
+    margin-bottom: 15px;
+    text-indent: 10px;
 }
+
 
 .addres_list_for_select li{
 	margin: 10px;
