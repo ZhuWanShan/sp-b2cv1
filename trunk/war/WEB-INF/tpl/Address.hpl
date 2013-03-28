@@ -10,10 +10,10 @@
 					<tr>
 						<th style="width: 180px"><label>Name:</label></th>
 						<td>
-							<input type="text" name="firstname" value="${(address.firstName)!''}" maxlength="32" data-required="true" data-pattern="^[\w+]+$" data-describedby="name-description" data-description="name">
+							<input type="text" name="firstname" value="${(address.firstName)!''}" maxlength="32" data-required="true" data-describedby="name-description" data-description="name">
 							<span class="required">*</span> First Name
 							&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="text" name="lastname" value="${(address.lastName)!''}" maxlength="32" data-required="true" data-pattern="^[\w+]+$" data-describedby="name-description" data-description="name">
+							<input type="text" name="lastname" value="${(address.lastName)!''}" maxlength="32" data-required="true" data-describedby="name-description" data-description="name">
 							<span class="required">*</span> Last Name
 							<div>
 								<div class="errorInfo" id="name-description"></div>
