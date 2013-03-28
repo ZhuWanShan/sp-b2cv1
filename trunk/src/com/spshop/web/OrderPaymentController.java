@@ -209,6 +209,10 @@ public class OrderPaymentController extends BaseController{
 				order.setOrderType("Paypal");
 				checkOutOrder(model, order);
 				return "paypal";
+			}else if("WesternUnion".equals(payment)) {
+				order.setOrderType("WesternUnion");
+				checkOutOrder(model, order);
+				return "WesternUnion";
 			}else{
 				model.addAttribute("errorMsg", "Please select a payment method");
 			}
