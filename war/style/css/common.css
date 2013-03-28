@@ -3079,6 +3079,7 @@ input.valid, select.valid, texteara.valid{
 
 .payment{
 	 padding: 20px 18px 10px;
+	 line-height: 20px;
 }
 .paypalIcon2, .mcardIcon, .visaIcon, .visaEIcon,  .mcardIcon2, .westernUIcon {
     background: url("/style/image/paymethod.jpg") no-repeat scroll 0 0 transparent;
@@ -3121,4 +3122,11 @@ input.valid, select.valid, texteara.valid{
 
 .content{
 	margin-left: 10px;
+}
+.payment select{
+	border: 1px solid #BBBBBB;
+    height: 20px;
+    padding: 1px;
+    width: 310px;
+}
 }
