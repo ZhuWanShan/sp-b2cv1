@@ -5,6 +5,6 @@
 
 <#include "/header/top_no_nav.hpl">
 
-<#include "/body/body-WesternUnion.hpl">	
+<#include "/body/body-sp-WesternUnion.hpl">	
 
 <#include "/footer/bottom.hpl">
