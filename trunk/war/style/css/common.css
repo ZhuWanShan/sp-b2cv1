@@ -1134,9 +1134,10 @@ div.scart_summary {
 }
 
 .scart_header {
-	background-color: #FAA003;
-	padding-top: 20px;
+	  background: url("/style/image/uc_background.jpg") repeat scroll 0 0 transparent;
+    padding-top: 28px;
 }
+
 
 .scart_header li {
 	background-color: #EFEFEF;
