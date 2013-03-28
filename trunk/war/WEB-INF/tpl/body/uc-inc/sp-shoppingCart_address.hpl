@@ -4,7 +4,6 @@
 </p>
 </#if>
 
-<h1 style="position: relative; top: -50px; left: 10px;" class="order_summary">Order summary</h1>
 <div class="scart_con">
  <div class="cart_list_block">
 	<ul class="scart_c scart_header">
@@ -19,6 +18,7 @@
 			<li class="scart_item_w5">Operation
 			</li>
 	</ul>
+	<h1 style="position: relative; top: -50px; left: 10px;" class="order_summary">Order summary</h1>
 	<#if processingOrder ??>
 	<#assign order = processingOrder>
 	<#assign currencyRate = (siteView.currencies[order.currency])!0 >
@@ -205,22 +205,80 @@
 	<form action="https://${RawRequest.serverName}/uc/checkout" >
 	<div class="cart_list_block">
 		<h1 class="title">Payment Method</h1>
-		<div class="content">
+		<div class="payment">
 			<select name="payment">
-				<option value="-1">Please select your payment method</option>
-				<option value="Globebill" selected="selected">Credit or Debit Card</option>
+				<option value="allpaymthod" selected="selected" >Please select your payment method</option>
+				<option value="Globebill">Credit or Debit Card</option>
 				<option value="paypal">Paypal</option>
-				<option value="WesternUnion">WesternUnion</option>
+				<option value="WesternUnion">Western Union</option>
+				<option value="WireTransfer">Wire Transfer</option>
 			</select>
-			<div id="-1" class="default" >
-				<div>We currently accept PayPal, common credit and debit cards, Western Union, wire transfer and realtime bank transfer for all orders (you can check the availability listed below). We also take security very seriously indeed, so your details will be safe with us.</div>
-				<div>We currently accept PayPal, common credit and debit cards, Western Union, wire transfer and realtime bank transfer for all orders (you can check the availability listed below). We also take security very seriously indeed, so your details will be safe with us.</div>
-				<div>We currently accept PayPal, common credit and debit cards, Western Union, wire transfer and realtime bank transfer for all orders (you can check the availability listed below). We also take security very seriously indeed, so your details will be safe with us.</div>
-				<div>We currently accept PayPal, common credit and debit cards, Western Union, wire transfer and realtime bank transfer for all orders (you can check the availability listed below). We also take security very seriously indeed, so your details will be safe with us.</div>
-				
+			<div id="allpaymthod" > 
+				<p>We currently accept PayPal, common credit and debit cards, Western Union, wire transfer and realtime bank 
+				transfer for all orders (you can check the availability listed below). We also take security very seriously indeed, 
+				so your details will be safe with us. </p>
+				<p>
+					<span class="paypalIcon2"></span>
+					<span class="visaIcon"></span>
+					<span class="mcardIcon"></span>
+					<span class="visaEIcon"></span>
+					<span class="mcardIcon2"></span>
+					<span class="westernUIcon"></span>
+				</p>
 			</div>
+			
+			<div id="Globebill" style="display: block;" >
+				<p>We accept the following credit and debit cards: </p>
+				<p>Note: For security purposes, we will not save any of your credit card data. </p>
+				<p>
+					<span class="visaIcon"></span>
+					<span class="mcardIcon"></span>
+					<span class="visaEIcon"></span>
+					<span class="mcardIcon2"></span>
+				</p>
+			</div>	
+			
+			<div id="paypal" style="display: block;" >
+				<p>Existing PayPal users can complete your payment using your PayPal account.
+				<p>New PayPal users can register a PayPal account first, then continue the payment on PayPal website.</p>
+				<p>Note: you can send money to us on PayPal directly, our account is: XXX (accept many currencies).</p>
+				<a target="_blank" href="https://www.paypal.com/us/cgi-bin/webscr?cmd=xpt/Marketing/popup/OLCWhatIsPayPal-outside">
+				<img alt="Checkout with PayPal – Faster. Safer. Easier." title="Checkout with PayPal – Faster. Safer. Easier." src="/style/image/paypal.gif">
+				</a>
+				<a class="paypalIcon" target="_blank" href=" "></a>
+			</div>	
+			
+			<div id="WesternUnion" style="display: block;" class="WesternUnionText">
+				 <ul>
+			     <li><b>Beneficiary:</b>SHI YI LIU</li>
+			     <li><b>First Name:</b>Shiyi</li>
+			     <li><b>Last Name:</b>Liu</li>
+			     <li><b>Country:</b>China</li>
+			     <li><b>Address:</b>XiaMen, Fujian, PR China,361000</li>
+			     <li class="margin_t"><b>NOTICE:</b> Please email your order number, 
+			     the western union control number(mtcn), amount, sender's first and last name, sender's address 
+			     and country,sender's phone number to service@honeybuy.com after you send payment to us 
+			     by Western Union. Thanks!</li>
+			     </ul>        
+			</div>	
+			
+				<div id="WireTransfer" style="display: block;">
+				 <ul>
+				 <li><b>Name: </b>HONEYSTORE CO., LIMITED</li>
+				 <li><b>Account: </b>264-571043-883</li>
+				 <li><b>Bank Name: </b>HANG SENG BANK LIMITED</li>
+				 <li><b>Swift Code: </b>HASEHKHH</li>
+				 <li><b>Bank Address:</b>83 Des Voeux Road Central, HK</li>
+				 <li class="margin_t"><b>Notice:</b> Please email your order number, amount, sender's first and last name,
+				  sender's country, sender's phone number to service@honeybuy.com after you send the payment by wire transfer.
+				   Thanks!</li>
+				 </ul>
+			</div>	
+			
 		</div>
 	</div>
+
+</div>
 	
 	
 	<div class="scart_summary">
