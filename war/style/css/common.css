@@ -3159,3 +3159,47 @@ input.valid, select.valid, texteara.valid{
 	text-indent: 10px;
 }
 .widget .olease{margin-top:8px; padding-top:8px; border-top:1px solid #ccc;}
+.Continue_shopping{
+	float: left;
+    display: block;
+    height: 28px;
+    margin-right:10px;
+    background: url("/style/image/uc_background.jpg") repeat scroll 0px 0px transparent; 
+    line-height: 28px;
+    padding: 0px 5px;
+    border: 1px solid #ccc;
+    margin-top: 3px;
+ }
+ .cart-side{
+    color: #666666;
+    font-size:12px;
+    font-family:arial;
+}
+.cart-side .allborder {
+    float: left;
+    height: 148px;
+    margin-right: 12px;
+    width:234px;
+    border:1px solid #DDDDDD;
+}
+
+.cart-side h4 {
+    background:#f6f0e7;
+    border-bottom: 1px solid #DDDDDD;
+    font-family: Georgia,serif;
+    font-size: 13px;
+    padding: 5px 10px;
+    font-size:14px;
+    font-family:arial;
+}
+.cart-side .allborder p {
+    color: #777777;
+    overflow: hidden;
+    padding: 10px;
+    line-height:18px;
+}
+.cart-side a.goto {
+    margin-left: 10px;
+    padding-right: 8px;
+    float:right;
+}
