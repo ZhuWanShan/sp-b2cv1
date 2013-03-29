@@ -112,7 +112,7 @@
 		<p class="clearBoth"></p>
 <div class="red;" style="float: right; width: 34%;">
 	<span>
-		<a class="Continue_shopping" href="http://64.120.169.101"> 	Continue shopping</a>
+		<a class="Continue_shopping" href="http://64.120.169.101"> <Continue shopping</a>
 		<form method="get" action="https://64.120.169.101/uc/shoppingCart_address">
 		<input type="hidden" value="130329-YVLI142" name="id">
 		<input style="float:left;" type="submit" value="Proceed to Checkout" class="button_02">
@@ -141,7 +141,7 @@ You can track the progress of your order in real time.</p>
 </div>
 <div style="margin:0;" class="allborder">
 <h4>Scure Shopping</h4>
-<p>Shopping on PersunDresses.com is safe and secure! We do NOT share or in any way distribute any personal information you may provide.<br></p>
+<p>Shopping on Honeybuy.com is safe and secure! We do NOT share or in any way distribute any personal information you may provide.<br></p>
 </div>
 </div>
 </div>

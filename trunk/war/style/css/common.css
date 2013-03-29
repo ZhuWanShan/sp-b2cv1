@@ -3174,11 +3174,12 @@ input.valid, select.valid, texteara.valid{
     color: #666666;
     font-size:12px;
     font-family:arial;
+    margin-top:20px;
 }
 .cart-side .allborder {
     float: left;
     height: 148px;
-    margin-right: 12px;
+    margin-right:8px;
     width:234px;
     border:1px solid #DDDDDD;
 }
