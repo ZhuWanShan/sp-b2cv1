@@ -89,7 +89,7 @@
 				<div>
 					<div class="form_error red" id="coupon_code_noti"></div>
 					<div>
-						Enter your coupon code:
+						&nbsp; Enter your coupon code:
 						<input name="coupon_code" type="text" class="txt_input" id="coupon_code">
 						<input	type="button" class="button_01" id="submit_coupon" value="Apply" onclick="jq.HB.applyCoupon('${order.name}')">
 						<p class="red" id="coupon_code_err"></p>
@@ -185,7 +185,7 @@
 					       	
 					       	<#if ((order.shippingMethod)!'')=='standard' >checked="checked"</#if>
 					       	
-					        onclick="jq.HB.applyShippingMethod('${order.name}', 'standard')" ><strong>Standard Shipping</strong></li>
+					        onclick="jq.HB.applyShippingMethod('${order.name}', 'standard')" ><strong>&nbsp; Standard Shipping</strong></li>
 					       <li class="scart_c_w_m">Normally 5 - 8 days</li>
 					       <li class="scart_c_w_r red ">${(order.currency)}&nbsp;<span class="order_shipping_standard">${stdShippingPrice}</span></li>
 					    </ul>
@@ -193,11 +193,33 @@
 					    <ul class="scart_c">
 					       <li class="scart_c_w_l"><input name="shippingMethod" type="radio" value="expedited"
 					       		<#if ((order.shippingMethod)!'')=='expedited' >checked="checked"</#if>
-					        onclick="jq.HB.applyShippingMethod('${order.name}', 'expedited')" ><strong>Expedited Shipping</strong></li>
+					        onclick="jq.HB.applyShippingMethod('${order.name}', 'expedited')" ><strong>&nbsp; Expedited Shipping</strong></li>
 					       <li class="scart_c_w_m">Normally 2 - 4 days</li>
 					       <li class="scart_c_w_r red">${(order.currency)}&nbsp; <span class="order_shipping_expedited">${extShippingPrice}</span></li>
 					    </ul>
 					      <p class="clearBoth">&nbsp;</p>
+					    
+					  
+					   <div class="extraInfo">
+						<p class="red b Dlink clock">When will my order arrive?</p>
+						<p style="padding:10px;">
+						<img src="/style/image/processing-time.jpg"></p>
+						<p class="big_"><span class="gray">Learn more about</span> 
+						<a class="red u b" href="javascript:void(0)" id="arrive">processing time</a></p>
+						<div id="arriveSlide" style="display: block;">
+				
+						<ul>
+						Processing time is the time it takes to get your order ready to leave our warehouses. 
+						This includes preparing your items, performing quality checks, and packing for shipment. 
+						Processing time is displayed on the product detail page.<br><strong>Made-To-Order</strong> 
+						Apparel: Processing time is simply the Tailoring time displayed on the product detail page.<br>
+						Items marked <strong>“Ships in 24hrs”:</strong> 
+						Processing time is guaranteed to be shorter than 24 hours.			</ul>
+								</div>
+					   </div>
+		
+		
+					   
 				</div>
 		</div>
 		
