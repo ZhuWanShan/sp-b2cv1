@@ -1006,7 +1006,8 @@ ul.scart_c li {
 }
 
 ul.scart_c li.scart_thumbnail {
-	width: 116px;
+	width: 100px;
+	padding-left:16px;
 }
 
 ul.scart_c li.scart_desc {
@@ -3114,7 +3115,7 @@ input.valid, select.valid, texteara.valid{
 
 .WesternUnionText ul li {
     color: #555555;
-    line-height: 16px;
+    line-height: 20px;
 }
 .WesternUnionText .margin_t {
     margin-top: 10px;
@@ -3128,5 +3129,5 @@ input.valid, select.valid, texteara.valid{
     height: 20px;
     padding: 1px;
     width: 310px;
-}
+    margin-bottom:10px;
 }

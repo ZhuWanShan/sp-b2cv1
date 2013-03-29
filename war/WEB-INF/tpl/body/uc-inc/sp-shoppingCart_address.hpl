@@ -209,12 +209,12 @@
 						<div id="arriveSlide" style="display: block;">
 				
 						<ul>
-						Processing time is the time it takes to get your order ready to leave our warehouses. 
-						This includes preparing your items, performing quality checks, and packing for shipment. 
-						Processing time is displayed on the product detail page.<br><strong>Made-To-Order</strong> 
+						<li style="line-height:20px;">Processing time is the time it takes to get your order ready to leave our warehouses. 
+						This includes preparing your items, performing quality checks, and packing for shipment.
+						Processing time is displayed on the product detail page.<br><strong>Made-To-Order</strong>
 						Apparel: Processing time is simply the Tailoring time displayed on the product detail page.<br>
 						Items marked <strong>“Ships in 24hrs”:</strong> 
-						Processing time is guaranteed to be shorter than 24 hours.			</ul>
+						Processing time is guaranteed to be shorter than 24 hours.</li></ul>
 								</div>
 					   </div>
 		
