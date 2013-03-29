@@ -8,4 +8,4 @@
 <#include "/body/body-sp-shoppingCart_address.hpl">	
 
 
-<#include "/footer/bottom_clean.hpl">
+<#include "/footer/bottom-payment.hpl">
