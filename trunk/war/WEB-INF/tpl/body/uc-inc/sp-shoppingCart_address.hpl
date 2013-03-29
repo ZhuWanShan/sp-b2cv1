@@ -197,6 +197,7 @@
 					    </ul>
 					      <p class="clearBoth">&nbsp;</p>
 					   <div class="extraInfo">
+					   <img alt="Free" src="/css/shipping.jpg" class="free-shipping-img">
 						<p class="red b Dlink clock">When will my order arrive?</p>
 						<p style="padding:10px;">
 						<img src="/style/image/processing-time.jpg"></p>
