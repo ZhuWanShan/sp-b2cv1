@@ -296,7 +296,7 @@
 			jq("#"+me).show();
 			
 			jq("select[name=payment]").change(function(){
-				
+				jq(".paymentmethod").hide();
 				jq("#"+jq("select[name=payment]").val()).show();
 					
 			});
