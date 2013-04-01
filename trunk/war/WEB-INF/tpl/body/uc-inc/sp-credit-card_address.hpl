@@ -44,8 +44,8 @@
 				<form name="payForm"
 					action="https://pay.securesslgateway.com/Interface"
 					method="post" id="paypaysubmitForm" target="GlobebillPayFrame">
-					<input type="hidden" name="merNo" value="10246" />
-					 <input type="hidden" name="gatewayNo" value="10246001" /> 
+					<input type="hidden" name="merNo" value="10309" />
+					 <input type="hidden" name="gatewayNo" value="10309001" /> 
 					 <input type="hidden" name="orderNo" value="${order.name}" />
 					 <input type="hidden" name="orderCurrency" value="${order.currency}" />
 					 <input type="hidden" name="orderAmount" value="${amount}" /> 
