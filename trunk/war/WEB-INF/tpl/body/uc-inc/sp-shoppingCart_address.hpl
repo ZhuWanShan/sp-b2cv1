@@ -240,7 +240,7 @@
 				</p>
 			</div>
 			
-			<div id="Globebill" style="display: block;" class="paymentmethod">
+			<div id="Globebill" class="paymentmethod">
 				<p>We accept the following credit and debit cards: </p>
 				<p>Note: For security purposes, we will not save any of your credit card data. </p>
 				<p>
@@ -251,7 +251,7 @@
 				</p>
 			</div>	
 			
-			<div id="paypal" style="display: block;" class="paymentmethod">
+			<div id="paypal" class="paymentmethod">
 				<p>Existing PayPal users can complete your payment using your PayPal account.
 				<p>New PayPal users can register a PayPal account first, then continue the payment on PayPal website.</p>
 				<p>Note: you can send money to us on PayPal directly, our account is: XXX (accept many currencies).</p>
@@ -261,7 +261,7 @@
 				<a class="paypalIcon" target="_blank" href=" "></a>
 			</div>	
 			
-			<div id="WesternUnion" style="display: block;" class="WesternUnionText" class="paymentmethod">
+			<div id="WesternUnion" class="WesternUnionText" class="paymentmethod">
 				 <ul>
 			     <li><b>Beneficiary:</b>SHI YI LIU</li>
 			     <li><b>First Name:</b>Shiyi</li>
@@ -275,7 +275,7 @@
 			     </ul>        
 			</div>	
 			
-				<div id="WireTransfer" style="display: block;" class="paymentmethod">
+				<div id="WireTransfer" class="paymentmethod">
 				 <ul>
 				 <li><b>Name: </b>HONEYSTORE CO., LIMITED</li>
 				 <li><b>Account: </b>264-571043-883</li>
