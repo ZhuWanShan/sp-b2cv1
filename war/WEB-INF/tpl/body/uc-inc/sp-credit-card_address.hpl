@@ -72,7 +72,9 @@
 					jq("#paypaysubmitForm").submit();
 					jq("#GlobebillPayFrame").ready(function(){
 						jq("#Loading-GlobebillPayFrame").remove();
+						jq("#GlobebillPayFrame").show();
 					});
+					
 			</script>
 		</div>
 	</div>
