@@ -193,6 +193,7 @@ public class OrderPaymentController extends BaseController{
 	public String checkout( Model model, HttpServletRequest request, @RequestParam("orderSN")String orderSN,  @RequestParam("payment")String payment){
 		
 		Order order = ServiceFactory.getService(OrderService.class).getCartOrPendingOrderById(orderSN, getUserView().getLoginUser().getId());
+		model.addAttribute(Constants.PROCESSING_ORDER, order);
 		
 		if(null != order){
 			if(null == order.getShippingAddress()){
@@ -201,7 +202,7 @@ public class OrderPaymentController extends BaseController{
 				model.addAttribute("errorMsg", "Please select a shipping method");
 			}else if("Globebill".equals(payment)) {
 				order.setOrderType("Globebill");
-				model.addAttribute(Constants.PROCESSING_ORDER, order);
+				
 				globebillPay(order, model, request);
 				return "billingAddress";
 				
