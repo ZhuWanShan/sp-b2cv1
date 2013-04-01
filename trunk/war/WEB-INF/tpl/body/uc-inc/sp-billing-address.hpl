@@ -120,7 +120,7 @@
 			<dd class="red">
 				<form action="https://${RawRequest.serverName}/uc/checkout_credit_card">
 					<span>
-						<input type="hidden" name="add" value="${address.id?string}">
+						<input type="hidden" name="add" value="${(address.id)!0?string}">
 						<input type="hidden" name="orderSN" value="${order.name}">
 						<input	type="submit" class="button_02" value="Proceed to Checkout">
 					</span>
