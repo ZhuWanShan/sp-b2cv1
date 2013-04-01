@@ -16,8 +16,8 @@
 				<!--paid Faild  -->
 				<div>
 					<P class="red">
-						<strong>Faild </strong>
-						<a href="/uc/orderDetails?id=${order.name}">Order Detail</a>
+					
+						View <a href="/uc/orderDetails?id=${order.name}">Order Detail</a>
 						
 						<p style="color: #900; font-size:24px;padding: 20px 60px;text-align: center;font-weight: bolder;">NOTICE</p>
     <p style="color: black; border: 1px solid red; font-size: 16px; padding: 30px 20px; line-height: 30px;">
@@ -32,8 +32,9 @@
 				<#else>
 				<!--paid succeed  -->
 					<P class="red">
-						<strong>Order status : PAID</strong>
-						<a href="/uc/orderDetails?id=${order.name}">Order Detail</a>
+						<img alt="Payment Sucessful" title="Payment Sucessful" src="/style/image/sucessfulicon.png" style="float: left; width: 100px;padding: 40px 10px 40px 240px;">
+    <h1 style="color: black; border: 1px solid red;font-size: 24px;padding: 60px;"> Payment Status: Successful ! <br> Thank You ! </h1>
+						View <a href="/uc/orderDetails?id=${order.name}">Order Detail</a>
 					</P>
 		
 				</#if>

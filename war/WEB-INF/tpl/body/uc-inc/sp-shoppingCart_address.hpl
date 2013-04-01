@@ -1,6 +1,6 @@
 <#if errorMsg??>
-<p class="red" style="border: dashed 1px red; padding: 10px; font-weight: bold;" >
-	Warning : ${errorMsg}
+<p class="red" style="border: solid 2px red; padding: 10px; font-weight: bold;" >
+	NOTICE: ${errorMsg}
 </p>
 </#if>
 
