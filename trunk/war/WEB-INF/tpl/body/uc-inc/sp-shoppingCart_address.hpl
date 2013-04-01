@@ -261,7 +261,7 @@
 				<a class="paypalIcon" target="_blank" href=" "></a>
 			</div>	
 			
-			<div id="WesternUnion" class="WesternUnionText" class="paymentmethod">
+			<div id="WesternUnion" class="paymentmethod WesternUnionText">
 				 <ul>
 			     <li><b>Beneficiary:</b>SHI YI LIU</li>
 			     <li><b>First Name:</b>Shiyi</li>
