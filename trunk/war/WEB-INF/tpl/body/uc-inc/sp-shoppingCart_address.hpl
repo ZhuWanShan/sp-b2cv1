@@ -219,13 +219,14 @@
 		<h1 class="title">Payment Method</h1>
 		<div class="payment">
 			<select name="payment">
-				<option value="allpaymthod" selected="selected" >Please select your payment method</option>
-				<option value="Globebill">Credit or Debit Card</option>
-				<option value="paypal">Paypal</option>
+				<option value="allpaymthod">Please select your payment method</option>
+				<option value="Globebill" selected="selected" >Credit or Debit Card</option>
+				<!-- <option value="paypal">Paypal</option> -->
 				<option value="WesternUnion">Western Union</option>
 				<option value="WireTransfer">Wire Transfer</option>
 			</select>
-			<div id="allpaymthod" > 
+			
+			<div id="allpaymthod" class="paymentmethod"> 
 				<p>We currently accept PayPal, common credit and debit cards, Western Union, wire transfer and realtime bank 
 				transfer for all orders (you can check the availability listed below). We also take security very seriously indeed, 
 				so your details will be safe with us. </p>
@@ -239,7 +240,7 @@
 				</p>
 			</div>
 			
-			<div id="Globebill" style="display: block;" >
+			<div id="Globebill" style="display: block;" class="paymentmethod">
 				<p>We accept the following credit and debit cards: </p>
 				<p>Note: For security purposes, we will not save any of your credit card data. </p>
 				<p>
@@ -250,7 +251,7 @@
 				</p>
 			</div>	
 			
-			<div id="paypal" style="display: block;" >
+			<div id="paypal" style="display: block;" class="paymentmethod">
 				<p>Existing PayPal users can complete your payment using your PayPal account.
 				<p>New PayPal users can register a PayPal account first, then continue the payment on PayPal website.</p>
 				<p>Note: you can send money to us on PayPal directly, our account is: XXX (accept many currencies).</p>
@@ -260,7 +261,7 @@
 				<a class="paypalIcon" target="_blank" href=" "></a>
 			</div>	
 			
-			<div id="WesternUnion" style="display: block;" class="WesternUnionText">
+			<div id="WesternUnion" style="display: block;" class="WesternUnionText" class="paymentmethod">
 				 <ul>
 			     <li><b>Beneficiary:</b>SHI YI LIU</li>
 			     <li><b>First Name:</b>Shiyi</li>
@@ -274,7 +275,7 @@
 			     </ul>        
 			</div>	
 			
-				<div id="WireTransfer" style="display: block;">
+				<div id="WireTransfer" style="display: block;" class="paymentmethod">
 				 <ul>
 				 <li><b>Name: </b>HONEYSTORE CO., LIMITED</li>
 				 <li><b>Account: </b>264-571043-883</li>
@@ -286,8 +287,22 @@
 				   Thanks!</li>
 				 </ul>
 			</div>	
-			
 		</div>
+		
+		<script type="text/javascript">
+			jq(".paymentmethod").hide();
+			var me = jq("select[name=payment]").val();
+			
+			jq("#"+me).show();
+			
+			jq("select[name=payment]").change(function(){
+				
+				jq("#"+jq("select[name=payment]").val()).show();
+					
+			});
+			
+		</script>
+		
 	</div>
 
 </div>
