@@ -57,7 +57,7 @@ public class BootstrapDataFilter extends GenericFilterBean{
 	private Logger logger = Logger.getLogger(BootstrapDataFilter.class);
 	protected Map<String, Float> currencies;
 	protected Map<String, String> crossSales = new TreeMap<String, String>();
-	protected  SiteView siteView;
+	protected static SiteView siteView;
 	
 	public BootstrapDataFilter() {
 		Properties cp = new Properties();
@@ -203,6 +203,8 @@ public class BootstrapDataFilter extends GenericFilterBean{
 		siteView.setCrossSales(this.crossSales);
 		
 		List<Country> countries = ServiceFactory.getService(CountryService.class).getAllCountries();
+		
+		logger.info("Country Count: " + countries.size());
 		
 		Map<String, Country> cMap = new HashMap<String,Country>();
 		
