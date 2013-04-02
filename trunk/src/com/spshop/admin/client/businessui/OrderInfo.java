@@ -11,6 +11,7 @@ import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
@@ -68,8 +69,56 @@ public class OrderInfo extends Composite {
         this.couponPrice.setText(String.valueOf(order.getCouponCutOff()));
         this.shippingType.setText(order.getShippingMethod());
         this.txtTraceInfo.setText(this.order.getTraceInfo());
-        this.primaryAddr.setText(populateAddressString(this.order.getShippingAddress()));
-        this.billingAddr.setText(populateAddressString(this.order.getBillingAddress()));
+        
+        if(null != this.order.getShippingAddress()){
+        	 String strCId = this.order.getShippingAddress().getCountry();
+        	 final OrderInfo self = this;
+        	 if(null != strCId && strCId.matches("\\d+")){
+        		 long cId = Long.valueOf(strCId);
+        		 AdminWorkspace.ADMIN_SERVICE_ASYNC.getCountryById(cId, new AsyncCallback<Country>() {
+					
+					@Override
+					public void onSuccess(Country c) {
+						self.primaryAddr.setText(populateAddressString(self.order.getShippingAddress(), c.getName()));
+					}
+					
+					@Override
+					public void onFailure(Throwable arg0) {
+						self.primaryAddr.setText(populateAddressString(self.order.getShippingAddress(), self.order.getShippingAddress().getCountry()));
+					}
+				});
+        	 }else{
+        		 self.primaryAddr.setText(populateAddressString(self.order.getShippingAddress(), self.order.getShippingAddress().getCountry()));
+        	 }
+        	
+        	
+             
+        }
+        
+        if(null != this.order.getBillingAddress()){
+       	 String strCId = this.order.getBillingAddress().getCountry();
+       	 final OrderInfo self = this;
+       	 if(null != strCId && strCId.matches("\\d+")){
+       		 long cId = Long.valueOf(strCId);
+       		 AdminWorkspace.ADMIN_SERVICE_ASYNC.getCountryById(cId, new AsyncCallback<Country>() {
+					
+					@Override
+					public void onSuccess(Country c) {
+						self.billingAddr.setText(populateAddressString(self.order.getBillingAddress(), c.getName()));
+					}
+					
+					@Override
+					public void onFailure(Throwable arg0) {
+						self.billingAddr.setText(populateAddressString(self.order.getBillingAddress(), self.order.getBillingAddress().getCountry()));
+					}
+				});
+       	 }else{
+       		self.billingAddr.setText(populateAddressString(self.order.getBillingAddress(), self.order.getBillingAddress().getCountry()));
+       	 }
+       	
+       	
+            
+       }
         
         if (this.order.getOrderType() == null || "".equals(this.order.getOrderType().trim())) {
             this.paymentMethod.setText("Paypal");
@@ -78,7 +127,7 @@ public class OrderInfo extends Composite {
         }
     }
     
-    private String populateAddressString(Address addr){
+    private String populateAddressString(Address addr , String country){
     	
     	if(null == addr){
     		return "N/A";
@@ -89,7 +138,6 @@ public class OrderInfo extends Composite {
         String address2 = addr.getAddress2();
         String city = addr.getCity();
         String state = addr.getStateProvince();
-        String country = addr.getCountry();
         String postalCode = addr.getPostalCode();
         String tel = addr.getPhone();
         
