@@ -54,9 +54,9 @@ import com.spshop.web.view.UserView;
 public class BootstrapDataFilter extends GenericFilterBean{
 	 private final static String HOME_CATEGORY_NAME = "home";
 	
-	private Logger logger = Logger.getLogger(BootstrapDataFilter.class);
-	protected Map<String, Float> currencies;
-	protected Map<String, String> crossSales = new TreeMap<String, String>();
+	private static Logger logger = Logger.getLogger(BootstrapDataFilter.class);
+	protected static Map<String, Float>  currencies;
+	protected static Map<String, String> crossSales = new TreeMap<String, String>();
 	protected static SiteView siteView;
 	
 	public BootstrapDataFilter() {
