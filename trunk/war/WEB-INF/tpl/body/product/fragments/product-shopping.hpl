@@ -156,7 +156,14 @@
 						<option value="">Please select</option>
 						<#list pOption.items as item>
 							<option value="${item.value}"
-								<#if (pOption.defaultValue?exists && (item.value=pOption.defaultValue))>selected="selected"</#if>>${item.name}</option>
+								<#if pOption.defaultValue ??>
+									<#if ((item.value)!'') == (pOption.defaultValue)!'' >
+										selected="selected"
+									</#if>
+								</#if>
+								
+							>${(item.name)!''}
+							</option>
 						</#list>
 					</select>
 				</div>
@@ -174,7 +181,7 @@
 						<option value="please">Please select</option>
 						<#list pOption.items as item>
 							<option value="${item.value}"
-								<#if item.value?contains(pOption.defaultValue)>selected="selected"</#if>>${item.value}</option>
+								<#if ((item.value)!'')?contains(pOption.defaultValue)>selected="selected"</#if>>${(item.value)!''}</option>
 						</#list>
 					</select>
 				</div>
