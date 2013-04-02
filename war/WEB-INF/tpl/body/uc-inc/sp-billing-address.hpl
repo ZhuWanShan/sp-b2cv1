@@ -61,12 +61,7 @@
 					</li>
 			<#else>
 				<li><button class="button_01" id="Add_a_New_Billing_Address_from_shipping_cart">Add a New Billing Address</button></li>
-			</#if>
-				
-				
-				
-			</ul>
-				<script>
+								<script>
 					jQuery("#Add_a_New_Billing_Address_from_shipping_cart").click(function(){
 						jQuery.HB.AddressWindow(
 								{contentUrl:"/uc/listAddress", 
@@ -80,7 +75,14 @@
 									}
 								});
 					});
+					jQuery("#Add_a_New_Billing_Address_from_shipping_cart").click();
 				</script>
+			</#if>
+				
+				
+				
+			</ul>
+
 		</div>
 	</div>
 	
