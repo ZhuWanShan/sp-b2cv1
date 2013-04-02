@@ -56,7 +56,7 @@
 						</script>
 						
 						<p style="padding-top: 10px">
-							Please make sure the billing address you enter below matches the name and address associated with the credit card you are using for this purchase. Please note your billing address and shipping address country must be the same.
+							Please make sure the billing address you entered matches your credit card.
 						</p>
 					</li>
 			<#else>
@@ -66,7 +66,7 @@
 						jQuery.HB.AddressWindow(
 								{contentUrl:"/uc/listAddress", 
 									postUrl:"/uc/addOrUpdateBillingAddress", 
-									title:"Billing Address is required",
+									title:"Billing Address is required (Make sure this address matches your credit card)",
 									success : function(data){
 										window.location.reload();
 									},

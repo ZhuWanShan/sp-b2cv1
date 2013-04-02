@@ -197,7 +197,7 @@ public class OrderPaymentController extends BaseController{
 		
 		if(null != order){
 			if(null == order.getShippingAddress()){
-				model.addAttribute("errorMsg", "Please fill you shipping address");
+				model.addAttribute("errorMsg", "Please fill your shipping address");
 			}else if(StringUtils.isBlank(order.getShippingMethod())){
 				model.addAttribute("errorMsg", "Please select a shipping method");
 			}else if("Globebill".equals(payment)) {
