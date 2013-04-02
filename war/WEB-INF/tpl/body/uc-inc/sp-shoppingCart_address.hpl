@@ -54,7 +54,12 @@
 										<#elseif opt.value == 'The Same As Picture' || (optType!'') == 'ASP'>
 											<li>${opt.name } : The Same As Picture</li>
 										<#else>
-											<li>${opt.name }: &nbsp;&nbsp;<img alt='${optTitle!""}' src='${siteView.imageHost}${optType!""}' title='${optTitle!""}' width="18" height="18"></li>
+											<li>${opt.name }: &nbsp;&nbsp;<img alt='${optTitle!""}' src=
+												<#if (optType!"")?starts_with("http") >
+													'${optType!""}'
+												<#else>
+													'${siteView.imageHost}/${optType!""}'
+												</#if> width="18" height="18"  title='${optTitle!""}'></li>
 										</#if>
 									<#break>
 									<#default>
