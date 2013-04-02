@@ -105,15 +105,17 @@
 						<tr>
 					</#if>
 					<#if order.billingAddress ??>
-						<#assign "address"= order.billingAddress >
-						<tr>
-							<td class="scart_status_list_table_w1">BILLED TO:</td>
-							<td class="scart_status_list_table_w2">${(address.firstName)!''} ${(address.lastName)!''} 
-								(${address.address1!''} ${address.city!''},
-								${address.stateProvince!''},
-								${siteView.countryMap[address.country?string].name}, Postal Code:
-								${address.postalCode!''}) Phone:${address.phone!''}</td>
-						<tr>
+						<#if address.country ??>
+							<#assign "address"= order.billingAddress >
+							<tr>
+								<td class="scart_status_list_table_w1">BILLED TO:</td>
+								<td class="scart_status_list_table_w2">${(address.firstName)!''} ${(address.lastName)!''} 
+									(${address.address1!''} ${address.city!''},
+									${address.stateProvince!''},
+									${siteView.countryMap[address.country?string].name}, Postal Code:
+									${address.postalCode!''}) Phone:${address.phone!''}</td>
+							<tr>
+						</#if>
 					</#if>
 					<#if order.shippingAddress ??>
 						<#assign "address"= order.shippingAddress >
