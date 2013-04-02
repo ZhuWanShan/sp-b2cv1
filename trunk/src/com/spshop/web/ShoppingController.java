@@ -227,7 +227,7 @@ public class ShoppingController extends BaseController{
 	
 	@RequestMapping(value="/createAccount", method = RequestMethod.POST)
     public String createAccount(Model model,HttpServletRequest request,HttpServletResponse response) {
-		
+		boolean noError = true;
 		String email = request.getParameter(REG_USER_NAME);
 		String pwd1 = request.getParameter(REG_PWD);
 		String pwd2 = request.getParameter(REG_PWD_RE);
@@ -246,7 +246,8 @@ public class ShoppingController extends BaseController{
 		user.setUpdateDate(new Date());
 		
 		if(!TRUE.equals(acceptLicense)){
-			getUserView().getErr().put(ACCEPT_LICENSE_ERR, "Please accept license");
+			model.addAttribute(ACCEPT_LICENSE_ERR, "Please accept license");
+			noError = false;
 		}
 		
 		String landingpage = null;
@@ -257,27 +258,31 @@ public class ShoppingController extends BaseController{
 		}
 			
 		if(null==email || !(email.contains("@"))){
-				getUserView().getErr().put(REG_USER_NAME_ERR, "Invalid user account");
+				model.addAttribute(REG_USER_NAME_ERR, "Invalid user account");
+				noError = false;
 		}else{
 			User u = ServiceFactory.getService(UserService.class).queryUserByEmail(email);
 			if(u != null){
-				getUserView().getErr().put(REG_USER_NAME_ERR, "account already exist");
+				model.addAttribute(REG_USER_NAME_ERR, "account already exist");
+				noError = false;
 			}
 		}
 		
 		if(pwd1==null || pwd1.length()<5){
-			getUserView().getErr().put(REG_PWD_ERR, "Invalid password");
+				model.addAttribute(REG_PWD_ERR, "Invalid password");
+				noError = false;
 		}else{
 			if(pwd2==null || !pwd1.equals(pwd2)){
-				getUserView().getErr().put(REG_PWD_RE_ERR, "Two passwords are not same");
+				model.addAttribute(REG_PWD_RE_ERR, "Two passwords are not same");
+				noError = false;
 			}
 		}
 		
 		
-		if(getUserView().getErr().isEmpty()){
+		if(noError){
 			final User u = ServiceFactory.getService(UserService.class).saveUser(user);
 			if(null!=u){
-				getUserView().getMsg().put(REG_USER_NAME_SUC, "Create Account successfully");
+					model.addAttribute(REG_USER_NAME_SUC, "Create Account successfully");
 				   final Map<String,Object> root = new HashMap<String,Object>(); 
 		            root.put("user", u);
 		            u.setPassword(u.getPassword());
