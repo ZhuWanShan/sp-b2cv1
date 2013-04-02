@@ -155,7 +155,7 @@
 					<select name="text@${pOption.name}" id="Size0">
 						<option value="">Please select</option>
 						<#list pOption.items as item>
-							<option value="${item.value}"
+							<option value="${(item.value)!''}"
 								<#if pOption.defaultValue ??>
 									<#if ((item.value)!'') == (pOption.defaultValue)!'' >
 										selected="selected"
