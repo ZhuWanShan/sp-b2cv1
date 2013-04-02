@@ -48,7 +48,7 @@ public class CategoryDataFilter extends AbstractCategoryDataFilter{
 	        
 	        
 	        if(pageView.getCategory() == null) {
-	            Category category = ServiceFactory.getService(CategoryService.class).getCategoryByName(name);
+	            Category category = ServiceFactory.getService(CategoryService.class).getCategoryByName(name.replace("/", ""));
 	            pageView.setCategory(category);
 	        }
 	        
