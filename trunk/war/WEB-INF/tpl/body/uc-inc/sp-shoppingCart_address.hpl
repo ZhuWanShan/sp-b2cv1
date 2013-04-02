@@ -153,24 +153,41 @@
 				</#list>
 			</#if>
 				<li><button class="button_01" id="Add_a_New_Billing_Address_from_shipping_cart">Add a New Shipping Address</button></li>
-				
-				
 			</ul>
 				<script>
-					jQuery("#Add_a_New_Billing_Address_from_shipping_cart").click(function(){
-						jQuery.HB.AddressWindow(
-								{contentUrl:"/uc/listAddress", 
-									postUrl:"/uc/addOrUpdateShippingAddress", 
-									title:"Add new Shipping Address",
-									success : function(data){
-										window.location.reload();
-									},
-									error : function (data){
-										alert('Failed');
-									}
-								});
-					});
+					
+					<#if userView.loginUser.shippingAddresses??>
+						jQuery("#Add_a_New_Billing_Address_from_shipping_cart").click(function(){
+							jQuery.HB.AddressWindow(
+									{contentUrl:"/uc/listAddress", 
+										postUrl:"/uc/addOrUpdateShippingAddress", 
+										title:"Add new Shipping Address",
+										success : function(data){
+											window.location.reload();
+										},
+										error : function (data){
+											alert('Failed');
+										}
+									});
+						});
+					</#else>
+						jQuery("#Add_a_New_Billing_Address_from_shipping_cart").click(function(){
+							jQuery.HB.AddressWindow(
+									{contentUrl:"/uc/listAddress", 
+										postUrl:"/uc/addOrUpdateShippingAddress", 
+										title:"Shipping Address is required",
+										success : function(data){
+											window.location.reload();
+										},
+										error : function (data){
+											alert('Failed');
+										}
+									});
+						});
+						jQuery("#Add_a_New_Billing_Address_from_shipping_cart").click();
+					</#if>
 				</script>
+				
 		</div>
 	</div>
 	<#assign notExistingShipingAddress =  (((order.shippingAddress.firstName)!'')=='')>
