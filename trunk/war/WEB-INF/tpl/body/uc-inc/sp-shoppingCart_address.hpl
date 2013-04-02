@@ -1,7 +1,9 @@
 <#if errorMsg??>
-<p class="red" style="border: solid 2px red; padding: 10px; font-weight: bold;" >
-	NOTICE: ${errorMsg}
-</p>
+<div class="red" style="border: 2px solid red; padding: 10px; font-weight: bold; height: 30px;">
+<div style="float:left; width:40%; text-align:right; "><img width="32" src="/style/image/notice.PNG"></div>
+<div style="float:right; line-height:30px; text-align: left; width:60%; text-indent:10px; ">
+	NOTICE: ${errorMsg}</div>
+</div>
 </#if>
 
 <div class="scart_con">
