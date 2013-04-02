@@ -170,7 +170,7 @@
 										}
 									});
 						});
-					</#else>
+					<#else>
 						jQuery("#Add_a_New_Billing_Address_from_shipping_cart").click(function(){
 							jQuery.HB.AddressWindow(
 									{contentUrl:"/uc/listAddress", 
