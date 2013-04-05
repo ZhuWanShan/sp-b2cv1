@@ -9,8 +9,8 @@
 	<div class="cart_list_block">
 		<h1 class="title">Order Number</h1>
 			Order Number:  <span class="red"> ${order.name}</span>
-		<div class="content">
-			Processing ...
+		<div class="content" style="padding: 10px; color: red">
+			Processing ... DO NOT CLOSE.
 		</div>
 	</div>
 	<div class="scart_summary">
