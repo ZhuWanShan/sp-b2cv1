@@ -242,7 +242,7 @@ public class OrderPaymentController extends BaseController{
 			
 		}
 		
-		return "forward:/uc//checkout?orderSN="+orderSN + "&payment="+order.getOrderType();
+		return "forward:/uc/checkout?orderSN="+orderSN + "&payment="+order.getOrderType();
 	}
 
 
@@ -340,5 +340,20 @@ public class OrderPaymentController extends BaseController{
 	    model.addAttribute("lastName", lastName);
 	    model.addAttribute("cc", cc);
 	    
+	}
+	
+	@RequestMapping("/applyMsg")
+	@ResponseBody
+	public String applyMsg(Model model, @RequestParam("orderSN")String orderSN, @RequestParam("msg")String msg) {
+		
+		
+		Order order = ServiceFactory.getService(OrderService.class).getCartOrPendingOrderById(orderSN, getUserView().getLoginUser().getId());
+		if(null != order){
+			order.setCustomerMsg(msg);
+			ServiceFactory.getService(OrderService.class).save(order);
+		}
+		
+		return null;
+		
 	}
 }

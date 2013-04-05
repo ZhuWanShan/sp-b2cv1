@@ -283,18 +283,15 @@ public class ShoppingController extends BaseController{
 			final User u = ServiceFactory.getService(UserService.class).saveUser(user);
 			if(null!=u){
 					model.addAttribute(REG_USER_NAME_SUC, "Create Account successfully");
+					model.addAttribute("createdUser", user);
 				   final Map<String,Object> root = new HashMap<String,Object>(); 
 		            root.put("user", u);
 		            u.setPassword(u.getPassword());
 		            
 		            model.addAttribute(USER_INFO, u);
-					request.getSession().setAttribute(USER_INFO,u);
+					request.getSession().setAttribute(USER_INFO, u);
 					getUserView().setLoginUser(u);
-					Cookie cookie = new Cookie(COOKIE_ACCOUNT, Utils.OBJ.getEncryString(u.getEmail()+USER_NAME_PWD_SPLIT+u.getPassword()));
-					cookie.setMaxAge(99999999);
-					cookie.setPath("/");
-					response.addCookie(cookie);
-		            
+					
 		            new Thread(){
 		                public void run() {
 		                    try{

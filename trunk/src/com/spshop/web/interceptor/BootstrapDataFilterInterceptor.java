@@ -9,7 +9,6 @@ import static com.spshop.utils.Constants.CURRENT_PRODUCT_ID;
 import static com.spshop.utils.Constants.DEFAULT_CURRENCY;
 import static com.spshop.utils.Constants.SHOPPINGCART;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -17,15 +16,12 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.TreeMap;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.web.filter.GenericFilterBean;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.spshop.cache.SCacheFacade;
 import com.spshop.model.Category;
@@ -51,20 +47,20 @@ import com.spshop.web.view.UserView;
  * @author <link href="wan-shan.zhu@hp.com">Spark Zhu</link>
  * @version 1.0
  */
-public class BootstrapDataFilter extends GenericFilterBean{
+public class BootstrapDataFilterInterceptor extends HandlerInterceptorAdapter{
 	 private final static String HOME_CATEGORY_NAME = "home";
 	
-	private static Logger logger = Logger.getLogger(BootstrapDataFilter.class);
+	private static Logger logger = Logger.getLogger(BootstrapDataFilterInterceptor.class);
 	protected static Map<String, Float>  currencies;
 	protected static Map<String, String> crossSales = new TreeMap<String, String>();
-	protected static SiteView siteView;
+	public static SiteView siteView;
 	
-	public BootstrapDataFilter() {
+	public BootstrapDataFilterInterceptor() {
 		Properties cp = new Properties();
 		Properties crossSale = new Properties();
 		try {
 			currencies = new HashMap<String, Float>();
-			cp.load(BootstrapDataFilter.class.getResourceAsStream("/currency.properties"));
+			cp.load(BootstrapDataFilterInterceptor.class.getResourceAsStream("/currency.properties"));
 			for (Object currencyName : cp.keySet()) {
 				try {
 					float rate = Float.parseFloat(cp.get(currencyName).toString());
@@ -90,14 +86,11 @@ public class BootstrapDataFilter extends GenericFilterBean{
 	
 
 	@Override
-	public void doFilter(ServletRequest servletRequest, ServletResponse response,
-			FilterChain chain) throws IOException, ServletException {
-
-		HttpServletRequest request = (HttpServletRequest) servletRequest;
-
+	public boolean preHandle(HttpServletRequest request,
+			HttpServletResponse response, Object handler) throws Exception {
+		
 		UserView userView = new UserView();
 		
-		//TODO retrieve userView
 		User user = Utils.retrieveUser(request);
 		ShoppingCart shoppingCart = Utils.retrieveShoppingCart(request, user);
 		
@@ -133,7 +126,7 @@ public class BootstrapDataFilter extends GenericFilterBean{
         
         request.getSession().getServletContext().setAttribute(Constants.HOME_VIEW, homeView);
         
-		chain.doFilter(request, response);
+        return true;
 	}
 
 
@@ -197,10 +190,10 @@ public class BootstrapDataFilter extends GenericFilterBean{
 		
 		siteView.setHost(host);
 		siteView.setSite(site);
-		siteView.setCurrencies(this.currencies);
+		siteView.setCurrencies(currencies);
 		siteView.setCategories(categories);
 		siteView.setImageHost("http://www.honeybuy.com");
-		siteView.setCrossSales(this.crossSales);
+		siteView.setCrossSales(crossSales);
 		
 		List<Country> countries = ServiceFactory.getService(CountryService.class).getAllCountries();
 		
