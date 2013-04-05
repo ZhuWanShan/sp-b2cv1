@@ -11,13 +11,13 @@ package com.spshop.web.interceptor;
  */
 import java.util.List;
 
-import org.springframework.web.filter.GenericFilterBean;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.spshop.model.Category;
 
-public abstract class AbstractCategoryDataFilter extends GenericFilterBean {
+public abstract class AbstractCategoryDataInterceptor extends  HandlerInterceptorAdapter{
 
-	public AbstractCategoryDataFilter() {
+	public AbstractCategoryDataInterceptor() {
 		super();
 	}
 

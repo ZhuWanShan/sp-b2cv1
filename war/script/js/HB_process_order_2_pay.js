@@ -154,10 +154,38 @@
 	
 	}
 	
+	function applyMsg(orderSN){
+		
+		var msg = $("#order_msg").val();
+
+		$.ajax({
+			url : "/uc/applyMsg",
+			data : {"orderSN":orderSN, "msg" : msg},
+			type : "post",
+			dataType : "json",
+			beforeSend : function (){
+				
+			},
+			complete : function (){
+				
+			},
+			success : function(data){
+				$("#order_msg_noti").html("Apply message successfully.");
+			},
+			error :function(){
+				$("#order_msg_noti").html("Apply message failed.");
+			}
+			
+		});
+	
+	}
+	
 	
 	$.HB.updateItem = updateItem;
 	$.HB.applyCoupon = applyCoupon;
 	$.HB.applyShippingAddress = applyShippingAddress;
 	$.HB.applyShippingMethod = applyShippingMethod;
+	$.HB.applyMsg = applyMsg;
+	
 	
 })( jq );

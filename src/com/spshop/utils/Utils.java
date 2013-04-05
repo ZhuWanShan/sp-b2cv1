@@ -46,7 +46,7 @@ import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.UserService;
-import com.spshop.web.interceptor.BootstrapDataFilter;
+import com.spshop.web.interceptor.BootstrapDataFilterInterceptor;
 
 public class Utils {
 
@@ -68,7 +68,7 @@ public class Utils {
 		Properties cp = new Properties();
 		try {
 			
-			cp.load(BootstrapDataFilter.class.getResourceAsStream("/currency.properties"));
+			cp.load(BootstrapDataFilterInterceptor.class.getResourceAsStream("/currency.properties"));
 			for (Object currencyName : cp.keySet()) {
 				try {
 					float rate = Float.parseFloat(cp.get(currencyName).toString());

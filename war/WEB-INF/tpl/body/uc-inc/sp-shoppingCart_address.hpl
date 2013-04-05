@@ -105,6 +105,19 @@
 		</div>
 	</div>
 	
+	<div class="cart_list_block">
+		<h1 class="title">Leave a message</h1>
+		<div class="content">
+				<div>
+					<p>Leave your special requirements here:</p>
+					<div class="form_error red" id="order_msg_noti"></div>
+					<textarea maxlength="800" rows="4" class="order_msg" name="order_msg" id="order_msg">${(order.customerMsg)!''}</textarea>
+					<br>
+					<input	type="button" class="button_01" id="submit_coupon" value="Apply" onclick="jq.HB.applyMsg('${order.name}')">
+				</div>
+		</div>
+	</div>
+	
 	
 	<div class="cart_list_block">
 		<h1 class="title">Shipping Address</h1>
@@ -159,9 +172,9 @@
 			</#if>
 				<li><button class="button_01" id="Add_a_New_Billing_Address_from_shipping_cart">Add a New Shipping Address</button></li>
 			</ul>
-				<script>
+				<script type="text/javascript">
 					
-					<#if userView.loginUser.shippingAddresses??>
+					<#if userView.loginUser.shippingAddresses[0]??>
 						jQuery("#Add_a_New_Billing_Address_from_shipping_cart").click(function(){
 							jQuery.HB.AddressWindow(
 									{contentUrl:"/uc/listAddress", 
