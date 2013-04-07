@@ -8,74 +8,37 @@
 	<name>hb parent</name>
 
 	<repositories>
-	<!-- 	<repository>
-			<id>REPO1 Releases</id>
-			<name>Internal Releases</name>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>interval:15</updatePolicy>
-				<checksumPolicy>fail</checksumPolicy>
-			</releases>
-			<url>http://repo1.corp.hp.com/nexus/content/repositories/releases</url>
-		</repository>
-		<repository>
-			<id>REPO1 Snapshots</id>
-			<name>Internal Snapshots</name>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>interval:15</updatePolicy>
-				<checksumPolicy>fail</checksumPolicy>
-			</snapshots>
-			<url>http://repo1.corp.hp.com/nexus/content/repositories/snapshots</url>
-		</repository> -->
+		<!-- <repository> <id>REPO1 Releases</id> <name>Internal Releases</name> 
+			<releases> <enabled>true</enabled> <updatePolicy>interval:15</updatePolicy> 
+			<checksumPolicy>fail</checksumPolicy> </releases> <url>http://repo1.corp.hp.com/nexus/content/repositories/releases</url> 
+			</repository> <repository> <id>REPO1 Snapshots</id> <name>Internal Snapshots</name> 
+			<snapshots> <enabled>true</enabled> <updatePolicy>interval:15</updatePolicy> 
+			<checksumPolicy>fail</checksumPolicy> </snapshots> <url>http://repo1.corp.hp.com/nexus/content/repositories/snapshots</url> 
+			</repository> -->
 	</repositories>
 
 	<pluginRepositories>
-		<!-- <pluginRepository>
-			<id>HP CAS REPO1</id>
-			<name>Public</name>
-			<url>http://repo1.corp.hp.com/nexus/content/groups/public</url>
-			<layout>default</layout>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>interval:15</updatePolicy>
-				<checksumPolicy>fail</checksumPolicy>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>interval:15</updatePolicy>
-				<checksumPolicy>fail</checksumPolicy>
-			</releases>
-		</pluginRepository>
-		
-		<pluginRepository>
-			<id>fortify</id>
-			<name>Fortify Security Scanner</name>
-			<url>http://repo1.corp.hp.com/nexus/content/groups/public/com/fortify/ps/maven/plugin/maven-sca-plugin/</url>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>interval:15</updatePolicy>
-				<checksumPolicy>fail</checksumPolicy>
-			</releases>
-		</pluginRepository> -->
+		<!-- <pluginRepository> <id>HP CAS REPO1</id> <name>Public</name> <url>http://repo1.corp.hp.com/nexus/content/groups/public</url> 
+			<layout>default</layout> <snapshots> <enabled>true</enabled> <updatePolicy>interval:15</updatePolicy> 
+			<checksumPolicy>fail</checksumPolicy> </snapshots> <releases> <enabled>true</enabled> 
+			<updatePolicy>interval:15</updatePolicy> <checksumPolicy>fail</checksumPolicy> 
+			</releases> </pluginRepository> <pluginRepository> <id>fortify</id> <name>Fortify 
+			Security Scanner</name> <url>http://repo1.corp.hp.com/nexus/content/groups/public/com/fortify/ps/maven/plugin/maven-sca-plugin/</url> 
+			<releases> <enabled>true</enabled> <updatePolicy>interval:15</updatePolicy> 
+			<checksumPolicy>fail</checksumPolicy> </releases> </pluginRepository> -->
 	</pluginRepositories>
 
 	<distributionManagement>
-	<!-- 	<repository>
-			<id>releases</id>
-			<name>Internal Releases</name>
-			<url>http://repo1.corp.hp.com/nexus/content/repositories/releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>Internal Snapshots</name>
-			<url>http://repo1.corp.hp.com/nexus/content/repositories/snapshots</url>
-		</snapshotRepository> -->
+		<!-- <repository> <id>releases</id> <name>Internal Releases</name> <url>http://repo1.corp.hp.com/nexus/content/repositories/releases</url> 
+			</repository> <snapshotRepository> <id>snapshots</id> <name>Internal Snapshots</name> 
+			<url>http://repo1.corp.hp.com/nexus/content/repositories/snapshots</url> 
+			</snapshotRepository> -->
 	</distributionManagement>
 
 	<properties>
 		<javaVersion>1.6</javaVersion>
-		<springFrameworkVersion>3.1.2.RELEASE</springFrameworkVersion>
+		<springFrameworkVersion>3.2.2.RELEASE</springFrameworkVersion>
+		<springSecurityVersion>3.1.3.RELEASE</springSecurityVersion>
 		<logback.version>1.0.1</logback.version>
 		<slf4j.version>1.6.4</slf4j.version>
 		<validator.version>1.3.1</validator.version>
@@ -143,7 +106,7 @@
 				<version>${springFrameworkVersion}</version>
 			</dependency>
 			<dependency>
-			<groupId>org.springframework</groupId>
+				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
 				<version>${springFrameworkVersion}</version>
 			</dependency>
@@ -151,12 +114,12 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-beans</artifactId>
 				<version>${springFrameworkVersion}</version>
-			</dependency>			
+			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-tx</artifactId>
 				<version>${springFrameworkVersion}</version>
-			</dependency>			
+			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-expression</artifactId>
@@ -167,24 +130,30 @@
 				<artifactId>spring-test</artifactId>
 				<version>${springFrameworkVersion}</version>
 			</dependency>
-			
+
 
 			<dependency>
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-core</artifactId>
-				<version>${springFrameworkVersion}</version>
+				<version>${springSecurityVersion}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-web</artifactId>
-				<version>${springFrameworkVersion}</version>
+				<version>${springSecurityVersion}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-config</artifactId>
-				<version>${springFrameworkVersion}</version>
+				<version>${springSecurityVersion}</version>
 			</dependency>
-			
+
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-acl</artifactId>
+				<version>${springSecurityVersion}</version>
+			</dependency>
+
 			<!-- Logging -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -225,28 +194,28 @@
 				<version>${commons-fileupload.version}</version>
 				<type>jar</type>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.apache.tiles</groupId>
 				<artifactId>tiles-jsp</artifactId>
 				<version>${tiles-jsp.version}</version>
 			</dependency>
-			
+
 			<dependency>
-	  			<groupId>commons-codec</groupId>
-				 <artifactId>commons-codec</artifactId>
-				 <version>${commons-codec.version}</version>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>${commons-codec.version}</version>
 			</dependency>
-			
+
 			<!-- javassist -->
-			<dependency>  
-	          <groupId>javassist</groupId>  
-	          <artifactId>javassist</artifactId>  
-	          <version>${javassist.version}</version>  
-       		</dependency>  
-       		
-       		<!-- Codehaus Jackson -->
-       		<dependency>
+			<dependency>
+				<groupId>javassist</groupId>
+				<artifactId>javassist</artifactId>
+				<version>${javassist.version}</version>
+			</dependency>
+
+			<!-- Codehaus Jackson -->
+			<dependency>
 				<groupId>org.codehaus.jackson</groupId>
 				<artifactId>jackson-core-lgpl</artifactId>
 				<version>${jackson.core.version}</version>
@@ -261,20 +230,20 @@
 				<artifactId>jackson-xc</artifactId>
 				<version>${jackson.xc.version}</version>
 			</dependency>
-			
+
 			<dependency>
-			  <groupId>org.codehaus.janino</groupId>
-			  <artifactId>janino</artifactId>
-			  <version>${janino.version}</version>
-			</dependency>	
-       		
-       		<!-- Servlet / JSP -->
-       		<dependency>
+				<groupId>org.codehaus.janino</groupId>
+				<artifactId>janino</artifactId>
+				<version>${janino.version}</version>
+			</dependency>
+
+			<!-- Servlet / JSP -->
+			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
 				<version>${servlet.version}</version>
 				<scope>provided</scope>
-       		</dependency>
+			</dependency>
 			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>jstl</artifactId>
@@ -285,14 +254,14 @@
 				<artifactId>standard</artifactId>
 				<version>${taglibs.version}</version>
 			</dependency>
-			
+
 			<!-- Coogle ehcache -->
 			<dependency>
 				<groupId>com.googlecode.ehcache-spring-annotations</groupId>
 				<artifactId>ehcache-spring-annotations</artifactId>
 				<version>${google.ehcache.version}</version>
 			</dependency>
-			
+
 			<!-- Testing -->
 			<dependency>
 				<groupId>org.powermock</groupId>
@@ -329,7 +298,7 @@
 				<artifactId>jmock-legacy</artifactId>
 				<version>${jmock.version}</version>
 			</dependency>
-			
+
 		</dependencies>
 	</dependencyManagement>
 

@@ -22,6 +22,12 @@ public class HomeController {
 		return "home";
 	}
 	
+	
+	@RequestMapping("/iWantAnError")
+	public String iWantAnError(){
+		throw new RuntimeException();
+	}
+	
 	@RequestMapping("/testJson")
 	@ResponseBody
 	public String test(){

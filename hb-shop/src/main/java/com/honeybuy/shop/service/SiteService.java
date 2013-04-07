@@ -25,9 +25,9 @@ public class SiteService implements ISiteService{
 		SiteDTO siteDTO = new SiteDTO();
 		
 		siteDTO.setOwnerId("None");
-		siteDTO.setResourceServer("http://localhost/resources");
+		siteDTO.setResourceServer("http://localhost/resources2");
 		siteDTO.setSiteId("0");
-		siteDTO.setWebResourcesFolder("/static");
+		siteDTO.setWebResourcesFolder("");
 		siteDTO.setProductImageResourcesFolder("/image");
 		
 		List<String> css = new ArrayList<String>();

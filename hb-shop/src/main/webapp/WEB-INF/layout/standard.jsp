@@ -25,6 +25,7 @@
 		<script src="${site.resourceServer}${site.webResourcesFolder}/js/jquery-ui-1.10.0.custom.js" type="text/javascript"></script>
 		<script src="/local-static-content/js/HB-io.js" type="text/javascript"></script>
 		<script src="${site.resourceServer}${site.webResourcesFolder}/js/widget/NavMenu/GlobalNav.js" type="text/javascript"></script>
+		<script src="${site.resourceServer}${site.webResourcesFolder}/js/widget/Slides/Slides.js" type="text/javascript"></script>
 		
 		<c:forEach items="${site.js }" var="js">
 			<script src="${site.resourceServer}${site.webResourcesFolder}${js}" type="text/javascript"></script>
