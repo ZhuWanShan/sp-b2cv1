@@ -204,6 +204,18 @@
 					</div>
 			</#if>
 		</#list>
+		
+		<div class="last-arrival-date">
+			Last Arrival Date: <br>
+			<input name="lastArrivalDate" type="text" id="lastArrival" />
+		</div>
+		<script>
+			 jq(function() {
+				jq( "#lastArrival" ).datepicker({ minDate: +12, maxDate: "+1M +10D" });
+			 });
+		</script>
+		
+		
 		<input type="hidden" value="${productInfo.name}" name="ProductId">
 		<input type="hidden" id="CustomizedHidden">
 		<input type="hidden" name="operation" value="addItem">
@@ -211,6 +223,7 @@
 			<i id="StocksInfo"></i>
 		</div>
 	</div>
+	
 	
 	<script>
 		var iscustom='';
