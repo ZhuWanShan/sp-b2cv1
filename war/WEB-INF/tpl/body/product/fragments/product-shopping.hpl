@@ -206,12 +206,13 @@
 		</#list>
 		
 		<div class="last-arrival-date">
-			Last Arrival Date: <br>
-			<input name="lastArrivalDate" type="text" id="lastArrival" />
+			Latest Arrival Date: <br>
+			<p style="color: #999">(Only For Custom Made Product)</p>
+			<input name="lastArrivalDate" type="text" id="lastArrival"  style="width: 175px;/>
 		</div>
 		<script>
 			 jq(function() {
-				jq( "#lastArrival" ).datepicker({ minDate: +12, maxDate: "+1M +10D" });
+				jq( "#lastArrival" ).datepicker({ minDate: +12, maxDate: "+2M" });
 			 });
 		</script>
 		
