@@ -43,7 +43,6 @@
 			<div class="color-box">
 			<div class="color-box-title">
 			<span>${pOption.name}:</span><br>
-			<p style="color: #999">If more than one color style, Please DO NOT use "the same as picture" option.</p>
 			</div>
 			<input type="hidden" name="color@${pOption.name}" id="goodColor" value="">
 			<select id="productColorSelector">
