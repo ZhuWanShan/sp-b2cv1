@@ -111,9 +111,8 @@
 				<div>
 					<p>Leave your special requirements here:</p>
 					<div class="form_error red" id="order_msg_noti"></div>
-					<textarea maxlength="800" rows="4" class="order_msg" name="order_msg" id="order_msg">${(order.customerMsg)!''}</textarea>
-					<br>
-					<input	type="button" class="button_01" id="submit_coupon" value="Apply" onclick="jq.HB.applyMsg('${order.name}')">
+					<textarea maxlength="800" rows="2" class="order_msg" name="order_msg" id="order_msg">${(order.customerMsg)!''}</textarea>
+					<span style="padding-left: 2px;" ><input type="button" class="button_01" id="submit_coupon" value="Apply" onclick="jq.HB.applyMsg('${order.name}')"></span>
 				</div>
 		</div>
 	</div>
@@ -170,7 +169,7 @@
 					</li>
 				</#list>
 			</#if>
-				<li><button class="button_01" id="Add_a_New_Billing_Address_from_shipping_cart">Add a New Shipping Address</button></li>
+				<li><span style="padding-left: 20px;" ><button class="button_01" id="Add_a_New_Billing_Address_from_shipping_cart">Add a New Shipping Address</button></span></li>
 			</ul>
 				<script type="text/javascript">
 					
@@ -239,13 +238,11 @@
 							<p class="red">When will my order arrive?</p>
 							<p style="margin: 12px;">
 							<img src="/style/image/processing-time.jpg"></p>
-							<p>Learn more about <a class="red">processing time</a></p>
+					
 							<ul>
-							<li style="line-height:20px;">Processing time is the time it takes to get your order ready to leave our warehouses. 
-							This includes preparing your items, performing quality checks, and packing for shipment.
+							<li style="line-height:20px;">Processing time is the time includes preparing your items, performing quality checks, and packing for shipment.
 							<br>
-							<strong>Processing Time: </strong>10-14 business days for custom-made items, 1-3 business days for other.<br>
-							<strong>Shipping Time: </strong>3-5 business days. </li></ul>
+							<strong>Processing Time: </strong>10-14 business days for custom-made items, 1-3 business days for other. <strong> Shipping Time: </strong>3-5 business days. </li></ul>
 								
 					   </div>
 				</div>
