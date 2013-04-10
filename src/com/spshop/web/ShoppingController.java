@@ -92,7 +92,7 @@ import com.spshop.utils.Utils;
 @SessionAttributes({CURRENT_PRODUCT,"continueShopping"})
 public class ShoppingController extends BaseController{
 	
-	private static final String ACCOUNT = "pay@honeybuy.com";
+	private static final String ACCOUNT = Constants.PAYPAL_ACCOUNT;
 	
 	private static final String COLOR = COLOR_PARAM_PRE;
 	private static final String QTY = QTY_PARAM;
@@ -546,111 +546,6 @@ public class ShoppingController extends BaseController{
 		return null;
 	}
 	
-	@RequestMapping(value="/aliPaySyncResults")
-	public String aliPaySyncResults(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException{
-		try {
-			//获取支付宝GET过来反馈信息
-			Map<String,String> params = new HashMap<String,String>();
-			Map requestParams = request.getParameterMap();
-			for (Iterator iter = requestParams.keySet().iterator(); iter.hasNext();) {
-				String name = (String) iter.next();
-				String[] values = (String[]) requestParams.get(name);
-				String valueStr = "";
-				for (int i = 0; i < values.length; i++) {
-					valueStr = (i == values.length - 1) ? valueStr + values[i]
-							: valueStr + values[i] + ",";
-				}
-				//乱码解决，这段代码在出现乱码时使用。如果mysign和sign不相等也可以使用这段代码转化
-				valueStr = new String(valueStr.getBytes("ISO-8859-1"), "utf-8");
-				params.put(name, valueStr);
-			}
-			
-			//获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表(以下仅供参�?//
-			//商户订单�?
-
-			String out_trade_no = new String(request.getParameter("out_trade_no").getBytes("ISO-8859-1"),"UTF-8");
-			
-			logger.info("out_trade_no:" + out_trade_no);
-			
-			//付款总金�?
-
-			String total_fee = request.getParameter("total_fee");
-
-			//币种
-
-			String currency = request.getParameter("currency");
-
-			//外币金额
-			String forex_total_fee = request.getParameter("forex_total_fee");
-			
-			float fee = 0f;
-			
-			try {
-				fee = Float.valueOf(total_fee);
-			} catch (Exception e) {
-				logger.warn("total_fee:" + total_fee);
-			}
-			
-			if(fee < 1){
-				try {
-					fee = Float.valueOf(forex_total_fee);
-				} catch (Exception e) {
-					logger.warn("forex_total_fee:" + forex_total_fee);
-				}
-			}
-			
-			Float currencyRate = getSiteView().getCurrencies().get(currency);
-			
-			//获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表(以上仅供参�?//
-			
-			//计算得出通知验证结果
-			boolean verify_result = AlipayNotify.verify(params);
-			
-			if(verify_result){//验证成功
-				logger.info("out_trade_no="+out_trade_no+",currency="+currency+",fee="+fee+", currencyRate="+currencyRate+"###########");
-				Order order = ServiceFactory.getService(OrderService.class).getOrderById(out_trade_no);
-				if(order != null 
-						&& order.getCurrency().equals(currency)
-						&& null != currencyRate
-						&& currencyRate*fee + 1 > order.getTotalPrice() + order.getDePrice() - order.getCouponCutOff()
-						){
-					ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.toString());
-					
-					logger.info("out_trade_no:"+ out_trade_no + "is paid");
-				}
-				//////////////////////////////////////////////////////////////////////////////////////////
-				//请在这里加上商户的业务逻辑程序代码
-				//——请根据您的业务逻辑来编写程序（以下代码仅作参考）—�?
-				
-				//判断是否在商户网站中已经做过了这次通知返回的处�?
-					//如果没有做过处理，那么执行商户的业务程序
-					//如果有做过处理，那么不执行商户的业务程序
-				
-				//该页面可做页面美工编�?
-				//out.println("验证成功");
-
-				//——请根据您的业务逻辑来编写程序（以上代码仅作参考）—�?
-
-				//////////////////////////////////////////////////////////////////////////////////////////
-				
-				return "redirect:/uc/orderDetails?id="+order.getName();
-				
-			}else{
-				//该页面可做页面美工编�?
-				//out.println("验证失败");
-			}
-		} catch (Exception e) {
-			
-			logger.error(e.getMessage(), e);
-			
-			return null;
-		}
-		
-		response.getWriter().print("failed");
-		
-		return null;
-	}
-	
 	
 
 	@RequestMapping("globebillPayRs")
@@ -700,86 +595,10 @@ public class ShoppingController extends BaseController{
 		return "Credit-card-Rs";
 	}
 	
-	@RequestMapping(value="/yoursPayResults")
-	public String yoursPayResults(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
-		String MD5key = "YNWNUrlJ";                                     /** <非空>--密钥. 从网店系统中获取�?*/
-		
-		String BillNo = request.getParameter("BillNo");                 /** <非空>--订单�? 从yourspay服务器返�?**/
-		
-		String Currency = request.getParameter("Currency");             /** <非空>--通道参数. 从yourspay服务器返�?**/
-		
-		String Amount = request.getParameter("Amount");                 /** <非空>--金额. 从yourspay服务器返�?*/
-
-		String CurrencyCode = request.getParameter("CurrencyCode");     /** <非空>--币种. 从yourspay服务器返�?*/
-		
-		String Succeed = request.getParameter("Succeed");               /** <非空>--支付状�?从yourspay服务器返�?"0"表示支付失败�?1"表示支付成功,"2"表示待处�? **/
-		
-		String Result = request.getParameter("Result");                 /** <非空>--支付结果. 从yourspay服务器返�?*/
-		
-		String MD5info = request.getParameter("MD5info");               /** <非空>--取得的MD5校验信息. 从yourspay服务器返�?*/
-		
-		String Remark = request.getParameter("Remark");                 /** <非空>--备注. 从yourspay服务器返�?*/
-		
-		StringBuilder md5src = new StringBuilder();
-		md5src = md5src.append(BillNo).append(Currency).append(Amount).append(Succeed).append(MD5key);   /** <非空>--参数组合.组合只能以这个顺�?位置不能颠�?**/
-		
-		String md5sign = Encrypt.MD5(md5src.toString()).toUpperCase();  /** <非空>--对组合参数进行md5加密**/
-		
-		OrderService orderService = ServiceFactory.getService(OrderService.class);
-		
-		Order order = orderService.getOrderById(BillNo);
-
-		/** 对返回信息进行判�?然后把支付结果显示在返回页面中，并更新网店后台的订单状�? **/
-		if(MD5info == md5sign && Succeed == "1"){
-			 // 支付结果�?支付成功(Payment Result: Success)�?
-			 // 更新网店后台的订单状态为:支付成功(Success)�?
-			orderService.saveOrder(order, OrderStatus.PAID.toString());
-			
-		}else if(MD5info == md5sign && Succeed == "2"){  
-			 // 支付结果�?支付待处�?Payment Result:Processing)
-			 // 更新网店后台的订单状态为:待处�?Processing)�?
-			orderService.saveOrder(order, OrderStatus.PENDING.toString());
-		}else if(MD5info == md5sign && Succeed == "0"){ 
-			// 支付结果�?支付失败(Payment Result: Fail)�?
-			// 更新网店后台的订单状态为:支付失败(Fail)�?
-			orderService.saveOrder(order, OrderStatus.PENDING.toString());
-		}else{
-			// 支付结果�?数据校验失败(Payment Result: Data Authentication Failed)�?
-			// 更新网店后台的订单状态为：支付失�?Fail)�?
-			orderService.saveOrder(order, OrderStatus.FAILD.toString());
-		}
-		
-		return "forward:/uc/orderDetails?id="+order.getName();
-	}
 	
 	private Map<String,String> updateCart(String itemID,int amount,boolean isRemove){
 		ShoppingCart cart = getUserView().getCart();
 		Map<String, String> rs = new HashMap<String, String>();
-		
-		/*Order order = cart.getOrder();
-		
-		Coupon coupon = ServiceFactory.getService(CouponService.class).getCouponByCode(order.getCouponCode());
-		
-		if(null!=coupon){
-			if(coupon.getMinexpend() > order.getTotalPrice()){
-				rs.put("couponFeedbackErr", "Cannot not apply in order less than USD " +  coupon.getMinexpend() +"'" );
-			}else if((coupon.isOnetime()&&coupon.getUsedCount()<1)||!coupon.isOnetime()){
-				float cutOff = 0f;
-				order.setCouponCode(coupon.getCode());
-				
-				if(!coupon.isCutOff()){
-					cutOff = coupon.getValue();
-					order.setCouponCutOff(cutOff);
-				}else{
-					cutOff = coupon.getValue() * order.getTotalPrice();
-					order.setCouponCutOff(cutOff);
-				}
-				rs.put("couponFeedbackSuc", "Apply successfully");
-			}
-		}else{
-			rs.put("couponFeedbackErr", "Invalid coupon");
-		}*/
 		
 		
 		if(null!=itemID){
