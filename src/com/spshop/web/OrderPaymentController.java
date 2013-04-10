@@ -340,6 +340,8 @@ public class OrderPaymentController extends BaseController{
 	    model.addAttribute("lastName", lastName);
 	    model.addAttribute("cc", cc);
 	    
+	    ServiceFactory.getService(OrderService.class).saveOrder(order, order.getStatus());
+	    
 	}
 	
 	@RequestMapping("/applyMsg")
