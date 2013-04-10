@@ -3209,6 +3209,7 @@ input.valid, select.valid, texteara.valid{
     float:right;
 }
 .paymenet_top {
-	margin: -16px 0px 16px;
+	margin: 20px 2px;
 	border: none;
+	float: left;
 }
