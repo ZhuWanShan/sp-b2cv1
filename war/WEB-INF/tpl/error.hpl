@@ -1,14 +1,13 @@
-<#assign pageKeywords = "Page not found - www.honeybuy.com">
-<#assign pageDescription = "Page not found, but we have many other quality products. www.honeybuy.com">
-<#assign pageTitle = "Page not found, but we have many other quality products. - www.honeybuy.com">
+<#assign pageKeywords = "Page not found">
+<#assign pageDescription = "Page not found, but we have many other quality products on www.honeybuy.com">
+<#assign pageTitle = "Page not found, but we have many other quality products on www.honeybuy.com">
 
 <#include "/header/top.hpl">
-<div style=" width:972px; margin:0 auto">
-<div style="float:left ; width:35%; text-align:right;"><img width="100px" src="/style/imagetice.PNG"></div>
-<div style="float: left; width: 50%; text-align: left; line-height: 20px; font-family: arial;  margin-top:15px ">
-That page doesn't seem to exist.<br>
-The page you are looking for might have been removed and its name had changed, this page is unavailable temporarily.
-<br>
-<a href="http://www.honeybuy.com/"><strong>Back to home page.</strong></a><br></div> </div>
 
+<div style=" width:972px; margin:0 auto; height:100px; padding:50px 0; border:1px solid #ccc; font-size:14px;">
+<div style="float:left ; width:30%; text-align:right; padding-right: 10px;"><img width="100px"  alt="notice" title="notice" border="0" src="/style/image/notice.PNG"></div>
+<div style="float: left; width: 60%; text-align: left; line-height: 28px; font-family: arial; ">
+That page doesn't seem to exist.<br>The page you are looking for might have been removed and its name had changed, 
+this page is unavailable temporarily.<br>
+<a href="http://www.honeybuy.com/"><span style="font-size: 18px; font-weight: bold;">Back to home page  &gt; &gt;</span></a><br></div> </div>
 <#include "/footer/ucf1.hpl"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
