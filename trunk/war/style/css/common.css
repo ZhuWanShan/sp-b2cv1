@@ -987,7 +987,7 @@ li.feedback_item_w4 {
 
 .scart_con {
 	width: 972px;
-	margin: 0px auto 20px;
+	margin: 0px auto 2px;
 	padding-bottom: 2px;
 	background: white;
 	padding-top: 2px;
@@ -1078,7 +1078,6 @@ li.scart_item_w5,ul.scart_c li.scart_item_w5 {
 
 ul.scart_c li.scart_item_w6 {
 	clear: both;
-	padding: 6px 0 12px 6px;
 	border-bottom: 1px dashed #7E7F7F;
 	width: 960px;
 	text-align: center;
@@ -3208,7 +3207,7 @@ input.valid, select.valid, texteara.valid{
     float:right;
 }
 .paymenet_top {
-	margin: 20px 2px;
+	margin: 36px 8px;
 	border: none;
 	float: left;
 }
