@@ -27,14 +27,12 @@ img {
 .button_01 {
 	background: url("/style/image/button01_bg.gif") repeat scroll 0 0
 		transparent !important;
-	border: 1px solid #45433E;
+	border: 1px solid #CCCCCC;
 	cursor: pointer;
-	font-size: 12px;
-	font-weight: bold;
 	height: 25px;
 	overflow: visible;
 	padding: 0 8px;
-	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7);
+	
 }
 
 .button_02 {
@@ -446,7 +444,7 @@ span.icon_RUB {
 	
 }
 
-.security a img {
+.security img {
 	
 	margin: -16px 0px 16px;
 	border: none;
@@ -990,9 +988,9 @@ li.feedback_item_w4 {
 .scart_con {
 	width: 972px;
 	margin: 0px auto 20px;
-	padding-bottom: 20px;
+	padding-bottom: 2px;
 	background: white;
-	padding-top: 10px;
+	padding-top: 2px;
 	
 }
 
@@ -1110,7 +1108,7 @@ ul.scart_c li.scart_item_w6 {
 
 div.scart_summary {
 	width: 967px;
-	padding: 16px 5px 5px 5px;
+	padding: 2px;
 }
 
 .scart_summary p {
@@ -3059,7 +3057,7 @@ input.valid, select.valid, texteara.valid{
 .cart_list_block{
 	border: 1px solid #CCCCCC;
     margin-top: 5px;
-    padding-bottom: 15px;
+    padding-bottom: 6px;
 
 }
 
@@ -3067,7 +3065,7 @@ input.valid, select.valid, texteara.valid{
 	background: url("/style/image/uc_background.jpg ") repeat scroll 0 0 transparent;
     height: 28px;
     line-height: 28px;
-    margin-bottom: 15px;
+    margin-bottom: 2px;
     text-indent: 10px;
 }
 
@@ -3083,7 +3081,7 @@ input.valid, select.valid, texteara.valid{
 /**************************payment**************************/
 
 .payment{
-	 padding: 20px 18px 10px;
+	 padding: 6px 18px 8px;
 	 line-height: 20px;
 }
 .paypalIcon2, .mcardIcon, .visaIcon, .visaEIcon,  .mcardIcon2, .westernUIcon {
@@ -3130,10 +3128,11 @@ input.valid, select.valid, texteara.valid{
 }
 .payment select{
 	border: 1px solid #BBBBBB;
-    height: 20px;
-    padding: 1px;
+    height: 24px;
+    padding: 2px;
     width: 310px;
     margin-bottom:10px;
+    font-size: 14px;
 }
 .widget h3{
 	font:18px georgia;
