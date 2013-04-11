@@ -3,6 +3,8 @@
 	<head>
 	</head>
 <body>
-		error
+		<div style=" width:972px; margin:0 auto">
+		<div style="float:left ; width:35%; text-align:right;"><img width="100px" src="/style/image/notice.PNG"></div>
+		<div style="float: left; width: 50%; text-align: left; line-height: 20px; font-family: arial;  margin-top:15px ">That page doesn't seem to exist.<br>The page you are looking for might have been removed and its name had changed,then this page is unavailable temporarily.<a href="http://www.honeybuy.com/">Back to home page.</a><br></div> </div>
 	</body>
 </html>
