@@ -396,3 +396,7 @@ opacity: 0.5;}
 #dress002 .save_position p{ margin-top:7px; font-size:16px}
 #dress002 .save_position span{ font-size:24px; text-align:center; display:block; margin-top:-2px;}
 /******three******/ 
+ #bottom #CountMsg {
+	font-size: 20px;
+	font-family:Tahoma,Verdana,Arial,Helvetica,sans-serif;
+}
