@@ -1,7 +1,14 @@
 <div style="border:0;" id="bottom" class="HB-bottom">
 <div style="height:76px; position:relative;">
 <a href="http://www.honeybuy.com/c/Promotions-News"><img src="/css/bigsale.jpg" border="0"></a>
-<div style="position: absolute; width: 195px; height: 47px; right: 9px; bottom: 4px;"></div>
+<div class="daojis" style="position: absolute; width: 195px; height: 47px; right: 9px; bottom: 4px;">
+<div id="CountMsg" style="width: 170px; margin: 0px auto; padding: 5px; text-align: center;">  
+	<strong style="display:none" id="EndTimeMsg">12</strong>  
+	<span class="digitalBox" id="RemainD">12</span>D
+	<span id="RemainH" class="digitalBox"">12</span>:
+    <span id="RemainM" class="digitalBox">59</span>:
+    <span id="RemainS" class="digitalBox">59</span></div>
+    </div>
 </div>
 <h2 class="enjoy">Enjoy Shopping Here With Free Shipping.</h2>
 <p class="hottest">2013's hottest goods, buy for honey, pick up now!</p>

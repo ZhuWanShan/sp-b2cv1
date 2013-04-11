@@ -3213,3 +3213,14 @@ input.valid, select.valid, texteara.valid{
 	border: none;
 	float: left;
 }
+.daojis .digitalBox{background-color: black;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 5px rgba(50, 50, 50, 0.75);
+    color: Red;
+    display: inline-block;
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    width: 34px;}
