@@ -1853,6 +1853,7 @@ li.scart_c_w_r {
     line-height: 18px;
     margin-top: 6px;
     padding: 1px 6px;
+    font-style: italic;
 }
 
 .free-shipping-tips{
@@ -2403,6 +2404,10 @@ li.scart_c_w_r {
 	color: #CB0000;
     font-size: 18px;
     font-weight: bold;
+}
+
+.product-shopping .product-current-price .product-current-price-num span{
+	font-size: 18px;
 }
 
 .product-shopping .product-current-price .currency-all{
