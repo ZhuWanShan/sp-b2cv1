@@ -1843,9 +1843,16 @@ li.scart_c_w_r {
 }
 
 .product-save-price-num{
-	color: red;
+	background: none repeat scroll 0 0 #AD3231;
+    border-radius: 6px 6px 6px 6px;
+    color: #FFFFFF;
     float: right;
-    font-size: 14px;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+    margin-top: 6px;
+    padding: 1px 6px;
 }
 
 .free-shipping-tips{
@@ -2338,7 +2345,7 @@ li.scart_c_w_r {
 .product-shopping .product-properties{
 	background: none repeat scroll 0 0 #F5F5F5;
     border: 1px solid #F5F5F5;
-    margin: 20px 0;
+    margin: 2px 0;
     padding: 2px;
 }
 
