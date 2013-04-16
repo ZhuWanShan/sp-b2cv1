@@ -10,7 +10,7 @@
 	
 	<div class="norton_payment">
 		<a href="https://www.google.com/safebrowsing/diagnostic?site=www.honeybuy.com" target="_blank" rel="nofollow" onclick="window.open(this.href, 'Safe Verified by Google', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=yes,dependent=no,width=750,height=550'); return false;">
-		<img src="/style/image/verified-by-google.jpg" title="Safe Verified by Google" style="margin: 0px; width: 150px; border: 0px none;"></a>	 	
+		<img src="/style/image/verified-by-google.jpg" title="Safe Verified by Google" style="width: 150px; margin: 6px; border: 0px none;"></a>	 	
 		<a title="Click to Verify - This site chose VeriSign SSL for secure e-commerce and confidential communications.">
 		<script type="text/javascript" src="https://seal.verisign.com/getseal?host_name=www.HoneyBuy.com&amp;size=S&amp;use_flash=YES&amp;use_transparent=YES&amp;lang=en"></script>
 		</a>
