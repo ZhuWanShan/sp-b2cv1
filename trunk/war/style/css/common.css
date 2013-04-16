@@ -1849,8 +1849,7 @@ li.scart_c_w_r {
     float: right;
     font-family: Verdana,Geneva,sans-serif;
     font-size: 12px;
-    font-weight: bold;
-    line-height: 18px;
+    line-height: 16px;
     margin-top: 6px;
     padding: 1px 6px;
     font-style: italic;
@@ -2330,10 +2329,10 @@ li.scart_c_w_r {
 
 .product-shopping{
 	background: none repeat scroll 0 0 #F5F5F5;
-    box-shadow: 1px 1px 2px #AAAAAA;
+    box-shadow: 2px 1px 8px #AAAAAA;
     float: right;
     margin-right: 3px;
-    padding-bottom: 76px;
+    padding-bottom: 6px;
     padding-left: 8px;
     padding-right: 4px;
     width: 192px;
@@ -2391,7 +2390,7 @@ li.scart_c_w_r {
 .product-shopping .product-current-price{
 	float: right;
     font-size: 18px;
-    margin-bottom: 24px;
+    margin-bottom: 10px;
     position: relative;
 }
 
