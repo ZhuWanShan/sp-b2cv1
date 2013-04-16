@@ -49,6 +49,10 @@
 		<a href='${(crossSales[crossSaleLink])!""}'> 
 			<img style="width: 100%; margin-top: 10px;" alt="" src='${(crossSales[crossSaleImg])!""}'>
 		</a>
+		<a href="https://www.google.com/safebrowsing/diagnostic?site=www.honeybuy.com" target="_blank" rel="nofollow" onclick="window.open(this.href, 'Safe Verified by Google', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=yes,dependent=no,width=750,height=550'); return false;">
+		<img src="/style/image/verified-by-google.jpg" title="Safe Verified by Google" style="padding-left: 136px;"></a>
 		
 	</div>
+
+	
 </div>
