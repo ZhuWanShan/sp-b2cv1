@@ -3261,7 +3261,8 @@ input.valid, select.valid, texteara.valid{
 	border: none;
 	float: left;
 }
-.daojis .digitalBox{background-color: black;
+.daojis .digitalBox{
+	background-color: black;
     border-radius: 5px 5px 5px 5px;
     box-shadow: 0 0 5px rgba(50, 50, 50, 0.75);
     color: Red;
@@ -3271,4 +3272,19 @@ input.valid, select.valid, texteara.valid{
     line-height: 40px;
     text-align: center;
     vertical-align: middle;
-    width: 35px;}
+    width: 35px;
+}
+
+.Cart_payment {
+    left: 260px;
+    position: absolute;
+    top: 28px;
+    z-index: 1;
+}
+
+.norton_payment {
+    height: 50px;
+    position: absolute;
+    right: 30px;
+    top: 6px;
+}
