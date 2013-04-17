@@ -30,7 +30,7 @@
 		<script src="${pageBaseURL}/script/js/jquery.validation.js?802" type="text/javascript"></script>
 		<script src="${pageBaseURL}/script/js/HB_Address_window.js?802" type="text/javascript"></script>
 		<script src="${pageBaseURL}/script/js/HB_process_order_2_pay.js?802" type="text/javascript"></script>
-		<script src="${pageBaseURL}/script/js/common.js?802" type="text/javascript"></script>
+		<script src="${pageBaseURL}/script/js/common.js?803" type="text/javascript"></script>
 		<script src="${pageBaseURL}/script/js/remain.js?802" type="text/javascript"></script>
 		
 		<script type="text/javascript">
