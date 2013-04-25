@@ -6,7 +6,7 @@
 		<meta http-equiv="pragma" content="no-cache" />
 		<meta http-equiv="Cache-Control" content="no-cache" />
 		<meta content="${pageKeywords!''}" name="keywords">
-		<meta content="${pageDescription!''} <#if (pageSuf != "")>${" - page " + pageSuf}</#if>" name="description">
+		<meta content="${'Buy ' + pageDescription!'' + ' at wholesale price from HoneyBuy.com, all free shipping! Buy Now!'} <#if (pageSuf != "")>${" - page " + pageSuf}</#if>" name="description">
 		
 		<#assign pageBaseURL=(RawRequest.scheme+"://"+RawRequest.serverName + ":" + RawRequest.serverPort?string("###"))>
 		
