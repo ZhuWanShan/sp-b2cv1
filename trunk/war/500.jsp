@@ -62,11 +62,11 @@
 				<h1>Server Not Available</h1>
 				<br>
 				<div style="padding:10px">
-					<p>We've made recent upgrades to sshop.com. If you've reached this
+					<p>We've made recent upgrades to www.honeybuy.com. If you've reached this
 						page by selecting a bookmark that previously worked, the page has
 						likely been moved due to our recent redesign.</p>
 					<p>You can either return to the previous page, visit the sshop.com
-						home page, or search sshop.com.</p>
+						home page, or search www.honeybuy.com.</p>
 					<br>
 				</div>
 				<ul style="padding:10px">
@@ -74,7 +74,7 @@
 						<a href="javascript:history.back()">Return to previous page</a>
 					</li>
 					<li>
-						<a href="/">Visit sshop.com home page</a>
+						<a href="http://www.honeybuy.com">Visit www.honeybuy.com home page</a>
 					</li>
 				</ul>
 			</div>
