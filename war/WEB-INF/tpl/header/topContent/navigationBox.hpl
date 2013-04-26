@@ -21,8 +21,9 @@
 	</div>
 	<div class="security">
 	
-		 	<img title="Custom size for free on honeybuy.com" alt="Custom size for free on honeybuy.com" src="/style/image/top01.jpg">
-		  	<img title="Free shipping over $80 on honeybuy.com" alt="Free shipping over $80 on honeybuy.com" src="/style/image/top02.jpg">
+		 	<a onclick="window.open(this.href, 'Safe Verified by Google', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=yes,dependent=no,width=750,height=550'); return false;" rel="nofollow" target="_blank" href="https://www.google.com/safebrowsing/diagnostic?site=www.honeybuy.com">
+			<img style="border: 0px none; width: 140px; margin: 4px -6px 4px 0px;" title="Safe Verified by Google" src="/style/image/verified-by-google.jpg"></a>
+		  	<img style="margin-right: 8px;" title="Free shipping over $80 on honeybuy.com" alt="Free shipping over $80 on honeybuy.com" src="/style/image/top02.jpg">
 		
 		<a title="Click to Verify - This site chose VeriSign SSL for secure e-commerce and confidential communications.">
 		<script type="text/javascript" src="https://seal.verisign.com/getseal?host_name=www.HoneyBuy.com&amp;size=S&amp;use_flash=YES&amp;use_transparent=YES&amp;lang=en"></script>
