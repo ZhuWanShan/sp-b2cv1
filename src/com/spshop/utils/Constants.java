@@ -271,9 +271,11 @@ public class Constants {
     
     public static final String TAB_PRODUCTS_IMAGE_SIZE_INFO = "tabImageInfo";
     
-    public static final String CATEGORIE_VIEW_IN_REQUEST = "CATEGORIE_VIEW_IN_REQUEST";
+   	public static final String imageHost = "http://www.honeybuy.com";
     
-	public static final String imageHost = "http://www.honeybuy.com";
+	
+	public static final String CATEGORIE_VIEW_IN_REQUEST = "CATEGORIE_VIEW_IN_REQUEST";
+ 	
 	
 	public static final String PAYPAL_ACCOUNT = "pay@joybuy.co.uk";
 }
