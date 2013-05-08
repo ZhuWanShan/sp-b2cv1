@@ -228,7 +228,7 @@
 					       <li class="scart_c_w_l"><input name="shippingMethod" type="radio" value="standard" 
 					       	<#if ((order.shippingMethod)!'')=='standard' >checked="checked"</#if>
 					        onclick="jq.HB.applyShippingMethod('${order.name}', 'standard')" ><strong>&nbsp; Standard Shipping</strong></li>
-					       <li class="scart_c_w_m">Normally 5 - 8 days</li>
+					       <li class="scart_c_w_m">Normally 4 - 6 days</li>
 					       <li class="scart_c_w_r red ">${(order.currency)}&nbsp;<span class="order_shipping_standard">${stdShippingPrice}</span></li>
 					    </ul>
 					    <p class="clearBoth">&nbsp;</p>
