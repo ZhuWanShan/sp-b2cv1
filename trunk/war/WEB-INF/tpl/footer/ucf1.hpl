@@ -5,7 +5,7 @@
 <div id="CountMsg" style="margin: 0px auto; padding: 5px; text-align: center;">  
 	<strong style="display:none" id="EndTimeMsg">12</strong>  
 	<span class="digitalBox" id="RemainD">12</span>D
-	<span id="RemainH" class="digitalBox"">12</span>:
+	<span id="RemainH" class="digitalBox">12</span>:
     <span id="RemainM" class="digitalBox">59</span>:
     <span style="width:50px" id="RemainS" class="digitalBox">59</span></div>
     </div>
