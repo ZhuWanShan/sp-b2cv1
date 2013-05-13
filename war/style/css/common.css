@@ -1662,7 +1662,8 @@ li.scart_c_w_r {
 
 .category-tree {
 	background: none repeat scroll 0 0 #EDE4DB;
-    padding: 8px;
+    padding: 0px;
+    z-index:9999;
 }
 
 .category-tree .title {
