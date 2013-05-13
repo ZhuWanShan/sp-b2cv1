@@ -3,7 +3,7 @@ package com.spshop.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.spshop.cache.SCacheFacade;
+//import com.spshop.cache.SCacheFacade;
 
 public class Category  extends Component{
 
@@ -24,7 +24,7 @@ public class Category  extends Component{
 	private boolean displayMarketOnly;
 	private String description;
 	private int index;
-	private long productCount;
+	private long productCount = 0;
 	
 	private List<Category> subCategories = new ArrayList<Category>();
 	private Category parent;
@@ -148,7 +148,7 @@ public class Category  extends Component{
 		obj.displayMarketOnly = this.displayMarketOnly;
 		obj.enable = this.enable;
 		obj.deleted = this.deleted;
-		obj.productCount = SCacheFacade.getProductCountsByCategory(this);
+		//obj.productCount = SCacheFacade.getProductCountsByCategory(this);
 		obj.index = this.index;
 		if (this.marketContent != null) {
 			obj.marketContent=this.marketContent;
