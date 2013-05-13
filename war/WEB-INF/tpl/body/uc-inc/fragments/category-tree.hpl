@@ -17,17 +17,29 @@
 <ul id="category-menu">
 <#list pageView.category.subCategories as subCategory>
 	<li>
-		<a href='${(siteView.host+"/"+"c"+"/"+subCategory.name)?string!""}'>${subCategory.displayName} <span class="c-count">(${subCategory.productCount})</span></a>
+		<a href='${(siteView.host+"/"+"c"+"/"+subCategory.name)?string!""}'>${subCategory.displayName} 
+		<#if (subCategory.productCount!=0)>
+			<span class="c-count">(${subCategory.productCount})</span>
+		</#if>
+		</a>
 		<#if (subCategory.subCategories?? && subCategory.subCategories?size!=0)>
 		<ul style="width:auto;">
 		<#list subCategory.subCategories as subSubCategory>
 			<li>
-				<a href='${(siteView.host+"/"+"c"+"/"+subSubCategory.name)?string!""}'>${subSubCategory.displayName} <span class="c-count">(${subSubCategory.productCount})</span> </a>
+				<a href='${(siteView.host+"/"+"c"+"/"+subSubCategory.name)?string!""}'>${subSubCategory.displayName} 
+				<#if (subSubCategory.productCount!=0)>
+					<span class="c-count">(${subSubCategory.productCount})</span>
+				</#if> 
+				</a>
 				<#if (subSubCategory.subCategories?? && subSubCategory.subCategories?size!=0 )>
 				<ul>
 					<#list subSubCategory.subCategories as childrenCategory>
 					<li>
-						<a href='${(siteView.host+"/"+"c"+"/"+childrenCategory.name)?string!""}'>${childrenCategory.displayName} <span class="c-count">(${childrenCategory.productCount})</span> </a>
+						<a href='${(siteView.host+"/"+"c"+"/"+childrenCategory.name)?string!""}'>${childrenCategory.displayName} 
+						<#if (childrenCategory.productCount!=0)>
+						<span class="c-count">(${childrenCategory.productCount})</span>
+						</#if> 
+						</a>
 					</li>
 					</#list>
 				</ul>
