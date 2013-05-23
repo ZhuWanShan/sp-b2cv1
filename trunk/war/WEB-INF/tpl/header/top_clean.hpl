@@ -10,8 +10,6 @@
 		
 		<#assign pageBaseURL=(RawRequest.scheme+"://"+RawRequest.serverName + ":" + RawRequest.serverPort?string("###"))>
 		
-		<base href="${pageBaseURL!''}" />
-		
 		<title>${pageTitle!''}<#if (pageSuf != "")>${" - page " + pageSuf}</#if></title>
 		<link rel="stylesheet" type="text/css" href="${pageBaseURL}/style/css/main.css?802">
 		<link rel="stylesheet" type="text/css" href="${pageBaseURL}/style/css/remain.css?802">
