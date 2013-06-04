@@ -20,6 +20,9 @@
 			<div class="measure_panel">
 				<a href="http://www.honeybuy.com/c/Promotions-News"><img alt="2013 Honeybuy suits promotion" title="2013 Honeybuy suits promotion"  width="972px" height="428px" src="/image/banner/home-suit.jpg"></a>
 				</div>
+				<div class="measure_panel">
+				<a href="http://www.honeybuy.com/c/Pet-Supplies"><img alt="Pet Supplies" title="Pet Supplies"  width="972px" height="428px" src="/image/banner/HB_banner8.jpg"></a>
+				</div>
 		<p class="clearBoth"></p>
 		</div>
 		<div class="measure_navigation">
@@ -30,6 +33,7 @@
 				<img class="pagination_m" src="/style/image/1x1.png" title="4">
 				<img class="pagination_m" src="/style/image/1x1.png" title="5">	
 				<img class="pagination_m" src="/style/image/1x1.png" title="6">		
+				<img class="pagination_m" src="/style/image/1x1.png" title="7">	
 			</div>
 		</div>
 	</div>
