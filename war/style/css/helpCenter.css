@@ -93,7 +93,7 @@
 #bottom .pay .pal{ height:90px;}
 #bottom .pay .pal .noth{ width:135px; float:left}
 #bottom .pay .pal .zhongjian{ width:725px; float:left; padding-top:30px; margin-left:5px; }
-#bottom .pay .pal .paypal{ float:left; padding:10px}
+#bottom .pay .pal .paypal{ float:left; padding-top: 30px; padding-left: 10px;}
 #bottom .pay p{ text-align:center}
 #bottom .pay p a{ text-align:center;color:#FF5A00;}
 #bottom .Copyright{ margin-top:10px; text-align:center; color:#888888}
