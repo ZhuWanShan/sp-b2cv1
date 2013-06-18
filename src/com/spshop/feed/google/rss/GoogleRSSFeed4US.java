@@ -9,7 +9,9 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.Namespace;
 
+import com.spshop.model.Category;
 import com.spshop.model.Product;
+import com.spshop.utils.Utils;
 
 public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
     private static final Namespace namespace = Namespace.getNamespace("g", "http://base.google.com/ns/1.0");
@@ -38,7 +40,8 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
 				continue;
 			}
             e.addContent(new Element("google_product_category", namespace).setText(category));
-            e.addContent(new Element("product_type", namespace).setText(originalCategory));
+            Category c = Utils.getAncestorCategory(originalCategory);
+            e.addContent(new Element("product_type", namespace).setText(c.getDisplayName()));
             e.addContent(new Element("link", namespace).setText(host + "/" + product.getName()));
             e.addContent(new Element("image_link", namespace).setText(imageHost
                                                                       + product.getImages().get(0).getLargerUrl()));
@@ -68,11 +71,16 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
             e.addContent(new Element("brand", namespace).setText("HoneyBuy"));
             e.addContent(new Element("gender", namespace).setText("female"));
             e.addContent(new Element("age_group", namespace).setText("adult"));
+            Category adGroup = Utils.getCategoryByName(originalCategory);
+            e.addContent(new Element("adwords_grouping", namespace).setText(adGroup.getDisplayName()));
             e.addContent(new Element("color", namespace).setText("White,Black,Blue,Red,Purple,Gold,Green,Pink,Champagne,Yellow"));
             e.addContent(new Element("size", namespace).setText("US2,US4,US6,US8,US10,US12,US14,US16"));
             
             e.addContent(new Element("tax", namespace).setContent(new Element("rate", namespace).setText("0")));
-            e.addContent(new Element("shipping", namespace).setContent(new Element("country", namespace).setText("US")).setContent(new Element("price", namespace).setText("0 USD")));
+            Element shippingInfo = new Element("shipping", namespace);
+            shippingInfo.addContent(new Element("price", namespace).setText("0 USD"));
+            shippingInfo.addContent(new Element("country", namespace).setText("US"));
+            e.addContent(shippingInfo);
             
             channel.addContent(e);
         }
