@@ -326,4 +326,18 @@ public class Utils {
 	        
 	        return searchCategory(categories, categoryName);
 	    }
+	    
+	    public static Category getAncestorCategory(String cName){
+	    	List<Category> categories = SCacheFacade.getTopCategories();
+	    	Category c = searchCategory(categories, cName);
+	    	while (c.getParent() != null) {
+				c = c.getParent();
+			}
+	    	return c;
+	    }
+	    
+	    public static Category getCategoryByName(String cName){
+	    	List<Category> categories = SCacheFacade.getTopCategories();
+	    	return searchCategory(categories, cName);
+	    }
 }
