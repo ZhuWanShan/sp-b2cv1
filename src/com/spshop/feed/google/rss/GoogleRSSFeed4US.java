@@ -40,7 +40,7 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
 				continue;
 			}
             e.addContent(new Element("google_product_category", namespace).setText(category));
-            Category c = Utils.getAncestorCategory(originalCategory);
+            Category c = Utils.getSecondaryLayerCategory(originalCategory);
             e.addContent(new Element("product_type", namespace).setText(c.getDisplayName()));
             e.addContent(new Element("link", namespace).setText(host + "/" + product.getName()));
             e.addContent(new Element("image_link", namespace).setText(imageHost
