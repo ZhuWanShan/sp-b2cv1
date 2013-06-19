@@ -8,9 +8,9 @@
 	<#assign currencyRate = (siteView.currencies[order.currency])!0 >
 	<div class="cart_list_block">
 		<h1 class="title">Order Number</h1>
+		<div style="line-height: 18px; margin: 10px;">
 			Order Number:  <span class="red"> ${order.name}</span>
-		<div class="content">
-			Processing ...
+			<p><br>Processing ... <img src="/style/image/ajax_loader.gif" class="ajax_loading"> </p>
 		</div>
 	</div>
 	<div class="scart_summary">
