@@ -218,6 +218,10 @@ public class OrderPaymentController extends BaseController{
 				order.setOrderType("WireTransfer");
 				checkOutOrder(model, order);
 				return "WireTransfer";
+			}else if("CheckOut".equals(payment)){
+				order.setOrderType("CheckOut");
+				//checkOutOrder(model, order);
+				return "checkout";
 			}else{
 				model.addAttribute("errorMsg", "Please select a payment method");
 			}

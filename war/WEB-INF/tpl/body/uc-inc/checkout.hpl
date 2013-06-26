@@ -18,11 +18,7 @@
 					<li>
 						<#assign usrAddressStr = ((address.firstName)!'') + '^' + ((address.lastName)!'') + '^' + ((address.address1)!'') >
 						
-						<input type="radio" name="order_shippingAddress" value="${(address.id)?string("##")}" 
-							<#if orderAddressStr == usrAddressStr >
-								checked="checked"
-							</#if>
-						>
+						<input type="radio" name="order_shippingAddress" value="${(address.id)?string("##")}" checked="checked">
 						
 						<label><strong>${(address.firstName)!''} ${(address.lastName)!''}</strong>&nbsp;(${(address.address1)!''}
 									<#if address.address2 ??>
@@ -79,7 +75,52 @@
 				</script>
 			</#if>
 				
+				<li>
+					<div>
+							<table>
+								<tr>
+									<td>Card Type</td>
+									<td>
+										<select name="cardType">
+											<option value="MC">MasterCard</option>
+											<option value="VC">Visa</option>
+										</select>
+									
+									</td>
+								</tr>
+								<tr>
+									<td>Card Number</td>
+									<td>
+										<input name="cardNumber" size="40">
+									</td>
+								</tr>
+								<tr>
+									<td>Expiry Date</td>
+									<td>
+										<select name="exp_date">
+											<option value="01">01</option>
+											<option value="02">02</option>
+											<option value="03">03</option>
+											<option value="04">04</option>
+											<option value="05">05</option>
+											<option value="06">06</option>
+										</select>
+										<select name="exp_year">
+											<option value="2013">2013</option>
+											<option value="2014">2014</option>
+											<option value="2015">2015</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>3 digit CV2 Number</td>
+									<td><input name="cv2" size="3"></td>
+								</tr>
+							</table>				
+					</div>
 				
+				
+				</li>
 				
 			</ul>
 
@@ -120,13 +161,11 @@
 				<b>Grand Total:<span id="GrabdTotal">${(order.currency)} &nbsp;<span class="order_grand_total">${(currencyRate*(order.totalPrice-order.couponCutOff + order.dePrice))?string(",##0.##")}</span></span></b>
 			</dd>
 			<dd class="red">
-				<form action="/uc/checkout_credit_card">
 					<span>
 						<input type="hidden" name="add" value="${((address.id)!0)?string("##")}">
 						<input type="hidden" name="orderSN" value="${order.name}">
 						<input	type="submit" class="button_02" value="Proceed to Checkout">
 					</span>
-				</form>
 			</dd>
 		</dl>
 	</div>
