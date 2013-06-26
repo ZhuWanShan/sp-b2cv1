@@ -271,7 +271,7 @@
 				</div>
 		</div>
 	</div>
-	<form action="http://${RawRequest.serverName}/uc/checkout" >
+	<form action="/uc/checkout" >
 	<div class="cart_list_block">
 		<h1 class="title">Payment Method</h1>
 		<div class="payment">
@@ -281,6 +281,7 @@
 				<!-- <option value="paypal">Paypal</option> -->
 				<option value="WesternUnion">Western Union</option>
 				<option value="WireTransfer">Wire Transfer</option>
+				<option value="CheckOut">CheckOut -- (Testing Only Do no try)</option>
 			</select>
 			
 			<div id="allpaymthod" class="paymentmethod"> 
@@ -295,6 +296,10 @@
 					<span class="mcardIcon2"></span>
 					<span class="westernUIcon"></span>
 				</p>
+			</div>
+			
+			<div id="CheckOut" class="paymentmethod"> ]
+				Check out
 			</div>
 			
 			<div id="Globebill" class="paymentmethod">

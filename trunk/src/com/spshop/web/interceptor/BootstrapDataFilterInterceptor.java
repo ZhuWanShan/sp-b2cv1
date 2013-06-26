@@ -161,7 +161,7 @@ public class BootstrapDataFilterInterceptor extends HandlerInterceptorAdapter{
 			
 			userView.getCart().getOrder().setCurrency(cCode);
 			if(null!=userView.getLoginUser()){
-				Order order = ServiceFactory.getService(OrderService.class).saveOrder(userView.getCart().getOrder(), OrderStatus.ONSHOPPING.toString());
+				Order order = ServiceFactory.getService(OrderService.class).saveOrder(userView.getCart().getOrder(), userView.getCart().getOrder().getStatus()==null?OrderStatus.ONSHOPPING.toString() : userView.getCart().getOrder().getStatus());
 				userView.getCart().setOrder(order);
 			}
 			
