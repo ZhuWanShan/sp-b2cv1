@@ -25,6 +25,38 @@
 		<load-on-startup>3</load-on-startup>
 	</servlet>
 	<!-- Servlets -->
+	
+
+	<servlet>
+		<servlet-name>Kaptcha</servlet-name>
+		<servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+
+		<!--
+			For a complete list of Init Parameters, please see:
+			http://code.google.com/p/kaptcha/wiki/ConfigParameters
+		-->
+		<init-param>
+			<param-name>kaptcha.border</param-name>
+			<param-value>no</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>kaptcha.textproducer.font.color</param-name>
+			<param-value>black</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>kaptcha.textproducer.char.space</param-name>
+			<param-value>5</param-value>
+		</init-param>
+		
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Kaptcha</servlet-name>
+		<url-pattern>/Kaptcha.jpg</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>queryService</servlet-name>
 		<servlet-class>com.spshop.admin.server.AdminServiceImpl</servlet-class>

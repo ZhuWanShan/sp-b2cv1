@@ -1,4 +1,4 @@
 <div class="main_box" id="main_box">
-	<#include "uc-inc/login.hpl">
+	<#include "uc-inc/copyrightInfringment.hpl">
 	<p class="clearBoth"></p>
 </div>
