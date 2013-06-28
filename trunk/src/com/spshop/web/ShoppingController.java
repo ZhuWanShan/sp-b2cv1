@@ -770,9 +770,8 @@ public class ShoppingController extends BaseController{
 					}
 					logger.info("order.getAddressType():"+order.getAddressType());
 					ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.getValue());
-					
+					StickyCaptchaServlet
 				}
-				
 				
 			} else if ("INVALID".equals(res)) {
 				logger.info("##############INVALID########################");
@@ -782,7 +781,13 @@ public class ShoppingController extends BaseController{
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}
-
+		
 		 return null;
+	}
+	
+	@RequestMapping("/copyrightInfringment")
+	public String copyrightInfringment(){
+		
+		return "copyrightInfringment";
 	}
 }

@@ -1,0 +1,101 @@
+<div id="WireTransfer" style="display: block;">
+	<h1>Copyright Infringement</h1>
+	<p>
+To expedite our ability to process your request, such written notice should be sent to us via our online copyright complaint form below.
+	</p>
+	
+	<div class="scart_con">
+	<p class="clearBoth"></p>
+	<div class="cart_list_block">
+		<h1 class="title">1. Products to be removed</h1>
+		<div class="content">
+		<table class="removed">
+               <tbody><tr><td>URL of allegedly infringing products to be removed: <span class="red">*</span></td></tr>
+               <tr><td><textarea class="required" name="desc" cols="120" rows="3"></textarea></td></tr>
+               <tr><td>Describe the work allegedly infringed: <span class="red">*</span></td></tr>
+               <tr><td><textarea class="required" name="desc1" cols="120" rows="3"></textarea></td></tr>
+           </tbody></table>
+		</div>
+	</div>
+	
+	
+	
+	
+	<div class="cart_list_block">
+		<h1 class="title">2.Tell us about yourself</h1>
+		<div class="content">
+              <table>
+                 <tbody><tr><td>Tell us about yourself: <span class="red">*</span></td></tr>
+                 <tr><td><input name="owner_name" type="text" class="required text long_input" size="100"></td></tr>
+                 <tr><td>Your Full Legal Name (Aliases, usernames or initials not accepted): <span class="red">*</span></td></tr>
+                 <tr><td><input name="legal_name" type="text" class="required text long_input" size="100"></td></tr>
+                 <tr><td>Your Title or Job Position (What is your authority to make this complaint?):<span class="red">*</span></td></tr>
+                 <tr><td><input name="title" type="text" class="required text long_input" size="100"></td></tr>
+              </tbody></table>
+              <table>
+                <tbody><tr>
+                  <td class="lt">Phone:<span class="red">*</span></td>
+                  <td><input name="phone" type="text" class="required text"></td>
+                </tr>
+                <tr>
+                  <td class="lt">Fax:<span class="red">*</span></td>
+                  <td><input name="fax" type="text" class="required text"></td>
+                </tr>
+                <tr>
+                  <td class="lt">Email Address:<span class="red">*</span></td>
+                  <td><input name="mail_addresss" type="text" class="required email text"></td>
+                </tr>
+                <tr>
+                  <td class="lt">Street Address:</td>
+                  <td><input name="street" type="text" class="text"></td>
+                </tr>
+                <tr>
+                  <td class="lt">City:</td>
+                  <td><input name="city" type="text" class="text"></td>
+                </tr>
+                <tr>
+                  <td class="lt">State/Province:</td>
+                  <td><input name="state" type="text" class="text"></td>
+                </tr>
+                <tr>
+                  <td class="lt">Zip/Postal Code:</td>
+                  <td><input name="postcode" type="text" class="text"></td>
+                </tr>
+                <tr>
+                  <td class="lt">Country:</td>
+                  <td><input name="country" type="text" class="text"></td>
+                </tr>
+                <tr>
+                  <td class="lt">Verification Code:<span class="red">*</span></td>
+        				  <td>
+        				  <a href="javascript:changeimg()">
+          					<img id="capchaImg" src="/Kaptcha.jpg" />
+          			    </a>
+          			    <br/>
+        				  <input class="required text code_input" name="checkcode"  type="text" maxlength="4" onfocus="this.value=''" autocomplete="off">
+          					
+          					
+          			    
+          			    	<script>
+          			    		function changeimg(){
+          			    			jq("#capchaImg").attr("src", "/Kaptcha.jpg?"+new Date().getTime());
+          			    			
+          			    		}
+          			    	
+          			    	</script>
+        				  </td>
+        				  
+                </tr>
+                <tr>
+                  <td class="lt"></td>
+                  <td><input type="submit" class="button_01"></td>
+                </tr>
+                <tr>
+              </tbody>
+              
+              </table>
+		</div>
+	</div>
+	
+	</div>
+</div>

@@ -47,7 +47,7 @@
 	<mvc:default-servlet-handler default-servlet-name="initServlet" />
 	<mvc:default-servlet-handler default-servlet-name="ImageCreate" />
 	<mvc:default-servlet-handler default-servlet-name="ImageBatchCreate" />
-	
+	<mvc:default-servlet-handler default-servlet-name="Kaptcha" />
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
