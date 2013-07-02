@@ -177,13 +177,26 @@ public class EmailTools {
         }
     }
     
+    public static void sendMail(String to, String from, String subject,String content){
+    	HtmlEmail email = new HtmlEmail();
+	    email.setSubject(subject);
+	    try {
+            email.setHostName(SettingUtil.getStringValue("mail.host.name"));
+            email.setAuthentication(SettingUtil.getStringValue("mail.from.account"),SettingUtil.getStringValue("mail.from.password"));
+            email.setFrom(from);
+			email.setHtmlMsg(content);
+			email.setTLS(true);
+			email.addTo(to);
+			email.setCharset(Constants.DEFAULT_MAIL_CHARSET);
+			email.send();
+		} catch (EmailException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   
+    }
+    
     public static void main(String[] args) {
-        List<String> mailList = new ArrayList<String>();
-        for (int i = 0; i < 50; i++) {
-            mailList.add("kabist@gmail.com");
-        }
-        for (String email : mailList) {
-            EmailTools.sendMail("paid", "paid successful", new HashMap<String, Object>(), email);
-        }
+    	sendMail("wan-shan.zhu@hp.com", "wan-shan.zhu@hp.com", "....", "<h1>Hello</h1>");
     }
 }
