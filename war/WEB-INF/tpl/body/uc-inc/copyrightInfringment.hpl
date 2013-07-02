@@ -76,7 +76,7 @@ To expedite our ability to process your request, such written notice should be s
           					<img id="capchaImg" src="/Kaptcha.jpg" />
           			    </a>
           			    <br/>
-        				  <input class="required text code_input" name="vcode"  type="text" maxlength="4" onfocus="this.value=''" autocomplete="off">
+        				  <input class="required text code_input" name="vcode"  type="text" maxlength="6" onfocus="this.value=''" autocomplete="off">
           					
           					
           			    

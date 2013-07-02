@@ -67,10 +67,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.DispatcherServlet;
 
 import com.spshop.cache.SCacheFacade;
 import com.spshop.dto.CopyrightInfringmentFormBean;
@@ -794,7 +796,7 @@ public class ShoppingController extends BaseController{
 	}
 	
 	@RequestMapping("/copyrightInfringment_POST")
-	public String copyrightInfringmentPost(@RequestParam CopyrightInfringmentFormBean formBean, @RequestParam(required=false, value="vcode") String code, HttpServletRequest request, Model model){
+	public String copyrightInfringmentPost(@ModelAttribute CopyrightInfringmentFormBean formBean, @RequestParam(required=false, value="vcode") String code, HttpServletRequest request, Model model){
 		String kaptchaExpected = (String)request.getSession()
 			    .getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
 		model.addAttribute("CopyrightInfo", formBean);
@@ -812,7 +814,6 @@ public class ShoppingController extends BaseController{
 				EmailTools.sendMail(to, formBean.getMail(), "Warning: Copyright Infringment", template);
 			}
 		}
-		
 		return "copyrightInfringment";
 	}
 }
