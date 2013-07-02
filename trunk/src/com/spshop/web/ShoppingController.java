@@ -73,6 +73,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.spshop.cache.SCacheFacade;
+import com.spshop.dto.CopyrightInfringmentFormBean;
 import com.spshop.model.Coupon;
 import com.spshop.model.Order;
 import com.spshop.model.OrderItem;
@@ -91,6 +92,8 @@ import com.spshop.service.intf.UserService;
 import com.spshop.utils.Constants;
 import com.spshop.utils.EmailTools;
 import com.spshop.utils.FeedTools;
+import com.spshop.utils.SettingUtil;
+import com.spshop.utils.TempleteParser;
 import com.spshop.utils.Utils;
 
 @Controller
@@ -770,7 +773,6 @@ public class ShoppingController extends BaseController{
 					}
 					logger.info("order.getAddressType():"+order.getAddressType());
 					ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.getValue());
-					StickyCaptchaServlet
 				}
 				
 			} else if ("INVALID".equals(res)) {
@@ -787,6 +789,29 @@ public class ShoppingController extends BaseController{
 	
 	@RequestMapping("/copyrightInfringment")
 	public String copyrightInfringment(){
+		
+		return "copyrightInfringment";
+	}
+	
+	@RequestMapping("/copyrightInfringment_POST")
+	public String copyrightInfringmentPost(@RequestParam CopyrightInfringmentFormBean formBean, @RequestParam(required=false, value="vcode") String code, HttpServletRequest request, Model model){
+		String kaptchaExpected = (String)request.getSession()
+			    .getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
+		model.addAttribute("CopyrightInfo", formBean);
+		if(null==code || kaptchaExpected==null || !kaptchaExpected.equalsIgnoreCase(code)){
+			model.addAttribute("error", "Verification Code is not match");
+		}else{
+			if(null == formBean.getMail() || formBean.getUrl() == null){
+				model.addAttribute("error", "Please enter valid info");
+			}else{
+				String template = SettingUtil.getStringValue("copyrighInfringment.template");
+				Map<String, Object> variables = new HashMap<String, Object>();
+				variables.put("cp", formBean);
+				template = TempleteParser.pasreContent(template, variables);
+				String to = SettingUtil.getStringValue("copyrighInfringment.email");
+				EmailTools.sendMail(to, formBean.getMail(), "Warning: Copyright Infringment", template);
+			}
+		}
 		
 		return "copyrightInfringment";
 	}

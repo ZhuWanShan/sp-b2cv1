@@ -2,12 +2,15 @@ package com.spshop.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+
+import com.spshop.dto.CopyrightInfringmentFormBean;
 
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
@@ -83,14 +86,29 @@ public class TempleteParser {
 		cfg.setObjectWrapper(new DefaultObjectWrapper());
 		cfg.setOutputEncoding("UTF-8");
 	}
+	
+	public static String pasreContent(String template, Map<String, Object> variables){
+		try {
+			Template tpl = new Template("mail", new StringReader(template), new Configuration());
+
+			StringWriter writer = new StringWriter();
+
+			tpl.process(variables, writer);
+
+			return writer.toString();
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			// e.printStackTrace();
+			logger.warn(e.getMessage(), e);
+			return null;
+		}
+	}
 
 	public static void main(String[] args) {
-		Map<String, Object> root = new HashMap<String, Object>();
-
-		root.put("title", "Welcome to HoneyBuy");
-
-		String content = TempleteParser.parseMailContent("2.tpl", root);
-
-		System.out.println(content);
+		String template = SettingUtil.getStringValue("copyrighInfringment.template");
+		Map<String, Object> variables = new HashMap<String, Object>();
+		variables.put("cp", new CopyrightInfringmentFormBean());
+		System.out.println(pasreContent(template, variables));
 	}
 }
