@@ -5,8 +5,7 @@
 <div class="help_ti">
   <div class="detail_title">1.	Which payment methods do you accept?</div></div>
 <div class="detail">
-<!--gai-->
-<span>
+<!-- <span>
 <h2>1. Paypal Online (Highly Recommended)</h2>
 <span><p><br><a rel="nofollow" target="blank" href=""><img src="http://www.honeybuy.com/image/6197076848731852.jpg" alt="Payapl" title="Payapl"/></a></p>
 <p><strong>PayPal is the faster, safer way to pay and get paid online. </strong> The service allows people to send money without sharing financial information, with the flexibility to pay using their account balances, bank accounts, credit cards or promotional financing. With 113.2 million active accounts in 190 markets and 25 currencies around the world, PayPal enables global ecommerce. </p></span>
@@ -23,13 +22,22 @@
  <p>  * Immediate and convenient.</p>
  <p>  * Send money via email from your credit/debit card or bank account.</p><br>
  <p> If you require further information about Paypal, please don't hesitate to visit them at www.paypal.com .</p>
+</span> 
+ -->
+<span>
+<p><strong>1. Visa / Credit Card Online</strong></p><br>
+<p>We currently accept Visa, MasterCard, and American Express credit card payments from most locations worldwide. Paying by credit card is safe, easy and convenient
+ at HoneyBuy.com .</p><br>
 </span>
-<span><p><strong>2. Visa / Credit Card Online</strong></p><br>
-<p>We currently accept Visa, MasterCard, and American Express credit card payments from most locations worldwide. Paying by credit card is safe, easy and convenient at HoneyBuy.com .</p><br></span>
-<span><p><strong>3. Western Union</strong></p><br>
-<p>Please visit <a href="http://www.westernunion.com/">http://www.westernunion.com</a>, Which is a global leader in money transfer services, offering the ability to send money to more than 245,000 Western Union Agent locations in over 200 countries and territories. Count on Western Union to transfer money, send bill payments, and purchase money orders and prepaid services.</p>
+
+<span>
+<p><strong>2. Western Union</strong></p><br>
+<p>Please visit <a href="http://www.westernunion.com/">http://www.westernunion.com</a>, Which is a global leader in money transfer services, 
+offering the ability to send money to more than 245,000 Western Union Agent locations in over 200 countries and territories.
+ Count on Western Union to transfer money, send bill payments, and purchase money orders and prepaid services.</p>
 <br><p>Due to convenience of Western Union for us, we offer a 5% discount off your items (excluding shipping).
-If you want to pay the payment via Western Union Please send email to <a href="mailto:service@honeybuy.com">service@honeybuy.com</a> or <a href="mailto:sales@honeybuy.com">sales@honeybuy.com</a>  for confirm the payment.</p>
+If you want to pay the payment via Western Union Please send email to <a href="mailto:service@honeybuy.com">service@honeybuy.com</a>
+ or <a href="mailto:sales@honeybuy.com">sales@honeybuy.com</a>  for confirm the payment.</p>
 <br>
 <p>1) On your Shopping Cart page, click Continue Checkout Confirm after reviewing your items.</p>
 <p>2) On the Billing, Shipping & Review page, under Payment Methods, select the Western Union option.</p>
@@ -53,7 +61,7 @@ If you want to pay the payment via Western Union Please send email to <a href="m
 <a href="mailto:service@honeybuy.com">service@honeybuy.com</a> or <a href="mailto:sales@honeybuy.com">sales@honeybuy.com</a>. </p>
 </span>
 <span>
-<p><strong>4. Bank Transfer</strong></p><br>
+<p><strong>3. Bank Transfer</strong></p><br>
 <p>1) Choose Bank Transfer as your payment method</p>
 <p>2) Print or write down the payment information and make the payment in any of your local banks. 
 Before you visit your local HSB branch, please remember to take your and beneficiary's identification with you such as your order# (e.g.120124-HWVN169) 
@@ -80,14 +88,11 @@ Without your transaction details provided, your payment confirmation may be dela
 <br>
 <p><strong>Notice:</strong></p>
 <br>
- 
 <p>You will be responsible for all local handling fees and intermediary bank handling fees. Therefore, please confirm the total payment amount with the bank before you transfer the money.</p><br>
-
 <p>If you have any further questions regarding your Honeybuy order payment through Bank Transfer, please email to us at: service@honeybuy.com or sales@honeybuy.com.</p> 
 
-
 </span>
-<!--gai-->
+</span>
 </div>
 </div><p class="clearBoth"></p>
 </div></div>
