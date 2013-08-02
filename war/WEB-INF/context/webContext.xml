@@ -67,11 +67,6 @@
 	
 	
 	<security:http access-decision-manager-ref="accessDecisionManager">
-		<security:port-mappings>
-			<security:port-mapping http="80" https="443"/>
-			<security:port-mapping http="8081" https="8443"/>
-		</security:port-mappings>
-		<security:intercept-url pattern="/**" requires-channel="https"/>
 		<security:intercept-url pattern="/uc/changePwd/**" access="USER" />
 		<security:intercept-url pattern="/uc/userProfile/**" access="USER" />
 		<security:intercept-url pattern="/uc/retrieveShippingPrice/**" access="USER" />

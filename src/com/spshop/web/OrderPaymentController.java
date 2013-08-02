@@ -2,6 +2,7 @@ package com.spshop.web;
 
 import static com.spshop.utils.Constants.DEFAULT_CURRENCY;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,6 +28,7 @@ import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.CouponService;
 import com.spshop.service.intf.OrderService;
+import com.spshop.utils.CheckoutUtils;
 import com.spshop.utils.Constants;
 import com.spshop.utils.EmailTools;
 import com.spshop.utils.EncryptUtil;
@@ -220,7 +222,7 @@ public class OrderPaymentController extends BaseController{
 				return "WireTransfer";
 			}else if("CheckOut".equals(payment)){
 				order.setOrderType("CheckOut");
-				//checkOutOrder(model, order);
+				checkoutPay(order, model, request);
 				return "checkout";
 			}else{
 				model.addAttribute("errorMsg", "Please select a payment method");
@@ -231,6 +233,38 @@ public class OrderPaymentController extends BaseController{
 		return "forward:/uc/shoppingCart_address?id="+orderSN;
 	}
 	
+	private void checkoutPay(Order order, Model model,
+			HttpServletRequest request) {
+		
+		order = checkOutOrder(model, order);
+		
+		String orderNumber = order.getName();
+	    String amount = new NumberFormat("##0.##").getNumberFormat().format(getSiteView().getCurrencies().get(order.getCurrency())*(order.getTotalPrice() + order.getDePrice() - order.getCouponCutOff()));
+
+	    String returnUrl = request.getScheme()+"://" + request.getServerName() +":"+ request.getServerPort() + "/uc/checkoutPayRs";
+	    String key = "init";
+	    String signKey = "init";
+	    try {
+			 key = CheckoutUtils.RequestToken(amount, orderNumber, order.getCurrency(), returnUrl);
+			 signKey =  CheckoutUtils.hash(key);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+	    model.addAttribute("signKey", signKey);
+	    model.addAttribute("key", key);
+	    model.addAttribute("amount", amount);
+	    model.addAttribute("orderId", orderNumber);
+	    
+	    logger.info(String.format(">>>>>>>>>>>>>>>>Send Request key=%1$2s, signKey = %2$2s, " +
+	       		"				amount=%3$2s, orderId=%4$2s, ",
+	       		
+	       		key, signKey, amount, orderNumber));
+	}
+
+
+
 	@RequestMapping("/checkout_credit_card")
 	public String checkoutCreditCard( Model model, HttpServletRequest request, @RequestParam("orderSN")String orderSN,  @RequestParam("add")long addressId){
 		
@@ -239,7 +273,7 @@ public class OrderPaymentController extends BaseController{
 		if(null != order){
 			if(null == order.getBillingAddress()){
 				model.addAttribute("errorMsg", "Please fill you billing address");
-			}else {
+			}else if("Globebill".equals(order.getOrderType())){
 				
 				order = checkOutOrder(model, order);
 			
