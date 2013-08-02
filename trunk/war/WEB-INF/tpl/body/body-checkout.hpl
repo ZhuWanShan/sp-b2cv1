@@ -1,4 +1,4 @@
 <div class="main_box" id="main_box">
-	<#include "uc-inc/checkout.hpl">
+	<#include "uc-inc/checkout_card_address.hpl">
 	<p class="clearBoth"></p>
 </div>

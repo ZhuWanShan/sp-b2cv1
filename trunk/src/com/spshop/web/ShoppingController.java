@@ -72,7 +72,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.DispatcherServlet;
 
 import com.spshop.cache.SCacheFacade;
 import com.spshop.dto.CopyrightInfringmentFormBean;
@@ -91,6 +90,7 @@ import com.spshop.service.intf.CouponService;
 import com.spshop.service.intf.OrderService;
 import com.spshop.service.intf.ProductOptionItemService;
 import com.spshop.service.intf.UserService;
+import com.spshop.utils.CheckoutUtils;
 import com.spshop.utils.Constants;
 import com.spshop.utils.EmailTools;
 import com.spshop.utils.FeedTools;
@@ -124,6 +124,8 @@ public class ShoppingController extends BaseController{
 	public String shoppingCart(Model model) {
 		if(getUserView().getCart().getItemCount() < 1){
 			getUserView().getErr().put(EMPTY_ORDER, "Shopping cart is empty");
+		}else if(null != getUserView().getLoginUser()){
+			persistantCart();
 		}
 		
 		return "shoppingCart";
@@ -632,6 +634,14 @@ public class ShoppingController extends BaseController{
 		return "Credit-card-Rs";
 	}
 	
+	@RequestMapping("checkoutPayRs")
+	public String checkoutPayRs(HttpServletRequest request, HttpServletResponse response, Model model, @RequestParam("sig") String sig) throws UnsupportedEncodingException{
+		
+		CheckoutUtils.VerifyResponse(sig, request);
+		
+		return null;
+	}
+	
 	
 	private Map<String,String> updateCart(String itemID,int amount,boolean isRemove){
 		ShoppingCart cart = getUserView().getCart();
@@ -793,6 +803,13 @@ public class ShoppingController extends BaseController{
 	public String copyrightInfringment(){
 		
 		return "copyrightInfringment";
+	}
+	
+	@RequestMapping("/notification")
+	public String checkounotification(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		response.getOutputStream().print("true");
+		
+		return null;
 	}
 	
 	@RequestMapping("/copyrightInfringment_POST")
