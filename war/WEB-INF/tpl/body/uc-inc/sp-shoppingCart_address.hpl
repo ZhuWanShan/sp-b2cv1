@@ -281,7 +281,7 @@
 				<!-- <option value="paypal">Paypal</option> -->
 				<option value="WesternUnion">Western Union</option>
 				<option value="WireTransfer">Wire Transfer</option>
-				<option value="CheckOut">CheckOut -- (Testing Only Do no try)</option>
+				<option value="CheckOut">CheckOut</option>
 			</select>
 			
 			<div id="allpaymthod" class="paymentmethod"> 
