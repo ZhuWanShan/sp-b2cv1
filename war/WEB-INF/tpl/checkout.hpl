@@ -1,6 +1,6 @@
-<#assign pageKeywords = "Western Union, Honeybuy.com"> 
-<#assign pageDescription = "Pay by Western Union"> 
-<#assign pageTitle = "Pay by Western Union">
+<#assign pageKeywords = "Checkout, Honeybuy.com"> 
+<#assign pageDescription = "Pay by Checkout"> 
+<#assign pageTitle = "Pay by Checkout">
 <#assign cartStep = "cartStep2" >
 
 <#include "/header/top_clean.hpl">
