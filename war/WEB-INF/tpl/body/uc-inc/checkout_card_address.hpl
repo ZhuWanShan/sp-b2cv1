@@ -37,8 +37,8 @@
 				</form>
 				
 			<script type="text/javascript">
-					/*jq("#paypaysubmitForm").submit();
-					jq("#GlobebillPayFrame").ready(function(){
+					jq("#paypaysubmitForm").submit();
+					/*jq("#GlobebillPayFrame").ready(function(){
 						jq("#Loading-GlobebillPayFrame").remove();		
 						jq("#GlobebillPayFrame").show();
 						jq("#GlobebillPayFrameDiv").show();

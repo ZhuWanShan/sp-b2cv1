@@ -21,7 +21,7 @@ import net.sf.json.JSONObject;
 
 public class CheckoutUtils {
 	private static Logger logger = Logger.getLogger(CheckoutUtils.class);
-	public final static String verifykey = "57F22FCA-01B9-431F-85FA-5B78E8A6CA52";
+	public final static String verifykey = "492A2E93-67CB-4971-A72A-F881E89390F4";
 	public static String RequestToken(String amount, String id, String currency, String returnUrl) throws IOException {
 		URL url;
 		String token = "init";
@@ -40,8 +40,8 @@ public class CheckoutUtils {
 			obj.put("paymentmode", "0");
 			obj.put("amount", amount);
 			obj.put("currencysymbol", currency);
-			obj.put("merchantcode", "HONEYBUYTEST");
-			obj.put("password", "HONEYBUYTEST987");
+			obj.put("merchantcode", "HONEYSTORE");
+			obj.put("password", "HONEYSTORE74");
 			obj.put("action", "1");
 			obj.put("trackid", id);
 			obj.put("returnurl", returnUrl);
@@ -139,7 +139,8 @@ public class CheckoutUtils {
 		}
 	}
 	
-	  public static String VerifyResponse(String signature, HttpServletRequest request ){
+	  public static boolean VerifyResponse(String signature, HttpServletRequest request ){
+		  	boolean rs = false;
 	       //Transaction response handler
 	       //?error_code_tag=&error_text=&result=Successful&responsecode=0&tranid=10000000&authcode=&trackid=&merchantid=&sig=
 	       //create signature
@@ -178,17 +179,17 @@ public class CheckoutUtils {
 	       		authcode, type, merchantid, responsecode, result, trackid, tranid ));
 	       
 	       if(signature.equalsIgnoreCase(hashResponse.toString())){
-	           System.out.println("valid response from server");
+	          if("Successful".equals(result)){
+	        	  logger.info("Payment successful");
+	        	   return true;
+	           }
 	       }else
 	       {
-	           System.out.println("Invalid response");
+	    	   logger.info("Payment faild");
+	    	   rs = false;
 	       }        
-	       return response.toString();   
+	       return false;   
 	   }
 	
-	
-	public static void main(String[] args) throws IOException {
-		System.out.println(RequestToken("99", "123445", "USD", "http://www.google.com"));
-	}
 	
 }

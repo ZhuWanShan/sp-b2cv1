@@ -226,7 +226,7 @@ public class UserCenterController extends BaseController {
 	}
 
 	@RequestMapping(value = "/shoppingCart_address", method = RequestMethod.GET)
-	public String shoppingCartAdress(Model model, @RequestParam(value="id", required=false) String id) {
+	public String shoppingCartAdress(Model model, @RequestParam(value="id", required=false) String id, @RequestParam(value="payment", required=false) String payment) {
 		
 		if(null != id){
 			Order order = ServiceFactory.getService(OrderService.class).getCartOrPendingOrderById(id, getUserView().getLoginUser().getId());
@@ -254,6 +254,7 @@ public class UserCenterController extends BaseController {
 			
 			model.addAttribute("stdShippingPrice", stdShippingPrice);
 			model.addAttribute("extShippingPrice", extShippingPrice);
+			model.addAttribute("payment", payment);
 			model.addAttribute(Constants.PROCESSING_ORDER, order);
 			
 		}

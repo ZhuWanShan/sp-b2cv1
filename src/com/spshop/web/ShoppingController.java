@@ -635,11 +635,18 @@ public class ShoppingController extends BaseController{
 	}
 	
 	@RequestMapping("checkoutPayRs")
-	public String checkoutPayRs(HttpServletRequest request, HttpServletResponse response, Model model, @RequestParam("sig") String sig) throws UnsupportedEncodingException{
+	public String checkoutPayRs(HttpServletRequest request, HttpServletResponse response, Model model, @RequestParam("sig") String sig, @RequestParam("trackid")String trackid) throws UnsupportedEncodingException{
 		
-		CheckoutUtils.VerifyResponse(sig, request);
+		boolean rs = CheckoutUtils.VerifyResponse(sig, request);
 		
-		return null;
+		if(rs){
+			Order order = ServiceFactory.getService(OrderService.class).getOrderById(trackid);
+			ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.toString());
+			return "redirect:/uc/orderDetails?id="+trackid;
+		}
+		model.addAttribute("errorMsg", "Payment not Successful.");
+		return "forward:/uc/shoppingCart_address?id="+trackid+"";
+		
 	}
 	
 	
