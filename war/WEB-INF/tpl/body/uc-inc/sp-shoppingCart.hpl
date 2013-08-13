@@ -32,7 +32,7 @@
 							${item.product.title}
 							</a>
 					</dt>
-					<dd class="scart_opt">
+					<dd>
 						<ul>
 							<#list item.userOptions as opt>
 								<#switch opt.name>
@@ -81,7 +81,8 @@
 							</#list>
 							<li>Latest arrival date: ${item.lastArrivalDate!"N/A"}</li>
 							<#if (item.product.optType==1) >
-								<li  style="color: blue;">(Note: This Product Require to Complete Body Measurement) <input	type="button" class="button_01" style="float: left;" value="Edit My Mesurement" id="GO_TO_Fill_Address" onclick="javascript:window.location='/uc/my-measurements'"></li>
+								<li  style="color: red;font-size: 14px;font-weight: bold;">Note: Please Complete Your Size Now! <br>
+								<input	type="button" class="button_01" style="float: left;font-size: 14px;font-weight: bolder;" value="Complete Size Now" id="GO_TO_Fill_Address" onclick="javascript:window.location='/uc/my-measurements'"></li>
 							</#if>
 						</ul>
 						<p class="clearBoth"></p>
