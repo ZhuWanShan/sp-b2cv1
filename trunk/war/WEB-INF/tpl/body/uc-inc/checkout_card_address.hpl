@@ -33,7 +33,7 @@
 					method="post" id="paypaysubmitForm">
 					<input type="hidden" name="pt" value="${key}" />
 					 <input type="hidden" name="sig" value="${signKey}" /> 
-					 <!-- <input type="hidden" name="ProductDesc" value='{ "products": [{"itemnumber":"1","name":"${orderId}","unitprice":"${amount}", "quantity":"1","amount":"${amount}"}] }' />  -->
+					 <input type="hidden" name="ProductDesc" value='{ "products": [{"itemnumber":"1","name":"${orderId}","unitprice":"${amount}", "quantity":"1","amount":"${amount}"}] }' />
 				</form>
 				
 			<script type="text/javascript">
