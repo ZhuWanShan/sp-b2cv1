@@ -76,7 +76,7 @@ public class CheckoutUtils {
 			obj.toString();
 			// Create connection and send token request
 			url = new URL(
-					"https://secure.egatepay.com/tokenservice/createtoken.ashx");
+					"https://api.checkout.com/tokenservice/createtoken.ashx");
 			connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod("POST");
 			connection.setRequestProperty("Content-Type", "application/json");
