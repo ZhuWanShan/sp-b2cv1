@@ -29,7 +29,7 @@
 	<p class="clearBoth"></p>
 	
 	<form name="payForm"
-					action="https://secure.egatepay.com/hpayment/"
+					action="https://secure.checkout.com/hpayment/pay.aspx"
 					method="post" id="paypaysubmitForm">
 					<input type="hidden" name="pt" value="${key}" />
 					 <input type="hidden" name="sig" value="${signKey}" /> 
