@@ -32,7 +32,7 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
         for (Product product : products) {
             Element e = new Element("item");
             e.setAttribute("id", String.valueOf(product.getId()));
-            e.addContent(new Element("id", namespace).setText(String.valueOf(product.getId()) + cc));
+            e.addContent(new Element("id", namespace).setText(String.valueOf(product.getId()) + cc.toLowerCase()));
             e.addContent(new Element("title").setText(product.getTitle()));
             if (StringUtils.isNotBlank(product.getAbstractText())) {
             	e.addContent(new Element("description").setText(product.getAbstractText()));
@@ -63,8 +63,8 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
                 '预订单' [preorder]
              */
             e.addContent(new Element("availability", namespace).setText("in stock"));
-            e.addContent(new Element("price", namespace).setText(String.valueOf(product.getPrice())+" USD"));
-            e.addContent(new Element("sale_price", namespace).setText(String.valueOf(product.getActualPrice())+" USD"));
+            e.addContent(new Element("price", namespace).setText(String.valueOf(formater.format(product.getPrice()*Double.valueOf(getCurrency(getProperty(cc).toUpperCase()))))+" "+getProperty(cc).toUpperCase()));
+            e.addContent(new Element("sale_price", namespace).setText(String.valueOf(formater.format(product.getActualPrice()*Double.valueOf(getCurrency(getProperty(cc).toUpperCase()))))+" "+getProperty(cc).toUpperCase()));
             
             e.addContent(new Element("sale_price_effective_date", namespace).setText("2013-03-01T13:00-0800/2016-03-11T15:30-0800"));
             
@@ -78,8 +78,8 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
             
             e.addContent(new Element("tax", namespace).setContent(new Element("rate", namespace).setText("0")));
             Element shippingInfo = new Element("shipping", namespace);
-            shippingInfo.addContent(new Element("price", namespace).setText("0 USD"));
-            shippingInfo.addContent(new Element("country", namespace).setText("US"));
+            shippingInfo.addContent(new Element("price", namespace).setText("0 " + getProperty(cc).toUpperCase()));
+            shippingInfo.addContent(new Element("country", namespace).setText(cc.toUpperCase()));
             e.addContent(shippingInfo);
             
             channel.addContent(e);
