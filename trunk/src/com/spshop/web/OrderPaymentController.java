@@ -1,6 +1,7 @@
 package com.spshop.web;
 
 import static com.spshop.utils.Constants.DEFAULT_CURRENCY;
+import static com.spshop.utils.Constants.SHOPPINGCART;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -210,15 +211,15 @@ public class OrderPaymentController extends BaseController{
 				
 			}else if("paypal".equals(payment)) {
 				order.setOrderType("Paypal");
-				checkOutOrder(model, order);
+				checkOutOrder(request, model, order);
 				return "paypal";
 			}else if("WesternUnion".equals(payment)) {
 				order.setOrderType("WesternUnion");
-				checkOutOrder(model, order);
+				checkOutOrder(request, model, order);
 				return "WesternUnion";
 			}else if("WireTransfer".equals(payment)){
 				order.setOrderType("WireTransfer");
-				checkOutOrder(model, order);
+				checkOutOrder(request, model, order);
 				return "WireTransfer";
 			}else if("CheckOut".equals(payment)){
 				order.setOrderType("CheckOut");
@@ -236,7 +237,7 @@ public class OrderPaymentController extends BaseController{
 	private void checkoutPay(Order order, Model model,
 			HttpServletRequest request) {
 		
-		order = checkOutOrder(model, order);
+		order = checkOutOrder(request, model, order);
 		
 		String orderNumber = order.getName();
 	    String amount = new NumberFormat("##0.##").getNumberFormat().format(getSiteView().getCurrencies().get(order.getCurrency())*(order.getTotalPrice() + order.getDePrice() - order.getCouponCutOff()));
@@ -275,7 +276,7 @@ public class OrderPaymentController extends BaseController{
 				model.addAttribute("errorMsg", "Please fill you billing address");
 			}else if("Globebill".equals(order.getOrderType())){
 				
-				order = checkOutOrder(model, order);
+				order = checkOutOrder(request, model, order);
 			
 				globebillPay(order, model, request);
 				
@@ -289,12 +290,11 @@ public class OrderPaymentController extends BaseController{
 
 
 
-	private Order checkOutOrder(Model model, Order order) {
+	private Order checkOutOrder(HttpServletRequest request, Model model, Order order) {
 		final Map<String, Object> root = new HashMap<String, Object>();
 		model.addAttribute(Constants.PROCESSING_ORDER, order);
 		order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.toString());
-		getUserView().setCart(new ShoppingCart(new Order()));
-		
+		request.getSession().setAttribute(SHOPPINGCART, new ShoppingCart(new Order()));
 		final Order o = order;
 		root.put("order", order);
 		float currencyRate = 1;
