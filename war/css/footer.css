@@ -24,4 +24,8 @@
 .search_tags i{ font-style:normal; font-weight:bold;}
 .search_tags a{ color:#1E4E8E;}
 .bottom_menu,.bottom_menu a{ color:#575247;}
+#bottom .pay .pal {position:relative;}
+#bottom .pay .pal img{float:left;margin:10px 0 0 7px;;}
+#bottom .pay .pal .noth{position:absolute 0 0;z-index:2;float:left;}
+#bottom .pay ._safe1{background:#ccc;position:absolute;display:block;z-index:3;top: 50px;left: 738px;width: 100px;height: 43px;}
 .bottom_Friendlink img{ vertical-align:middle; margin:4px;}
