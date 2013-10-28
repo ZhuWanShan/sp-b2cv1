@@ -151,6 +151,7 @@ Blogspot" title="Honeybuy Blogspot" height="32"
 				<script type="text/javascript" src="https://seal.verisign.com/getseal?host_name=www.HoneyBuy.com&amp;size=S&amp;use_flash=YES&amp;use_transparent=YES&amp;lang=en"></script>
 			  </a>
   	    </div>
+  	    <div style="float: left; margin:10px 2px 0 0px">
     	<img src="/style/image/paylogo.png" usemap="#Map" border="0">
     	<map name="Map" id="Map">
       		<area shape="rect" coords="0,1,74,37" href="http://www.visa.com/" target="_blank"/>
