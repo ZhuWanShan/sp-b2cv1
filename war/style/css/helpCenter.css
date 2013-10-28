@@ -64,7 +64,43 @@
 #helpcenter .detail .centent{ width:771px; margin:10px auto; text-align:center}
 /******** helpCenter CSS Document END ********/
 /******** bottom css star *******/
+/******** bottom css star *******/
+#bottom{ width:972px; margin:20px auto 0 auto;border-top:1px solid #474747;clear:both}
+#bottom img{ border:0; vertical-align:top;}
+#bottom ul,li{ margin:0px; padding:0; list-style:none;}
+#bottom p,h1,h2,h3,dl,dd,dt{ margin:0; padding:0; font-size:12px; font-family: Arial, Helvetica;}
+#bottom h3{ font-weight:normal; font-size:12px}
 
+#bottom .enjoy{ font-size:38px;color:#bottom;!important; padding-bottom:30px; text-indent:10px}
+#bottom .hottest{ font-size:24px;font-family: 'Helvetica Neue',; font-weight:bold; color:#969696;text-indent:10px}
+#bottom .big{font-family: Arial, Helvetica; font-size:12px; text-indent:10px; color:#666666}
+#bottom .big a{ text-decoration:none; color:#0069ff}
+#bottom .pic{ padding-left:6px}
+#bottom .pic dl{ width:320px; float:left}
+#bottom .pic dl dt{ float:left; width:158px;}
+#bottom .pic dl dd{ float:left; width:160px; line-height:20px; font-size:11px}
+#bottom .pic dl dd a:hover{ color:#cb4634;}
+#bottom .shang{ margin-top:30px; margin-bottom:20px; height:156px}
+#bottom .xia{ margin-bottom:30px; clear:both; height:156px}
+#bottom .jion{ height:64px; border-bottom:2px solid #e0e0e0 ;border-top:2px solid #e0e0e0}
+#bottom .jion .txt{ color:#666666; font-size:16px; line-height:64px; float:left; text-indent:20px}
+#bottom .jion .tubiao{ float:left; padding-top:15px; width:47%;}
+#bottom .tubiao img{ margin-left:18px; float:left}
+#bottom .HoneyBuy dl{ margin-top:20px; float:left; margin-left:90px; display:inline}
+#bottom .HoneyBuy dl dt{ font-weight:bold; font-size:12px; margin-bottom:5px}
+#bottom .HoneyBuy dl dd{ font-size:12px; color:#666666; line-height:18px;font-family: 'Helvetica Neue',;}
+#bottom .HoneyBuy dl dd a{font-size:12px;line-height:18px;font-family: 'Helvetica Neue',;}
+#bottom .pay{ margin-top:20px; border-top:1px solid #222; clear:both}
+#bottom .pay .pal{ height:90px;}
+#bottom .pay .pal .noth{ width:135px; float:left}
+#bottom .pay .pal .zhongjian{ float:left; padding-top:30px; margin-left:5px; }
+#bottom .pay .pal .paypal{ float:left; padding-top: 30px; padding-left: 10px;}
+#bottom .pay p{ text-align:center}
+#bottom .pay p a{ text-align:center;color:#FF5A00;}
+#bottom .Copyright{ margin-top:10px; text-align:center; color:#888888}
+#bottom .Copyright a{ color:#FF5A00;}
+.HB-bottom{ background:url(/style/image/HB-bottom.jpg) repeat-x;} 
+/*****bottom css end*****/
 /*****index-left css star*****/
 #index_left{ width:189px; border:1px solid #ddd; background:#fff;}
 #index_left .left_title{ height:42px; background:url(/style/image/pic/HeadImg.png) no-repeat 0 bottom scroll; color:#a60e00; font-size:22px; text-indent:55px; line-height:43px; text-shadow:1px 1px #fff}
