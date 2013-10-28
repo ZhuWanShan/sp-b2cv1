@@ -92,7 +92,7 @@
 #bottom .HoneyBuy dl dd a{font-size:12px;line-height:18px;font-family: 'Helvetica Neue',;}
 #bottom .pay{ margin-top:20px; border-top:1px solid #222; clear:both}
 #bottom .pay .pal{ height:90px;}
-#bottom .pay .pal .noth{ width:135px; float:left}
+#bottom .pay .pal .noth{float:left}
 #bottom .pay .pal .zhongjian{ float:left; padding-top:30px; margin-left:5px; }
 #bottom .pay .pal .paypal{ float:left; padding-top: 30px; padding-left: 10px;}
 #bottom .pay p{ text-align:center}
