@@ -152,27 +152,25 @@ Blogspot" title="Honeybuy Blogspot" height="32"
 			  </a>
   	    </div>
   	    <div style="float: left; margin:10px 2px 0 0px">
-    	<img src="/style/image/paylogo.png" usemap="#Map" border="0">
-    	<map name="Map" id="Map">
-      		<area rel="nofollow" shape="rect" coords="0,1,74,37" href="https://www.visa.com" target="_blank" alt="Visa" />
-      		<area rel="nofollow" shape="rect" coords="80,1,151,37" href="https://www.mastercard.com" alt="MasterCard"/>
-      		<area rel="nofollow" shape="rect" coords="159,1,230,36" href="https://www.americanexpress.com" target="_blank" alt="American Express"/>
-      		<area rel="nofollow" shape="rect" coords="239,2,307,37" href="https://www.discover.com" target="_blank" alt="Discover"/>
-      		<area rel="nofollow" shape="rect" coords="316,1,390,37" href="http://www.dinersclub.com" target="_blank" alt="dinersclub"/>
-      		<area rel="nofollow" shape="rect" coords="394,1,469,37" href="https://www.checkout.com" target="_blank" alt="checkout"/>
-     		<area rel="nofollow" shape="rect" coords="474,0,548,37" href="https://www.checkout.com" target="_blank" alt="checkout"/>
-      		<area rel="nofollow" shape="rect" coords="556,2,644,37" href="https://www.hsbc.com" target="_blank" alt="hsbc"/>
-      		<area rel="nofollow" shape="rect" coords="652,2,737,39" href="https://www.westernunion.com" target="_blank" alt="westernunion"/>
-      		<area rel="nofollow" shape="rect" coords="743,1,859,39" href="https://www.mcafeesecure.com" target="_blank" alt="mcafeesecure"/>
-      		<area rel="nofollow" shape="rect" coords="1,51,80,83" href="https://www.ems.com" target="_blank" alt="EMS"/>
-      		<area rel="nofollow" shape="rect" coords="85,53,204,85" href="http://www.dhl.com" target="_blank" alt="DHL"/>
-      		<area rel="nofollow" shape="rect" coords="339,49,421,80" href="http://www.tnt.com" target="_blank" alt="TNT"/>
-      		<area rel="nofollow" shape="rect" coords="428,45,502,84" >
-      		<area rel="nofollow" shape="rect" coords="510,46,619,84" href="http://www.xingcloud.com/" target="_blank" alt="xingcloud"/>
-      		<area rel="nofollow" shape="rect" coords="212,46,333,78" href="http://www.ups.com/" target="_blank" alt="UPS"/>
-      		<area rel="nofollow" shape="rect" coords="625,39,766,90" href="https://www.google.com/safebrowsing/diagnostic?site=www.honeybuy.com" target="_blank" alt="google safe browsing" />
-    	</map>
-	</div>
+    	<div class="_p-link">
+      		<a href="http://www.visa.com/" target="_blank"><span class="_p-link-f1"></span> </a>
+      		<a href="http://www.mastercard.com/index.html"><span class="_p-link-f2"></span> </a>
+      		<a href="https://www304.americanexpress.com/credit-card?inav=footer_cards_personal" target="_blank"><span class="_p-link-f3"></span> </a>
+      		<a href="https://www.discover.com/" target="_blank"><span class="_p-link-f4"></span> </a>
+      		<a href="http://www.dinersclub.com/" target="_blank"><span class="_p-link-f5"></span> </a>
+      		<a href="http://www.checkout.com" target="_blank"><span class="_p-link-f6"></span> </a>
+     		<a href="http://www.checkout.com/cert/MerchantVerify_dx.com.html" target="_blank"><span class="_p-link-f7"></span> </a>
+      		<a href="http://www.hsbc.com/" target="_blank"><span class="_p-link-f8"></span> </a>
+      		<a href="http://www.westernunion.com/" target="_blank"><span class="_p-link-f9"></span> </a>
+      		<a href="https://www.mcafeesecure.com/RatingVerify?ref=dx.com" target="_blank"><span class="_p-link-f10"></span> </a>
+      		<a href="http://www.ems.com/home/index.jsp" target="_blank"><span class="_p-link-f11"></span> </a>
+      		<a href="http://www.ems.com/home/index.jsp" target="_blank"><span class="_p-link-f12"></span> </a>
+      		<a href="http://www.tnt.com/portal/location/en.html" target="_blank"><span class="_p-link-f13"></span> </a>
+      		<a href="http://dx.com/Page-Conditions#return_policy" target="_blank"><span class="_p-link-f14"></span> </a>
+      		<a href="http://www.ups.com/" target="_blank"><span class="_p-link-f15"></span> </a>
+    	<a onclick="window.open(this.href, 'Safe Verified by Google', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=yes,dependent=no,width=750,height=550'); return false;" rel="nofollow" target="_blank" href="https://www.google.com/safebrowsing/diagnostic?site=www.honeybuy.com" class="_safe1 _p-link-f16" style="position:absolute;display:block;z-index:3;top: 50px;left: 738px;width: 100px;height: 43px;"></a>
+	  </div>
+      </div>
 		<div class="tag-index-banner "
 			style="text-align: center; border: 1px solid #dddddd; border-right: none; border-left: none; line-height: 30px;">
 			Product <a href="http://www.honeybuy.com/tags/index">Tags</a>:&nbsp;&nbsp;&nbsp; <a
