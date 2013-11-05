@@ -95,39 +95,39 @@
 #bottom .pay ._p-link{float:float: left; margin:10px 2px 0 0px;}
 #bottom .pay ._p-link a{overflow: hidden;}
 #bottom .pay ._p-link ._p-link-f1{background: url("/style/image/paylogo.png") no-repeat scroll 0px
- 0px transparent;width:72px;height:36px;display:inline-block;margin-right:7px; }
+ 0px transparent;width:72px;height:36px;display:inline-block;margin-right:16px; }
 #bottom .pay ._p-link ._p-link-f2{background: url("/style/image/paylogo.png") no-repeat scroll -79px
- 0px transparent;width:72px;height:36px;display:inline-block;margin-right:7px; }
+ 0px transparent;width:72px;height:36px;display:inline-block;margin-right:16px; }
 #bottom .pay ._p-link ._p-link-f3{background: url("/style/image/paylogo.png") no-repeat scroll -158px
- 0px transparent;width:72px;height:36px;display:inline-block;margin-right:7px; }
+ 0px transparent;width:72px;height:36px;display:inline-block;margin-right:16px; }
 #bottom .pay ._p-link ._p-link-f4{background: url("/style/image/paylogo.png") no-repeat scroll -237px
- 0px transparent;width:72px;height:36px;display:inline-block;margin-right:7px; }
+ 0px transparent;width:72px;height:36px;display:inline-block;margin-right:16px; }
 #bottom .pay ._p-link ._p-link-f5{background: url("/style/image/paylogo.png") no-repeat scroll -316px
- 0px transparent;width:72px;height:36px;display:inline-block;margin-right:7px; }
- #bottom .pay ._p-link ._p-link-f6{background: url("/style/image/paylogo.png") no-repeat scroll -395px
- 0px transparent;width:72px;height:36px;display:inline-block;margin-right:7px; }
- #bottom .pay ._p-link ._p-link-f7{background: url("/style/image/paylogo.png") no-repeat scroll -474px
- 0px transparent;width:72px;height:36px;display:inline-block;margin-right:8px; }
-  #bottom .pay ._p-link ._p-link-f8{background: url("/style/image/paylogo.png") no-repeat scroll -554px
- 0px transparent;width:90px;height:36px;display:inline-block;margin-right:7px; }
-  #bottom .pay ._p-link ._p-link-f9{background: url("/style/image/paylogo.png") no-repeat scroll -651px
- 0px transparent;width:84px;height:36px;display:inline-block;margin-right:6px; }
-  #bottom .pay ._p-link ._p-link-f10{background: url("/style/image/paylogo.png") no-repeat scroll -741px
- 0px transparent;width:115px;height:36px;display:inline-block; }
+ 0px transparent;width:72px;height:36px;display:inline-block;margin-right:16px; }
+#bottom .pay ._p-link ._p-link-f6{background: url("/style/image/paylogo.png") no-repeat scroll -395px
+ 0px transparent;width:72px;height:36px;display:inline-block;margin-right:16px; }
+#bottom .pay ._p-link ._p-link-f7{background: url("/style/image/paylogo.png") no-repeat scroll -474px
+ 0px transparent;width:72px;height:36px;display:inline-block;margin-right:16px; }
+#bottom .pay ._p-link ._p-link-f8{background: url("/style/image/paylogo.png") no-repeat scroll -554px
+ 0px transparent;width:90px;height:36px;display:inline-block;margin-right:16px; }
+#bottom .pay ._p-link ._p-link-f9{background: url("/style/image/paylogo.png") no-repeat scroll -651px
+ 0px transparent;width:84px;height:36px;display:inline-block;margin-right:10px; }
+#bottom .pay ._p-link ._p-link-f10{background: url("/style/image/paylogo.png") no-repeat scroll -741px
+ 0px transparent;width:115px;height:36px;display:inline-block;margin-left:20px; }
 #bottom .pay ._p-link ._p-link-f11{background: url("/style/image/paylogo.png") no-repeat scroll -4px
- -46px transparent;width:72px;height:36px;display:inline-block;margin:10px 7px 0 4px;}
- #bottom .pay ._p-link ._p-link-f12{background: url("/style/image/paylogo.png") no-repeat scroll -83px
- -46px transparent;width:122px;height:36px;display:inline-block;margin:10px 7px 0 0;}
- #bottom .pay ._p-link ._p-link-f13{background: url("/style/image/paylogo.png") no-repeat scroll -212px
- -46px transparent;width:121px;height:36px;display:inline-block;margin:10px 7px 0 0;}
+ -46px transparent;width:72px;height:36px;display:inline-block;margin:10px 6px 0px;}
+#bottom .pay ._p-link ._p-link-f12{background: url("/style/image/paylogo.png") no-repeat scroll -83px
+ -46px transparent;width:122px;height:36px;display:inline-block;margin:10px 6px 0px;}
+#bottom .pay ._p-link ._p-link-f13{background: url("/style/image/paylogo.png") no-repeat scroll -212px
+ -46px transparent;width:121px;height:36px;display:inline-block;margin:10px 6px 0px;}
 #bottom .pay ._p-link ._p-link-f14{background: url("/style/image/paylogo.png") no-repeat scroll -340px
- -46px transparent;width:80px;height:36px;display:inline-block;margin:10px 9px 0 0;}
+ -46px transparent;width:80px;height:36px;display:inline-block;margin:10px 6px 0px;}
 #bottom .pay ._p-link ._p-link-f15{background: url("/style/image/paylogo.png") no-repeat scroll -429px
- -46px transparent;width: 72px;height:36px;display:inline-block;margin:10px 7px 0 0;}
+ -46px transparent;width: 72px;height:36px;display:inline-block;margin:10px 6px 0px;}
 #bottom .pay ._p-link ._p-link-f16{background: url("/style/image/paylogo.png") no-repeat scroll -625px
- -40px transparent;width:129px;height:49px;display:inline-block;margin:4px 0 0 0;}
+ -40px transparent;width:120px;height:45px;display:inline-block;}
  
-#bottom .pay .pal .noth{ width:135px; float:left}
+#bottom .pay .pal .noth{ width:125px; float:left}
 #bottom .pay .pal .zhongjian{ float:left; padding-top:30px; margin-left:5px; }
 #bottom .pay .pal .paypal{ float:left; padding-top: 30px; padding-left: 10px;}
 #bottom .pay p{ text-align:center}
