@@ -57,6 +57,11 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 			throw new ServiceValidateException(product.getName()+" is already exist!");
 		}
 		
+		if (product.getHit()==0) {
+			int hit=(int)(Math.random()*1000);
+			product.setHit(hit);
+		}
+		
 		getDao().save(product);
 		
 		return product.clone();
