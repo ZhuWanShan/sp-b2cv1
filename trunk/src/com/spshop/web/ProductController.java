@@ -59,11 +59,11 @@ public class ProductController extends BaseController {
 		}
         product.setHit(product.getHit()+1);
         
-//        new Thread(){
-//        	public void run() {
-//        		ServiceFactory.getService(ProductService.class).saveProduct(product);
-//        	};
-//        }.start();
+        new Thread(){
+        	public void run() {
+        		ServiceFactory.getService(ProductService.class).saveProduct(product);
+        	};
+        }.start();
         
         return PRODUCT_UI;
     }
