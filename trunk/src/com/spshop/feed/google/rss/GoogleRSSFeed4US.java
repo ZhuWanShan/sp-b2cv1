@@ -1,6 +1,7 @@
 package com.spshop.feed.google.rss;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -43,11 +44,11 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
             Category c = Utils.getSecondaryLayerCategory(originalCategory);
             e.addContent(new Element("product_type", namespace).setText(c.getDisplayName()));
             e.addContent(new Element("link", namespace).setText(host + "/" + product.getName()));
-            e.addContent(new Element("image_link", namespace).setText(imageHost
-                                                                      + product.getImages().get(0).getLargerUrl()));
+            String img1 = product.getImages().get(0).getLargerUrl();
+            String img2 = product.getImages().get(1).getLargerUrl();
+            e.addContent(new Element("image_link", namespace).setText(imageHost + "/feedImg" + getFeedImage(img1)));
             if (product.getImages().size()>1) {
-            	e.addContent(new Element("additional_image_link", namespace).setText(imageHost
-            			+ product.getImages().get(1).getLargerUrl()));
+            	e.addContent(new Element("additional_image_link", namespace).setText(imageHost + "feedImg" + getFeedImage(img2)));
 			}
             //
             //‘全新' [new]
@@ -73,7 +74,7 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
             e.addContent(new Element("age_group", namespace).setText("adult"));
             Category adGroup = Utils.getCategoryByName(originalCategory);
             e.addContent(new Element("adwords_grouping", namespace).setText(adGroup.getDisplayName()));
-            e.addContent(new Element("color", namespace).setText("White,Black,Blue,Red,Purple,Gold,Green,Pink,Champagne,Yellow"));
+            e.addContent(new Element("color", namespace).setText("Black,Blue,Red"));
             e.addContent(new Element("size", namespace).setText("US2,US4,US6,US8,US10,US12,US14,US16"));
             
             e.addContent(new Element("tax", namespace).setContent(new Element("rate", namespace).setText("0")));
@@ -92,4 +93,21 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
     private static Element createElementByName(String name, String text){
         return new Element(name).setText(text);
     }
+    
+    public static String getFeedImage(String img) {
+		String s = img.substring(img.lastIndexOf("."));
+		String n = img.substring(img.lastIndexOf("/"), img.lastIndexOf("__")+2);
+		n = Pattern.compile("__").matcher(n).replaceFirst(" (");
+		n = Pattern.compile("__").matcher(n).replaceFirst(")");
+		n = Pattern.compile("_").matcher(n).replaceAll(" ");
+		n = n + s;
+		return n;
+	}
+    
+    public static void main(String[] args) {
+		String img = "/image/2013_Prom_Dresses_In_The_Uk_With_Straps_Handmade_Beading__1__67492455214210_690X500.jpg";
+		
+		
+		System.out.println(getFeedImage(img));
+	}
 }
