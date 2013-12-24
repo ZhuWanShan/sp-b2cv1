@@ -48,7 +48,7 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
             String img2 = product.getImages().get(1).getLargerUrl();
             e.addContent(new Element("image_link", namespace).setText(imageHost + "/feedImg" + getFeedImage(img1)));
             if (product.getImages().size()>1) {
-            	e.addContent(new Element("additional_image_link", namespace).setText(imageHost + "feedImg" + getFeedImage(img2)));
+            	e.addContent(new Element("additional_image_link", namespace).setText(imageHost + "/feedImg" + getFeedImage(img2)));
 			}
             //
             //‘全新' [new]
@@ -67,15 +67,15 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
             e.addContent(new Element("price", namespace).setText(String.valueOf(formater.format(product.getPrice()*Double.valueOf(getCurrency(getProperty(cc).toUpperCase()))))+" "+getProperty(cc).toUpperCase()));
             e.addContent(new Element("sale_price", namespace).setText(String.valueOf(formater.format(product.getActualPrice()*Double.valueOf(getCurrency(getProperty(cc).toUpperCase()))))+" "+getProperty(cc).toUpperCase()));
             
-            e.addContent(new Element("sale_price_effective_date", namespace).setText("2013-03-01T13:00-0800/2016-03-11T15:30-0800"));
+            e.addContent(new Element("sale_price_effective_date", namespace).setText("2013-12-24T13:00-0800/2016-03-11T15:30-0800"));
             
             e.addContent(new Element("brand", namespace).setText("HoneyBuy"));
             e.addContent(new Element("gender", namespace).setText("female"));
             e.addContent(new Element("age_group", namespace).setText("adult"));
             Category adGroup = Utils.getCategoryByName(originalCategory);
             e.addContent(new Element("adwords_grouping", namespace).setText(adGroup.getDisplayName()));
-            e.addContent(new Element("color", namespace).setText("Black,Blue,Red"));
-            e.addContent(new Element("size", namespace).setText("US2,US4,US6,US8,US10,US12,US14,US16"));
+            e.addContent(new Element("color", namespace).setText("Black/Blue/Red"));
+            e.addContent(new Element("size", namespace).setText("02-04-06-08-10-12-14-16"));
             
             e.addContent(new Element("tax", namespace).setContent(new Element("rate", namespace).setText("0")));
             Element shippingInfo = new Element("shipping", namespace);
