@@ -45,10 +45,10 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
             e.addContent(new Element("product_type", namespace).setText(c.getDisplayName()));
             e.addContent(new Element("link", namespace).setText(host + "/" + product.getName()));
             String img1 = product.getImages().get(0).getLargerUrl();
-            String img2 = product.getImages().get(1).getLargerUrl();
-            e.addContent(new Element("image_link", namespace).setText(imageHost + "/feedImg" + getFeedImage(img1)));
+            e.addContent(new Element("image_link", namespace).setText(getFeedImage(imageHost, img1)));
             if (product.getImages().size()>1) {
-            	e.addContent(new Element("additional_image_link", namespace).setText(imageHost + "/feedImg" + getFeedImage(img2)));
+            	String img2 = product.getImages().get(1).getLargerUrl();
+            	e.addContent(new Element("additional_image_link", namespace).setText(getFeedImage(imageHost, img2)));
 			}
             //
             //‘全新' [new]
@@ -94,20 +94,26 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
         return new Element(name).setText(text);
     }
     
-    public static String getFeedImage(String img) {
-		String s = img.substring(img.lastIndexOf("."));
-		String n = img.substring(img.lastIndexOf("/"), img.lastIndexOf("__")+2);
-		n = Pattern.compile("__").matcher(n).replaceFirst(" (");
-		n = Pattern.compile("__").matcher(n).replaceFirst(")");
-		n = Pattern.compile("_").matcher(n).replaceAll(" ");
-		n = n + s;
-		return n;
+    public static String getFeedImage(String host, String img) {
+    	String regx = "^\\/image/[a-zA-Z0-9]+[\\_a-zA-Z0-9]+\\_{2}[0-9]+\\_{2}[\\_a-zA-Z0-9]+\\.[a-zA-Z0-9]+";
+    	if (img!= null && img.matches(regx)) {
+    		String s = img.substring(img.lastIndexOf("."));
+    		String n = img.substring(img.lastIndexOf("/"), img.lastIndexOf("__")+2);
+    		n = Pattern.compile("__").matcher(n).replaceFirst(" (");
+    		n = Pattern.compile("__").matcher(n).replaceFirst(")");
+    		n = Pattern.compile("_").matcher(n).replaceAll(" ");
+    		n = n + s;
+    		return host + "/feedImg"+ n;
+		} else {
+			return host + img;
+		}
 	}
     
     public static void main(String[] args) {
 		String img = "/image/2013_Prom_Dresses_In_The_Uk_With_Straps_Handmade_Beading__1__67492455214210_690X500.jpg";
+		String r = "^\\/image/[a-zA-Z0-9]+[\\_a-zA-Z0-9]+\\_{2}[0-9]+\\_{2}[\\_a-zA-Z0-9]+\\.[a-zA-Z0-9]+";
+		img.matches(r);
 		
-		
-		System.out.println(getFeedImage(img));
+		System.out.println(img.matches(r));
 	}
 }
