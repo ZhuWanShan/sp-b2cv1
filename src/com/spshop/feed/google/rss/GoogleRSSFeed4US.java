@@ -17,7 +17,7 @@ import com.spshop.utils.Utils;
 public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
     private static final Namespace namespace = Namespace.getNamespace("g", "http://base.google.com/ns/1.0");
     
-    public static Document buildRSSXMLByProducts(List<Product> products, String cc, String originalCategory, String category, String host, String imageHost, HttpServletRequest request) {
+    public static Document buildRSSXMLByProducts(boolean include2Image, boolean feedImage, List<Product> products, String cc, String originalCategory, String category, String host, String imageHost, HttpServletRequest request) {
         Element root = new Element("rss", namespace);
         root.setAttribute("version", "2.0");
         
@@ -45,10 +45,18 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
             e.addContent(new Element("product_type", namespace).setText(c.getDisplayName()));
             e.addContent(new Element("link", namespace).setText(host + "/" + product.getName()));
             String img1 = product.getImages().get(0).getLargerUrl();
-            e.addContent(new Element("image_link", namespace).setText(getFeedImage(imageHost, img1)));
-            if (product.getImages().size()>1) {
+            if (feedImage) {
+            	e.addContent(new Element("image_link", namespace).setText(getFeedImage(imageHost, img1)));
+			} else {
+				e.addContent(new Element("image_link", namespace).setText(imageHost+img1));
+			}
+            if (product.getImages().size()>1&&include2Image) {
             	String img2 = product.getImages().get(1).getLargerUrl();
-            	e.addContent(new Element("additional_image_link", namespace).setText(getFeedImage(imageHost, img2)));
+            	if (feedImage) {
+                	e.addContent(new Element("additional_image_link", namespace).setText(getFeedImage(imageHost, img2)));
+    			} else {
+    				e.addContent(new Element("additional_image_link", namespace).setText(imageHost+img2));
+    			}
 			}
             //
             //‘全新' [new]
@@ -110,10 +118,11 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
 	}
     
     public static void main(String[] args) {
-		String img = "/image/2013_Prom_Dresses_In_The_Uk_With_Straps_Handmade_Beading__1__67492455214210_690X500.jpg";
+		String img = "/image/12332674695_Cool_Style_One_Shoulder_A_Line_Wedding_Dresses__1__5861063196976148_690X500.jpg";
 		String r = "^\\/image/[a-zA-Z0-9]+[\\_a-zA-Z0-9]+\\_{2}[0-9]+\\_{2}[\\_a-zA-Z0-9]+\\.[a-zA-Z0-9]+";
 		img.matches(r);
 		
-		System.out.println(img.matches(r));
+		String s = getFeedImage("www.honeybuy.com", img);
+		System.out.println(s);
 	}
 }
