@@ -57,7 +57,7 @@ public class RSSFeedController extends BaseController {
 
         List<Product> products = searchProductsByCategory(category, startIndex - 1, startIndex + pageSize - 1);
 
-        Document doc = GoogleRSSFeed4US.buildRSSXMLByProducts(Boolean.valueOf(include2image), true, products, countryCode, category, mappedCategory, getSiteView().getHost(), getSiteView().getImageHost(), request);
+        Document doc = GoogleRSSFeed4US.buildRSSXMLByProducts(Boolean.valueOf(include2image), Boolean.valueOf(feedImage), products, countryCode, category, mappedCategory, getSiteView().getHost(), getSiteView().getImageHost(), request);
         XMLOutputter xmlOutputter = new XMLOutputter();
         try {
             File file = new File(AbstractGoogleRSSFeed.getProperty("feed.file.location"), generateFileName(category, String.valueOf(startIndex), String.valueOf(startIndex + pageSize)));
