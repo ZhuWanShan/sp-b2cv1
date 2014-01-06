@@ -54,16 +54,16 @@ public class ProductController extends BaseController {
         
         int hit = product.getHit();
         if (hit==0) {
-			int h=(int)(Math.random()*1000);
+			int h=(int)(1000+Math.random()*1000);
 			product.setHit(h);
 		}
         product.setHit(product.getHit()+1);
         
-//        new Thread(){
-//        	public void run() {
-//        		ServiceFactory.getService(ProductService.class).saveProduct(product);
-//        	};
-//        }.start();
+        new Thread(){
+        	public void run() {
+        		ServiceFactory.getService(ProductService.class).updateViews(product.getHit(), product.getId());
+        	};
+        }.start();
         
         return PRODUCT_UI;
     }
