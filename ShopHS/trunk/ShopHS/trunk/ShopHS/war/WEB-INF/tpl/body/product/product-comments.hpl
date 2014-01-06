@@ -1,15 +1,15 @@
 <div class="product-comments">
 	<#if productInfo.showComments>
 		<h3 style="float: left;">Comments</h3>
-		<div id='commentsDiv' style="width:100%; clear: left;"></div>
+		<div id='commentsDiv' style="clear: left;"></div>
 		<script src='http://cdn.gigya.com/JS/socialize.js?apiKey=3_HIFroAyk1wupFLmyJptpD2mxxQy41tS7PCVD0g11Lq80hpGao_OyVK8BYkMeciyw' type='text/javascript'></script>
 		<script type='text/javascript'>
 			var params ={
 				categoryID: 'JoyGown',
-				streamID: '',
+				streamID: '${productInfo.name}',
 				containerID: 'commentsDiv',
 				cid:'',
-				enabledShareProviders: 'facebook,twitter,yahoo,linkedin'
+				width: '100%'
 			}
 			gigya.comments.showCommentsUI(params);
 		</script>
