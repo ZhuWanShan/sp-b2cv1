@@ -57,6 +57,11 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 			throw new ServiceValidateException(product.getName()+" is already exist!");
 		}
 		
+		if (product.getHit()==0) {
+			int hit=(int)(1000+Math.random()*1000);
+			product.setHit(hit);
+		}
+		
 		getDao().save(product);
 		
 		return product.clone();
@@ -169,6 +174,11 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 		List<String>  rs =  (List<String>) getDao().queryByHQL(hql);
 		
 		return rs;
+	}
+
+	@Override
+	public void updateViews(int hit, long pid) {
+		getDao().updateViews(hit, pid);
 	}
 	
 	
