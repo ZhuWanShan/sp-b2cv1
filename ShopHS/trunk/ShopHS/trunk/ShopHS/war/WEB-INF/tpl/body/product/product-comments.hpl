@@ -1,8 +1,8 @@
 <div class="product-comments">
 	<#if productInfo.showComments>
 		<h3 style="float: left;">Comments</h3>
+		<div id='commentsDiv' style="width:100%; clear: left;"></div>
 		<script src='http://cdn.gigya.com/JS/socialize.js?apiKey=3_HIFroAyk1wupFLmyJptpD2mxxQy41tS7PCVD0g11Lq80hpGao_OyVK8BYkMeciyw' type='text/javascript'></script>
-		<div id='commentsDiv' style="width:100%;"></div>
 		<script type='text/javascript'>
 			var params ={
 				categoryID: 'JoyGown',
