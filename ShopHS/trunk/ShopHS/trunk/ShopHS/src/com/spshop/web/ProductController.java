@@ -53,8 +53,8 @@ public class ProductController extends BaseController {
         prepareCustomizePopup(model, product.getCategories());
         
         int hit = product.getHit();
-        if (hit==0) {
-			int h=(int)(1000+Math.random()*1000);
+        if (hit==0||hit<1000) {
+			int h=(int)(1000 + Math.random()*1000);
 			product.setHit(h);
 		}
         product.setHit(product.getHit()+1);
