@@ -1,0 +1,38 @@
+<#if errorMsg??>
+<p class="red" style="border: dashed 1px red; padding: 10px; font-weight: bold;" >
+	Warning : ${errorMsg}
+</p>
+</#if>
+<#if processingOrder ??>
+	<#assign order = processingOrder>
+	<#assign currencyRate = (siteView.currencies[order.currency])!0 >
+	<div class="cart_list_block">
+		<h1 class="title">Order Number</h1>
+		<div style="line-height: 18px; margin: 10px;">
+			Order Number:  <span class="red"> ${order.name}</span>
+			<p><br>Processing ... <img src="/style/image/ajax_loader.gif" class="ajax_loading"> </p>
+		</div>
+	</div>
+	<div class="scart_summary">
+		<dl class="scart_summary_list">
+			<dd >Item Sub total:<span class="red">${(order.currency)} &nbsp;<span class="order_sub_total">${(currencyRate*order.totalPrice)?string(",##0.##")}</span></span></dd>
+			<dd >Coupon:<span class="red">${(order.currency)} &nbsp;<span class="order_coupon_total">-${(currencyRate*order.couponCutOff)?string(",##0.##")}</span></span></dd>
+			<dd>
+				Shipping Cost:<span class="red">${(order.currency)}&nbsp;<span class="order_shipping_total">${(currencyRate*order.dePrice)?string(",##0.##")}</span></span>
+			</dd>
+			<dd class="separator"><dd>
+			<dd class="red">
+				<b>Grand Total:<span id="GrabdTotal">${(order.currency)} &nbsp;<span class="order_grand_total">${(currencyRate*(order.totalPrice-order.couponCutOff + order.dePrice))?string(",##0.##")}</span></span></b>
+			</dd>
+		</dl>
+	</div>
+	<p class="clearBoth"></p>
+	
+	${formRequest}	
+	
+	<p class="clearBoth"></p>
+<#else>
+		<ul class="scart_c">
+			<li class="red"><b>No order found</b></li>
+		</ul>
+</#if>

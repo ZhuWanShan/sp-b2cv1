@@ -1,0 +1,16 @@
+<#assign pageKeywords = "Alipay, Honeybuy.com">
+<#assign pageDescription = "Pay by Alipay">
+<#assign pageTitle = "Pay by Alipay">
+
+<#include "/header/top_clean.hpl">
+<p>redirecting to Alipay site</p>
+<div>
+	<#assign defaultOrder = currentOrder>
+
+	${alipayFormContent}
+		
+</div>
+
+
+	
+<#include "/footer/bottom_clean.hpl">

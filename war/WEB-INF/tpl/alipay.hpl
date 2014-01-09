@@ -1,16 +1,12 @@
-<#assign pageKeywords = "Alipay, Honeybuy.com">
-<#assign pageDescription = "Pay by Alipay">
-<#assign pageTitle = "Pay by Alipay">
+<#assign pageKeywords = "Checkout, Honeybuy.com"> 
+<#assign pageDescription = "Pay by Checkout"> 
+<#assign pageTitle = "Pay by Checkout">
+<#assign cartStep = "cartStep2" >
 
 <#include "/header/top_clean.hpl">
-<p>redirecting to Alipay site</p>
-<div>
-	<#assign defaultOrder = currentOrder>
 
-	${alipayFormContent}
-		
-</div>
+<#include "/header/top_no_nav.hpl">
 
+<#include "/body/body-alipay.hpl">	
 
-	
-<#include "/footer/bottom_clean.hpl">
+<#include "/footer/bottom-payment.hpl">
