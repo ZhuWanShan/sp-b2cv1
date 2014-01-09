@@ -281,7 +281,7 @@
 				<option value="allpaymthod">Please select your payment method</option>
 				<option value="CheckOut" selected="selected">Checkout</option>
 				<option value="Globebill">Credit or Debit Card</option>
-				<option value="alipay">Credit or Debit Card(Alibaba)</option>
+				<option value="alipay">Credit or Debit Card(VISA by Alibaba)</option>
 				<!-- <option value="paypal">Paypal</option> -->
 				<option value="WesternUnion">Western Union</option>
 				<option value="WireTransfer">Wire Transfer</option>
