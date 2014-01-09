@@ -303,6 +303,8 @@ public class OrderPaymentController extends BaseController{
 				String subject = new String(order.getName());
 				//可填
 				
+				String paymethod = new String("jvm-moto");
+				
 				//默认网银
 				String default_bank = new String("cybs-visa");
 				//必填，如果要使用外卡支付功能，本参数需赋值为“12.5 银行列表”中的值
@@ -342,6 +344,7 @@ public class OrderPaymentController extends BaseController{
 				sParaTemp.put("subject", subject);
 				sParaTemp.put("default_bank", default_bank);
 				sParaTemp.put("extend_param", extend_param);
+				sParaTemp.put("paymethod", paymethod);
 				sParaTemp.put("seller_logon_id", seller_logon_id);
 				sParaTemp.put("total_fee", total_fee);
 				//sParaTemp.put("body", body);
