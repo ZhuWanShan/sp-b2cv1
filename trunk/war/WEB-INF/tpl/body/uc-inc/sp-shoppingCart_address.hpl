@@ -281,7 +281,8 @@
 				<option value="allpaymthod">Please select your payment method</option>
 				<option value="CheckOut" selected="selected">Checkout</option>
 				<option value="Globebill">Credit or Debit Card</option>
-				<option value="alipay">Credit or Debit Card(VISA by Alibaba)</option>
+				<option value="alipay_visa">Credit or Debit Card(VISA by Alibaba)</option>
+				<option value="alipay_master">Credit or Debit Card(MASTER CARD by Alibaba)</option>
 				<!-- <option value="paypal">Paypal</option> -->
 				<option value="WesternUnion">Western Union</option>
 				<option value="WireTransfer">Wire Transfer</option>
@@ -330,11 +331,20 @@
 				</p>
 			</div>	
 			
-			<div id="alipay" class="paymentmethod">
+			<div id="alipay_master" class="paymentmethod">
 				<p>We accept the following credit and debit cards: </p>
 				<p>Note: For security purposes, we will not save any of your credit card data. </p>
 				<p>
-					<span class="visaIcon"></span>
+					<span class="mcardIcon"></span>
+					<!-- <span class="visaEIcon"></span>
+					<span class="mcardIcon2"></span> -->
+				</p>
+			</div>	
+			
+			<div id="alipay_visa" class="paymentmethod">
+				<p>We accept the following credit and debit cards: </p>
+				<p>Note: For security purposes, we will not save any of your credit card data. </p>
+				<p>
 					<span class="mcardIcon"></span>
 					<!-- <span class="visaEIcon"></span>
 					<span class="mcardIcon2"></span> -->
@@ -434,6 +444,7 @@
 				<span>
 					
 					<input type="hidden" name="orderSN" value="${order.name}">
+					<input type="hidden" name="WIDextend_param" value="">
 					<input type="hidden" name="WIDextend_param" value="">
 					<script type="text/javascript">
 						jq("input[name=WIDextend_param]").val('js_return^' + window["alipay-merchant-result"]);
