@@ -300,7 +300,7 @@ public class OrderPaymentController extends BaseController{
 				//必填
 				
 				//订单名称
-//				String subject = new String(request.getParameter("WIDsubject").getBytes("ISO-8859-1"),"UTF-8");
+				String subject = new String(order.getName());
 				//可填
 				
 				//默认网银
@@ -339,7 +339,7 @@ public class OrderPaymentController extends BaseController{
 				sParaTemp.put("notify_url", notify_url);
 				sParaTemp.put("return_url", return_url);
 				sParaTemp.put("out_trade_no", out_trade_no);
-				//sParaTemp.put("subject", subject);
+				sParaTemp.put("subject", subject);
 				sParaTemp.put("default_bank", default_bank);
 				sParaTemp.put("extend_param", extend_param);
 				sParaTemp.put("seller_logon_id", seller_logon_id);
