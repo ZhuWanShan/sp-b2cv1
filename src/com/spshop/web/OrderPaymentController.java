@@ -216,74 +216,17 @@ public class OrderPaymentController extends BaseController{
 				order.setOrderType("Paypal");
 				checkOutOrder(request, model, order);
 				return "paypal";
-			}else if("alipay".equals(payment)) {
+			}else if("alipay_visa".equals(payment)||"alipay_master".equals(payment)) {
 				order.setOrderType("Alipay");
 				checkOutOrder(request, model, order);
 				
 				Map<String,String> sParaTemp = new HashMap<String, String>();
 				
-				/*////////////////////////////////////请求参数//////////////////////////////////////
+				String cardType = "cybs-visa";
 				
-				//支付类型
-				String payment_type = "1";
-				//必填，不能修改
-				//服务器异步通知页面路径
-				String notify_url = "http://"+request.getServerName()+"/uc/alipayRs";
-				//需http://格式的完整路径，不能加?id=123这类自定义参数
-				
-				//页面跳转同步通知页面路径
-				String return_url = "http://"+request.getServerName()+"/uc/alipayReturn";
-				//需http://格式的完整路径，不能加?id=123这类自定义参数，不能写成http://localhost/
-				
-				//卖家支付宝帐户
-				String seller_email = new String(AlipayConfig.ali_account);
-				//必填
-				
-				//商户订单号
-				String out_trade_no = new String(order.getName());
-				//商户网站订单系统中唯一订单号，必填
-				
-				//订单名称
-				String subject = new String(order.getName());
-				//必填
-				
-				//付款金额
-				String total_fee = new String(
-						new NumberFormat("##0.##").getNumberFormat().format(getSiteView().getCurrencies().get(order.getCurrency())*(order.getTotalPrice() + order.getDePrice() - order.getCouponCutOff()))
-						);
-				//必填
-				
-				//订单描述
-				
-				String body = new String(request.getParameter("WIDbody").getBytes("ISO-8859-1"),"UTF-8");
-				//商品展示地址
-				String show_url = new String(request.getParameter("WIDshow_url").getBytes("ISO-8859-1"),"UTF-8");
-				//需以http://开头的完整路径，例如：http://www.xxx.com/myorder.html
-				
-				//防钓鱼时间戳
-				String anti_phishing_key = "";
-				//若要使用请调用类文件submit中的query_timestamp函数
-				
-				//客户端的IP地址
-				String exter_invoke_ip = "";
-				//非局域网的外网IP地址，如：221.0.0.1
-*/				
-			/*	sParaTemp.put("service", "create_direct_pay_by_user");
-		        sParaTemp.put("partner", AlipayConfig.partner);
-		        sParaTemp.put("_input_charset", AlipayConfig.input_charset);
-				sParaTemp.put("payment_type", payment_type);
-				sParaTemp.put("notify_url", notify_url);
-				sParaTemp.put("return_url", return_url);
-				sParaTemp.put("seller_email", seller_email);
-				sParaTemp.put("out_trade_no", out_trade_no);
-				sParaTemp.put("subject", subject);
-				sParaTemp.put("total_fee", total_fee);
-				sParaTemp.put("body", body);
-				sParaTemp.put("show_url", show_url);
-				sParaTemp.put("anti_phishing_key", anti_phishing_key);
-				sParaTemp.put("exter_invoke_ip", exter_invoke_ip);
-				*/
-				/*sParaTemp.put("service", "alipay.trade.direct.forcard.pay");*/
+				if("alipay_master".equals(payment)){
+					cardType = "cybs-master";
+				}
 				
 				////////////////////////////////////请求参数//////////////////////////////////////
 				
@@ -306,7 +249,7 @@ public class OrderPaymentController extends BaseController{
 				String paymethod = new String("jvm-moto");
 				
 				//默认网银
-				String default_bank = new String("cybs-visa");
+				String default_bank = new String(cardType);
 				//必填，如果要使用外卡支付功能，本参数需赋值为“12.5 银行列表”中的值
 				
 				//公用业务扩展参数
