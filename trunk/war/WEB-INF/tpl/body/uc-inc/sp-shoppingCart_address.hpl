@@ -345,9 +345,7 @@
 				<p>We accept the following credit and debit cards: </p>
 				<p>Note: For security purposes, we will not save any of your credit card data. </p>
 				<p>
-					<span class="mcardIcon"></span>
-					<!-- <span class="visaEIcon"></span>
-					<span class="mcardIcon2"></span> -->
+					<span class="visaIcon"></span>
 				</p>
 			</div>	
 			
