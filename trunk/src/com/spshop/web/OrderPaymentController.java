@@ -222,7 +222,7 @@ public class OrderPaymentController extends BaseController{
 				
 				Map<String,String> sParaTemp = new HashMap<String, String>();
 				
-				////////////////////////////////////请求参数//////////////////////////////////////
+				/*////////////////////////////////////请求参数//////////////////////////////////////
 				
 				//支付类型
 				String payment_type = "1";
@@ -255,20 +255,20 @@ public class OrderPaymentController extends BaseController{
 				
 				//订单描述
 				
-				/*String body = new String(request.getParameter("WIDbody").getBytes("ISO-8859-1"),"UTF-8");*/
+				String body = new String(request.getParameter("WIDbody").getBytes("ISO-8859-1"),"UTF-8");
 				//商品展示地址
-				/*String show_url = new String(request.getParameter("WIDshow_url").getBytes("ISO-8859-1"),"UTF-8");*/
+				String show_url = new String(request.getParameter("WIDshow_url").getBytes("ISO-8859-1"),"UTF-8");
 				//需以http://开头的完整路径，例如：http://www.xxx.com/myorder.html
 				
 				//防钓鱼时间戳
-				/*String anti_phishing_key = "";*/
+				String anti_phishing_key = "";
 				//若要使用请调用类文件submit中的query_timestamp函数
 				
 				//客户端的IP地址
 				String exter_invoke_ip = "";
 				//非局域网的外网IP地址，如：221.0.0.1
-				
-				sParaTemp.put("service", "create_direct_pay_by_user");
+*/				
+			/*	sParaTemp.put("service", "create_direct_pay_by_user");
 		        sParaTemp.put("partner", AlipayConfig.partner);
 		        sParaTemp.put("_input_charset", AlipayConfig.input_charset);
 				sParaTemp.put("payment_type", payment_type);
@@ -278,12 +278,76 @@ public class OrderPaymentController extends BaseController{
 				sParaTemp.put("out_trade_no", out_trade_no);
 				sParaTemp.put("subject", subject);
 				sParaTemp.put("total_fee", total_fee);
-				/*sParaTemp.put("body", body);
-				sParaTemp.put("show_url", show_url);*/
-				/*sParaTemp.put("anti_phishing_key", anti_phishing_key);*/
+				sParaTemp.put("body", body);
+				sParaTemp.put("show_url", show_url);
+				sParaTemp.put("anti_phishing_key", anti_phishing_key);
 				sParaTemp.put("exter_invoke_ip", exter_invoke_ip);
-				
+				*/
 				/*sParaTemp.put("service", "alipay.trade.direct.forcard.pay");*/
+				
+				////////////////////////////////////请求参数//////////////////////////////////////
+				
+				//服务器异步通知页面路径
+				String notify_url = "http://"+request.getServerName()+"/uc/alipayRs";
+				//需http://格式的完整路径，不允许加?id=123这类自定义参数
+				
+				//页面跳转同步通知页面路径
+				String return_url = "http://"+request.getServerName()+"/uc/alipayReturn";
+				//需http://格式的完整路径，不允许加?id=123这类自定义参数
+				
+				//商户订单号
+				String out_trade_no = new String(order.getName());
+				//必填
+				
+				//订单名称
+//				String subject = new String(request.getParameter("WIDsubject").getBytes("ISO-8859-1"),"UTF-8");
+				//可填
+				
+				//默认网银
+				String default_bank = new String("cybs-visa");
+				//必填，如果要使用外卡支付功能，本参数需赋值为“12.5 银行列表”中的值
+				
+				//公用业务扩展参数
+				String extend_param = new String(request.getParameter("WIDextend_param").getBytes("ISO-8859-1"),"UTF-8");
+				//必填，用于商户的特定业务信息的传递
+				
+				//卖家支付宝账号
+				String seller_logon_id = new String(AlipayConfig.ali_account);
+				//必填
+				
+				//付款金额
+				String total_fee = new String(new NumberFormat("##0.##").getNumberFormat().format(getSiteView().getCurrencies().get(order.getCurrency())*(order.getTotalPrice() + order.getDePrice() - order.getCouponCutOff())));
+				//必填
+				
+				//订单描述
+				
+				//String body = new String(request.getParameter("WIDbody").getBytes("ISO-8859-1"),"UTF-8");
+				//商品展示地址
+				
+				//String show_url = new String(request.getParameter("WIDshow_url").getBytes("ISO-8859-1"),"UTF-8");
+				//币种
+				String currency = new String(order.getCurrency());
+				//必填，default_bank为boc-visa或boc-master时，支持USD，为boc-jcb时，不支持currency参数，即默认支持RMB
+				
+				
+				//////////////////////////////////////////////////////////////////////////////////
+				
+				//把请求参数打包成数组
+				sParaTemp.put("service", "alipay.trade.direct.forcard.pay");
+				sParaTemp.put("partner", AlipayConfig.partner);
+				sParaTemp.put("_input_charset", AlipayConfig.input_charset);
+				sParaTemp.put("notify_url", notify_url);
+				sParaTemp.put("return_url", return_url);
+				sParaTemp.put("out_trade_no", out_trade_no);
+				//sParaTemp.put("subject", subject);
+				sParaTemp.put("default_bank", default_bank);
+				sParaTemp.put("extend_param", extend_param);
+				sParaTemp.put("seller_logon_id", seller_logon_id);
+				sParaTemp.put("total_fee", total_fee);
+				//sParaTemp.put("body", body);
+				//sParaTemp.put("show_url", show_url);
+				sParaTemp.put("currency", currency);
+
 				
 				String formRequest = AlipaySubmit.buildRequest(sParaTemp, "POST", "");
 				
