@@ -45,6 +45,9 @@
 					<span class="small_icons1"><a href="">Wide Range of Selection</a></span> <span class="small_icons2"><a href="">Quality Products</a></span> <span class="small_icons3"><a href="">Secure Payment</a></span> <span class="small_icons4"><a href="">Fast Delivery Times</a></span><span class="small_icons5"><a href="">Buyer Protection</a></span>
 				</li>
 			</ul>
+			<div style="text-align: center;">
+				<img alt="logo" src="/style/image/footer-friends.png">
+			</div>
 		</div>
 		<div class="copyright">
 			<p class="footer_copyright">Copyright &copy;2012-2013 JoyGown.com  All Rights Reserved.</p>

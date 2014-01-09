@@ -26,8 +26,38 @@
 		</form>
 		<p class="hot"><a>Wedding Dresses</a>&nbsp;<a>Bridesmaid Dresses</a></p>
 	</div>
+	
+	<style >
+		.safeBrowser{
+			background: url("/style/image/approve.png") no-repeat scroll 0px 0px transparent;
+			width: 115px;
+			height: 60px;
+			display: inline-block;
+		}
+		
+		.freeShipping{
+			background: url("/style/image/approve.png") no-repeat scroll -125px 0px transparent;
+			width: 140px;
+			height: 60px;
+			display: inline-block;
+		}
+		
+		.nortonLogo{
+			background: url("/style/image/approve.png") no-repeat scroll -265px 5px transparent;
+			width: 150px;
+			height: 60px;
+			display: inline-block;
+		}
+	</style>
+	
 	<div class="approve">
-		<img src="/style/image/approve.png">
+		<a rel="nofollow" title="Safe Browsing" href="http://www.google.com/safebrowsing/diagnostic?site=www.joygown.com/" target="_blank">
+			<span class='safeBrowser'></span>
+		</a>
+		<span class='freeShipping'></span>
+		<a rel="nofollow" title="Norton" href="https://safeweb.norton.com/report/show?url=joygown.com&ulang=eng" target="_blank">
+			<span class='nortonLogo'></span>
+		</a>
 	</div>
 	<#include "catalog/categoryMenu.hpl">
 	</div>
