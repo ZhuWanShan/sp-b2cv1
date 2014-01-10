@@ -2,29 +2,22 @@
 	<div class="measure_dashboard">
 		<div class="measure_dashboard_content">
 			<div class="measure_panel" style="display: none;">
-				<a href="${setting.home_banner1_link!'home_banner1_link'}">
-				<img width="710px" height="410px" src="/image/mybanner-6.jpg" alt="${setting['home_banner1_image_Alt']!'home_banner1_image_Alt'}" title="${setting.home_banner1_image_title!'home_banner1_image_title'}"></a>
+				<a href="http://www.joygown.com/c/Wedding-Dresses-2014">
+				<img width="710px" height="410px" src="/image/mybanner-6.jpg" alt="Wedding Dresses 2014" title="wedding dresses 2014"></a>
 			</div>
             <div class="measure_panel" style="display: none;">
-				<a href="${setting.home_banner2_link!'home_banner2_link'}">
-				<img width="710px" height="410px" src="/image/mybanner-1.jpg" alt="${setting.home_banner2_image_Alt!'home_banner2_image_Alt'}" title="${setting.home_banner2_image_title!'home_banner2_image_title'}"></a>
+				<a href="http://www.joygown.com/c/Prom-Dresses">
+				<img width="710px" height="410px" src="/image/mybanner-1.jpg" alt="Prom Dresses 2014" title="prom dresses 2014"></a>
 			</div>
 			<div class="measure_panel" style="display: none;">
-				<a href="${setting.home_banner3_link!'home_banner3_link'}">
-				<img width="710px" height="410px" src="/image/mybanner-2.jpg"" alt="${setting.home_banner3_image_Alt!'home_banner3_image_Alt'}" title="${setting.home_banner3_image_title!'home_banner3_image_title'}"></a>
+				<a href="http://www.joygown.com/c/Evening-Dresses">
+				<img width="710px" height="410px" src="/image/mybanner-2.jpg"" alt="Evening Dresses 2014" title="Evening Dresses 2014"></a>
 			</div>
 			<div class="measure_panel" style="display: none;">
-				<a href="${setting.home_banner4_link!'home_banner4_link'}">
-				<img width="710px" height="410px" src="/image/mybanner-3.jpg" alt="${setting.home_banner4_image_Alt!'home_banner4_image_Alt'}" title="${setting.home_banner4_image_title!'home_banner4_image_title'}"></a>
+				<a href="http://www.joygown.com/c/Bridesmaid-Dresses">
+				<img width="710px" height="410px" src="/image/mybanner-3.jpg" alt="Bridesmaid Dresses 2014" title="Bridesmaid Dresses 2014"></a>
 			</div>
-			<div class="measure_panel" style="display: none;">
-				<a href="${setting.home_banner5_link!'home_banner5_link'}">
-				<img width="710px" height="410px" src="/image/mybanner-4.jpg" alt="${setting.home_banner5_image_Alt!'home_banner5_image_Alt'}" title="${setting.home_banner5_image_title!'home_banner5_image_title'}"></a>
-			</div>
-			<div class="measure_panel" style="display: none;">
-				<a href="${setting.home_banner6_link!'home_banner6_link'}">
-				<img width="710px" height="410px" src="/image/mybanner-5.jpg" alt="${setting.home_banner6_image_Alt!'home_banner6_image_Alt'}" title="${setting.home_banner6_image_title!'home_banner6_image_title'}"></a>
-			</div>
+			
 		<p class="clearBoth"></p>
 		</div>
 		<div class="measure_navigation">
@@ -33,8 +26,7 @@
 				<img class="pagination_m" src="/style/image/1x1.png" title="2">
 				<img class="pagination_m" src="/style/image/1x1.png" title="3">
 				<img class="pagination_m" src="/style/image/1x1.png" title="4">
-				<img class="pagination_m" src="/style/image/1x1.png" title="5">
-				<img class="pagination_m" src="/style/image/1x1.png" title="6">
+
 			</div>
 		</div>
 	</div>
@@ -54,30 +46,30 @@
 		</div>
          <ul class="hot_sale">
 			<li>
-				<a href="http://www.joygown.com/c/Sale-Promotion">Best Selling</a>
-				<P>Hot Sale at Joygown&reg; Dress!</P>
+				<a href="http://www.joygown.com/c/Prom-Dresses">Best Selling</a>
+				<P>Hot Sale at JoyGown&reg; Dress!</P>
 			</li>
 			<li>
-				<a href="http://www.joygown.com/c/Prom-Dresses">PROMOTION</a>
-				<P>Up to 70% OFF, Buy it Now!</P>
+				<a href="http://www.joygown.com/c/Sale-Promotion">PROMOTION</a>
+				<P>Up to 50% OFF, Buy it Now!</P>
 			</li>
 			<li>
-				<a href="http://www.joygown.com/c/Bridesmaid-Dresses">Bridesmaid Dress</a>
-				<P>A large collection of Bridesmaid<br>Dresses with fashionable styles!</P>
+				<a href="http://www.joygown.com/c/Wedding-Dresses-2014">New Arrival 2014</a>
+				<P>A large collection of Wedding<br>Dresses with fashionable styles!</P>
 			</li>
 		</ul>
 		<ul class="hot_sale_link">
 			<li>
-				<a href="http://www.joygown.com/c/Formal-Dresses">LONG FORMAL DRESSES</a>
+				<a href="http://www.joygown.com/c/Wedding-Dresses-2014">WEDDING DRESSES 2014</a>
 			</li>
 			<li>
-				<a href="http://www.joygown.com/c/Flower-Girls-Dresses" style="color:#ff0000;">FLOWER GIRL DRESSES</a>
+				<a href="http://www.joygown.com/c/Prom-Dresses" style="color:#ff0000;">PROM DRESSES 2014</a>
 			</li>
 			<li>
-				<a href="http://www.joygown.com/c/Mother-of-the-Bride-Dresses">MOTHER OF THE BRIDE</a>
+				<a href="http://www.joygown.com/c/Bridesmaid-Dresses">BRIDESMAID DRESSES 2014</a>
 			</li>
 			<li>
-				<a href="http://www.joygown.com/c/Wedding-Guest-Dresses">WEDDING GUEST DRESSES</a>
+				<a href="http://www.joygown.com/c/Evening-Dresses">EVENING DRESSES 2014</a>
 			</li>
 		</ul>
 	</div>
