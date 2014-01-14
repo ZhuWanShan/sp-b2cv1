@@ -78,7 +78,7 @@ public class Constants {
     public static final String MAIL_HOST_NAME = ".host.name";
     public static final String MAIL_FROM_ACCOUNT = ".from.account";
     public static final String MAIL_FROM_PASSWORD = ".from.password";
-    public static final String MAIL_FROM_NAME = "JoyBuy";
+    public static final String MAIL_FROM_NAME = "JoyGown";
     
     //Gender
     public static final String GENDER_MALE = "male";
@@ -271,11 +271,11 @@ public class Constants {
     
     public static final String TAB_PRODUCTS_IMAGE_SIZE_INFO = "tabImageInfo";
     
-    public static final String ORDER_PREFIX = "JY";
+    public static final String ORDER_PREFIX = "JG";
 
 	public static final String CATEGORIE_VIEW_IN_REQUEST = "CATEGORIE_VIEW_IN_REQUEST";
 	
-	public static final String imageHost = "http://64.120.146.130:8080/";
+	public static final String imageHost = "http://www.joygown.com/";
 	
-	public static final String PAYPAL_ACCOUNT = "pay@joybuy.co.uk";
+	public static final String PAYPAL_ACCOUNT = "pay@joygown.co.uk";
 }	
