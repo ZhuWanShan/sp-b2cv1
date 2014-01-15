@@ -294,7 +294,7 @@ public class OrderPaymentController extends BaseController{
 		String orderNumber = order.getName();
 	    String amount = new NumberFormat("##0.##").getNumberFormat().format(getSiteView().getCurrencies().get(order.getCurrency())*(order.getTotalPrice() + order.getDePrice() - order.getCouponCutOff()));
 
-	    String returnUrl = request.getScheme()+"://" + request.getServerName() + "/uc/globebillPayRs";
+	    String returnUrl = "http://www.joygown.com/uc/globebillPayRs";
 	    
 	    
 	    /**
