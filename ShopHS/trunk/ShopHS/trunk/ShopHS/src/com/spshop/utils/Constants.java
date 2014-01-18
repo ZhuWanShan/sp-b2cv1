@@ -71,9 +71,9 @@ public class Constants {
 	public static final String DEFAULT_RECOVERY_MAIL_CONTENT = "Congratulations! Your password is ...";
 	
 	public static final String DEFAULT_MAIL_CHARSET = "UTF-8";
-    public static final String DEFAULT_MAIL_HOST_NAME = "smtpout.secureserver.net";
-    public static final String DEFAULT_MAIL_FROM_ACCOUNT = "no-reply@honeybuy.com";
-    public static final String DEFAULT_MAIL_FROM_PASSWORD = "20091125!@#A";
+    public static final String DEFAULT_MAIL_HOST_NAME = "smtp.exmail.qq.com";
+    public static final String DEFAULT_MAIL_FROM_ACCOUNT = "service@joygown.com";
+    public static final String DEFAULT_MAIL_FROM_PASSWORD = "JoyGown2014!@#A";
     
     public static final String MAIL_HOST_NAME = ".host.name";
     public static final String MAIL_FROM_ACCOUNT = ".from.account";
@@ -277,5 +277,5 @@ public class Constants {
 	
 	public static final String imageHost = "http://www.joygown.com/";
 	
-	public static final String PAYPAL_ACCOUNT = "pay@joygown.co.uk";
+	public static final String PAYPAL_ACCOUNT = "service@joygown.com";
 }	
