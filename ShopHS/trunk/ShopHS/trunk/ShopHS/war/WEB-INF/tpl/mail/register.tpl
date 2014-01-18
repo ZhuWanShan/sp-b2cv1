@@ -12,12 +12,12 @@
    <tbody><tr><td colspan="2" style="padding:0in 0in 0in 0in;height:10.5pt"></td></tr>
    <tr>
     <td style="padding:0in 0in 0in 0in">
-    <p><span><img board="0" title="Joybuy.co.uk Logo" alt="Joybuy.co.uk logo" 
+    <p><span><img board="0" title="Joygown.com Logo" alt="Joygown.com logo" 
 
-src="https://www.joybuy.co.uk/image/2496802064581883.jpg"></span></p>
+src="https://www.joygown.com/image/2496802064581883.jpg"></span></p>
     </td>
     <td style="padding:0in 0in 0in 0in">
-    <p style="font-size:12.0pt; text-align:right">Welcome to Joybuy.co.uk, New Member Registration</p>
+    <p style="font-size:12.0pt; text-align:right">Welcome to Joygown.com, New Member Registration</p>
     </td>
    </tr>
   </tbody></table>
@@ -39,15 +39,15 @@ src="https://www.joybuy.co.uk/image/2496802064581883.jpg"></span></p>
       <p style="margin-top:19.5pt;margin-right:0in;margin-bottom:3.75pt; margin-left:0in;line-height:12.75pt;paading: 0"><strong><span style="font-size:11.0pt;color:black">Dear ${user.name},</span></strong></p>
       <p style="margin-top:7.5pt;margin-right:0in;margin-bottom:7.5pt;
       margin-left:0in;line-height:13.5pt;paading: 0"><span style="font-size:11.0pt">
-	  Thanks for registering at <strong>www.Joybuy.co.uk</strong>! Your information is as follows:
+	  Thanks for registering at <strong>www.joygown.com</strong>! Your information is as follows:
 	  <p>Account: ${user.name}</p>
 	  <p>Password is: ${user.password}</p>
-	  <p>As a Joybuy.co.uk new customer, you get a <span style="color:red; font-weight:bold">&pound 5</span> Coupon: <B>JOYBUY5P</B> </p>
+	  <p>As a Joygown.com new customer, you get a <span style="color:red; font-weight:bold">&pound 5</span> Coupon: <B>JOYGOWN5P</B> </p>
 	  <P>You can apply it when you Check out your orders.</p>
-<p>If any question, please contact us: <a href="mailto:service@Joybuy.co.uk">service@Joybuy.co.uk.</a></p>
+<p>If any question, please contact us: <a href="mailto:service@joygown.com">service@joygown.com</a></p>
 	  <p>Thank you and best regards!</p>
 	  <p>Customer Service.</p>
-	  <p><a href="http://www.Joybuy.co.uk">www.Joybuy.co.uk <br></a></span></p>
+	  <p><a href="http://www.joygown.com">www.joygown.com <br></a></span></p>
 	  </br>
       </td>
      </tr>
@@ -69,15 +69,15 @@ src="https://www.joybuy.co.uk/image/2496802064581883.jpg"></span></p>
     <td width="22" style="width:16.5pt;padding:0in 0in 0in 0in;height:37.5pt"></td>
     <td style="padding:0in 0in 0in 0in">
     <p align="center" style="margin:0in;text-align:center"><span style="font-size:9.0pt;color:#646464">
-    <strong>PLEASE DO NOT REPLY to this email! If you have any question, Please <a href="mailto:service@Joybuy.co.uk">Contact Us</a></strong>.</span></p>
+    <strong>PLEASE DO NOT REPLY to this email! If you have any question, Please <a href="mailto:service@joygown.com">Contact Us</a></strong>.</span></p>
     </td>
    </tr>
    <tr>
     <td width="22" style="width:16.5pt;padding:0in 0in 0in 0in"></td>
     <td style="padding:0in 0in 0in 0in">
-    <p align="center" style="margin:0in;text-align:center"><span style="font-size:9.0pt;color:#646464">Copyright&copy; 2012 Joybuy.co.uk; Inc. All Rights Reserved. | 
-	<a href="http://joybuy.co.uk/c/Terms-Conditions">Terms of Use </a>| 
-	<a href="http://64.120.146.130:8080/c/Privacy-Policy">Privacy Policy </a></span></p>
+    <p align="center" style="margin:0in;text-align:center"><span style="font-size:9.0pt;color:#646464">Copyright&copy; 2012 Joygown.com; Inc. All Rights Reserved. | 
+	<a href="http://www.joygown.com/c/Terms-Conditions">Terms of Use </a>| 
+	<a href="http://www.joygown.com/c/Privacy-Policy">Privacy Policy </a></span></p>
     </td>
    </tr>
  </tbody></table>

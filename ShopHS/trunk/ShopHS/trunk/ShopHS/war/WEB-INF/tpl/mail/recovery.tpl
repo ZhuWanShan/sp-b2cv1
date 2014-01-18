@@ -12,12 +12,12 @@
    <tbody><tr><td colspan="2" style="padding:0in 0in 0in 0in;height:10.5pt"></td></tr>
    <tr>
     <td style="padding:0in 0in 0in 0in">
-    <p><span><img board="0" title="Joybuy.co.uk Logo" alt="Joybuy.co.uk logo" 
+    <p><span><img board="0" title="Joygown.com Logo" alt="Joygown.com logo" 
 
-src="https://www.joybuy.co.uk/image/2496802064581883.jpg"></span></p>
+src="http://www.joygown.com/style/image/logo.png"></span></p>
     </td>
     <td style="padding:0in 0in 0in 0in">
-    <p style="font-size:12.0pt; text-align:right">Welcome to Joybuy.co.uk, Password Recovery</p>
+    <p style="font-size:12.0pt; text-align:right">Welcome to Joygown.com, Password Recovery</p>
     </td>
    </tr>
   </tbody></table>
@@ -46,14 +46,14 @@ style="width:525.0pt;background:white;border:solid #C9C9CA 1.0pt;
 	  Congratulations! Your password is found, details as follows:
 	  <p>Account: ${user.name}</p>
 	  <p>Password is: ${user.password}</p>
-	  <p>As a Joybuy.co.uk new customer, you get a <span style="color:red; font-weight:bold">&pound 5</span> Coupon: 
+	  <p>As a Joygown.com new customer, you get a <span style="color:red; font-weight:bold">&pound 5</span> Coupon: 
 
-<B>JOYBUY5P</B> </p>
+<B>JOYGOWN5P</B> </p>
 	  <P>You can apply it when you Check out your orders! </p>
-	  <p>If any question, please contact us: <a href="mailto:service@Joybuy.co.uk">service@Joybuy.co.uk.</a></p>
+	  <p>If any question, please contact us: <a href="mailto:service@joygown.com">service@joygown.com</a></p>
 	  <p>Thank you and best regards!</p>
 	  <p>Customer Service.</p>
-	  <p><a href="http://www.Joybuy.co.uk">www.joybuy.co.uk <br></a></span></p>
+	  <p><a href="http://www.joygown.com">www.joygown.com <br></a></span></p>
 	  </br>
       </td>
      </tr>
@@ -78,7 +78,7 @@ style="width:525.0pt;background:white;border:solid #C9C9CA 1.0pt;
     <p align="center" style="margin:0in;text-align:center"><span style="font-size:9.0pt;color:#646464">
     <strong>PLEASE DO NOT REPLY to this email! If you have any question, Please <a 
 
-href="mailto:service@Joybuy.co.uk">Contact Us</a></strong>.</span></p>
+href="mailto:service@joygown.com">Contact Us</a></strong>.</span></p>
     </td>
    </tr>
    <tr>
@@ -86,9 +86,9 @@ href="mailto:service@Joybuy.co.uk">Contact Us</a></strong>.</span></p>
     <td style="padding:0in 0in 0in 0in">
     <p align="center" style="margin:0in;text-align:center"><span style="font-size:9.0pt;color:#646464">Copyright&copy; 
 
-2012 Joybuy.co.uk; Inc. All Rights Reserved. | 
-	<a href="http://joybuy.co.uk/c/Terms-Conditions">Terms of Use </a>| 
-	<a href="http://64.120.146.130:8080/c/Privacy-Policy">Privacy Policy </a></span></p>
+2012 Joygown.com; Inc. All Rights Reserved. | 
+	<a href="http://www.joygown.com/c/Terms-Conditions">Terms of Use </a>| 
+	<a href="http://www.joygown.com/c/Privacy-Policy">Privacy Policy </a></span></p>
     </td>
    </tr>
  </tbody></table>

@@ -19,9 +19,9 @@ cellspacing:0in;mso-yfti-tbllook:1184;mso-padding-alt:
     <td style="padding:0in 0in 0in 0in">
     <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="mso-fareast-font-family:&quot;Times New 
 
-Roman&quot;"><img board="0" title="Joybuy.co.uk Logo" alt="Joybuy.co.uk logo" 
+Roman&quot;"><img board="0" title="joygown.com Logo" alt="joygown.com logo" 
 
-src="https://www.joybuy.co.uk/image/2496802064581883.jpg"><o:p></o:p></span></p>
+src="http://www.joygown.com/style/image/logo.png"><o:p></o:p></span></p>
     </td>
     <td style="padding:0in 0in 0in 0in">
     <p align="right" class="MsoNormal" style="margin:0in;margin-bottom:.0001pt;
@@ -95,7 +95,7 @@ cellspacing:0in;border:none;
 
 font-size:10.0pt">We have confirmed your payment and have begun processing <a 
 
-href="http://64.120.146.130:8080/uc/orderDetails?id=${order.name}">your order</a>!</p>
+href="http://www.joygown.com/uc/orderDetails?id=${order.name}">your order</a>!</p>
 	  <p style="margin-top:7.5pt;margin-right:0in;margin-bottom:7.5pt; margin-left:0in;line-height:13.5pt;paading: 
 
 0; font-size:10.0pt">Once your items have been packed and are ready to go, they will be shipped to you immediately. You 
@@ -324,7 +324,7 @@ class="MsoNormal">&nbsp;</p></td>
         <td width="399" style="width:299.25pt;padding:0in 0in 0in 0in">
         <p class="MsoNormal" style="margin:0in;margin-bottom:.0001pt"><span style="font-size:9.0pt;mso-fareast-font-
 
-family:&quot;Times New Roman&quot;"><a href="http://64.120.146.130:8080/${item.product.name}"><span 
+family:&quot;Times New Roman&quot;"><a href="http://www.joygown.com/${item.product.name}"><span 
 
 style="color:#1E4E8E;text-decoration:none;text-underline:none">
 		${item.product.title}
@@ -540,7 +540,7 @@ the original item price, as tailoring has already begun. After 72 hours, only a 
 refunded on cancelled orders.</p>
 	  <p style="text-align:left;font-size:9.0pt">For all other questions, Please send <a 
 
-href="mailto:service@Joybuy.co.uk">Email</a> to us: service@Joybuy.co.uk!</p>
+href="mailto:service@joygown.com">Email</a> to us: service@joygown.com</p>
 	  </td>
    
    
@@ -562,7 +562,7 @@ cellspacing:0in;mso-yfti-tbllook:1184;mso-padding-alt:
     text-align:center"><span style="font-size:9.0pt;mso-fareast-font-family:
     &quot;Times New Roman&quot;;color:#646464"><br>
     <strong>PLEASE DO NOT REPLY to this email! If you have any question, Please
-    <a href="mailto:service@Joybuy.co.uk">Contact Us </a>here</strong>. <o:p></o:p></span></p>
+    <a href="mailto:service@joygown.com">Contact Us </a>here</strong>. <o:p></o:p></span></p>
     </td>
     <td width="22" style="width:16.5pt;padding:0in 0in 0in 0in;height:37.5pt"></td>
    </tr>
@@ -571,9 +571,9 @@ cellspacing:0in;mso-yfti-tbllook:1184;mso-padding-alt:
     <td style="padding:0in 0in 0in 0in;height:15.0pt">
     <p align="center" class="MsoNormal" style="margin:0in;margin-bottom:.0001pt;
     text-align:center"><span style="font-size:9.0pt;mso-fareast-font-family:
-    &quot;Times New Roman&quot;;color:#646464">Copyright&copy; 2012 Joybuy.co.uk; Inc. All
-    Rights Reserved. | <a href="http://joybuy.co.uk/c/Terms-Conditions">Terms
-    of Use </a>| <a href="http://64.120.146.130:8080/c/Privacy-Policy">Privacy
+    &quot;Times New Roman&quot;;color:#646464">Copyright&copy; 2012 joygown.com; Inc. All
+    Rights Reserved. | <a href="http://joygown.com/c/Terms-Conditions">Terms
+    of Use </a>| <a href="http://joygown.com/c/Privacy-Policy">Privacy
     Policy </a><o:p></o:p></span></p>
     </td>
     <td width="22" style="width:16.5pt;padding:0in 0in 0in 0in;height:15.0pt"></td>
