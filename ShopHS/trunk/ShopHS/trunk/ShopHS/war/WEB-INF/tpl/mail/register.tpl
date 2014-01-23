@@ -12,9 +12,7 @@
    <tbody><tr><td colspan="2" style="padding:0in 0in 0in 0in;height:10.5pt"></td></tr>
    <tr>
     <td style="padding:0in 0in 0in 0in">
-    <p><span><img board="0" title="Joygown.com Logo" alt="Joygown.com logo" 
-
-src="http://www.joygown.com/style/image/logo.png"></span></p>
+    <p><span><img board="0" title="Joygown.com Logo" alt="Joygown.com logo" src="http://www.joygown.com/style/image/logo.png"></span></p>
     </td>
     <td style="padding:0in 0in 0in 0in">
     <p style="font-size:12.0pt; text-align:right">Welcome to Joygown.com, New Member Registration</p>
