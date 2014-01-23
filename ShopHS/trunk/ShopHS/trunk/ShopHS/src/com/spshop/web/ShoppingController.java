@@ -315,7 +315,7 @@ public class ShoppingController extends BaseController{
 		            new Thread(){
 		                public void run() {
 		                    try{
-		                        EmailTools.sendMail("register", "Welcome to Honeybuy.com, New Member Registration", root, u.getName());
+		                        EmailTools.sendMail("register", "Welcome to Joygown.com, New Member Registration", root, u.getName());
 		                    }catch(Exception e){
 		                        
 		                    }
