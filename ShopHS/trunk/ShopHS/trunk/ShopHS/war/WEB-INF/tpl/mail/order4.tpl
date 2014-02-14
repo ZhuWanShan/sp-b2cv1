@@ -572,7 +572,7 @@ cellspacing:0in;mso-yfti-tbllook:1184;mso-padding-alt:
     <p align="center" class="MsoNormal" style="margin:0in;margin-bottom:.0001pt;
     text-align:center"><span style="font-size:9.0pt;mso-fareast-font-family:
     &quot;Times New Roman&quot;;color:#646464">Copyright&copy; 2012 joygown.com; Inc. All
-    Rights Reserved. | <a href="http://joygown.com/c/Terms-Conditions">Terms
+    Rights Reserved. | <a href="http://www.joygown.com/c/Terms-Of-Use">Terms
     of Use </a>| <a href="http://joygown.com/c/Privacy-Policy">Privacy
     Policy </a><o:p></o:p></span></p>
     </td>

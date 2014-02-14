@@ -236,7 +236,7 @@ cooperation!</td>
           <td width="22"> </td>
           <td height="20" align="center" style="COLOR: #646464; FONT-SIZE: 12px">Copyright&copy; 2012 joygown.com; 
 
-Inc. All Rights Reserved. | <a href="http://joygown.com/c/Terms-Conditions">Terms of Use </a>| <a 
+Inc. All Rights Reserved. | <a href="http://www.joygown.com/c/Terms-Of-Use">Terms of Use </a>| <a 
 
 href="http://www.joygown.com/c/Privacy-Policy">Privacy Policy </td>
           <td width="22"> </td> </tr>

@@ -85,7 +85,7 @@ href="mailto:service@joygown.com">Contact Us</a></strong>.</span></p>
     <p align="center" style="margin:0in;text-align:center"><span style="font-size:9.0pt;color:#646464">Copyright&copy; 
 
 2012 Joygown.com; Inc. All Rights Reserved. | 
-	<a href="http://www.joygown.com/c/Terms-Conditions">Terms of Use </a>| 
+	<a href="http://www.joygown.com/c/Terms-Of-Use">Terms of Use </a>| 
 	<a href="http://www.joygown.com/c/Privacy-Policy">Privacy Policy </a></span></p>
     </td>
    </tr>
