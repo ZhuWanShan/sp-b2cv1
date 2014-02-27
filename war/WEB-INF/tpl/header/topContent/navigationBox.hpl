@@ -25,8 +25,11 @@
 			<img style="border: 0px none; width: 140px; margin: 4px -6px 4px 0px;" title="Safe Verified by Google" src="/style/image/verified-by-google.jpg"></a>
 		  	<img style="margin-right: 8px;" title="Free shipping over $80 on honeybuy.com" alt="Free shipping over $80 on honeybuy.com" src="/style/image/top02.jpg">
 		
-		<a title="Click to Verify - This site chose VeriSign SSL for secure e-commerce and confidential communications.">
-		<script type="text/javascript" src="https://seal.verisign.com/getseal?host_name=www.HoneyBuy.com&amp;size=S&amp;use_flash=YES&amp;use_transparent=YES&amp;lang=en"></script>
+		<a style="border:0px none;" 
+	 		title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications."
+	 		href="https://safeweb.norton.com/report/show?url=honeybuy.com&ulang=eng"
+	 		target="_blank">
+			<img style="margin-top: 5px;" alt="Globally Accepted and Purchase Protection" title="Globally Accepted and Purchase Protection" src="/image/norton.gif">
 		</a>
 	</div>
 	
