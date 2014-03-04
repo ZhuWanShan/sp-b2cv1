@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import com.spshop.cache.SCacheFacade;
+import com.spshop.cache.SCacheManager;
 import com.spshop.model.Order;
 import com.spshop.model.OrderItem;
 import com.spshop.model.SuitMeasurement;
@@ -16,7 +18,9 @@ import com.spshop.web.view.UserView;
 public class BaseController {
 	public SiteView getSiteView() {
 		HttpSession  session = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest().getSession();
-		return (SiteView) session.getServletContext().getAttribute(Constants.SITE_VIEW);
+		SiteView site = (SiteView) session.getServletContext().getAttribute(Constants.SITE_VIEW);
+		site.setCategories(SCacheFacade.getTopCategories());
+		return site;
 	}
 
 	public UserView getUserView(){
