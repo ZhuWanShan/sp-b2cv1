@@ -18,9 +18,7 @@ import com.spshop.web.view.UserView;
 public class BaseController {
 	public SiteView getSiteView() {
 		HttpSession  session = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest().getSession();
-		SiteView site = (SiteView) session.getServletContext().getAttribute(Constants.SITE_VIEW);
-		site.setCategories(SCacheFacade.getTopCategories());
-		return site;
+		return (SiteView) session.getServletContext().getAttribute(Constants.SITE_VIEW);
 	}
 
 	public UserView getUserView(){
