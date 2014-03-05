@@ -42,3 +42,4 @@ public class AlipayConfig {
 	public static String sign_type = "MD5";
 	
 	public static String ali_account = "honeystore@outlook.com";
+}
