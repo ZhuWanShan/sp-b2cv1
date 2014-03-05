@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alipay.config.AlipayConfig;
+import com.alipay.util.AlipaySubmit;
 import com.spshop.model.Country;
 import com.spshop.model.Coupon;
 import com.spshop.model.Order;
@@ -190,7 +192,7 @@ public class OrderPaymentController extends BaseController{
 	}
 	
 	@RequestMapping("/checkout")
-	public String checkout( Model model, HttpServletRequest request, @RequestParam("orderSN")String orderSN,  @RequestParam("payment")String payment){
+	public String checkout( Model model, HttpServletRequest request, @RequestParam("orderSN")String orderSN,  @RequestParam("payment")String payment) throws Exception{
 		
 		Order order = ServiceFactory.getService(OrderService.class).getCartOrPendingOrderById(orderSN, getUserView().getLoginUser().getId());
 		model.addAttribute(Constants.PROCESSING_ORDER, order);
@@ -208,15 +210,99 @@ public class OrderPaymentController extends BaseController{
 				
 			}else if("paypal".equals(payment)) {
 				order.setOrderType("Paypal");
-				checkOutOrder(model, order);
+				checkOutOrder(request, model, order);
 				return "paypal";
+			}else if("alipay_visa".equals(payment)||"alipay_master".equals(payment)) {
+				order.setOrderType("Alipay");
+				checkOutOrder(request, model, order);
+				
+				Map<String,String> sParaTemp = new HashMap<String, String>();
+				
+				String cardType = "cybs-visa";
+				
+				if("alipay_master".equals(payment)){
+					cardType = "cybs-master";
+				}
+				
+				////////////////////////////////////请求参数//////////////////////////////////////
+				
+				//服务器异步通知页面路径
+				String notify_url = "http://"+request.getServerName()+"/uc/alipayRs";
+				//需http://格式的完整路径，不允许加?id=123这类自定义参数
+				
+				//页面跳转同步通知页面路径
+				String return_url = "http://"+request.getServerName()+"/uc/alipayReturn";
+				//需http://格式的完整路径，不允许加?id=123这类自定义参数
+				
+				//商户订单号
+				String out_trade_no = new String(order.getName());
+				//必填
+				
+				//订单名称
+				String subject = new String(order.getName());
+				//可填
+				
+				String paymethod = new String("jvm-moto");
+				
+				//默认网银
+				String default_bank = new String(cardType);
+				//必填，如果要使用外卡支付功能，本参数需赋值为“12.5 银行列表”中的值
+				
+				//公用业务扩展参数
+				String extend_param = new String(request.getParameter("WIDextend_param").getBytes("ISO-8859-1"),"UTF-8");
+				//必填，用于商户的特定业务信息的传递
+				
+				//卖家支付宝账号
+				String seller_logon_id = new String(AlipayConfig.ali_account);
+				//必填
+				
+				//付款金额
+				String total_fee = new String(new NumberFormat("##0.##").getNumberFormat().format(getSiteView().getCurrencies().get(order.getCurrency())*(order.getTotalPrice() + order.getDePrice() - order.getCouponCutOff())));
+				//必填
+				
+				//订单描述
+				
+				//String body = new String(request.getParameter("WIDbody").getBytes("ISO-8859-1"),"UTF-8");
+				//商品展示地址
+				
+				//String show_url = new String(request.getParameter("WIDshow_url").getBytes("ISO-8859-1"),"UTF-8");
+				//币种
+				String currency = new String(order.getCurrency());
+				//必填，default_bank为boc-visa或boc-master时，支持USD，为boc-jcb时，不支持currency参数，即默认支持RMB
+				
+				
+				//////////////////////////////////////////////////////////////////////////////////
+				
+				//把请求参数打包成数组
+				sParaTemp.put("service", "alipay.trade.direct.forcard.pay");
+				sParaTemp.put("partner", AlipayConfig.partner);
+				sParaTemp.put("_input_charset", AlipayConfig.input_charset);
+				sParaTemp.put("notify_url", notify_url);
+				sParaTemp.put("return_url", return_url);
+				sParaTemp.put("out_trade_no", out_trade_no);
+				sParaTemp.put("subject", subject);
+				sParaTemp.put("default_bank", default_bank);
+				sParaTemp.put("extend_param", extend_param);
+				sParaTemp.put("paymethod", paymethod);
+				sParaTemp.put("seller_logon_id", seller_logon_id);
+				sParaTemp.put("total_fee", total_fee);
+				//sParaTemp.put("body", body);
+				//sParaTemp.put("show_url", show_url);
+				sParaTemp.put("currency", currency);
+
+				
+				String formRequest = AlipaySubmit.buildRequest(sParaTemp, "POST", "");
+				
+				model.addAttribute("formRequest", formRequest);
+				
+				return "alipay";
 			}else if("WesternUnion".equals(payment)) {
 				order.setOrderType("WesternUnion");
-				checkOutOrder(model, order);
+				checkOutOrder(request, model, order);
 				return "WesternUnion";
 			}else if("WireTransfer".equals(payment)){
 				order.setOrderType("WireTransfer");
-				checkOutOrder(model, order);
+				checkOutOrder(request, model, order);
 				return "WireTransfer";
 			}else{
 				model.addAttribute("errorMsg", "Please select a payment method");
@@ -237,7 +323,7 @@ public class OrderPaymentController extends BaseController{
 				model.addAttribute("errorMsg", "Please fill you billing address");
 			}else {
 				
-				order = checkOutOrder(model, order);
+				order = checkOutOrder(request, model, order);
 			
 				globebillPay(order, model, request);
 				
@@ -251,12 +337,11 @@ public class OrderPaymentController extends BaseController{
 
 
 
-	private Order checkOutOrder(Model model, Order order) {
+	private Order checkOutOrder(HttpServletRequest request, Model model, Order order) {
 		final Map<String, Object> root = new HashMap<String, Object>();
 		model.addAttribute(Constants.PROCESSING_ORDER, order);
 		order = ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PENDING.toString());
-		getUserView().setCart(new ShoppingCart(new Order()));
-		
+		request.getSession().setAttribute(Constants.SHOPPINGCART, new ShoppingCart(new Order()));
 		final Order o = order;
 		root.put("order", order);
 		float currencyRate = 1;

@@ -25,9 +25,9 @@ public class AlipayConfig {
 	
 	//↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 	// 合作身份者ID，以2088开头由16位纯数字组成的字符串
-	public static String partner = "2088801570427372";
+	public static String partner = "2088011718243065";
 	// 商户的私钥
-	public static String key = "qw8qj1s2dzewtz3tms6h4nxw4ogjwq4r";
+	public static String key = "1j84o5edvi3rdi9223jue7aj6ktqe1w8";
 
 	//↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 	
@@ -40,5 +40,5 @@ public class AlipayConfig {
 	
 	// 签名方式 不需修改
 	public static String sign_type = "MD5";
-
-}
+	
+	public static String ali_account = "honeystore@outlook.com";
