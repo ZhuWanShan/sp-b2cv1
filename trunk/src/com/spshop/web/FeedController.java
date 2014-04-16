@@ -81,6 +81,10 @@ public class FeedController extends BaseController {
         try {
             File file = new File(feedConfig.getProperty("feed.file.location"), generateFileName(category, String.valueOf(startIndex), String.valueOf(startIndex + pageSize)));
             xmlOutputter.output(doc, new FileOutputStream(file));
+            
+            response.setContentLength(new Long(file.length()).intValue());
+            response.setHeader("Content-Disposition","attachment; filename="+generateFileName(category, String.valueOf(startIndex), String.valueOf(startIndex + pageSize)));
+            
             FileCopyUtils.copy(new FileInputStream(file), response.getOutputStream());
         } catch (FileNotFoundException e) {
             logger.error(e);
@@ -102,11 +106,13 @@ public class FeedController extends BaseController {
             e.addContent(new Element("name").setText(product.getTitle()));
             e.addContent(new Element("url").setText(getSiteView().getHost() + "/" + product.getName()));
             e.addContent(new Element("description").setText("Buy " + product.getTitle() + " at wholesale price from HoneyBuy.com, all free shipping! Buy Now!"));
+            e.addContent(new Element("image").setText(getSiteView().getImageHost()
+            		+ product.getImages().get(0).getLargerUrl()));
+            e.addContent(new Element("currency").setText("USD"));
             e.addContent(new Element("price").setText("$" + String.valueOf(product.getActualPrice())));
             e.addContent(new Element("category").setText(category));
-            e.addContent(new Element("image").setText(getSiteView().getImageHost()
-                                                      + product.getImages().get(0).getLargerUrl()));
-
+            e.addContent(new Element("mpn").setText(""));
+            e.addContent(new Element("merchant").setText("HoneyBuy"));
             root.addContent(e);
         }
         Document doc = new Document(root);
