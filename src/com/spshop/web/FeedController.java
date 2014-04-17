@@ -102,7 +102,7 @@ public class FeedController extends BaseController {
 
         for (Product product : products) {
             Element e = new Element("product");
-            e.setAttribute("id", String.valueOf(product.getId()));
+            e.addContent(new Element("id").setText(String.valueOf(product.getId())));
             e.addContent(new Element("name").setText(product.getTitle()));
             e.addContent(new Element("url").setText(getSiteView().getHost() + "/" + product.getName()));
             e.addContent(new Element("description").setText("Buy " + product.getTitle() + " at wholesale price from HoneyBuy.com, all free shipping! Buy Now!"));
