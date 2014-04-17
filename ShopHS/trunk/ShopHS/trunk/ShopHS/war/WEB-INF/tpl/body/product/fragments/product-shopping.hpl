@@ -231,7 +231,7 @@
 		</div>
 		<script>
 			 jq(function() {
-				jq( "#lastArrival" ).datepicker({ minDate: +16, maxDate: "+2M" });
+				jq( "#lastArrival" ).datepicker({ minDate: +19, maxDate: "+2M" });
 			 });
 		</script>
 		
