@@ -74,11 +74,14 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
              */
             e.addContent(new Element("availability", namespace).setText("in stock"));
             e.addContent(new Element("price", namespace).setText(String.valueOf(formater.format(product.getPrice()*Double.valueOf(getCurrency(getProperty(cc).toUpperCase()))))+" "+getProperty(cc).toUpperCase()));
-            e.addContent(new Element("sale_price", namespace).setText(String.valueOf(formater.format(product.getActualPrice()*Double.valueOf(getCurrency(getProperty(cc).toUpperCase()))))+" "+getProperty(cc).toUpperCase()));
             
-            e.addContent(new Element("sale_price_effective_date", namespace).setText("2013-12-24T13:00-0800/2016-03-11T15:30-0800"));
+            if (Boolean.TRUE.toString().equals(properties.get("onSale"))) {
+            	e.addContent(new Element("sale_price", namespace).setText(String.valueOf(formater.format(product.getActualPrice()*Double.valueOf(getCurrency(getProperty(cc).toUpperCase()))))+" "+getProperty(cc).toUpperCase()));
+            	e.addContent(new Element("sale_price_effective_date", namespace).setText("2013-12-24T13:00:00/2016-03-11T15:30:00"));
+			}
             
             e.addContent(new Element("brand", namespace).setText("HoneyBuy"));
+            e.addContent(new Element("identifier_exists", namespace).setText("FALSE"));
             e.addContent(new Element("gender", namespace).setText(properties.get("gender")!=null?properties.get("gender"):"female"));
             e.addContent(new Element("age_group", namespace).setText(properties.get("ageGroup")!=null?properties.get("ageGroup"):"adult"));
             Category adGroup = Utils.getCategoryByName(originalCategory);

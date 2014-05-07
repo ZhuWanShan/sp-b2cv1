@@ -36,6 +36,7 @@ import com.spshop.utils.Utils;
 public class RSSFeedController extends BaseController {
 	private static Logger logger = Logger.getLogger(FeedController.class);
     
+	// for shoes http://127.0.0.1:8888/feed/rss/us/High-Heels/1/2?sizeType=shoes-size&colorType=shoes-color&gender=female&ageGroup=kids
     @RequestMapping(value="/{countryCode}/{category}/{index}/{size}", produces="application/xml")
     public void categoryMapping(Model model,
                                   HttpServletRequest request,
@@ -47,7 +48,8 @@ public class RSSFeedController extends BaseController {
                                   @RequestParam(value="sizeType", required=false) String sizeType,
                                   @RequestParam(value="gender", required=false) String gender,
                                   @RequestParam(value="ageGroup", required=false) String ageGroup,
-                                  @RequestParam(value="colorType", required=false) String colorType) {
+                                  @RequestParam(value="colorType", required=false) String colorType,
+                                  @RequestParam(value="onSale", required=false) String onSale) {
         Integer pageSize = 100;
         Integer startIndex = 1;
         String mappedCategory = AbstractGoogleRSSFeed.GoogleCategoryMapper.mapping(category);
@@ -59,6 +61,7 @@ public class RSSFeedController extends BaseController {
         properties.put("gender", gender);
         properties.put("ageGroup", ageGroup);
         properties.put("colorType", colorType);
+        properties.put("onSale", onSale);
 
         if (StringUtils.isNotBlank(index)) {
             startIndex = Integer.valueOf(index);
