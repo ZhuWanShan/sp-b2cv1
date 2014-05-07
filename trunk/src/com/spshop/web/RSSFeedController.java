@@ -6,7 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,12 +43,22 @@ public class RSSFeedController extends BaseController {
                                   @PathVariable String countryCode,
                                   @PathVariable String category,
                                   @PathVariable String index,
-                                  @PathVariable String size) {
+                                  @PathVariable String size,
+                                  @RequestParam(value="sizeType", required=false) String sizeType,
+                                  @RequestParam(value="gender", required=false) String gender,
+                                  @RequestParam(value="ageGroup", required=false) String ageGroup,
+                                  @RequestParam(value="colorType", required=false) String colorType) {
         Integer pageSize = 100;
         Integer startIndex = 1;
         String mappedCategory = AbstractGoogleRSSFeed.GoogleCategoryMapper.mapping(category);
         String include2image=request.getParameter("include2image");
         String feedImage = request.getParameter("feedImage");
+        
+        Map<String, String> properties = new HashMap<String, String>();
+        properties.put("sizeType", sizeType);
+        properties.put("gender", gender);
+        properties.put("ageGroup", ageGroup);
+        properties.put("colorType", colorType);
 
         if (StringUtils.isNotBlank(index)) {
             startIndex = Integer.valueOf(index);
@@ -57,7 +69,7 @@ public class RSSFeedController extends BaseController {
 
         List<Product> products = searchProductsByCategory(category, startIndex - 1, startIndex + pageSize - 1);
 
-        Document doc = GoogleRSSFeed4US.buildRSSXMLByProducts(Boolean.valueOf(include2image), Boolean.valueOf(feedImage), products, countryCode, category, mappedCategory, getSiteView().getHost(), getSiteView().getImageHost(), request);
+        Document doc = GoogleRSSFeed4US.buildRSSXMLByProducts(Boolean.valueOf(include2image), Boolean.valueOf(feedImage), products, countryCode, category, mappedCategory, getSiteView().getHost(), getSiteView().getImageHost(), request, properties);
         XMLOutputter xmlOutputter = new XMLOutputter();
         try {
             File file = new File(AbstractGoogleRSSFeed.getProperty("feed.file.location"), generateFileName(category, String.valueOf(startIndex), String.valueOf(startIndex + pageSize)));
