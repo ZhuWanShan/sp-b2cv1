@@ -1,6 +1,7 @@
 package com.spshop.feed.google.rss;
 
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +18,7 @@ import com.spshop.utils.Utils;
 public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
     private static final Namespace namespace = Namespace.getNamespace("g", "http://base.google.com/ns/1.0");
     
-    public static Document buildRSSXMLByProducts(boolean include2Image, boolean feedImage, List<Product> products, String cc, String originalCategory, String category, String host, String imageHost, HttpServletRequest request) {
+    public static Document buildRSSXMLByProducts(boolean include2Image, boolean feedImage, List<Product> products, String cc, String originalCategory, String category, String host, String imageHost, HttpServletRequest request, Map<String, String> properties) {
         Element root = new Element("rss", namespace);
         root.setAttribute("version", "2.0");
         
@@ -78,12 +79,12 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
             e.addContent(new Element("sale_price_effective_date", namespace).setText("2013-12-24T13:00-0800/2016-03-11T15:30-0800"));
             
             e.addContent(new Element("brand", namespace).setText("HoneyBuy"));
-            e.addContent(new Element("gender", namespace).setText("female"));
-            e.addContent(new Element("age_group", namespace).setText("adult"));
+            e.addContent(new Element("gender", namespace).setText(properties.get("gender")!=null?properties.get("gender"):"female"));
+            e.addContent(new Element("age_group", namespace).setText(properties.get("ageGroup")!=null?properties.get("ageGroup"):"adult"));
             Category adGroup = Utils.getCategoryByName(originalCategory);
             e.addContent(new Element("adwords_grouping", namespace).setText(adGroup.getDisplayName()));
-            e.addContent(new Element("color", namespace).setText("Black/Blue/Red"));
-            e.addContent(new Element("size", namespace).setText("02-04-06-08-10-12-14-16"));
+            e.addContent(new Element("color", namespace).setText(properties.get("colorType")!=null?AbstractGoogleRSSFeed.getProperty(properties.get("colorType")):"Black/Blue/Red"));
+            e.addContent(new Element("size", namespace).setText(properties.get("sizeType")!=null?AbstractGoogleRSSFeed.getProperty(properties.get("sizeType")):"02-04-06-08-10-12-14-16"));
             
             e.addContent(new Element("tax", namespace).setContent(new Element("rate", namespace).setText("0")));
             Element shippingInfo = new Element("shipping", namespace);
