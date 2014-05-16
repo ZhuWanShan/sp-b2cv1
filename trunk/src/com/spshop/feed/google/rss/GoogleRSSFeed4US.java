@@ -73,7 +73,7 @@ public class GoogleRSSFeed4US extends AbstractGoogleRSSFeed {
                 '预订单' [preorder]
              */
             e.addContent(new Element("availability", namespace).setText("in stock"));
-            e.addContent(new Element("price", namespace).setText(String.valueOf(formater.format(product.getPrice()*Double.valueOf(getCurrency(getProperty(cc).toUpperCase()))))+" "+getProperty(cc).toUpperCase()));
+            e.addContent(new Element("price", namespace).setText(String.valueOf(formater.format(product.getActualPrice()*Double.valueOf(getCurrency(getProperty(cc).toUpperCase()))))+" "+getProperty(cc).toUpperCase()));
             
             if (Boolean.TRUE.toString().equals(properties.get("onSale"))) {
             	e.addContent(new Element("sale_price", namespace).setText(String.valueOf(formater.format(product.getActualPrice()*Double.valueOf(getCurrency(getProperty(cc).toUpperCase()))))+" "+getProperty(cc).toUpperCase()));
