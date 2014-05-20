@@ -442,8 +442,10 @@
 				<span>
 					<input type="hidden" name="orderSN" value="${order.name}">
 					<input type="hidden" name="WIDextend_param" value="">
+					<input type="hidden" name="js_return" value="">
 					<script type="text/javascript">
 						jq("input[name=WIDextend_param]").val('js_return^' + window["alipay-merchant-result"]);
+						jq("input[name=js_return]").val(window['alipay-merchant-result']);
 					</script>
 					<input	type="submit" class="button_02" value="Proceed to Checkout">
 				</span>
