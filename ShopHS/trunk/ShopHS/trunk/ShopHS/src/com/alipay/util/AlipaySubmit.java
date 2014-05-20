@@ -100,7 +100,7 @@ public class AlipaySubmit {
 
         //submit按钮控件请不要含有name属性
         sbHtml.append("<input type=\"submit\" value=\"" + strButtonName + "\" style='display:none' ></form>");
-        sbHtml.append("<script>jQuery(\"form#alipaysubmit input[name='js_return']\").val(window['alipay-merchant-result']);jQuery(document).ready(function(){jQuery(\"form#alipaysubmit\").submit()}); </script>");
+        sbHtml.append("<script>jQuery(document).ready(function(){jQuery(\"form#alipaysubmit input[name='js_return']\").val(window['alipay-merchant-result']);jQuery(\"form#alipaysubmit\").submit()}); </script>");
 
         return sbHtml.toString();
     }
