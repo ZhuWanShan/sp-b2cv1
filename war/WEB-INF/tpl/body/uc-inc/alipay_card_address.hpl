@@ -3,9 +3,6 @@
 	Warning : ${errorMsg}
 </p>
 </#if>
-
-<script type="text/javascript" src="https://rds.alipay.com/merchant/merchant.js"></script>
-
 <#if processingOrder ??>
 	<#assign order = processingOrder>
 	<#assign currencyRate = (siteView.currencies[order.currency])!0 >
