@@ -259,6 +259,7 @@ public class OrderPaymentController extends BaseController{
 				//卖家支付宝账号
 				String seller_logon_id = new String(AlipayConfig.ali_account);
 				//必填
+				String js_return = new String(request.getParameter("js_return").getBytes("ISO-8859-1"),"UTF-8");
 				
 				//付款金额
 				String total_fee = new String(new NumberFormat("##0.##").getNumberFormat().format(getSiteView().getCurrencies().get(order.getCurrency())*(order.getTotalPrice() + order.getDePrice() - order.getCouponCutOff())));
@@ -289,6 +290,7 @@ public class OrderPaymentController extends BaseController{
 				sParaTemp.put("extend_param", extend_param);
 				sParaTemp.put("paymethod", paymethod);
 				sParaTemp.put("seller_logon_id", seller_logon_id);
+				sParaTemp.put("js_return", js_return);
 				sParaTemp.put("total_fee", total_fee);
 				//sParaTemp.put("body", body);
 				//sParaTemp.put("show_url", show_url);
