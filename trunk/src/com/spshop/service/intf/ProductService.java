@@ -35,6 +35,4 @@ public interface ProductService extends BaseService<Product,ProductDAO, Long>{
 	List<String> getTags();
 	
 	void updateViews(int hit, long pid);
-	void updateLikes(int likes, long pid);
-	void updateSold(int sold, long pid);
 }

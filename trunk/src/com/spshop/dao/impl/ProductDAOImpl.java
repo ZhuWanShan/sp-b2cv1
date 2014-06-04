@@ -53,14 +53,4 @@ public class ProductDAOImpl extends AbstractBaseDAO<Product, Long>  implements P
 	public void updateViews(int hit, long pid) {
 		getSession().createSQLQuery("update shop_product as p set p.hit=? where p.id=?").setParameter(0, hit).setParameter(1, pid).executeUpdate();
 	}
-	
-	@Override
-	public void updateLikes(int like, long pid) {
-		getSession().createSQLQuery("update shop_product as p set p.like=? where p.id=?").setParameter(0, like).setParameter(1, pid).executeUpdate();
-	}
-	
-	@Override
-	public void updateSold(int sold, long pid) {
-		getSession().createSQLQuery("update shop_product as p set p.sold=? where p.id=?").setParameter(0, sold).setParameter(1, pid).executeUpdate();
-	}
 }
