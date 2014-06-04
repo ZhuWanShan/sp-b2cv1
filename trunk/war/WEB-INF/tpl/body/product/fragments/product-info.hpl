@@ -4,7 +4,12 @@
 <div class="product-info">
 	<h1>${productInfo.title!""}</h1>
 	
-	<span style="line-height:2em;color:#538C9D;">${productInfo.hit} Views</span>
+	<span style="line-height:2em;color:#538C9D;" class="countView">${productInfo.hit} Views</span>
+	|
+	<span id="likeBtn" name='${productInfo.name!""}' style="line-height:2em;color:#538C9D; cursor:pointer;" class="countView">${productInfo.like}</span>
+	|
+	<span style="line-height:2em;color:#538C9D;" class="countView">${productInfo.sold} Sold</span>
+	
 	<div class="product-shopping-code">Item Code: ${productInfo.id?c!""}</div>
 	
 	
