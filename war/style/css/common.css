@@ -2255,20 +2255,6 @@ li.scart_c_w_r {
     width: 277px;
 }
 
-#likeBtn{
-	margin-top: 2px;
-	cursor: pointer;
-	display: inline-block;
-	background: url(/image/heart_icon.png) no-repeat left center;
-	padding-left: 15px;
-	color: #666666;
-}
-
-.countView{
-	margin-right: 5px;
-	margin-left: 5px;
-}
-
 .gallery-item .item-normal-pic{
 	height: 370px;
     margin-bottom: 10px;

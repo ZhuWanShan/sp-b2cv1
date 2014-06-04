@@ -752,23 +752,6 @@ jq(".product-relates").ready(function(){
 
 })( jQuery );
 
-(function($){
-	$('.product-info').ready(function(){
-		$('#likeBtn').click(function(){
-			var storage = window.localStorage;
-			var name = $('#likeBtn').attr('name');
-			if (storage.getItem(name+'_clickedLike')) {
-				alert('You have already liked this!')
-			} else {
-				storage.setItem(name+'_clickedLike', true);
-				$.post("/q/cmd/like", {pName:name} ,function(rs){
-					$('#likeBtn').html(rs);
-				});
-			}
-		});
-	});
-})(jq);
-
 jQuery( ".product-shopping" ).ready(function() {
 	jQuery("#CustomizedHidden").attr("name","");
 	jQuery("#alert_thing_box_customizedsize").hide();

@@ -180,16 +180,6 @@ public class ProductServiceImpl extends AbstractService<Product,ProductDAO, Long
 	public void updateViews(int hit, long pid) {
 		getDao().updateViews(hit, pid);
 	}
-
-	@Override
-	public void updateLikes(int likes, long pid) {
-		getDao().updateLikes(likes+1, pid);
-	}
-
-	@Override
-	public void updateSold(int sold, long pid) {
-		getDao().updateSold(sold, pid);
-	}
 	
 	
 }

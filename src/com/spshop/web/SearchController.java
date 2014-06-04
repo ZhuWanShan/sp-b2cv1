@@ -11,10 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.spshop.cache.SCacheFacade;
-import com.spshop.model.Product;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.ProductService;
 
@@ -52,21 +49,6 @@ public class SearchController extends BaseController {
         }
         
         return CATEGORIES_UI;
-    }
-    
-    @RequestMapping("/like")
-    public String like(HttpServletRequest request, HttpServletResponse response, @RequestParam String pName) throws IOException {
-    	final Product product = SCacheFacade.getProduct(pName);
-    	int likes = product.getLike();
-    	product.setLike(likes+1);
-    	new Thread(){
-        	public void run() {
-        		ServiceFactory.getService(ProductService.class).updateLikes(product.getLike(), product.getId());
-        	};
-        }.start();
-        PrintWriter out = response.getWriter();
-        out.print(String.valueOf(product.getLike()));
-    	return null;
     }
     
     private String retrieveCMDURL(HttpServletRequest request) {
