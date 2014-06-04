@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -65,7 +66,37 @@ public class ProductController extends BaseController {
         	};
         }.start();
         
+        if (product.getLike() == 0) {
+        	setRandomLikes(product);
+		}
+        
+        if (product.getSold() == 0) {
+        	setRandomSold(product);
+		}
+        
         return PRODUCT_UI;
+    }
+    
+    private void setRandomLikes(final Product product){
+		int l = (int)(500 + Math.random()*1000);
+		product.setLike(l);
+    	
+    	new Thread(){
+        	public void run() {
+        		ServiceFactory.getService(ProductService.class).updateLikes(product.getLike(), product.getId());
+        	};
+        }.start();
+    }
+    
+    private void setRandomSold(final Product product){
+		int s = (int)(50 + Math.random()*100);
+		product.setSold(s);
+    	
+    	new Thread(){
+        	public void run() {
+        		ServiceFactory.getService(ProductService.class).updateSold(product.getSold(), product.getId());
+        	};
+        }.start();
     }
 
     private void prepareCustomizePopup(Model model, List<Category> categories) {
