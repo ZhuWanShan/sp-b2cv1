@@ -1,0 +1,1 @@
+ALTER TABLE `sshop`.`shop_product` ADD COLUMN `like` INT(11) NULL DEFAULT 0  AFTER `deleted` , ADD COLUMN `sold` INT(11) NULL DEFAULT 0  AFTER `like` ;
