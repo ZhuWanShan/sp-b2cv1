@@ -314,6 +314,8 @@
 		<property name="abstractText" length="500"></property>
 		<property name="keywords" length="400"></property>
 		<property name="hit"></property>
+		<property name="like"></property>
+		<property name="sold"></property>
 		<property name="weight"></property>
 		<property name="rateCount"></property>
 		<property name="rate"></property>
