@@ -14,6 +14,8 @@ public class Product extends Component{
 	private static final long serialVersionUID = -84296171648012884L;
 	private String keywords;
 	private int hit;
+	private int like;
+	private int sold;
 	private int priority;
 	private boolean deleted;
 	private int rate;
@@ -80,6 +82,12 @@ public class Product extends Component{
 	}
 	public void setHit(int hit) {
 		this.hit = hit;
+	}
+	public int getLike() {
+		return like;
+	}
+	public void setLike(int like) {
+		this.like = like;
 	}
 	public int getPriority() {
 		return priority;
@@ -206,6 +214,8 @@ public class Product extends Component{
 			obj.keywords = this.keywords;
 		}
 		obj.hit = this.hit;
+		obj.like = this.like;
+		obj.sold = this.sold;
 		obj.priority = this.priority;
 		obj.rate = this.rate;
 		obj.price = this.price;
@@ -351,6 +361,12 @@ public class Product extends Component{
 	}
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
+	}
+	public int getSold() {
+		return sold;
+	}
+	public void setSold(int sold) {
+		this.sold = sold;
 	}
 	
 }

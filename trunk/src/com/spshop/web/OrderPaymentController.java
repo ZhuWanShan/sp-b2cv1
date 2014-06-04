@@ -6,6 +6,7 @@ import static com.spshop.utils.Constants.SHOPPINGCART;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,16 +23,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alipay.config.AlipayConfig;
 import com.alipay.util.AlipaySubmit;
+import com.spshop.cache.SCacheFacade;
 import com.spshop.model.Country;
 import com.spshop.model.Coupon;
 import com.spshop.model.Order;
 import com.spshop.model.OrderItem;
+import com.spshop.model.Product;
 import com.spshop.model.cart.ShoppingCart;
 import com.spshop.model.enums.OrderStatus;
 import com.spshop.service.factory.ServiceFactory;
 import com.spshop.service.intf.CountryService;
 import com.spshop.service.intf.CouponService;
 import com.spshop.service.intf.OrderService;
+import com.spshop.service.intf.ProductService;
 import com.spshop.utils.CheckoutUtils;
 import com.spshop.utils.Constants;
 import com.spshop.utils.EmailTools;
@@ -200,6 +204,21 @@ public class OrderPaymentController extends BaseController{
 		
 		Order order = ServiceFactory.getService(OrderService.class).getCartOrPendingOrderById(orderSN, getUserView().getLoginUser().getId());
 		model.addAttribute(Constants.PROCESSING_ORDER, order);
+		final Order o = order;
+		
+		new Thread(){
+			public void run() {
+				List<OrderItem> products = o.getItems();
+				if (products.size()>0) {
+					Product product = null;
+					for (OrderItem i : products) {
+						ServiceFactory.getService(ProductService.class).updateSold(i.getProduct().getSold()+1, i.getProduct().getId());
+						product = SCacheFacade.getProduct(i.getProduct().getName());
+						product.setSold(product.getSold()+1);
+					}
+				}
+			};
+		}.start();
 		
 		if(null != order){
 			if(null == order.getShippingAddress()){
