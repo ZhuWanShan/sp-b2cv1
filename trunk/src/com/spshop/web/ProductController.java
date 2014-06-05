@@ -65,7 +65,7 @@ public class ProductController extends BaseController {
         	};
         }.start();
         
-        if (product.getLike() == 0) {
+        if (product.getLikecount() == 0) {
         	setRandomLikes(product);
 		}
         
@@ -78,11 +78,11 @@ public class ProductController extends BaseController {
     
     private void setRandomLikes(final Product product){
 		int l = (int)(500 + Math.random()*1000);
-		product.setLike(l);
+		product.setLikecount(l);
     	
     	new Thread(){
         	public void run() {
-        		ServiceFactory.getService(ProductService.class).updateLikes(product.getLike(), product.getId());
+        		ServiceFactory.getService(ProductService.class).updateLikes(product.getLikecount(), product.getId());
         	};
         }.start();
     }

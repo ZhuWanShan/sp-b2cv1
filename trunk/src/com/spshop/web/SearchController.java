@@ -57,15 +57,15 @@ public class SearchController extends BaseController {
     @RequestMapping("/like")
     public String like(HttpServletRequest request, HttpServletResponse response, @RequestParam String pName) throws IOException {
     	final Product product = SCacheFacade.getProduct(pName);
-    	int likes = product.getLike();
-    	product.setLike(likes+1);
+    	int likes = product.getLikecount();
+    	product.setLikecount(likes+1);
     	new Thread(){
         	public void run() {
-        		ServiceFactory.getService(ProductService.class).updateLikes(product.getLike(), product.getId());
+        		ServiceFactory.getService(ProductService.class).updateLikes(product.getLikecount(), product.getId());
         	};
         }.start();
         PrintWriter out = response.getWriter();
-        out.print(String.valueOf(product.getLike()));
+        out.print(String.valueOf(product.getLikecount()));
     	return null;
     }
     
