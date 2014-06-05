@@ -56,7 +56,7 @@ public class ProductDAOImpl extends AbstractBaseDAO<Product, Long>  implements P
 	
 	@Override
 	public void updateLikes(int like, long pid) {
-		getSession().createSQLQuery("update shop_product as p set p.like=? where p.id=?").setParameter(0, like).setParameter(1, pid).executeUpdate();
+		getSession().createSQLQuery("update shop_product as p set p.likecount=? where p.id=?").setParameter(0, like).setParameter(1, pid).executeUpdate();
 	}
 	
 	@Override

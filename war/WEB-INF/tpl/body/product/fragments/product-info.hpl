@@ -6,7 +6,7 @@
 	
 	<span style="line-height:2em;color:#538C9D;" class="countView">${productInfo.hit?c!""} Views</span>
 	|
-	<span id="likeBtn" name='${productInfo.name!""}' style="line-height:2em;color:#538C9D; cursor:pointer;" class="countView">${productInfo.like?c!""}</span>
+	<span id="likeBtn" name='${productInfo.name!""}' style="line-height:2em;color:#538C9D; cursor:pointer;" class="countView">${productInfo.likecount?c!""}</span>
 	|
 	<span style="line-height:2em;color:#538C9D;" class="countView">${productInfo.sold?c!""} Sold</span>
 	
