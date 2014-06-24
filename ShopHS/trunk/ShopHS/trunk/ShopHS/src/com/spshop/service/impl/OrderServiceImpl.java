@@ -28,7 +28,12 @@ import com.spshop.utils.EmailTools;
 import com.spshop.utils.Utils;
 
 public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> implements OrderService{
+	
 	public Order saveOrder(Order order, String status){
+		 return saveOrder(order, status, true);
+	}
+	
+	public Order saveOrder(Order order, String status, boolean paidMail){
 		order  = merge(order);
 		if(null!=order.getUser()){
 			User usr = getDao().getUserById(order.getUser().getId());
@@ -89,16 +94,17 @@ public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> impl
 					currencyRate = currencies.get(order.getCurrency());
 				}
 				root.put("currencyRate", currencyRate);
-				
-				new Thread(){
-					public void run() {
-						try{
-							EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,o.getUser().getEmail());
-						}catch(Exception e){
-							
-						}
-					};
-				}.start();
+				if(paidMail){
+					new Thread(){
+						public void run() {
+							try{
+								EmailTools.sendMail("paid2", "Order Received and Payment Confirmation", root,o.getUser().getEmail());
+							}catch(Exception e){
+								
+							}
+						};
+					}.start();
+				}
 			}else if(OrderStatus.SHIPPING.toString().equals(status) && !(status.equals(order.getStatus()))){
 				
 				final Map<String,Object> root = new HashMap<String,Object>(); 
