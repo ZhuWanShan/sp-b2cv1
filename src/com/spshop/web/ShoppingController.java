@@ -777,7 +777,7 @@ public class ShoppingController extends BaseController{
 			//——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
 			
 			Order order = ServiceFactory.getService(OrderService.class).getOrderById(out_trade_no);
-			ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.toString());
+			ServiceFactory.getService(OrderService.class).saveOrder(order, OrderStatus.PAID.toString(), false);
 			
 			out.println("success");	//请不要修改或删除
 
