@@ -30,7 +30,7 @@ import com.spshop.utils.Utils;
 public class OrderServiceImpl extends AbstractService<Order,OrderDAO, Long> implements OrderService{
 
 	public Order saveOrder(Order order, String status){
-		return saveOrder(order, status, true)
+		return saveOrder(order, status, true);
 	}
 	
 	public Order saveOrder(Order order, String status, boolean paidMail){
