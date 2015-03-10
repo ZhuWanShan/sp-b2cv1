@@ -279,7 +279,7 @@
 		<div class="payment">
 			<select name="payment">
 				<option value="allpaymthod">Please select your payment method</option>
-				<option value="CheckOut" selected="selected">Checkout</option>
+				<!-- <option value="CheckOut" selected="selected">Checkout</option> -->
 				<option value="Globebill">Credit or Debit Card</option>
 				<option value="alipay_visa">VISA CARD</option>
 				<option value="alipay_master">MasterCard</option>
