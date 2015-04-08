@@ -2,28 +2,27 @@
 	<div class="measure_dashboard">
 		<div class="measure_dashboard_content">
 			<div class="measure_panel" style="display: none;">
-				<a href="http://www.honeybuy.com/c/Pet-Supplies"><img width="972px" height="428px" src="/image/banner/HB_banner4.jpg" alt="2012 Christmas pet supplies" title="2012 Christmas Pet Supplies"></a>
-			</div>
-			
-			<div class="measure_panel">
-				<a href="/c/Reception-Dress"><img width="972px" height="428px" src="/style/image/banner/wedding-6.jpg" alt="Beach Wedding Dresses" title="Beach Wedding Dresses"></a>
+				<a href="/c/Evening-Dresses"><img alt="Evening Dresses" title="Evening Dresses" width="972px" height="428px" src="/style/image/banner/20150402-6.jpg"></a>
 			</div>
 			<div class="measure_panel">
-				<a href="/c/Latest-Wedding-Dresses"><img width="972px" height="428px" src="/style/image/banner/wedding-1118.jpg" alt="Latest Wedding Dresses" title="Latest Wedding Dresses"></a>
+				<a href="/c/Latest-Wedding-Dresses"><img alt="Wedding Dresses" title="Wedding Dresses" width="972px" height="428px" src="/style/image/banner/20150402-2.jpg" ></a>
 			</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Faucets"><img alt="Faucets" title="Faucets" width="972px" height="428px" src="/image/banner/HB_banner7.jpg"></a>
+				<a href="/c/Bridesmaid-Dresses"><img alt="Bridesmaid Dresses" title="Bridesmaid Dresses" width="972px" height="428px" src="/style/image/banner/20150402-3.jpg" ></a>
 			</div>
 			<div class="measure_panel">
-				<a href="/c/Special-Occasion-Shoes"><img alt="Special Occasion Shoes" title="Special Occasion Shoes"  width="972px" height="428px" src="/style/image/banner/HB-banner5.jpg"></a>
+				<a href="/c/A-line-Wedding-Dresses"><img alt="A-line Wedding Dresses" title="A-line Wedding Dresses" width="972px" height="428px" src="/style/image/banner/20150402-4.jpg"></a>
+			</div>
+			<div class="measure_panel">
+				<a href="/c/Cheap-Bridesmaid-Dresses"><img alt="Cheap Bridesmaid Dresses" title="Cheap Bridesmaid Dresses"  width="972px" height="428px" src="/style/image/banner/20150402-5.jpg"></a>
 				</div>
 			<div class="measure_panel">
-				<a href="http://www.honeybuy.com/c/Suits-Promotion"><img alt="2014 Honeybuy suits promotion" title="2014 Honeybuy suits promotion"  width="972px" height="428px" src="/style/image/banner/home-suit-1118.jpg"></a>
+				<a href="http://www.honeybuy.com/c/Suits-Promotion"><img alt="2015 suits promotion" title="2015 suits promotion"  width="972px" height="428px" src="/style/image/banner/home-suit-1118.jpg"></a>
 				</div>
 				<!--- <div class="measure_panel">
 				<a href="http://www.honeybuy.com/c/Pet-Supplies"><img alt="Pet Supplies" title="Pet Supplies"  width="972px" height="428px" src="/image/banner/HB_banner8.jpg"></a>
 				</div>  --->
-		<p class="clearBoth"></p>
+		<p class="clearBoth"></p> 
 		</div>
 		<div class="measure_navigation">
 			<div class="measure_controller">
